@@ -41,7 +41,7 @@ public class Controller : MonoBehaviour
         }
         else
         {
-            _move.Stop();
+            StopMove();
         }
     }
     private void StopMove()
