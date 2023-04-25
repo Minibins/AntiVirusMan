@@ -3,7 +3,7 @@
 --- !u!129 &1
 PlayerSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 25
+  serializedVersion: 27
   productGUID: da8d4cd37a144c947b0257a6034c9655
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
@@ -57,6 +57,7 @@ PlayerSettings:
   m_MTRendering: 1
   mipStripping: 0
   numberOfMipsStripped: 0
+  numberOfMipsStrippedPerMipmapLimitGroup: {}
   m_StackTraceTypes: 010000000100000001000000010000000100000001000000
   iosShowActivityIndicatorOnLoading: -1
   androidShowActivityIndicatorOnLoading: -1
@@ -79,6 +80,7 @@ PlayerSettings:
   androidMinimumWindowWidth: 400
   androidMinimumWindowHeight: 300
   androidFullscreenMode: 1
+  androidApplicationEntry: 1
   defaultIsNativeResolution: 1
   macRetinaSupport: 1
   runInBackground: 0
@@ -97,6 +99,7 @@ PlayerSettings:
   useMacAppStoreValidation: 0
   macAppStoreCategory: public.app-category.games
   gpuSkinning: 0
+  meshDeformation: 0
   xboxPIXTextureCapture: 0
   xboxEnableAvatar: 0
   xboxEnableKinect: 0
@@ -129,8 +132,6 @@ PlayerSettings:
   switchNVNMaxPublicTextureIDCount: 0
   switchNVNMaxPublicSamplerIDCount: 0
   switchNVNGraphicsFirmwareMemory: 32
-  stadiaPresentMode: 0
-  stadiaTargetFramerate: 0
   vulkanNumSwapchainBuffers: 3
   vulkanEnableSetSRGBWrite: 0
   vulkanEnablePreTransform: 0
@@ -150,14 +151,15 @@ PlayerSettings:
   enableFrameTimingStats: 0
   enableOpenGLProfilerGPURecorders: 1
   useHDRDisplay: 0
-  D3DHDRBitDepth: 0
+  hdrBitDepth: 0
   m_ColorGamuts: 00000000
   targetPixelDensity: 30
   resolutionScalingMode: 0
   resetResolutionOnWindowResize: 0
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
-  applicationIdentifier: {}
+  applicationIdentifier:
+    Standalone: com.Dusty-Studio.AntiVirusMan
   buildNumber:
     Standalone: 0
     iPhone: 0
@@ -174,7 +176,7 @@ PlayerSettings:
   ForceInternetPermission: 0
   ForceSDCardPermission: 0
   CreateWallpaper: 0
-  APKExpansionFiles: 0
+  androidSplitApplicationBinary: 0
   keepLoadedShadersAlive: 0
   StripUnusedMeshComponents: 1
   strictShaderVariantMatching: 0
@@ -247,6 +249,7 @@ PlayerSettings:
   useCustomLauncherGradleManifest: 0
   useCustomBaseGradleTemplate: 0
   useCustomGradlePropertiesTemplate: 0
+  useCustomGradleSettingsTemplate: 0
   useCustomProguardFile: 0
   AndroidTargetArchitectures: 1
   AndroidTargetDevices: 0
@@ -272,6 +275,7 @@ PlayerSettings:
   AndroidMinifyDebug: 0
   AndroidValidateAppBundleSize: 1
   AndroidAppBundleSizeToValidate: 150
+  AndroidReportGooglePlayAppDependencies: 1
   m_BuildTargetIcons:
   - m_BuildTarget: 
     m_Icons:
@@ -531,7 +535,6 @@ PlayerSettings:
   switchReleaseVersion: 0
   switchDisplayVersion: 1.0.0
   switchStartupUserAccount: 0
-  switchTouchScreenUsage: 0
   switchSupportedLanguagesMask: 0
   switchLogoType: 0
   switchApplicationErrorCodeCategory: 
@@ -573,6 +576,7 @@ PlayerSettings:
   switchNativeFsCacheSize: 32
   switchIsHoldTypeHorizontal: 0
   switchSupportedNpadCount: 8
+  switchEnableTouchScreen: 1
   switchSocketConfigEnabled: 0
   switchTcpInitialSendBufferSize: 32
   switchTcpInitialReceiveBufferSize: 64
@@ -585,6 +589,7 @@ PlayerSettings:
   switchNetworkInterfaceManagerInitializeEnabled: 1
   switchPlayerConnectionEnabled: 1
   switchUseNewStyleFilepaths: 1
+  switchUseLegacyFmodPriorities: 0
   switchUseMicroSleepForYield: 1
   switchEnableRamDiskSupport: 0
   switchMicroSleepForYieldTime: 25
@@ -715,6 +720,7 @@ PlayerSettings:
     Android: 0
   il2cppCompilerConfiguration: {}
   il2cppCodeGeneration: {}
+  il2cppStacktraceInformation: {}
   managedStrippingLevel:
     Android: 1
     EmbeddedLinux: 1
@@ -733,12 +739,13 @@ PlayerSettings:
   suppressCommonWarnings: 1
   allowUnsafeCode: 0
   useDeterministicCompilation: 1
-  selectedPlatform: 1
+  selectedPlatform: 0
   additionalIl2CppArgs: 
   scriptingRuntimeVersion: 1
   gcIncremental: 0
   gcWBarrierValidation: 0
   apiCompatibilityLevelPerPlatform: {}
+  editorAssembliesCompatibilityLevel: 1
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
   metroPackageName: Template_2D
@@ -813,9 +820,10 @@ PlayerSettings:
   hmiPlayerDataPath: 
   hmiForceSRGBBlit: 1
   embeddedLinuxEnableGamepadInput: 1
+  hmiLogStartupTiming: 0
   hmiCpuConfiguration: 
   apiCompatibilityLevel: 6
-  activeInputHandler: 0
+  activeInputHandler: 2
   windowsGamepadBackendHint: 0
   cloudProjectId: 
   framebufferDepthMemorylessMode: 0
