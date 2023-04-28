@@ -79,7 +79,7 @@ public class RedEnemy : MonoBehaviour
     }
     private void EnemyMove()
     {
-        if (PC.transform.position.x < transform.position.x&& rb.velocity != new Vector2(Speed, 0))
+        if (PC.transform.position.x < transform.position.x&& rb.velocity != new Vector2(-Speed, 0))
         {
             rb.velocity = new Vector2(-Speed, 0);
             transform.localScale = new Vector2(6f, 6f);
@@ -90,11 +90,18 @@ public class RedEnemy : MonoBehaviour
             transform.localScale = new Vector2(-6f, 6f);
         }
     }
-    public void stun(){
-        peenaemuy.transform.position=peeneytut.position;
+    public void stun()
+    {
+        if (peenaemuy != null)
+        {
+            peenaemuy.transform.position = peeneytut.position;
+        }
     }
-    public void peenok(){
-       
-        peenaemuy.GetComponent<Rigidbody2D>().AddForce(peenaemuy.transform.position/2);
+    public void peenok()
+    {
+        if (peenaemuy != null)
+        {
+            peenaemuy.GetComponent<Rigidbody2D>().AddForce(peenaemuy.transform.position / 2);
+        }
     }
 }
