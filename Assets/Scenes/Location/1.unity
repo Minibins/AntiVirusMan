@@ -1827,7 +1827,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 4
-      m_TileSpriteIndex: 4
+      m_TileSpriteIndex: 6
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -2163,12 +2163,12 @@ Tilemap:
     m_Data: {fileID: -1185245752, guid: 082f89282715b894383a505ea4d0c09b, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 1
-    m_Data: {fileID: 217216479, guid: 082f89282715b894383a505ea4d0c09b, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 2125034229, guid: 082f89282715b894383a505ea4d0c09b, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 2125034229, guid: 082f89282715b894383a505ea4d0c09b, type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: 217216479, guid: 082f89282715b894383a505ea4d0c09b, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -1553743039, guid: 082f89282715b894383a505ea4d0c09b, type: 3}
   - m_RefCount: 1
@@ -3191,12 +3191,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &1585748861 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2522079714771889092, guid: ec94f27c1555e174ebada4b736dde08b,
-    type: 3}
-  m_PrefabInstance: {fileID: 8304178652091816245}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1636026954
 GameObject:
   m_ObjectHideFlags: 0
@@ -4271,20 +4265,10 @@ PrefabInstance:
       propertyPath: AttackText
       value: 
       objectReference: {fileID: 2047199226}
-    - target: {fileID: 2522079714771889092, guid: ec94f27c1555e174ebada4b736dde08b,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.147
-      objectReference: {fileID: 0}
     - target: {fileID: 8304178653184876640, guid: ec94f27c1555e174ebada4b736dde08b,
         type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 8304178653184876640, guid: ec94f27c1555e174ebada4b736dde08b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8304178653184876642, guid: ec94f27c1555e174ebada4b736dde08b,
         type: 3}
@@ -4340,41 +4324,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8304178653184876643, guid: ec94f27c1555e174ebada4b736dde08b,
-        type: 3}
-      propertyPath: _speed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8304178653184876643, guid: ec94f27c1555e174ebada4b736dde08b,
-        type: 3}
-      propertyPath: _groundCheck
-      value: 
-      objectReference: {fileID: 1585748861}
-    - target: {fileID: 8304178653184876643, guid: ec94f27c1555e174ebada4b736dde08b,
-        type: 3}
-      propertyPath: _jumpingPower
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 8304178653184876643, guid: ec94f27c1555e174ebada4b736dde08b,
-        type: 3}
-      propertyPath: _horizontalSpeed
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8304178653184876643, guid: ec94f27c1555e174ebada4b736dde08b,
-        type: 3}
-      propertyPath: groundLayer.m_Bits
-      value: 1024
-      objectReference: {fileID: 0}
-    - target: {fileID: 8304178653184876643, guid: ec94f27c1555e174ebada4b736dde08b,
-        type: 3}
-      propertyPath: _groundLayer.m_Bits
-      value: 1024
-      objectReference: {fileID: 0}
-    - target: {fileID: 8304178653184876653, guid: ec94f27c1555e174ebada4b736dde08b,
-        type: 3}
-      propertyPath: m_Mass
-      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
