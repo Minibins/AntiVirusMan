@@ -18,33 +18,38 @@ public class Move : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
     }
-    private void FixedUpdate()
-    {
-        _velocity.Set(_speed, _rigidbody2D.velocity.y);
-        _rigidbody2D.velocity = _velocity;
-        if (IsGrounded() == true)
-        {
-            _animator.SetBool("Jump", false);
-        }
-    }
 
     private bool IsGrounded()
     {
         return Physics2D.OverlapCircle(_groundCheck.position, 0.2f, _groundLayer);
     }
+    private void FixedUpdate()
+    {
+        _velocity.Set(_speed, _rigidbody2D.velocity.y);
+        _rigidbody2D.velocity = _velocity;
+        if (IsGrounded())
+        {
+            _animator.SetBool("Jump", false);
+        }
+    }
     public void Left()
     {
-        _animator.SetBool("IsRunning", true);
         _speed = -_horizontalSpeed;
         _spriteRenderer.flipX = true;
+        _animator.SetBool("IsRunning", true);
     }
     public void Rigth()
     {
-        _animator.SetBool("IsRunning", true);
         _speed = _horizontalSpeed;
         _spriteRenderer.flipX = false;
+        _animator.SetBool("IsRunning", true);
     }
 
+    public void Stop()
+    {
+        _speed = 0;
+        _animator.SetBool("IsRunning", false);
+    }
     public void Jump()
     {
         if (IsGrounded())
@@ -62,12 +67,6 @@ public class Move : MonoBehaviour
             _animator.SetBool("Jump", false);
         }
     }
-    public void Stop()
-    {
-        _speed = 0;
-        _animator.SetBool("IsRunning", false);
-    }
-
     private void OnTriggerStay2D(Collider2D other)
     {
         if (other.CompareTag("Wall"))
