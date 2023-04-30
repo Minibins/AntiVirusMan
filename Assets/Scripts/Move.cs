@@ -1,81 +1,82 @@
 ﻿using UnityEngine;
 public class Move : MonoBehaviour
 {
-    [SerializeField] private Transform groundCheck;
-    [SerializeField] private LayerMask groundLayer;
-    [SerializeField] private float speed;
-    [SerializeField] private float HorizontalSpeed;
-    [SerializeField] private float jumpingPower = 10f;
-    [SerializeField] private bool DownB;
+    [SerializeField] private Transform _groundCheck;
+    [SerializeField] private LayerMask _groundLayer;
+    private float _speed;
+    [SerializeField] private float _horizontalSpeed;
+    [SerializeField] private float _jumpingPower = 10f;
+    [SerializeField] private bool _downB;
     public bool IsDownSelected;
-    private Rigidbody2D rb;
-    private Animator anim;
-
-    private void Start()
+    private Rigidbody2D _rigidbody2D;
+    private Animator _animator;
+    private SpriteRenderer _spriteRenderer;
+    private Vector2 _velocity;
+    private void Awake()
     {
-        anim = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _rigidbody2D = GetComponent<Rigidbody2D>();
     }
-
     private void FixedUpdate()
     {
-        IsGrounded();
-        rb.velocity = new Vector2(speed, rb.velocity.y);
+        _velocity.Set(_speed, _rigidbody2D.velocity.y);
+        _rigidbody2D.velocity = _velocity;
         if (IsGrounded() == true)
         {
-            anim.SetBool("Jump", false);
+            _animator.SetBool("Jump", false);
         }
     }
 
-    bool IsGrounded()
+    private bool IsGrounded()
     {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+        return Physics2D.OverlapCircle(_groundCheck.position, 0.2f, _groundLayer);
     }
     public void Left()
     {
-        anim.SetBool("IsRunning", true);
-        speed = -HorizontalSpeed;
-        transform.localRotation = Quaternion.Euler(0, 180, 0);
+        _animator.SetBool("IsRunning", true);
+        _speed = -_horizontalSpeed;
+        _spriteRenderer.flipX = true;
     }
     public void Rigth()
     {
-        anim.SetBool("IsRunning", true);
-        speed = HorizontalSpeed;
-        transform.localRotation = Quaternion.Euler(0, 0, 0);
+        _animator.SetBool("IsRunning", true);
+        _speed = _horizontalSpeed;
+        _spriteRenderer.flipX = false;
     }
 
     public void Jump()
     {
         if (IsGrounded())
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
-            anim.SetBool("Jump", true);
+            _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, _jumpingPower);
+            _animator.SetBool("Jump", true);
         }
     }
 
     public void Down()
     {
-        if (DownB && IsDownSelected)
+        if (_downB && IsDownSelected)
         {
             transform.position = new Vector3(transform.position.x, -3f, transform.position.z);
-            anim.SetBool("Jump", false);
+            _animator.SetBool("Jump", false);
         }
     }
     public void Stop()
     {
-        speed = 0;
-        anim.SetBool("IsRunning", false);
+        _speed = 0;
+        _animator.SetBool("IsRunning", false);
     }
 
     private void OnTriggerStay2D(Collider2D other)
     {
         if (other.CompareTag("Wall"))
         {
-            DownB = false;
+            _downB = false;
         }
         else if (!other.CompareTag("Wall"))
         {
-            DownB = true;
+            _downB = true;
         }
     }
 }
