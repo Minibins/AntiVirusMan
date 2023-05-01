@@ -1,7 +1,7 @@
-public class Documentation
+ï»¿public class Documentation
 {
     /*
-     *  Ñëîè (Order in Layer):
+     *  Ð¡Ð»Ð¾Ð¸ (Order in Layer):
      *      UI                      2000;
      *      FrontGround             1500;
      *      Player                  1000;
