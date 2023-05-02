@@ -2,7 +2,7 @@
 
 public class Controller : MonoBehaviour
 {
-    private Move _move;
+    private Player _move;
     private PlayerAttack _playerAttack;
     private GameManager _gameManager;
     private NewInputSystem _newInputSystem;
@@ -13,7 +13,7 @@ public class Controller : MonoBehaviour
     }
     private void Start()
     {
-        _move = GameObject.FindGameObjectWithTag("Player").GetComponent<Move>();
+        _move = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         _playerAttack = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerAttack>();
         _newInputSystem.Basic.Jump.performed += context => Jump();
         _newInputSystem.Basic.Attack.performed += context => Attack();

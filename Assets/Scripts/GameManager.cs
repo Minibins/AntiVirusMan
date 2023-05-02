@@ -5,11 +5,11 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject Player;
-    [SerializeField] private GameObject LevelUp;
+   // [SerializeField] private GameObject LevelUp;
     [SerializeField] private GameObject LosePanel;
     [SerializeField] public GameObject SettingsPanel;
     [SerializeField] private GameObject[] enemy;
-    [SerializeField] private GameObject LP;
+    [SerializeField] private GameObject LevelUp;
     [SerializeField] private int Level;
     [SerializeField] private float Health;
     [SerializeField] private int sec;
@@ -112,8 +112,8 @@ public class GameManager : MonoBehaviour
             EnemyDie = 0;
             EnemyNeedToUpLVL *= 1.1f;
             Level++;
-            LP.SetActive(true);
-            LP.GetComponent<LevelUP>().NewUpgrade();
+            LevelUp.SetActive(true);
+            LevelUp.GetComponent<LevelUP>().NewUpgrade();
         }
     }
 }

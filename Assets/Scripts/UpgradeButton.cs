@@ -54,7 +54,7 @@ public class UpgradeButton : MonoBehaviour
                 Player.GetComponent<InstantiateWall>().IsOpenly = true;
                 break;
             case 13:
-                Player.GetComponent<Move>().IsDownSelected = true;
+                Player.GetComponent<Player>().IsDownSelected = true;
                 DownButton.SetActive(true);
                 break;
             case 14:
