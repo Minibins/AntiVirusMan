@@ -42,6 +42,6 @@ public class UnityEvents : MonoBehaviour
     }
     public void UE_ButtonSettings(bool open)
     {
-        _gameManager.OpenSettings(open) ;
+        _gameManager.OpenSettings(open);
     }
 }

@@ -243,7 +243,7 @@ SpriteRenderer:
   m_Sprite: {fileID: 6763400792618968919, guid: 1df0e45a1e1783b4bac6578d311db4ef,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.28, y: 0.29}
@@ -289,7 +289,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.375, y: 0.5}
     oldSize: {x: 0.28, y: 0.29}
     newSize: {x: 0.28, y: 0.29}
     adaptiveTilingThreshold: 0.5
@@ -314,7 +314,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1bc3e988f34fa5a4abf4cbe1046c1a64, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
