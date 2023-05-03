@@ -4164,6 +4164,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8304178653184876643, guid: ec94f27c1555e174ebada4b736dde08b,
+        type: 3}
+      propertyPath: _speed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304178653184876643, guid: ec94f27c1555e174ebada4b736dde08b,
+        type: 3}
+      propertyPath: _canJump
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304178653184876643, guid: ec94f27c1555e174ebada4b736dde08b,
+        type: 3}
+      propertyPath: _jumpingPower
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

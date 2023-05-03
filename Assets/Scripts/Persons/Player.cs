@@ -4,21 +4,12 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private Transform _groundCheck;
     [SerializeField] private LayerMask _groundLayer;
-    [SerializeField] private float _speed;
-    //[SerializeField] private float _horizontalSpeed;
-    [SerializeField] private float _jumpingPower = 10f;
     [SerializeField] private bool _downB;
     public bool IsDownSelected;
-    //private Rigidbody2D _rigidbody2D;
-    //private Animator _animator;
-    //private SpriteRenderer _spriteRenderer;
     private Vector2 _velocity;
     private Move _move;
     private void Awake()
     {
-        //_animator = GetComponent<Animator>();
-        //_spriteRenderer = GetComponent<SpriteRenderer>();
-        //_rigidbody2D = GetComponent<Rigidbody2D>();
         _move = GetComponent<Move>();
     }
 
@@ -28,11 +19,11 @@ public class Player : MonoBehaviour
     }
         public void Left()
     {
-        _move.MoveHorizontally(-_speed);
+        _move.MoveHorizontally(-1f);
     }
     public void Rigth()
     {
-        _move.MoveHorizontally(_speed);
+        _move.MoveHorizontally(1f);
     }
 
     public void Stop()
@@ -43,7 +34,7 @@ public class Player : MonoBehaviour
     {
         if (IsGrounded())
         {
-            _move.StartJump(_jumpingPower);
+            _move.StartJump();
             Invoke(nameof(StopJump), 0.1f);
         }
     }
@@ -64,7 +55,7 @@ public class Player : MonoBehaviour
         if (_downB && IsDownSelected)
         {
             transform.position = new Vector3(transform.position.x, -3f, transform.position.z);
-            //_animator.SetBool("Jump", false);
+            _move.StopJump();
         }
     }
     private void OnTriggerStay2D(Collider2D other)
