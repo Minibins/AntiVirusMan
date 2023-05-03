@@ -9,8 +9,8 @@
      *      Enemies                 900;
      *      BackGround              500;
      * 
-     * 
-     * 
+     * Все назначенные ивенты в unity инспекторе прописывать сюда!
+     * Assets/Scripts/Controls/UnityEvents.cs
      * 
      * 
      * 

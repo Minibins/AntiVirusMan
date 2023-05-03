@@ -6,7 +6,6 @@ using UnityEngine;
 public class Move : MonoBehaviour
 {
     [SerializeField] private bool _canJump;
-
     public bool CanJump
     {
         get

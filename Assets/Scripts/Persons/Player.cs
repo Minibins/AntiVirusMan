@@ -12,12 +12,11 @@ public class Player : MonoBehaviour
     {
         _move = GetComponent<Move>();
     }
-
     private bool IsGrounded()
     {
         return Physics2D.OverlapCircle(_groundCheck.position, 0.2f, _groundLayer);
     }
-        public void Left()
+    public void Left()
     {
         _move.MoveHorizontally(-1f);
     }
@@ -25,7 +24,6 @@ public class Player : MonoBehaviour
     {
         _move.MoveHorizontally(1f);
     }
-
     public void Stop()
     {
         _move.MoveHorizontally(0f);
@@ -49,7 +47,6 @@ public class Player : MonoBehaviour
             Invoke(nameof(StopJump), 0.1f);
         }
     }
-
     public void Down()
     {
         if (_downB && IsDownSelected)

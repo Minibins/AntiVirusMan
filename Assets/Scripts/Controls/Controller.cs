@@ -2,7 +2,7 @@
 
 public class Controller : MonoBehaviour
 {
-    private Player _move;
+    private Player _player;
     private PlayerAttack _playerAttack;
     private GameManager _gameManager;
     private NewInputSystem _newInputSystem;
@@ -13,7 +13,7 @@ public class Controller : MonoBehaviour
     }
     private void Start()
     {
-        _move = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         _playerAttack = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerAttack>();
         _newInputSystem.Basic.Jump.performed += context => Jump();
         _newInputSystem.Basic.Attack.performed += context => Attack();
@@ -33,11 +33,11 @@ public class Controller : MonoBehaviour
         _moveValue = _newInputSystem.Basic.Move.ReadValue<Vector2>();
         if (_moveValue.x < -0.1f)
         {
-            _move.Left();
+            _player.Left();
         }
         else if (_moveValue.x > 0.1f)
         {
-            _move.Rigth();
+            _player.Rigth();
         }
         else
         {
@@ -46,11 +46,11 @@ public class Controller : MonoBehaviour
     }
     private void StopMove()
     {
-        _move.Stop();
+        _player.Stop();
     }
     private void Jump()
     {
-        _move.Jump();
+        _player.Jump();
     }
     private void Attack()
     {
