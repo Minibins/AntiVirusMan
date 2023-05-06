@@ -27,7 +27,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private Text _attackText;
     public bool IsSelectedBullet;
     public int Damage;
-    private GameObject _shields;
+    private GameObject _weapon;
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
     private Vector2 _spawnPoinBulletNow;
@@ -45,17 +45,17 @@ public class PlayerAttack : MonoBehaviour
     public void OnAttack()
     {
         SetSpawnPoint();
-        _shields = Instantiate(_shield, _shieldSpawnPointNow, Quaternion.identity);
+        _weapon = Instantiate(_shield, _shieldSpawnPointNow, Quaternion.identity);
         //_shields.GetComponent<Rigidbody2D>().velocity = new Vector2((transform.rotation.y * 2) + 1, 0);
-        _shields.GetComponent<AtackProjectile>().Damage = Damage;
+        _weapon.GetComponent<AtackProjectile>().Damage = Damage;
     }
     public void OnFullAttack()
     {
         SetSpawnPoint();
-        Instantiate(_bullet, _spawnPoinBulletNow, Quaternion.identity);
-        _shields = Instantiate(_shield, _shieldSpawnPointNow, Quaternion.identity);
-        //_shields.GetComponent<Rigidbody2D>().velocity = new Vector2((transform.rotation.y * 2) + 1, 0);
-        _shields.GetComponent<AtackProjectile>().Damage = Damage;
+        _weapon = Instantiate(_bullet, _spawnPoinBulletNow, Quaternion.identity);
+        _weapon.GetComponent<AtackProjectile>().Damage = Damage;
+        _weapon = Instantiate(_shield, _shieldSpawnPointNow, Quaternion.identity);
+        _weapon.GetComponent<AtackProjectile>().Damage = Damage;
     }
     private void SetSpawnPoint()
     {

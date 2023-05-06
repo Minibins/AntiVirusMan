@@ -22,6 +22,9 @@ public class AtackProjectile : MonoBehaviour
     private void Awake()
     {
         _move = GetComponent<Move>();
+    }
+    private void Start()
+    {
         if (_velosity.x != 0f)
         {
             _move.MoveHorizontally(_velosity.x);
@@ -30,7 +33,6 @@ public class AtackProjectile : MonoBehaviour
         {
             _move.MoveVertically(_velosity.y);
         }
-
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -39,8 +41,8 @@ public class AtackProjectile : MonoBehaviour
             _healthTarget.ApplyDamage(_damage);
         }
     }
-    public void DestroyThis()
+    public void DestroyThis(float time = 0f)
     {
-        Destroy(gameObject);
+        Destroy(gameObject, time);
     }
 }
