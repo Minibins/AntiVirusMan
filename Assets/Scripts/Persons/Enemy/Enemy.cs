@@ -1,4 +1,7 @@
 ﻿using UnityEngine;
+[RequireComponent (typeof(Rigidbody2D)),
+    RequireComponent(typeof(Health)),
+    RequireComponent(typeof(Move))]
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private float Speed;
@@ -9,7 +12,7 @@ public class Enemy : MonoBehaviour
     private GameObject _GameManager;
     private Rigidbody2D rb;
     private Animator anim;
-
+    private Move _move;
 
     private void Start()
     {
