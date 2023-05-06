@@ -34,7 +34,7 @@ public class Enemybooka : MonoBehaviour
         }
         if (other.CompareTag("AntivirusAtack") || other.CompareTag("ATACK EVERYBODY"))
         {
-            TakeDamage(other.GetComponent<AtackProjectile>().power);
+            //TakeDamage(other.GetComponent<AtackProjectile>().power);
         }
     }
     private void OnCollisionEnter2D(Collision2D other)

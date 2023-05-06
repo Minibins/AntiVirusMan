@@ -1,66 +1,106 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
+[RequireComponent(typeof(Animator)),
+    RequireComponent(typeof(SpriteRenderer))]
 public class PlayerAttack : MonoBehaviour
 {
-    [SerializeField] private GameObject Bullet;
-    [SerializeField] private GameObject SpawnPoinBullet;
-    [SerializeField] private GameObject shieldspawnpoint;
-    [SerializeField] private GameObject shield;
-    [SerializeField] public int Ammo;
-    [SerializeField] private int MaxAmmo;
-    [SerializeField] private float TimeReload;
-    [SerializeField] private float attackRange;
-    [SerializeField] private Text AttackText;
+    [SerializeField] private GameObject _bullet;
+    [SerializeField] private Vector2 _spawnPoinBullet;
+    [SerializeField] private GameObject _shield;
+    [SerializeField] private Vector2 _shieldSpawnPoint;
+    [SerializeField] private int _ammo;
+    public int Ammo
+    {
+        get
+        {
+            return _ammo;
+        }
+        set
+        {
+            _ammo = value;
+        }
+    }
+    [SerializeField] private int _maxAmmo;
+    [SerializeField] private float _timeReload;
+    //[SerializeField] private float _attackRange;
+    [SerializeField] private Text _attackText;
     public bool IsSelectedBullet;
-    public float Damage;
-    private GameObject shields;
-    private Animator anim;
-    private int rotation;
-
+    public int Damage;
+    private GameObject _shields;
+    private Animator _animator;
+    private SpriteRenderer _spriteRenderer;
+    private Vector2 _spawnPoinBulletNow;
+    private Vector2 _shieldSpawnPointNow;
+    private void Awake()
+    {
+        _animator = GetComponent<Animator>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+    }
     private void Start()
     {
-        anim = GetComponent<Animator>();
-        StartCoroutine(reload());
-        AttackText.text = "Attack:" + Ammo.ToString() + "/" + MaxAmmo.ToString();
+        StartCoroutine(Reload());
+        _attackText.text = "Attack:" + _ammo.ToString() + "/" + _maxAmmo.ToString();
     }
     public void OnAttack()
     {
-        shields = Instantiate(shield, shieldspawnpoint.transform.position, Quaternion.identity);
-        shields.GetComponent<Rigidbody2D>().velocity = new Vector2((transform.rotation.y * 2) + 1, 0);
-        shields.GetComponent<AtackProjectile>().power = Damage;
+        SetSpawnPoint();
+        _shields = Instantiate(_shield, _shieldSpawnPointNow, Quaternion.identity);
+        //_shields.GetComponent<Rigidbody2D>().velocity = new Vector2((transform.rotation.y * 2) + 1, 0);
+        _shields.GetComponent<AtackProjectile>().Damage = Damage;
     }
     public void OnFullAttack()
     {
-        Instantiate(Bullet, SpawnPoinBullet.transform.position, Quaternion.identity);
-        shields = Instantiate(shield, shieldspawnpoint.transform.position, Quaternion.identity);
-        shields.GetComponent<Rigidbody2D>().velocity = new Vector2((transform.rotation.y * 2) + 1, 0);
-        shields.GetComponent<AtackProjectile>().power = Damage;
+        SetSpawnPoint();
+        Instantiate(_bullet, _spawnPoinBulletNow, Quaternion.identity);
+        _shields = Instantiate(_shield, _shieldSpawnPointNow, Quaternion.identity);
+        //_shields.GetComponent<Rigidbody2D>().velocity = new Vector2((transform.rotation.y * 2) + 1, 0);
+        _shields.GetComponent<AtackProjectile>().Damage = Damage;
+    }
+    private void SetSpawnPoint()
+    {
+        _spawnPoinBulletNow = _spawnPoinBullet + (Vector2)transform.position;
+        _shieldSpawnPointNow = _shieldSpawnPoint + (Vector2)transform.position;
+        if (_spriteRenderer.flipX)
+        {
+            _shieldSpawnPointNow.x = transform.position.x - _shieldSpawnPoint.x;
+            _spawnPoinBulletNow.x = transform.position.x - _spawnPoinBullet.x;
+        }
+        else
+        {
+            _shieldSpawnPointNow.x = transform.position.x + _shieldSpawnPoint.x;
+            _spawnPoinBulletNow.x = transform.position.x + _spawnPoinBullet.x;
+        }
     }
     public void shot()
     {
-        if (Ammo > 0 && IsSelectedBullet == false)
+        if (_ammo < 1)
         {
-            anim.SetTrigger("Attack");
-            Ammo--;
-            AttackText.text = "Attack:" + Ammo.ToString() + "/" + MaxAmmo.ToString();
+            return;
         }
-        else if (Ammo > 0 && IsSelectedBullet == true)
+        if (IsSelectedBullet)
         {
-            anim.SetTrigger("FullAttack");
-            Ammo--;
-            AttackText.text = "Attack:" + Ammo.ToString() + "/" + MaxAmmo.ToString();
+            OnFullAttack();
+            _animator.SetTrigger("FullAttack");
         }
+        else
+        {
+            OnAttack();
+            _animator.SetTrigger("Attack");
+        }
+        _ammo--;
+        _attackText.text = "Attack:" + _ammo.ToString() + "/" + _maxAmmo.ToString();
+
     }
-    IEnumerator reload()
+    IEnumerator Reload()
     {
         while (true)
         {
-            yield return new WaitForSeconds(TimeReload);
-            if (Ammo < MaxAmmo)
+            yield return new WaitForSeconds(_timeReload);
+            if (_ammo < _maxAmmo)
             {
-                Ammo++;
-                AttackText.text = "Attack:" + Ammo.ToString() + "/" + MaxAmmo.ToString();
+                _ammo++;
+                _attackText.text = "Attack:" + _ammo.ToString() + "/" + _maxAmmo.ToString();
             }
         }
     }

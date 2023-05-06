@@ -14,7 +14,7 @@ public class starfall : MonoBehaviour
         star.transform.localScale = new Vector3(8, 7, 7);
         star.GetComponent<SpriteRenderer>().sprite = starsprite;
         star.GetComponent<Fallingstar>().fallvector = moveto;
-        star.GetComponent<AtackProjectile>().power = Damage;
+        //star.GetComponent<AtackProjectile>().power = Damage;
     }
     private void FixedUpdate()
     {

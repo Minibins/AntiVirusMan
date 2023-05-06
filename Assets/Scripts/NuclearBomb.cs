@@ -27,7 +27,7 @@ public class NuclearBomb : MonoBehaviour
     void explode()
     {
         GameObject xplosion = Instantiate(explosion, transform.position, Quaternion.identity);
-        xplosion.GetComponent<AtackProjectile>().power = 0.5f;
+        //xplosion.GetComponent<AtackProjectile>().power = 0.5f;
         Destroy(gameObject);
     }
     private void Update()

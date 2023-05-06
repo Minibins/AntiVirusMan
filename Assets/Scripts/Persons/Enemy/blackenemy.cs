@@ -35,7 +35,7 @@ public class blackenemy : MonoBehaviour
 
         if (other.CompareTag("AntivirusAtack") || other.CompareTag("ATACK EVERYBODY"))
         {
-            TakeDamage(other.GetComponent<AtackProjectile>().power);
+            //TakeDamage(other.GetComponent<AtackProjectile>().power);
         }
     }
 

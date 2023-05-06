@@ -392,15 +392,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afef24755c993cb478e6bc603a74fa35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bullet: {fileID: 8801379529353642565, guid: bd3def6cba8e68f48a5a523deb793b45, type: 3}
-  SpawnPoinBullet: {fileID: 1179947043}
-  shieldspawnpoint: {fileID: 4874057754220416084}
-  shield: {fileID: 4351347600884552508, guid: cd320506de2923e49ac056599fd38309, type: 3}
-  Ammo: 5
-  MaxAmmo: 5
-  TimeReload: 1
-  attackRange: 0.6
-  AttackText: {fileID: 0}
+  _bullet: {fileID: 8801379529353642565, guid: bd3def6cba8e68f48a5a523deb793b45, type: 3}
+  _spawnPoinBullet: {x: -0.5, y: 0}
+  _shield: {fileID: 4351347600884552508, guid: cd320506de2923e49ac056599fd38309, type: 3}
+  _shieldSpawnPoint: {x: 0.65, y: -0.08}
+  _ammo: 5
+  _maxAmmo: 5
+  _timeReload: 2
+  _attackText: {fileID: 0}
   IsSelectedBullet: 0
   Damage: 1
 --- !u!114 &429989184
