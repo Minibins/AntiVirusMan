@@ -1,6 +1,6 @@
-﻿using UnityEngine;
-[RequireComponent(typeof(Move))]
-public class AtackProjectile : MonoBehaviour
+using UnityEngine;
+[RequireComponent(typeof(Animator))]
+public class Attack : MonoBehaviour
 {
     [SerializeField, Min(0)] private int _damage;
     public int Damage
@@ -15,16 +15,12 @@ public class AtackProjectile : MonoBehaviour
         }
     }
     [SerializeField] private LayerMask _mask;
-    [SerializeField] private Vector2 _velosity;
-    private Move _move;
+    private Animator _animator;
     private Health _healthTarget;
 
     private void Awake()
     {
-        _move = GetComponent<Move>();
-        _move.MoveHorizontally(_velosity.x);
-        _move.MoveVertically(_velosity.y);
-
+        _animator = GetComponent<Animator>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -35,6 +31,6 @@ public class AtackProjectile : MonoBehaviour
     }
     public void DestroyThis()
     {
-        DestroyImmediate(gameObject);
+        Destroy(gameObject);
     }
 }

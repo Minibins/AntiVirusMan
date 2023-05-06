@@ -47,6 +47,9 @@ public class Player : MonoBehaviour
             Invoke(nameof(StopJump), 0.1f);
         }
     }
+
+
+
     public void Down()
     {
         if (_downB && IsDownSelected)

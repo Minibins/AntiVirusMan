@@ -3,9 +3,9 @@ using UnityEngine;
 public class UnityEvents : MonoBehaviour
 {
 
-    private Player _player;
-    private PlayerAttack _playerAttack;
-    private GameManager _gameManager;
+    private static Player _player;
+    private static PlayerAttack _playerAttack;
+    private static GameManager _gameManager;
     private void Awake()
     {
 
@@ -16,32 +16,34 @@ public class UnityEvents : MonoBehaviour
         _playerAttack = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerAttack>();
         _gameManager = FindAnyObjectByType<GameManager>();
     }
-    public void UE_ButtonLeft()
+    public static void UE_ButtonLeft()
     {
         _player.Left();
     }
-    public void UE_ButtonRigth()
+    public static void UE_ButtonRigth()
     {
         _player.Rigth();
     }
-    public void UE_ButtonStop()
+    public static void UE_ButtonStop()
     {
         _player.Stop();
     }
-    public void UE_ButtonJump()
+    public static void UE_ButtonJump()
     {
         _player.Jump();
     }
-    public void UE_ButtonDown()
+    public static void UE_ButtonDown()
     {
         _player.Down();
     }
-    public void UE_ButtonShot()
+    public static void UE_ButtonShot()
     {
         _playerAttack.shot();
     }
-    public void UE_ButtonSettings(bool open)
+    public static void UE_ButtonSettings(bool open)
     {
         _gameManager.OpenSettings(open);
     }
+
+
 }

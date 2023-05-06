@@ -11,7 +11,7 @@ public class pc : MonoBehaviour
     {
         if (other.gameObject.CompareTag("enemy projectile") || other.gameObject.CompareTag("ATACK EVERYBODY"))
         {
-            GamManager.TakeDamage(other.gameObject.GetComponent<atackprojectile>().power);
+            GamManager.TakeDamage(other.gameObject.GetComponent<AtackProjectile>().power);
         }
     }
 }

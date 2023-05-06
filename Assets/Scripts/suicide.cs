@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 
-public class suicide : MonoBehaviour
+public class Suicide : MonoBehaviour
 {
-    void destroythis()
+    void DestroyThis()
     {
         Destroy(gameObject);
     }
+
 }

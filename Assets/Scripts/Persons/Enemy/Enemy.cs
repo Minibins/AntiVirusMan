@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour
         }
         if (other.CompareTag("AntivirusAtack") || other.CompareTag("ATACK EVERYBODY"))
         {
-            TakeDamage(other.GetComponent<atackprojectile>().power);
+            TakeDamage(other.GetComponent<AtackProjectile>().power);
         }
     }
 

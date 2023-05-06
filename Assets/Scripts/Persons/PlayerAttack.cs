@@ -28,14 +28,14 @@ public class PlayerAttack : MonoBehaviour
     {
         shields = Instantiate(shield, shieldspawnpoint.transform.position, Quaternion.identity);
         shields.GetComponent<Rigidbody2D>().velocity = new Vector2((transform.rotation.y * 2) + 1, 0);
-        shields.GetComponent<atackprojectile>().power = Damage;
+        shields.GetComponent<AtackProjectile>().power = Damage;
     }
     public void OnFullAttack()
     {
         Instantiate(Bullet, SpawnPoinBullet.transform.position, Quaternion.identity);
         shields = Instantiate(shield, shieldspawnpoint.transform.position, Quaternion.identity);
         shields.GetComponent<Rigidbody2D>().velocity = new Vector2((transform.rotation.y * 2) + 1, 0);
-        shields.GetComponent<atackprojectile>().power = Damage;
+        shields.GetComponent<AtackProjectile>().power = Damage;
     }
     public void shot()
     {
