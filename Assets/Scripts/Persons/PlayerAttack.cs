@@ -46,7 +46,6 @@ public class PlayerAttack : MonoBehaviour
     {
         SetSpawnPoint();
         _weapon = Instantiate(_shield, _shieldSpawnPointNow, Quaternion.identity);
-        //_shields.GetComponent<Rigidbody2D>().velocity = new Vector2((transform.rotation.y * 2) + 1, 0);
         _weapon.GetComponent<AtackProjectile>().Damage = Damage;
     }
     public void OnFullAttack()

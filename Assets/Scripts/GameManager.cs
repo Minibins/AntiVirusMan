@@ -1,17 +1,17 @@
 ﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject Player;
-   // [SerializeField] private GameObject LevelUp;
+    // [SerializeField] private GameObject LevelUp;
     [SerializeField] private GameObject LosePanel;
     [SerializeField] public GameObject SettingsPanel;
     [SerializeField] private GameObject[] enemy;
     [SerializeField] private GameObject LevelUp;
     [SerializeField] private int Level;
-    [SerializeField] private float Health;
+    //[SerializeField] private float Health;
     [SerializeField] private int sec;
     [SerializeField] private int min;
     [SerializeField] private int TimeToWin;
@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float EnemyDie;
     [SerializeField] private bool StopTime = true;
     [SerializeField] private Text EnemyDieText;
-    [SerializeField] private Text Health_Text;
+    //[SerializeField] private Text Health_Text;
     [SerializeField] private Text TimerText;
     [SerializeField] private Text LiveTextLose;
     [SerializeField] private SpawnerEnemy SE;
@@ -38,21 +38,21 @@ public class GameManager : MonoBehaviour
     }
     public void TakeDamage(float Damage)
     {
-        Health -= Damage;
-        Health_Text.text = "Health:" + Health;
-        if (Health <= 0)
+        //Health -= Damage;
+        //Health_Text.text = "Health:" + Health;
+        //if (Health <= 0)
+        //{
+        Destroy(Player);
+        //anim.SetBool("Lose", true);
+        SE.GetComponent<SpawnerEnemy>().StopOrStartSpawn();
+        enemy = GameObject.FindGameObjectsWithTag("Enemy");
+        for (int i = 0; i < enemy.Length; i++)
         {
-            Destroy(Player);
-            anim.SetBool("Lose", true);
-            SE.GetComponent<SpawnerEnemy>().StopOrStartSpawn();
-            enemy = GameObject.FindGameObjectsWithTag("Enemy");
-            for (int i = 0; i < enemy.Length; i++)
-            {
-                Destroy(enemy[i]);
-            }
-            LosePanel.SetActive(true);
-            StopTime = false;
+            Destroy(enemy[i]);
         }
+        LosePanel.SetActive(true);
+        StopTime = false;
+        //}
     }
 
     public void TakeEXP(int kills)
@@ -100,7 +100,7 @@ public class GameManager : MonoBehaviour
         SettingsPanel.SetActive(false);
         LosePanel.SetActive(false);
         EnemyDieText.text = "EnemyDie:" + EnemyDie.ToString() + "/" + Mathf.Round(EnemyNeedToUpLVL).ToString();
-        Health_Text.text = "Health:" + Health;
+        //Health_Text.text = "Health:" + Health;
         TimerText.text = min.ToString("D2") + " : " + sec.ToString("D2");
     }
 

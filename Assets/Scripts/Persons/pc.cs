@@ -1,17 +1,30 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
+[RequireComponent(typeof(Health)),
+    RequireComponent(typeof(Animator))]
 public class pc : MonoBehaviour
 {
-    private GameManager GamManager;
-    private void Start()
+    [SerializeField] private Text Health_Text;
+    private Health _health;
+    private bool _gameOver = false;
+    private void Awake()
     {
-        GamManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        _health = GetComponent<Health>();
     }
-    private void OnTriggerEnter2D(Collider2D other)
+    private void Update()
     {
-        if (other.gameObject.CompareTag("enemy projectile") || other.gameObject.CompareTag("ATACK EVERYBODY"))
+        Health_Text.text = "Health:" + _health.CurrentHealth;
+        if (_health.CurrentHealth <= 0 && !_gameOver)
         {
-            //GamManager.TakeDamage(other.gameObject.GetComponent<AtackProjectile>().power);
+            GameOver();
         }
     }
+    private void GameOver()
+    {
+        _gameOver = true;
+        GetComponent<Animator>().SetBool("Lose", true);
+        FindFirstObjectByType<GameManager>().TakeDamage(10f);
+    }
+
 }
