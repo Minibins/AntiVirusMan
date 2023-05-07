@@ -24,7 +24,7 @@ public class pc : MonoBehaviour
     {
         _gameOver = true;
         GetComponent<Animator>().SetBool("Lose", true);
-        FindFirstObjectByType<GameManager>().TakeDamage(10f);
+        FindFirstObjectByType<GameManager>().TakeDamage(-10f);
     }
 
 }

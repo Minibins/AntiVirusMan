@@ -2011,8 +2011,8 @@ MonoBehaviour:
   - {fileID: 2515844324639823540, guid: 489d5049014ff034482eda7cd50bf2bb, type: 3}
   - {fileID: 1419220866596668024, guid: fa669012f4ac8d44e8dbf3927957c63c, type: 3}
   - {fileID: 49990711567001007, guid: b87c79d457c719c48a591a636b0f9b4c, type: 3}
-  minTimeSpawn: 2
-  maxTimeSpawn: 5
+  minTimeSpawn: 1
+  maxTimeSpawn: 2
   isSpawn: 1
 --- !u!4 &427215479
 Transform:
@@ -5547,6 +5547,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4765063867283236128, guid: 7cd7abddee6eef64faf67f84b4c443df,
+        type: 3}
+      propertyPath: _maxHealth
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 5157878703599804823, guid: 7cd7abddee6eef64faf67f84b4c443df,
         type: 3}

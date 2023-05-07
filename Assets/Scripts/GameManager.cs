@@ -38,6 +38,10 @@ public class GameManager : MonoBehaviour
     }
     public void TakeDamage(float Damage)
     {
+        if (Damage > 0) 
+        {
+            return; 
+        }
         //Health -= Damage;
         //Health_Text.text = "Health:" + Health;
         //if (Health <= 0)

@@ -13,7 +13,10 @@ GameObject:
   - component: {fileID: 5871702051723667390}
   - component: {fileID: 5938378712818822686}
   - component: {fileID: 3622740985699501776}
-  - component: {fileID: 4341467424441018370}
+  - component: {fileID: -1960156336790782601}
+  - component: {fileID: -3479756302495854425}
+  - component: {fileID: 8106466791238120592}
+  - component: {fileID: -8847342664991260015}
   m_Layer: 11
   m_Name: Boss1
   m_TagString: Enemy
@@ -104,7 +107,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: -0.2
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -175,7 +178,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.42, y: 0.25}
   m_Direction: 1
---- !u!114 &4341467424441018370
+--- !u!114 &-1960156336790782601
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -184,12 +187,55 @@ MonoBehaviour:
   m_GameObject: {fileID: 2515844324639823540}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e95afecb9eede4499d9d9d041340a8a, type: 3}
+  m_Script: {fileID: 11500000, guid: 9ebef5ecc067c3349877bb5875cd77ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosion: {fileID: 5453186352399095394, guid: 1b264e8b19808f54d96abe41ed58d320,
-    type: 3}
-  Speed: 0.5
-  Health: 1
-  Damage: 1
-  pcnormally: -1
+  _maskWhoKills:
+    serializedVersion: 2
+    m_Bits: 8192
+--- !u!114 &-3479756302495854425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2515844324639823540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9c4fd5ae8cbe924582d0b08150dbc86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 1
+  _mask:
+    serializedVersion: 2
+    m_Bits: 8192
+  _velosity: {x: 0, y: 0}
+--- !u!114 &8106466791238120592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2515844324639823540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ac0864a499e6c245b5123faa04be24d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canJump: 1
+  _speed: 0.7
+  _jumpingPower: 10
+--- !u!114 &-8847342664991260015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2515844324639823540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d54634508f2eec47a76af005dde50f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 1
+  DoNotDestroy: 0

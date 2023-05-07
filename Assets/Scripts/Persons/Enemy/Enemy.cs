@@ -1,81 +1,43 @@
 ﻿using UnityEngine;
-[RequireComponent (typeof(Rigidbody2D)),
-    RequireComponent(typeof(Health)),
-    RequireComponent(typeof(Move))]
+[RequireComponent(typeof(Health)),
+    RequireComponent(typeof(Move)),
+    RequireComponent(typeof(SpriteRenderer))]
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private float Speed;
-    [SerializeField] private float Health;
-    [SerializeField] private int Damage;
-    [SerializeField] private int DamageForWall;
+    [SerializeField] private LayerMask _maskWhoKills;
     private GameObject PC;
-    private GameObject _GameManager;
-    private Rigidbody2D rb;
-    private Animator anim;
+    private Health _health;
     private Move _move;
-
+    private SpriteRenderer _spriteRenderer;
+    private void Awake()
+    {
+        _health = GetComponent<Health>();
+        _move = GetComponent<Move>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+    }
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
         PC = GameObject.FindGameObjectWithTag("PC");
-        _GameManager = GameObject.FindGameObjectWithTag("GameManager");
-        anim = GetComponent<Animator>();
-    }
-    private void FixedUpdate()
-    {
         EnemyMove();
-    }
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("PC"))
-        {
-            _GameManager.GetComponent<GameManager>().TakeDamage(Damage);
-            Destroy(gameObject);
-        }
-        if (other.CompareTag("AntivirusAtack") || other.CompareTag("ATACK EVERYBODY"))
-        {
-            //TakeDamage(other.GetComponent<AtackProjectile>().power);
-        }
-    }
-
-    private void OnCollisionStay2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("PC"))
-        {
-            _GameManager.GetComponent<GameManager>().TakeDamage(Damage);
-            Destroy(gameObject);
-        }
-        if (other.gameObject.CompareTag("Wall"))
-        {
-            other.gameObject.GetComponent<Wall>().TakeDamageWall(DamageForWall);
-        }
-    }
-    public void TakeDamage(float Damage)
-    {
-        Health -= Damage;
-        if (Health <= 0)
-        {
-            _GameManager.GetComponent<GameManager>().TakeEXP(1);
-            Speed = 0;
-            anim.SetTrigger("Die");
-        }
-    }
-
-    public void AfterDie()
-    {
-        Destroy(gameObject);
     }
     private void EnemyMove()
     {
-        if (PC.transform.position.x < transform.position.x&& rb.velocity != new Vector2(-Speed, 0))
+        if (PC.transform.position.x < transform.position.x)
         {
-            rb.velocity = new Vector2(-Speed, 0);
-            transform.localScale = new Vector2(6f, 6f);
+            _move.MoveHorizontally(-1f);
+            _spriteRenderer.flipX = false;
         }
-        else if (PC.transform.position.x > transform.position.x&& rb.velocity != new Vector2(Speed, 0))
+        else
         {
-            rb.velocity = new Vector2(Speed, 0);
-            transform.localScale = new Vector2(-6f, 6f);
+            _move.MoveHorizontally(1f);
+            _spriteRenderer.flipX = true;
+        }
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if ((_maskWhoKills.value & (1 << collision.gameObject.layer)) != 0)
+        {
+            Destroy(gameObject);
         }
     }
 }

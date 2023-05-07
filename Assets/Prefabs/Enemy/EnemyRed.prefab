@@ -11,10 +11,13 @@ GameObject:
   - component: {fileID: 5514700931504253472}
   - component: {fileID: 9184660274169354516}
   - component: {fileID: 4482309314977752539}
-  - component: {fileID: 1040699395090986571}
   - component: {fileID: 3818369322344335301}
   - component: {fileID: 222009399535578264}
-  m_Layer: 14
+  - component: {fileID: 172344962344067345}
+  - component: {fileID: -7254249747895268964}
+  - component: {fileID: -7714455965291332328}
+  - component: {fileID: 4300671704897370535}
+  m_Layer: 11
   m_Name: EnemyRed
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -112,24 +115,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1040699395090986571
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 49990711567001007}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb32208877b2b8e4b9e31eef4afe0078, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Speed: 1
-  Health: 3
-  Damage: 1
-  DamageForWall: 50
-  peenaemuy: {fileID: 0}
-  peeneytut: {fileID: 7180264809983310948}
 --- !u!61 &3818369322344335301
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -203,6 +188,67 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &172344962344067345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49990711567001007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d54634508f2eec47a76af005dde50f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 3
+  DoNotDestroy: 0
+--- !u!114 &-7254249747895268964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49990711567001007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ac0864a499e6c245b5123faa04be24d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canJump: 1
+  _speed: 0.5
+  _jumpingPower: 10
+--- !u!114 &-7714455965291332328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49990711567001007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ebef5ecc067c3349877bb5875cd77ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maskWhoKills:
+    serializedVersion: 2
+    m_Bits: 8192
+--- !u!114 &4300671704897370535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49990711567001007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9c4fd5ae8cbe924582d0b08150dbc86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 1
+  _mask:
+    serializedVersion: 2
+    m_Bits: 8192
+  _velosity: {x: 0, y: 0}
 --- !u!1 &1390221641294342662
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,7 +258,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7180264809983310948}
-  m_Layer: 14
+  m_Layer: 11
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}

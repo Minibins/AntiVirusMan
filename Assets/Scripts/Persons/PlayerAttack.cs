@@ -46,15 +46,15 @@ public class PlayerAttack : MonoBehaviour
     {
         SetSpawnPoint();
         _weapon = Instantiate(_shield, _shieldSpawnPointNow, Quaternion.identity);
-        _weapon.GetComponent<AtackProjectile>().Damage = Damage;
+        _weapon.GetComponent<AttackProjectile>().Damage = Damage;
     }
     public void OnFullAttack()
     {
         SetSpawnPoint();
         _weapon = Instantiate(_bullet, _spawnPoinBulletNow, Quaternion.identity);
-        _weapon.GetComponent<AtackProjectile>().Damage = Damage;
+        _weapon.GetComponent<AttackProjectile>().Damage = Damage;
         _weapon = Instantiate(_shield, _shieldSpawnPointNow, Quaternion.identity);
-        _weapon.GetComponent<AtackProjectile>().Damage = Damage;
+        _weapon.GetComponent<AttackProjectile>().Damage = Damage;
     }
     private void SetSpawnPoint()
     {

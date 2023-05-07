@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 [RequireComponent(typeof(Move))]
-public class AtackProjectile : MonoBehaviour
+public class AttackProjectile : MonoBehaviour
 {
     [SerializeField, Min(0)] private int _damage;
     public int Damage
