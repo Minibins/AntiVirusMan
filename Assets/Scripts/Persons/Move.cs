@@ -37,6 +37,9 @@ public class Move : MonoBehaviour
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
+    }
+    private void OnEnable()
+    {
         CanJump = CanJump;
     }
     private void FixedUpdate()
