@@ -2,6 +2,7 @@
 [RequireComponent(typeof(Health)),
     RequireComponent(typeof(Move)),
     RequireComponent(typeof(Animator)),
+    RequireComponent(typeof(Rigidbody2D)),
     RequireComponent(typeof(SpriteRenderer))]
 public class Enemy : MonoBehaviour
 {
@@ -46,6 +47,7 @@ public class Enemy : MonoBehaviour
     }
     private void OnDeath()
     {
+        gameObject.GetComponent<Rigidbody2D>().simulated = false;
         _animator.SetTrigger("Die");
     }
 }
