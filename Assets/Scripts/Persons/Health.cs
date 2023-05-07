@@ -1,20 +1,23 @@
+using System;
 using UnityEngine;
 
 public class Health : MonoBehaviour
 {
     [SerializeField] private int _maxHealth = 1;
     public int CurrentHealth { get; private set; }
-    [SerializeField] private bool DoNotDestroy;
+    //[SerializeField] private bool DoNotDestroy;
+    private Action _death;
     private void Awake()
     {
         CurrentHealth = _maxHealth;
+        _death = DestroyHimself;
     }
     public void ApplyDamage(int damage)
     {
         CurrentHealth -= damage;
-        if (CurrentHealth <= 0 && !DoNotDestroy)
+        if (CurrentHealth <= 0)
         {
-            Destroy(gameObject);
+            _death();
         }
     }
     public void SetMaxHealth(int maxHealth)
@@ -26,5 +29,13 @@ public class Health : MonoBehaviour
     {
         CurrentHealth += health;
         CurrentHealth = CurrentHealth > _maxHealth ? _maxHealth : CurrentHealth;
+    }
+    public void SetActionDeath(Action onDeath)
+    {
+        _death = onDeath;
+    }
+    private void DestroyHimself()
+    {
+        Destroy(gameObject);
     }
 }

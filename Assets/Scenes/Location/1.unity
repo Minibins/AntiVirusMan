@@ -5548,11 +5548,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4765063867283236128, guid: 7cd7abddee6eef64faf67f84b4c443df,
-        type: 3}
-      propertyPath: _maxHealth
-      value: 200
-      objectReference: {fileID: 0}
     - target: {fileID: 5157878703599804823, guid: 7cd7abddee6eef64faf67f84b4c443df,
         type: 3}
       propertyPath: Health_Text
@@ -6316,6 +6311,11 @@ PrefabInstance:
       propertyPath: _attackText
       value: 
       objectReference: {fileID: 2047199226}
+    - target: {fileID: 193935507143263751, guid: ec94f27c1555e174ebada4b736dde08b,
+        type: 3}
+      propertyPath: _groundLayer.m_Bits
+      value: 5120
+      objectReference: {fileID: 0}
     - target: {fileID: 8304178653184876640, guid: ec94f27c1555e174ebada4b736dde08b,
         type: 3}
       propertyPath: m_Name

@@ -1,28 +1,32 @@
 ﻿using UnityEngine;
 [RequireComponent(typeof(Health)),
     RequireComponent(typeof(Move)),
+    RequireComponent(typeof(Animator)),
     RequireComponent(typeof(SpriteRenderer))]
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private LayerMask _maskWhoKills;
-    private GameObject PC;
+    private GameObject _PC;
     private Health _health;
     private Move _move;
     private SpriteRenderer _spriteRenderer;
+    private Animator _animator;
     private void Awake()
     {
         _health = GetComponent<Health>();
         _move = GetComponent<Move>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _animator = GetComponent<Animator>();
     }
     private void Start()
     {
-        PC = GameObject.FindGameObjectWithTag("PC");
+        _PC = GameObject.FindGameObjectWithTag("PC");
         EnemyMove();
+        _health.SetActionDeath(OnDeath);
     }
     private void EnemyMove()
     {
-        if (PC.transform.position.x < transform.position.x)
+        if (_PC.transform.position.x < transform.position.x)
         {
             _move.MoveHorizontally(-1f);
             _spriteRenderer.flipX = false;
@@ -39,5 +43,9 @@ public class Enemy : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+    private void OnDeath()
+    {
+        _animator.SetTrigger("Die");
     }
 }

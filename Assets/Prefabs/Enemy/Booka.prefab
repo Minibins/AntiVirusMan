@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 8530324711072272253}
   - component: {fileID: -5198353998425603602}
   - component: {fileID: 1474092767125282854}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: Booka
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -190,7 +190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d54634508f2eec47a76af005dde50f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 4
+  _maxHealth: 10
   DoNotDestroy: 0
 --- !u!114 &8530324711072272253
 MonoBehaviour:
