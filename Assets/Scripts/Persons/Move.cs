@@ -17,11 +17,11 @@ public class Move : MonoBehaviour
             _canJump = value;
             if (_canJump)
             {
-                _move = () => MoveAndJump();
+                _move = MoveAndJump;
             }
             else
             {
-                _move = () => MoveNotJump();
+                _move = MoveNotJump;
             }
         }
     }
@@ -103,5 +103,8 @@ public class Move : MonoBehaviour
     {
         _animator.SetBool("IsJumping", false);
     }
-
+    private void OnDisable()
+    {
+        _move = null;
+    }
 }

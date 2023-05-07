@@ -17,6 +17,7 @@ public class Health : MonoBehaviour
         if (CurrentHealth <= 0)
         {
             _death();
+            _death = null;
         }
     }
     public void SetMaxHealth(int maxHealth)
@@ -37,4 +38,5 @@ public class Health : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
 }
