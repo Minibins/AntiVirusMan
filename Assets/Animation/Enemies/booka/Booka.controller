@@ -9,7 +9,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: zadavil
+    m_ConditionEvent: Die
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1124798435731055117}
@@ -59,7 +59,7 @@ AnimatorController:
   m_Name: Booka
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: zadavil
+  - m_Name: Die
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0

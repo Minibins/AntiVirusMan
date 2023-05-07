@@ -5,7 +5,6 @@ public class Health : MonoBehaviour
 {
     [SerializeField] private int _maxHealth = 1;
     public int CurrentHealth { get; private set; }
-    //[SerializeField] private bool DoNotDestroy;
     private Action _death;
     private void Awake()
     {
