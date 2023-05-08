@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 [RequireComponent(typeof(Health)),
     RequireComponent(typeof(Animator))]
-public class pc : MonoBehaviour
+public class PC : MonoBehaviour
 {
     [SerializeField] private Text Health_Text;
     private Health _health;
@@ -14,10 +14,6 @@ public class pc : MonoBehaviour
     private void Start()
     {
         _health.SetActionDeath(GameOver);
-    }
-    private void Update()
-    {
-        Health_Text.text = "Health:" + _health.CurrentHealth;
     }
     private void GameOver()
     {

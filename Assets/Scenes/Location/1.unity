@@ -120,6 +120,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &19976608 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4765063867283236128, guid: 7cd7abddee6eef64faf67f84b4c443df,
+    type: 3}
+  m_PrefabInstance: {fileID: 1728250547}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d54634508f2eec47a76af005dde50f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &234571425
 GameObject:
   m_ObjectHideFlags: 0
@@ -603,7 +615,7 @@ MonoBehaviour:
   m_text: '00 : 00'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1941,6 +1953,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 8304178652091816245}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &429989180 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1126693211, guid: ec94f27c1555e174ebada4b736dde08b,
+    type: 3}
+  m_PrefabInstance: {fileID: 8304178652091816245}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429989178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afef24755c993cb478e6bc603a74fa35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2296,6 +2320,7 @@ GameObject:
   - component: {fileID: 741952778}
   - component: {fileID: 741952777}
   - component: {fileID: 741952776}
+  - component: {fileID: 741952779}
   m_Layer: 0
   m_Name: Text
   m_TagString: Untagged
@@ -2390,6 +2415,25 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &741952779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 741952774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 693ee877f25c74f4caa50857e81788be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _healthText: {fileID: 1895530657}
+  _health: {fileID: 19976608}
+  _attackText: {fileID: 1583092430}
+  _attackCount: {fileID: 429989180}
+  _timerText: {fileID: 334533678}
+  _gameManager: {fileID: 1842592165}
+  _enemyKillsText: {fileID: 1847794600}
 --- !u!1 &876356890
 GameObject:
   m_ObjectHideFlags: 0
@@ -5085,7 +5129,7 @@ MonoBehaviour:
   m_text: 'Attack: 5/5'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5606,15 +5650,11 @@ MonoBehaviour:
   enemy:
   - {fileID: 0}
   LevelUp: {fileID: 6612716381452028618, guid: 492ee21819d983c49bb4ebeb7a81aea5, type: 3}
-  Level: 1
   sec: 0
   min: 0
   TimeToWin: 10
   EnemyNeedToUpLVL: 15
-  EnemyDie: 0
   StopTime: 1
-  EnemyDieText: {fileID: 0}
-  TimerText: {fileID: 0}
   LiveTextLose: {fileID: 1523638599151307896}
   SE: {fileID: 427215478}
   save: {fileID: 586405110}
@@ -5699,7 +5739,7 @@ MonoBehaviour:
   m_text: EnemyDie 0/5
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5846,7 +5886,7 @@ MonoBehaviour:
   m_text: 'Health: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

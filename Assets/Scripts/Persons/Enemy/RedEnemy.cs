@@ -67,7 +67,7 @@ public class RedEnemy : MonoBehaviour
         Health -= Damage;
         if (Health <= 0)
         {
-            _GameManager.GetComponent<GameManager>().TakeEXP(1);
+            //_GameManager.GetComponent<GameManager>().TakeEXP(1);
             Speed = 0;
             anim.SetTrigger("Die");
         }
@@ -90,14 +90,14 @@ public class RedEnemy : MonoBehaviour
             transform.localScale = new Vector2(-6f, 6f);
         }
     }
-    public void stun()
+    public void Stun()
     {
         if (peenaemuy != null)
         {
             peenaemuy.transform.position = peeneytut.position;
         }
     }
-    public void peenok()
+    public void Peenok()
     {
         if (peenaemuy != null)
         {

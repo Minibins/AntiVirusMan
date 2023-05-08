@@ -5,13 +5,15 @@ public class Health : MonoBehaviour
 {
     [SerializeField] private int _maxHealth = 1;
     public int CurrentHealth { get; private set; }
-    private Action _death;
+    private Action _onDeath;
+    private Action _onApplyDamage;
     public void ApplyDamage(int damage)
     {
         CurrentHealth -= damage;
-        if (CurrentHealth <= 0 )
+        _onApplyDamage?.Invoke();
+        if (CurrentHealth <= 0)
         {
-            _death();
+            _onDeath();
         }
     }
     public void SetMaxHealth(int maxHealth)
@@ -24,9 +26,13 @@ public class Health : MonoBehaviour
         CurrentHealth += health;
         CurrentHealth = CurrentHealth > _maxHealth ? _maxHealth : CurrentHealth;
     }
+    public void SetActionApplyDamage(Action onApplyDamage)
+    {
+        _onApplyDamage = onApplyDamage;
+    }
     public void SetActionDeath(Action onDeath)
     {
-        _death = onDeath;
+        _onDeath = onDeath;
     }
     private void Awake()
     {
@@ -34,14 +40,12 @@ public class Health : MonoBehaviour
     }
     private void OnEnable()
     {
-        if (_death == null)
-        {
-            _death = DestroyHimself;
-        }
+        _onDeath ??= DestroyHimself;
     }
     private void OnDisable()
     {
-        _death = null;
+        _onDeath = null;
+        _onApplyDamage = null;
     }
     private void DestroyHimself()
     {

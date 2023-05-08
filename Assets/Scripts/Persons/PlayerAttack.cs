@@ -1,6 +1,6 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 [RequireComponent(typeof(Animator)),
     RequireComponent(typeof(SpriteRenderer))]
 public class PlayerAttack : MonoBehaviour
@@ -19,12 +19,22 @@ public class PlayerAttack : MonoBehaviour
         set
         {
             _ammo = value;
+            _onRefreshAmmo();
         }
     }
     [SerializeField] private int _maxAmmo;
+    public int MaxAmmo
+    {
+        get
+        {
+            return _maxAmmo;
+        }
+        private set
+        {
+            _maxAmmo = value;
+        }
+    }
     [SerializeField] private float _timeReload;
-    //[SerializeField] private float _attackRange;
-    [SerializeField] private Text _attackText;
     public bool IsSelectedBullet;
     public int Damage;
     private GameObject _weapon;
@@ -32,16 +42,7 @@ public class PlayerAttack : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     private Vector2 _spawnPoinBulletNow;
     private Vector2 _shieldSpawnPointNow;
-    private void Awake()
-    {
-        _animator = GetComponent<Animator>();
-        _spriteRenderer = GetComponent<SpriteRenderer>();
-    }
-    private void Start()
-    {
-        StartCoroutine(Reload());
-        _attackText.text = "Attack:" + _ammo.ToString() + "/" + _maxAmmo.ToString();
-    }
+    private Action _onRefreshAmmo;
     public void OnAttack()
     {
         SetSpawnPoint();
@@ -55,6 +56,42 @@ public class PlayerAttack : MonoBehaviour
         _weapon.GetComponent<AttackProjectile>().Damage = Damage;
         _weapon = Instantiate(_shield, _shieldSpawnPointNow, Quaternion.identity);
         _weapon.GetComponent<AttackProjectile>().Damage = Damage;
+    }
+    public void Shot()
+    {
+        if (Ammo < 1)
+        {
+            return;
+        }
+        if (IsSelectedBullet)
+        {
+            OnFullAttack();
+            _animator.SetTrigger("FullAttack");
+        }
+        else
+        {
+            OnAttack();
+            _animator.SetTrigger("Attack");
+        }
+        Ammo--;
+
+    }
+    public void SetActionOnRefreshAmmo(Action onRefreshAmmo)
+    {
+        _onRefreshAmmo = onRefreshAmmo;
+    }
+    private void Awake()
+    {
+        _animator = GetComponent<Animator>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+    private void Start()
+    {
+        StartCoroutine(Reload());
+    }
+    private void OnDisable()
+    {
+        _onRefreshAmmo = null;
     }
     private void SetSpawnPoint()
     {
@@ -71,35 +108,15 @@ public class PlayerAttack : MonoBehaviour
             _spawnPoinBulletNow.x = transform.position.x + _spawnPoinBullet.x;
         }
     }
-    public void Shot()
-    {
-        if (_ammo < 1)
-        {
-            return;
-        }
-        if (IsSelectedBullet)
-        {
-            OnFullAttack();
-            _animator.SetTrigger("FullAttack");
-        }
-        else
-        {
-            OnAttack();
-            _animator.SetTrigger("Attack");
-        }
-        _ammo--;
-        _attackText.text = "Attack:" + _ammo.ToString() + "/" + _maxAmmo.ToString();
 
-    }
-    IEnumerator Reload()
+    private IEnumerator Reload()
     {
         while (true)
         {
             yield return new WaitForSeconds(_timeReload);
-            if (_ammo < _maxAmmo)
+            if (Ammo < _maxAmmo)
             {
-                _ammo++;
-                _attackText.text = "Attack:" + _ammo.ToString() + "/" + _maxAmmo.ToString();
+                Ammo++;
             }
         }
     }
