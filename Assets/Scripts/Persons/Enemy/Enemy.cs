@@ -42,6 +42,7 @@ public class Enemy : MonoBehaviour
     {
         if ((_maskWhoKills.value & (1 << collision.gameObject.layer)) != 0)
         {
+            _health.ApplyDamage(_health.CurrentHealth);
             Destroy(gameObject);
         }
     }
