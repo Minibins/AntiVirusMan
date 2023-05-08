@@ -38,7 +38,7 @@ public class UnityEvents : MonoBehaviour
     }
     public static void UE_ButtonShot()
     {
-        _playerAttack.shot();
+        _playerAttack.Shot();
     }
     public static void UE_ButtonSettings(bool open)
     {

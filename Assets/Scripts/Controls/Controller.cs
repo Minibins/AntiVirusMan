@@ -54,6 +54,6 @@ public class Controller : MonoBehaviour
     }
     private void Attack()
     {
-        _playerAttack.shot();
+        _playerAttack.Shot();
     }
 }

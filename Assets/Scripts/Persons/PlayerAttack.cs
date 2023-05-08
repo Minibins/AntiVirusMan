@@ -71,7 +71,7 @@ public class PlayerAttack : MonoBehaviour
             _spawnPoinBulletNow.x = transform.position.x + _spawnPoinBullet.x;
         }
     }
-    public void shot()
+    public void Shot()
     {
         if (_ammo < 1)
         {

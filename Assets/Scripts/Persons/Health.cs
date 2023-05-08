@@ -6,15 +6,10 @@ public class Health : MonoBehaviour
     [SerializeField] private int _maxHealth = 1;
     public int CurrentHealth { get; private set; }
     private Action _death;
-    private void Awake()
-    {
-        CurrentHealth = _maxHealth;
-        _death = DestroyHimself;
-    }
     public void ApplyDamage(int damage)
     {
         CurrentHealth -= damage;
-        if (CurrentHealth <= 0)
+        if (CurrentHealth <= 0 && _death != null)
         {
             _death();
             _death = null;
@@ -33,6 +28,10 @@ public class Health : MonoBehaviour
     public void SetActionDeath(Action onDeath)
     {
         _death = onDeath;
+    }
+    private void Awake()
+    {
+        CurrentHealth = _maxHealth;
     }
     private void DestroyHimself()
     {
