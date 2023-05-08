@@ -9,10 +9,9 @@ public class Health : MonoBehaviour
     public void ApplyDamage(int damage)
     {
         CurrentHealth -= damage;
-        if (CurrentHealth <= 0 && _death != null)
+        if (CurrentHealth <= 0 )
         {
             _death();
-            _death = null;
         }
     }
     public void SetMaxHealth(int maxHealth)
@@ -32,6 +31,17 @@ public class Health : MonoBehaviour
     private void Awake()
     {
         CurrentHealth = _maxHealth;
+    }
+    private void OnEnable()
+    {
+        if (_death == null)
+        {
+            _death = DestroyHimself;
+        }
+    }
+    private void OnDisable()
+    {
+        _death = null;
     }
     private void DestroyHimself()
     {

@@ -32,29 +32,6 @@ public class Move : MonoBehaviour
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
     private Vector2 _velocity = Vector2.zero;
-    private void Awake()
-    {
-        _animator = GetComponent<Animator>();
-        _spriteRenderer = GetComponent<SpriteRenderer>();
-        _rigidbody2D = GetComponent<Rigidbody2D>();
-    }
-    private void OnEnable()
-    {
-        CanJump = CanJump;
-    }
-    private void FixedUpdate()
-    {
-        _move();
-    }
-    private void MoveAndJump()
-    {
-        _velocity.y = _rigidbody2D.velocity.y;
-        MoveNotJump();
-    }
-    private void MoveNotJump()
-    {
-        _rigidbody2D.velocity = _velocity;
-    }
     public void MoveHorizontally(float direction)
     {
         _velocity.Set(0f, _rigidbody2D.velocity.y);
@@ -105,6 +82,29 @@ public class Move : MonoBehaviour
     public void StopJump()
     {
         _animator.SetBool("IsJumping", false);
+    }
+    private void Awake()
+    {
+        _animator = GetComponent<Animator>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _rigidbody2D = GetComponent<Rigidbody2D>();
+    }
+    private void OnEnable()
+    {
+        CanJump = CanJump;
+    }
+    private void FixedUpdate()
+    {
+        _move();
+    }
+    private void MoveAndJump()
+    {
+        _velocity.y = _rigidbody2D.velocity.y;
+        MoveNotJump();
+    }
+    private void MoveNotJump()
+    {
+        _rigidbody2D.velocity = _velocity;
     }
     private void OnDisable()
     {
