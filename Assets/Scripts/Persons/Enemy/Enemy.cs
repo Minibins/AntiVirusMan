@@ -23,7 +23,14 @@ public class Enemy : MonoBehaviour
     {
         _PC = GameObject.FindGameObjectWithTag("PC");
         EnemyMove();
-        _health.SetActionDeath(OnDeath);
+    }
+    private void OnEnable()
+    {
+        _health.OnDeath += OnDeath;
+    }
+    private void OnDisable()
+    {
+        _health.OnDeath -= OnDeath;
     }
     private void EnemyMove()
     {

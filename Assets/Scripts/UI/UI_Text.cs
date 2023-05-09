@@ -13,14 +13,21 @@ public class UI_Text : MonoBehaviour
     //[SerializeField] private int _enemyKills;
     private void OnEnable()
     {
-        _health.SetActionApplyDamage(RefreshHealthText);
+        _health.OnApplyDamage += RefreshHealthText;
         RefreshHealthText();
-        _attackCount.SetActionOnRefreshAmmo(RefreshAttackText);
+        _attackCount.OnRefreshAmmo += RefreshAttackText;
         RefreshAttackText();
         _gameManager.OnTimer += RefreshTimerText;
         RefreshTimerText();
         _gameManager.OnEnemyDie += RefreshEnemyKillsText;
         RefreshEnemyKillsText();
+    }
+    private void OnDisable()
+    {
+        _health.OnApplyDamage -= RefreshHealthText;
+        _attackCount.OnRefreshAmmo -= RefreshAttackText;
+        _gameManager.OnTimer -= RefreshTimerText;
+        _gameManager.OnEnemyDie -= RefreshEnemyKillsText;
     }
     private void RefreshHealthText()
     {

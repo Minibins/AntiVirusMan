@@ -11,14 +11,18 @@ public class PC : MonoBehaviour
     {
         _health = GetComponent<Health>();
     }
-    private void Start()
+    private void OnEnable()
     {
-        _health.SetActionDeath(GameOver);
+        _health.OnDeath += GameOver;
     }
     private void GameOver()
     {
         GetComponent<Animator>().SetBool("Lose", true);
         FindFirstObjectByType<GameManager>().TakeDamage(-10f);
+    }
+    private void OnDisable()
+    {
+        _health.OnDeath -= GameOver;
     }
 
 }

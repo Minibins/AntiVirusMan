@@ -19,7 +19,7 @@ public class PlayerAttack : MonoBehaviour
         set
         {
             _ammo = value;
-            _onRefreshAmmo();
+            OnRefreshAmmo?.Invoke();
         }
     }
     [SerializeField] private int _maxAmmo;
@@ -35,14 +35,15 @@ public class PlayerAttack : MonoBehaviour
         }
     }
     [SerializeField] private float _timeReload;
-    public bool IsSelectedBullet;
-    public int Damage;
+    [field:SerializeField] public bool IsSelectedBullet { get; set; }
+    [field: SerializeField] public int Damage { get; set; }
+    public Action OnRefreshAmmo { get; set; }
     private GameObject _weapon;
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
     private Vector2 _spawnPoinBulletNow;
     private Vector2 _shieldSpawnPointNow;
-    private Action _onRefreshAmmo;
+
     public void OnAttack()
     {
         SetSpawnPoint();
@@ -76,10 +77,7 @@ public class PlayerAttack : MonoBehaviour
         Ammo--;
 
     }
-    public void SetActionOnRefreshAmmo(Action onRefreshAmmo)
-    {
-        _onRefreshAmmo = onRefreshAmmo;
-    }
+
     private void Awake()
     {
         _animator = GetComponent<Animator>();
@@ -89,9 +87,9 @@ public class PlayerAttack : MonoBehaviour
     {
         StartCoroutine(Reload());
     }
-    private void OnDisable()
+    private void OnDestroy()
     {
-        _onRefreshAmmo = null;
+        OnRefreshAmmo = null;
     }
     private void SetSpawnPoint()
     {
