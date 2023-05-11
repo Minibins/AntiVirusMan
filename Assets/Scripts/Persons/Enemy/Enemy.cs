@@ -37,12 +37,10 @@ public class Enemy : MonoBehaviour
         if (_PC.transform.position.x < transform.position.x)
         {
             _move.MoveHorizontally(-1f);
-            _spriteRenderer.flipX = false;
         }
         else
         {
             _move.MoveHorizontally(1f);
-            _spriteRenderer.flipX = true;
         }
     }
     private void OnTriggerStay2D(Collider2D collision)

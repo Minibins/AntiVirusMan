@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -19,9 +18,9 @@ public class SpeedBoost : MonoBehaviour
     {
         _reloadNow = false;
         _targets = Physics2D.OverlapCircleAll(transform.position, 0.2f, _maskWhoBoosts);
-        List<Move> _move = _targets.Where(x => x.gameObject != gameObject).
-                 Select(x => x.gameObject.GetComponent<Move>()).ToList();
-        _moveTarget = _move.Where(x => x != null && !x.IsMultiplierBoost()).
+        _moveTarget = _targets.Where(x => x.gameObject != gameObject).
+                 Select(x => x.gameObject.GetComponent<Move>()).
+                Where(x => x != null && !x.IsMultiplierBoost()).
                 FirstOrDefault();
         if (_moveTarget != null)
         {
