@@ -5,6 +5,10 @@ using UnityEngine;
     RequireComponent(typeof(SpriteRenderer))]
 public class Move : MonoBehaviour
 {
+    /// <summary>
+    /// True - передвигается только влево или вправо, может прыгать, на тело действует гравитация.
+    /// False - Летает по экрано во всех направлениях, гравитация отключена.
+    /// </summary>
     [SerializeField] private bool _canJump;
     public bool CanJump
     {
@@ -18,10 +22,12 @@ public class Move : MonoBehaviour
             if (_canJump)
             {
                 _move = MoveAndJump;
+                _rigidbody2D.gravityScale = 1f;
             }
             else
             {
                 _move = MoveNotJump;
+                _rigidbody2D.gravityScale = 0f;
             }
         }
     }
