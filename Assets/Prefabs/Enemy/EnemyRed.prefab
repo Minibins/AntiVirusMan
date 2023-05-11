@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: -7254249747895268964}
   - component: {fileID: -7714455965291332328}
   - component: {fileID: 4300671704897370535}
+  - component: {fileID: -2885257079954023851}
   m_Layer: 11
   m_Name: EnemyRed
   m_TagString: Enemy
@@ -201,7 +202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 3
-  DoNotDestroy: 0
+  <CurrentHealth>k__BackingField: 0
 --- !u!114 &-7254249747895268964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,6 +250,24 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8192
   _velosity: {x: 0, y: 0}
+--- !u!114 &-2885257079954023851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49990711567001007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb32208877b2b8e4b9e31eef4afe0078, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maskWhoBoosts:
+    serializedVersion: 2
+    m_Bits: 6144
+  _multiplierSpeed: 10
+  _durationBoost: 2
+  _ReloadTime: 3
 --- !u!1 &1390221641294342662
 GameObject:
   m_ObjectHideFlags: 0

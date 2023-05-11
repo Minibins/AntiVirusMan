@@ -33,6 +33,8 @@ public class Move : MonoBehaviour
     }
     [SerializeField] private float _speed = 1f;
     [SerializeField] private float _jumpingPower = 10f;
+    private float _speedMultiplier = 1f;
+    private float _curentSpeed;
     private Action _move;
     private Rigidbody2D _rigidbody2D;
     private Animator _animator;
@@ -47,13 +49,13 @@ public class Move : MonoBehaviour
         }
         else if (direction < 0f)
         {
-            _velocity.x = -_speed;
+            _velocity.x = -_curentSpeed;
             _spriteRenderer.flipX = true;
             _animator.SetBool("IsRunning", true);
         }
         else
         {
-            _velocity.x = _speed;
+            _velocity.x = _curentSpeed;
             _spriteRenderer.flipX = false;
             _animator.SetBool("IsRunning", true);
         }
@@ -67,12 +69,12 @@ public class Move : MonoBehaviour
         }
         else if (direction < 0f)
         {
-            _velocity.y = -_speed;
+            _velocity.y = -_curentSpeed;
             _animator.SetBool("IsRunning", true);
         }
         else
         {
-            _velocity.y = _speed;
+            _velocity.y = _curentSpeed;
             _animator.SetBool("IsRunning", true);
         }
     }
@@ -89,11 +91,41 @@ public class Move : MonoBehaviour
     {
         _animator.SetBool("IsJumping", false);
     }
+    public void SetSpeedMultiplierTemporary(float multiplier, float time = 1f)
+    {
+        _curentSpeed = _speed * multiplier;
+        ResetSpeed();
+        Invoke(nameof(SetDefaultSpeed), time);
+    }
+
+    public void SetSpeedMultiplierForOllTime(float multiplier = 1f)
+    {
+        _speedMultiplier = multiplier;
+        _curentSpeed = _speed * _speedMultiplier;
+        ResetSpeed();
+    }
+    public bool IsMultiplierBoost()
+    {
+        return IsInvoking(nameof(SetDefaultSpeed));
+    }
+    private void SetDefaultSpeed()
+    {
+        SetSpeedMultiplierForOllTime(_speedMultiplier);
+    }
+    private void ResetSpeed()
+    {
+        MoveHorizontally(_velocity.x);
+        if (!CanJump)
+        {
+            MoveVertically(_velocity.y);
+        }
+    }
     private void Awake()
     {
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
+        SetSpeedMultiplierForOllTime(_speedMultiplier);
     }
     private void OnEnable()
     {
