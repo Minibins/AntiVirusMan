@@ -26,19 +26,9 @@ public class MainMenu : MonoBehaviour
         save.SaveField();
     }
 
-    public void Location()
+    public void Location(int location)
     {
-        a = 2;
-        StartCoroutine(Change());
-    }
-    public void Settings()
-    {
-        a = 1;
-        StartCoroutine(Change());
-    }
-    public void Main()
-    {
-        a = 0;
+        a = location;
         StartCoroutine(Change());
     }
     public void PerehodOn()
