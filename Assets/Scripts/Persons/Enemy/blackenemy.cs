@@ -1,73 +1,53 @@
 ﻿using UnityEngine;
+[RequireComponent(typeof(Health)),
+    RequireComponent(typeof(Rigidbody2D)),
+    RequireComponent(typeof(Move))]
 public class blackenemy : MonoBehaviour
 {
-    [SerializeField] private GameObject explosion;
-    [SerializeField] private float Speed;
-    [SerializeField] private float Health;
-    [SerializeField] private int Damage;
-    [SerializeField] private int pcnormally;
-    private Animator anim;
-    private bool explode;
-    private GameObject PC;
-    private GameObject _GameManager;
-    private Rigidbody2D rb;
-
-    private void Start()
+    [SerializeField] GameObject _explosion;
+    [SerializeField] float _explosionRadius;
+    [SerializeField] int _explosionPower;
+    [SerializeField] private LayerMask _maskWhoKills;
+    private Health _health;
+    private void Awake()
     {
-        transform.position = new Vector3(transform.position.x, -1f, transform.position.z);
-        anim = gameObject.GetComponent<Animator>();
-        rb = GetComponent<Rigidbody2D>();
-        PC = GameObject.FindGameObjectWithTag("PC");
-        _GameManager = GameObject.FindGameObjectWithTag("GameManager");
+        _health = GetComponent<Health>();
     }
-    private void FixedUpdate()
+    private void OnEnable()
     {
-        if (!explode) { EnemyMove(); }
-        else { fallAndExplode(); }
-        if (transform.position.y < pcnormally)
-        {
-            Instantiate(explosion, new Vector3(transform.position.x, -2.05f, transform.position.z), Quaternion.identity);
-            Destroy(gameObject);
-        }
+        _health.OnDeath += OnDeath;
     }
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnDisable()
     {
-
-        if (other.CompareTag("AntivirusAtack") || other.CompareTag("ATACK EVERYBODY"))
+        _health.OnDeath -= OnDeath;
+    }
+    private void OnDeath()
+    {
+        gameObject.GetComponent<Rigidbody2D>().simulated = true;
+        Move move = GetComponent<Move>();
+        move.CanJump = true;
+        move.MoveHorizontally(0f);
+        Invoke(nameof(Explosion), 2f);
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if ((_maskWhoKills.value & (1 << collision.gameObject.layer)) != 0)
         {
-            //TakeDamage(other.GetComponent<AtackProjectile>().power);
+            _health.ApplyDamage(_health.CurrentHealth);
         }
     }
-
-    public void TakeDamage(float Damage)
+    private void Explosion()
     {
-        Health -= Damage;
-        if (Health <= 0)
+        Destroy(gameObject);
+        Collider2D[] targets = Physics2D.OverlapCircleAll(transform.position, _explosionRadius);
+        Health health;
+        foreach (var target in targets)
         {
-            explode = true;
-            rb.velocity = new Vector2(rb.velocity.x, 10);
+            if (target.TryGetComponent<Health>(out health))
+            {
+                health.ApplyDamage(_explosionPower);
+            }
         }
-    }
-    private void EnemyMove()
-    {
-        if (PC.transform.position.x < transform.position.x&& rb.velocity != new Vector2(-Speed, 0))
-        {
-            rb.velocity = new Vector2(-Speed, 0);
-            transform.localScale = new Vector2(6f, 6f);
-        }
-        else if (PC.transform.position.x > transform.position.x&& rb.velocity != new Vector2(Speed, 0))
-        {
-            rb.velocity = new Vector2(Speed, 0);
-            transform.localScale = new Vector2(-6f, 6f);
-        }
-        if (PC.transform.position.x < transform.position.x + 1 && PC.transform.position.x > transform.position.x - 1)
-        {
-            explode = true;
-            rb.velocity = new Vector2(rb.velocity.x, 10);
-        }
-    }
-    public void fallAndExplode()
-    {
-        rb.gravityScale = 2;
+        Instantiate(_explosion, transform.position, Quaternion.identity);
     }
 }
