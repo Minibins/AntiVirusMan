@@ -4,7 +4,8 @@ using System.Collections;
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] private GameObject[] location;
-    [SerializeField] private Mover mover;
+    [SerializeField] private GameObject Perehod;
+    public int a;
     public Save save;
 
     public void LocationMove(int _Scene)
@@ -25,22 +26,58 @@ public class MainMenu : MonoBehaviour
         save.SaveField();
     }
 
-    public void ToLocation()
+    public void Location()
     {
+        a = 2;
         StartCoroutine(Change());
     }
+    public void Settings()
+    {
+        a = 1;
+        StartCoroutine(Change());
+    }
+    public void Main()
+    {
+        a = 0;
+        StartCoroutine(Change());
+    }
+    public void PerehodOn()
+    {
+        Perehod.SetActive(true);
+    }
+
+
+    IEnumerator Change()
+    {
+        PerehodOn();
+        yield return new WaitForSeconds(0.5f);
+        if (a == 0)
+        {
+            location[1].SetActive(false);
+            location[2].SetActive(false);
+            location[0].SetActive(true);
+        }
+        else if (a == 1)
+        {
+            location[1].SetActive(true);
+            location[2].SetActive(false);
+            location[0].SetActive(false);
+
+        }
+        else if (a == 2)
+        {
+            location[1].SetActive(false);
+            location[2].SetActive(true);
+            location[0].SetActive(false);
+        }
+    }
+
+
+
 
     public void ExitGame()
     {
         save.SaveField();
         Application.Quit();
-    }
-    IEnumerator Change()
-    {
-        mover.PerehodOn();
-        yield return new WaitForSeconds(0.4f);
-        location[1].SetActive(false);
-        location[2].SetActive(true);
-        location[0].SetActive(false);
     }
 }
