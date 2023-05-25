@@ -55,6 +55,6 @@ public class Enemy : MonoBehaviour
     {
         gameObject.GetComponent<Rigidbody2D>().simulated = false;
         _animator.SetTrigger("Die");
-        GameManager.TakeEXP(1);
+        LevelupManager.TakeEXP(1);
     }
 }

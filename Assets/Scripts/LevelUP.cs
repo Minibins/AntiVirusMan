@@ -24,7 +24,6 @@ public class LevelUP : MonoBehaviour
 
     public void NewUpgrade()
     {
-
         a = Random.Range(0, itemtextures.Length);
         if (!IssTake[a])
         {

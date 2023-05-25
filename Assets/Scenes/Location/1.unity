@@ -4236,6 +4236,7 @@ MonoBehaviour:
   _attackCount: {fileID: 429989180}
   _timerText: {fileID: 334533678}
   _gameManager: {fileID: 1842592165}
+  _LevelUpManager: {fileID: 1842592167}
   _enemyKillsText: {fileID: 1847794600}
 --- !u!1 &876356890
 GameObject:
@@ -8250,8 +8251,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1842592166}
   - component: {fileID: 1842592165}
+  - component: {fileID: 1842592167}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: Managers
   m_TagString: GameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8271,20 +8273,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 429989178}
   LosePanel: {fileID: 4720697674871447862}
-  SettingsPanel: {fileID: 1367788396437152089}
   enemy:
   - {fileID: 0}
-  LevelUp: {fileID: 987732239367246165}
   sec: 0
   min: 0
   TimeToWin: 10
-  EnemyNeedToUpLVL: 15
   StopTime: 1
   LiveTextLose: {fileID: 1523638599151307896}
   SE: {fileID: 427215478}
   save: {fileID: 586405110}
   anim: {fileID: 0}
   _level: 1
+  SettingsPanel: {fileID: 1367788396437152089}
 --- !u!4 &1842592166
 Transform:
   m_ObjectHideFlags: 0
@@ -8303,6 +8303,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1842592167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1842592164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a107e8a7386245241a73677d8d9c1d24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LevelUp: {fileID: 987732239367246165}
+  EnemyNeedToUpLVL: 15
+  _enemyDieText: 
 --- !u!1 &1847794598
 GameObject:
   m_ObjectHideFlags: 0

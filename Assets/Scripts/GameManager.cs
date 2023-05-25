@@ -6,33 +6,21 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject Player;
-    // [SerializeField] private GameObject LevelUp;
     [SerializeField] private GameObject LosePanel;
-    public GameObject SettingsPanel;
     [SerializeField] private GameObject[] enemy;
-    [SerializeField] private GameObject LevelUp;
-    //[SerializeField] private int Level;
-    //[SerializeField] private float Health;
     [SerializeField] private int sec;
     [SerializeField] private int min;
     [SerializeField] private int TimeToWin;
-    [SerializeField] private float EnemyNeedToUpLVL;
-    private static float EnemyDie;
     [SerializeField] private bool StopTime = true;
-    private string _enemyDieText;
-    public string EnemyDieText
-    {
-        get
-        {
-            return _enemyDieText;
-        }
-        set
-        {
-            _enemyDieText = value;
-            OnEnemyDie?.Invoke();
-        }
-    }
+    [SerializeField] private Text LiveTextLose;
+    [SerializeField] private SpawnerEnemy SE;
+    [SerializeField] private Save save;
+    [SerializeField] private Animator anim;
+    [SerializeField] private int _level;
     private string _timerText;
+    public GameObject SettingsPanel;
+    public Action OnTimer { get; set; }
+
     public string TimerText
     {
         get
@@ -45,22 +33,12 @@ public class GameManager : MonoBehaviour
             OnTimer?.Invoke();
         }
     }
-    [SerializeField] private Text LiveTextLose;
-    [SerializeField] private SpawnerEnemy SE;
-    [SerializeField] private Save save;
-    [SerializeField] private Animator anim;
-    [SerializeField] private int _level;
-    public Action OnTimer { get; set; }
-    public Action OnEnemyDie { get; set; }
     private void Start()
     {
-        Settings();
+        Player = GameObject.FindGameObjectWithTag("Player");
+        SettingsPanel.SetActive(false);
+        LosePanel.SetActive(false);
         StartCoroutine(TimeFlow());
-    }
-
-    private void Update()
-    {
-        Upgrade();
     }
     public void TakeDamage(float Damage)
     {
@@ -68,26 +46,18 @@ public class GameManager : MonoBehaviour
         {
             return;
         }
-        //Health -= Damage;
-        //Health_Text.text = "Health:" + Health;
-        //if (Health <= 0)
-        //{
         Destroy(Player);
-        //anim.SetBool("Lose", true);
         SE.GetComponent<SpawnerEnemy>().StopOrStartSpawn();
         enemy = GameObject.FindGameObjectsWithTag("Enemy");
         for (int i = 0; i < enemy.Length; i++)
         {
-            Destroy(enemy[i]);
+            enemy[i].GetComponent<Rigidbody2D>().simulated = false;
+            enemy[i].GetComponent<Animator>().SetTrigger("Die");
         }
         LosePanel.SetActive(true);
         StopTime = false;
-        //}
     }
-    public static void TakeEXP(int kills)
-    {
-        EnemyDie += kills;
-    }
+
     IEnumerator TimeFlow()
     {
         while (StopTime == true)
@@ -116,7 +86,6 @@ public class GameManager : MonoBehaviour
     private void OnDisable()
     {
         OnTimer = null;
-        OnEnemyDie = null;
     }
     public void MoveScene(string _Scene)
     {
@@ -126,28 +95,5 @@ public class GameManager : MonoBehaviour
     public void OpenSettings(bool Open)
     {
         SettingsPanel.SetActive(Open);
-        //TimeFlow();
-    }
-    private void Settings()
-    {
-        Player = GameObject.FindGameObjectWithTag("Player");
-        SettingsPanel.SetActive(false);
-        LosePanel.SetActive(false);
-        EnemyDieText = "EnemyDie:" + EnemyDie.ToString() + "/" + Mathf.Round(EnemyNeedToUpLVL).ToString();
-        //Health_Text.text = "Health:" + Health;
-        TimerText = min.ToString("D2") + " : " + sec.ToString("D2");
-    }
-
-    private void Upgrade()
-    {
-        EnemyDieText = "EnemyDie:" + EnemyDie.ToString() + "/" + Mathf.Round(EnemyNeedToUpLVL).ToString();
-        if (EnemyDie >= EnemyNeedToUpLVL)
-        {
-            EnemyDie = 0;
-            EnemyNeedToUpLVL *= 1.1f;
-            //Level++;
-            LevelUp.SetActive(true);
-            LevelUp.GetComponent<LevelUP>().NewUpgrade();
-        }
     }
 }
