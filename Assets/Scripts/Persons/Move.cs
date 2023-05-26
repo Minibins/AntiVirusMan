@@ -7,6 +7,7 @@ using System.Collections.Generic;
 public class Move : MonoBehaviour
 {
 
+<<<<<<< Updated upstream
     private enum PathTypes
     {
         Wallking,
@@ -26,12 +27,29 @@ public class Move : MonoBehaviour
     [SerializeField] private bool _canJump;
     [SerializeField] private float _speed = 1f;
     [SerializeField] private float _jumpingPower = 10f;
+=======
+    [SerializeField] private PathTypes PathType;
+    [SerializeField] private float maxDistance = .1f;
+    [SerializeField] private bool _canJump;
+    [SerializeField] private float _speed = 1f;
+    [SerializeField] private float _jumpingPower = 10f;
+    private Way way;
+    private IEnumerator<Transform> pointInPath;
+>>>>>>> Stashed changes
     private float _speedMultiplier = 1f;
     private float _curentSpeed;
     private Action _move;
     private Rigidbody2D _rigidbody2D;
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
+<<<<<<< Updated upstream
+=======
+    private enum PathTypes
+    {
+        Wallking,
+        WallkingOnWire,
+    }
+>>>>>>> Stashed changes
     private Vector2 _velocity = Vector2.zero; public bool CanJump
     {
         get
@@ -54,6 +72,7 @@ public class Move : MonoBehaviour
         }
     }
 
+<<<<<<< Updated upstream
 
     private void Awake()
     {
@@ -63,6 +82,13 @@ public class Move : MonoBehaviour
         transform.position = pointInPath.Current.position;
 
 
+=======
+    private void Awake()
+    {
+        way = GameObject.FindGameObjectWithTag("Way").GetComponent<Way>();
+        pointInPath = way.GetNextPathPoint();
+        pointInPath.MoveNext();
+>>>>>>> Stashed changes
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
@@ -78,7 +104,11 @@ public class Move : MonoBehaviour
 
     public void MoveHorizontally(float direction)
     {
+<<<<<<< Updated upstream
         if (PathType != PathTypes.WallkingOnWire)
+=======
+        if (PathType == PathTypes.Wallking)
+>>>>>>> Stashed changes
         {
             _velocity.Set(0f, _rigidbody2D.velocity.y);
             if (direction == 0f)
@@ -201,4 +231,8 @@ public class Move : MonoBehaviour
             }
         }
     }
+<<<<<<< Updated upstream
 }
+=======
+}
+>>>>>>> Stashed changes

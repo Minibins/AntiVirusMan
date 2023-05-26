@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: -9047895291804948699}
   - component: {fileID: 5645338690043026744}
   m_Layer: 11
-  m_Name: GreenEnemy
+  m_Name: Enemy 1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -204,12 +204,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ac0864a499e6c245b5123faa04be24d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PathType: 0
-<<<<<<<< Updated upstream:Assets/Prefabs/Enemy/OnGround/GreenEnemy.prefab
-  waies: {fileID: 0}
-========
+  PathType: 1
   way: {fileID: 0}
->>>>>>>> Stashed changes:Assets/Prefabs/Enemy/1_Location/OnGround/Enemy.prefab
   maxDistance: 0.1
   _canJump: 1
   _speed: 1
