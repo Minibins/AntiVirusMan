@@ -19,7 +19,7 @@ public class SpeedBoost : MonoBehaviour
         _reloadNow = false;
         _targets = Physics2D.OverlapCircleAll(transform.position, 0.2f, _maskWhoBoosts);
         _moveTarget = _targets.Where(x => x.gameObject != gameObject).
-                 Select(x => x.gameObject.GetComponent<Move>()).
+                Select(x => x.gameObject.GetComponent<Move>()).
                 Where(x => x != null && !x.IsMultiplierBoost()).
                 FirstOrDefault();
         if (_moveTarget != null)
