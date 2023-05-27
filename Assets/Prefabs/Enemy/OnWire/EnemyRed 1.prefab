@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 4300671704897370535}
   - component: {fileID: -2885257079954023851}
   m_Layer: 11
-  m_Name: EnemyRed
+  m_Name: EnemyRed 1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -215,6 +215,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ac0864a499e6c245b5123faa04be24d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PathType: 1
+  maxDistance: 0.1
   _canJump: 1
   _speed: 0.5
   _jumpingPower: 10
