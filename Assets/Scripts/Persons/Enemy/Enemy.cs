@@ -12,6 +12,10 @@ public class Enemy : MonoBehaviour
     private Move _move;
     private SpriteRenderer _spriteRenderer;
     private Animator _animator;
+
+    public GameObject MoveToPoint;
+    public int ChangeMove;
+
     private void Awake()
     {
         _health = GetComponent<Health>();
@@ -22,8 +26,12 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         _PC = GameObject.FindGameObjectWithTag("PC");
+    }
+    private void FixedUpdate()
+    {
         EnemyMove();
     }
+
     private void OnEnable()
     {
         _health.OnDeath += OnDeath;
@@ -34,13 +42,20 @@ public class Enemy : MonoBehaviour
     }
     private void EnemyMove()
     {
-        if (_PC.transform.position.x < transform.position.x)
+        if (ChangeMove == 0)
         {
-            _move.MoveHorizontally(-1f);
+            if (_PC.transform.position.x < transform.position.x)
+            {
+                _move.MoveHorizontally(-1f);
+            }
+            else
+            {
+                _move.MoveHorizontally(1f);
+            }
         }
-        else
+        else if (ChangeMove == 1)
         {
-            _move.MoveHorizontally(1f);
+            _move.MoveOnWire(MoveToPoint);
         }
     }
     private void OnTriggerStay2D(Collider2D collision)
@@ -49,6 +64,17 @@ public class Enemy : MonoBehaviour
         {
             _health.ApplyDamage(_health.CurrentHealth);
             Destroy(gameObject);
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("WayPoint"))
+        {
+            MoveToPoint = other.gameObject.GetComponent<WayPoint>().nextPoint[Random.Range(0, other.gameObject.GetComponent<WayPoint>().nextPoint.Length)];
+        }
+        else if (other.CompareTag("EndWire"))
+        {
+            ChangeMove = 0;
         }
     }
     private void OnDeath()

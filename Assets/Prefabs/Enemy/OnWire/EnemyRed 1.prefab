@@ -34,12 +34,12 @@ Transform:
   m_GameObject: {fileID: 49990711567001007}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.315, y: -2.305, z: 0}
-  m_LocalScale: {x: -5, y: 5, z: 5}
+  m_LocalScale: {x: -2.8920634, y: 2.8920634, z: 2.8920634}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7180264809983310948}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &9184660274169354516
 SpriteRenderer:
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 501
   m_Sprite: {fileID: 5238371626523718381, guid: 1df0e45a1e1783b4bac6578d311db4ef,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -215,8 +215,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ac0864a499e6c245b5123faa04be24d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PathType: 1
-  maxDistance: 0.1
   _canJump: 1
   _speed: 0.5
   _jumpingPower: 10
@@ -235,6 +233,8 @@ MonoBehaviour:
   _maskWhoKills:
     serializedVersion: 2
     m_Bits: 8192
+  MoveToPoint: {fileID: 0}
+  ChangeMove: 1
 --- !u!114 &4300671704897370535
 MonoBehaviour:
   m_ObjectHideFlags: 0
