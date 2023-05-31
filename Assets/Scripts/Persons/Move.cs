@@ -150,6 +150,10 @@ public class Move : MonoBehaviour
         _rigidbody2D = GetComponent<Rigidbody2D>();
         SetSpeedMultiplierForOllTime(_speedMultiplier);
     }
+    private void OnEnable()
+    {
+        CanJump = CanJump;
+    }
 
     private void FixedUpdate()
     {
@@ -157,10 +161,6 @@ public class Move : MonoBehaviour
         EnemyMoves();
     }
 
-    private void OnEnable()
-    {
-        CanJump = CanJump;
-    }
 
     private void MoveAndJump()
     {
