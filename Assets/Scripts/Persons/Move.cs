@@ -8,25 +8,12 @@ public class Move : MonoBehaviour
 {
     [SerializeField] private PathTypes PathType;
     [SerializeField] private float maxDistance = .1f;
+    /// <summary>
+    /// True - передвигается только влево или вправо, может прыгать, на тело действует гравитация.
+    /// False - Летает по экрано во всех направлениях, гравитация отключена.
+    /// </summary>
     [SerializeField] private bool _canJump;
-    [SerializeField] private float _speed = 1f;
-    [SerializeField] private float _jumpingPower = 10f;
-    private Way way;
-    private IEnumerator<Transform> pointInPath;
-    private float _speedMultiplier = 1f;
-    private float _curentSpeed;
-    private Action _move;
-    private Rigidbody2D _rigidbody2D;
-    private Animator _animator;
-    private SpriteRenderer _spriteRenderer;
-
-    private enum PathTypes
-    {
-        Wallking,
-        WallkingOnWire,
-    }
-
-    private Vector2 _velocity = Vector2.zero; public bool CanJump
+    public bool CanJump
     {
         get
         {
@@ -47,24 +34,25 @@ public class Move : MonoBehaviour
             }
         }
     }
+    [SerializeField] private float _speed = 1f;
+    [SerializeField] private float _jumpingPower = 10f;
+    private Way way;
+    private IEnumerator<Transform> pointInPath;
+    private float _speedMultiplier = 1f;
+    private float _curentSpeed;
+    private Action _move;
+    private Rigidbody2D _rigidbody2D;
+    private Animator _animator;
+    private SpriteRenderer _spriteRenderer;
 
-    private void Awake()
+    private enum PathTypes
     {
-        way = GameObject.FindGameObjectWithTag("Way").GetComponent<Way>();
-        pointInPath = way.GetNextPathPoint();
-        pointInPath.MoveNext();
-        _animator = GetComponent<Animator>();
-        _spriteRenderer = GetComponent<SpriteRenderer>();
-        _rigidbody2D = GetComponent<Rigidbody2D>();
-        SetSpeedMultiplierForOllTime(_speedMultiplier);
+        Wallking,
+        WallkingOnWire,
     }
 
-    private void FixedUpdate()
-    {
-        _move();
-        EnemyMoves();
-    }
-
+    private Vector2 _velocity = Vector2.zero; 
+   
 
     public void MoveHorizontally(float direction)
     {
@@ -149,6 +137,24 @@ public class Move : MonoBehaviour
         {
             MoveVertically(_velocity.y);
         }
+    }
+
+
+    private void Awake()
+    {
+        way = GameObject.FindGameObjectWithTag("Way").GetComponent<Way>();
+        pointInPath = way.GetNextPathPoint();
+        pointInPath.MoveNext();
+        _animator = GetComponent<Animator>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _rigidbody2D = GetComponent<Rigidbody2D>();
+        SetSpeedMultiplierForOllTime(_speedMultiplier);
+    }
+
+    private void FixedUpdate()
+    {
+        _move();
+        EnemyMoves();
     }
 
     private void OnEnable()
