@@ -36,7 +36,7 @@ public class UpgradeButton : MonoBehaviour
         {
             case 0:
                 Laser = GameObject.FindGameObjectWithTag("LaserGun");
-                Laser.transform.position = new Vector3(Random.Range(-6, 6), -3.2f, 0);
+                Laser.transform.position = new Vector2(Random.Range(25, 35), -23.725f);
                 Laser.GetComponent<LaserGun>().StartShoot();
                 break;
             case 5:
@@ -62,7 +62,7 @@ public class UpgradeButton : MonoBehaviour
                 break;
             case 28:
                 PUSHKA = GameObject.FindGameObjectWithTag("PUSHKA");
-                PUSHKA.transform.position = new Vector3(Random.Range(-7, 7), -3.317f, 0);
+                PUSHKA.transform.position = new Vector2(Random.Range(47, 51), 4.55f);
                 PUSHKA.GetComponent<PUSHKA>().StartShoot();
                 break;
         }

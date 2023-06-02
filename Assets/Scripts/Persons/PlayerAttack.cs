@@ -10,6 +10,16 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private GameObject _shield;
     [SerializeField] private Vector2 _shieldSpawnPoint;
     [SerializeField] private int _ammo;
+    [SerializeField] private int _maxAmmo;
+    [SerializeField] private float _timeReload;
+    [field: SerializeField] public bool IsSelectedBullet { get; set; }
+    [field: SerializeField] public int Damage { get; set; }
+    private GameObject _weapon;
+    private Animator _animator;
+    private SpriteRenderer _spriteRenderer;
+    private Vector2 _spawnPoinBulletNow;
+    private Vector2 _shieldSpawnPointNow;
+    public Action OnRefreshAmmo { get; set; }
     public int Ammo
     {
         get
@@ -22,7 +32,6 @@ public class PlayerAttack : MonoBehaviour
             OnRefreshAmmo?.Invoke();
         }
     }
-    [SerializeField] private int _maxAmmo;
     public int MaxAmmo
     {
         get
@@ -34,15 +43,16 @@ public class PlayerAttack : MonoBehaviour
             _maxAmmo = value;
         }
     }
-    [SerializeField] private float _timeReload;
-    [field:SerializeField] public bool IsSelectedBullet { get; set; }
-    [field: SerializeField] public int Damage { get; set; }
-    public Action OnRefreshAmmo { get; set; }
-    private GameObject _weapon;
-    private Animator _animator;
-    private SpriteRenderer _spriteRenderer;
-    private Vector2 _spawnPoinBulletNow;
-    private Vector2 _shieldSpawnPointNow;
+
+    private void Awake()
+    {
+        _animator = GetComponent<Animator>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+    private void Start()
+    {
+        StartCoroutine(Reload());
+    }
 
     public void OnAttack()
     {
@@ -78,15 +88,6 @@ public class PlayerAttack : MonoBehaviour
 
     }
 
-    private void Awake()
-    {
-        _animator = GetComponent<Animator>();
-        _spriteRenderer = GetComponent<SpriteRenderer>();
-    }
-    private void Start()
-    {
-        StartCoroutine(Reload());
-    }
     private void OnDestroy()
     {
         OnRefreshAmmo = null;
