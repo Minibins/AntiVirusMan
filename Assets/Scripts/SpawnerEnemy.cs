@@ -13,6 +13,8 @@ public class SpawnerEnemy : MonoBehaviour
     {
         StartCoroutine(Spawn());
     }
+
+
     IEnumerator Spawn()
     {
         while (isSpawn)
