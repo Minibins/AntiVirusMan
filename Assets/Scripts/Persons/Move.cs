@@ -7,8 +7,8 @@ using UnityEngine;
 public class Move : MonoBehaviour
 {
     [SerializeField] private bool _canJump;
-    [SerializeField] private float _speed = 1f;
     [SerializeField] private float _jumpingPower = 10f;
+    public float _speed = 1f;
     private float _speedMultiplier = 1f;
     private float _curentSpeed;
     private Action _move;

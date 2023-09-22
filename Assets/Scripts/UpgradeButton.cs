@@ -1,33 +1,72 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UpgradeButton : MonoBehaviour
 {
-    //ID 0
-    private GameObject Laser;
-    //ID 0
-    //ID 5
-    //ID 12
-    //ID 12
-    //ID 13
-    [SerializeField] private GameObject DownButton;
-    //ID 13
-    //ID 14
-    //ID 14
-    //ID 28
-    private GameObject PUSHKA;
-    //ID 28
-
     public int id;
     public GameObject mainupgrader;
     private GameObject Player;
+    private GameManager gameManager;
+
+
+    //ID 0
+    //Works
+    private GameObject Laser;
+    //ID 0
+
+    //ID 1
+    //Works
+    //ID 1
+
+    //ID 2
+    //Works
+    //ID 2
+
+    //ID 3
+    //Works
+    //ID 3
+
+    //ID 4
+    //Works
+    [SerializeField] private GameObject DownButton;
+    //ID 4
+
+    //ID 5
+    //Works
+    //ID 5
+
+    //ID 6
+    //Works
+    private GameObject PUSHKA;
+    //ID 6
+
+    //ID 7
+    //Works
+    //ID 7
+
+    //ID 8
+    //Works
+    //ID 8
+
+    //ID 9
+    //Works
+    //ID 9
 
     public void onclick()
     {
-        LevelUP lvlUp = mainupgrader.GetComponent<LevelUP>();
-        lvlUp.IssTake[id] = true;
-        Player = GameObject.Find("Player");
-        ChooseUpgrade();
-        LevelUP.IsSelected = true;
+        if (gameObject.GetComponent<Image>().sprite.name == "None")
+        {
+            Player = GameObject.Find("Player");
+            LevelUP.IsSelected = true;
+        }
+        else
+        {
+            LevelUP lvlUp = mainupgrader.GetComponent<LevelUP>();
+            lvlUp.IssTake[id] = true;
+            Player = GameObject.Find("Player");
+            ChooseUpgrade();
+            LevelUP.IsSelected = true;
+        }
     }
 
     private void ChooseUpgrade()
@@ -36,34 +75,42 @@ public class UpgradeButton : MonoBehaviour
         {
             case 0:
                 Laser = GameObject.FindGameObjectWithTag("LaserGun");
-                Laser.transform.position = new Vector2(Random.Range(25, 35), -23.725f);
                 Laser.GetComponent<LaserGun>().StartShoot();
                 break;
-            case 5:
-                GameObject.FindGameObjectWithTag("Mathyrspawn").GetComponent<SpawnerEnemy>().StopOrStartSpawn();
-                break;
-            case 7:
+            case 1:
                 GameObject.FindGameObjectWithTag("LaserGun").AddComponent<DRAG>();
                 GameObject.FindGameObjectWithTag("PC").AddComponent<DRAG>();
                 GameObject.FindGameObjectWithTag("PC").AddComponent<Rigidbody2D>();
                 break;
-            case 11:
+            case 2:
                 GameObject.FindGameObjectWithTag("Starfall").GetComponent<starfall>().IsSpawn = true;
                 break;
-            case 12:
+            case 3:
                 Player.GetComponent<InstantiateWall>().IsOpenly = true;
                 break;
-            case 13:
+            case 4:
                 Player.GetComponent<Player>().IsDownSelected = true;
                 DownButton.SetActive(true);
                 break;
-            case 14:
+            case 5:
                 Player.GetComponent<PlayerAttack>().IsSelectedBullet = true;
                 break;
-            case 28:
+            case 6:
                 PUSHKA = GameObject.FindGameObjectWithTag("PUSHKA");
-                PUSHKA.transform.position = new Vector2(Random.Range(47, 51), 4.55f);
                 PUSHKA.GetComponent<PUSHKA>().StartShoot();
+                break;
+
+            case 7:
+                gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+                gameManager.StartSpawnAid();
+                break;
+
+            case 8:
+                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerAttack>().isSpeedIsDamage = true;
+                break;
+
+            case 9:
+                GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().StartSpawnPortals();
                 break;
         }
     }

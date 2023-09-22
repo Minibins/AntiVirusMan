@@ -26,10 +26,12 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         _PC = GameObject.FindGameObjectWithTag("PC");
+
     }
     private void FixedUpdate()
     {
         EnemyMove();
+
     }
 
     private void OnEnable()
@@ -65,6 +67,10 @@ public class Enemy : MonoBehaviour
             _health.ApplyDamage(_health.CurrentHealth);
             Destroy(gameObject);
         }
+        else if (collision.CompareTag("Portal") || collision.CompareTag("SecondPortal"))
+        {
+            _health.ApplyDamage(999);
+        }
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -81,6 +87,6 @@ public class Enemy : MonoBehaviour
     {
         gameObject.GetComponent<Rigidbody2D>().simulated = false;
         _animator.SetTrigger("Die");
-        LevelupManager.TakeEXP(1);
+        Level.TakeEXP(0.5f);
     }
 }

@@ -3,58 +3,102 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+
+
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private GameObject[] Portals;
+    [SerializeField] private GameObject[] spawnPointPortals;
+
     [SerializeField] private GameObject Player;
+    [SerializeField] private GameObject firstAidKit;
+    [SerializeField] private GameObject[] spawnPointFirstAidKit;
     [SerializeField] private GameObject LosePanel;
+    [SerializeField] private GameObject Buttons;
     [SerializeField] private GameObject[] enemy;
     [SerializeField] private int sec;
-    [SerializeField] private int min;
     [SerializeField] private int TimeToWin;
     [SerializeField] private bool StopTime = true;
     [SerializeField] private Text LiveTextLose;
     [SerializeField] private SpawnerEnemy SE;
     [SerializeField] private Save save;
-    [SerializeField] private Animator anim;
     [SerializeField] private int _level;
-    private string _timerText;
+    [SerializeField] private Image TimeSprite;
+    [SerializeField] private float fiilSprite;
+    [SerializeField] private GameObject HealthPanel;
+
     public GameObject SettingsPanel;
+    public int min;
     public Action OnTimer { get; set; }
 
-    public string TimerText
-    {
-        get
-        {
-            return _timerText;
-        }
-        set
-        {
-            _timerText = value;
-            OnTimer?.Invoke();
-        }
-    }
     private void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
         SettingsPanel.SetActive(false);
         LosePanel.SetActive(false);
         StartCoroutine(TimeFlow());
+
     }
-    public void TakeDamage(float Damage)
+
+
+    private void Update()
     {
-        if (Damage > 0)
+        if (Input.GetKeyUp(KeyCode.Escape))
         {
-            return;
+            StartSpawnPortals();
         }
+    }
+
+    public void StartSpawnAid()
+    {
+        StartCoroutine(SpawnFirstAidKit());
+    }
+
+
+   IEnumerator SpawnFirstAidKit()
+    {
+        while (true)
+        {
+           GameObject _firstAidKit =     Instantiate(firstAidKit, spawnPointFirstAidKit[UnityEngine.Random.Range(0, spawnPointFirstAidKit.Length)].transform.position, Quaternion.identity);
+            yield return new WaitForSeconds(60);
+            Destroy(_firstAidKit);
+        }
+    }
+
+
+    public void StartSpawnPortals()
+    {
+        StartCoroutine(SpawnPortals());
+    }
+
+
+ IEnumerator SpawnPortals()
+    {
+        while (true)
+        {
+              GameObject Portals1 =  Instantiate(Portals[0], spawnPointPortals[UnityEngine.Random.Range(0, 1)].transform.position, Quaternion.identity);
+            GameObject Portals2 = Instantiate(Portals[1], spawnPointPortals[UnityEngine.Random.Range(2, spawnPointPortals.Length)].transform.position, Quaternion.identity);
+            yield return new WaitForSeconds(60);
+            Destroy(Portals1);
+            Destroy(Portals2);
+        }
+  
+    }
+
+
+
+    public void LoseGame()
+    {
         Destroy(Player);
         SE.GetComponent<SpawnerEnemy>().StopOrStartSpawn();
         enemy = GameObject.FindGameObjectsWithTag("Enemy");
         for (int i = 0; i < enemy.Length; i++)
         {
-            enemy[i].GetComponent<Rigidbody2D>().simulated = false;
-            enemy[i].GetComponent<Animator>().SetTrigger("Die");
+            Destroy(enemy[i]);
         }
         LosePanel.SetActive(true);
+        HealthPanel.SetActive(true);
+        Buttons.SetActive(false);
         StopTime = false;
     }
 
@@ -66,19 +110,23 @@ public class GameManager : MonoBehaviour
             {
                 min++;
                 sec = -1;
-                if (min >= TimeToWin)
+                if (min * 60 >= (TimeToWin * 60) + 10)
                 {
-                    save.LoadField();
-                    if (save.data.WinLocation < _level + 1)
+                    GameObject boss = GameObject.FindGameObjectWithTag("Boss");
+                    if (boss = null)
                     {
-                        save.data.WinLocation = _level + 1;
-                        save.SaveField();
-                        print("save");
+                        save.LoadField();
+                        if (save.data.WinLocation < _level + 1)
+                        {
+                            save.data.WinLocation = _level + 1;
+                            save.SaveField();
+                        }
                     }
                 }
             }
+            fiilSprite = (Convert.ToSingle(min) * 60 + Convert.ToSingle(sec)) / (Convert.ToSingle(TimeToWin) * 60);
+            TimeSprite.fillAmount = fiilSprite;
             sec++;
-            TimerText = min.ToString("D2") + " : " + sec.ToString("D2");
             LiveTextLose.text = "You live:" + min.ToString("D2") + " : " + sec.ToString("D2");
             yield return new WaitForSeconds(1);
         }
@@ -95,5 +143,6 @@ public class GameManager : MonoBehaviour
     public void OpenSettings(bool Open)
     {
         SettingsPanel.SetActive(Open);
+        Buttons.SetActive(!Open);
     }
 }

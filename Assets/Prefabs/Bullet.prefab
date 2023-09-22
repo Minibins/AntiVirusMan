@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 5262987694367095846}
   - component: {fileID: 6875694944164283564}
   - component: {fileID: 1332795503663992019}
-  - component: {fileID: -130134930567453182}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: AntivirusAtack
@@ -28,13 +27,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4926493693542066365}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.674, y: -6.757, z: 0}
   m_LocalScale: {x: 7.326, y: 7.326, z: 7.326}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 8501013881149824665}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4969104922225038778
 SpriteRenderer:
@@ -103,7 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.1
   Damage: 1
-  IsLaser: 1
+  typeGun: 0
 --- !u!61 &6875694944164283564
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -112,7 +112,6 @@ BoxCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4926493693542066365}
   m_Enabled: 1
-  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -136,8 +135,7 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
+  m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -148,6 +146,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
+  serializedVersion: 2
   m_Size: {x: 0.08, y: 0.05}
   m_EdgeRadius: 0
 --- !u!114 &1332795503663992019
@@ -163,16 +162,77 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Time: 3
---- !u!114 &-130134930567453182
-MonoBehaviour:
+--- !u!1001 &2559051835963309209
+PrefabInstance:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8362392266744263211}
+    m_Modifications:
+    - target: {fileID: 6231362319574557184, guid: ab9ddee6d67351942a2f0515e2f4042f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 6231362319574557184, guid: ab9ddee6d67351942a2f0515e2f4042f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 6231362319574557184, guid: ab9ddee6d67351942a2f0515e2f4042f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.13024612
+      objectReference: {fileID: 0}
+    - target: {fileID: 6231362319574557184, guid: ab9ddee6d67351942a2f0515e2f4042f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6231362319574557184, guid: ab9ddee6d67351942a2f0515e2f4042f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6231362319574557184, guid: ab9ddee6d67351942a2f0515e2f4042f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6231362319574557184, guid: ab9ddee6d67351942a2f0515e2f4042f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6231362319574557184, guid: ab9ddee6d67351942a2f0515e2f4042f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6231362319574557184, guid: ab9ddee6d67351942a2f0515e2f4042f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6231362319574557184, guid: ab9ddee6d67351942a2f0515e2f4042f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7855115547837660963, guid: ab9ddee6d67351942a2f0515e2f4042f,
+        type: 3}
+      propertyPath: m_Name
+      value: projectilelaser
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ab9ddee6d67351942a2f0515e2f4042f, type: 3}
+--- !u!4 &8501013881149824665 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6231362319574557184, guid: ab9ddee6d67351942a2f0515e2f4042f,
+    type: 3}
+  m_PrefabInstance: {fileID: 2559051835963309209}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4926493693542066365}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90aa5361dc693ad4791341920cd6e11b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  power: 0.2

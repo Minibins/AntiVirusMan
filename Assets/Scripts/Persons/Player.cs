@@ -5,9 +5,12 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform _groundCheck;
     [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private bool _downB;
+    [SerializeField] private Health _health;
     public bool IsDownSelected;
     private Vector2 _velocity;
     private Move _move;
+
+    
     private void Awake()
     {
         _move = GetComponent<Move>();
@@ -67,6 +70,15 @@ public class Player : MonoBehaviour
         else if (!other.CompareTag("Wall"))
         {
             _downB = true;
+        }
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("FAK")){
+            _health.HealHealth(1);
+            Destroy(other.gameObject);
         }
     }
 }

@@ -9,7 +9,7 @@ public class LevelUP : MonoBehaviour
     public static bool IsSelected;
     public Sprite[] itemtextures;
     public bool[] IssTake;
-    private int a;
+    public int a;
     private Image spritechangingFirst;
     private Image spritechangingSecond;
     private Image spritechangingThree;
@@ -64,4 +64,7 @@ public class LevelUP : MonoBehaviour
             return;
         }
     }
+
+
+
 }
