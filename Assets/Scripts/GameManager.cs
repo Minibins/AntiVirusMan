@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] Portals;
     [SerializeField] private GameObject[] spawnPointPortals;
-
+    [SerializeField] private Screamer screamer;
     [SerializeField] private GameObject Player;
     [SerializeField] private GameObject firstAidKit;
     [SerializeField] private GameObject[] spawnPointFirstAidKit;
@@ -37,9 +37,13 @@ public class GameManager : MonoBehaviour
         SettingsPanel.SetActive(false);
         LosePanel.SetActive(false);
         StartCoroutine(TimeFlow());
-
+        CDELATb_static();
     }
-
+    private void CDELATb_static()
+    {
+        Documentation.gameManager = this;
+        Documentation.screamer = screamer;
+    }
 
     private void Update()
     {
