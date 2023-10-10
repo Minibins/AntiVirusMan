@@ -1,7 +1,4 @@
-﻿using System.Media;
-using UnityEngine;
-
-public class Documentation : MonoBehaviour
+﻿public class Documentation
 {
     /*
      *  Слои (Order in Layer):
@@ -27,8 +24,6 @@ public class Documentation : MonoBehaviour
      * 
      * 
      * 
-     * Тут ложим ссылки на все, что нужно всем в первой локации
+     * 
      */
-    public static GameManager gameManager;
-    public static Screamer screamer;
 }

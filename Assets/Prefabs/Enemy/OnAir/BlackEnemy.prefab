@@ -241,8 +241,10 @@ MonoBehaviour:
   _maxHealth: 1
   healthCells: []
   gameManager: {fileID: 0}
-  DeathSound: {fileID: 0}
-  PunchSound: {fileID: 0}
+  DeadSoundd: {fileID: 7855115547837660963, guid: 8a7dd4256810a7d4291408ecbd5ed630,
+    type: 3}
+  TakeDamageSound: {fileID: 7855115547837660963, guid: 39cc83147052dbe408f02c50abb0373f,
+    type: 3}
   <CurrentHealth>k__BackingField: 0
 --- !u!114 &957579766737629269
 MonoBehaviour:
@@ -259,7 +261,7 @@ MonoBehaviour:
   _explosion: {fileID: 5453186352399095394, guid: 1b264e8b19808f54d96abe41ed58d320,
     type: 3}
   _explosionRadius: 2
-  _explosionPower: 1
+  _explosionPower: 3
   _maskWhoKills:
     serializedVersion: 2
     m_Bits: 8192

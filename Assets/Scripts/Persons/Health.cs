@@ -6,9 +6,8 @@ public class Health : MonoBehaviour
     [SerializeField] private int _maxHealth;
     [SerializeField] private HealthCell[] healthCells;
     [SerializeField] private GameManager gameManager;
-    private Screamer screamer=Documentation.screamer;
-    [SerializeField] private AudioClip DeathSound;
-    [SerializeField] private AudioClip PunchSound;
+    [SerializeField] private GameObject DeadSoundd;
+    [SerializeField] private GameObject TakeDamageSound;
     [field: SerializeField] public int CurrentHealth { get; private set; }
     private Action _onDeath;
     public Action OnDeath
@@ -26,7 +25,7 @@ public class Health : MonoBehaviour
     public Action OnApplyDamage { get; set; }
     public void ApplyDamage(int damage)
     {
-        screamer.scream(PunchSound);
+        Instantiate(TakeDamageSound);
         CurrentHealth -= damage;
         OnApplyDamage?.Invoke();
         if (CurrentHealth <= 0)
@@ -81,11 +80,15 @@ public class Health : MonoBehaviour
         if (gameObject.name == "PC")
         {
             gameManager.LoseGame();
-            screamer.scream(DeathSound);
+            Instantiate(DeadSoundd);
         }
 
         Destroy(gameObject);
     }
 
+    public void DeadSound()
+    {
+        Instantiate(DeadSoundd);
+    }
 
 }
