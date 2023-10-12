@@ -87,5 +87,8 @@ public class Health : MonoBehaviour
         Destroy(gameObject);
     }
 
-
+    public void SoundDead()
+    {
+        Instantiate(DeathSound);
+    }
 }
