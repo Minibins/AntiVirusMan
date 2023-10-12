@@ -12,8 +12,12 @@ public class Player : MonoBehaviour
     ///*
     private void Update()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 99, 10); ;
-        Debug.DrawRay(hit.point, Vector2.up, Color.cyan);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down * 5);
+        Debug.DrawRay(transform.position, Vector2.down * 5, Color.cyan);
+        if (hit.collider != null)
+        {
+            Debug.DrawLine(transform.position, hit.point, Color.magenta);
+        }
     }
     //*/
 
@@ -63,10 +67,11 @@ public class Player : MonoBehaviour
     {
         if (_downB && IsDownSelected)
         {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down,99,10);
-            Debug.DrawRay(hit.point, Vector2.up,Color.cyan);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down,1);
+            
             if (hit.collider != null)
             {
+                
                 transform.position = new Vector3(hit.point.x, hit.point.y + transform.lossyScale.y/2, transform.position.z);
             }
         }
