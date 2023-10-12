@@ -9,8 +9,14 @@ public class Player : MonoBehaviour
     public bool IsDownSelected;
     private Vector2 _velocity;
     private Move _move;
+    ///*
+    private void Update()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 99, 10); ;
+        Debug.DrawRay(hit.point, Vector2.up, Color.cyan);
+    }
+    //*/
 
-    
     private void Awake()
     {
         _move = GetComponent<Move>();
@@ -57,8 +63,12 @@ public class Player : MonoBehaviour
     {
         if (_downB && IsDownSelected)
         {
-            transform.position = new Vector3(transform.position.x, -3f, transform.position.z);
-            _move.StopJump();
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down,99,10);
+            Debug.DrawRay(hit.point, Vector2.up,Color.cyan);
+            if (hit.collider != null)
+            {
+                transform.position = new Vector3(hit.point.x, hit.point.y + transform.lossyScale.y/2, transform.position.z);
+            }
         }
     }
     private void OnTriggerStay2D(Collider2D other)
@@ -67,11 +77,8 @@ public class Player : MonoBehaviour
         {
             _downB = false;
         }
-        else if (!other.CompareTag("Wall"))
-        {
-            _downB = true;
-        }
         else {
+            _downB = true;
             print(other);
         }
     }
