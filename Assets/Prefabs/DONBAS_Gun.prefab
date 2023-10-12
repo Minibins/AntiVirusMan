@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5047100667621999345}
   - component: {fileID: 1660461482133682175}
   - component: {fileID: 7323731118206332595}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: f
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,7 +170,7 @@ WheelJoint2D:
     m_DampingRatio: 0.7
     m_Frequency: 2
     m_Angle: 90
-  m_UseMotor: 0
+  m_UseMotor: 1
   m_Motor:
     m_MotorSpeed: 0
     m_MaximumMotorForce: 10000
@@ -183,7 +183,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2351477963838087987}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 8418204508859773708, guid: 0000000000000000d000000000000000, type: 0}
@@ -218,7 +218,7 @@ GameObject:
   - component: {fileID: 5263505016268556790}
   - component: {fileID: 1586614083219532197}
   - component: {fileID: 4012414327849745960}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: DONBAS_Gun
   m_TagString: PUSHKA
   m_Icon: {fileID: 0}
@@ -340,7 +340,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.0011433065, y: 0.008765366}
@@ -382,4 +382,4 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 2
+  m_Constraints: 4

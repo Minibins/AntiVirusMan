@@ -17,14 +17,14 @@ public class DRAG : MonoBehaviour
     private void OnMouseDown()
     {
         isdrgging = true;
-        StartCoroutine(StaminaConchaeca());
+        StaminaConchaeca();
         offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
     }
 
     private void OnMouseUp()
     {
         isdrgging = false;
-        StopCoroutine(StaminaConchaeca());
+      
     }
 
     private void OnMouseDrag()
@@ -38,6 +38,8 @@ public class DRAG : MonoBehaviour
 
     private void Update()
     {
+        if (isdrgging) { rb.freezeRotation = false; }
+        else { rb.freezeRotation = true; }
         if (Input.touchCount > 0 && pa.Ammo > 0)
         {
             Touch touch = Input.GetTouch(0);
@@ -45,7 +47,7 @@ public class DRAG : MonoBehaviour
             {
                 case TouchPhase.Began:
                     isdrgging = true;
-                    StartCoroutine(StaminaConchaeca());
+                    StaminaConchaeca();
                     offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
                     break;
 
@@ -56,17 +58,16 @@ public class DRAG : MonoBehaviour
 
                 case TouchPhase.Ended:
                     isdrgging = false;
-                    StopCoroutine(StaminaConchaeca());
+                    
                     break;
             }
         }
     }
-    IEnumerator StaminaConchaeca()
+    private void StaminaConchaeca()
     {
-        while (isdrgging)
-        {
-            pa.Ammo--;
-            yield return new WaitForSeconds(1);
-        }
+        if (!isdrgging) {pa.Ammo--;
+        
+        Invoke(nameof(StaminaConchaeca), 1); }
+            
     }
 }

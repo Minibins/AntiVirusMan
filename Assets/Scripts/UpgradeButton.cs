@@ -64,23 +64,28 @@ public class UpgradeButton : MonoBehaviour
             LevelUP lvlUp = mainupgrader.GetComponent<LevelUP>();
             lvlUp.IssTake[id] = true;
             Player = GameObject.Find("Player");
-            ChooseUpgrade();
+            ChooseUpgrade(lvlUp);
             LevelUP.IsSelected = true;
         }
     }
 
-    private void ChooseUpgrade()
+    private void ChooseUpgrade(LevelUP lvlUp)
     {
+
         switch (id)
         {
             case 0:
                 Laser = GameObject.FindGameObjectWithTag("LaserGun");
                 Laser.GetComponent<LaserGun>().StartShoot();
+                if (lvlUp.IssTake[1])
+                {
+                    Laser.AddComponent<DRAG>();
+                }
                 break;
             case 1:
                 GameObject.FindGameObjectWithTag("LaserGun").AddComponent<DRAG>();
                 GameObject.FindGameObjectWithTag("PC").AddComponent<DRAG>();
-                GameObject.FindGameObjectWithTag("PC").AddComponent<Rigidbody2D>();
+                GameObject.FindGameObjectWithTag("PUSHKA").AddComponent<DRAG>();
                 break;
             case 2:
                 GameObject.FindGameObjectWithTag("Starfall").GetComponent<starfall>().IsSpawn = true;
@@ -98,6 +103,10 @@ public class UpgradeButton : MonoBehaviour
             case 6:
                 PUSHKA = GameObject.FindGameObjectWithTag("PUSHKA");
                 PUSHKA.GetComponent<PUSHKA>().StartShoot();
+                if (lvlUp.IssTake[1])
+                {
+                    PUSHKA.AddComponent<DRAG>();
+                }
                 break;
 
             case 7:

@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-[RequireComponent(typeof(Move))]
 public class AttackProjectile : MonoBehaviour
 {
     [SerializeField, Min(0)] private int _damage;
@@ -25,14 +24,19 @@ public class AttackProjectile : MonoBehaviour
     }
     private void Start()
     {
-        if (_velosity.x != 0f)
+        if (_move != null) {
+        switch (_velosity.x)
         {
-            _move.MoveHorizontally(_velosity.x);
+            case 0:
+                _move.MoveHorizontally(_velosity.x); break;
         }
-        if (_velosity.y != 0f)
+        switch (_velosity.y)
         {
-            _move.MoveVertically(_velosity.y);
+            case 0:
+                _move.MoveVertically(_velosity.y); break;
         }
+        }
+        
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

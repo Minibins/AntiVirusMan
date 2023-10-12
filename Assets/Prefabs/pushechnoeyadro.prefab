@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 2762431927262739387}
   - component: {fileID: 5778226843945871446}
   - component: {fileID: 166155608274110264}
-  - component: {fileID: -4788747366500783452}
   - component: {fileID: -6468616439947364638}
   - component: {fileID: 5154655059711613873}
+  - component: {fileID: 8110890727165040020}
+  - component: {fileID: 2848364825231202312}
   m_Layer: 0
   m_Name: pushechnoeyadro
   m_TagString: AntivirusAtack
@@ -152,23 +153,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-4788747366500783452
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3442695944532549959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9c4fd5ae8cbe924582d0b08150dbc86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damage: 3
-  _mask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  _velosity: {x: 0, y: 0}
 --- !u!114 &-6468616439947364638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,3 +180,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Time: 6
+--- !u!95 &8110890727165040020
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3442695944532549959}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2848364825231202312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3442695944532549959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9c4fd5ae8cbe924582d0b08150dbc86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 1
+  _mask:
+    serializedVersion: 2
+    m_Bits: 2048
+  _velosity: {x: 0, y: 0}
