@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     public bool IsDownSelected;
     private Vector2 _velocity;
     private Move _move;
-    ///*
+    /*
     private void Update()
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down * 5);
@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
             Debug.DrawLine(transform.position, hit.point, Color.magenta);
         }
     }
-    //*/
+    */
 
     private void Awake()
     {
@@ -62,18 +62,18 @@ public class Player : MonoBehaviour
     }
 
 
-
+ 
     public void Down()
     {
-        if (_downB && IsDownSelected)
+        if (!_downB && IsDownSelected)
         {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down,1);
-            
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down * 99, 99, 1 << 10); // Тут рейкаст
+
             if (hit.collider != null)
             {
-                
-                transform.position = new Vector3(hit.point.x, hit.point.y + transform.lossyScale.y/2, transform.position.z);
+                transform.position = new Vector3(transform.position.x, hit.point.y-1, transform.position.z); // Тут перемещение
             }
+
         }
     }
     private void OnTriggerStay2D(Collider2D other)
