@@ -6,7 +6,7 @@ public class Health : MonoBehaviour
     [SerializeField] private int _maxHealth;
     [SerializeField] private HealthCell[] healthCells;
     [SerializeField] private GameManager gameManager;
-    private Screamer screamer;
+  
     [SerializeField] private GameObject DeathSound;
     [SerializeField] private GameObject PunchSound;
     [field: SerializeField] public int CurrentHealth { get; private set; }
@@ -26,7 +26,7 @@ public class Health : MonoBehaviour
     public Action OnApplyDamage { get; set; }
     public void ApplyDamage(int damage)
     {
-        screamer.scream(PunchSound);
+        Instantiate(PunchSound);
         CurrentHealth -= damage;
         OnApplyDamage?.Invoke();
         if (CurrentHealth <= 0)
@@ -64,7 +64,7 @@ public class Health : MonoBehaviour
     }
     private void Start()
     {
-        screamer = Documentation.screamer;
+        
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         if (OnDeath == null)
         {
@@ -81,7 +81,7 @@ public class Health : MonoBehaviour
         if (gameObject.name == "PC")
         {
             gameManager.LoseGame();
-            screamer.scream(DeathSound);
+            Instantiate(DeathSound);
         }
 
         Destroy(gameObject);

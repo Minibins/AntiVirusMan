@@ -157,9 +157,9 @@ MonoBehaviour:
   _maxHealth: 1
   healthCells: []
   gameManager: {fileID: 0}
-  DeadSoundd: {fileID: 7855115547837660963, guid: 2638429a3fce0d9478a9a0cc3408fdf2,
+  DeathSound: {fileID: 7855115547837660963, guid: 2638429a3fce0d9478a9a0cc3408fdf2,
     type: 3}
-  TakeDamageSound: {fileID: 7855115547837660963, guid: 2885d6336d009894796b76f5f36a03eb,
+  PunchSound: {fileID: 7855115547837660963, guid: 2885d6336d009894796b76f5f36a03eb,
     type: 3}
   <CurrentHealth>k__BackingField: 0
 --- !u!114 &8530324711072272253
@@ -227,7 +227,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   _correctionY: 1
-  ForcerePulsive: 1000
+  ForcerePulsive: 200
 --- !u!70 &4519855225380453706
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
