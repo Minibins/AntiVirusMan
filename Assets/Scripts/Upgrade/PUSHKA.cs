@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PUSHKA : MonoBehaviour
@@ -8,7 +9,16 @@ public class PUSHKA : MonoBehaviour
     [SerializeField] private GameObject SpawnPoinBullet;
     [SerializeField] private bool IsShoot;
     [SerializeField] private GameObject Coleso;
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "AntivirusAtack")
+        {
+            
+                transform.rotation = new Quaternion(0, 0, 90+ transform.rotation.z, 0);
+            
 
+        }
+    }
 
     private void Update()
     {
