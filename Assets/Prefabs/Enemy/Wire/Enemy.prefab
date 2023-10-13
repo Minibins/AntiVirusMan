@@ -34,7 +34,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -2.0832, y: 2.0832, z: 2.49984}
+  m_LocalScale: {x: -5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -128,7 +128,7 @@ Animator:
   m_GameObject: {fileID: 1419220866596668024}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3ba159cd5c066204f9c542ef460614b2, type: 2}
+  m_Controller: {fileID: 9100000, guid: ea887e0542bdf834593b9635c0d4e235, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -171,8 +171,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.2, y: 0.28}
+  m_Offset: {x: -0.0043017897, y: -0.0026694299}
+  m_Size: {x: 0.07217496, y: 0.07885213}
   m_Direction: 0
 --- !u!114 &7732253043999153131
 MonoBehaviour:

@@ -18865,7 +18865,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.29, y: 0.3}
+    oldSize: {x: 0.32, y: 0.32}
     newSize: {x: 0.31, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -18888,6 +18888,7 @@ GameObject:
   - component: {fileID: 4765063866695837587}
   - component: {fileID: 4765063866695837588}
   - component: {fileID: 4765063866695837589}
+  - component: {fileID: 4765063866695837590}
   m_Layer: 13
   m_Name: PC
   m_TagString: PC
@@ -19149,7 +19150,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.29, y: 0.3}
+    oldSize: {x: 0.32, y: 0.32}
     newSize: {x: 0.31, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -19158,6 +19159,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.21, y: 0.03}
   m_EdgeRadius: 0
+--- !u!95 &4765063866695837590
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1025521269858936187}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cc9e1d7e332a5184897db9dbdb5b2802, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &5237516651018786744
 Transform:
   m_ObjectHideFlags: 0
@@ -19488,6 +19510,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FontData.m_HorizontalOverflow
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864692429902805712, guid: 0951b036ba0a12343a56eff64eed7b4c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 7.0699463
       objectReference: {fileID: 0}
     - target: {fileID: 1897799623379633847, guid: 0951b036ba0a12343a56eff64eed7b4c,
         type: 3}
