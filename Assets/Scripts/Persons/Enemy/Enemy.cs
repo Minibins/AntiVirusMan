@@ -7,7 +7,7 @@
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private LayerMask _maskWhoKills;
-    private GameObject _PC;
+    public GameObject _PC;
     private Health _health;
     private Move _move;
     private SpriteRenderer _spriteRenderer;

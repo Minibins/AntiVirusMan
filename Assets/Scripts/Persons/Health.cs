@@ -6,7 +6,7 @@ public class Health : MonoBehaviour
     [SerializeField] private int _maxHealth;
     [SerializeField] private HealthCell[] healthCells;
     [SerializeField] private GameManager gameManager;
-  
+
     [SerializeField] private GameObject DeathSound;
     [SerializeField] private GameObject PunchSound;
     [field: SerializeField] public int CurrentHealth { get; private set; }
@@ -64,7 +64,7 @@ public class Health : MonoBehaviour
     }
     private void Start()
     {
-        
+
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         if (OnDeath == null)
         {
@@ -83,7 +83,10 @@ public class Health : MonoBehaviour
             gameManager.LoseGame();
             Instantiate(DeathSound);
         }
-
+        else
+        {
+            GetComponent<Enemy>()._PC.GetComponentInChildren<PC>().EnemyKilled();
+        }
         Destroy(gameObject);
     }
 
