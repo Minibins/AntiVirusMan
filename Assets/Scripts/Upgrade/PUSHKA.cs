@@ -14,7 +14,7 @@ public class PUSHKA : MonoBehaviour
         if (collision.tag == "AntivirusAtack")
         {
             
-                transform.rotation = new Quaternion(0, 0, 90+ transform.rotation.z, 0);
+                transform.rotation = new Quaternion(0, 0, 45+ transform.rotation.z, 0);
             
 
         }

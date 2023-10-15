@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
+
+
 public class SpawnerEnemy : MonoBehaviour
 {
     [SerializeField] private GameObject[] spawnersEnemy;
@@ -15,6 +17,7 @@ public class SpawnerEnemy : MonoBehaviour
     [SerializeField] private float minTimeSpawnWave;
     [SerializeField] private float maxTimeSpawnWave;
     [SerializeField] private GameManager GM;
+    [SerializeField] private GameObject BossAlpha;
     public bool isSpawn;
     private void Start()
     {
@@ -34,6 +37,7 @@ public class SpawnerEnemy : MonoBehaviour
                     {
                         Instantiate(Boss, spawnersBoss[Random.Range(0, spawnersBoss.Length)].transform.position, Quaternion.identity);
                         print("Boss has spawned");
+                        BossAlpha.SetActive(true);
                         BossSpawned=true;
                     }
                     break;
