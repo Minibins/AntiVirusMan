@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class LevelUP : MonoBehaviour
 {
+    //дыня
     [SerializeField] private GameObject FirstButton;
     [SerializeField] private GameObject SecondButton;
     [SerializeField] private GameObject ThreeButton;
