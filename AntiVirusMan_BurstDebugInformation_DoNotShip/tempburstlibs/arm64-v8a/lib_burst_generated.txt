@@ -1,4 +1,4 @@
-Library: F:\Project\Unity\AntiVirusMan\Temp\BurstOutput\tempburstlibs\arm64-v8a\lib_burst_generated
+Library: /home/maks/Project/Unity/AntiVirusMan/Temp/BurstOutput/tempburstlibs/arm64-v8a/lib_burst_generated
 --platform=Android
 --backend=burst-llvm-15
 --target=ARMV8A_AARCH64
@@ -9,14 +9,13 @@ Library: F:\Project\Unity\AntiVirusMan\Temp\BurstOutput\tempburstlibs\arm64-v8a\
 --assembly-defines=Assembly-CSharp;
 --assembly-defines=Cinemachine;
 --assembly-defines=Mono.Security;
---assembly-defines=mscorlib;
 --assembly-defines=System.Configuration;
 --assembly-defines=System.Core;
---assembly-defines=System;
 --assembly-defines=System.Xml;
+--assembly-defines=System;
 --assembly-defines=Unity.2D.Animation.Runtime;
---assembly-defines=Unity.Burst;
 --assembly-defines=Unity.Burst.Unsafe;
+--assembly-defines=Unity.Burst;
 --assembly-defines=Unity.Collections;
 --assembly-defines=Unity.InputSystem;
 --assembly-defines=Unity.InternalAPIEngineBridge.001;
@@ -27,11 +26,12 @@ Library: F:\Project\Unity\AntiVirusMan\Temp\BurstOutput\tempburstlibs\arm64-v8a\
 --assembly-defines=Unity.TextMeshPro;
 --assembly-defines=Unity.Timeline;
 --assembly-defines=UnityEngine;
---generate-link-xml=Temp\burst.link.xml
---temp-folder=F:\Project\Unity\AntiVirusMan\Temp\Burst
---key-folder=C:/Program Files/Unity/Hub/Editor/2022.3.5f1/Editor/Data/PlaybackEngines/AndroidPlayer
---decode-folder=F:\Project\Unity\AntiVirusMan\Library\Burst
---output=F:\Project\Unity\AntiVirusMan\Temp\BurstOutput\tempburstlibs\arm64-v8a\lib_burst_generated
+--assembly-defines=mscorlib;
+--generate-link-xml=Temp/burst.link.xml
+--temp-folder=/home/maks/Project/Unity/AntiVirusMan/Temp/Burst
+--key-folder=/home/maks/Unity/Hub/Editor/2022.3.5f1/Editor/Data/PlaybackEngines/AndroidPlayer
+--decode-folder=/home/maks/Project/Unity/AntiVirusMan/Library/Burst
+--output=/home/maks/Project/Unity/AntiVirusMan/Temp/BurstOutput/tempburstlibs/arm64-v8a/lib_burst_generated
 --pdb-search-paths=Temp/ManagedSymbols/
 
 --method=Unity.Burst.BurstCompiler+BurstCompilerHelper, Unity.Burst, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::IsBurstEnabled()--8c2be93e18276203cbd918daa2748a10
@@ -66,14 +66,13 @@ Library: F:\Project\Unity\AntiVirusMan\Temp\BurstOutput\tempburstlibs\arm64-v8a\
 --assembly-defines=Assembly-CSharp;
 --assembly-defines=Cinemachine;
 --assembly-defines=Mono.Security;
---assembly-defines=mscorlib;
 --assembly-defines=System.Configuration;
 --assembly-defines=System.Core;
---assembly-defines=System;
 --assembly-defines=System.Xml;
+--assembly-defines=System;
 --assembly-defines=Unity.2D.Animation.Runtime;
---assembly-defines=Unity.Burst;
 --assembly-defines=Unity.Burst.Unsafe;
+--assembly-defines=Unity.Burst;
 --assembly-defines=Unity.Collections;
 --assembly-defines=Unity.InputSystem;
 --assembly-defines=Unity.InternalAPIEngineBridge.001;
@@ -84,11 +83,12 @@ Library: F:\Project\Unity\AntiVirusMan\Temp\BurstOutput\tempburstlibs\arm64-v8a\
 --assembly-defines=Unity.TextMeshPro;
 --assembly-defines=Unity.Timeline;
 --assembly-defines=UnityEngine;
---generate-link-xml=Temp\burst.link.xml
---temp-folder=F:\Project\Unity\AntiVirusMan\Temp\Burst
---key-folder=C:/Program Files/Unity/Hub/Editor/2022.3.5f1/Editor/Data/PlaybackEngines/AndroidPlayer
---decode-folder=F:\Project\Unity\AntiVirusMan\Library\Burst
---output=F:\Project\Unity\AntiVirusMan\Temp\BurstOutput\tempburstlibs\arm64-v8a\lib_burst_generated
+--assembly-defines=mscorlib;
+--generate-link-xml=Temp/burst.link.xml
+--temp-folder=/home/maks/Project/Unity/AntiVirusMan/Temp/Burst
+--key-folder=/home/maks/Unity/Hub/Editor/2022.3.5f1/Editor/Data/PlaybackEngines/AndroidPlayer
+--decode-folder=/home/maks/Project/Unity/AntiVirusMan/Library/Burst
+--output=/home/maks/Project/Unity/AntiVirusMan/Temp/BurstOutput/tempburstlibs/arm64-v8a/lib_burst_generated
 --pdb-search-paths=Temp/ManagedSymbols/
 
 --method=Unity.Jobs.IJobForExtensions+ForJobStruct`1[[UnityEngine.Rendering.Universal.ZBinningJob, Unity.RenderPipelines.Universal.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::Execute(UnityEngine.Rendering.Universal.ZBinningJob&, Unity.RenderPipelines.Universal.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|Unity.Jobs.LowLevel.Unsafe.JobRanges&, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089)--77fc393cb521ac129b1392d4eb94d29a
