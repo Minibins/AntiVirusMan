@@ -34,7 +34,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -2, y: 2, z: 2}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5624463049267696123}
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_Sprite: {fileID: 8755054611862819910, guid: 1df0e45a1e1783b4bac6578d311db4ef,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 2.65, y: 2.66}
@@ -191,6 +191,7 @@ MonoBehaviour:
   _maskWhoKills:
     serializedVersion: 2
     m_Bits: 8192
+  _PC: {fileID: 0}
   MoveToPoint: {fileID: 0}
   ChangeMove: 0
 --- !u!114 &4149090224525324932
@@ -223,6 +224,8 @@ MonoBehaviour:
   _maxHealth: 2147483647
   healthCells: []
   gameManager: {fileID: 0}
+  DeathSound: {fileID: 0}
+  PunchSound: {fileID: 0}
   <CurrentHealth>k__BackingField: 0
 --- !u!114 &5645338690043026744
 MonoBehaviour:

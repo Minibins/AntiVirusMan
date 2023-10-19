@@ -399,9 +399,7 @@ MonoBehaviour:
   _groundLayer:
     serializedVersion: 2
     m_Bits: 5120
-  _downB: 0
   _health: {fileID: 0}
-  IsDownSelected: 0
 --- !u!114 &8304178653184876643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -429,6 +427,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afef24755c993cb478e6bc603a74fa35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _AttackSound: {fileID: 7855115547837660963, guid: 3b160fa6e74db6244b15b28964020e71,
+    type: 3}
   _bullet: {fileID: 8801379529353642565, guid: bd3def6cba8e68f48a5a523deb793b45, type: 3}
   _spawnPoinBullet: {x: -0.5, y: 0}
   _shield: {fileID: 4351347600884552508, guid: cd320506de2923e49ac056599fd38309, type: 3}
@@ -443,7 +443,8 @@ MonoBehaviour:
   _maxAmmo: 5
   _timeReload: 1
   <IsSelectedBullet>k__BackingField: 0
-  <Damage>k__BackingField: 3
+  <Damage>k__BackingField: 1
+  isSpeedIsDamage: 0
 --- !u!114 &429989184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -491,6 +492,6 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.02000003, y: 0.025479747}
-  m_Size: {x: 0.30754596, y: 0.34473285}
+  m_Offset: {x: -0.02, y: 0}
+  m_Size: {x: 0.15, y: 0.29}
   m_Direction: 0

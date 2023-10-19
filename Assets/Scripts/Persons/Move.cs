@@ -37,7 +37,10 @@ public class Move : MonoBehaviour
             }
         }
     }
-
+    public void PlayAnimation(string name)
+    {
+        _animator.Play(name);
+    }
     private void Awake()
     {
         _animator = GetComponent<Animator>();
