@@ -6,11 +6,21 @@ public class blackenemy : MonoBehaviour
 {
     [SerializeField] GameObject _explosion;
     [SerializeField] float _explosionRadius;
+    private GameObject _PC;
+    [SerializeField] private float otklonenieOtklonenia;
+    [SerializeField] private float SkorostOtklonenia;
+    [SerializeField] private float Speed;
+    private Move _move;
+    private float otklonenie;
+   
+
     [SerializeField] int _explosionPower;
     [SerializeField] private LayerMask _maskWhoKills;
     private Health _health;
     private void Awake()
     {
+        _PC = GameObject.FindGameObjectWithTag("PC");
+        _move = GetComponent<Move>();
         _health = GetComponent<Health>();
     }
     private void OnEnable()
@@ -26,7 +36,7 @@ public class blackenemy : MonoBehaviour
         gameObject.GetComponent<Rigidbody2D>().simulated = true;
         Move move = GetComponent<Move>();
         move.CanJump = true;
-        move.MoveHorizontally(0f);
+        move.MoveHorizontally(1f);
         Invoke(nameof(Explosion), 2f);
     }
     private void OnTriggerStay2D(Collider2D collision)
@@ -35,6 +45,19 @@ public class blackenemy : MonoBehaviour
         {
             _health.ApplyDamage(_health.CurrentHealth);
         }
+    }
+    private void Update()
+    {
+        Fly();
+        otklonenie++;
+    }
+    private void Fly()
+    {
+        Vector3 FlyVector = transform.position-_PC.transform.position;
+        FlyVector.Normalize();
+        FlyVector.x += otklonenieOtklonenia * Mathf.Sin(SkorostOtklonenia * otklonenie); ;
+        FlyVector *= Speed;
+        transform.position += FlyVector;
     }
     private void Explosion()
     {

@@ -34,7 +34,7 @@ Transform:
   m_GameObject: {fileID: 2515844324639823540}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -13.75, y: 12.92, z: 0}
   m_LocalScale: {x: -5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -3460214322567304412, guid: 1df0e45a1e1783b4bac6578d311db4ef,
+  m_Sprite: {fileID: 8638111053690301260, guid: 1df0e45a1e1783b4bac6578d311db4ef,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -174,7 +174,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.42, y: 0.25}
+  m_Size: {x: 0.35, y: 0.25}
   m_Direction: 1
 --- !u!114 &-1960156336790782601
 MonoBehaviour:
@@ -225,7 +225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _canJump: 0
   _jumpingPower: 10
-  _speed: 0.7
+  _speed: 0
 --- !u!114 &-8847342664991260015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,6 +261,9 @@ MonoBehaviour:
   _explosion: {fileID: 5453186352399095394, guid: 1b264e8b19808f54d96abe41ed58d320,
     type: 3}
   _explosionRadius: 2
+  otklonenieOtklonenia: 4
+  SkorostOtklonenia: 0.0015
+  Speed: -0.001
   _explosionPower: 3
   _maskWhoKills:
     serializedVersion: 2
