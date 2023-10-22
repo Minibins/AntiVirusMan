@@ -12,9 +12,12 @@ public class Enemy : MonoBehaviour
     private Move _move;
     private SpriteRenderer _spriteRenderer;
     private Animator _animator;
-
+    [SerializeField] private bool CanBeFinishedOff;
+    
+    private bool dead = false;
     public GameObject MoveToPoint;
     public int ChangeMove;
+    [SerializeField] private Sprite[] Finishings;
 
     private void Awake()
     {
@@ -85,8 +88,23 @@ public class Enemy : MonoBehaviour
     }
     private void OnDeath()
     {
-        gameObject.GetComponent<Rigidbody2D>().simulated = false;
+        if (dead) { 
+            if (!CanBeFinishedOff) {
+            return;
+            }
+            else
+            {
+                _animator.Play("Finishing");
+                gameObject.GetComponent<SpriteRenderer>().sprite = Finishings[Random.Range(0,Finishings.Length-1)];
+            }
+        }
+        else
+        {
+_move._speed = 0f;
         _animator.SetTrigger("Die");
+        
+        dead = true;
+        }
         Level.TakeEXP(0.5f);
     }
 }
