@@ -94,7 +94,6 @@ public class Enemy : MonoBehaviour
             }
             else
             {
-                _animator.Play("Finishing");
                 gameObject.GetComponent<SpriteRenderer>().sprite = Finishings[Random.Range(0,Finishings.Length-1)];
             }
         }
