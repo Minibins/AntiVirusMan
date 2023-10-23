@@ -34,9 +34,6 @@ public class blackenemy : MonoBehaviour
     private void OnDeath()
     {
         gameObject.GetComponent<Rigidbody2D>().simulated = true;
-        Move move = GetComponent<Move>();
-        move.CanJump = true;
-        move.MoveHorizontally(1f);
         Invoke(nameof(Explosion), 2f);
     }
     private void OnTriggerStay2D(Collider2D collision)

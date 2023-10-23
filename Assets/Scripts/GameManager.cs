@@ -76,9 +76,12 @@ public class GameManager : MonoBehaviour
     {
         while (true)
         {
-              GameObject Portals1 =  Instantiate(Portals[0], spawnPointPortals[UnityEngine.Random.Range(0, 1)].transform.position, Quaternion.identity);
+              GameObject Portals1 =  Instantiate(Portals[0], spawnPointPortals[UnityEngine.Random.Range(2, spawnPointPortals.Length)].transform.position, Quaternion.identity);
+            
             GameObject Portals2 = Instantiate(Portals[1], spawnPointPortals[UnityEngine.Random.Range(2, spawnPointPortals.Length)].transform.position, Quaternion.identity);
-            yield return new WaitForSeconds(60);
+            Portals1.GetComponent<Portals>().secondPortal = Portals2;
+            Portals2.GetComponent<Portals>().secondPortal = Portals1;
+            yield return new WaitForSeconds(10);
             Destroy(Portals1);
             Destroy(Portals2);
         }
