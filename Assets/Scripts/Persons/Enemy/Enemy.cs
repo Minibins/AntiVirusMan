@@ -84,6 +84,11 @@ public class Enemy : MonoBehaviour
         else if (other.CompareTag("EndWire"))
         {
             ChangeMove = 0;
+            if(gameObject.GetComponent<blackenemy>()==null)
+            {
+gameObject.GetComponent<Rigidbody2D>().gravityScale=1;
+            }
+            
         }
     }
     private void OnDeath()
