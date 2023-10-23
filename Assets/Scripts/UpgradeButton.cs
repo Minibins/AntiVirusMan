@@ -86,6 +86,7 @@ public class UpgradeButton : MonoBehaviour
                 GameObject.FindGameObjectWithTag("LaserGun").AddComponent<DRAG>();
                 GameObject.FindGameObjectWithTag("PC").AddComponent<DRAG>();
                 GameObject.FindGameObjectWithTag("PUSHKA").AddComponent<DRAG>();
+                Player.GetComponent<InstantiateWall>().canmove = true;
                 break;
             case 2:
                 GameObject.FindGameObjectWithTag("Starfall").GetComponent<starfall>().IsSpawn = true;

@@ -64,10 +64,7 @@ public class Player : MonoBehaviour
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down * 99, 99, 1 << 10); // Тут рейкаст
         Debug.DrawLine(transform.position, hit.point);
-        if (hit.collider != null)
-        {
             transform.position = new Vector3(transform.position.x, hit.point.y+0.8f, transform.position.z); // Тут перемещение
-        }
         _move.PlayAnimation("Grounded");
     }
 

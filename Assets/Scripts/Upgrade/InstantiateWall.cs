@@ -3,9 +3,13 @@ using UnityEngine;
 
 public class InstantiateWall : MonoBehaviour
 {
+    [SerializeField] private LayerMask layerMask;
     [SerializeField] private GameObject Wall;
+    [SerializeField] private GameObject MovableWall;
     [SerializeField] private float TimeToStart;
     public bool IsOpenly;
+    public bool canmove;
+
 
     public void OnJump()
     {
@@ -17,6 +21,9 @@ public class InstantiateWall : MonoBehaviour
     IEnumerator SpawnWall()
     {
         yield return new WaitForSeconds(TimeToStart);
-        Instantiate(Wall, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y-3.0917729f, 0), Quaternion.identity);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down * 99, 99, layerMask); // Тут рейкаст
+        if (canmove) Instantiate(MovableWall, new Vector3(transform.position.x, hit.point.y + 0.8f, transform.position.z), Quaternion.identity);
+        else Instantiate(Wall, new Vector3(transform.position.x, hit.point.y + 0.8f, transform.position.z), Quaternion.identity);
+        
     }
 }
