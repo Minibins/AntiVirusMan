@@ -70,7 +70,7 @@ public class Enemy : MonoBehaviour
             _health.ApplyDamage(_health.CurrentHealth);
             Destroy(gameObject);
         }
-        else if (collision.CompareTag("Portal") || collision.CompareTag("SecondPortal"))
+        else if ((collision.CompareTag("Portal") || collision.CompareTag("SecondPortal"))&&_health.CurrentHealth>0)
         {
             _health.ApplyDamage(999);
         }
