@@ -13,10 +13,8 @@ public class PUSHKA : MonoBehaviour
     {
         if (collision.tag == "AntivirusAtack")
         {
+               transform.localScale=new Vector3(transform.localScale.x * -1, transform.localScale.y * -1, 5);
             
-                transform.rotation = new Quaternion(0, 0, 45+ transform.rotation.z, 0);
-            
-
         }
     }
 

@@ -97,10 +97,6 @@ gameObject.GetComponent<Rigidbody2D>().gravityScale=1;
             if (!CanBeFinishedOff) {
             return;
             }
-            else
-            {
-                gameObject.GetComponent<SpriteRenderer>().sprite = Finishings[Random.Range(0,Finishings.Length-1)];
-            }
         }
         else
         {
