@@ -62,15 +62,7 @@ public class blackenemy : MonoBehaviour
     private void Explosion()
     {
         Destroy(gameObject);
-        Collider2D[] targets = Physics2D.OverlapCircleAll(transform.position, _explosionRadius);
-        Health health;
-        foreach (var target in targets)
-        {
-            if (target.TryGetComponent<Health>(out health))
-            {
-                health.ApplyDamage(_explosionPower);
-            }
-        }
+       
         Instantiate(_explosion, transform.position, Quaternion.identity);
     }
 }

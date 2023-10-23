@@ -192,8 +192,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   _PC: {fileID: 0}
+  CanBeFinishedOff: 0
   MoveToPoint: {fileID: 0}
   ChangeMove: 0
+  Finishings: []
 --- !u!114 &-3479756302495854425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,7 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9c4fd5ae8cbe924582d0b08150dbc86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 1
+  _damage: 0
   _mask:
     serializedVersion: 2
     m_Bits: 8192
@@ -264,7 +266,7 @@ MonoBehaviour:
   otklonenieOtklonenia: 4
   SkorostOtklonenia: 0.0015
   Speed: -0.001
-  _explosionPower: 3
+  _explosionPower: 2
   _maskWhoKills:
     serializedVersion: 2
     m_Bits: 8192

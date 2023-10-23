@@ -56,7 +56,7 @@ public class Move : MonoBehaviour
 
     public void MoveHorizontally(float direction)
     {
-        _rigidbody2D.gravityScale = 1;
+        
         _velocity.Set(0f, _rigidbody2D.velocity.y);
         if (direction == 0f)
         {
