@@ -1,7 +1,10 @@
-﻿using UnityEngine;
+﻿using UnityEditor;
+using UnityEngine;
 public class AttackProjectile : MonoBehaviour
 {
     [SerializeField, Min(0)] private int _damage;
+    [SerializeField] private bool ExplodeIfCollideWithWall;
+    [SerializeField] private GameObject Explosion;
     public int Damage
     {
         get
@@ -42,9 +45,18 @@ public class AttackProjectile : MonoBehaviour
         {
             _healthTarget.ApplyDamage(_damage);
         }
+        
     }
     public void DestroyThis(float time = 0f)
     {
         Destroy(gameObject, time);
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (ExplodeIfCollideWithWall)
+        {
+            Instantiate(Explosion,transform.position,Quaternion.identity);
+            DestroyThis(0.01f);
+        }
     }
 }

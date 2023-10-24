@@ -15,7 +15,8 @@ GameObject:
   - component: {fileID: 2307300395158553563}
   - component: {fileID: -5762580846753605604}
   - component: {fileID: 304440491880971904}
-  m_Layer: 2
+  - component: {fileID: 9017932007008992787}
+  m_Layer: 11
   m_Name: PlayerBullet
   m_TagString: AntivirusAtack
   m_Icon: {fileID: 0}
@@ -170,10 +171,10 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.075}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 1}
     oldSize: {x: 0.03, y: 0.15}
     newSize: {x: 0.03, y: 0.15}
     adaptiveTilingThreshold: 0.5
@@ -196,6 +197,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 1
+  ExplodeIfCollideWithWall: 1
+  Explosion: {fileID: 3890442344620783478, guid: 84525b33db394bc4797c261f4038d751,
+    type: 3}
   _mask:
     serializedVersion: 2
     m_Bits: 23552
@@ -215,3 +219,48 @@ MonoBehaviour:
   _canJump: 0
   _jumpingPower: 0
   _speed: 10
+--- !u!61 &9017932007008992787
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8801379529353642565}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.02}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 1}
+    oldSize: {x: 0.03, y: 0.15}
+    newSize: {x: 0.03, y: 0.15}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.01, y: 0.02}
+  m_EdgeRadius: 0
