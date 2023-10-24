@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpawnerEnemy : MonoBehaviour
 {
     [SerializeField] private GameObject[] spawnersEnemy;
+     [SerializeField] private Animator[] spawnersAnim;
     [SerializeField] private GameObject[] spawnersBoss;
     [SerializeField] private GameObject Boss;
     [SerializeField] private bool BossSpawned;
@@ -47,11 +48,11 @@ public class SpawnerEnemy : MonoBehaviour
                     if (GM.min < 10 && BossSpawned == false)
                     {
                         int spawnPoint2 = Random.Range(0, spawnersEnemy.Length);
-                        SpawnEnemy(1, spawnPoint2);
+                        StartCoroutine(SpawnEnemy(1, spawnPoint2));
                         yield return new WaitForSeconds(Random.Range(minTimeSpawn, maxTimeSpawn));
-                        SpawnEnemy(1, spawnPoint2);
+                        StartCoroutine(SpawnEnemy(1, spawnPoint2));
                         yield return new WaitForSeconds(Random.Range(minTimeSpawn, maxTimeSpawn));
-                        SpawnEnemy(1, spawnPoint2);
+                        StartCoroutine(SpawnEnemy(1, spawnPoint2));
                         yield return new WaitForSeconds(Random.Range(minTimeSpawn, maxTimeSpawn));
                     }
                     break;
@@ -60,11 +61,11 @@ public class SpawnerEnemy : MonoBehaviour
                     if (GM.min <= 5 && BossSpawned == false)
                     {
                         int spawnPoint = Random.Range(0, spawnersEnemy.Length);
-                        SpawnEnemy(0, spawnPoint);
+                        StartCoroutine(SpawnEnemy(0, spawnPoint));
                         yield return new WaitForSeconds(Random.Range(minTimeSpawn, maxTimeSpawn));
-                        SpawnEnemy(0, spawnPoint);
+                        StartCoroutine(SpawnEnemy(0, spawnPoint));
                         yield return new WaitForSeconds(Random.Range(minTimeSpawn, maxTimeSpawn));
-                        SpawnEnemy(0, spawnPoint);
+                        StartCoroutine(SpawnEnemy(0, spawnPoint));
                         yield return new WaitForSeconds(Random.Range(minTimeSpawn, maxTimeSpawn));
                     }
                     
@@ -84,8 +85,10 @@ public class SpawnerEnemy : MonoBehaviour
         StartCoroutine(Spawn());
     }
 
-    private void SpawnEnemy(int wave, int spawnPoint)
+    IEnumerator SpawnEnemy(int wave, int spawnPoint)
     {
+        spawnersAnim[spawnPoint].SetTrigger("Spawn");
+        yield return new WaitForSeconds(0.7f);
         switch (wave)
         {
             case 0:
