@@ -34,8 +34,9 @@ public class PlayerAttack : MonoBehaviour
         }
         set
         {
-            _ammo = value;
+            _ammo = Mathf.Min(Mathf.Max(0, value),MaxAmmo) ;
             OnRefreshAmmo?.Invoke();
+            AmmoBarRefresh();
         }
     }
     public int MaxAmmo
@@ -55,6 +56,19 @@ public class PlayerAttack : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        OnRefreshAmmo += AmmoBarRefresh;
+    }
+    private void AmmoBarRefresh()
+    {
+        
+        for (int i = 0; i < Ammo && i < AmmoCell.Length; i++)
+        {
+            AmmoCell[i].Enable();
+        }
+        for (int i = Ammo; i <MaxAmmo; i++)
+        {
+            AmmoCell[i].Disable();
+        }
     }
     private void Start()
     {
@@ -112,10 +126,7 @@ public class PlayerAttack : MonoBehaviour
             _animator.SetTrigger("Attack");
         }
         Ammo--;
-        for (int i = _maxAmmo - 1; i >= Ammo; i--)
-        {
-            AmmoCell[i].Disable();
-        }
+        AmmoBarRefresh();
 
     }
     public void slowdown()
@@ -154,19 +165,10 @@ public class PlayerAttack : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(_timeReload);
-            if (Ammo < _maxAmmo)
-            {
+            
                 Ammo++;
-                //for (int i = 0; i < AmmoCell.Length; i++)
-                //{
-                //   AmmoCell[i].Enable();
-                // }
-
-                for (int i = 0; i < Ammo && i < AmmoCell.Length; i++)
-                {
-                    AmmoCell[i].Enable();
-                }
-            }
+                AmmoBarRefresh();
+            
         }
     }
 }

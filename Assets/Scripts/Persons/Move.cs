@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D)),
@@ -14,7 +15,7 @@ public class Move : MonoBehaviour
     private Action _move;
     private Rigidbody2D _rigidbody2D;
     private Animator _animator;
-    private SpriteRenderer _spriteRenderer;
+    public SpriteRenderer _spriteRenderer;
     
     private Vector2 _velocity = Vector2.zero; public bool CanJump
     {
@@ -51,7 +52,7 @@ public class Move : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _move();
+       if(_speedMultiplier!=0) _move();
     }
 
     public void MoveHorizontally(float direction)
@@ -116,7 +117,6 @@ public class Move : MonoBehaviour
             _velocity.y = _curentSpeed;
             _animator.SetBool("IsRunning", true);
         }
-        _rigidbody2D.gravityScale = 1;
         _velocity.Set(0f, _rigidbody2D.velocity.y);
         if (direction.x == 0f)
         {

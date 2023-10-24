@@ -24,7 +24,11 @@ public class UnityEvents : MonoBehaviour
     {
         _player.Rigth();
     }
-    public static void UE_ButtonStop()
+    public static void UE_ButtonDash()
+    { 
+    _player.Dash();
+    }
+        public static void UE_ButtonStop()
     {
         _player.Stop();
     }
