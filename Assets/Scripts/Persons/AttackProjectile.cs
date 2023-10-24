@@ -25,15 +25,13 @@ public class AttackProjectile : MonoBehaviour
     private void Start()
     {
         if (_move != null) {
-        switch (_velosity.x)
-        {
-            case 0:
-                _move.MoveHorizontally(_velosity.x); break;
+        if(_velosity.x!=0)
+        { _move.MoveHorizontally(_velosity.x);
         }
-        switch (_velosity.y)
+        if(_velosity.y!=0)
         {
-            case 0:
-                _move.MoveVertically(_velosity.y); break;
+            
+                _move.MoveVertically(_velosity.y);
         }
         }
         

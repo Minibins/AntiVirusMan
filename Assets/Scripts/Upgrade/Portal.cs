@@ -19,13 +19,14 @@ public class Portals : MonoBehaviour
     {
         
                 
-            secondPortal.GetComponent<Portals>().IsExploding = true;
+            
         
         if (!IsExploding) {if (other.tag == "Player") { 
              gameObject.GetComponent<BoxCollider2D>().size = new Vector2(2, 2);
             secondPortal.GetComponent<BoxCollider2D>().size = new Vector2(2, 2);
             }
-           other.transform.position = secondPortal.transform.position;
+            secondPortal.GetComponent<Portals>().IsExploding = true;
+            other.transform.position = secondPortal.transform.position;
 secondPortal.GetComponent<Animator>().SetTrigger("Exit");
             anim.SetTrigger("Exit");}
         IsExploding = true;    

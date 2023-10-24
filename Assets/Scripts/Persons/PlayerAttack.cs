@@ -24,6 +24,8 @@ public class PlayerAttack : MonoBehaviour
     private Vector2 _shieldSpawnPointNow;
     public bool isSpeedIsDamage;
     public Action OnRefreshAmmo { get; set; }
+    [SerializeField] private float speedDamageColorMultiplyer;
+    private float damageGainedFromSpeed;
     public int Ammo
     {
         get
@@ -65,7 +67,7 @@ public class PlayerAttack : MonoBehaviour
         _weapon = Instantiate(_shield, _shieldSpawnPointNow, Quaternion.identity);
         if (isSpeedIsDamage)
         {
-            _weapon.GetComponent<AttackProjectile>().Damage = Damage + (int)Mathf.Pow((Mathf.Pow(rb.velocity.x, 2) + Mathf.Pow(rb.velocity.y, 2)), 0.5f);
+            _weapon.GetComponent<AttackProjectile>().Damage = Damage + (int)damageGainedFromSpeed;
         }
         else
         {
@@ -88,6 +90,10 @@ public class PlayerAttack : MonoBehaviour
             _weapon.GetComponent<AttackProjectile>().Damage = Damage;
         }
         Instantiate(_AttackSound);
+    }
+    public void FixedUpdate()
+    {
+        if (isSpeedIsDamage) damageGainedFromSpeed= Mathf.Pow((Mathf.Pow(rb.velocity.x, 2) + Mathf.Pow(rb.velocity.y, 2)), 0.5f);
     }
     public void Shot()
     {
