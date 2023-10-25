@@ -195,23 +195,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1311771325}
           m_TargetAssemblyTypeName: UnityEvents, Assembly-CSharp
-          m_MethodName: UE_ButtonLeft
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 3
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1311771325}
-          m_TargetAssemblyTypeName: UnityEvents, Assembly-CSharp
-          m_MethodName: UE_ButtonStop
+          m_MethodName: UE_ButtonDash
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -17658,6 +17642,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19075f141eec8c446b3fda08a07de955, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1758176604 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9214942227113919116, guid: 0951b036ba0a12343a56eff64eed7b4c,
+    type: 3}
+  m_PrefabInstance: {fileID: 7865926053248113534}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1764872954
 GameObject:
   m_ObjectHideFlags: 0
@@ -20100,6 +20090,16 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: VolumeSlider
       objectReference: {fileID: 0}
+    - target: {fileID: 3518835522024572706, guid: 0951b036ba0a12343a56eff64eed7b4c,
+        type: 3}
+      propertyPath: DashButton
+      value: 
+      objectReference: {fileID: 59349892}
+    - target: {fileID: 3599426648207600167, guid: 0951b036ba0a12343a56eff64eed7b4c,
+        type: 3}
+      propertyPath: DashButton
+      value: 
+      objectReference: {fileID: 59349892}
     - target: {fileID: 3684711052714984343, guid: 0951b036ba0a12343a56eff64eed7b4c,
         type: 3}
       propertyPath: m_Name
@@ -20135,6 +20135,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3872583983673067517, guid: 0951b036ba0a12343a56eff64eed7b4c,
+        type: 3}
+      propertyPath: IssTake.Array.size
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3872583983673067517, guid: 0951b036ba0a12343a56eff64eed7b4c,
+        type: 3}
+      propertyPath: itemtextures.Array.size
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3872583983673067517, guid: 0951b036ba0a12343a56eff64eed7b4c,
+        type: 3}
+      propertyPath: itemtextures.Array.data[10]
+      value: 
+      objectReference: {fileID: 21300000, guid: 819ee0d9ddcffe14f822d5982a3adfb2,
+        type: 3}
     - target: {fileID: 3897589032826057911, guid: 0951b036ba0a12343a56eff64eed7b4c,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -20170,6 +20186,16 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4087110729889739942, guid: 0951b036ba0a12343a56eff64eed7b4c,
+        type: 3}
+      propertyPath: DashButton
+      value: 
+      objectReference: {fileID: 59349892}
+    - target: {fileID: 4087110729889739942, guid: 0951b036ba0a12343a56eff64eed7b4c,
+        type: 3}
+      propertyPath: DownButton
+      value: 
+      objectReference: {fileID: 1758176604}
     - target: {fileID: 4350582234695888065, guid: 0951b036ba0a12343a56eff64eed7b4c,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -20763,6 +20789,11 @@ PrefabInstance:
       propertyPath: _health
       value: 
       objectReference: {fileID: 4765063866695837587}
+    - target: {fileID: 193935507143263751, guid: ec94f27c1555e174ebada4b736dde08b,
+        type: 3}
+      propertyPath: dashRange
+      value: 3.6
+      objectReference: {fileID: 0}
     - target: {fileID: 4017312075561032532, guid: ec94f27c1555e174ebada4b736dde08b,
         type: 3}
       propertyPath: m_Size.x
