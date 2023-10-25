@@ -398,8 +398,9 @@ MonoBehaviour:
   _groundCheck: {fileID: 2522079714771889092}
   _groundLayer:
     serializedVersion: 2
-    m_Bits: 5120
+    m_Bits: 5136
   _health: {fileID: 0}
+  dashRange: 0.33
 --- !u!114 &8304178653184876643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -415,6 +416,7 @@ MonoBehaviour:
   _canJump: 1
   _jumpingPower: 7
   _speed: 3
+  _spriteRenderer: {fileID: 0}
 --- !u!114 &1126693211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -445,6 +447,7 @@ MonoBehaviour:
   <IsSelectedBullet>k__BackingField: 0
   <Damage>k__BackingField: 1
   isSpeedIsDamage: 0
+  speedDamageColorMultiplyer: 0
 --- !u!114 &429989184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -457,9 +460,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b5197b4f3088e444afee55b44f7fa7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 9232
   Wall: {fileID: 2508600207770711463, guid: e4d22cb4ee543784f9e2e9489f5adb57, type: 3}
+  MovableWall: {fileID: 0}
   TimeToStart: 0.5
   IsOpenly: 0
+  canmove: 0
 --- !u!70 &4017312075561032532
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

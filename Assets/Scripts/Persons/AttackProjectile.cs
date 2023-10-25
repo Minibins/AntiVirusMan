@@ -1,7 +1,10 @@
-﻿using UnityEngine;
+﻿using UnityEditor;
+using UnityEngine;
 public class AttackProjectile : MonoBehaviour
 {
     [SerializeField, Min(0)] private int _damage;
+    [SerializeField] private bool ExplodeIfCollideWithWall;
+    [SerializeField] private GameObject Explosion;
     public int Damage
     {
         get
@@ -25,15 +28,13 @@ public class AttackProjectile : MonoBehaviour
     private void Start()
     {
         if (_move != null) {
-        switch (_velosity.x)
-        {
-            case 0:
-                _move.MoveHorizontally(_velosity.x); break;
+        if(_velosity.x!=0)
+        { _move.MoveHorizontally(_velosity.x);
         }
-        switch (_velosity.y)
+        if(_velosity.y!=0)
         {
-            case 0:
-                _move.MoveVertically(_velosity.y); break;
+            
+                _move.MoveVertically(_velosity.y);
         }
         }
         
@@ -44,9 +45,18 @@ public class AttackProjectile : MonoBehaviour
         {
             _healthTarget.ApplyDamage(_damage);
         }
+        
     }
     public void DestroyThis(float time = 0f)
     {
         Destroy(gameObject, time);
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (ExplodeIfCollideWithWall)
+        {
+            Instantiate(Explosion,transform.position,Quaternion.identity);
+            DestroyThis(0.01f);
+        }
     }
 }

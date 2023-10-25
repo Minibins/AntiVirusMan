@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 221756407349167514}
   - component: {fileID: 2505451600049770212}
   - component: {fileID: 4746692124545392181}
+  - component: {fileID: 1727313876190651044}
   m_Layer: 0
   m_Name: 1
   m_TagString: Portal
@@ -146,7 +147,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   secondPortal: {fileID: 0}
-  IsSecondPortal: 0
 --- !u!50 &2505451600049770212
 Rigidbody2D:
   serializedVersion: 4
@@ -195,3 +195,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1727313876190651044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6429357985506463304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3aa73394fcb4ef3489d741f052c85191, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

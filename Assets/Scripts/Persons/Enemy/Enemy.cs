@@ -12,9 +12,12 @@ public class Enemy : MonoBehaviour
     private Move _move;
     private SpriteRenderer _spriteRenderer;
     private Animator _animator;
-
+    [SerializeField] private bool CanBeFinishedOff;
+    
+    private bool dead = false;
     public GameObject MoveToPoint;
     public int ChangeMove;
+    [SerializeField] private Sprite[] Finishings;
 
     private void Awake()
     {
@@ -67,7 +70,7 @@ public class Enemy : MonoBehaviour
             _health.ApplyDamage(_health.CurrentHealth);
             Destroy(gameObject);
         }
-        else if (collision.CompareTag("Portal") || collision.CompareTag("SecondPortal"))
+        else if ((collision.CompareTag("Portal") || collision.CompareTag("SecondPortal"))&&_health.CurrentHealth>0)
         {
             _health.ApplyDamage(999);
         }
@@ -81,12 +84,27 @@ public class Enemy : MonoBehaviour
         else if (other.CompareTag("EndWire"))
         {
             ChangeMove = 0;
+            if(gameObject.GetComponent<blackenemy>()==null)
+            {
+gameObject.GetComponent<Rigidbody2D>().gravityScale=1;
+            }
+            
         }
     }
     private void OnDeath()
     {
-        gameObject.GetComponent<Rigidbody2D>().simulated = false;
+        if (dead) { 
+            if (!CanBeFinishedOff) {
+            return;
+            }
+        }
+        else
+        {
+_move._speed = 0f;
         _animator.SetTrigger("Die");
+        
+        dead = true;
+        }
         Level.TakeEXP(0.5f);
     }
 }

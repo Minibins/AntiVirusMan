@@ -191,8 +191,16 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8192
   _PC: {fileID: 0}
+  CanBeFinishedOff: 1
   MoveToPoint: {fileID: 0}
   ChangeMove: 0
+  Finishings:
+  - {fileID: 1105086595, guid: 1df0e45a1e1783b4bac6578d311db4ef, type: 3}
+  - {fileID: 2145775544, guid: 1df0e45a1e1783b4bac6578d311db4ef, type: 3}
+  - {fileID: 1271802852, guid: 1df0e45a1e1783b4bac6578d311db4ef, type: 3}
+  - {fileID: 121060889, guid: 1df0e45a1e1783b4bac6578d311db4ef, type: 3}
+  - {fileID: 8015631046963919875, guid: 1df0e45a1e1783b4bac6578d311db4ef, type: 3}
+  - {fileID: -8102783391107283522, guid: 1df0e45a1e1783b4bac6578d311db4ef, type: 3}
 --- !u!114 &4149090224525324932
 MonoBehaviour:
   m_ObjectHideFlags: 0

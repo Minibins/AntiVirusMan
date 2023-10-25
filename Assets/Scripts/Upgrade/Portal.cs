@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class Portals : MonoBehaviour
 {
-    [SerializeField] GameObject secondPortal;
-    [SerializeField] bool IsSecondPortal;
+    public GameObject secondPortal;
     private Animator anim;
+    public bool IsExploding;
 
     private void Start()
     {
@@ -17,23 +17,21 @@ public class Portals : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
-        {
-            if (!IsSecondPortal)
-            {
-                other.transform.position = secondPortal.transform.position;
-                IsSecondPortal = true;
-            }
-
-            gameObject.GetComponent<BoxCollider2D>().size = new Vector2(2, 2);
+        
+                
+            
+        
+        if (!IsExploding) {if (other.tag == "Player") { 
+             gameObject.GetComponent<BoxCollider2D>().size = new Vector2(2, 2);
             secondPortal.GetComponent<BoxCollider2D>().size = new Vector2(2, 2);
-
-            anim.SetTrigger("Exit");
-        }
+            }
+            secondPortal.GetComponent<Portals>().IsExploding = true;
+            other.transform.position = secondPortal.transform.position;
+secondPortal.GetComponent<Animator>().SetTrigger("Exit");
+            anim.SetTrigger("Exit");}
+        IsExploding = true;    
+        
+        
     }
-
-    public void Destroyu()
-    {
-        Destroy(gameObject);
-    }
+    
 }

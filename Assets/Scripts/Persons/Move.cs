@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D)),
@@ -14,8 +15,8 @@ public class Move : MonoBehaviour
     private Action _move;
     private Rigidbody2D _rigidbody2D;
     private Animator _animator;
-    private SpriteRenderer _spriteRenderer;
-
+    public SpriteRenderer _spriteRenderer;
+    
     private Vector2 _velocity = Vector2.zero; public bool CanJump
     {
         get
@@ -51,12 +52,12 @@ public class Move : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _move();
+       if(_speedMultiplier!=0) _move();
     }
 
     public void MoveHorizontally(float direction)
     {
-        _rigidbody2D.gravityScale = 1;
+        
         _velocity.Set(0f, _rigidbody2D.velocity.y);
         if (direction == 0f)
         {
@@ -97,6 +98,40 @@ public class Move : MonoBehaviour
         else
         {
             _velocity.y = _curentSpeed;
+            _animator.SetBool("IsRunning", true);
+        }
+    }
+    public void MoveBoth(Vector2 direction) {
+        _velocity.Set(_rigidbody2D.velocity.x, 0f);
+        if (direction.y == 0f)
+        {
+            _animator.SetBool("IsRunning", false);
+        }
+        else if (direction.y < 0f)
+        {
+            _velocity.y = -_curentSpeed;
+            _animator.SetBool("IsRunning", true);
+        }
+        else
+        {
+            _velocity.y = _curentSpeed;
+            _animator.SetBool("IsRunning", true);
+        }
+        _velocity.Set(0f, _rigidbody2D.velocity.y);
+        if (direction.x == 0f)
+        {
+            _animator.SetBool("IsRunning", false);
+        }
+        else if (direction.x < 0f)
+        {
+            _velocity.x = -_speed; ;
+            _spriteRenderer.flipX = true;
+            _animator.SetBool("IsRunning", true);
+        }
+        else
+        {
+            _velocity.x = _speed;
+            _spriteRenderer.flipX = false;
             _animator.SetBool("IsRunning", true);
         }
     }

@@ -24,6 +24,8 @@ public class PlayerAttack : MonoBehaviour
     private Vector2 _shieldSpawnPointNow;
     public bool isSpeedIsDamage;
     public Action OnRefreshAmmo { get; set; }
+    [SerializeField] private float speedDamageColorMultiplyer;
+    private float damageGainedFromSpeed;
     public int Ammo
     {
         get
@@ -32,8 +34,9 @@ public class PlayerAttack : MonoBehaviour
         }
         set
         {
-            _ammo = value;
+            _ammo = Mathf.Min(Mathf.Max(0, value),MaxAmmo) ;
             OnRefreshAmmo?.Invoke();
+            AmmoBarRefresh();
         }
     }
     public int MaxAmmo
@@ -53,6 +56,19 @@ public class PlayerAttack : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        OnRefreshAmmo += AmmoBarRefresh;
+    }
+    private void AmmoBarRefresh()
+    {
+        
+        for (int i = 0; i < Ammo && i < AmmoCell.Length; i++)
+        {
+            AmmoCell[i].Enable();
+        }
+        for (int i = Ammo; i <MaxAmmo; i++)
+        {
+            AmmoCell[i].Disable();
+        }
     }
     private void Start()
     {
@@ -65,7 +81,7 @@ public class PlayerAttack : MonoBehaviour
         _weapon = Instantiate(_shield, _shieldSpawnPointNow, Quaternion.identity);
         if (isSpeedIsDamage)
         {
-            _weapon.GetComponent<AttackProjectile>().Damage = Damage + (int)Mathf.Pow((Mathf.Pow(rb.velocity.x, 2) + Mathf.Pow(rb.velocity.y, 2)), 0.5f);
+            _weapon.GetComponent<AttackProjectile>().Damage = Damage + (int)damageGainedFromSpeed;
         }
         else
         {
@@ -89,6 +105,10 @@ public class PlayerAttack : MonoBehaviour
         }
         Instantiate(_AttackSound);
     }
+    public void FixedUpdate()
+    {
+        if (isSpeedIsDamage) damageGainedFromSpeed= Mathf.Pow((Mathf.Pow(rb.velocity.x, 2) + Mathf.Pow(rb.velocity.y, 2)), 0.5f);
+    }
     public void Shot()
     {
         if (Ammo < 1)
@@ -106,10 +126,7 @@ public class PlayerAttack : MonoBehaviour
             _animator.SetTrigger("Attack");
         }
         Ammo--;
-        for (int i = _maxAmmo - 1; i >= Ammo; i--)
-        {
-            AmmoCell[i].Disable();
-        }
+        AmmoBarRefresh();
 
     }
     public void slowdown()
@@ -148,19 +165,10 @@ public class PlayerAttack : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(_timeReload);
-            if (Ammo < _maxAmmo)
-            {
+            
                 Ammo++;
-                //for (int i = 0; i < AmmoCell.Length; i++)
-                //{
-                //   AmmoCell[i].Enable();
-                // }
-
-                for (int i = 0; i < Ammo && i < AmmoCell.Length; i++)
-                {
-                    AmmoCell[i].Enable();
-                }
-            }
+                AmmoBarRefresh();
+            
         }
     }
 }

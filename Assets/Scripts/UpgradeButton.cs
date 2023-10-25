@@ -52,6 +52,11 @@ public class UpgradeButton : MonoBehaviour
     //Works
     //ID 9
 
+    //ID 10
+    //Works
+    [SerializeField] private GameObject DashButton;
+    //ID 10
+
     public void onclick()
     {
         if (gameObject.GetComponent<Image>().sprite.name == "None")
@@ -86,6 +91,7 @@ public class UpgradeButton : MonoBehaviour
                 GameObject.FindGameObjectWithTag("LaserGun").AddComponent<DRAG>();
                 GameObject.FindGameObjectWithTag("PC").AddComponent<DRAG>();
                 GameObject.FindGameObjectWithTag("PUSHKA").AddComponent<DRAG>();
+                Player.GetComponent<InstantiateWall>().canmove = true;
                 break;
             case 2:
                 GameObject.FindGameObjectWithTag("Starfall").GetComponent<starfall>().IsSpawn = true;
@@ -119,6 +125,9 @@ public class UpgradeButton : MonoBehaviour
 
             case 9:
                 GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().StartSpawnPortals();
+                break;
+            case 10:
+                DashButton.SetActive(true);
                 break;
         }
     }
