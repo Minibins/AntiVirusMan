@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4150254090896210520}
   - component: {fileID: 8169598340470925086}
-  - component: {fileID: 8665683045155237311}
   - component: {fileID: 5778307210289841355}
+  - component: {fileID: 194041917424408988}
+  - component: {fileID: 8307379421477049360}
   m_Layer: 0
   m_Name: ExpCollectible
   m_TagString: Untagged
@@ -86,8 +87,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!70 &8665683045155237311
-CapsuleCollider2D:
+--- !u!114 &5778307210289841355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6345187588179732482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a102ceff0857a824fa8b166662533412, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Exp: 0.5
+--- !u!58 &194041917424408988
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -115,13 +129,13 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.02}
-  m_Size: {x: 0.32, y: 0.12}
-  m_Direction: 1
---- !u!114 &5778307210289841355
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.06
+--- !u!114 &8307379421477049360
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -130,7 +144,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6345187588179732482}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a102ceff0857a824fa8b166662533412, type: 3}
+  m_Script: {fileID: 11500000, guid: 7ce7150141f4cfe4f8f1fb2fb4e6a32f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Exp: 0.2
+  images:
+  - {fileID: 1138438350, guid: 1df0e45a1e1783b4bac6578d311db4ef, type: 3}
+  - {fileID: 1549102881, guid: 1df0e45a1e1783b4bac6578d311db4ef, type: 3}
