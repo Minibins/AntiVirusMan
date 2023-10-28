@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject LosePanel;
     [SerializeField] private GameObject Buttons;
     [SerializeField] private GameObject[] enemy;
-    [SerializeField] private int sec;
+    [SerializeField] public int sec;
     [SerializeField] private int TimeToWin;
     [SerializeField] private bool StopTime = true;
     [SerializeField] private Text LiveTextLose;
