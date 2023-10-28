@@ -106,7 +106,7 @@ gameObject.GetComponent<Rigidbody2D>().gravityScale=1;
         }
         else
         {
-_move._speed = 0f;
+_move.SetSpeedMultiplierForOllTime(0);
         _animator.SetTrigger("Die");
         
         dead = true;

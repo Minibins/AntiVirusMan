@@ -5,7 +5,7 @@ public class Health : MonoBehaviour
 {
     [SerializeField] private int _maxHealth;
     [SerializeField] private HealthCell[] healthCells;
-    [SerializeField] private GameManager gameManager;
+    [SerializeField] public GameManager gameManager;
     [SerializeField] private GameObject DeathSound;
     [SerializeField] private GameObject PunchSound;
     [field: SerializeField] public int CurrentHealth { get; private set; }

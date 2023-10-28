@@ -32,7 +32,8 @@ public class AboveDeath : MonoBehaviour
 			}
 			else
 			{
-				other.gameObject.GetComponent<Move>().SetSpeedMultiplierTemporary(3,6.36f);
+				_health.gameManager.Antivirus();
+                other.gameObject.GetComponent<Move>().SetSpeedMultiplierTemporary(3,6.34f);
 				other.transform.position = new Vector3(transform.position.x,15.44f,other.transform.position.z);
                 other.gameObject.GetComponent<Rigidbody2D>().velocity=new Vector2(0,ForcerePulsive);
                 Bounds bounds = spawnArea.bounds;
@@ -43,7 +44,7 @@ public class AboveDeath : MonoBehaviour
                 Random.Range(bounds.min.y, bounds.max.y)
             );
                     GameObject spawnedObject = Instantiate(objectToSpawn, randomPoint, Quaternion.identity);
-					Destroy(spawnedObject,6.36f);
+					Destroy(spawnedObject,6.34f);
                 }
                 Destroy(gameObject);
             }

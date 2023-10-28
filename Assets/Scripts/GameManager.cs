@@ -92,19 +92,20 @@ public class GameManager : MonoBehaviour
 
     public void LoseGame()
     {
-        Destroy(Player);
         SE.GetComponent<SpawnerEnemy>().StopOrStartSpawn();
-        enemy = GameObject.FindGameObjectsWithTag("Enemy");
-        for (int i = 0; i < enemy.Length; i++)
+        LosePanel.SetActive(true);
+        HealthPanel.SetActive(false);
+        Buttons.SetActive(false);
+        StopTime = false;
+        Antivirus();
+    }
+    public void Antivirus()
+    {   enemy = GameObject.FindGameObjectsWithTag("Enemy");
+        for(int i = 0; i < enemy.Length; i++)
         {
             Destroy(enemy[i]);
         }
-        LosePanel.SetActive(true);
-        HealthPanel.SetActive(true);
-        Buttons.SetActive(false);
-        StopTime = false;
     }
-
     IEnumerator TimeFlow()
     {
         while (StopTime == true)
