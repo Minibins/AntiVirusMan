@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class Save : MonoBehaviour
 {
     public Data data;
+    
     private void Awake()
     {
         LoadField();
