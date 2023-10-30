@@ -20,11 +20,13 @@ public class LevelUP : MonoBehaviour
         {
             IsSelected = false;
             gameObject.SetActive(false);
+            Time.timeScale = 1;
         }
     }
 
     public void NewUpgrade()
     {
+        Time.timeScale = 0.1f;
         a = Random.Range(0, itemtextures.Length);
         if (!IssTake[a])
         {

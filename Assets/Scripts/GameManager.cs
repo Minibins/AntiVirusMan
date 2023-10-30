@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] Portals;
     [SerializeField] private GameObject[] spawnPointPortals;
-
+    
     [SerializeField] private GameObject Player;
     [SerializeField] private GameObject firstAidKit;
     [SerializeField] private GameObject[] spawnPointFirstAidKit;
@@ -148,5 +148,6 @@ public class GameManager : MonoBehaviour
     {
         SettingsPanel.SetActive(Open);
         Buttons.SetActive(!Open);
+       Time.timeScale= Open ? 0 : 1;
     }
 }
