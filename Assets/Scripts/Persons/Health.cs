@@ -83,10 +83,10 @@ public class Health : MonoBehaviour
             Instantiate(DeathSound);
         }
         else
-        {
+        {Destroy(gameObject);
             GetComponent<Enemy>()._PC.GetComponentInChildren<PC>().EnemyKilled();
         }
-        Destroy(gameObject);
+        
     }
 
     public void SoundDead()

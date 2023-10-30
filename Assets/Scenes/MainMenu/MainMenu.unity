@@ -393,8 +393,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1873333689}
+  m_Children: []
   m_Father: {fileID: 1185718424}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -426,8 +425,8 @@ MonoBehaviour:
     version is Alpha 1.1\nIn this version was added:\nThe \"fiesty\" upgrade, which
     upgrades booka virus with fun intaraction. \nAlso we fixed Stepa virus. Now he
     can punch everyone.\nFixed shooting damage.\nFixed bug when on some devices parallax
-    worked uncorrectly\nAdded that menu\nSky texture has been completed\nPlease,
-    sponsor us on Patreon UnU"
+    worked uncorrectly\nFixed turrel hal abuse by adding socket.\nSky texture has
+    been completed\nPlease, sponsor us on Patreon UnU"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
   m_sharedMaterial: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
@@ -3017,6 +3016,7 @@ RectTransform:
   - {fileID: 1074094156}
   - {fileID: 60787513}
   - {fileID: 2119779361}
+  - {fileID: 1873333689}
   m_Father: {fileID: 32966448}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -4782,11 +4782,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 230530213}
-  m_Father: {fileID: 60787513}
+  m_Father: {fileID: 1185718424}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -13.88}
+  m_AnchoredPosition: {x: 0, y: -23.680004}
   m_SizeDelta: {x: 15.228027, y: 6.8600006}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1873333690
