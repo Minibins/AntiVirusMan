@@ -81,7 +81,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 208160340796084907, guid: 1df0e45a1e1783b4bac6578d311db4ef, type: 3}
+  m_Sprite: {fileID: -1660010913, guid: 1df0e45a1e1783b4bac6578d311db4ef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -216,6 +216,7 @@ MonoBehaviour:
   _canJump: 1
   _jumpingPower: 10
   _speed: 1
+  _spriteRenderer: {fileID: 0}
 --- !u!114 &-9047895291804948699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,6 +250,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 1
+  ExplodeIfCollideWithWall: 0
+  Explosion: {fileID: 0}
   _mask:
     serializedVersion: 2
     m_Bits: 8192
