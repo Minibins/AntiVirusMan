@@ -14,10 +14,15 @@ public class Player : MonoBehaviour
     private Move _move;
     private Rigidbody2D _rb;
     
-    private void FixedUpdate()
+   /* private void Update()
     {
-        transform.position = new Vector3(Mathf.Max(-18.527f,Mathf.Min(17.734f,transform.position.x)),transform.position.y,transform.position.z);
-    }
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down * 5);
+        Debug.DrawRay(transform.position, Vector2.down * 5, Color.cyan);
+        if (hit.collider != null)
+        {
+            Debug.DrawLine(transform.position, hit.point, Color.magenta);
+        }
+    }*/
 
     private void Awake()
     {

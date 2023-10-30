@@ -29,7 +29,7 @@ public class DRAG : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        if (pa.Ammo > 0&&isdrgging)
+        if (pa.Ammo > 0)
         {
             Vector2 curPosition = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) + offset;
             rb.velocity = (curPosition - rb.position) * 10f;
@@ -65,12 +65,9 @@ public class DRAG : MonoBehaviour
     }
     private void StaminaConchaeca()
     {
-        if (isdrgging) {pa.Ammo--;
+        if (!isdrgging) {pa.Ammo--;
         
-        Invoke(nameof(StaminaConchaeca), 0.5f); }
-        if(pa.Ammo == 0)
-        {
-            isdrgging = false;
-        }
+        Invoke(nameof(StaminaConchaeca), 1); }
+            
     }
 }

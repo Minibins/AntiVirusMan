@@ -129,9 +129,6 @@ public class UpgradeButton : MonoBehaviour
             case 10:
                 DashButton.SetActive(true);
                 break;
-            case 11:
-            SpawnerEnemy.elitePossibility[0] = true;
-                break;
         }
     }
 }

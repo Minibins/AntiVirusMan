@@ -93,20 +93,14 @@ gameObject.GetComponent<Rigidbody2D>().gravityScale=1;
     }
     private void OnDeath()
     {
-        
         if (dead) { 
             if (!CanBeFinishedOff) {
             return;
             }
-            else
-            {
-                Destroy(gameObject, 1.10f);
-                _animator.SetTrigger("Up");
-            }
         }
         else
         {
-_move.SetSpeedMultiplierForOllTime(0);
+_move._speed = 0f;
         _animator.SetTrigger("Die");
         
         dead = true;

@@ -65,13 +65,13 @@ public class Move : MonoBehaviour
         }
         else if (direction < 0f)
         {
-            _velocity.x = -_curentSpeed;
+            _velocity.x = -_speed; ;
             _spriteRenderer.flipX = true;
             _animator.SetBool("IsRunning", true);
         }
         else
         {
-            _velocity.x = _curentSpeed;
+            _velocity.x = _speed;
             _spriteRenderer.flipX = false;
             _animator.SetBool("IsRunning", true);
         }
@@ -80,7 +80,7 @@ public class Move : MonoBehaviour
     public void MoveOnWire(GameObject MoveToPoint)
     {
         _rigidbody2D.gravityScale = 0;
-        transform.position = Vector3.MoveTowards(transform.position, MoveToPoint.transform.position, Time.deltaTime * _curentSpeed);
+        transform.position = Vector3.MoveTowards(transform.position, MoveToPoint.transform.position, Time.deltaTime * _speed);
     }
 
     public void MoveVertically(float direction)
@@ -124,14 +124,13 @@ public class Move : MonoBehaviour
         }
         else if (direction.x < 0f)
         {
-            _velocity.x = -_curentSpeed; ;
+            _velocity.x = -_speed; ;
             _spriteRenderer.flipX = true;
             _animator.SetBool("IsRunning", true);
         }
         else
         {
-            _velocity.x = _curentSpeed;
-                
+            _velocity.x = _speed;
             _spriteRenderer.flipX = false;
             _animator.SetBool("IsRunning", true);
         }
@@ -154,7 +153,6 @@ public class Move : MonoBehaviour
         _curentSpeed = _speed * multiplier;
         ResetSpeed();
         Invoke(nameof(SetDefaultSpeed), time);
-        _animator.SetBool("Boosted",true);
     }
 
     public void SetSpeedMultiplierForOllTime(float multiplier = 1f)
@@ -170,7 +168,6 @@ public class Move : MonoBehaviour
     private void SetDefaultSpeed()
     {
         SetSpeedMultiplierForOllTime(_speedMultiplier);
-        _animator.SetBool("Boosted",false);
     }
     private void ResetSpeed()
     {

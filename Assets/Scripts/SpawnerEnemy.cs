@@ -19,18 +19,11 @@ public class SpawnerEnemy : MonoBehaviour
     [SerializeField] private float maxTimeSpawnWave;
     [SerializeField] private GameManager GM;
     [SerializeField] private GameObject BossAlpha;
-    [SerializeField] private int EliteSpawnChance;
-    public static bool[] elitePossibility;
     public bool isSpawn;
     private void Start()
     {
         BossSpawned = false;
         StartCoroutine(Spawn());
-        elitePossibility=new bool[Enemies.Length+1];
-        for(int i = 0; i < Enemies.Length+1; i++)
-        {
-            elitePossibility[i]=false;
-        }
     }
 
 
@@ -55,11 +48,11 @@ public class SpawnerEnemy : MonoBehaviour
                     if (GM.min < 10 && BossSpawned == false)
                     {
                         int spawnPoint2 = Random.Range(0, spawnersEnemy.Length);
-                        StartCoroutine(SpawnEnemy( spawnPoint2));
+                        StartCoroutine(SpawnEnemy(1, spawnPoint2));
                         yield return new WaitForSeconds(Random.Range(minTimeSpawn, maxTimeSpawn));
-                        StartCoroutine(SpawnEnemy (spawnPoint2));
+                        StartCoroutine(SpawnEnemy(1, spawnPoint2));
                         yield return new WaitForSeconds(Random.Range(minTimeSpawn, maxTimeSpawn));
-                        StartCoroutine(SpawnEnemy( spawnPoint2));
+                        StartCoroutine(SpawnEnemy(1, spawnPoint2));
                         yield return new WaitForSeconds(Random.Range(minTimeSpawn, maxTimeSpawn));
                     }
                     break;
@@ -68,11 +61,11 @@ public class SpawnerEnemy : MonoBehaviour
                     if (GM.min <= 5 && BossSpawned == false)
                     {
                         int spawnPoint = Random.Range(0, spawnersEnemy.Length);
-                        StartCoroutine(SpawnEnemy(spawnPoint));
+                        StartCoroutine(SpawnEnemy(0, spawnPoint));
                         yield return new WaitForSeconds(Random.Range(minTimeSpawn, maxTimeSpawn));
-                        StartCoroutine(SpawnEnemy(spawnPoint));
+                        StartCoroutine(SpawnEnemy(0, spawnPoint));
                         yield return new WaitForSeconds(Random.Range(minTimeSpawn, maxTimeSpawn));
-                        StartCoroutine(SpawnEnemy(spawnPoint));
+                        StartCoroutine(SpawnEnemy(0, spawnPoint));
                         yield return new WaitForSeconds(Random.Range(minTimeSpawn, maxTimeSpawn));
                     }
                     
@@ -92,18 +85,19 @@ public class SpawnerEnemy : MonoBehaviour
         StartCoroutine(Spawn());
     }
 
-    IEnumerator SpawnEnemy(int spawnPoint)
+    IEnumerator SpawnEnemy(int wave, int spawnPoint)
     {
         spawnersAnim[spawnPoint].SetTrigger("Spawn");
         yield return new WaitForSeconds(0.7f);
-        int enemy=Random.Range(0, Enemies.Length);
-        if(elitePossibility[0] && Random.Range(EliteSpawnChance,0) == 0)
+        switch (wave)
         {
-            Instantiate(EnemiesV2[Random.Range(0,Enemies.Length)],spawnersEnemy[spawnPoint].transform.position,Quaternion.identity);
-        }
-        else
-        {
-            Instantiate(Enemies[Random.Range(0,Enemies.Length)],spawnersEnemy[spawnPoint].transform.position,Quaternion.identity);
+            case 0:
+                Instantiate(Enemies[Random.Range(0, Enemies.Length)], spawnersEnemy[spawnPoint].transform.position, Quaternion.identity);
+                break;
+
+            case 1:
+                Instantiate(EnemiesV2[Random.Range(0, EnemiesV2.Length)], spawnersEnemy[spawnPoint].transform.position, Quaternion.identity);
+                break;
         }
     }
 }
