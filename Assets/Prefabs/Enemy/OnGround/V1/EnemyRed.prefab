@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 4300671704897370535}
   - component: {fileID: -2885257079954023851}
   - component: {fileID: 1573228806848738054}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: EnemyRed
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -178,6 +178,7 @@ MonoBehaviour:
   _canJump: 1
   _jumpingPower: 10
   _speed: 0.5
+  _spriteRenderer: {fileID: 0}
 --- !u!114 &-7714455965291332328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,8 +195,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8192
   _PC: {fileID: 0}
+  CanBeFinishedOff: 0
   MoveToPoint: {fileID: 0}
   ChangeMove: 0
+  Finishings: []
 --- !u!114 &4300671704897370535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,6 +212,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 1
+  ExplodeIfCollideWithWall: 0
+  Explosion: {fileID: 0}
   _mask:
     serializedVersion: 2
     m_Bits: 8192
@@ -263,8 +268,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.26, y: 0.25}
+  m_Offset: {x: -0.009819913, y: -0.056731082}
+  m_Size: {x: 0.15946345, y: 0.20844327}
   m_Direction: 0
 --- !u!1 &1390221641294342662
 GameObject:
@@ -275,7 +280,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7180264809983310948}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
@@ -307,7 +312,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6264941609187235927}
   - component: {fileID: 9194130406349264198}
-  m_Layer: 9
+  m_Layer: 14
   m_Name: Light 2D (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

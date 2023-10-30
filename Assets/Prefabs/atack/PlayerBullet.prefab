@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -5762580846753605604}
   - component: {fileID: 304440491880971904}
   - component: {fileID: 9017932007008992787}
-  m_Layer: 11
+  m_Layer: 13
   m_Name: PlayerBullet
   m_TagString: AntivirusAtack
   m_Icon: {fileID: 0}
@@ -182,7 +182,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.03, y: 0.15}
+  m_Size: {x: 0.06, y: 0.15}
   m_EdgeRadius: 0
 --- !u!114 &-5762580846753605604
 MonoBehaviour:
@@ -219,6 +219,7 @@ MonoBehaviour:
   _canJump: 0
   _jumpingPower: 0
   _speed: 10
+  _spriteRenderer: {fileID: 0}
 --- !u!61 &9017932007008992787
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -8,10 +8,12 @@ public class SpeedBoost : MonoBehaviour
     [SerializeField] private float _durationBoost;
     [SerializeField] private float _ReloadTime;
     private Move _moveTarget;
+    private Animator _animator;
     private bool _reloadNow = false;
     private Collider2D[] _targets;
     private void Start()
     {
+        _animator = GetComponent<Animator>();
         Setboost();
     }
     private void Setboost()
@@ -25,9 +27,11 @@ public class SpeedBoost : MonoBehaviour
         if (_moveTarget != null)
         {
             _moveTarget.SetSpeedMultiplierTemporary(_multiplierSpeed, _durationBoost);
+            _animator.SetTrigger("peenok");
             _reloadNow = true;
         }
         Invoke(nameof(Setboost), _reloadNow ? _ReloadTime : 0.2f);
+        
     }
 }
 
