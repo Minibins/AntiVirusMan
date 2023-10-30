@@ -10995,7 +10995,6 @@ GameObject:
   - component: {fileID: 699025415}
   - component: {fileID: 699025414}
   - component: {fileID: 699025417}
-  - component: {fileID: 699025418}
   m_Layer: 0
   m_Name: Rozetka
   m_TagString: Untagged
@@ -11136,18 +11135,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.16, y: 0.16}
   m_EdgeRadius: 0
---- !u!114 &699025418
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 699025413}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63f9d9b85b06be14391afbb0bd1a7f8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &719234732
 GameObject:
   m_ObjectHideFlags: 0
