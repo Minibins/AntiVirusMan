@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
         SettingsPanel.SetActive(false);
         LosePanel.SetActive(false);
         StartCoroutine(TimeFlow());
-
+        Time.timeScale = 1;
     }
 
 
