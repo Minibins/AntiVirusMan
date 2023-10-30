@@ -154,6 +154,7 @@ public class Move : MonoBehaviour
         _curentSpeed = _speed * multiplier;
         ResetSpeed();
         Invoke(nameof(SetDefaultSpeed), time);
+        _animator.SetBool("Boosted",true);
     }
 
     public void SetSpeedMultiplierForOllTime(float multiplier = 1f)
@@ -169,6 +170,7 @@ public class Move : MonoBehaviour
     private void SetDefaultSpeed()
     {
         SetSpeedMultiplierForOllTime(_speedMultiplier);
+        _animator.SetBool("Boosted",false);
     }
     private void ResetSpeed()
     {
