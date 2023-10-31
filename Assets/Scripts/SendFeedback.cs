@@ -15,7 +15,7 @@ public class SendFeedback : MonoBehaviour
         int smtpPort = 587;
         string fromEmail = "peopleplayedavmgame@outlook.com";
         string fromPassword = "DustyStudio10";
-        string toEmail = "antony.prykhodchenko@gmail.com";
+        string toEmail = "dustystudio10@gmail.com";
         string subject = "Отзыв о игре";
         string body = text.text;
         var Sender = new MailAddress(fromEmail);

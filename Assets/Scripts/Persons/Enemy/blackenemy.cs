@@ -43,7 +43,7 @@ public class blackenemy : MonoBehaviour
             _health.ApplyDamage(_health.CurrentHealth);
         }
     }
-    private void Update()
+    private void FixedUpdate()
     {
         Fly();
         otklonenie++;
