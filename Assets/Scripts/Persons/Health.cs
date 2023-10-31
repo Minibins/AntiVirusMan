@@ -51,7 +51,7 @@ public class Health : MonoBehaviour
         CurrentHealth = CurrentHealth > _maxHealth ? _maxHealth : CurrentHealth;
         if (gameObject.name == "PC")
         {
-            for (int i = 0; i < healthCells.Length; i++)
+            for (int i = 0; i < CurrentHealth; i++)
             {
                 healthCells[i].Enable();
             }
