@@ -14,6 +14,7 @@ public class Audio : MonoBehaviour
     private void Start()
     {
         _Volume = save.data.MusicVolume;
+        slider.value = _Volume;
         MusicVolumeText.text = "Music:" + Mathf.RoundToInt(_Volume * 100) + "%";   
     }
 
