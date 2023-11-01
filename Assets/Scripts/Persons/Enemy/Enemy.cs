@@ -65,15 +65,18 @@ public class Enemy : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if ((_maskWhoKills.value & (1 << collision.gameObject.layer)) != 0)
+        if (_health.CurrentHealth > 0)
+        {
+            if ((_maskWhoKills.value & (1 << collision.gameObject.layer)) != 0)
         {
             _health.ApplyDamage(_health.CurrentHealth);
-            Destroy(gameObject);
         }
-        else if ((collision.CompareTag("Portal") || collision.CompareTag("SecondPortal"))&&_health.CurrentHealth>0)
+        else if ((collision.CompareTag("Portal") || collision.CompareTag("SecondPortal")))
         {
             _health.ApplyDamage(999);
         }
+        }
+        
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -112,5 +115,6 @@ _move.SetSpeedMultiplierForOllTime(0);
         dead = true;
         }
         Level.TakeEXP(0.5f);
+        GetComponent<AttackProjectile>().Damage = 0;
     }
 }

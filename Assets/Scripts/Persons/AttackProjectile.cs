@@ -56,7 +56,7 @@ public class AttackProjectile : MonoBehaviour
         if (ExplodeIfCollideWithWall)
         {
             Instantiate(Explosion,transform.position,Quaternion.identity);
-            DestroyThis(0.01f);
+            DestroyThis(0f);
         }
     }
 }
