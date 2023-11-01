@@ -30,9 +30,11 @@ public class MainMenu : MonoBehaviour
 
 
     public void ExitGame()
-    {
-        save.SaveField();
+    {save.SaveField();
+        Debug.Log("Я вышел");
         Application.Quit();
+        
+        
     }
     public void OpenWebBrowser()
     {
