@@ -33,8 +33,8 @@ public class MainMenu : MonoBehaviour
     {save.SaveField();
         Debug.Log("Я вышел");
         Application.Quit();
-        
-        
+        Application.Unload();
+
     }
     public void OpenWebBrowser()
     {
