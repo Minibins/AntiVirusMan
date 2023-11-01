@@ -13,7 +13,15 @@ public class shadowEffect : MonoBehaviour
         shadow = new GameObject();
         shadow.transform.parent = transform;
         shadowRenderer = shadow.AddComponent< SpriteMask>();
-        shadow.transform.localPosition = shadowOffset;
+        
+        if(transform.localScale.x >= 0)
+        {
+            shadow.transform.localPosition = shadowOffset;
+        }
+        else
+        {
+            shadow.transform.localPosition = -shadowOffset;
+        }
         renderer=GetComponent<SpriteRenderer>();
         shadow.transform.localScale = Vector3.one;
     }
