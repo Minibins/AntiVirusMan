@@ -1,3 +1,5 @@
+using Unity.VisualScripting;
+
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -107,10 +109,19 @@ public class UpgradeButton : MonoBehaviour
                 break;
             case 6:
                 PUSHKA = GameObject.FindGameObjectWithTag("PUSHKA");
+            SpriteRenderer[] colesa= PUSHKA.GetComponentsInChildren<SpriteRenderer>();
+            for (int i = 0; i < colesa.Length; i++)
+            {
+                colesa[i].enabled = true;
+            }
                 PUSHKA.GetComponent<PUSHKA>().StartShoot();
                 if (lvlUp.IssTake[1])
                 {
-                    PUSHKA.AddComponent<DRAG>();
+                for(int i = 0; i < colesa.Length; i++)
+                {
+                    colesa[i].AddComponent<DRAG>();
+                }
+               
                 }
                 break;
 
