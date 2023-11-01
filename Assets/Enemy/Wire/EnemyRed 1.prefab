@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 4300671704897370535}
   - component: {fileID: -2885257079954023851}
   - component: {fileID: 8139804192362469569}
+  - component: {fileID: -3232048528765222662}
   m_Layer: 11
   m_Name: EnemyRed 1
   m_TagString: Enemy
@@ -176,6 +177,7 @@ MonoBehaviour:
   _canJump: 1
   _jumpingPower: 10
   _speed: 0.5
+  _spriteRenderer: {fileID: 0}
 --- !u!114 &-7714455965291332328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,8 +194,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8192
   _PC: {fileID: 0}
+  CanBeFinishedOff: 0
   MoveToPoint: {fileID: 0}
   ChangeMove: 1
+  Finishings: []
 --- !u!114 &4300671704897370535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,6 +211,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 1
+  ExplodeIfCollideWithWall: 0
+  Explosion: {fileID: 0}
   _mask:
     serializedVersion: 2
     m_Bits: 8192
@@ -264,6 +270,18 @@ CapsuleCollider2D:
   m_Offset: {x: -0.000000047683717, y: -0.0017157793}
   m_Size: {x: 0.06440306, y: 0.067834616}
   m_Direction: 0
+--- !u!114 &-3232048528765222662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49990711567001007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d867c4fff1b5944693ccdbdfbefa6c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1390221641294342662
 GameObject:
   m_ObjectHideFlags: 0

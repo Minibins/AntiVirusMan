@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 1474092767125282854}
   - component: {fileID: 8899511036732383565}
   - component: {fileID: 4519855225380453706}
+  - component: {fileID: -5813609316073180957}
   m_Layer: 12
   m_Name: Booka
   m_TagString: Enemy
@@ -177,6 +178,7 @@ MonoBehaviour:
   _canJump: 1
   _jumpingPower: 10
   _speed: 0.4
+  _spriteRenderer: {fileID: 0}
 --- !u!114 &-5198353998425603602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,8 +195,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8192
   _PC: {fileID: 0}
+  CanBeFinishedOff: 0
   MoveToPoint: {fileID: 0}
   ChangeMove: 0
+  Finishings: []
 --- !u!114 &1474092767125282854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,6 +212,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 1
+  ExplodeIfCollideWithWall: 0
+  Explosion: {fileID: 0}
   _mask:
     serializedVersion: 2
     m_Bits: 8192
@@ -229,6 +235,9 @@ MonoBehaviour:
     m_Bits: 512
   _correctionY: 1
   ForcerePulsive: 650
+  Elite: 0
+  numberOfObjectsToSpawn: 0
+  objectToSpawn: {fileID: 0}
 --- !u!70 &4519855225380453706
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -264,6 +273,18 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.32, y: 0.32}
   m_Direction: 0
+--- !u!114 &-5813609316073180957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4953599130190571075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d867c4fff1b5944693ccdbdfbefa6c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8161061342530039711
 GameObject:
   m_ObjectHideFlags: 0
