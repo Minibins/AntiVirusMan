@@ -13310,6 +13310,12 @@ MonoBehaviour:
   nextPoint:
   - {fileID: 1943639070}
   - {fileID: 1899678027}
+--- !u!212 &1263872413 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 905840337789602248, guid: bff550ab950607e48a26f4001c71d20f,
+    type: 3}
+  m_PrefabInstance: {fileID: 7737964848889452501}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1296780447
 GameObject:
   m_ObjectHideFlags: 0
@@ -16738,7 +16744,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.06}
+  m_Offset: {x: -0.0016988665, y: -0.00053884834}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -16749,7 +16755,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.1, y: 0.03}
+  m_Size: {x: 0.12378444, y: 0.14892231}
   m_EdgeRadius: 0
 --- !u!50 &2142650362
 Rigidbody2D:
@@ -17364,6 +17370,28 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3440751722115606703, guid: bff550ab950607e48a26f4001c71d20f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5263505016268556790, guid: bff550ab950607e48a26f4001c71d20f,
+        type: 3}
+      propertyPath: Coleso
+      value: 
+      objectReference: {fileID: 1263872413}
+    - target: {fileID: 5263505016268556790, guid: bff550ab950607e48a26f4001c71d20f,
+        type: 3}
+      propertyPath: charged
+      value: 
+      objectReference: {fileID: 932419665, guid: 1df0e45a1e1783b4bac6578d311db4ef,
+        type: 3}
+    - target: {fileID: 5263505016268556790, guid: bff550ab950607e48a26f4001c71d20f,
+        type: 3}
+      propertyPath: uncharged
+      value: 
+      objectReference: {fileID: -1215809981, guid: 1df0e45a1e1783b4bac6578d311db4ef,
+        type: 3}
     - target: {fileID: 5263505016268556790, guid: bff550ab950607e48a26f4001c71d20f,
         type: 3}
       propertyPath: TimeReload
@@ -17424,12 +17452,39 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7323731118206332595, guid: bff550ab950607e48a26f4001c71d20f,
+        type: 3}
+      propertyPath: m_EnableCollision
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7323731118206332595, guid: bff550ab950607e48a26f4001c71d20f,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7323731118206332595, guid: bff550ab950607e48a26f4001c71d20f,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7323731118206332595, guid: bff550ab950607e48a26f4001c71d20f,
+        type: 3}
+      propertyPath: m_Motor.m_MotorSpeed
+      value: 144.7
+      objectReference: {fileID: 0}
     - target: {fileID: 8667480518834465936, guid: bff550ab950607e48a26f4001c71d20f,
         type: 3}
       propertyPath: m_Name
       value: DONBAS_Gun
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8667480518834465936, guid: bff550ab950607e48a26f4001c71d20f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5047100667621999345, guid: bff550ab950607e48a26f4001c71d20f, type: 3}
+    - {fileID: 6748142146490164612, guid: bff550ab950607e48a26f4001c71d20f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
