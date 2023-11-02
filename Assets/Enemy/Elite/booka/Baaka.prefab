@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 2568750583019537692}
   - component: {fileID: 7122927710741264080}
   - component: {fileID: 7110360366878091776}
+  - component: {fileID: -6922692357126491764}
   m_Layer: 12
   m_Name: Baaka
   m_TagString: Enemy
@@ -251,3 +252,15 @@ CapsuleCollider2D:
   m_Offset: {x: -0.004778297, y: -0.055630095}
   m_Size: {x: 0.45299873, y: 0.35126254}
   m_Direction: 1
+--- !u!114 &-6922692357126491764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8615089305505906155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d867c4fff1b5944693ccdbdfbefa6c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

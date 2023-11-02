@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 2848364825231202312}
   m_Layer: 0
   m_Name: pushechnoeyadro
-  m_TagString: AntivirusAtack
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -214,7 +214,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 1
+  ExplodeIfCollideWithWall: 0
+  Explosion: {fileID: 0}
   _mask:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 22528
   _velosity: {x: 0, y: 0}

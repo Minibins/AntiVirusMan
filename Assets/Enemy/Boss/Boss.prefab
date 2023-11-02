@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 4149090224525324932}
   - component: {fileID: -9047895291804948699}
   - component: {fileID: 5645338690043026744}
+  - component: {fileID: 3671429359641205883}
   m_Layer: 11
   m_Name: Boss
   m_TagString: Enemy
@@ -190,10 +191,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maskWhoKills:
     serializedVersion: 2
-    m_Bits: 8192
+    m_Bits: 0
   _PC: {fileID: 0}
+  CanBeFinishedOff: 0
   MoveToPoint: {fileID: 0}
   ChangeMove: 0
+  Finishings: []
 --- !u!114 &4149090224525324932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,6 +212,7 @@ MonoBehaviour:
   _canJump: 0
   _jumpingPower: 10
   _speed: 1
+  _spriteRenderer: {fileID: 0}
 --- !u!114 &-9047895291804948699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,10 +244,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 999999999
+  ExplodeIfCollideWithWall: 0
+  Explosion: {fileID: 0}
   _mask:
     serializedVersion: 2
     m_Bits: 8192
   _velosity: {x: 0, y: 0}
+--- !u!114 &3671429359641205883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1419220866596668024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d867c4fff1b5944693ccdbdfbefa6c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8978152591157368893
 GameObject:
   m_ObjectHideFlags: 0
