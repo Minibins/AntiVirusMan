@@ -9,7 +9,7 @@ public class Controller : MonoBehaviour
     private Vector2 _moveValue;
     private void Awake()
     {
-        _newInputSystem = new();
+        _newInputSystem = new NewInputSystem();
     }
     private void Start()
     {

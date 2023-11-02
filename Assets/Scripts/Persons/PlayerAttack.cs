@@ -24,8 +24,8 @@ public class PlayerAttack : MonoBehaviour
     private Vector2 _shieldSpawnPointNow;
     public bool isSpeedIsDamage;
     public Action OnRefreshAmmo { get; set; }
-    [SerializeField] private float speedDamageColorMultiplyer;
-    private float damageGainedFromSpeed;
+    private float coefficientAttak = 0f;
+    private bool isSpeedIsDamagebool;
     public int Ammo
     {
         get
@@ -73,20 +73,14 @@ public class PlayerAttack : MonoBehaviour
     private void Start()
     {
         StartCoroutine(Reload());
+        StartCoroutine(SpeedIsDamage());
     }
 
     public void OnAttack()
     {
         SetSpawnPoint();
         _weapon = Instantiate(_shield, _shieldSpawnPointNow, Quaternion.identity);
-        if (isSpeedIsDamage)
-        {
-            _weapon.GetComponent<AttackProjectile>().Damage = Damage + (int)damageGainedFromSpeed;
-        }
-        else
-        {
-            _weapon.GetComponent<AttackProjectile>().Damage = Damage;
-        }
+        _weapon.GetComponent<AttackProjectile>().Damage = Damage += (int)coefficientAttak;
         Instantiate(_AttackSound);
     }
     public void OnFullAttack()
@@ -95,19 +89,27 @@ public class PlayerAttack : MonoBehaviour
         _weapon = Instantiate(_bullet, _spawnPoinBulletNow, Quaternion.identity);
         _weapon.GetComponent<AttackProjectile>().Damage = Damage;
         _weapon = Instantiate(_shield, _shieldSpawnPointNow, Quaternion.identity);
-        if (isSpeedIsDamage)
-        {
-            _weapon.GetComponent<AttackProjectile>().Damage = Damage + (int)Mathf.Pow((Mathf.Pow(rb.velocity.x, 2) + Mathf.Pow(rb.velocity.y, 2)), 0.5f);
-        }
-        else
-        {
-            _weapon.GetComponent<AttackProjectile>().Damage = Damage;
-        }
+        _weapon.GetComponent<AttackProjectile>().Damage = Damage += (int)coefficientAttak;
         Instantiate(_AttackSound);
     }
     public void FixedUpdate()
     {
-        if (isSpeedIsDamage) damageGainedFromSpeed= Mathf.Pow((Mathf.Pow(rb.velocity.x, 2) + Mathf.Pow(rb.velocity.y, 2)), 0.5f);
+        if (isSpeedIsDamage && isSpeedIsDamagebool != true)
+        {
+            isSpeedIsDamagebool = true;
+            StartCoroutine(SpeedIsDamage());
+        }
+    }
+
+  
+    IEnumerator SpeedIsDamage()
+    {
+        while (true)
+        {   
+            Vector3 _transform3fago = transform.position;
+            yield return new WaitForSeconds(3f);
+            coefficientAttak = Vector3.Distance(transform.position, _transform3fago);
+        }
     }
     public void Shot()
     {
