@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Unity.VisualScripting;
 
 using UnityEngine;
@@ -58,6 +59,9 @@ public class UpgradeButton : MonoBehaviour
     //Works
     [SerializeField] private GameObject DashButton;
     //ID 10
+    
+    //ID 11
+    //ID 11
 
     public void onclick()
     {
@@ -147,6 +151,14 @@ public class UpgradeButton : MonoBehaviour
                 break;
             case 11:
                 SpawnerEnemy.elitePossibility[0] = true;
+                break;
+            case 12:
+                GameObject[] AuraObjects = GameObject.FindGameObjectsWithTag("Aura");
+                foreach (GameObject AuraObject in AuraObjects)
+                {
+                    AuraPC AuraComponent = AuraObject.GetComponent<AuraPC>();
+                    if (AuraComponent != null)  AuraComponent.IsStartWork = true;
+                }
                 break;
         }
     }

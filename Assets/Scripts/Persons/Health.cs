@@ -8,7 +8,7 @@ public class Health : MonoBehaviour
     [SerializeField] public GameManager gameManager;
     [SerializeField] private GameObject DeathSound;
     [SerializeField] private GameObject PunchSound;
-    [field: SerializeField] public int CurrentHealth { get; private set; }
+    [field: SerializeField] public float CurrentHealth { get; private set; }
     private Action _onDeath;
     public Action OnDeath
     {
@@ -23,7 +23,7 @@ public class Health : MonoBehaviour
         }
     }
     public Action OnApplyDamage { get; set; }
-    public void ApplyDamage(int damage)
+    public void ApplyDamage(float damage)
     {
         Instantiate(PunchSound);
         CurrentHealth -= damage;
