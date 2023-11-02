@@ -3373,6 +3373,62 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &155604650
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 155604652}
+  - component: {fileID: 155604651}
+  m_Layer: 0
+  m_Name: starfall (1)
+  m_TagString: Starfall
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &155604651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155604650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c56d8fdd0a182344af4ad17f63be5c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range:
+  - -35
+  - 35
+  stars:
+  - {fileID: 2048479191, guid: 1df0e45a1e1783b4bac6578d311db4ef, type: 3}
+  - {fileID: -24629073, guid: 1df0e45a1e1783b4bac6578d311db4ef, type: 3}
+  - {fileID: 484885576, guid: 1df0e45a1e1783b4bac6578d311db4ef, type: 3}
+  starasset: {fileID: 7773915424330328686, guid: 89320e020f051c94299975f79df58447,
+    type: 3}
+  zlayer: 50
+  IsSpawn: 0
+  star: {fileID: 7773915424330328686, guid: 89320e020f051c94299975f79df58447, type: 3}
+--- !u!4 &155604652
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155604650}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.01, y: 17.92, z: -1.6651672}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &166476394
 GameObject:
   m_ObjectHideFlags: 0
@@ -16462,6 +16518,7 @@ MonoBehaviour:
   - {fileID: 484885576, guid: 1df0e45a1e1783b4bac6578d311db4ef, type: 3}
   starasset: {fileID: 7773915424330328686, guid: a955f3efd74e89640b0fe0280f257c67,
     type: 3}
+  zlayer: 0
   IsSpawn: 0
   star: {fileID: 7773915424330328686, guid: a955f3efd74e89640b0fe0280f257c67, type: 3}
 --- !u!4 &1406180339
@@ -17774,7 +17831,7 @@ Transform:
   m_GameObject: {fileID: 1679223242}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.275687, y: 5.7974224, z: 0.46229148}
+  m_LocalPosition: {x: 3.275687, y: 5.7974224, z: 100}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -21427,6 +21484,7 @@ SceneRoots:
   - {fileID: 1842592166}
   - {fileID: 7865926053248113534}
   - {fileID: 1406180339}
+  - {fileID: 155604652}
   - {fileID: 1296780448}
   - {fileID: 245106902}
   - {fileID: 1679223243}

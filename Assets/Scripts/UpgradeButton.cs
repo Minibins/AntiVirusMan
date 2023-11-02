@@ -96,7 +96,12 @@ public class UpgradeButton : MonoBehaviour
                 Player.GetComponent<InstantiateWall>().canmove = true;
                 break;
             case 2:
-                GameObject.FindGameObjectWithTag("Starfall").GetComponent<starfall>().IsSpawn = true;
+                GameObject[] starfallObjects = GameObject.FindGameObjectsWithTag("Starfall");
+                foreach (GameObject starfallObject in starfallObjects)
+                {
+                    starfall starfallComponent = starfallObject.GetComponent<starfall>();
+                    if (starfallComponent != null)  starfallComponent.IsSpawn = true;
+                }
                 break;
             case 3:
                 Player.GetComponent<InstantiateWall>().IsOpenly = true;
