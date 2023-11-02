@@ -20564,7 +20564,27 @@ PrefabInstance:
     - target: {fileID: 227862187926105434, guid: 0951b036ba0a12343a56eff64eed7b4c,
         type: 3}
       propertyPath: m_StartAxis
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 227862187926105434, guid: 0951b036ba0a12343a56eff64eed7b4c,
+        type: 3}
+      propertyPath: m_Constraint
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 227862187926105434, guid: 0951b036ba0a12343a56eff64eed7b4c,
+        type: 3}
+      propertyPath: m_StartCorner
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 227862187926105434, guid: 0951b036ba0a12343a56eff64eed7b4c,
+        type: 3}
+      propertyPath: m_ChildAlignment
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 227862187926105434, guid: 0951b036ba0a12343a56eff64eed7b4c,
+        type: 3}
+      propertyPath: m_ConstraintCount
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 417953164094826902, guid: 0951b036ba0a12343a56eff64eed7b4c,
         type: 3}
@@ -21518,17 +21538,17 @@ PrefabInstance:
     - target: {fileID: 4017312075561032532, guid: ec94f27c1555e174ebada4b736dde08b,
         type: 3}
       propertyPath: m_Size.y
-      value: 0.29
+      value: 0.27547857
       objectReference: {fileID: 0}
     - target: {fileID: 4017312075561032532, guid: ec94f27c1555e174ebada4b736dde08b,
         type: 3}
       propertyPath: m_Offset.x
-      value: -0.02
+      value: -0.019999996
       objectReference: {fileID: 0}
     - target: {fileID: 4017312075561032532, guid: ec94f27c1555e174ebada4b736dde08b,
         type: 3}
       propertyPath: m_Offset.y
-      value: 0
+      value: 0.0072607105
       objectReference: {fileID: 0}
     - target: {fileID: 8304178653184876640, guid: ec94f27c1555e174ebada4b736dde08b,
         type: 3}
