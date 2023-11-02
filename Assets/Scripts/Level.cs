@@ -10,6 +10,10 @@ public class Level : MonoBehaviour
     public Image _enemyDieSprite;
     public float i;
     public Action OnEnemyDie { get; set; }
+    private void Start()
+    {
+        EnemyDie = 0;
+    }
 
     private void Update()
     {
