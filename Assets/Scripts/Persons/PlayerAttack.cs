@@ -73,7 +73,6 @@ public class PlayerAttack : MonoBehaviour
     private void Start()
     {
         StartCoroutine(Reload());
-        StartCoroutine(SpeedIsDamage());
     }
 
     public void OnAttack()
