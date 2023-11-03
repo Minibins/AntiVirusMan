@@ -11011,7 +11011,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &427215478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11109,18 +11109,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 28927956bd5f73c40a92f431bf48a8b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &429989201
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 429989178}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d867c4fff1b5944693ccdbdfbefa6c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &432066734
@@ -20242,7 +20230,8 @@ MonoBehaviour:
     type: 3}
   PunchSound: {fileID: 7855115547837660963, guid: 5c186a1ad9f9fd04e83434a41aec048a,
     type: 3}
-  <CurrentHealth>k__BackingField: 0
+  needVelocityForInvisibility: 2.86
+  CurrentHealth: 0
 --- !u!50 &4765063866695837588
 Rigidbody2D:
   serializedVersion: 4
@@ -21531,6 +21520,10 @@ PrefabInstance:
       propertyPath: <Damage>k__BackingField
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1126693211, guid: ec94f27c1555e174ebada4b736dde08b, type: 3}
+      propertyPath: speedDamageColorMultiplyer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 193935507143263751, guid: ec94f27c1555e174ebada4b736dde08b,
         type: 3}
       propertyPath: _health
@@ -21670,11 +21663,7 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 997392201, guid: ec94f27c1555e174ebada4b736dde08b, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8304178653184876640, guid: ec94f27c1555e174ebada4b736dde08b,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 429989201}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec94f27c1555e174ebada4b736dde08b, type: 3}
 --- !u!114 &8514078355183243820 stripped
 MonoBehaviour:

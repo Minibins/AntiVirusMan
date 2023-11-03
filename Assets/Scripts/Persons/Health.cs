@@ -1,14 +1,21 @@
 using System;
+
+using Unity.VisualScripting;
+
 using UnityEngine;
 
-public class Health : MonoBehaviour
+public class Health : MonoBehaviour,Draggable
 {
     [SerializeField] private int _maxHealth;
     [SerializeField] private HealthCell[] healthCells;
     [SerializeField] public GameManager gameManager;
     [SerializeField] private GameObject DeathSound;
     [SerializeField] private GameObject PunchSound;
-    [field: SerializeField] public int CurrentHealth { get; private set; }
+    [SerializeField] private float needVelocityForInvisibility;
+    private Animator animator;
+    private Rigidbody2D rb;
+    private bool IsInvisible;
+    [field: SerializeField] public int CurrentHealth;
     private Action _onDeath;
     public Action OnDeath
     {
@@ -25,16 +32,23 @@ public class Health : MonoBehaviour
     public Action OnApplyDamage { get; set; }
     public void ApplyDamage(int damage)
     {
-        Instantiate(PunchSound);
-        CurrentHealth -= damage;
-        OnApplyDamage?.Invoke();
-        if (CurrentHealth <= 0)
+        if(!IsInvisible)
         {
-            OnDeath?.Invoke();
+            Instantiate(PunchSound);
+            CurrentHealth -= damage;
+            OnApplyDamage?.Invoke();
+            if(CurrentHealth <= 0)
+            {
+                OnDeath?.Invoke();
+            }
         }
-        else if (gameObject.name == "PC")
+        if(gameObject.name == "PC")
         {
-            for (int i = _maxHealth - 1; i >= CurrentHealth; i--)
+            for(int i = 0; i < CurrentHealth; i++)
+            {
+                healthCells[i].Enable();
+            }
+            for(int i = _maxHealth - 1; i >= CurrentHealth; i--)
             {
                 healthCells[i].Disable();
             }
@@ -63,7 +77,8 @@ public class Health : MonoBehaviour
     }
     private void Start()
     {
-
+        rb=GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         if (OnDeath == null)
         {
@@ -88,9 +103,29 @@ public class Health : MonoBehaviour
         }
         
     }
-
+    private void FixedUpdate()
+    {
+            if(rb.velocity.magnitude < needVelocityForInvisibility)
+            {
+                IsInvisible = false;
+                animator.SetBool("IsInvisible",false);
+            }
+            else
+            {
+                IsInvisible = true;
+                animator.SetBool("IsInvisible",true );
+            }
+    }
+    
     public void SoundDead()
     {
         Instantiate(DeathSound);
+    }
+    public void OnDrag()
+    {
+    }
+    public void OnDragEnd()
+    {
+        IsInvisible = false;
     }
 }

@@ -1,8 +1,7 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class PUSHKA : MonoBehaviour
+public class PUSHKA : MonoBehaviour, Draggable
 {
     [SerializeField] private GameObject Bullet;
     [SerializeField] public float TimeReload;
@@ -50,5 +49,16 @@ public class PUSHKA : MonoBehaviour
             }
             yield return new WaitForSeconds(TimeReload);
         }
+    }
+    public void OnDrag()
+    {
+        StopAllCoroutines();
+        StartCoroutine(Shoot());
+        istemporaryboost = true;
+        TimeReload = 0.2f;
+    }
+    public void OnDragEnd()
+    {
+        TimeReload = 3f;
     }
 }

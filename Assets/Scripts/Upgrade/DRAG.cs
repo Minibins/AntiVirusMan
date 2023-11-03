@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DRAG : MonoBehaviour
+public class DRAG : MonoBehaviour,Draggable
 {
     bool isdrgging;
     private Vector2 offset;
     private Rigidbody2D rb;
     private PlayerAttack pa;
-    private PUSHKA cannonScript;
+    private Draggable MyScript;
     private enum Type
     {
         PC,
@@ -21,20 +21,23 @@ public class DRAG : MonoBehaviour
         if(name == "PC")
         {
             type = Type.PC;
+            MyScript = GetComponent<Health>();
         }
         else if(name =="DONBAS_Gun")
         {
             type = Type.Cannon;
-            cannonScript = GetComponent<PUSHKA>();
+            MyScript = GetComponent<PUSHKA>();
         }
         else if(name =="LaserGun")
         {
             type = Type.Lasergun;
+            MyScript=GetComponent<LaserGun>();
         }
         else if (name== "Movable Wall(Clone)")
         {
 
             type = Type.Tower;
+            MyScript = this;
         }
 
         rb = GetComponent<Rigidbody2D>();
@@ -46,25 +49,13 @@ public class DRAG : MonoBehaviour
         isdrgging = true;
         StaminaConchaeca();
         offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
-        if(type == Type.Cannon)
-        {
-            cannonScript.StopAllCoroutines();
-            cannonScript.StartCoroutine(cannonScript.Shoot());
-            cannonScript.istemporaryboost = true;
-            cannonScript.TimeReload = 0.2f;
-
-        }
+        MyScript.OnDrag();
     }
 
     private void OnMouseUp()
     {
         isdrgging = false;
-      if(type == Type.Cannon)
-            {
-                cannonScript.TimeReload = 3f;
-            cannonScript.StopAllCoroutines();
-            cannonScript.StartCoroutine(cannonScript.Shoot());
-        }
+        MyScript.OnDragEnd();
     }
 
     private void OnMouseDrag()
@@ -93,10 +84,8 @@ public class DRAG : MonoBehaviour
                 case TouchPhase.Began:
                 if(type == Type.Cannon)
                 {
-                    cannonScript.istemporaryboost = true;
-                    cannonScript.TimeReload = 0.2f;
-                    cannonScript.StopAllCoroutines();
-                    cannonScript.StartCoroutine(cannonScript.Shoot());
+                    MyScript.OnDrag();
+                 
                 }
                 isdrgging = true;
                     StaminaConchaeca();
@@ -110,12 +99,7 @@ public class DRAG : MonoBehaviour
 
                 case TouchPhase.Ended:
                     isdrgging = false;
-                if(type == Type.Cannon)
-                {
-                    cannonScript.TimeReload = 3f;
-                    cannonScript.StopAllCoroutines();
-                    cannonScript.StartCoroutine(cannonScript.Shoot());
-                }
+                MyScript.OnDragEnd();
                 break;
             }
         }

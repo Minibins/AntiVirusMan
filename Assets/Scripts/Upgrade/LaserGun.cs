@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class LaserGun : MonoBehaviour
+public class LaserGun : MonoBehaviour,Draggable
 {
     [SerializeField] private GameObject Bullet;
     [SerializeField] private float TimeReload;

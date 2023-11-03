@@ -67,11 +67,8 @@ public class Enemy : MonoBehaviour
     {
         if (_health.CurrentHealth > 0)
         {
-            if ((_maskWhoKills.value & (1 << collision.gameObject.layer)) != 0)
-        {
-            _health.ApplyDamage(_health.CurrentHealth);
-        }
-        else if ((collision.CompareTag("Portal") || collision.CompareTag("SecondPortal")))
+        
+         if ((collision.CompareTag("Portal") || collision.CompareTag("SecondPortal")))
         {
             _health.ApplyDamage(999);
         }
@@ -91,7 +88,12 @@ public class Enemy : MonoBehaviour
             {
 gameObject.GetComponent<Rigidbody2D>().gravityScale=1;
             }
-            
+           
+
+        }
+        else if((_maskWhoKills.value & (1 << other.gameObject.layer)) != 0)
+        {
+            _health.ApplyDamage(_health.CurrentHealth);
         }
     }
     private void OnDeath()

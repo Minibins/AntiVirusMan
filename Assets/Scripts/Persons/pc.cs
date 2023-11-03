@@ -51,7 +51,8 @@ public class PC : MonoBehaviour
         {
         yield return new WaitForSeconds(5);
         while(lowchrge) {
-            health.ApplyDamage(1);
+                health.CurrentHealth--;
+                health.ApplyDamage(0);
             yield return new WaitForSeconds(5);
         }
         }
