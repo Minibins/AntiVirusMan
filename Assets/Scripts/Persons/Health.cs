@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Health : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class Health : MonoBehaviour
     [SerializeField] private GameObject PunchSound;
     [field: SerializeField] public float CurrentHealth { get; private set; }
     private Action _onDeath;
+    public bool backStager = false;
     public Action OnDeath
     {
         get => _onDeath;
@@ -26,7 +28,40 @@ public class Health : MonoBehaviour
     public void ApplyDamage(float damage)
     {
         Instantiate(PunchSound);
-        CurrentHealth -= damage;
+        if (gameObject.name == "PC")
+        {
+            CurrentHealth -= damage;
+        }
+        else
+        {
+            if (backStager == true)
+            {
+                GameObject player = GameObject.FindGameObjectWithTag("Player");
+                Enemy enemy = GetComponent<Enemy>();
+                if (enemy.moveDirection == -1f && player.transform.position.x > transform.position.x)
+                {
+                    int i = Random.Range(1, 5);
+                    if (i == 1)
+                    {
+                        CurrentHealth -= damage * 3f;
+                        print("DAMAGE: 3X");
+                    }
+                }
+                else if (enemy.moveDirection == 1f && player.transform.position.x < transform.position.x)
+                {
+                    int i = Random.Range(1, 5);
+                    if (i == 1)
+                    {
+                        CurrentHealth -= damage * 3f;
+                        print("DAMAGE: 3X");
+                    }
+                }
+            }
+            else
+            {
+                CurrentHealth -= damage;
+            }
+        }
         OnApplyDamage?.Invoke();
         if (CurrentHealth <= 0)
         {

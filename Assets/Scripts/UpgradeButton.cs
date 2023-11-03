@@ -160,6 +160,15 @@ public class UpgradeButton : MonoBehaviour
                     if (AuraComponent != null)  AuraComponent.IsStartWork = true;
                 }
                 break;
+            case 13:
+                while (true)
+                {
+                    GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+                    foreach (GameObject enemy in enemies)
+                    {
+                        if(enemy != null)  enemy.GetComponent<Health>().backStager = true;
+                    }
+                }
         }
     }
 }
