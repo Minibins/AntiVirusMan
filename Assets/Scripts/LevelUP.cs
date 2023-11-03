@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+
+using UnityEngine;
 using UnityEngine.UI;
 
 public class LevelUP : MonoBehaviour
@@ -7,6 +9,7 @@ public class LevelUP : MonoBehaviour
     [SerializeField] private GameObject FirstButton;
     [SerializeField] private GameObject SecondButton;
     [SerializeField] private GameObject ThreeButton;
+    [SerializeField] private Sprite none;
     public static bool IsSelected;
     public Sprite[] itemtextures;
     public bool[] IssTake;
@@ -50,21 +53,49 @@ public class LevelUP : MonoBehaviour
                 }
                 else
                 {
-                    a = Random.Range(0, itemtextures.Length);
-                    return;
+                    if (IssTake.Count(b => b == false)>=1)
+                    {
+                        NewUpgrade();
+                        return;
+                    }
+                    else
+                    {
+                        ThreeButton.GetComponent<UpgradeButton>().id = -1;
+                        spritechangingThree = ThreeButton.GetComponent<Image>();
+                        spritechangingThree.sprite = none;
+                    }
                 }
             }
             else
             {
-                a = Random.Range(0, itemtextures.Length);
-                return;
+                if(IssTake.Count(b => b == false) >= 2)
+                {
+                    NewUpgrade();
+                    return;
+                }
+                else
+                {
+                    SecondButton.GetComponent<UpgradeButton>().id = -1;
+                    spritechangingSecond = SecondButton.GetComponent<Image>();
+                    spritechangingSecond.sprite = none;
+                }
             }
         }
 
         else
         {
-            a = Random.Range(0, itemtextures.Length);
-            return;
+            if(IssTake.Count(b => b == false) >= 3)
+            {
+                a = Random.Range(0,itemtextures.Length);
+                NewUpgrade();
+                return;
+            }
+            else
+            {
+                FirstButton.GetComponent<UpgradeButton>().id = -1;
+                spritechangingFirst = FirstButton.GetComponent<Image>();
+                spritechangingFirst.sprite = none;
+            }
         }
     }
 
