@@ -13,7 +13,8 @@ public class DRAG : MonoBehaviour
         PC,
         Cannon,
         Lasergun,
-        Tower
+        Tower,
+        Enemy
     }
     private Type type;
     private void Start()
@@ -35,6 +36,11 @@ public class DRAG : MonoBehaviour
         {
 
             type = Type.Tower;
+        }
+
+        if (CompareTag("Enemy"))
+        {
+            type = Type.Enemy;
         }
 
         rb = GetComponent<Rigidbody2D>();
