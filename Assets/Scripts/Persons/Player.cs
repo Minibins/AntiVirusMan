@@ -64,14 +64,16 @@ public class Player : MonoBehaviour
     }
     IEnumerator DashEnd(int direction) 
     { Stunned = true;
-        
+        playerAttack.enabled = false;
         _move.enabled=false;
+        
     for(int a  = 0; a <= 10; a++)
         {
-            _rb.velocity=new Vector2(direction * (dashRange*5-a/2*dashRange),0);
+            _rb.velocity=new Vector2(direction * (dashRange*5-a/2*dashRange)*10,0);
             yield return new WaitForFixedUpdate();
         }
         _move.enabled = true;
+        playerAttack.enabled = true;
         Stunned = false;
     }
     public void Rigth()
