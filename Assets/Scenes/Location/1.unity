@@ -11011,7 +11011,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &427215478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20777,6 +20777,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1842592165}
+    - target: {fileID: 2641430922614379396, guid: 0951b036ba0a12343a56eff64eed7b4c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 10.400879
+      objectReference: {fileID: 0}
     - target: {fileID: 3113197866213384849, guid: 0951b036ba0a12343a56eff64eed7b4c,
         type: 3}
       propertyPath: m_IsActive
@@ -20837,6 +20842,12 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3872583983673067517, guid: 0951b036ba0a12343a56eff64eed7b4c,
+        type: 3}
+      propertyPath: none
+      value: 
+      objectReference: {fileID: 21300000, guid: 228c2b99f0b14fa46bb3e1bace910d26,
+        type: 3}
     - target: {fileID: 3872583983673067517, guid: 0951b036ba0a12343a56eff64eed7b4c,
         type: 3}
       propertyPath: IssTake.Array.size
@@ -21528,7 +21539,7 @@ PrefabInstance:
     - target: {fileID: 193935507143263751, guid: ec94f27c1555e174ebada4b736dde08b,
         type: 3}
       propertyPath: dashRange
-      value: 3.6
+      value: 0.64
       objectReference: {fileID: 0}
     - target: {fileID: 4017312075561032532, guid: ec94f27c1555e174ebada4b736dde08b,
         type: 3}
@@ -21558,12 +21569,12 @@ PrefabInstance:
     - target: {fileID: 8304178653184876642, guid: ec94f27c1555e174ebada4b736dde08b,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 5.714285
+      value: 4.9999995
       objectReference: {fileID: 0}
     - target: {fileID: 8304178653184876642, guid: ec94f27c1555e174ebada4b736dde08b,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 5.517241
+      value: 4.9999995
       objectReference: {fileID: 0}
     - target: {fileID: 8304178653184876642, guid: ec94f27c1555e174ebada4b736dde08b,
         type: 3}
@@ -21648,7 +21659,7 @@ PrefabInstance:
     - target: {fileID: 8304178653184876655, guid: ec94f27c1555e174ebada4b736dde08b,
         type: 3}
       propertyPath: m_DrawMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8304178653184876655, guid: ec94f27c1555e174ebada4b736dde08b,
         type: 3}
