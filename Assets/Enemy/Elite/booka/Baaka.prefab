@@ -111,7 +111,9 @@ MonoBehaviour:
     type: 3}
   PunchSound: {fileID: 7855115547837660963, guid: 2885d6336d009894796b76f5f36a03eb,
     type: 3}
-  <CurrentHealth>k__BackingField: 0
+  needVelocityForInvisibility: 9999
+  CurrentHealth: 0
+  backStager: 0
 --- !u!50 &6956384187068701966
 Rigidbody2D:
   serializedVersion: 4
@@ -191,11 +193,12 @@ MonoBehaviour:
   _maskWhoKills:
     serializedVersion: 2
     m_Bits: 8192
-  _PC: {fileID: 0}
-  CanBeFinishedOff: 0
-  MoveToPoint: {fileID: 0}
-  ChangeMove: 0
   Finishings: []
+  CanBeFinishedOff: 0
+  moveDirection: 0
+  ChangeMove: 0
+  MoveToPoint: {fileID: 0}
+  _PC: {fileID: 0}
 --- !u!114 &7122927710741264080
 MonoBehaviour:
   m_ObjectHideFlags: 0

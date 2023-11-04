@@ -192,11 +192,12 @@ MonoBehaviour:
   _maskWhoKills:
     serializedVersion: 2
     m_Bits: 0
-  _PC: {fileID: 0}
-  CanBeFinishedOff: 0
-  MoveToPoint: {fileID: 0}
-  ChangeMove: 0
   Finishings: []
+  CanBeFinishedOff: 0
+  moveDirection: 0
+  ChangeMove: 0
+  MoveToPoint: {fileID: 0}
+  _PC: {fileID: 0}
 --- !u!114 &-3479756302495854425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,7 +252,9 @@ MonoBehaviour:
     type: 3}
   PunchSound: {fileID: 7855115547837660963, guid: 39cc83147052dbe408f02c50abb0373f,
     type: 3}
-  <CurrentHealth>k__BackingField: 0
+  needVelocityForInvisibility: 9999
+  CurrentHealth: 0
+  backStager: 0
 --- !u!114 &957579766737629269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,13 +270,13 @@ MonoBehaviour:
   _explosion: {fileID: 5453186352399095394, guid: 1b264e8b19808f54d96abe41ed58d320,
     type: 3}
   _explosionRadius: 2
+  _maskWhoKills:
+    serializedVersion: 2
+    m_Bits: 8192
   otklonenieOtklonenia: 3.5
   SkorostOtklonenia: 0.01
   Speed: -0.011
   _explosionPower: 2
-  _maskWhoKills:
-    serializedVersion: 2
-    m_Bits: 8192
 --- !u!114 &-8060305246413013081
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -161,7 +161,9 @@ MonoBehaviour:
     type: 3}
   PunchSound: {fileID: 7855115547837660963, guid: b9b484a404e1e0e43bd441be5bd5dec5,
     type: 3}
-  <CurrentHealth>k__BackingField: 0
+  needVelocityForInvisibility: 9999
+  CurrentHealth: 0
+  backStager: 0
 --- !u!114 &-7254249747895268964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,11 +195,12 @@ MonoBehaviour:
   _maskWhoKills:
     serializedVersion: 2
     m_Bits: 8192
-  _PC: {fileID: 0}
-  CanBeFinishedOff: 0
-  MoveToPoint: {fileID: 0}
-  ChangeMove: 1
   Finishings: []
+  CanBeFinishedOff: 0
+  moveDirection: 0
+  ChangeMove: 1
+  MoveToPoint: {fileID: 0}
+  _PC: {fileID: 0}
 --- !u!114 &4300671704897370535
 MonoBehaviour:
   m_ObjectHideFlags: 0

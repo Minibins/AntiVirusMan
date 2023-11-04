@@ -15,8 +15,8 @@ public class Health : MonoBehaviour,Draggable
     private bool IsInvisible;
     private Rigidbody2D rb;
     private Animator animator;
-    [SerializeField] private float needVelocityForInvisibility;
-    [field: SerializeField] public float CurrentHealth { get; private set; }
+    [SerializeField] private float needVelocityForInvisibility=9999;
+    [field: SerializeField] public float CurrentHealth;
     private Action _onDeath;
     public bool backStager = false;
     public Action OnDeath
@@ -36,13 +36,6 @@ public class Health : MonoBehaviour,Draggable
     {
         if(!IsInvisible)
         {
-            Instantiate(PunchSound);
-            CurrentHealth -= damage;
-            OnApplyDamage?.Invoke();
-            if(CurrentHealth <= 0)
-            {
-                OnDeath?.Invoke();
-            }
         Instantiate(PunchSound);
         if (gameObject.name == "PC")
         {

@@ -6,8 +6,8 @@ public class shadowEffect : MonoBehaviour
 {
     private GameObject shadow;
     private SpriteMask shadowRenderer;
-    private SpriteRenderer renderer;
-    private static Vector3 shadowOffset=new Vector3(0.08F,0,0);
+    private SpriteRenderer renderere;
+    private static Vector3 shadowOffset=new Vector3(0.3F,-0.17f,0);
     void Start()
     {
         shadow = new GameObject();
@@ -22,14 +22,15 @@ public class shadowEffect : MonoBehaviour
         {
             shadow.transform.localPosition = -shadowOffset;
         }
-        renderer=GetComponent<SpriteRenderer>();
+        renderere=GetComponent<SpriteRenderer>();
         shadow.transform.localScale = Vector3.one;
     }
 
     // Update is called once per frame
     void Update()
     {
-        shadowRenderer.sprite = renderer.sprite;
-        shadow.transform.localScale=new Vector3(renderer.flipX?-1: 1,1,1);
+        shadowRenderer.sprite = renderere.sprite;
+        shadow.transform.localScale=new Vector3(renderere.flipX?-1: 1,1,1);
+        shadow.transform.position = transform.position + shadowOffset;
     }
 }
