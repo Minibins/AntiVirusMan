@@ -62,6 +62,13 @@ public class UpgradeButton : MonoBehaviour
     
     //ID 11
     //ID 11
+    
+    //ID 12
+    //ID 12
+    
+    //ID 13
+    [SerializeField] private GameObject _backStager;
+    //ID 13
 
     public void onclick()
     {
@@ -161,14 +168,8 @@ public class UpgradeButton : MonoBehaviour
                 }
                 break;
             case 13:
-                while (true)
-                {
-                    GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-                    foreach (GameObject enemy in enemies)
-                    {
-                        if(enemy != null)  enemy.GetComponent<Health>().backStager = true;
-                    }
-                }
+                _backStager.GetComponent<backStager>().StartCorutin();
+                break;
         }
     }
 }
