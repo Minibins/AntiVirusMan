@@ -12,6 +12,10 @@ public class Health : MonoBehaviour,Draggable
     [SerializeField] public GameManager gameManager;
     [SerializeField] private GameObject DeathSound;
     [SerializeField] private GameObject PunchSound;
+    private bool IsInvisible;
+    private Rigidbody2D rb;
+    private Animator animator;
+    [SerializeField] private float needVelocityForInvisibility;
     [field: SerializeField] public float CurrentHealth { get; private set; }
     private Action _onDeath;
     public bool backStager = false;

@@ -86,7 +86,6 @@ public class UpgradeButton : MonoBehaviour
             LevelUP.IsSelected = true;
         }
     }
-
     private void ChooseUpgrade(LevelUP lvlUp)
     {
 
