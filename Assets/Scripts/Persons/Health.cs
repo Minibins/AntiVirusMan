@@ -3,6 +3,7 @@ using System;
 using Unity.VisualScripting;
 
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Health : MonoBehaviour,Draggable
 {
@@ -11,12 +12,9 @@ public class Health : MonoBehaviour,Draggable
     [SerializeField] public GameManager gameManager;
     [SerializeField] private GameObject DeathSound;
     [SerializeField] private GameObject PunchSound;
-    [SerializeField] private float needVelocityForInvisibility;
-    private Animator animator;
-    private Rigidbody2D rb;
-    private bool IsInvisible;
-    [field: SerializeField] public int CurrentHealth;
+    [field: SerializeField] public float CurrentHealth { get; private set; }
     private Action _onDeath;
+    public bool backStager = false;
     public Action OnDeath
     {
         get => _onDeath;
@@ -30,7 +28,7 @@ public class Health : MonoBehaviour,Draggable
         }
     }
     public Action OnApplyDamage { get; set; }
-    public void ApplyDamage(int damage)
+    public void ApplyDamage(float damage)
     {
         if(!IsInvisible)
         {
@@ -41,6 +39,45 @@ public class Health : MonoBehaviour,Draggable
             {
                 OnDeath?.Invoke();
             }
+        Instantiate(PunchSound);
+        if (gameObject.name == "PC")
+        {
+            CurrentHealth -= damage;
+        }
+        else
+        {
+            if (backStager == true)
+            {
+                GameObject player = GameObject.FindGameObjectWithTag("Player");
+                Enemy enemy = GetComponent<Enemy>();
+                if (enemy.moveDirection == -1f && player.transform.position.x > transform.position.x)
+                {
+                    int i = Random.Range(1, 5);
+                    if (i == 1)
+                    {
+                        CurrentHealth -= damage * 3f;
+                        print("DAMAGE: 3X");
+                    }
+                }
+                else if (enemy.moveDirection == 1f && player.transform.position.x < transform.position.x)
+                {
+                    int i = Random.Range(1, 5);
+                    if (i == 1)
+                    {
+                        CurrentHealth -= damage * 3f;
+                        print("DAMAGE: 3X");
+                    }
+                }
+            }
+            else
+            {
+                CurrentHealth -= damage;
+            }
+        }
+        OnApplyDamage?.Invoke();
+        if (CurrentHealth <= 0)
+        {
+            OnDeath?.Invoke();
         }
         if(gameObject.name == "PC")
         {
@@ -53,6 +90,7 @@ public class Health : MonoBehaviour,Draggable
                 healthCells[i].Disable();
             }
         }
+    }
     }
     public void SetMaxHealth(int maxHealth)
     {

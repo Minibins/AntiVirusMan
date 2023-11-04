@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+
 public class MainMenu : MonoBehaviour
 {
     public Save save;
     [SerializeField] private string CurrentVersion;
     [SerializeField] private GameObject Changelog;
+    
     public void LocationMove(int _Scene)
     {
         if (save.data.WinLocation >= _Scene)
@@ -30,11 +32,10 @@ public class MainMenu : MonoBehaviour
 
 
     public void ExitGame()
-    {save.SaveField();
+    {
+        save.SaveField();
         Debug.Log("Я вышел");
         Application.Quit();
-        
-        
     }
     public void OpenWebBrowser()
     {

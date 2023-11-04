@@ -13,7 +13,8 @@ public class DRAG : MonoBehaviour,Draggable
         PC,
         Cannon,
         Lasergun,
-        Tower
+        Tower,
+        Enemy
     }
     private Type type;
     private void Start()
@@ -38,6 +39,11 @@ public class DRAG : MonoBehaviour,Draggable
 
             type = Type.Tower;
             MyScript = this;
+        }
+
+        if (CompareTag("Enemy"))
+        {
+            type = Type.Enemy;
         }
 
         rb = GetComponent<Rigidbody2D>();

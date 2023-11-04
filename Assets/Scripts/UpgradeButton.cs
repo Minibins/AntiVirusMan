@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Unity.VisualScripting;
 
 using UnityEngine;
@@ -58,6 +59,16 @@ public class UpgradeButton : MonoBehaviour
     //Works
     [SerializeField] private GameObject DashButton;
     //ID 10
+    
+    //ID 11
+    //ID 11
+    
+    //ID 12
+    //ID 12
+    
+    //ID 13
+    [SerializeField] private GameObject _backStager;
+    //ID 13
 
     public void onclick()
     {
@@ -96,7 +107,12 @@ public class UpgradeButton : MonoBehaviour
                 Player.GetComponent<InstantiateWall>().canmove = true;
                 break;
             case 2:
-                GameObject.FindGameObjectWithTag("Starfall").GetComponent<starfall>().IsSpawn = true;
+                GameObject[] starfallObjects = GameObject.FindGameObjectsWithTag("Starfall");
+                foreach (GameObject starfallObject in starfallObjects)
+                {
+                    starfall starfallComponent = starfallObject.GetComponent<starfall>();
+                    if (starfallComponent != null)  starfallComponent.IsSpawn = true;
+                }
                 break;
             case 3:
                 Player.GetComponent<InstantiateWall>().IsOpenly = true;
@@ -142,6 +158,17 @@ public class UpgradeButton : MonoBehaviour
                 break;
             case 11:
                 SpawnerEnemy.elitePossibility[0] = true;
+                break;
+            case 12:
+                GameObject[] AuraObjects = GameObject.FindGameObjectsWithTag("Aura");
+                foreach (GameObject AuraObject in AuraObjects)
+                {
+                    AuraPC AuraComponent = AuraObject.GetComponent<AuraPC>();
+                    if (AuraComponent != null)  AuraComponent.IsStartWork = true;
+                }
+                break;
+            case 13:
+                _backStager.GetComponent<backStager>().StartCorutin();
                 break;
         }
     }
