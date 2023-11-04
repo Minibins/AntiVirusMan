@@ -6,7 +6,6 @@ using UnityEngine;
 public class AuraPC : MonoBehaviour
 {
     [SerializeField] private float Damage;
-    [SerializeField] private GameObject sprite;
     private bool isStart;
     public bool IsStartWork;
     
@@ -18,14 +17,15 @@ public class AuraPC : MonoBehaviour
             other.GetComponent<Move>()._speed = other.GetComponent<Move>()._speed /= 2;
             StartCoroutine(GiveDamage(other));
             isStart = true;
-            sprite.SetActive(true);
+            GetComponent<SpriteRenderer>().enabled=true;
         }
     }
 
     IEnumerator GiveDamage(Collider2D other)
     {
-        yield return new WaitForSeconds(1f);
+        
         other.GetComponent<Health>().ApplyDamage(Damage);
-        print("test");
+        yield return new WaitForSeconds(1f);
+        isStart = false;
     }
 }
