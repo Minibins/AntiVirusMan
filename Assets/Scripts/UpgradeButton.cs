@@ -169,6 +169,14 @@ public class UpgradeButton : MonoBehaviour
             case 13:
                 _backStager.GetComponent<backStager>().StartCorutin();
                 break;
+            case 14:
+                Enemy.isDraggable = true;
+            GameObject[] enemies=GameObject.FindGameObjectsWithTag("Enemy");
+            foreach(GameObject enemy in enemies)
+            {
+                enemy.AddComponent<DRAG>();
+            }
+                break;
         }
     }
 }

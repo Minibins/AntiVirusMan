@@ -19,14 +19,18 @@ public class Enemy : MonoBehaviour
     public int ChangeMove;
     public GameObject MoveToPoint;
     public GameObject _PC;
-
-
+    public static bool isDraggable;
+    private DRAG _drag;
     private void Awake()
     {
         _health = GetComponent<Health>();
         _move = GetComponent<Move>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
+        if (isDraggable)
+        {
+            _drag=gameObject.AddComponent<DRAG>();
+        }
     }
 
     private void Start()

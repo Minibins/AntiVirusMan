@@ -44,6 +44,7 @@ public class DRAG : MonoBehaviour,Draggable
         if (CompareTag("Enemy"))
         {
             type = Type.Enemy;
+            MyScript = GetComponent<Move>();
         }
 
         rb = GetComponent<Rigidbody2D>();
