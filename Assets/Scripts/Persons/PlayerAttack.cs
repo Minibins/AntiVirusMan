@@ -111,9 +111,9 @@ public class PlayerAttack : MonoBehaviour
         while (true)
         {   
             Vector3 _transform3fago = transform.position;
+            
             yield return new WaitForSeconds(3f);
             coefficientAttak = Vector3.Distance(transform.position, _transform3fago)*SpeedIsDamageCutout;
-            Debug.Log(coefficientAttak + Damage);
         }
     }
     public void Shot()
