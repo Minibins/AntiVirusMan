@@ -164,7 +164,6 @@ MonoBehaviour:
     type: 3}
   needVelocityForInvisibility: 9999
   CurrentHealth: 0
-  backStager: 0
 --- !u!114 &8530324711072272253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,11 +192,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ebef5ecc067c3349877bb5875cd77ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WhoAmI: 2
   _maskWhoKills:
     serializedVersion: 2
     m_Bits: 8192
-  Finishings: []
-  CanBeFinishedOff: 0
   moveDirection: 0
   ChangeMove: 0
   MoveToPoint: {fileID: 0}
@@ -236,7 +234,7 @@ MonoBehaviour:
   _deathFromLayers:
     serializedVersion: 2
     m_Bits: 512
-  _correctionY: 1
+  _correctionY: 0.65
   ForcerePulsive: 650
   Elite: 0
   numberOfObjectsToSpawn: 0

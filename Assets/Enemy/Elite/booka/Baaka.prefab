@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 7122927710741264080}
   - component: {fileID: 7110360366878091776}
   - component: {fileID: -6922692357126491764}
+  - component: {fileID: 3636822425960529256}
   m_Layer: 12
   m_Name: Baaka
   m_TagString: Enemy
@@ -113,7 +114,6 @@ MonoBehaviour:
     type: 3}
   needVelocityForInvisibility: 9999
   CurrentHealth: 0
-  backStager: 0
 --- !u!50 &6956384187068701966
 Rigidbody2D:
   serializedVersion: 4
@@ -190,11 +190,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ebef5ecc067c3349877bb5875cd77ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WhoAmI: 2
   _maskWhoKills:
     serializedVersion: 2
     m_Bits: 8192
-  Finishings: []
-  CanBeFinishedOff: 0
   moveDirection: 0
   ChangeMove: 0
   MoveToPoint: {fileID: 0}
@@ -211,10 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 296bae884819c4342a33c7d76ea9ff4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _deathFromLayers:
-    serializedVersion: 2
-    m_Bits: 512
-  _correctionY: 0.62
+  _correctionY: 0.71
   ForcerePulsive: 30.9
   Elite: 1
   numberOfObjectsToSpawn: 50
@@ -267,3 +263,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d867c4fff1b5944693ccdbdfbefa6c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3636822425960529256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8615089305505906155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9c4fd5ae8cbe924582d0b08150dbc86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 2
+  ExplodeIfCollideWithWall: 0
+  Explosion: {fileID: 0}
+  _mask:
+    serializedVersion: 2
+    m_Bits: 8192
+  _velosity: {x: 0, y: 0}

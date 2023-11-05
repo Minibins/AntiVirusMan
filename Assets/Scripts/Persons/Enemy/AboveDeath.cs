@@ -4,9 +4,10 @@ using UnityEngine;
 [RequireComponent(typeof(Health))]
 public class AboveDeath : MonoBehaviour
 {
-	[SerializeField] LayerMask _deathFromLayers;
-	[SerializeField] float _correctionY = 0.5f;
-	[SerializeField] private float ForcerePulsive;
+	
+	private Rigidbody2D Player;
+	[SerializeField] private float _correctionY = 0.5f;
+	[SerializeField] public float ForcerePulsive;
 	[SerializeField] private bool Elite;
 	[SerializeField] private int numberOfObjectsToSpawn;
 	[SerializeField]private GameObject objectToSpawn;
@@ -15,12 +16,24 @@ public class AboveDeath : MonoBehaviour
 	private void Awake()
 	{
 		_health = GetComponent<Health>();
+		Player=GameObject.Find("Player").GetComponent<Rigidbody2D>();
 		spawnArea = GameObject.Find("BaakaSpawnArea").GetComponent<Collider2D>();
+		
 	}
-
-	private void OnCollisionEnter2D(Collision2D other)
+    private void FixedUpdate()
+    {
+		if(Player.position.y > transform.position.y&&Player.velocity.y<0.5f)
+		{
+            gameObject.layer = 12;
+        }
+		else
+		{
+			gameObject.layer = 11;
+		}
+    }
+    private void OnCollisionEnter2D(Collision2D other)
 	{
-		if(((_deathFromLayers.value & (1 << other.gameObject.layer)) != 0) && other.transform.position.y > transform.position.y + _correctionY)
+		if(other.transform==Player.transform && other.transform.position.y > transform.position.y + _correctionY)
 		{
 			_health.ApplyDamage(_health.CurrentHealth);
 

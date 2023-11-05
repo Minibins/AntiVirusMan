@@ -14,7 +14,6 @@ public class PUSHKA : MonoBehaviour, Draggable
     public bool istemporaryboost;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(transform.rotation.ToString());
         if (collision.tag == "AntivirusAtack")
         {
                transform.rotation= new Quaternion(0, 0,transform.rotation.z*-1,transform.rotation.w);

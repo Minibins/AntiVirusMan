@@ -189,11 +189,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ebef5ecc067c3349877bb5875cd77ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WhoAmI: 3
   _maskWhoKills:
     serializedVersion: 2
     m_Bits: 0
-  Finishings: []
-  CanBeFinishedOff: 0
   moveDirection: 0
   ChangeMove: 0
   MoveToPoint: {fileID: 0}
@@ -254,7 +253,6 @@ MonoBehaviour:
     type: 3}
   needVelocityForInvisibility: 9999
   CurrentHealth: 0
-  backStager: 0
 --- !u!114 &957579766737629269
 MonoBehaviour:
   m_ObjectHideFlags: 0

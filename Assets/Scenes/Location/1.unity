@@ -20564,7 +20564,6 @@ MonoBehaviour:
     type: 3}
   needVelocityForInvisibility: 20
   CurrentHealth: 0
-  backStager: 0
 --- !u!50 &4765063866695837588
 Rigidbody2D:
   serializedVersion: 4
@@ -21183,12 +21182,12 @@ PrefabInstance:
     - target: {fileID: 3872583983673067517, guid: 0951b036ba0a12343a56eff64eed7b4c,
         type: 3}
       propertyPath: IssTake.Array.size
-      value: 15
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 3872583983673067517, guid: 0951b036ba0a12343a56eff64eed7b4c,
         type: 3}
       propertyPath: itemtextures.Array.size
-      value: 15
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 3872583983673067517, guid: 0951b036ba0a12343a56eff64eed7b4c,
         type: 3}
@@ -21219,6 +21218,18 @@ PrefabInstance:
       propertyPath: itemtextures.Array.data[14]
       value: 
       objectReference: {fileID: 21300000, guid: b4c7a15b2bd7219418caadd67dfaba97,
+        type: 3}
+    - target: {fileID: 3872583983673067517, guid: 0951b036ba0a12343a56eff64eed7b4c,
+        type: 3}
+      propertyPath: itemtextures.Array.data[15]
+      value: 
+      objectReference: {fileID: 21300000, guid: f0388d3bb394763468d693076e95c9ba,
+        type: 3}
+    - target: {fileID: 3872583983673067517, guid: 0951b036ba0a12343a56eff64eed7b4c,
+        type: 3}
+      propertyPath: itemtextures.Array.data[16]
+      value: 
+      objectReference: {fileID: 21300000, guid: 31931b9eba8598f44836ff8fbd028a8f,
         type: 3}
     - target: {fileID: 3897589032826057911, guid: 0951b036ba0a12343a56eff64eed7b4c,
         type: 3}
@@ -21942,7 +21953,7 @@ PrefabInstance:
     - target: {fileID: 193935507143263751, guid: ec94f27c1555e174ebada4b736dde08b,
         type: 3}
       propertyPath: flySpeed
-      value: 1.98
+      value: 4.4
       objectReference: {fileID: 0}
     - target: {fileID: 193935507143263751, guid: ec94f27c1555e174ebada4b736dde08b,
         type: 3}

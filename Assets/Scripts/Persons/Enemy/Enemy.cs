@@ -7,9 +7,15 @@
  RequireComponent(typeof(SpriteRenderer))]
 public class Enemy : MonoBehaviour
 {
+    private enum EnemyTypes
+    {
+        Soplik,
+        Stepa,
+        Booka,
+        Toocha
+    }
+    [SerializeField] private EnemyTypes WhoAmI;
     [SerializeField] private LayerMask _maskWhoKills;
-    [SerializeField] private Sprite[] Finishings;
-    [SerializeField] private bool CanBeFinishedOff;
     public float moveDirection;
     private Health _health;
     private Move _move;
@@ -20,7 +26,7 @@ public class Enemy : MonoBehaviour
     public GameObject MoveToPoint;
     public GameObject _PC;
     public static bool isDraggable;
-    private DRAG _drag;
+    public static bool AntivirusHaveBoots;
     private void Awake()
     {
         _health = GetComponent<Health>();
@@ -29,10 +35,25 @@ public class Enemy : MonoBehaviour
         _animator = GetComponent<Animator>();
         if (isDraggable)
         {
-            _drag=gameObject.AddComponent<DRAG>();
+            gameObject.AddComponent<DRAG>();
+        }
+        if(AntivirusHaveBoots)
+        {
+           AddBookaComponent();
         }
     }
-
+    public void AddBookaComponent()
+    {   if(WhoAmI == EnemyTypes.Booka) { return; }
+       AboveDeath MyDeath= gameObject.AddComponent<AboveDeath>();
+        if(WhoAmI==EnemyTypes.Soplik)
+        {
+            MyDeath.ForcerePulsive = 500;
+        }
+        else if(WhoAmI == EnemyTypes.Toocha)
+        {
+            MyDeath.ForcerePulsive = 1000;
+        }
+    }
     private void Start()
     {
         _PC = GameObject.FindGameObjectWithTag("PC");
@@ -111,7 +132,7 @@ public class Enemy : MonoBehaviour
     {
         if (dead)
         {
-            if (!CanBeFinishedOff)
+            if (WhoAmI!=EnemyTypes.Soplik)
             {
                 return;
             }

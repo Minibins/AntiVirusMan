@@ -171,15 +171,28 @@ public class UpgradeButton : MonoBehaviour
                 break;
             case 14:
                 Enemy.isDraggable = true;
-            GameObject[] enemies=GameObject.FindGameObjectsWithTag("Enemy");
-            foreach(GameObject enemy in enemies)
             {
-                enemy.AddComponent<DRAG>();
+                GameObject[] enemies=GameObject.FindGameObjectsWithTag("Enemy");
+                foreach(GameObject enemy in enemies)
+                {
+                    enemy.AddComponent<DRAG>();
+                }
             }
                 break;
             case 15:
                 Player.isFlying = true;
                 break;
+            case 16:
+                Enemy.AntivirusHaveBoots = true;
+            {
+GameObject[] enemies=GameObject.FindGameObjectsWithTag("Enemy");
+            foreach(GameObject enemy in enemies)
+            {
+                    enemy.GetComponent<Enemy>().AddBookaComponent();
+            }
+            }
+            
+            break;
         }
     }
 }
