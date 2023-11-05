@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Unity.VisualScripting;
-
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -59,13 +58,13 @@ public class UpgradeButton : MonoBehaviour
     //Works
     [SerializeField] private GameObject DashButton;
     //ID 10
-    
+
     //ID 11
     //ID 11
-    
+
     //ID 12
     //ID 12
-    
+
     //ID 13
     [SerializeField] private GameObject _backStager;
     //ID 13
@@ -86,9 +85,9 @@ public class UpgradeButton : MonoBehaviour
             LevelUP.IsSelected = true;
         }
     }
+
     private void ChooseUpgrade(LevelUP lvlUp)
     {
-
         switch (id)
         {
             case 0:
@@ -98,6 +97,7 @@ public class UpgradeButton : MonoBehaviour
                 {
                     Laser.AddComponent<DRAG>();
                 }
+
                 break;
             case 1:
                 GameObject.FindGameObjectWithTag("LaserGun").AddComponent<DRAG>();
@@ -110,8 +110,9 @@ public class UpgradeButton : MonoBehaviour
                 foreach (GameObject starfallObject in starfallObjects)
                 {
                     starfall starfallComponent = starfallObject.GetComponent<starfall>();
-                    if (starfallComponent != null)  starfallComponent.IsSpawn = true;
+                    if (starfallComponent != null) starfallComponent.IsSpawn = true;
                 }
+
                 break;
             case 3:
                 Player.GetComponent<InstantiateWall>().IsOpenly = true;
@@ -124,20 +125,21 @@ public class UpgradeButton : MonoBehaviour
                 break;
             case 6:
                 PUSHKA = GameObject.FindGameObjectWithTag("PUSHKA");
-            SpriteRenderer[] colesa= PUSHKA.GetComponentsInChildren<SpriteRenderer>();
-            for (int i = 0; i < colesa.Length; i++)
-            {
-                colesa[i].enabled = true;
-            }
+                SpriteRenderer[] colesa = PUSHKA.GetComponentsInChildren<SpriteRenderer>();
+                for (int i = 0; i < colesa.Length; i++)
+                {
+                    colesa[i].enabled = true;
+                }
+
                 PUSHKA.GetComponent<PUSHKA>().StartShoot();
                 if (lvlUp.IssTake[1])
                 {
-                for(int i = 0; i < colesa.Length; i++)
-                {
-                    colesa[i].AddComponent<DRAG>();
+                    for (int i = 0; i < colesa.Length; i++)
+                    {
+                        colesa[i].AddComponent<DRAG>();
+                    }
                 }
-               
-                }
+
                 break;
 
             case 7:
@@ -163,19 +165,23 @@ public class UpgradeButton : MonoBehaviour
                 foreach (GameObject AuraObject in AuraObjects)
                 {
                     AuraPC AuraComponent = AuraObject.GetComponent<AuraPC>();
-                    if (AuraComponent != null)  AuraComponent.IsStartWork = true;
+                    if (AuraComponent != null) AuraComponent.IsStartWork = true;
                 }
+
                 break;
             case 13:
                 _backStager.GetComponent<backStager>().StartCorutin();
                 break;
             case 14:
                 Enemy.isDraggable = true;
-            GameObject[] enemies=GameObject.FindGameObjectsWithTag("Enemy");
-            foreach(GameObject enemy in enemies)
-            {
-                enemy.AddComponent<DRAG>();
-            }
+                GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+                foreach (GameObject enemy in enemies)
+                {
+                    enemy.AddComponent<DRAG>();
+                }
+                break;
+            case 15:
+                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerAttack>().IsUltraAttack = true;
                 break;
         }
     }
