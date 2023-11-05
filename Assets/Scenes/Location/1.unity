@@ -21165,12 +21165,12 @@ PrefabInstance:
     - target: {fileID: 3872583983673067517, guid: 0951b036ba0a12343a56eff64eed7b4c,
         type: 3}
       propertyPath: IssTake.Array.size
-      value: 14
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3872583983673067517, guid: 0951b036ba0a12343a56eff64eed7b4c,
         type: 3}
       propertyPath: itemtextures.Array.size
-      value: 14
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3872583983673067517, guid: 0951b036ba0a12343a56eff64eed7b4c,
         type: 3}
@@ -21195,6 +21195,12 @@ PrefabInstance:
       propertyPath: itemtextures.Array.data[13]
       value: 
       objectReference: {fileID: 21300000, guid: e51b9b4a8b342ce45a7cafe27ba508d5,
+        type: 3}
+    - target: {fileID: 3872583983673067517, guid: 0951b036ba0a12343a56eff64eed7b4c,
+        type: 3}
+      propertyPath: itemtextures.Array.data[14]
+      value: 
+      objectReference: {fileID: 21300000, guid: b4c7a15b2bd7219418caadd67dfaba97,
         type: 3}
     - target: {fileID: 3897589032826057911, guid: 0951b036ba0a12343a56eff64eed7b4c,
         type: 3}
@@ -21838,6 +21844,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7855115547837660963, guid: 3b160fa6e74db6244b15b28964020e71,
         type: 3}
+    - target: {fileID: 1126693211, guid: ec94f27c1555e174ebada4b736dde08b, type: 3}
+      propertyPath: SpeedIsDamageCutout
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 1126693211, guid: ec94f27c1555e174ebada4b736dde08b, type: 3}
       propertyPath: AmmoCell.Array.data[0]
       value: 
