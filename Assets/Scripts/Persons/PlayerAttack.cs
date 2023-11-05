@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+
 using UnityEngine;
 [RequireComponent(typeof(Animator)),
     RequireComponent(typeof(SpriteRenderer))]
@@ -22,10 +23,22 @@ public class PlayerAttack : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     private Vector2 _spawnPoinBulletNow;
     private Vector2 _shieldSpawnPointNow;
-    public bool isSpeedIsDamage;
+    [SerializeField,Range(0,1)] private float SpeedIsDamageCutout;
+    public bool isSpeedIsDamage {  set
+        {
+            switch(value)
+            {
+                case true:
+                StartCoroutine(SpeedIsDamage());
+                    break;
+                case false:
+                StopCoroutine(SpeedIsDamage());
+                break;
+            }
+        } 
+    }
     public Action OnRefreshAmmo { get; set; }
     private float coefficientAttak = 0f;
-    private bool isSpeedIsDamagebool;
     public int Ammo
     {
         get
@@ -91,14 +104,6 @@ public class PlayerAttack : MonoBehaviour
         _weapon.GetComponent<AttackProjectile>().Damage = Damage += (int)coefficientAttak;
         Instantiate(_AttackSound);
     }
-    public void FixedUpdate()
-    {
-        if (isSpeedIsDamage && isSpeedIsDamagebool != true)
-        {
-            isSpeedIsDamagebool = true;
-            StartCoroutine(SpeedIsDamage());
-        }
-    }
 
   
     IEnumerator SpeedIsDamage()
@@ -107,7 +112,8 @@ public class PlayerAttack : MonoBehaviour
         {   
             Vector3 _transform3fago = transform.position;
             yield return new WaitForSeconds(3f);
-            coefficientAttak = Vector3.Distance(transform.position, _transform3fago);
+            coefficientAttak = Vector3.Distance(transform.position, _transform3fago)*SpeedIsDamageCutout;
+            Debug.Log(coefficientAttak + Damage);
         }
     }
     public void Shot()
