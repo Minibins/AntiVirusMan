@@ -48,6 +48,9 @@ public class UnityEvents : MonoBehaviour
     {
         _gameManager.OpenSettings(open);
     }
-
+    public static void UE_StopFly()
+    {
+        _player.StopJump(true);
+    }
 
 }

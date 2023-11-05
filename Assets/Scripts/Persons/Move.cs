@@ -88,19 +88,19 @@ public class Move : MonoBehaviour,Draggable
 
     public void MoveVertically(float direction)
     {
-        _velocity.Set(_rigidbody2D.velocity.x, 0f);
+        _velocity.Set(_velocity.x, direction);
         if (direction == 0f)
         {
             _animator.SetBool("IsRunning", false);
         }
         else if (direction < 0f)
         {
-            _velocity.y = -_curentSpeed;
+            _velocity.y = direction;
             _animator.SetBool("IsRunning", true);
         }
         else
         {
-            _velocity.y = _curentSpeed;
+            _velocity.y = direction;
             _animator.SetBool("IsRunning", true);
         }
     }

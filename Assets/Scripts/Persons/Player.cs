@@ -14,7 +14,8 @@ public class Player : MonoBehaviour
     private Vector2 _velocity;
     private Move _move;
     private Rigidbody2D _rb;
-
+    public static bool isFlying;
+    [SerializeField] private float flySpeed;
     private void FixedUpdate()
     {
         transform.position = new Vector3(Mathf.Max(-18.527f, Mathf.Min(17.734f, transform.position.x)),
@@ -101,25 +102,55 @@ public class Player : MonoBehaviour
 
     public void Jump()
     {
-        if (IsGrounded() && !Stunned)
+        if(IsGrounded()&& !Stunned)
         {
             _move.StartJump();
             Invoke(nameof(StopJump), 0.1f);
         }
+        if(isFlying)
+        {
+            _move.CanJump = false;
+            fly7 = true;
+            StartCoroutine(fly());
+            
+        }
     }
-
-    private void StopJump()
+    private bool fly7;
+    private IEnumerator fly()
+    {
+        while(fly7)
+        {
+            _move.MoveVertically(flySpeed);
+            _move.PlayAnimation("Fly");
+            yield return new WaitForFixedUpdate();
+        }
+        
+    }
+    public void StopJump(bool StopFly)
     {
         if (IsGrounded())
+        {
+            _move.CanJump = true;
+            _move.StopJump();
+        }
+        if(StopFly)
+        {
+            fly7= false;
+            _move.CanJump = true;
+        }
+        
+    }
+    public void StopJump()
+    {
+        if(IsGrounded())
         {
             _move.StopJump();
         }
         else
         {
-            Invoke(nameof(StopJump), 0.1f);
+            Invoke(nameof(StopJump),0.1f);
         }
     }
-
 
     public void Down()
     {

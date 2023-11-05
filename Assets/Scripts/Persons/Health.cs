@@ -18,7 +18,7 @@ public class Health : MonoBehaviour,Draggable
     [SerializeField] private float needVelocityForInvisibility=9999;
     [field: SerializeField] public float CurrentHealth;
     private Action _onDeath;
-    public bool backStager = false;
+    public static bool backStager = false;
     public Action OnDeath
     {
         get => _onDeath;

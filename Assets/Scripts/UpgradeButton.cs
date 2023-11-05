@@ -8,7 +8,7 @@ public class UpgradeButton : MonoBehaviour
 {
     public int id;
     public GameObject mainupgrader;
-    private GameObject Player;
+    private GameObject _Player;
     private GameManager gameManager;
 
 
@@ -74,14 +74,14 @@ public class UpgradeButton : MonoBehaviour
     {
         if (gameObject.GetComponent<Image>().sprite.name == "None")
         {
-            Player = GameObject.Find("Player");
+            _Player = GameObject.Find("Player");
             LevelUP.IsSelected = true;
         }
         else
         {
             LevelUP lvlUp = mainupgrader.GetComponent<LevelUP>();
             lvlUp.IssTake[id] = true;
-            Player = GameObject.Find("Player");
+            _Player = GameObject.Find("Player");
             ChooseUpgrade(lvlUp);
             LevelUP.IsSelected = true;
         }
@@ -103,7 +103,7 @@ public class UpgradeButton : MonoBehaviour
                 GameObject.FindGameObjectWithTag("LaserGun").AddComponent<DRAG>();
                 GameObject.FindGameObjectWithTag("PC").AddComponent<DRAG>();
                 GameObject.FindGameObjectWithTag("PUSHKA").AddComponent<DRAG>();
-                Player.GetComponent<InstantiateWall>().canmove = true;
+                _Player.GetComponent<InstantiateWall>().canmove = true;
                 break;
             case 2:
                 GameObject[] starfallObjects = GameObject.FindGameObjectsWithTag("Starfall");
@@ -114,13 +114,13 @@ public class UpgradeButton : MonoBehaviour
                 }
                 break;
             case 3:
-                Player.GetComponent<InstantiateWall>().IsOpenly = true;
+                _Player.GetComponent<InstantiateWall>().IsOpenly = true;
                 break;
             case 4:
                 DownButton.SetActive(true);
                 break;
             case 5:
-                Player.GetComponent<PlayerAttack>().IsSelectedBullet = true;
+                _Player.GetComponent<PlayerAttack>().IsSelectedBullet = true;
                 break;
             case 6:
                 PUSHKA = GameObject.FindGameObjectWithTag("PUSHKA");
@@ -167,7 +167,7 @@ public class UpgradeButton : MonoBehaviour
                 }
                 break;
             case 13:
-                _backStager.GetComponent<backStager>().StartCorutin();
+            Health.backStager = true;
                 break;
             case 14:
                 Enemy.isDraggable = true;
@@ -176,6 +176,9 @@ public class UpgradeButton : MonoBehaviour
             {
                 enemy.AddComponent<DRAG>();
             }
+                break;
+            case 15:
+                Player.isFlying = true;
                 break;
         }
     }
