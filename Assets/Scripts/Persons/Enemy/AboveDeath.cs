@@ -23,7 +23,7 @@ public class AboveDeath : MonoBehaviour
 	}
     private void FixedUpdate()
     { 
-		if(Player.position.y < transform.position.y && Player.velocity.y>0.5f && IsPlatform)
+		if(Player.position.y < transform.position.y && Player.velocity.y>-0.5f && IsPlatform)
 		{
             gameObject.layer = 11;
         }
