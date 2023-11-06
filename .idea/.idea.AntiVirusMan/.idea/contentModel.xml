@@ -37,6 +37,7 @@
           <e p="Perehod" t="Include" />
           <e p="Player" t="Include">
             <e p="atack projectiles" t="Include" />
+            <e p="atack projectilesUltra" t="Include" />
             <e p="Attack" t="Include" />
             <e p="Health" t="Include" />
           </e>
@@ -243,7 +244,6 @@
           </e>
           <e p="Upgrade" t="Include">
             <e p="AuraPC.cs" t="Include" />
-            <e p="backStager.cs" t="Include" />
             <e p="Bullet.cs" t="Include" />
             <e p="DRAG.cs" t="Include" />
             <e p="Fallingstar.cs" t="Include" />
