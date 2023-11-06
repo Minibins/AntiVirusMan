@@ -11067,7 +11067,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &427215478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21913,10 +21913,32 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1126693211, guid: ec94f27c1555e174ebada4b736dde08b, type: 3}
+      propertyPath: powerBack
+      value: 500000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1126693211, guid: ec94f27c1555e174ebada4b736dde08b, type: 3}
       propertyPath: _AttackSound
       value: 
       objectReference: {fileID: 7855115547837660963, guid: 3b160fa6e74db6244b15b28964020e71,
         type: 3}
+    - target: {fileID: 1126693211, guid: ec94f27c1555e174ebada4b736dde08b, type: 3}
+      propertyPath: _Ultrashield
+      value: 
+      objectReference: {fileID: 4351347600884552508, guid: 62027f6e8cf032e4e92690abf563abb5,
+        type: 3}
+    - target: {fileID: 1126693211, guid: ec94f27c1555e174ebada4b736dde08b, type: 3}
+      propertyPath: _shieldUltra
+      value: 
+      objectReference: {fileID: 4351347600884552508, guid: 62027f6e8cf032e4e92690abf563abb5,
+        type: 3}
+    - target: {fileID: 1126693211, guid: ec94f27c1555e174ebada4b736dde08b, type: 3}
+      propertyPath: IsUltraAttack
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1126693211, guid: ec94f27c1555e174ebada4b736dde08b, type: 3}
+      propertyPath: IsSelectedBullet
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1126693211, guid: ec94f27c1555e174ebada4b736dde08b, type: 3}
       propertyPath: SpeedIsDamageCutout
       value: 0.1
@@ -21944,6 +21966,22 @@ PrefabInstance:
     - target: {fileID: 1126693211, guid: ec94f27c1555e174ebada4b736dde08b, type: 3}
       propertyPath: <Damage>k__BackingField
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1126693211, guid: ec94f27c1555e174ebada4b736dde08b, type: 3}
+      propertyPath: _shieldUltraSpawnPoint.x
+      value: 0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 1126693211, guid: ec94f27c1555e174ebada4b736dde08b, type: 3}
+      propertyPath: _shieldUltraSpawnPoint.y
+      value: -0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 1126693211, guid: ec94f27c1555e174ebada4b736dde08b, type: 3}
+      propertyPath: <IsUltraAttack>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1126693211, guid: ec94f27c1555e174ebada4b736dde08b, type: 3}
+      propertyPath: <IsSelectedBullet>k__BackingField
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 193935507143263751, guid: ec94f27c1555e174ebada4b736dde08b,
         type: 3}

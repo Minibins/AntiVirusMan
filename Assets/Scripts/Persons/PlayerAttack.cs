@@ -1,67 +1,70 @@
 ﻿using System;
 using System.Collections;
-
 using UnityEngine;
+
 [RequireComponent(typeof(Animator)),
-    RequireComponent(typeof(SpriteRenderer))]
+ RequireComponent(typeof(SpriteRenderer))]
 public class PlayerAttack : MonoBehaviour
 {
+    [field: SerializeField] public bool IsSelectedBullet { get; set; }
+    [field: SerializeField] public bool IsUltraAttack { get; set; }
+    [field: SerializeField] public int Damage { get; set; }
+    [SerializeField, Range(0, 1)] private float SpeedIsDamageCutout;
     [SerializeField] private GameObject _AttackSound;
     [SerializeField] private GameObject _bullet;
     [SerializeField] private Vector2 _spawnPoinBullet;
     [SerializeField] private GameObject _shield;
+    [SerializeField] private GameObject _shieldUltra;
     [SerializeField] private Vector2 _shieldSpawnPoint;
+    [SerializeField] private Vector2 _shieldUltraSpawnPoint;
     [SerializeField] private AmmoCell[] AmmoCell;
     [SerializeField] private int _ammo;
     [SerializeField] private int _maxAmmo;
     [SerializeField] private float _timeReload;
-    [field: SerializeField] public bool IsSelectedBullet { get; set; }
-    [field: SerializeField] public int Damage { get; set; }
+    [SerializeField] private float powerBack;
     private GameObject _weapon;
     private Rigidbody2D rb;
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
     private Vector2 _spawnPoinBulletNow;
     private Vector2 _shieldSpawnPointNow;
-    [SerializeField,Range(0,1)] private float SpeedIsDamageCutout;
-    public bool isSpeedIsDamage {  set
-        {
-            switch(value)
-            {
-                case true:
-                StartCoroutine(SpeedIsDamage());
-                    break;
-                case false:
-                StopCoroutine(SpeedIsDamage());
-                break;
-            }
-        } 
-    }
-    public Action OnRefreshAmmo { get; set; }
-    private float coefficientAttak = 0f;
-    public int Ammo
+    private Vector2 _shieldUltraSpawnPointNow;
+
+
+    public bool isSpeedIsDamage
     {
-        get
-        {
-            return _ammo;
-        }
         set
         {
-            _ammo = Mathf.Min(Mathf.Max(0, value),MaxAmmo) ;
+            switch (value)
+            {
+                case true:
+                    StartCoroutine(SpeedIsDamage());
+                    break;
+                case false:
+                    StopCoroutine(SpeedIsDamage());
+                    break;
+            }
+        }
+    }
+
+    public Action OnRefreshAmmo { get; set; }
+    private float coefficientAttak = 0f;
+
+    public int Ammo
+    {
+        get { return _ammo; }
+        set
+        {
+            _ammo = Mathf.Min(Mathf.Max(0, value), MaxAmmo);
             OnRefreshAmmo?.Invoke();
             AmmoBarRefresh();
         }
     }
+
     public int MaxAmmo
     {
-        get
-        {
-            return _maxAmmo;
-        }
-        private set
-        {
-            _maxAmmo = value;
-        }
+        get { return _maxAmmo; }
+        private set { _maxAmmo = value; }
     }
 
     private void Awake()
@@ -71,18 +74,20 @@ public class PlayerAttack : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
         OnRefreshAmmo += AmmoBarRefresh;
     }
+
     private void AmmoBarRefresh()
     {
-        
         for (int i = 0; i < Ammo && i < AmmoCell.Length; i++)
         {
             AmmoCell[i].Enable();
         }
-        for (int i = Ammo; i <MaxAmmo; i++)
+
+        for (int i = Ammo; i < MaxAmmo; i++)
         {
             AmmoCell[i].Disable();
         }
     }
+
     private void Start()
     {
         StartCoroutine(Reload());
@@ -92,37 +97,73 @@ public class PlayerAttack : MonoBehaviour
     {
         SetSpawnPoint();
         _weapon = Instantiate(_shield, _shieldSpawnPointNow, Quaternion.identity);
-        _weapon.GetComponent<AttackProjectile>().Damage = Damage += (int)coefficientAttak;
+        _weapon.GetComponent<AttackProjectile>().Damage = Damage += (int) coefficientAttak;
         Instantiate(_AttackSound);
     }
+
     public void OnFullAttack()
     {
         SetSpawnPoint();
         _weapon = Instantiate(_bullet, _spawnPoinBulletNow, Quaternion.identity);
         _weapon.GetComponent<AttackProjectile>().Damage = Damage;
         _weapon = Instantiate(_shield, _shieldSpawnPointNow, Quaternion.identity);
-        _weapon.GetComponent<AttackProjectile>().Damage = Damage += (int)coefficientAttak;
+        _weapon.GetComponent<AttackProjectile>().Damage = Damage += (int) coefficientAttak;
         Instantiate(_AttackSound);
     }
 
-  
+    public void OnUltraAttack()
+    {
+        print("OnUltraAttack");
+
+        SetSpawnPoint();
+        _weapon = Instantiate(_shieldUltra, _shieldUltraSpawnPointNow, Quaternion.identity);
+        _weapon.GetComponent<SpriteRenderer>().flipX = gameObject.GetComponent<SpriteRenderer>().flipX;
+        _weapon.GetComponent<AttackProjectile>().Damage = Damage += (int) coefficientAttak;
+        Instantiate(_AttackSound);
+    }
+
+    public void OnUltraAttackAndFullAttack()
+    {
+        print("OnUltraAttackAndFullAttack");
+
+        SetSpawnPoint();
+        _weapon = Instantiate(_bullet, _spawnPoinBulletNow, Quaternion.identity);
+        _weapon.GetComponent<AttackProjectile>().Damage = Damage;
+        _weapon = Instantiate(_shieldUltra, _shieldUltraSpawnPointNow, Quaternion.identity);
+        _weapon.GetComponent<AttackProjectile>().Damage = Damage += (int) coefficientAttak;
+        Instantiate(_AttackSound);
+    }
+
+
     IEnumerator SpeedIsDamage()
     {
         while (true)
-        {   
+        {
             Vector3 _transform3fago = transform.position;
-            
+
             yield return new WaitForSeconds(3f);
-            coefficientAttak = Vector3.Distance(transform.position, _transform3fago)*SpeedIsDamageCutout;
+            coefficientAttak = Vector3.Distance(transform.position, _transform3fago) * SpeedIsDamageCutout;
         }
     }
+
     public void Shot()
     {
-        if (Ammo < 1)
+        if (Ammo < 1) return;
+
+
+        if (IsUltraAttack && IsSelectedBullet)
         {
-            return;
+            OnUltraAttackAndFullAttack();
+            _animator.SetTrigger("UltraAttaka");
         }
-        if (IsSelectedBullet)
+
+        else if (IsUltraAttack)
+        {
+            OnUltraAttack();
+            _animator.SetTrigger("UltraAttaka");
+        }
+
+        else if (IsSelectedBullet)
         {
             OnFullAttack();
             _animator.SetTrigger("FullAttack");
@@ -132,10 +173,11 @@ public class PlayerAttack : MonoBehaviour
             OnAttack();
             _animator.SetTrigger("Attack");
         }
+
         Ammo--;
         AmmoBarRefresh();
-
     }
+
     public void slowdown()
     {
         rb.bodyType = RigidbodyType2D.Static;
@@ -147,22 +189,39 @@ public class PlayerAttack : MonoBehaviour
         rb.bodyType = RigidbodyType2D.Dynamic;
     }
 
+    public void goback()
+    {
+        if (gameObject.GetComponent<SpriteRenderer>().flipX == false)
+        {
+            rb.AddForce(Vector2.left * powerBack);
+        }
+        if (gameObject.GetComponent<SpriteRenderer>().flipX == true)
+        {
+            rb.AddForce(Vector2.right * powerBack);
+        }
+    }
+
     private void OnDestroy()
     {
         OnRefreshAmmo = null;
     }
+
     private void SetSpawnPoint()
     {
-        _spawnPoinBulletNow = _spawnPoinBullet + (Vector2)transform.position;
-        _shieldSpawnPointNow = _shieldSpawnPoint + (Vector2)transform.position;
+        _spawnPoinBulletNow = _spawnPoinBullet + (Vector2) transform.position;
+        _shieldSpawnPointNow = _shieldSpawnPoint + (Vector2) transform.position;
+        _shieldUltraSpawnPointNow = _shieldUltraSpawnPoint + (Vector2) transform.position;
         if (_spriteRenderer.flipX)
         {
             _shieldSpawnPointNow.x = transform.position.x - _shieldSpawnPoint.x;
+            _shieldUltraSpawnPointNow.x = transform.position.x - _shieldUltraSpawnPoint.x;
             _spawnPoinBulletNow.x = transform.position.x - _spawnPoinBullet.x;
         }
         else
         {
             _shieldSpawnPointNow.x = transform.position.x + _shieldSpawnPoint.x;
+            _shieldUltraSpawnPointNow.x = transform.position.x + _shieldUltraSpawnPoint.x;
+            _shieldUltraSpawnPointNow.x = transform.position.x + _shieldUltraSpawnPoint.x;
             _spawnPoinBulletNow.x = transform.position.x + _spawnPoinBullet.x;
         }
     }
@@ -172,10 +231,9 @@ public class PlayerAttack : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(_timeReload);
-            
-                Ammo++;
-                AmmoBarRefresh();
-            
+
+            Ammo++;
+            AmmoBarRefresh();
         }
     }
 }
