@@ -26,7 +26,7 @@ public class UnityEvents : MonoBehaviour
     }
     public static void UE_ButtonDash()
     { 
-    _player.Dash();
+    _player.Dash(0);
     }
         public static void UE_ButtonStop()
     {

@@ -53,6 +53,7 @@ public class Enemy : MonoBehaviour
         {
             MyDeath.ForcerePulsive = 1000;
         }
+        MyDeath.IsPlatform = true;
     }
     private void Start()
     {
