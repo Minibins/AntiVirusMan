@@ -216,6 +216,9 @@ public class UpgradeButton : MonoBehaviour
                 attacke.IsUltraAttack = true;
                 attacke.Damage = 4;
                 break;
+            case 18:
+                Enemy.isEvolution = true;
+                break;
         }
     }
 }

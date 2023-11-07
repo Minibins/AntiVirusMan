@@ -27,6 +27,7 @@ public class Enemy : MonoBehaviour
     public GameObject _PC;
     public static bool isDraggable;
     public static bool AntivirusHaveBoots;
+    public static bool isEvolution;
     private void Awake()
     {
         _health = GetComponent<Health>();
@@ -40,6 +41,12 @@ public class Enemy : MonoBehaviour
         if(AntivirusHaveBoots)
         {
            AddBookaComponent();
+        }
+        if (isEvolution&&WhoAmI!=EnemyTypes.Toocha)
+        {
+            _health.SetMaxHealth(-1);
+            _animator.Play("Wire");
+            
         }
     }
     public void AddBookaComponent()
@@ -125,6 +132,11 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if(other.CompareTag("PC")&&isEvolution&&WhoAmI!=EnemyTypes.Toocha&&ChangeMove==0)
+        {
+            _animator.SetTrigger("Evolution");
+            _health.SetMaxHealth(1);
+        }
         if (other.CompareTag("WayPoint"))
         {
             MoveToPoint = other.gameObject.GetComponent<WayPoint>()
