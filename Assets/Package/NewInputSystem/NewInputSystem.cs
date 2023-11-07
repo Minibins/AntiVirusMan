@@ -53,64 +53,18 @@ public partial class @NewInputSystem: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Dash"",
+                    ""type"": ""Button"",
+                    ""id"": ""289110c8-9ff1-4f64-9fb5-66550e5f2716"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": ""Keyboard_Arrows"",
-                    ""id"": ""3d8f24f2-ef41-4b4b-b3ed-41658ff3f7c6"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""8d18eff0-2df6-4808-865b-fd456aeafa1b"",
-                    ""path"": ""<Keyboard>/upArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Basic"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""Down"",
-                    ""id"": ""03123001-571e-4b1c-ac92-0a115790efde"",
-                    ""path"": ""<Keyboard>/downArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Basic"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""Left"",
-                    ""id"": ""c6217356-6c98-4b15-83df-5a3f764f65b1"",
-                    ""path"": ""<Keyboard>/leftArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""Right"",
-                    ""id"": ""96e063cf-727f-4ee4-a5e5-94d1002cdf85"",
-                    ""path"": ""<Keyboard>/rightArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
                 {
                     ""name"": ""Keyboard_WASD"",
                     ""id"": ""6c2a87b5-5e73-4181-80ee-b5ebc09f4552"",
@@ -561,6 +515,28 @@ public partial class @NewInputSystem: IInputActionCollection2, IDisposable
                     ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""66e1a8b6-b819-4b1c-a1d6-7e2c7b2fea8b"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f3274c48-dac9-4a78-a5f1-2f49a92a963e"",
+                    ""path"": ""<Keyboard>/leftCtrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -578,6 +554,7 @@ public partial class @NewInputSystem: IInputActionCollection2, IDisposable
         m_Basic_Move = m_Basic.FindAction("Move", throwIfNotFound: true);
         m_Basic_Jump = m_Basic.FindAction("Jump", throwIfNotFound: true);
         m_Basic_Attack = m_Basic.FindAction("Attack", throwIfNotFound: true);
+        m_Basic_Dash = m_Basic.FindAction("Dash", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -642,6 +619,7 @@ public partial class @NewInputSystem: IInputActionCollection2, IDisposable
     private readonly InputAction m_Basic_Move;
     private readonly InputAction m_Basic_Jump;
     private readonly InputAction m_Basic_Attack;
+    private readonly InputAction m_Basic_Dash;
     public struct BasicActions
     {
         private @NewInputSystem m_Wrapper;
@@ -649,6 +627,7 @@ public partial class @NewInputSystem: IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Basic_Move;
         public InputAction @Jump => m_Wrapper.m_Basic_Jump;
         public InputAction @Attack => m_Wrapper.m_Basic_Attack;
+        public InputAction @Dash => m_Wrapper.m_Basic_Dash;
         public InputActionMap Get() { return m_Wrapper.m_Basic; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -667,6 +646,9 @@ public partial class @NewInputSystem: IInputActionCollection2, IDisposable
             @Attack.started += instance.OnAttack;
             @Attack.performed += instance.OnAttack;
             @Attack.canceled += instance.OnAttack;
+            @Dash.started += instance.OnDash;
+            @Dash.performed += instance.OnDash;
+            @Dash.canceled += instance.OnDash;
         }
 
         private void UnregisterCallbacks(IBasicActions instance)
@@ -680,6 +662,9 @@ public partial class @NewInputSystem: IInputActionCollection2, IDisposable
             @Attack.started -= instance.OnAttack;
             @Attack.performed -= instance.OnAttack;
             @Attack.canceled -= instance.OnAttack;
+            @Dash.started -= instance.OnDash;
+            @Dash.performed -= instance.OnDash;
+            @Dash.canceled -= instance.OnDash;
         }
 
         public void RemoveCallbacks(IBasicActions instance)
@@ -711,5 +696,6 @@ public partial class @NewInputSystem: IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
+        void OnDash(InputAction.CallbackContext context);
     }
 }
