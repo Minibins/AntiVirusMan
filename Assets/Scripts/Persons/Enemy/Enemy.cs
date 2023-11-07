@@ -57,6 +57,17 @@ public class Enemy : MonoBehaviour
     }
     private void Start()
     {
+        if(ChangeMove == 1)
+        {
+            try
+            {
+                _animator.Play("Wire");
+            }
+            catch
+            {
+
+            }
+        }
         _PC = GameObject.FindGameObjectWithTag("PC");
     }
 

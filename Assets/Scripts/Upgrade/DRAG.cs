@@ -86,29 +86,29 @@ public class DRAG : MonoBehaviour,Draggable
         if (Input.touchCount > 0 && pa.Ammo > 0)
         {
             Touch touch = Input.GetTouch(0);
-            switch (touch.phase)
+            if(Physics2D.Raycast( Camera.main.ScreenToWorldPoint(touch.position),Vector2.down))
             {
-                case TouchPhase.Began:
-                if(type == Type.Cannon)
+                switch(touch.phase)
                 {
+                    case TouchPhase.Began:
                     MyScript.OnDrag();
-                 
-                }
-                isdrgging = true;
+                    isdrgging = true;
                     StaminaConchaeca();
-                    offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
+                    offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x,Input.mousePosition.y));
                     break;
 
-                case TouchPhase.Moved:
+                    case TouchPhase.Moved:
                     Vector2 curPosition = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) + offset;
                     rb.velocity = (curPosition - rb.position) * 10f; ;
                     break;
 
-                case TouchPhase.Ended:
+                    case TouchPhase.Ended:
                     isdrgging = false;
-                MyScript.OnDragEnd();
-                break;
+                    MyScript.OnDragEnd();
+                    break;
+                }
             }
+           
         }
     }
     private void StaminaConchaeca()
