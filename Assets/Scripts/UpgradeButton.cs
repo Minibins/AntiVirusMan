@@ -68,6 +68,10 @@ public class UpgradeButton : MonoBehaviour
     //ID 13
     [SerializeField] private GameObject _backStager;
     //ID 13
+    
+    //ID 18
+    [SerializeField] private PC pc;
+    //ID 18
 
     public void onclick()
     {
@@ -213,6 +217,10 @@ public class UpgradeButton : MonoBehaviour
             
             case 17:
                 _Player.GetComponent<PlayerAttack>().IsUltraAttack = true;
+                break;
+            
+            case 18:
+                pc.IsFollowing = true;
                 break;
         }
     }

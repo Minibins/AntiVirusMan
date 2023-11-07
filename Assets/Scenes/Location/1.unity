@@ -16579,6 +16579,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 8
+  speed: 2
+  LeftfollowTo: {fileID: 1900458410}
+  RightfollowTo: {fileID: 1667849391}
+  IsFollowing: 0
 --- !u!1 &1311771324
 GameObject:
   m_ObjectHideFlags: 0
@@ -18140,6 +18144,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextPoint:
   - {fileID: 1129609869}
+--- !u!1 &1667849390
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1667849391}
+  m_Layer: 9
+  m_Name: PointForPcRight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1667849391
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1667849390}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.256, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 429989188}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1679223242
 GameObject:
   m_ObjectHideFlags: 0
@@ -19126,6 +19161,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextPoint:
   - {fileID: 719234732}
+--- !u!1 &1900458409
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1900458410}
+  m_Layer: 9
+  m_Name: PointForPcLeft
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1900458410
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1900458409}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.256, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 429989188}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1943639070
 GameObject:
   m_ObjectHideFlags: 0
@@ -20244,7 +20310,7 @@ Transform:
   m_GameObject: {fileID: 1025521269858936187}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.93, y: -2.251, z: 0.44}
+  m_LocalPosition: {x: 2, y: -2.3, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -20590,7 +20656,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &4765063866695837589
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -21120,6 +21186,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3518835522024572706, guid: 0951b036ba0a12343a56eff64eed7b4c,
         type: 3}
+      propertyPath: pc
+      value: 
+      objectReference: {fileID: 1303532779}
+    - target: {fileID: 3518835522024572706, guid: 0951b036ba0a12343a56eff64eed7b4c,
+        type: 3}
       propertyPath: DashButton
       value: 
       objectReference: {fileID: 59349892}
@@ -21128,6 +21199,11 @@ PrefabInstance:
       propertyPath: _backStager
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3599426648207600167, guid: 0951b036ba0a12343a56eff64eed7b4c,
+        type: 3}
+      propertyPath: pc
+      value: 
+      objectReference: {fileID: 1303532779}
     - target: {fileID: 3599426648207600167, guid: 0951b036ba0a12343a56eff64eed7b4c,
         type: 3}
       propertyPath: DashButton
@@ -21182,12 +21258,12 @@ PrefabInstance:
     - target: {fileID: 3872583983673067517, guid: 0951b036ba0a12343a56eff64eed7b4c,
         type: 3}
       propertyPath: IssTake.Array.size
-      value: 18
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 3872583983673067517, guid: 0951b036ba0a12343a56eff64eed7b4c,
         type: 3}
       propertyPath: itemtextures.Array.size
-      value: 18
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 3872583983673067517, guid: 0951b036ba0a12343a56eff64eed7b4c,
         type: 3}
@@ -21237,6 +21313,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 9e2e2a35ebe23b24d8dc736eaa20e8e7,
         type: 3}
+    - target: {fileID: 3872583983673067517, guid: 0951b036ba0a12343a56eff64eed7b4c,
+        type: 3}
+      propertyPath: itemtextures.Array.data[18]
+      value: 
+      objectReference: {fileID: 21300000, guid: c15032fc062884746852fdd77406d6d3,
+        type: 3}
     - target: {fileID: 3897589032826057911, guid: 0951b036ba0a12343a56eff64eed7b4c,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -21272,6 +21354,11 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4087110729889739942, guid: 0951b036ba0a12343a56eff64eed7b4c,
+        type: 3}
+      propertyPath: pc
+      value: 
+      objectReference: {fileID: 1303532779}
     - target: {fileID: 4087110729889739942, guid: 0951b036ba0a12343a56eff64eed7b4c,
         type: 3}
       propertyPath: DashButton
@@ -21983,7 +22070,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1126693211, guid: ec94f27c1555e174ebada4b736dde08b, type: 3}
       propertyPath: <IsUltraAttack>k__BackingField
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1126693211, guid: ec94f27c1555e174ebada4b736dde08b, type: 3}
       propertyPath: <IsSelectedBullet>k__BackingField
@@ -22137,7 +22224,15 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 997392201, guid: ec94f27c1555e174ebada4b736dde08b, type: 3}
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 8304178653184876642, guid: ec94f27c1555e174ebada4b736dde08b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1900458410}
+    - targetCorrespondingSourceObject: {fileID: 8304178653184876642, guid: ec94f27c1555e174ebada4b736dde08b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1667849391}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8304178653184876640, guid: ec94f27c1555e174ebada4b736dde08b,
         type: 3}
