@@ -42,35 +42,31 @@ public class PC : MonoBehaviour
             lowchrge = false;
         }
 
-        if(IsFollowing)
-            Following();
+        if (IsFollowing) Following();
     }
 
     private void Following()
     {
         float playerX = _player.transform.position.x;
         float pcX = pc.transform.position.x;
-        
+
         Vector3 followToPosition = _player.GetComponent<SpriteRenderer>().flipX ? RightfollowTo.position : LeftfollowTo.position;
         Vector3 startPos = new Vector3(2, -2.3f, 0);
-        
-        if (_player.transform.position.y >= 1f)
-        {
-            pc.transform.position =
-                Vector2.MoveTowards(pc.transform.position, startPos, speed * Time.deltaTime);
-            return;
-        }
 
-        if (playerX < -3.5f || playerX > 5.5f || pcX < -4.4f || pcX > 6.5f)
+        if (_player.transform.position.y >= 1f || playerX < -3.5f || playerX > 5.5f || pcX < -4.4f || pcX > 6.5f)
         {
-            pc.transform.position =
-                Vector2.MoveTowards(pc.transform.position, startPos, speed * Time.deltaTime);
-            return;
+            Move(startPos);
         }
-        
-        Vector2 pos = Vector2.MoveTowards(pc.transform.position,
-            new Vector2(followToPosition.x, pc.transform.position.y), speed * Time.deltaTime);
-        pc.transform.position = pos;
+        else
+        {
+            Move(new Vector3(followToPosition.x, pc.transform.position.y, 0));
+        }
+    }
+
+    private void Move(Vector3 startPos)
+    {
+        pc.transform.position =
+            Vector2.MoveTowards(pc.transform.position, startPos, speed * Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

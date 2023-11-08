@@ -97,7 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 52ac938242f2c614289c45056f103a80,
+    type: 2}
   m_LightingSettings: {fileID: 1680758894}
 --- !u!196 &4
 NavMeshSettings:
@@ -16582,7 +16583,8 @@ MonoBehaviour:
   speed: 2
   LeftfollowTo: {fileID: 1900458410}
   RightfollowTo: {fileID: 1667849391}
-  IsFollowing: 0
+  IsFollowing: 1
+  rb: {fileID: 4765063866695837588}
 --- !u!1 &1311771324
 GameObject:
   m_ObjectHideFlags: 0
