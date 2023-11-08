@@ -39,7 +39,7 @@ public class Player : MonoBehaviour
         if (!Stunned) _move.MoveHorizontally(-1f);
     }
 
-    public void Dash()
+    public void Dash(int direction)
     {
         if (playerAttack.Ammo < 0)
         {
@@ -47,15 +47,12 @@ public class Player : MonoBehaviour
         }
 
         playerAttack.Ammo--;
-        int direction;
-        if (_move._spriteRenderer.flipX)
+        if(direction == 0)
         {
-            direction = -1;
+            _move.PlayAnimation("Dash");
+            direction = _move._spriteRenderer.flipX? -1:1;
         }
-        else
-        {
-            direction = 1;
-        }
+        
 
         RaycastHit2D
             hit = Physics2D.Raycast(transform.position, Vector2.right * direction, dashRange, 1 << 10); // Тут рейкаст
@@ -69,7 +66,7 @@ public class Player : MonoBehaviour
             transform.position += Vector3.right * direction * dashRange * 0.5f;
         }
 
-        _move.PlayAnimation("Dash");
+        
         StartCoroutine(DashEnd(direction));
     }
 

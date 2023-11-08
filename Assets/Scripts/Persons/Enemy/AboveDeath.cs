@@ -11,6 +11,7 @@ public class AboveDeath : MonoBehaviour
 	[SerializeField] private bool Elite;
 	[SerializeField] private int numberOfObjectsToSpawn;
 	[SerializeField]private GameObject objectToSpawn;
+	[SerializeField] public bool IsPlatform;
 	private Collider2D spawnArea;
 	private Health _health;
 	private void Awake()
@@ -21,14 +22,14 @@ public class AboveDeath : MonoBehaviour
 		
 	}
     private void FixedUpdate()
-    {
-		if(Player.position.y > transform.position.y&&Player.velocity.y<0.5f)
+    { 
+		if(Player.position.y < transform.position.y && Player.velocity.y>-0.5f && IsPlatform)
 		{
-            gameObject.layer = 12;
+            gameObject.layer = 11;
         }
 		else
 		{
-			gameObject.layer = 11;
+			gameObject.layer = 12;
 		}
     }
     private void OnCollisionEnter2D(Collision2D other)

@@ -129,7 +129,7 @@ Animator:
   m_GameObject: {fileID: 1419220866596668024}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ea887e0542bdf834593b9635c0d4e235, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3ba159cd5c066204f9c542ef460614b2, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -187,11 +187,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ebef5ecc067c3349877bb5875cd77ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WhoAmI: 0
   _maskWhoKills:
     serializedVersion: 2
     m_Bits: 8192
-  Finishings: []
-  CanBeFinishedOff: 1
   moveDirection: 0
   ChangeMove: 1
   MoveToPoint: {fileID: 0}
@@ -233,7 +232,6 @@ MonoBehaviour:
     type: 3}
   needVelocityForInvisibility: 9999
   CurrentHealth: 0
-  backStager: 0
 --- !u!114 &5645338690043026744
 MonoBehaviour:
   m_ObjectHideFlags: 0

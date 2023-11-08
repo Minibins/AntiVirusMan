@@ -21,11 +21,11 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private int _ammo;
     [SerializeField] private int _maxAmmo;
     [SerializeField] private float _timeReload;
-    [SerializeField] private float powerBack;
     private GameObject _weapon;
     private Rigidbody2D rb;
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
+    private Player player;
     private Vector2 _spawnPoinBulletNow;
     private Vector2 _shieldSpawnPointNow;
     private Vector2 _shieldUltraSpawnPointNow;
@@ -72,6 +72,7 @@ public class PlayerAttack : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        player= GetComponent<Player>();
         OnRefreshAmmo += AmmoBarRefresh;
     }
 
@@ -106,9 +107,6 @@ public class PlayerAttack : MonoBehaviour
         SetSpawnPoint();
         _weapon = Instantiate(_bullet, _spawnPoinBulletNow, Quaternion.identity);
         _weapon.GetComponent<AttackProjectile>().Damage = Damage;
-        _weapon = Instantiate(_shield, _shieldSpawnPointNow, Quaternion.identity);
-        _weapon.GetComponent<AttackProjectile>().Damage = Damage += (int) coefficientAttak;
-        Instantiate(_AttackSound);
     }
 
     public void OnUltraAttack()
@@ -118,20 +116,10 @@ public class PlayerAttack : MonoBehaviour
         SetSpawnPoint();
         _weapon = Instantiate(_shieldUltra, _shieldUltraSpawnPointNow, Quaternion.identity);
         _weapon.GetComponent<SpriteRenderer>().flipX = gameObject.GetComponent<SpriteRenderer>().flipX;
-        _weapon.GetComponent<AttackProjectile>().Damage = Damage += (int) coefficientAttak;
-        Instantiate(_AttackSound);
-    }
-
-    public void OnUltraAttackAndFullAttack()
-    {
-        print("OnUltraAttackAndFullAttack");
-
-        SetSpawnPoint();
-        _weapon = Instantiate(_bullet, _spawnPoinBulletNow, Quaternion.identity);
         _weapon.GetComponent<AttackProjectile>().Damage = Damage;
-        _weapon = Instantiate(_shieldUltra, _shieldUltraSpawnPointNow, Quaternion.identity);
-        _weapon.GetComponent<AttackProjectile>().Damage = Damage += (int) coefficientAttak;
         Instantiate(_AttackSound);
+        slowUp();
+        player.Dash(_spriteRenderer.flipX ? 1 : -1);
     }
 
 
@@ -153,19 +141,26 @@ public class PlayerAttack : MonoBehaviour
 
         if (IsUltraAttack && IsSelectedBullet)
         {
-            OnUltraAttackAndFullAttack();
+            if(Ammo<5) return;
+            Invoke(nameof(OnUltraAttack),0.5f);
+            Invoke(nameof(OnFullAttack),0.5f);
             _animator.SetTrigger("UltraAttaka");
+            Ammo-=3;
         }
 
         else if (IsUltraAttack)
         {
-            OnUltraAttack();
+            if(Ammo < 5) return;
+            Ammo -= 3;
+            Invoke(nameof(OnUltraAttack),0.5f);
             _animator.SetTrigger("UltraAttaka");
+
         }
 
         else if (IsSelectedBullet)
         {
             OnFullAttack();
+            OnAttack();
             _animator.SetTrigger("FullAttack");
         }
         else
@@ -187,18 +182,6 @@ public class PlayerAttack : MonoBehaviour
     public void slowUp()
     {
         rb.bodyType = RigidbodyType2D.Dynamic;
-    }
-
-    public void goback()
-    {
-        if (gameObject.GetComponent<SpriteRenderer>().flipX == false)
-        {
-            rb.AddForce(Vector2.left * powerBack);
-        }
-        if (gameObject.GetComponent<SpriteRenderer>().flipX == true)
-        {
-            rb.AddForce(Vector2.right * powerBack);
-        }
     }
 
     private void OnDestroy()

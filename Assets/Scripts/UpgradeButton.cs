@@ -216,7 +216,12 @@ public class UpgradeButton : MonoBehaviour
                 break;
             
             case 17:
-                _Player.GetComponent<PlayerAttack>().IsUltraAttack = true;
+                PlayerAttack attacke= _Player.GetComponent<PlayerAttack>();
+                attacke.IsUltraAttack = true;
+                attacke.Damage = 4;
+                break;
+            case 18:
+                Enemy.isEvolution = true;
                 break;
             
             case 18:
