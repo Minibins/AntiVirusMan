@@ -1,11 +1,9 @@
 ﻿using System.Linq;
-
 using UnityEngine;
 using UnityEngine.UI;
 
 public class LevelUP : MonoBehaviour
 {
-    //дыня
     [SerializeField] private GameObject FirstButton;
     [SerializeField] private GameObject SecondButton;
     [SerializeField] private GameObject ThreeButton;
@@ -17,6 +15,7 @@ public class LevelUP : MonoBehaviour
     private Image spritechangingFirst;
     private Image spritechangingSecond;
     private Image spritechangingThree;
+
     private void Update()
     {
         if (IsSelected)
@@ -45,7 +44,8 @@ public class LevelUP : MonoBehaviour
                 spritechangingSecond.sprite = itemtextures[a];
 
                 a = Random.Range(0, itemtextures.Length);
-                if (!IssTake[a] && FirstButton.GetComponent<UpgradeButton>().id != a && SecondButton.GetComponent<UpgradeButton>().id != a)
+                if (!IssTake[a] && FirstButton.GetComponent<UpgradeButton>().id != a &&
+                    SecondButton.GetComponent<UpgradeButton>().id != a)
                 {
                     ThreeButton.GetComponent<UpgradeButton>().id = a;
                     spritechangingThree = ThreeButton.GetComponent<Image>();
@@ -53,7 +53,7 @@ public class LevelUP : MonoBehaviour
                 }
                 else
                 {
-                    if (IssTake.Count(b => b == false)>=1)
+                    if (IssTake.Count(b => b == false) >= 1)
                     {
                         NewUpgrade();
                         return;
@@ -68,7 +68,7 @@ public class LevelUP : MonoBehaviour
             }
             else
             {
-                if(IssTake.Count(b => b == false) >= 2)
+                if (IssTake.Count(b => b == false) >= 2)
                 {
                     NewUpgrade();
                     return;
@@ -84,9 +84,9 @@ public class LevelUP : MonoBehaviour
 
         else
         {
-            if(IssTake.Count(b => b == false) >= 3)
+            if (IssTake.Count(b => b == false) >= 3)
             {
-                a = Random.Range(0,itemtextures.Length);
+                a = Random.Range(0, itemtextures.Length);
                 NewUpgrade();
                 return;
             }
@@ -98,7 +98,4 @@ public class LevelUP : MonoBehaviour
             }
         }
     }
-
-
-
 }
