@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.Drawing.Text;
+
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -110,10 +112,11 @@ public class UpgradeButton : MonoBehaviour
 
             case 2:
                 GameObject[] starfallObjects = GameObject.FindGameObjectsWithTag("Starfall");
+                byte delay=0;
                 foreach (GameObject starfallObject in starfallObjects)
                 {
                     starfall starfallComponent = starfallObject.GetComponent<starfall>();
-                    if (starfallComponent != null) starfallComponent.IsSpawn = true;
+                    if (starfallComponent != null) Invoke(StartStarfall(starfallComponent),((float)delay++)/10);
                 }
 
                 break;
@@ -223,6 +226,11 @@ public class UpgradeButton : MonoBehaviour
             case 19:
                 PC.IsFollowing = true;
                 break;
+        }
+        string StartStarfall(starfall starfallComponent)
+        {
+            starfallComponent.StartCoroutine(starfallComponent.spawnStars());
+            return "";
         }
     }
 }
