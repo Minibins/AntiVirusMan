@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D)),
  RequireComponent(typeof(Animator)),
  RequireComponent(typeof(SpriteRenderer))]
-public class Move : MonoBehaviour,Draggable
+public class Move : MonoBehaviour, Draggable
 {
     [SerializeField] private bool _canJump;
     [SerializeField] private float _jumpingPower = 10f;
@@ -58,25 +58,24 @@ public class Move : MonoBehaviour,Draggable
 
     public void MoveHorizontally(float direction)
     {
-        _velocity.Set(0f,_rigidbody2D.velocity.y);
-        if(direction == 0f)
+        _velocity.Set(0f, _rigidbody2D.velocity.y);
+        if (direction == 0f)
         {
-            _animator.SetBool("IsRunning",false);
+            _animator.SetBool("IsRunning", false);
         }
-        else if(direction < 0f)
-                
-            {
-                
-                _velocity.x = -_curentSpeed;
-                _spriteRenderer.flipX = true;
-                _animator.SetBool("IsRunning",true);
-            }
+        else if (direction < 0f)
+
+        {
+            _velocity.x = -_curentSpeed;
+            _spriteRenderer.flipX = true;
+            _animator.SetBool("IsRunning", true);
+        }
         else
-            {
-                _velocity.x = _curentSpeed;
-                _spriteRenderer.flipX = false;
-                _animator.SetBool("IsRunning",true);
-            } 
+        {
+            _velocity.x = _curentSpeed;
+            _spriteRenderer.flipX = false;
+            _animator.SetBool("IsRunning", true);
+        }
     }
 
     public void MoveOnWire(GameObject MoveToPoint)
@@ -214,13 +213,15 @@ public class Move : MonoBehaviour,Draggable
     {
         _move = null;
     }
+
     public void OnDrag()
     {
-        _move=SetDefaultSpeed;
+        _move = SetDefaultSpeed;
     }
+
     public void OnDragEnd()
     {
         CanJump = CanJump;
-        transform.rotation=new Quaternion();
+        transform.rotation = new Quaternion();
     }
 }
