@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class Health : MonoBehaviour,Draggable
+public class Health : MonoBehaviour,Draggable,IDamageble
 {
     [SerializeField] private int _maxHealth;
     [SerializeField] private HealthCell[] healthCells;
@@ -162,5 +162,9 @@ public class Health : MonoBehaviour,Draggable
     public void OnDragEnd()
     {
         IsInvisible = false;
+    }
+    public void OnDamageGet(int Damage)
+    {
+        ApplyDamage( Damage);
     }
 }

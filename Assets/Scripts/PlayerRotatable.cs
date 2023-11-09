@@ -2,14 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerRotatable : MonoBehaviour
+public class PlayerRotatable : MonoBehaviour,IDamageble
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void OnDamageGet(int damage)
     {
-        if (collision.tag == "AntivirusAtack")
-        {
-            
-            
-        }
+        transform.localScale.Set(transform.localScale.x*-1,transform.localScale.y,transform.localScale.z);
     }
+
 }

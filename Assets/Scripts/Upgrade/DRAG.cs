@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Unity.VisualScripting;
 
 public class DRAG : MonoBehaviour,Draggable
 {
@@ -71,4 +72,6 @@ public class DRAG : MonoBehaviour,Draggable
             isdrgging = false;
         }
     }
+    public void OnDrag() { }
+    public void OnDragEnd() { }
 }

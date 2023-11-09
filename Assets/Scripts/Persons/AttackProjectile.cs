@@ -16,10 +16,10 @@ public class AttackProjectile : MonoBehaviour
             _damage = value < 0 ? 0 : value;
         }
     }
-    [SerializeField] private LayerMask _mask;
-    [SerializeField] private Vector2 _velosity;
+    [SerializeField] public LayerMask _mask;
+    [SerializeField] public Vector2 _velosity;
     private Move _move;
-    private Health _healthTarget;
+    private IDamageble _Target;
 
     private void Awake()
     {
@@ -37,13 +37,13 @@ public class AttackProjectile : MonoBehaviour
                 _move.MoveVertically(_velosity.y);
         }
         }
-        
+        Debug.Log(_mask.value);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (((_mask.value & (1 << collision.gameObject.layer)) != 0) && collision.gameObject.TryGetComponent<Health>(out _healthTarget))
+        if (((_mask.value & (1 << collision.gameObject.layer)) != 0) && collision.gameObject.TryGetComponent<IDamageble>(out _Target))
         {
-            _healthTarget.ApplyDamage(_damage);
+            _Target.OnDamageGet(Damage);
         }
         
     }

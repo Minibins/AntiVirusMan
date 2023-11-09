@@ -186,9 +186,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 1
+  ExplodeIfCollideWithWall: 0
+  Explosion: {fileID: 0}
   _mask:
     serializedVersion: 2
-    m_Bits: 22528
+    m_Bits: 88192
   _velosity: {x: 0, y: 0}
 --- !u!114 &712682373744742078
 MonoBehaviour:
@@ -205,3 +207,4 @@ MonoBehaviour:
   _canJump: 0
   _jumpingPower: 0
   _speed: 0
+  _spriteRenderer: {fileID: 0}

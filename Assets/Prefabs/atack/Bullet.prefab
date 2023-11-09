@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8362392266744263211}
   - component: {fileID: 4969104922225038778}
-  - component: {fileID: 5262987694367095846}
   - component: {fileID: 6875694944164283564}
   - component: {fileID: 1332795503663992019}
+  - component: {fileID: 5811492573336532030}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: AntivirusAtack
@@ -89,21 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5262987694367095846
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4926493693542066365}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5602cb6335ca0054d9473f15a89c14ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0.1
-  Damage: 1
-  typeGun: 0
 --- !u!61 &6875694944164283564
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -162,6 +147,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Time: 3
+--- !u!114 &5811492573336532030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4926493693542066365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9c4fd5ae8cbe924582d0b08150dbc86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 1
+  ExplodeIfCollideWithWall: 0
+  Explosion: {fileID: 0}
+  _mask:
+    serializedVersion: 2
+    m_Bits: 22528
+  _velosity: {x: 0, y: 1}
 --- !u!1001 &2559051835963309209
 PrefabInstance:
   m_ObjectHideFlags: 0
