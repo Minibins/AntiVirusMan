@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour
     public GameObject _PC;
     public static bool isDraggable;
     public static bool AntivirusHaveBoots;
-    public static bool isEvolution;
+    public static bool isEvolution=false;
     private void Awake()
     {
         _health = GetComponent<Health>();

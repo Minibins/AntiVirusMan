@@ -64,13 +64,9 @@ public class UpgradeButton : MonoBehaviour
 
     //ID 12
     //ID 12
-
-    //ID 13
-    [SerializeField] private GameObject _backStager;
     //ID 13
     
     //ID 18
-    [SerializeField] private PC pc;
     //ID 18
 
     public void onclick()
@@ -224,8 +220,8 @@ public class UpgradeButton : MonoBehaviour
                 Enemy.isEvolution = true;
                 break;
             
-            case 18:
-                pc.IsFollowing = true;
+            case 19:
+                PC.IsFollowing = true;
                 break;
         }
     }
