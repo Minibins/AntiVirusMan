@@ -1,75 +1,17 @@
-using System.Collections.Generic;
-using System.Drawing.Text;
-
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class UpgradeButton : MonoBehaviour
 {
-    public int id;
-    public GameObject mainupgrader;
+    [SerializeField] private GameObject DashButton;
+    [SerializeField] private GameObject DownButton;
     private GameObject _Player;
     private GameManager gameManager;
-
-
-    //ID 0
-    //Works
     private GameObject Laser;
-    //ID 0
-
-    //ID 1
-    //Works
-    //ID 1
-
-    //ID 2
-    //Works
-    //ID 2
-
-    //ID 3
-    //Works
-    //ID 3
-
-    //ID 4
-    //Works
-    [SerializeField] private GameObject DownButton;
-    //ID 4
-
-    //ID 5
-    //Works
-    //ID 5
-
-    //ID 6
-    //Works
     private GameObject PUSHKA;
-    //ID 6
-
-    //ID 7
-    //Works
-    //ID 7
-
-    //ID 8
-    //Works
-    //ID 8
-
-    //ID 9
-    //Works
-    //ID 9
-
-    //ID 10
-    //Works
-    [SerializeField] private GameObject DashButton;
-    //ID 10
-
-    //ID 11
-    //ID 11
-
-    //ID 12
-    //ID 12
-    //ID 13
-    
-    //ID 18
-    //ID 18
+    public GameObject mainupgrader;
+    public int id;
 
     public void onclick()
     {
@@ -81,7 +23,7 @@ public class UpgradeButton : MonoBehaviour
         else
         {
             LevelUP lvlUp = mainupgrader.GetComponent<LevelUP>();
-            lvlUp.IssTake[id] = true;
+            lvlUp.isTaken[id] = true;
             _Player = GameObject.Find("Player");
             ChooseUpgrade(lvlUp);
             LevelUP.IsSelected = true;
@@ -95,7 +37,7 @@ public class UpgradeButton : MonoBehaviour
             case 0:
                 Laser = GameObject.FindGameObjectWithTag("LaserGun");
                 Laser.GetComponent<LaserGun>().StartShoot();
-                if (lvlUp.IssTake[1])
+                if (lvlUp.isTaken[1])
                 {
                     Laser.AddComponent<DRAG>();
                 }
@@ -112,13 +54,12 @@ public class UpgradeButton : MonoBehaviour
 
             case 2:
                 GameObject[] starfallObjects = GameObject.FindGameObjectsWithTag("Starfall");
-                byte delay=0;
+                byte delay = 0;
                 foreach (GameObject starfallObject in starfallObjects)
                 {
                     starfall starfallComponent = starfallObject.GetComponent<starfall>();
-                    if (starfallComponent != null) Invoke(StartStarfall(starfallComponent),((float)delay++)/10);
+                    if (starfallComponent != null) Invoke(StartStarfall(starfallComponent), ((float) delay++) / 10);
                 }
-
                 break;
 
             case 3:
@@ -142,14 +83,13 @@ public class UpgradeButton : MonoBehaviour
                 }
 
                 PUSHKA.GetComponent<PUSHKA>().StartShoot();
-                if (lvlUp.IssTake[1])
+                if (lvlUp.isTaken[1])
                 {
                     for (int i = 0; i < colesa.Length; i++)
                     {
                         colesa[i].AddComponent<DRAG>();
                     }
                 }
-
                 break;
 
             case 7:
@@ -181,7 +121,6 @@ public class UpgradeButton : MonoBehaviour
                     AuraPC AuraComponent = AuraObject.GetComponent<AuraPC>();
                     if (AuraComponent != null) AuraComponent.IsStartWork = true;
                 }
-
                 break;
 
             case 13:
@@ -213,20 +152,21 @@ public class UpgradeButton : MonoBehaviour
                 }
             }
                 break;
-            
+
             case 17:
-                PlayerAttack attacke= _Player.GetComponent<PlayerAttack>();
+                PlayerAttack attacke = _Player.GetComponent<PlayerAttack>();
                 attacke.IsUltraAttack = true;
                 attacke.Damage = 4;
                 break;
             case 18:
                 Enemy.isEvolution = true;
                 break;
-            
+
             case 19:
                 PC.IsFollowing = true;
                 break;
         }
+
         string StartStarfall(starfall starfallComponent)
         {
             starfallComponent.StartCoroutine(starfallComponent.spawnStars());
