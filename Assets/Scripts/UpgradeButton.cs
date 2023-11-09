@@ -34,7 +34,7 @@ public class UpgradeButton : MonoBehaviour
     {
         switch (id)
         {
-            case 0:
+            case 0://лазер
                 Laser = GameObject.FindGameObjectWithTag("LaserGun");
                 Laser.GetComponent<LaserGun>().StartShoot();
                 if (lvlUp.isTaken[1])
@@ -44,16 +44,16 @@ public class UpgradeButton : MonoBehaviour
 
                 break;
 
-            case 1:
+            case 1://Перетаскивание турелей
 
-                GameObject.FindGameObjectWithTag("LaserGun").AddComponent<DRAG>();
+            GameObject.FindGameObjectWithTag("LaserGun").AddComponent<DRAG>();
                 GameObject.FindGameObjectWithTag("PC").AddComponent<DRAG>();
                 GameObject.FindGameObjectWithTag("PUSHKA").AddComponent<DRAG>();
                 _Player.GetComponent<InstantiateWall>().canmove = true;
                 break;
 
-            case 2:
-                GameObject[] starfallObjects = GameObject.FindGameObjectsWithTag("Starfall");
+            case 2: //звездопад
+            GameObject[] starfallObjects = GameObject.FindGameObjectsWithTag("Starfall");
                 byte delay = 0;
                 foreach (GameObject starfallObject in starfallObjects)
                 {
@@ -62,16 +62,16 @@ public class UpgradeButton : MonoBehaviour
                 }
                 break;
 
-            case 3:
-                _Player.GetComponent<InstantiateWall>().IsOpenly = true;
+            case 3://Строительство стен
+            _Player.GetComponent<InstantiateWall>().IsOpenly = true;
                 break;
 
-            case 4:
-                DownButton.SetActive(true);
+            case 4://Пике
+            DownButton.SetActive(true);
                 break;
 
-            case 5:
-                _Player.GetComponent<PlayerAttack>().IsSelectedBullet = true;
+            case 5://Стрельба в небо
+            _Player.GetComponent<PlayerAttack>().IsSelectedBullet = true;
                 break;
 
             case 6:

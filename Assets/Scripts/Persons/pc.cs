@@ -14,7 +14,7 @@ public class PC : Follower
     private bool lowchrge;
     public static bool IsFollowing;
     public bool OnlyBehind;
-    private void Start()
+    override private protected void Start()
     {
         _player = GameObject.FindGameObjectWithTag("Player");
         playerPosition=_player.transform;
@@ -23,31 +23,38 @@ public class PC : Follower
         rozetka = GameObject.Find("Rozetka").transform;
         rozetkaAnim = rozetka.GetComponent<Animator>();
         StartCoroutine(LowCharge());
+        rb=GetComponentInParent<Rigidbody2D>();
     }
 
-    private void FixedUpdate()
+    private protected void FixedUpdate()
     {
-        if (Vector2.Distance(rozetka.position, transform.position) > radius)
+        if(Vector2.Distance(rozetka.position,transform.position) > radius)
         {
-            rozetkaAnim.SetBool("Sad", true);
+            rozetkaAnim.SetBool("Sad",true);
             lowchrge = true;
         }
         else
         {
-            rozetkaAnim.SetBool("Sad", false);
+            rozetkaAnim.SetBool("Sad",false);
             lowchrge = false;
         }
 
-        if (IsFollowing) Following(
-            playerPosition.position+ (((Vector3.right * Convert.ToInt16(_player.GetComponent<SpriteRenderer>().flipX)) - (Vector3.right / 2)) * distanceFromPlayer),
+       
+    }
+    override private protected void Update()
+    {
+            if(IsFollowing) Following(
+            new Vector3(
+            playerPosition.position.x + (Convert.ToInt16(_player.GetComponent<SpriteRenderer>().flipX) - 0.5f) * distanceFromPlayer,
+            pc.transform.position.y,
+            0)
+            ,
             !lowchrge,pc);
     }
     override private protected void Move(Vector3 startPos,Transform transforme)
     {
-        Debug.Log("Проверяю надо ли");
         if(Mathf.Abs(playerPosition.position.x - transforme.position.x) > distanceFromPlayer / 2)
         {
-            Debug.Log("Иду");
             transforme.position =
                 Vector2.MoveTowards(transforme.position,startPos,speed * Time.deltaTime);
         }
