@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
@@ -31,7 +32,6 @@ public class LevelUP : MonoBehaviour
         if (uniqueIndices == null)
         {
             ResetButtons();
-            NewUpgrade();
             return;
         }
 
@@ -44,17 +44,35 @@ public class LevelUP : MonoBehaviour
     private int[] GetUniqueIndices(int count)
     {
         int[] uniqueIndices = new int[count];
+        
+        if (itemTextures.Length < count)
+        {
+            return null;
+        }
+
         for (int i = 0; i < count; i++)
         {
             int randomIndex = UnityEngine.Random.Range(0, itemTextures.Length);
-            while (Array.Exists(uniqueIndices, index => index == randomIndex) || isTaken[randomIndex])
+            int attempts = 0;
+            
+            while ((Array.Exists(uniqueIndices, index => index == randomIndex) || isTaken[randomIndex]) && attempts < itemTextures.Length)
             {
                 randomIndex = UnityEngine.Random.Range(0, itemTextures.Length);
+                attempts++;
             }
+            
+            if (attempts >= itemTextures.Length)
+            {
+                return null;
+            }
+
             uniqueIndices[i] = randomIndex;
         }
+
         return uniqueIndices;
     }
+
+
 
     private void AssignItemToButton(int buttonIndex, int itemIndex)
     {
@@ -64,9 +82,8 @@ public class LevelUP : MonoBehaviour
         chosenIndices[buttonIndex] = itemIndex;
     }
 
-    private void ResetButtons()
+    public void ResetButtons()
     {
-        // Сбрасываем спрайты на кнопках
         for (int i = 0; i < 3; i++)
         {
             spriteChanging[i].sprite = none;

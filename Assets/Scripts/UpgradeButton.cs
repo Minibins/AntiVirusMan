@@ -87,6 +87,7 @@ public class UpgradeButton : MonoBehaviour
             _Player = GameObject.Find("Player");
             ChooseUpgrade(lvlUp);
             LevelUP.IsSelected = true;
+            lvlUp.ResetButtons();
         }
     }
 
