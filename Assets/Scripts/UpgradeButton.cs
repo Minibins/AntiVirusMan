@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.Drawing.Text;
+
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -64,13 +66,9 @@ public class UpgradeButton : MonoBehaviour
 
     //ID 12
     //ID 12
-
-    //ID 13
-    [SerializeField] private GameObject _backStager;
     //ID 13
     
     //ID 18
-    [SerializeField] private PC pc;
     //ID 18
 
     public void onclick()
@@ -83,11 +81,10 @@ public class UpgradeButton : MonoBehaviour
         else
         {
             LevelUP lvlUp = mainupgrader.GetComponent<LevelUP>();
-            lvlUp.isTaken[id] = true;
+            lvlUp.IssTake[id] = true;
             _Player = GameObject.Find("Player");
             ChooseUpgrade(lvlUp);
             LevelUP.IsSelected = true;
-            lvlUp.ResetButtons();
         }
     }
 
@@ -98,7 +95,7 @@ public class UpgradeButton : MonoBehaviour
             case 0:
                 Laser = GameObject.FindGameObjectWithTag("LaserGun");
                 Laser.GetComponent<LaserGun>().StartShoot();
-                if (lvlUp.isTaken[1])
+                if (lvlUp.IssTake[1])
                 {
                     Laser.AddComponent<DRAG>();
                 }
@@ -115,10 +112,11 @@ public class UpgradeButton : MonoBehaviour
 
             case 2:
                 GameObject[] starfallObjects = GameObject.FindGameObjectsWithTag("Starfall");
+                byte delay=0;
                 foreach (GameObject starfallObject in starfallObjects)
                 {
                     starfall starfallComponent = starfallObject.GetComponent<starfall>();
-                    if (starfallComponent != null) starfallComponent.IsSpawn = true;
+                    if (starfallComponent != null) Invoke(StartStarfall(starfallComponent),((float)delay++)/10);
                 }
 
                 break;
@@ -144,7 +142,7 @@ public class UpgradeButton : MonoBehaviour
                 }
 
                 PUSHKA.GetComponent<PUSHKA>().StartShoot();
-                if (lvlUp.isTaken[1])
+                if (lvlUp.IssTake[1])
                 {
                     for (int i = 0; i < colesa.Length; i++)
                     {
@@ -221,14 +219,18 @@ public class UpgradeButton : MonoBehaviour
                 attacke.IsUltraAttack = true;
                 attacke.Damage = 4;
                 break;
-
             case 18:
-                pc.IsFollowing = true;
+                Enemy.isEvolution = true;
                 break;
             
             case 19:
-                Enemy.isEvolution = true;
+                PC.IsFollowing = true;
                 break;
+        }
+        string StartStarfall(starfall starfallComponent)
+        {
+            starfallComponent.StartCoroutine(starfallComponent.spawnStars());
+            return "";
         }
     }
 }

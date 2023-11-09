@@ -176,7 +176,7 @@ public class PlayerAttack : MonoBehaviour
     public void slowdown()
     {
         rb.bodyType = RigidbodyType2D.Static;
-        print("slowDown");
+        PC.OnlyBehind = true;
     }
 
     public void slowUp()

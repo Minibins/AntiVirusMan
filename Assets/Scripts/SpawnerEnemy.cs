@@ -20,7 +20,7 @@ public class SpawnerEnemy : MonoBehaviour
     [SerializeField] private GameManager GM;
     [SerializeField] private GameObject BossAlpha;
     [SerializeField] private int EliteSpawnChance;
-    public static bool[] elitePossibility;
+    public static bool[] elitePossibility=new bool[2];
     public bool isSpawn;
     private void Start()
     {
@@ -96,8 +96,9 @@ public class SpawnerEnemy : MonoBehaviour
     {
         spawnersAnim[spawnPoint].SetTrigger("Spawn");
         yield return new WaitForSeconds(0.7f);
-        int enemy=Random.Range(0, Enemies.Length);
-        if(elitePossibility[0] && Random.Range(EliteSpawnChance,0) == 0)
+        int enemy=Random.Range(0, Enemies.Length-1);
+        int Iselite =Random.Range(EliteSpawnChance,0);
+        if(elitePossibility[enemy] && Iselite == 0)
         {
             Instantiate(EnemiesV2[Random.Range(0,Enemies.Length)],spawnersEnemy[spawnPoint].transform.position,Quaternion.identity);
         }
