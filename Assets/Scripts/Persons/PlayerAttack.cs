@@ -26,10 +26,10 @@ public class PlayerAttack : MonoBehaviour
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
     private Player player;
-    private Vector2 _spawnPoinBulletNow;
-    private Vector2 _shieldSpawnPointNow;
-    private Vector2 _shieldUltraSpawnPointNow;
-
+    private Vector2 _spawnPoinBulletNow,
+    _shieldSpawnPointNow,
+    _shieldUltraSpawnPointNow;
+    private PC pc;
 
     public bool isSpeedIsDamage
     {
@@ -69,6 +69,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void Awake()
     {
+        pc = GameObject.FindGameObjectWithTag("PC").GetComponentInChildren<PC>();
         rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
@@ -176,7 +177,7 @@ public class PlayerAttack : MonoBehaviour
     public void slowdown()
     {
         rb.bodyType = RigidbodyType2D.Static;
-        PC.OnlyBehind = true;
+        pc.OnlyBehind = true;
     }
 
     public void slowUp()

@@ -8,42 +8,27 @@ public class DRAG : MonoBehaviour,Draggable
     private Rigidbody2D rb;
     private PlayerAttack pa;
     private Draggable MyScript;
-    private enum Type
-    {
-        PC,
-        Cannon,
-        Lasergun,
-        Tower,
-        Enemy
-    }
-    private Type type;
     private void Start()
     {
         if(name == "PC")
         {
-            type = Type.PC;
-            MyScript = GetComponent<Health>();
+            MyScript = GetComponentInChildren<PC>();
         }
         else if(name =="DONBAS_Gun")
         {
-            type = Type.Cannon;
             MyScript = GetComponent<PUSHKA>();
         }
         else if(name =="LaserGun")
         {
-            type = Type.Lasergun;
             MyScript=GetComponent<LaserGun>();
         }
         else if (name== "Movable Wall(Clone)")
         {
-
-            type = Type.Tower;
             MyScript = this;
         }
 
         if (CompareTag("Enemy"))
         {
-            type = Type.Enemy;
             MyScript = GetComponent<Move>();
         }
 
