@@ -1,5 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+
+using Unity.Mathematics;
+
 using UnityEngine;
 
 public class Drone : Follower,IDamageble
@@ -20,8 +23,6 @@ public class Drone : Follower,IDamageble
     }
     override private protected void Update()
     {
-        if(!FarPlayer(playerPosition.position + Vector3.up * howMuchUp,transform))
-        {
             if(rb.velocity.x < 0)
             {
                 sprite.sortingOrder = 1001;
@@ -30,7 +31,6 @@ public class Drone : Follower,IDamageble
             {
                 sprite.sortingOrder = 997;
             }
-        }
         if(Grounded.IsGrounded())Following(playerPosition.position+Vector3.up*howMuchUp,true,transform);
     }
     public void OnDamageGet(int Damage)
@@ -41,27 +41,36 @@ public class Drone : Follower,IDamageble
     }
     public void Shoot(float rotation)
     {
+        rotation = rotation % 180;
         for (int i = 0; i < 2; i++)
         {
             GameObject bullet = Instantiate(bulletAsset,transform.position,transform.rotation);
             AttackProjectile bulletAttack=bullet.GetComponent<AttackProjectile>();
             Vector3 velocity = bulletAttack._velosity;
+                
+            
             switch(i)
             {
                 case 0:
-                    bullet.transform.rotation = Quaternion.Euler(180,0,rotation--);
-                    
+                    bullet.transform.rotation = Quaternion.Euler(180,180,rotation);
+                
                 break;
                 case 1:
-                bullet.transform.rotation = Quaternion.Euler(180,0,rotation--);
+                rotation *= -1;
+                bullet.transform.rotation = Quaternion.Euler(180,180,rotation);
                 
                 break;
             }
-            bullet.GetComponent<AttackProjectile>().Damage = damage;
-            bulletAttack._velosity = new Vector3(velocity.x * Mathf.Cos(rotation) - velocity.y / Mathf.Sin(rotation),
-                                                         velocity.x * Mathf.Sin(rotation) + velocity.y / Mathf.Cos(rotation)).normalized * 10;
-            bulletAttack._mask.value=//Завтра сделаю
+            bullet.GetComponent<SpriteRenderer>().flipY = true;
+            bulletAttack.Damage = damage;
+            float rotationInRadians=rotation*math.PI/180;
+            bulletAttack._velosity = new Vector3(velocity.x * Mathf.Cos(rotationInRadians) - velocity.y * Mathf.Sin(rotationInRadians),
+                                                velocity.x * Mathf.Sin(rotationInRadians) + velocity.y * Mathf.Cos(rotationInRadians)
+                                                 );
+            if(bulletAttack._velosity.y>0) bulletAttack._velosity*=-1;
+            
+            bulletAttack._mask.value = 23552;
         }
-       
+
     }
 }

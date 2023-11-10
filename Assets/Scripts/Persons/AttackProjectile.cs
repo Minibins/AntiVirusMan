@@ -37,7 +37,6 @@ public class AttackProjectile : MonoBehaviour
                 _move.MoveVertically(_velosity.y);
         }
         }
-        Debug.Log(_mask.value);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -55,7 +54,7 @@ public class AttackProjectile : MonoBehaviour
     {
         if (ExplodeIfCollideWithWall)
         {
-            Instantiate(Explosion,transform.position,Quaternion.identity);
+            Instantiate(Explosion,transform.position,transform.rotation);
             DestroyThis(0f);
         }
     }

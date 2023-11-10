@@ -5,14 +5,12 @@ using UnityEngine.UI;
 public class UpgradeButton : MonoBehaviour
 {
     [SerializeField] private GameObject DashButton;
-    [SerializeField] private GameObject DownButton;
-    private GameObject _Player;
+    [SerializeField] private GameObject DownButton,Drone;
     private GameManager gameManager;
-    private GameObject Laser;
-    private GameObject PUSHKA;
+    private GameObject Laser, PUSHKA,_Player;
     public GameObject mainupgrader;
     public int id;
-
+   
     public void onclick()
     {
         if (gameObject.GetComponent<Image>().sprite.name == "None")
@@ -165,12 +163,16 @@ public class UpgradeButton : MonoBehaviour
             case 19:
                 PC.IsFollowing = true;
                 break;
+            case 20:
+            Instantiate(Drone,_Player.transform.position,Quaternion.identity,_Player.transform.parent);
+                break;
         }
 
-        string StartStarfall(starfall starfallComponent)
-        {
-            starfallComponent.StartCoroutine(starfallComponent.spawnStars());
-            return "";
-        }
+        
+    }
+    private string StartStarfall(starfall starfallComponent)
+    {
+        starfallComponent.StartCoroutine(starfallComponent.spawnStars());
+        return "";
     }
 }
