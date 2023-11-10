@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
@@ -34,8 +36,8 @@ public class MainMenu : MonoBehaviour
     public void ExitGame()
     {
         save.SaveField();
-        Debug.Log("Я вышел");
-        Application.Quit();
+        Environment.Exit(42);
+
     }
     public void OpenWebBrowser()
     {
