@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections;
+
+using Unity.VisualScripting;
+
 using UnityEngine;
 
 [RequireComponent(typeof(Animator)),
@@ -48,7 +51,7 @@ public class PlayerAttack : MonoBehaviour
     }
 
     public Action OnRefreshAmmo { get; set; }
-    private float coefficientAttak = 0f;
+    public float[] coefficientAttack = {0f,0f};
 
     public int Ammo
     {
@@ -99,7 +102,7 @@ public class PlayerAttack : MonoBehaviour
     {
         SetSpawnPoint();
         _weapon = Instantiate(_shield, _shieldSpawnPointNow, Quaternion.identity);
-        _weapon.GetComponent<AttackProjectile>().Damage = Damage += (int) coefficientAttak;
+        _weapon.GetComponent<AttackProjectile>().Damage = Damage + (int)(coefficientAttack[0] + coefficientAttack[1]);
         Instantiate(_AttackSound);
     }
 
@@ -131,7 +134,7 @@ public class PlayerAttack : MonoBehaviour
             Vector3 _transform3fago = transform.position;
 
             yield return new WaitForSeconds(3f);
-            coefficientAttak = Vector3.Distance(transform.position, _transform3fago) * SpeedIsDamageCutout;
+            coefficientAttack[0] = Vector3.Distance(transform.position, _transform3fago) * SpeedIsDamageCutout;
         }
     }
 

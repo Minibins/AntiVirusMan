@@ -164,8 +164,11 @@ public class UpgradeButton : MonoBehaviour
                 PC.IsFollowing = true;
                 break;
             case 20:
-            Instantiate(Drone,_Player.transform.position,Quaternion.identity,_Player.transform.parent);
+                Instantiate(Drone,_Player.transform.position,Quaternion.identity,_Player.transform.parent);
                 break;
+            case 21:
+                NumberOfObjectsIsDamage.tagAlloved[0] = true;
+                break; 
         }
 
         
