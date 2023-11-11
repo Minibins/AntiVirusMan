@@ -43,13 +43,17 @@ public class PC : Follower
     }
     override private protected void Update()
     {
-            if(IsFollowing) Following(
-            new Vector3(
-            playerPosition.position.x + (Convert.ToInt16(_player.GetComponent<SpriteRenderer>().flipX) - 0.5f) * distanceFromPlayer,
-            pc.transform.position.y,
-            0)
-            ,
-            !lowchrge,pc);
+        if(IsFollowing)
+        {
+            Following(
+        new Vector3(
+        playerPosition.position.x + (Convert.ToInt16(_player.GetComponent<SpriteRenderer>().flipX) - 0.5f) * distanceFromPlayer,
+        pc.transform.position.y,
+        0)
+        ,
+        !lowchrge,pc);
+            animator.SetBool("IsRunning",!lowchrge && (Mathf.Abs(playerPosition.position.x - pc.position.x) > distanceFromPlayer / 2)||OnlyBehind);
+        }
     }
     override private protected void Move(Vector3 startPos,Transform transforme)
     {

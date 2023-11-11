@@ -31,7 +31,7 @@ public class Drone : Follower,IDamageble
             {
                 sprite.sortingOrder = 997;
             }
-        if(Grounded.IsGrounded())Following(playerPosition.position+Vector3.up*howMuchUp,true,transform);
+        Following(playerPosition.position+Vector3.up*howMuchUp,Grounded.IsGrounded(),transform);
     }
     public void OnDamageGet(int Damage)
     {
