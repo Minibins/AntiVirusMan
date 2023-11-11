@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 2307300395158553563}
   - component: {fileID: -5762580846753605604}
   - component: {fileID: 304440491880971904}
-  - component: {fileID: 9017932007008992787}
-  m_Layer: 13
+  - component: {fileID: 7813329653446608911}
+  m_Layer: 2
   m_Name: PlayerBullet
   m_TagString: AntivirusAtack
   m_Icon: {fileID: 0}
@@ -202,7 +202,7 @@ MonoBehaviour:
     type: 3}
   _mask:
     serializedVersion: 2
-    m_Bits: 23552
+    m_Bits: 56448
   _velosity: {x: 0, y: 10}
 --- !u!114 &304440491880971904
 MonoBehaviour:
@@ -220,7 +220,7 @@ MonoBehaviour:
   _jumpingPower: 0
   _speed: 10
   _spriteRenderer: {fileID: 0}
---- !u!61 &9017932007008992787
+--- !u!61 &7813329653446608911
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

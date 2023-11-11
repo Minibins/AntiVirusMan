@@ -5,14 +5,12 @@ using UnityEngine.UI;
 public class UpgradeButton : MonoBehaviour
 {
     [SerializeField] private GameObject DashButton;
-    [SerializeField] private GameObject DownButton;
-    private GameObject _Player;
+    [SerializeField] private GameObject DownButton,Drone;
     private GameManager gameManager;
-    private GameObject Laser;
-    private GameObject PUSHKA;
+    private GameObject Laser, PUSHKA,_Player;
     public GameObject mainupgrader;
     public int id;
-
+   
     public void onclick()
     {
         if (gameObject.GetComponent<Image>().sprite.name == "None")
@@ -34,7 +32,7 @@ public class UpgradeButton : MonoBehaviour
     {
         switch (id)
         {
-            case 0:
+            case 0://лазер
                 Laser = GameObject.FindGameObjectWithTag("LaserGun");
                 Laser.GetComponent<LaserGun>().StartShoot();
                 if (lvlUp.isTaken[1])
@@ -44,16 +42,16 @@ public class UpgradeButton : MonoBehaviour
 
                 break;
 
-            case 1:
+            case 1://Перетаскивание турелей
 
-                GameObject.FindGameObjectWithTag("LaserGun").AddComponent<DRAG>();
+            GameObject.FindGameObjectWithTag("LaserGun").AddComponent<DRAG>();
                 GameObject.FindGameObjectWithTag("PC").AddComponent<DRAG>();
                 GameObject.FindGameObjectWithTag("PUSHKA").AddComponent<DRAG>();
                 _Player.GetComponent<InstantiateWall>().canmove = true;
                 break;
 
-            case 2:
-                GameObject[] starfallObjects = GameObject.FindGameObjectsWithTag("Starfall");
+            case 2: //звездопад
+            GameObject[] starfallObjects = GameObject.FindGameObjectsWithTag("Starfall");
                 byte delay = 0;
                 foreach (GameObject starfallObject in starfallObjects)
                 {
@@ -62,16 +60,16 @@ public class UpgradeButton : MonoBehaviour
                 }
                 break;
 
-            case 3:
-                _Player.GetComponent<InstantiateWall>().IsOpenly = true;
+            case 3://Строительство стен
+            _Player.GetComponent<InstantiateWall>().IsOpenly = true;
                 break;
 
-            case 4:
-                DownButton.SetActive(true);
+            case 4://Пике
+            DownButton.SetActive(true);
                 break;
 
-            case 5:
-                _Player.GetComponent<PlayerAttack>().IsSelectedBullet = true;
+            case 5://Стрельба в небо
+            _Player.GetComponent<PlayerAttack>().IsSelectedBullet = true;
                 break;
 
             case 6:
@@ -165,12 +163,19 @@ public class UpgradeButton : MonoBehaviour
             case 19:
                 PC.IsFollowing = true;
                 break;
+            case 20:
+                Instantiate(Drone,_Player.transform.position,Quaternion.identity,_Player.transform.parent);
+                break;
+            case 21:
+                NumberOfObjectsIsDamage.tagAlloved[0] = true;
+                break; 
         }
 
-        string StartStarfall(starfall starfallComponent)
-        {
-            starfallComponent.StartCoroutine(starfallComponent.spawnStars());
-            return "";
-        }
+        
+    }
+    private string StartStarfall(starfall starfallComponent)
+    {
+        starfallComponent.StartCoroutine(starfallComponent.spawnStars());
+        return "";
     }
 }

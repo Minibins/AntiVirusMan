@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections;
+
+using Unity.VisualScripting;
+
 using UnityEngine;
 
 [RequireComponent(typeof(Animator)),
@@ -26,10 +29,10 @@ public class PlayerAttack : MonoBehaviour
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
     private Player player;
-    private Vector2 _spawnPoinBulletNow;
-    private Vector2 _shieldSpawnPointNow;
-    private Vector2 _shieldUltraSpawnPointNow;
-
+    private Vector2 _spawnPoinBulletNow,
+    _shieldSpawnPointNow,
+    _shieldUltraSpawnPointNow;
+    private PC pc;
 
     public bool isSpeedIsDamage
     {
@@ -48,7 +51,7 @@ public class PlayerAttack : MonoBehaviour
     }
 
     public Action OnRefreshAmmo { get; set; }
-    private float coefficientAttak = 0f;
+    public float[] coefficientAttack = {0f,0f};
 
     public int Ammo
     {
@@ -69,6 +72,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void Awake()
     {
+        pc = GameObject.FindGameObjectWithTag("PC").GetComponentInChildren<PC>();
         rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
@@ -98,7 +102,7 @@ public class PlayerAttack : MonoBehaviour
     {
         SetSpawnPoint();
         _weapon = Instantiate(_shield, _shieldSpawnPointNow, Quaternion.identity);
-        _weapon.GetComponent<AttackProjectile>().Damage = Damage += (int) coefficientAttak;
+        _weapon.GetComponent<AttackProjectile>().Damage = Damage + (int)(coefficientAttack[0] + coefficientAttack[1]);
         Instantiate(_AttackSound);
     }
 
@@ -130,7 +134,7 @@ public class PlayerAttack : MonoBehaviour
             Vector3 _transform3fago = transform.position;
 
             yield return new WaitForSeconds(3f);
-            coefficientAttak = Vector3.Distance(transform.position, _transform3fago) * SpeedIsDamageCutout;
+            coefficientAttack[0] = Vector3.Distance(transform.position, _transform3fago) * SpeedIsDamageCutout;
         }
     }
 
@@ -176,7 +180,7 @@ public class PlayerAttack : MonoBehaviour
     public void slowdown()
     {
         rb.bodyType = RigidbodyType2D.Static;
-        PC.OnlyBehind = true;
+        pc.OnlyBehind = true;
     }
 
     public void slowUp()

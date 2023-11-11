@@ -1,4 +1,7 @@
 ﻿using System.Collections;
+
+using Unity.VisualScripting;
+
 using UnityEngine;
 
 public class LaserGun : MonoBehaviour,Draggable
@@ -43,5 +46,17 @@ public class LaserGun : MonoBehaviour,Draggable
             yield return new WaitForSeconds(TimeReload);
             Instantiate(Bullet, SpawnPoinBullet.transform.position, transform.rotation);
         }
+    }
+    public void OnDrag()
+    {
+        StopAllCoroutines();
+        TimeReload /= 3;
+        StartCoroutine (Shoot());
+    }
+    public void OnDragEnd()
+    {
+        StopAllCoroutines();
+        TimeReload *= 3;
+        StartCoroutine(Shoot());
     }
 }

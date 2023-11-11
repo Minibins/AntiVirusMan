@@ -81,7 +81,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 999
   m_Sprite: {fileID: 8638111053690301260, guid: 1df0e45a1e1783b4bac6578d311db4ef,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -214,7 +214,7 @@ MonoBehaviour:
   Explosion: {fileID: 0}
   _mask:
     serializedVersion: 2
-    m_Bits: 8192
+    m_Bits: 40960
   _velosity: {x: 0, y: 0}
 --- !u!114 &8106466791238120592
 MonoBehaviour:

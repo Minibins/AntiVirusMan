@@ -81,7 +81,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 999
   m_Sprite: {fileID: 2058802207, guid: 1df0e45a1e1783b4bac6578d311db4ef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -216,6 +216,7 @@ MonoBehaviour:
   numberOfObjectsToSpawn: 50
   objectToSpawn: {fileID: 6345187588179732482, guid: 79d973c793a321b419f64cc52cebd51e,
     type: 3}
+  IsPlatform: 0
 --- !u!70 &7110360366878091776
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -280,5 +281,5 @@ MonoBehaviour:
   Explosion: {fileID: 0}
   _mask:
     serializedVersion: 2
-    m_Bits: 8192
+    m_Bits: 40960
   _velosity: {x: 0, y: 0}

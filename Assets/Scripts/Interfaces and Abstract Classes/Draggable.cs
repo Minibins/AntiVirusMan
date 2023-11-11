@@ -1,15 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
 public interface Draggable
 {
-    public void OnDrag()
-    {
+    abstract public void OnDrag();
+    abstract public void OnDragEnd();
 
-    }
-    public void OnDragEnd()
-    {
-        OnDrag();
-    }
 }
