@@ -17,10 +17,10 @@ public class Enemy : MonoBehaviour
     [SerializeField] private EnemyTypes WhoAmI;
     [SerializeField] private LayerMask _maskWhoKills;
     public float moveDirection;
-    private Health _health;
-    private Move _move;
+    private protected Health _health;
+    private protected Move _move;
     private SpriteRenderer _spriteRenderer;
-    private Animator _animator;
+    private protected Animator _animator;
     private bool dead = false;
     public int ChangeMove;
     public GameObject MoveToPoint;
@@ -28,7 +28,7 @@ public class Enemy : MonoBehaviour
     public static bool isDraggable;
     public static bool AntivirusHaveBoots;
     public static bool isEvolution=false;
-    private void Awake()
+    virtual private protected void Awake()
     {
         _health = GetComponent<Health>();
         _move = GetComponent<Move>();
@@ -84,17 +84,17 @@ public class Enemy : MonoBehaviour
     }
 
 
-    private void OnEnable()
+    private protected void OnEnable()
     {
         _health.OnDeath += OnDeath;
     }
 
-    private void OnDisable()
+    private protected void OnDisable()
     {
         _health.OnDeath -= OnDeath;
     }
 
-    private void EnemyMove()
+    virtual private protected void EnemyMove()
     {
         if (ChangeMove == 0)
         {
