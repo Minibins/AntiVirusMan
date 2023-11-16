@@ -12,11 +12,14 @@ public class blackenemy : Enemy
     [SerializeField] private float Speed;
     [SerializeField] int _explosionPower;
     private float otklonenie;
-
-
+    [SerializeField] private bool isElite;
 
     new protected private void Awake()
     {
+        if(isElite)
+        {
+            PC.Carma = 7.5f;
+        }
         _PC = GameObject.FindGameObjectWithTag("PC");
         _move = GetComponent<Move>();
         _health = GetComponent<Health>();
@@ -42,7 +45,6 @@ public class blackenemy : Enemy
         _health.OnDeath -= ExplosionInvoke;
         base.OnDisable();
     }
-
     private void ExplosionInvoke()
     {
         gameObject.GetComponent<Rigidbody2D>().simulated = true;
@@ -65,6 +67,10 @@ public class blackenemy : Enemy
     {
         Destroy(gameObject);
 
-        Instantiate(_explosion, transform.position, Quaternion.identity);
+        GameObject explosion= Instantiate(_explosion, transform.position, Quaternion.identity);
+        if(isElite)
+        {
+            explosion.GetComponent<ExpCollectible>().Exp = PC.Carma;
+        }
     }
 }

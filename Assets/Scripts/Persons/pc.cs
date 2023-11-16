@@ -1,11 +1,17 @@
 ﻿using System;
 using System.Collections;
+
+using Unity.VisualScripting;
+
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PC : Follower
 {
     [SerializeField] private int radius;
     [SerializeField] private Transform pc;
+    [SerializeField] private Image capmaImage;
+    [SerializeField] private Sprite[] carmaSprites;
     private GameObject _player;
     private Health health;
     private Animator animator;
@@ -14,8 +20,15 @@ public class PC : Follower
     private bool lowchrge;
     public static bool IsFollowing;
     public bool OnlyBehind;
+    private static float carma;
+
+    public static float Carma { get => carma; set { carma = value;
+       GameObject.Find("PC").GetComponentInChildren<PC>(). UpdateCarma();
+        } }
+
     override private protected void Start()
     {
+        Carma = 7;
         _player = GameObject.FindGameObjectWithTag("Player");
         playerPosition=_player.transform;
         health = GetComponentInParent<Health>();
@@ -24,6 +37,7 @@ public class PC : Follower
         rozetkaAnim = rozetka.GetComponent<Animator>();
         StartCoroutine(LowCharge());
         rb=GetComponentInParent<Rigidbody2D>();
+        
     }
 
     private protected void FixedUpdate()
@@ -72,7 +86,36 @@ public class PC : Follower
             }
         }
     }
-
+    private void UpdateCarma()
+    {
+        switch(Convert.ToInt16(Carma))
+        {
+            default:
+            capmaImage.sprite = carmaSprites[0];
+            break;
+            case 1:
+            capmaImage.sprite = carmaSprites[1];
+            break;
+            case 2:
+            capmaImage.sprite = carmaSprites[2];
+            break; 
+            case 3:
+            capmaImage.sprite = carmaSprites[3];
+            break;
+            case 4:
+            capmaImage.sprite = carmaSprites[4];
+            break; 
+            case 5:
+            capmaImage.sprite = carmaSprites[4];
+            break; 
+            case 6:
+            capmaImage.sprite = carmaSprites[5];
+            break; 
+            case 7:
+            capmaImage.sprite = carmaSprites[6];
+            break;
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Enemy")
@@ -84,6 +127,7 @@ public class PC : Follower
     public void EnemyKilled()
     {
         animator.SetTrigger("HeKilledEnemy");
+        Carma -= 1f;
     }
 
 

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class ExpCollectible : MonoBehaviour
 {
-    [SerializeField] private float Exp;
+    [SerializeField] public float Exp;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")

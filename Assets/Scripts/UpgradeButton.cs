@@ -170,6 +170,10 @@ public class UpgradeButton : MonoBehaviour
             case 21:
                 NumberOfObjectsIsDamage.tagAlloved[0] = true;
                 break; 
+            case 22:
+            SpawnerEnemy.elitePossibility[4] = true;
+            GameObject.Find("Carma").GetComponent<Image>().color = Color.white;
+            break;
         }
 
         
