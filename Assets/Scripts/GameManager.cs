@@ -142,6 +142,7 @@ public class GameManager : MonoBehaviour
     public void MoveScene(string _Scene)
     {
         SceneManager.LoadScene(_Scene);
+        LevelUP.isTaken = null;
     }
 
     public void OpenSettings(bool Open)

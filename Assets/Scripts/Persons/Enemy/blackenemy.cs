@@ -24,11 +24,11 @@ public class blackenemy : Enemy
         _move = GetComponent<Move>();
         _health = GetComponent<Health>();
         _animator = GetComponent<Animator>();
-        if(isDraggable)
+        if(LevelUP.isTaken[14])
         {
             gameObject.AddComponent<DRAG>();
         }
-        if(AntivirusHaveBoots)
+        if(LevelUP.isTaken[16])
         {
             AddBookaComponent();
         }
@@ -37,20 +37,33 @@ public class blackenemy : Enemy
     new private void OnEnable()
     {
         _health.OnDeath += ExplosionInvoke;
+        onComputerReach += ExplosionInvoke;
         base.OnEnable();
+        if(isElite)
+        {
+            _health.OnDeath += CarmaSetZero;
+        }
     }
 
     new private void OnDisable()
     {
         _health.OnDeath -= ExplosionInvoke;
+        onComputerReach -= ExplosionInvoke;
         base.OnDisable();
+        if(isElite)
+        {
+            _health.OnDeath -= CarmaSetZero;
+        }
     }
     private void ExplosionInvoke()
     {
         gameObject.GetComponent<Rigidbody2D>().simulated = true;
         Invoke(nameof(Explosion), 2f);
     }
-
+    private void CarmaSetZero()
+    {
+        PC.Carma = 0;
+    }
 
     override protected private void EnemyMove()
     {

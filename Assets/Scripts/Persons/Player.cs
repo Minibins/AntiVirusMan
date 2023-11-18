@@ -14,7 +14,6 @@ public class Player : MonoBehaviour
     private Vector2 _velocity;
     private Move _move;
     private Rigidbody2D _rb;
-    public static bool isFlying;
     [SerializeField] private float flySpeed;
     private void FixedUpdate()
     {
@@ -104,7 +103,7 @@ public class Player : MonoBehaviour
             _move.StartJump();
             Invoke(nameof(StopJump), 0.1f);
         }
-        if(isFlying)
+        if(LevelUP.isTaken[15])
         {
             _move.CanJump = false;
             fly7 = true;
@@ -166,10 +165,6 @@ public class Player : MonoBehaviour
         {
             _health.HealHealth(1);
             Destroy(other.gameObject);
-        }
-        else
-        {
-            print(other);
         }
     }
 }

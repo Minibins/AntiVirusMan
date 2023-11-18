@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections;
-
 using Unity.VisualScripting;
-
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,17 +16,15 @@ public class PC : Follower
     private Transform rozetka;
     private Animator rozetkaAnim;
     private bool lowchrge;
-    public static bool IsFollowing;
     public bool OnlyBehind;
     private static float carma;
-
+    public static bool IsFollowing;
     public static float Carma { get => carma; set { carma = value;
        GameObject.Find("PC").GetComponentInChildren<PC>(). UpdateCarma();
         } }
 
     override private protected void Start()
     {
-        Carma = 7;
         _player = GameObject.FindGameObjectWithTag("Player");
         playerPosition=_player.transform;
         health = GetComponentInParent<Health>();
@@ -37,7 +33,7 @@ public class PC : Follower
         rozetkaAnim = rozetka.GetComponent<Animator>();
         StartCoroutine(LowCharge());
         rb=GetComponentInParent<Rigidbody2D>();
-        
+        PC.Carma = 7;
     }
 
     private protected void FixedUpdate()
@@ -66,7 +62,7 @@ public class PC : Follower
         0)
         ,
         !lowchrge,pc);
-            animator.SetBool("IsRunning",!lowchrge && (Mathf.Abs(playerPosition.position.x - pc.position.x) > distanceFromPlayer / 2)||OnlyBehind);
+            animator.SetBool("IsRunning",!lowchrge && (Mathf.Abs(playerPosition.position.x - pc.position.x) > distanceFromPlayer / 2) || OnlyBehind);
         }
     }
     override private protected void Move(Vector3 startPos,Transform transforme)
@@ -85,13 +81,15 @@ public class PC : Follower
                 OnlyBehind = false;
             }
         }
+        
     }
     private void UpdateCarma()
     {
         switch(Convert.ToInt16(Carma))
         {
             default:
-            capmaImage.sprite = carmaSprites[0];
+                if (Carma < 0) capmaImage.sprite = carmaSprites[0];
+                else capmaImage.sprite = carmaSprites[6];
             break;
             case 1:
             capmaImage.sprite = carmaSprites[1];

@@ -11073,13 +11073,14 @@ MonoBehaviour:
   spawnersWireEnemy:
   - {fileID: 1956088430}
   - {fileID: 426602435}
+  EliteID: 0b0000000b0000000b000000
   minTimeSpawn: 1
   maxTimeSpawn: 3
   minTimeSpawnWave: 4
   maxTimeSpawnWave: 7
   GM: {fileID: 1842592165}
-  BossAlpha: {fileID: 0}
-  EliteSpawnChance: 0
+  BossAlpha: {fileID: 1452801733}
+  EliteSpawnChance: 8
   isSpawn: 1
 --- !u!4 &427215479
 Transform:
@@ -15232,13 +15233,7 @@ MonoBehaviour:
   BossSpawned: 1
   Enemies:
   - {fileID: 2515844324639823540, guid: 489d5049014ff034482eda7cd50bf2bb, type: 3}
-  - {fileID: 2515844324639823540, guid: 489d5049014ff034482eda7cd50bf2bb, type: 3}
-  - {fileID: 2515844324639823540, guid: 489d5049014ff034482eda7cd50bf2bb, type: 3}
-  - {fileID: 2515844324639823540, guid: 489d5049014ff034482eda7cd50bf2bb, type: 3}
   EnemiesV2:
-  - {fileID: 2515844324639823540, guid: 489d5049014ff034482eda7cd50bf2bb, type: 3}
-  - {fileID: 2515844324639823540, guid: 489d5049014ff034482eda7cd50bf2bb, type: 3}
-  - {fileID: 2515844324639823540, guid: 489d5049014ff034482eda7cd50bf2bb, type: 3}
   - {fileID: 8912311358399435758, guid: ab1182728795cc24f8829ea4e7b168f8, type: 3}
   WireEnemies:
   - {fileID: 2515844324639823540, guid: 489d5049014ff034482eda7cd50bf2bb, type: 3}
@@ -15247,13 +15242,14 @@ MonoBehaviour:
   - {fileID: 1565447688}
   - {fileID: 1434496846}
   - {fileID: 2014513987}
+  EliteID: 16000000
   minTimeSpawn: 13
   maxTimeSpawn: 20
-  minTimeSpawnWave: 40
-  maxTimeSpawnWave: 60
+  minTimeSpawnWave: 7
+  maxTimeSpawnWave: 12
   GM: {fileID: 1842592165}
-  BossAlpha: {fileID: 0}
-  EliteSpawnChance: 0
+  BossAlpha: {fileID: 1452801733}
+  EliteSpawnChance: 8
   isSpawn: 1
 --- !u!1 &1017351450
 GameObject:
@@ -16767,6 +16763,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1406416802}
   - component: {fileID: 1406416803}
+  - component: {fileID: 1406416804}
   m_Layer: 0
   m_Name: Level
   m_TagString: Untagged
@@ -16801,10 +16798,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec12984a30944824ea803ebfef157995, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelUp: {fileID: 987732239367246165}
+  LevelUpUI: {fileID: 987732239367246165}
+  LevelUpScript: {fileID: 1406416804}
   EnemyNeedToUpLVL: 15
   _enemyDieSprite: {fileID: 2036122774}
   i: 0
+--- !u!114 &1406416804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406416801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abd366b9a12b6ce48a29ab769db9e52e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FirstButton: {fileID: 867961335}
+  SecondButton: {fileID: 1496665412}
+  ThreeButton: {fileID: 199661906}
+  none: {fileID: 21300000, guid: 228c2b99f0b14fa46bb3e1bace910d26, type: 3}
+  itemtextures:
+  - {fileID: 21300000, guid: 045abf124f6b1a541bab555726d683e3, type: 3}
+  - {fileID: 21300000, guid: c2ac5b097608b724ea0150274cd04981, type: 3}
+  - {fileID: 21300000, guid: 4e40d9fcbcee177439a10464494530be, type: 3}
+  - {fileID: 21300000, guid: 5e4d826e182450c48a772b7e12d59d0c, type: 3}
+  - {fileID: 21300000, guid: e43e0cd1839c14f49aedf6291cf6d0a6, type: 3}
+  - {fileID: 21300000, guid: b5a27f1273cacb6439029ea139dba5ca, type: 3}
+  - {fileID: 21300000, guid: b07490f78febbb54abf339e214ea72ad, type: 3}
+  - {fileID: 21300000, guid: bb2b923cdb878594ab3a9e1771c0a4c8, type: 3}
+  - {fileID: 21300000, guid: 946ea9c0263815745b167b940f6184f9, type: 3}
+  - {fileID: 21300000, guid: 280d06bd4e643ed499fc73b5ebb494e2, type: 3}
+  - {fileID: 21300000, guid: 819ee0d9ddcffe14f822d5982a3adfb2, type: 3}
+  - {fileID: 21300000, guid: f349bd9db8b1e214488582574999fe3c, type: 3}
+  - {fileID: 21300000, guid: 87a931427a056d543b78fbb384660d9c, type: 3}
+  - {fileID: 21300000, guid: e51b9b4a8b342ce45a7cafe27ba508d5, type: 3}
+  - {fileID: 21300000, guid: b4c7a15b2bd7219418caadd67dfaba97, type: 3}
+  - {fileID: 21300000, guid: f0388d3bb394763468d693076e95c9ba, type: 3}
+  - {fileID: 21300000, guid: 31931b9eba8598f44836ff8fbd028a8f, type: 3}
+  - {fileID: 21300000, guid: 9e2e2a35ebe23b24d8dc736eaa20e8e7, type: 3}
+  - {fileID: 21300000, guid: b4e583ea31204b14fa7681188939d428, type: 3}
+  - {fileID: 21300000, guid: c15032fc062884746852fdd77406d6d3, type: 3}
+  - {fileID: 21300000, guid: 9cf100d219dc7cb4cbd21892a67735cb, type: 3}
+  - {fileID: 21300000, guid: c15032fc062884746852fdd77406d6d3, type: 3}
+  - {fileID: 21300000, guid: d36c729e4c4588c49b5f54c35d754aa1, type: 3}
+  IsTakenTemplate: 0000000000000000000000000000000000000000000000
+  a: 0
 --- !u!1 &1412338325
 GameObject:
   m_ObjectHideFlags: 0
@@ -21319,6 +21359,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3872583983673067517, guid: 0951b036ba0a12343a56eff64eed7b4c,
         type: 3}
+      propertyPath: IsTakenTemplate.Array.size
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 3872583983673067517, guid: 0951b036ba0a12343a56eff64eed7b4c,
+        type: 3}
       propertyPath: itemTextures.Array.data[0]
       value: 
       objectReference: {fileID: 21300000, guid: 045abf124f6b1a541bab555726d683e3,
@@ -22164,7 +22209,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3872583983673067517, guid: 0951b036ba0a12343a56eff64eed7b4c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 1405672113768695759, guid: 0951b036ba0a12343a56eff64eed7b4c,

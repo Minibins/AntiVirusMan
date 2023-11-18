@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,42 +9,38 @@ public class LevelUP : MonoBehaviour
     [SerializeField] private GameObject SecondButton;
     [SerializeField] private GameObject ThreeButton;
     [SerializeField] private Sprite none;
-    public static bool IsSelected;
+    
     public Sprite[] itemtextures;
-    public bool[] isTaken;
+    [SerializeField] private bool[] IsTakenTemplate;
+    public static bool[] isTaken;
     public int a;
     private Image spritechangingFirst;
     private Image spritechangingSecond;
     private Image spritechangingThree;
-
-    private void Update()
+    private void Start()
     {
-        if (IsSelected)
-        {
-            IsSelected = false;
-            gameObject.SetActive(false);
-            Time.timeScale = 1;
-        }
+        isTaken = IsTakenTemplate;
+        string isTakenDebug= Convert.ToString(isTaken);
+        Debug.Log(isTakenDebug);
     }
-
     public void NewUpgrade()
     {
         Time.timeScale = 0.1f;
-        a = Random.Range(0, itemtextures.Length);
+        a = UnityEngine.Random.Range(0, itemtextures.Length);
         if (!isTaken[a])
         {
             FirstButton.GetComponent<UpgradeButton>().id = a;
             spritechangingFirst = FirstButton.GetComponent<Image>();
             spritechangingFirst.sprite = itemtextures[a];
 
-            a = Random.Range(0, itemtextures.Length);
+            a = UnityEngine.Random.Range(0, itemtextures.Length);
             if (!isTaken[a] && FirstButton.GetComponent<UpgradeButton>().id != a)
             {
                 SecondButton.GetComponent<UpgradeButton>().id = a;
                 spritechangingSecond = SecondButton.GetComponent<Image>();
                 spritechangingSecond.sprite = itemtextures[a];
 
-                a = Random.Range(0, itemtextures.Length);
+                a = UnityEngine.Random.Range(0, itemtextures.Length);
                 if (!isTaken[a] && FirstButton.GetComponent<UpgradeButton>().id != a &&
                     SecondButton.GetComponent<UpgradeButton>().id != a)
                 {
@@ -86,7 +83,7 @@ public class LevelUP : MonoBehaviour
         {
             if (isTaken.Count(b => b == false) >= 3)
             {
-                a = Random.Range(0, itemtextures.Length);
+                a = UnityEngine.Random.Range(0, itemtextures.Length);
                 NewUpgrade();
                 return;
             }
