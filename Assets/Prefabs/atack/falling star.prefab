@@ -85,21 +85,30 @@ TrailRenderer:
       - serializedVersion: 3
         time: 0
         value: 1
-        inSlope: 0.24001528
-        outSlope: 0.24001528
+        inSlope: -1.5850294
+        outSlope: -1.5850294
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 1
+        outWeight: 0.75007063
       - serializedVersion: 3
-        time: 0.5023726
-        value: 0.5348843
-        inSlope: -2.3308535
-        outSlope: -2.3308535
+        time: 0.002843089
+        value: 0.9954806
+        inSlope: -0.3900092
+        outSlope: -0.3900092
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.48780873
-        outWeight: 0.8888874
+        inWeight: 0.33333334
+        outWeight: 0.6144893
+      - serializedVersion: 3
+        time: 0.642823
+        value: 0.03535332
+        inSlope: -0.29154956
+        outSlope: -0.29154956
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.7474613
+        outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.6492895
         value: 0
@@ -255,10 +264,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 069de05452f526246b147e9643d4f31d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallvector: {x: 0.2, y: 2, z: 0}
+  fallvector: {x: 2.51, y: 2.51, z: 0}
   rangefortp:
-  - 1
-  - 17
+  - -18
+  - 19
 --- !u!58 &7773915424330328685
 CircleCollider2D:
   m_ObjectHideFlags: 0

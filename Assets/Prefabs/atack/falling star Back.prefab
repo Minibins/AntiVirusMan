@@ -85,44 +85,35 @@ TrailRenderer:
       - serializedVersion: 3
         time: 0
         value: 1
-        inSlope: 0.24001528
-        outSlope: 0.24001528
+        inSlope: -0.68771935
+        outSlope: -0.68771935
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 1
-      - serializedVersion: 3
-        time: 0.5023726
-        value: 0.5348843
-        inSlope: -2.3308535
-        outSlope: -2.3308535
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.48780873
-        outWeight: 0.8888874
+        outWeight: 0.5500518
       - serializedVersion: 3
         time: 0.6492895
         value: 0
-        inSlope: -5.547019
-        outSlope: -5.547019
+        inSlope: -0.054045267
+        outSlope: -0.054045267
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.5348836
+        inWeight: 0.4999529
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.081582695, g: 0.8679245, b: 0.0114631085, a: 1}
-      key1: {r: 0.02392308, g: 0.3962264, b: 0.03232504, a: 1}
+      key0: {r: 0.10989572, g: 0.4528302, b: 0.07903168, a: 1}
+      key1: {r: 0.0501958, g: 0.2264151, b: 0.053905673, a: 0}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
       key6: {r: 0, g: 0, b: 0, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 771
+      ctime0: 0
       ctime1: 65535
       ctime2: 0
       ctime3: 0
@@ -255,10 +246,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 069de05452f526246b147e9643d4f31d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallvector: {x: 0.2, y: 2, z: 0}
+  fallvector: {x: 1, y: 1, z: 0}
   rangefortp:
-  - 1
-  - 17
+  - -18
+  - 19
 --- !u!58 &7773915424330328685
 CircleCollider2D:
   m_ObjectHideFlags: 0
