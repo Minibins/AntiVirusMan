@@ -46,7 +46,7 @@ public class Level : MonoBehaviour
 
     private void Upgrade() 
     {
-        i = EnemyDie / Mathf.Round(EnemyNeedToUpLVL);
+        i = (float)EnemyDie / EnemyNeedToUpLVL;
         _enemyDieSprite.fillAmount = i;
         if (EnemyDie >= EnemyNeedToUpLVL)
         {
