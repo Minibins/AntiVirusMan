@@ -19,11 +19,13 @@ public class InstantiateWall : MonoBehaviour
         }
     }
     IEnumerator SpawnWall()
-    {
+    {   RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down * 99, 99, layerMask); // Тут рейкаст
+        Vector2 playerpos=new Vector2(transform.position.x, hit.point.y + 0.8f);
         yield return new WaitForSeconds(TimeToStart);
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down * 99, 99, layerMask); // Тут рейкаст
-        if (canmove) Instantiate(MovableWall, new Vector3(transform.position.x, hit.point.y + 0.8f, transform.position.z), Quaternion.identity);
-        else Instantiate(Wall, new Vector3(transform.position.x, hit.point.y + 0.8f, transform.position.z), Quaternion.identity);
+        hit = Physics2D.Raycast(transform.position, Vector2.down * 99, 99, layerMask);
+        playerpos = new Vector2((transform.position.x+playerpos.x)/2,hit.point.y+ 0.8f) ;
+        if(canmove) Instantiate(MovableWall,playerpos,Quaternion.identity);
+        else Instantiate(Wall,playerpos,Quaternion.identity);
         
     }
 }

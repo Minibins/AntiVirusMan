@@ -157,7 +157,6 @@ public class Enemy : MonoBehaviour
 
     private void OnDeath()
     {
-        GetComponent<AttackProjectile>().Damage = 0;
         if (dead)
         {
             if (WhoAmI!=EnemyTypes.Soplik)
@@ -178,7 +177,7 @@ public class Enemy : MonoBehaviour
 
             dead = true;
         }
-        GetComponent<AttackProjectile>().Damage = 0;
+        Destroy(GetComponent<AttackProjectile>());
         Level.TakeEXP(0.5f);
         
     }
