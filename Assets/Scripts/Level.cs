@@ -7,13 +7,14 @@ public class Level : MonoBehaviour
     public static bool IsSelected;
     [SerializeField] private GameObject LevelUpUI;
     [SerializeField] private LevelUP LevelUpScript;
-    [SerializeField] private float EnemyNeedToUpLVL;
+    [SerializeField] public static float EnemyNeedToUpLVL = 15;
     private static float EnemyDie;
     public Image _enemyDieSprite;
     public float i;
     public Action OnEnemyDie { get; set; }
     private void Start()
     {
+        EnemyNeedToUpLVL = 15;
         EnemyDie = 0;
     }
 

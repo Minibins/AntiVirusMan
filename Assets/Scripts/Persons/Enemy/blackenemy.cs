@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(Health)),
- RequireComponent(typeof(Rigidbody2D)),
- RequireComponent(typeof(Move))]
+ RequireComponent(typeof(Rigidbody2D))]
 public class blackenemy : Enemy
 {
     [SerializeField] GameObject _explosion;

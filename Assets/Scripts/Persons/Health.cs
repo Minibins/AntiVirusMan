@@ -73,7 +73,7 @@ public class Health : MonoBehaviour,Draggable,IDamageble
             {
                 healthCells[i].Enable();
             }
-            for(int i = _maxHealth - 1; i >= CurrentHealth; i--)
+            for(int i = _maxHealth - 1; i >= Mathf.Max( CurrentHealth,0); i--)
             {
                 healthCells[i].Disable();
             }

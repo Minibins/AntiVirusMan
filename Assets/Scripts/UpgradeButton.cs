@@ -146,6 +146,8 @@ public class UpgradeButton : MonoBehaviour
                 PlayerAttack attacke = _Player.GetComponent<PlayerAttack>();
                 attacke.IsUltraAttack = true;
                 attacke.Damage = 4;
+                attacke._timeReload /=2;
+            Level.EnemyNeedToUpLVL /= 3;
                 break;
             //јйди 18 значит эволюцию вирусов
 

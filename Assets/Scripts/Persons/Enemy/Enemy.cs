@@ -3,7 +3,6 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Health)),
- RequireComponent(typeof(Move)),
  RequireComponent(typeof(Animator)),
  RequireComponent(typeof(Rigidbody2D)),
  RequireComponent(typeof(SpriteRenderer))]
@@ -124,7 +123,7 @@ public class Enemy : MonoBehaviour
             if ((_maskWhoKills.value & (1 << collision.gameObject.layer)) != 0&&!dead)
             {
                 onComputerReach();
-                PC.Carma += 1;
+                PC.Carma += 2;
             }
             else if ((collision.CompareTag("Portal") || collision.CompareTag("SecondPortal")))
             {
@@ -174,10 +173,10 @@ public class Enemy : MonoBehaviour
         {
             _move.SetSpeedMultiplierForOllTime(0);
             _animator.SetTrigger("Die");
-
+            Destroy(GetComponent<AttackProjectile>());
             dead = true;
         }
-        Destroy(GetComponent<AttackProjectile>());
+        
         Level.TakeEXP(0.5f);
         
     }
