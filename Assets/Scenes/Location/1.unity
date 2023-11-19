@@ -4308,6 +4308,7 @@ GameObject:
   m_Component:
   - component: {fileID: 155604652}
   - component: {fileID: 155604651}
+  - component: {fileID: 155604653}
   m_Layer: 0
   m_Name: starfall (1)
   m_TagString: Starfall
@@ -4348,6 +4349,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1406180339}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &155604653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155604650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d98fdcede568a4a4c8001577fddbf2ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  followingTarget: {fileID: 519420032}
+  parallaxStrenght: 1
+  disableVerticalParallax: 0
+  IsSkyComponent: 0
 --- !u!1 &166476394
 GameObject:
   m_ObjectHideFlags: 0
@@ -4485,6 +4502,7 @@ GameObject:
   m_Component:
   - component: {fileID: 174394874}
   - component: {fileID: 174394875}
+  - component: {fileID: 174394876}
   m_Layer: 0
   m_Name: starfall (4)
   m_TagString: Starfall
@@ -4525,6 +4543,22 @@ MonoBehaviour:
   starasset: {fileID: 7773915424330328686, guid: 89320e020f051c94299975f79df58447,
     type: 3}
   zlayer: 1600
+--- !u!114 &174394876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174394873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d98fdcede568a4a4c8001577fddbf2ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  followingTarget: {fileID: 519420032}
+  parallaxStrenght: 1
+  disableVerticalParallax: 0
+  IsSkyComponent: 0
 --- !u!114 &186397659 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1655658440551308389, guid: 0951b036ba0a12343a56eff64eed7b4c,
@@ -12095,7 +12129,7 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 0}
+  m_LookAt: {fileID: 429989188}
   m_Follow: {fileID: 429989188}
   m_Lens:
     FieldOfView: 40
@@ -12345,7 +12379,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ShowDebugText: 0
   m_ShowCameraFrustum: 1
-  m_IgnoreTimeScale: 0
+  m_IgnoreTimeScale: 1
   m_WorldUpOverride: {fileID: 0}
   m_UpdateMethod: 2
   m_BlendUpdateMethod: 1
@@ -17307,6 +17341,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1406180339}
   - component: {fileID: 1406180338}
+  - component: {fileID: 1406180340}
   m_Layer: 0
   m_Name: starfall
   m_TagString: Starfall
@@ -17352,6 +17387,22 @@ Transform:
   - {fileID: 2009549009}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1406180340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406180337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d98fdcede568a4a4c8001577fddbf2ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  followingTarget: {fileID: 519420032}
+  parallaxStrenght: 1
+  disableVerticalParallax: 0
+  IsSkyComponent: 0
 --- !u!1 &1406416801
 GameObject:
   m_ObjectHideFlags: 0
@@ -18058,6 +18109,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1471801994}
   - component: {fileID: 1471801995}
+  - component: {fileID: 1471801996}
   m_Layer: 0
   m_Name: starfall (2)
   m_TagString: Starfall
@@ -18098,6 +18150,22 @@ MonoBehaviour:
   starasset: {fileID: 7773915424330328686, guid: 89320e020f051c94299975f79df58447,
     type: 3}
   zlayer: 800
+--- !u!114 &1471801996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471801993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d98fdcede568a4a4c8001577fddbf2ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  followingTarget: {fileID: 519420032}
+  parallaxStrenght: 1
+  disableVerticalParallax: 0
+  IsSkyComponent: 0
 --- !u!1 &1484322351
 GameObject:
   m_ObjectHideFlags: 0
@@ -19566,6 +19634,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1643383747}
   - component: {fileID: 1643383748}
+  - component: {fileID: 1643383749}
   m_Layer: 0
   m_Name: starfall (3)
   m_TagString: Starfall
@@ -19606,6 +19675,22 @@ MonoBehaviour:
   starasset: {fileID: 7773915424330328686, guid: 89320e020f051c94299975f79df58447,
     type: 3}
   zlayer: 1200
+--- !u!114 &1643383749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643383746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d98fdcede568a4a4c8001577fddbf2ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  followingTarget: {fileID: 519420032}
+  parallaxStrenght: 1
+  disableVerticalParallax: 0
+  IsSkyComponent: 0
 --- !u!1 &1651991778
 GameObject:
   m_ObjectHideFlags: 0
@@ -22141,6 +22226,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2009549009}
   - component: {fileID: 2009549010}
+  - component: {fileID: 2009549011}
   m_Layer: 0
   m_Name: starfall (5)
   m_TagString: Starfall
@@ -22181,6 +22267,22 @@ MonoBehaviour:
   starasset: {fileID: 7773915424330328686, guid: 89320e020f051c94299975f79df58447,
     type: 3}
   zlayer: 2000
+--- !u!114 &2009549011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2009549008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d98fdcede568a4a4c8001577fddbf2ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  followingTarget: {fileID: 519420032}
+  parallaxStrenght: 1
+  disableVerticalParallax: 0
+  IsSkyComponent: 0
 --- !u!1 &2014086871
 GameObject:
   m_ObjectHideFlags: 0
