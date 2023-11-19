@@ -126,7 +126,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 90
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -215,6 +215,8 @@ MonoBehaviour:
   Elite: 1
   numberOfObjectsToSpawn: 50
   objectToSpawn: {fileID: 6345187588179732482, guid: 79d973c793a321b419f64cc52cebd51e,
+    type: 3}
+  StarProjectile: {fileID: 4072054016672296125, guid: 0c5bd57b26002f54cae77cbdf1b23cda,
     type: 3}
   IsPlatform: 0
 --- !u!70 &7110360366878091776

@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 
+using Cinemachine;
+
 using UnityEngine;
 [RequireComponent(typeof(Health))]
 public class AboveDeath : MonoBehaviour
@@ -10,7 +12,7 @@ public class AboveDeath : MonoBehaviour
 	[SerializeField] public float ForcerePulsive;
 	[SerializeField] private bool Elite;
 	[SerializeField] private int numberOfObjectsToSpawn;
-	[SerializeField]private GameObject objectToSpawn;
+	[SerializeField]private GameObject objectToSpawn,StarProjectile;
 	[SerializeField] public bool IsPlatform;
 	private Collider2D spawnArea;
 	private Health _health;
@@ -45,24 +47,58 @@ public class AboveDeath : MonoBehaviour
 				other.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * ForcerePulsive,ForceMode2D.Impulse);
 			}
 			else
-			{
+			{    Camera.main.GetComponentInChildren<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachineFramingTransposer>().m_SoftZoneHeight=0;
 				_health.gameManager.Antivirus();
                 other.gameObject.GetComponent<Move>().SetSpeedMultiplierTemporary(3,6.34f);
 				other.transform.position = new Vector3(transform.position.x,15.44f,other.transform.position.z);
-                other.gameObject.GetComponent<Rigidbody2D>().velocity=new Vector2(0,ForcerePulsive);
+                
                 Bounds bounds = spawnArea.bounds;
-                for(int i = 0; i < numberOfObjectsToSpawn; i++)
-                {
-                    Vector2 randomPoint = new Vector2(
-                Random.Range(bounds.min.x, bounds.max.x),
-                Random.Range(bounds.min.y, bounds.max.y)
-            );
-                    GameObject spawnedObject = Instantiate(objectToSpawn, randomPoint, Quaternion.identity);
+				for(int i = 0; i < numberOfObjectsToSpawn; i++)
+				{
+					Vector2 randomPoint = new Vector2(
+				Random.Range(bounds.min.x, bounds.max.x),
+				Random.Range(bounds.min.y, bounds.max.y)
+			);
+
+					GameObject spawnedObject = Instantiate(objectToSpawn, randomPoint, Quaternion.identity);
 					Destroy(spawnedObject,6.34f);
+				}
+               
+                if(LevelUP.isTaken[2])
+                {
+					GameObject[] PCs = GameObject.FindGameObjectsWithTag("PC");
+					Health PC = _health;
+
+                    foreach(GameObject PCp in PCs)
+					{
+						if(PCp.GetComponent<Health>()!=null)
+						{
+							PC=PCp.GetComponent<Health>();
+						}
+                    }
+                    for(int i = 0; i < numberOfObjectsToSpawn; i++)
+                    {
+                        Vector2 randomPoint = new Vector2(
+							Random.Range(bounds.min.x, bounds.max.x),
+							Random.Range(bounds.min.y, bounds.max.y)
+							);
+
+                        GameObject spawnedObject = Instantiate(StarProjectile, randomPoint, Quaternion.identity);
+						spawnedObject.GetComponent<RawAttack>().target = PC;
+                        Destroy(spawnedObject,6.34f);
+						
+                    }
                 }
+                other.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0,ForcerePulsive);
+				Invoke(SetCinemachineBrainTrue(),6.34f);
                 Destroy(gameObject);
             }
 		}
 	}
-	
+	string SetCinemachineBrainTrue()
+	{
+
+        Camera.main.GetComponentInChildren<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachineFramingTransposer>().m_SoftZoneHeight = 0.75f;
+        return "";
+	}
 }
