@@ -5,16 +5,13 @@ public class UnityEvents : MonoBehaviour
 
     private static Player _player;
     private static PlayerAttack _playerAttack;
-    private static GameManager _gameManager;
-    private void Awake()
-    {
+    private static Settings _settings;
 
-    }
     private void Start()
     {
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         _playerAttack = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerAttack>();
-        _gameManager = FindAnyObjectByType<GameManager>();
+        _settings = FindAnyObjectByType<Settings>();
     }
     public static void UE_ButtonLeft()
     {
@@ -46,7 +43,7 @@ public class UnityEvents : MonoBehaviour
     }
     public static void UE_ButtonSettings(bool open)
     {
-        _gameManager.OpenSettings(open);
+        _settings.OpenSettings(open);
     }
     public static void UE_StopFly()
     {

@@ -7,7 +7,6 @@ public class Health: MonoBehaviour, Draggable, IDamageble
 {
     [SerializeField] private int _maxHealth;
     [SerializeField] private HealthCell[] healthCells;
-    [SerializeField] public GameManager gameManager;
     [SerializeField] private GameObject DeathSound;
     [SerializeField] private GameObject PunchSound;
     [SerializeField] private float needVelocityForInvisibility = 9999;
@@ -113,7 +112,6 @@ public class Health: MonoBehaviour, Draggable, IDamageble
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         if (OnDeath == null)
         {
             OnDeath = DestroyHimself;
@@ -130,7 +128,7 @@ public class Health: MonoBehaviour, Draggable, IDamageble
     {
         if (gameObject.name == "PC")
         {
-            gameManager.LoseGame();
+            GameObject.FindGameObjectWithTag("LoseGame").GetComponent<LoseGame>().Lose();
             Instantiate(DeathSound);
         }
         else

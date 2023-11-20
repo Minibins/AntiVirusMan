@@ -18,7 +18,7 @@ public class AboveDeath : MonoBehaviour
 	{
 		_health = GetComponent<Health>();
 		Player=GameObject.Find("Player").GetComponent<Rigidbody2D>();
-		spawnArea = GameObject.Find("BaakaSpawnArea").GetComponent<Collider2D>();
+		spawnArea = GameObject.Find("SpawnBaakaArea").GetComponent<Collider2D>();
 		
 	}
     private void FixedUpdate()
@@ -46,7 +46,7 @@ public class AboveDeath : MonoBehaviour
 			}
 			else
 			{
-				_health.gameManager.Antivirus();
+				GameObject.FindGameObjectWithTag("LoseGame").GetComponent<LoseGame>().Antivirus();
                 other.gameObject.GetComponent<Move>().SetSpeedMultiplierTemporary(3,6.34f);
 				other.transform.position = new Vector3(transform.position.x,15.44f,other.transform.position.z);
                 other.gameObject.GetComponent<Rigidbody2D>().velocity=new Vector2(0,ForcerePulsive);

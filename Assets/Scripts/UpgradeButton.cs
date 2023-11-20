@@ -6,7 +6,6 @@ public class UpgradeButton : MonoBehaviour
 {
     [SerializeField] private GameObject DashButton;
     [SerializeField] private GameObject DownButton,Drone;
-    private GameManager gameManager;
     private GameObject Laser, PUSHKA,_Player;
     public GameObject mainupgrader;
     public int id;
@@ -32,7 +31,7 @@ public class UpgradeButton : MonoBehaviour
     {
         switch (id)
         {
-            case 0://лазер
+            case 0://Г«Г Г§ГҐГ°
                 Laser = GameObject.FindGameObjectWithTag("LaserGun");
                 Laser.GetComponent<LaserGun>().StartShoot();
                 if (LevelUP.isTaken[1])
@@ -42,7 +41,7 @@ public class UpgradeButton : MonoBehaviour
 
                 break;
 
-            case 1://Перетаскивание турелей
+            case 1://ГЏГҐГ°ГҐГІГ Г±ГЄГЁГўГ Г­ГЁГҐ ГІГіГ°ГҐГ«ГҐГ©
 
                 GameObject.FindGameObjectWithTag("LaserGun").AddComponent<DRAG>();
                 GameObject.FindGameObjectWithTag("PC").AddComponent<DRAG>();
@@ -50,7 +49,7 @@ public class UpgradeButton : MonoBehaviour
                 _Player.GetComponent<InstantiateWall>().canmove = true;
                 break;
 
-            case 2: //звездопад
+            case 2: //Г§ГўГҐГ§Г¤Г®ГЇГ Г¤
             GameObject[] starfallObjects = GameObject.FindGameObjectsWithTag("Starfall");
                 byte delay = 0;
                 foreach (GameObject starfallObject in starfallObjects)
@@ -60,15 +59,15 @@ public class UpgradeButton : MonoBehaviour
                 }
                 break;
 
-            case 3://Строительство стен
+            case 3://Г‘ГІГ°Г®ГЁГІГҐГ«ГјГ±ГІГўГ® Г±ГІГҐГ­
             _Player.GetComponent<InstantiateWall>().IsOpenly = true;
                 break;
 
-            case 4://Пике
+            case 4://ГЏГЁГЄГҐ
             DownButton.SetActive(true);
                 break;
 
-            case 5://Стрельба в небо
+            case 5://Г‘ГІГ°ГҐГ«ГјГЎГ  Гў Г­ГҐГЎГ®
             _Player.GetComponent<PlayerAttack>().IsSelectedBullet = true;
                 break;
 
@@ -91,8 +90,7 @@ public class UpgradeButton : MonoBehaviour
                 break;
 
             case 7:
-                gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
-                gameManager.StartSpawnAid();
+                GameObject.FindGameObjectWithTag("SpawnFirstAidKit").GetComponent<SpawnFirstAidKit>().StartSpawnAid();
                 break;
 
             case 8:
@@ -101,14 +99,14 @@ public class UpgradeButton : MonoBehaviour
 
 
             case 9:
-                GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().StartSpawnPortals();
+                GameObject.FindGameObjectWithTag("SpawnPortals").GetComponent<SpawnPortals>().StartSpawnPortals();
                 break;
 
             case 10:
                 DashButton.SetActive(true);
             _Player.GetComponent<Player>().dashRange *= 2;
                 break;
-            //Айди 11 значит элитная бяка
+            //ГЂГ©Г¤ГЁ 11 Г§Г­Г Г·ГЁГІ ГЅГ«ГЁГІГ­Г Гї ГЎГїГЄГ 
             case 12:
                 GameObject[] AuraObjects = GameObject.FindGameObjectsWithTag("Aura");
                 foreach (GameObject AuraObject in AuraObjects)
@@ -118,7 +116,7 @@ public class UpgradeButton : MonoBehaviour
                 }
                 break;
 
-            //Айди 13 значит удар в спину
+            //ГЂГ©Г¤ГЁ 13 Г§Г­Г Г·ГЁГІ ГіГ¤Г Г° Гў Г±ГЇГЁГ­Гі
 
             case 14:
             {
@@ -130,9 +128,9 @@ public class UpgradeButton : MonoBehaviour
             }
                 break;
 
-            //Айди 15 значит полет
+            //ГЂГ©Г¤ГЁ 15 Г§Г­Г Г·ГЁГІ ГЇГ®Г«ГҐГІ
 
-            case 16://Антивирус может прыгать на врагах
+            case 16://ГЂГ­ГІГЁГўГЁГ°ГіГ± Г¬Г®Г¦ГҐГІ ГЇГ°Г»ГЈГ ГІГј Г­Г  ГўГ°Г ГЈГ Гµ
             {
                 GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
                 foreach (GameObject enemy in enemies)
@@ -149,7 +147,7 @@ public class UpgradeButton : MonoBehaviour
                 attacke._timeReload /=2;
                 Level.EnemyNeedToUpLVL /= 1.5f;
                 break;
-            //Айди 18 значит эволюцию вирусов
+            //ГЂГ©Г¤ГЁ 18 Г§Г­Г Г·ГЁГІ ГЅГўГ®Г«ГѕГ¶ГЁГѕ ГўГЁГ°ГіГ±Г®Гў
 
             case 19:
                 PC.IsFollowing = true;
