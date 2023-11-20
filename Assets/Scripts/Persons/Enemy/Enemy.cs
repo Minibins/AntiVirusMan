@@ -1,7 +1,8 @@
-﻿using UnityEngine;
+﻿using System;
+
+using UnityEngine;
 
 [RequireComponent(typeof(Health)),
- RequireComponent(typeof(Move)),
  RequireComponent(typeof(Animator)),
  RequireComponent(typeof(Rigidbody2D)),
  RequireComponent(typeof(SpriteRenderer))]
@@ -17,32 +18,30 @@ public class Enemy : MonoBehaviour
     [SerializeField] private EnemyTypes WhoAmI;
     [SerializeField] private LayerMask _maskWhoKills;
     public float moveDirection;
-    private Health _health;
-    private Move _move;
+    private protected Health _health;
+    private protected Move _move;
     private SpriteRenderer _spriteRenderer;
-    private Animator _animator;
+    private protected Animator _animator;
     private bool dead = false;
     public int ChangeMove;
     public GameObject MoveToPoint;
     public GameObject _PC;
-    public static bool isDraggable;
-    public static bool AntivirusHaveBoots;
-    public static bool isEvolution=false;
-    private void Awake()
+    protected Action onComputerReach;
+    virtual private protected void Awake()
     {
         _health = GetComponent<Health>();
         _move = GetComponent<Move>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
-        if (isDraggable)
+        if(LevelUP.isTaken[14])
         {
             gameObject.AddComponent<DRAG>();
         }
-        if(AntivirusHaveBoots)
+        if(LevelUP.isTaken[16])
         {
            AddBookaComponent();
         }
-        if (isEvolution&&WhoAmI!=EnemyTypes.Toocha)
+        if (LevelUP.isTaken[18])
         {
             _health.SetMaxHealth(-1);
             _animator.Play("Wire");
@@ -84,17 +83,19 @@ public class Enemy : MonoBehaviour
     }
 
 
-    private void OnEnable()
+    private protected void OnEnable()
     {
         _health.OnDeath += OnDeath;
+        onComputerReach += OnDeath;
     }
 
-    private void OnDisable()
+    private protected void OnDisable()
     {
         _health.OnDeath -= OnDeath;
+        onComputerReach -= OnDeath;
     }
 
-    private void EnemyMove()
+    virtual private protected void EnemyMove()
     {
         if (ChangeMove == 0)
         {
@@ -119,9 +120,10 @@ public class Enemy : MonoBehaviour
     {
         if (_health.CurrentHealth > 0)
         {
-            if ((_maskWhoKills.value & (1 << collision.gameObject.layer)) != 0)
+            if ((_maskWhoKills.value & (1 << collision.gameObject.layer)) != 0&&!dead)
             {
-                _health.ApplyDamage(_health.CurrentHealth);
+                onComputerReach();
+                PC.Carma += 2;
             }
             else if ((collision.CompareTag("Portal") || collision.CompareTag("SecondPortal")))
             {
@@ -132,7 +134,7 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("PC")&&isEvolution&&WhoAmI!=EnemyTypes.Toocha&&ChangeMove==0)
+        if(other.CompareTag("PC")&& LevelUP.isTaken[18] && WhoAmI!=EnemyTypes.Toocha&&ChangeMove==0)
         {
             _animator.SetTrigger("Evolution");
             _health.SetMaxHealth(1);
@@ -140,7 +142,7 @@ public class Enemy : MonoBehaviour
         if (other.CompareTag("WayPoint"))
         {
             MoveToPoint = other.gameObject.GetComponent<WayPoint>()
-                .nextPoint[Random.Range(0, other.gameObject.GetComponent<WayPoint>().nextPoint.Length)];
+                .nextPoint[UnityEngine. Random.Range(0, other.gameObject.GetComponent<WayPoint>().nextPoint.Length)];
         }
         else if (other.CompareTag("EndWire"))
         {
@@ -162,6 +164,7 @@ public class Enemy : MonoBehaviour
             }
             else
             {
+
                 Destroy(gameObject, 1.10f);
                 _animator.SetTrigger("Up");
             }
@@ -170,11 +173,11 @@ public class Enemy : MonoBehaviour
         {
             _move.SetSpeedMultiplierForOllTime(0);
             _animator.SetTrigger("Die");
-
+            Destroy(GetComponent<AttackProjectile>());
             dead = true;
         }
-
+        
         Level.TakeEXP(0.5f);
-        GetComponent<AttackProjectile>().Damage = 0;
+        
     }
 }

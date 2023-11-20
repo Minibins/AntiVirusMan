@@ -9,28 +9,17 @@ public class SpawnerEnemy : MonoBehaviour
     [SerializeField] private GameObject[] spawnersBoss;
     [SerializeField] private GameObject Boss;
     [SerializeField] private bool BossSpawned;
-    [SerializeField] private GameObject[] Enemies;
-    [SerializeField] private GameObject[] EnemiesV2;
-    [SerializeField] private GameObject[] WireEnemies;
-    [SerializeField] private GameObject[] spawnersWireEnemy;
-    [SerializeField] private float minTimeSpawn;
-    [SerializeField] private float maxTimeSpawn;
-    [SerializeField] private float minTimeSpawnWave;
-    [SerializeField] private float maxTimeSpawnWave;
+    [SerializeField] private GameObject[] Enemies, EnemiesV2, WireEnemies, spawnersWireEnemy;
+    [SerializeField] private int[] EliteID;
+    [SerializeField] private float minTimeSpawn, maxTimeSpawn, minTimeSpawnWave, maxTimeSpawnWave;
     [SerializeField] private GameManager GM;
     [SerializeField] private GameObject BossAlpha;
     [SerializeField] private int EliteSpawnChance;
-    public static bool[] elitePossibility=new bool[2];
     public bool isSpawn;
     private void Start()
     {
         BossSpawned = false;
         StartCoroutine(Spawn());
-        elitePossibility=new bool[Enemies.Length+1];
-        for(int i = 0; i < Enemies.Length+1; i++)
-        {
-            elitePossibility[i]=false;
-        }
     }
 
 
@@ -96,15 +85,22 @@ public class SpawnerEnemy : MonoBehaviour
     {
         spawnersAnim[spawnPoint].SetTrigger("Spawn");
         yield return new WaitForSeconds(0.7f);
-        int enemy=Random.Range(0, Enemies.Length-1);
-        int Iselite =Random.Range(EliteSpawnChance,0);
-        if(elitePossibility[enemy] && Iselite == 0)
+        int enemy=Random.Range(0, Enemies.Length);
+        int Iselite =Random.Range(0,EliteSpawnChance);
+        try
+        {
+if(LevelUP.isTaken[EliteID[enemy]] && Iselite == 0)
         {
             Instantiate(EnemiesV2[Random.Range(0,Enemies.Length)],spawnersEnemy[spawnPoint].transform.position,Quaternion.identity);
         }
         else
         {
             Instantiate(Enemies[Random.Range(0,Enemies.Length)],spawnersEnemy[spawnPoint].transform.position,Quaternion.identity);
+        }
+        }
+        catch
+        {
+            Debug.Log("Enemy:"+enemy+" IsElite:"+Iselite+" IsTaken:"+LevelUP.isTaken.ToString()+" EliteID:"+ EliteID[enemy]);
         }
     }
 }

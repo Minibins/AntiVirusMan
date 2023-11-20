@@ -4,14 +4,17 @@ using UnityEngine.UI;
 
 public class Level : MonoBehaviour
 {
-    [SerializeField] private GameObject LevelUp;
-    [SerializeField] private float EnemyNeedToUpLVL;
+    public static bool IsSelected;
+    [SerializeField] private GameObject LevelUpUI;
+    [SerializeField] private LevelUP LevelUpScript;
+    [SerializeField] public static float EnemyNeedToUpLVL = 15;
     private static float EnemyDie;
     public Image _enemyDieSprite;
     public float i;
     public Action OnEnemyDie { get; set; }
     private void Start()
     {
+        EnemyNeedToUpLVL = 15;
         EnemyDie = 0;
     }
 
@@ -19,7 +22,12 @@ public class Level : MonoBehaviour
     {
         Upgrade();
 
-
+        if(IsSelected)
+        {
+            IsSelected = false;
+            LevelUpUI.SetActive(false);
+            Time.timeScale = 1;
+        }
         if (Input.GetKeyDown(KeyCode.F))
         {
             EnemyDie = 10000000;
@@ -38,15 +46,15 @@ public class Level : MonoBehaviour
 
     private void Upgrade() 
     {
-        i = EnemyDie / Mathf.Round(EnemyNeedToUpLVL);
+        i = (float)EnemyDie / EnemyNeedToUpLVL;
         _enemyDieSprite.fillAmount = i;
         if (EnemyDie >= EnemyNeedToUpLVL)
         {
             EnemyDie = 0;
             EnemyNeedToUpLVL *= 1.1f;
             //Level++;
-            LevelUp.SetActive(true);
-            LevelUp.GetComponent<LevelUP>().NewUpgrade();
+            LevelUpUI.SetActive(true);
+            LevelUpScript.NewUpgrade();
         }
     }
 }

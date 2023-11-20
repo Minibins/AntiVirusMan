@@ -1,61 +1,70 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(Health)),
- RequireComponent(typeof(Rigidbody2D)),
- RequireComponent(typeof(Move))]
-public class blackenemy : MonoBehaviour
+ RequireComponent(typeof(Rigidbody2D))]
+public class blackenemy : Enemy
 {
     [SerializeField] GameObject _explosion;
     [SerializeField] float _explosionRadius;
-    [SerializeField] private LayerMask _maskWhoKills;
     [SerializeField] private float otklonenieOtklonenia;
     [SerializeField] private float SkorostOtklonenia;
     [SerializeField] private float Speed;
     [SerializeField] int _explosionPower;
-    private GameObject _PC;
-    private Move _move;
     private float otklonenie;
-    private Health _health;
+    [SerializeField] private bool isElite;
 
-
-    private void Awake()
+    new protected private void Awake()
     {
+        if(isElite)
+        {
+            PC.Carma = 7.5f;
+        }
         _PC = GameObject.FindGameObjectWithTag("PC");
         _move = GetComponent<Move>();
         _health = GetComponent<Health>();
+        _animator = GetComponent<Animator>();
+        if(LevelUP.isTaken[14])
+        {
+            gameObject.AddComponent<DRAG>();
+        }
+        if(LevelUP.isTaken[16])
+        {
+            AddBookaComponent();
+        }
     }
 
-    private void OnEnable()
+    new private void OnEnable()
     {
-        _health.OnDeath += OnDeath;
+        _health.OnDeath += ExplosionInvoke;
+        onComputerReach += ExplosionInvoke;
+        base.OnEnable();
+        if(isElite)
+        {
+            _health.OnDeath += CarmaSetZero;
+        }
     }
 
-    private void OnDisable()
+    new private void OnDisable()
     {
-        _health.OnDeath -= OnDeath;
+        _health.OnDeath -= ExplosionInvoke;
+        onComputerReach -= ExplosionInvoke;
+        base.OnDisable();
+        if(isElite)
+        {
+            _health.OnDeath -= CarmaSetZero;
+        }
     }
-
-    private void OnDeath()
+    private void ExplosionInvoke()
     {
         gameObject.GetComponent<Rigidbody2D>().simulated = true;
         Invoke(nameof(Explosion), 2f);
     }
-
-    private void OnTriggerStay2D(Collider2D collision)
+    private void CarmaSetZero()
     {
-        if ((_maskWhoKills.value & (1 << collision.gameObject.layer)) != 0)
-        {
-            _health.ApplyDamage(_health.CurrentHealth);
-        }
+        PC.Carma = 0;
     }
 
-    private void FixedUpdate()
-    {
-        Fly();
-        otklonenie++;
-    }
-
-    private void Fly()
+    override protected private void EnemyMove()
     {
         Vector3 FlyVector = transform.position - _PC.transform.position;
         FlyVector.Normalize();
@@ -63,12 +72,17 @@ public class blackenemy : MonoBehaviour
         ;
         FlyVector *= Speed;
         transform.position += FlyVector;
+        otklonenie++;
     }
 
     private void Explosion()
     {
         Destroy(gameObject);
 
-        Instantiate(_explosion, transform.position, Quaternion.identity);
+        GameObject explosion= Instantiate(_explosion, transform.position, Quaternion.identity);
+        if(isElite)
+        {
+            explosion.GetComponent<ExpCollectible>().Exp = PC.Carma;
+        }
     }
 }

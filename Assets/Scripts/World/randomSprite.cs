@@ -7,6 +7,12 @@ public class randomSprite : MonoBehaviour
     [SerializeField] private Sprite[] images;
     private void Start()
     {
-        GetComponent<SpriteRenderer>().sprite = images[Random.Range(0,images.Length)];
+        int spriteID = Random.Range(0,images.Length);
+        GetComponent<SpriteRenderer>().sprite = images[spriteID];
+       
+        if(GetComponentInChildren<TrailRenderer>() != null)
+        {
+            GetComponentInChildren<TrailRenderer>().startWidth = images[spriteID].rect.width/25;
+        }
     }
 }

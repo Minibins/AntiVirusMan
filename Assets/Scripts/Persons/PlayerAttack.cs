@@ -23,7 +23,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private AmmoCell[] AmmoCell;
     [SerializeField] private int _ammo;
     [SerializeField] private int _maxAmmo;
-    [SerializeField] private float _timeReload;
+    [SerializeField] public float _timeReload;
     private GameObject _weapon;
     private Rigidbody2D rb;
     private Animator _animator;

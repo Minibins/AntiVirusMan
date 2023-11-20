@@ -1,19 +1,28 @@
 ﻿using System;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PC : Follower
 {
     [SerializeField] private int radius;
     [SerializeField] private Transform pc;
+    [SerializeField] private Image capmaImage;
+    [SerializeField] private Sprite[] carmaSprites;
     private GameObject _player;
     private Health health;
     private Animator animator;
     private Transform rozetka;
     private Animator rozetkaAnim;
     private bool lowchrge;
-    public static bool IsFollowing;
     public bool OnlyBehind;
+    private static float carma;
+    public static bool IsFollowing;
+    public static float Carma { get => carma; set { carma = value;
+       GameObject.Find("PC").GetComponentInChildren<PC>(). UpdateCarma();
+        } }
+
     override private protected void Start()
     {
         _player = GameObject.FindGameObjectWithTag("Player");
@@ -24,6 +33,7 @@ public class PC : Follower
         rozetkaAnim = rozetka.GetComponent<Animator>();
         StartCoroutine(LowCharge());
         rb=GetComponentInParent<Rigidbody2D>();
+        PC.Carma = 7;
     }
 
     private protected void FixedUpdate()
@@ -43,13 +53,17 @@ public class PC : Follower
     }
     override private protected void Update()
     {
-            if(IsFollowing) Following(
-            new Vector3(
-            playerPosition.position.x + (Convert.ToInt16(_player.GetComponent<SpriteRenderer>().flipX) - 0.5f) * distanceFromPlayer,
-            pc.transform.position.y,
-            0)
-            ,
-            !lowchrge,pc);
+        if(IsFollowing)
+        {
+            Following(
+        new Vector3(
+        playerPosition.position.x + (Convert.ToInt16(_player.GetComponent<SpriteRenderer>().flipX) - 0.5f) * distanceFromPlayer,
+        pc.transform.position.y,
+        0)
+        ,
+        !lowchrge,pc);
+            animator.SetBool("IsRunning",!lowchrge && (Mathf.Abs(playerPosition.position.x - pc.position.x) > distanceFromPlayer / 2) || OnlyBehind);
+        }
     }
     override private protected void Move(Vector3 startPos,Transform transforme)
     {
@@ -67,8 +81,39 @@ public class PC : Follower
                 OnlyBehind = false;
             }
         }
+        
     }
-
+    private void UpdateCarma()
+    {
+        switch(Convert.ToInt16(Carma))
+        {
+            default:
+                if (Carma < 0) capmaImage.sprite = carmaSprites[0];
+                else capmaImage.sprite = carmaSprites[6];
+            break;
+            case 1:
+            capmaImage.sprite = carmaSprites[1];
+            break;
+            case 2:
+            capmaImage.sprite = carmaSprites[2];
+            break; 
+            case 3:
+            capmaImage.sprite = carmaSprites[3];
+            break;
+            case 4:
+            capmaImage.sprite = carmaSprites[4];
+            break; 
+            case 5:
+            capmaImage.sprite = carmaSprites[4];
+            break; 
+            case 6:
+            capmaImage.sprite = carmaSprites[5];
+            break; 
+            case 7:
+            capmaImage.sprite = carmaSprites[6];
+            break;
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Enemy")
@@ -80,6 +125,7 @@ public class PC : Follower
     public void EnemyKilled()
     {
         animator.SetTrigger("HeKilledEnemy");
+        Carma -= 1f;
     }
 
 

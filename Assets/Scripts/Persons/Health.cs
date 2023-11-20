@@ -18,7 +18,6 @@ public class Health : MonoBehaviour,Draggable,IDamageble
     [SerializeField] private float needVelocityForInvisibility=9999;
     [field: SerializeField] public float CurrentHealth;
     private Action _onDeath;
-    public static bool backStager = false;
     public Action OnDeath
     {
         get => _onDeath;
@@ -43,21 +42,12 @@ public class Health : MonoBehaviour,Draggable,IDamageble
         }
         else
         {
-            if (backStager == true)
+            if(LevelUP.isTaken[13] == true)
             {
                 GameObject player = GameObject.FindGameObjectWithTag("Player");
                 Enemy enemy = GetComponent<Enemy>();
-                if (enemy.moveDirection == -1f && player.transform.position.x > transform.position.x)
-                {
-                    int i = Random.Range(1, 5);
-                    if (i == 1)
+                if (enemy.moveDirection == -1f && player.transform.position.x > transform.position.x||enemy.moveDirection == 1f && player.transform.position.x < transform.position.x)
                     {
-                        CurrentHealth -= damage * 3f;
-                        print("DAMAGE: 3X");
-                    }
-                }
-                else if (enemy.moveDirection == 1f && player.transform.position.x < transform.position.x)
-                {
                     int i = Random.Range(1, 5);
                     if (i == 1)
                     {
@@ -66,12 +56,13 @@ public class Health : MonoBehaviour,Draggable,IDamageble
                     }
                 }
             }
-            else
-            {
-                CurrentHealth -= damage;
-            }
+                else
+                {
+                    CurrentHealth -= damage;
+                }
         }
-        OnApplyDamage?.Invoke();
+           
+            OnApplyDamage?.Invoke();
         if (CurrentHealth <= 0)
         {
             OnDeath?.Invoke();
@@ -82,7 +73,7 @@ public class Health : MonoBehaviour,Draggable,IDamageble
             {
                 healthCells[i].Enable();
             }
-            for(int i = _maxHealth - 1; i >= CurrentHealth; i--)
+            for(int i = _maxHealth - 1; i >= Mathf.Max( CurrentHealth,0); i--)
             {
                 healthCells[i].Disable();
             }

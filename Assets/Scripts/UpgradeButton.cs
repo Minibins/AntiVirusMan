@@ -16,15 +16,15 @@ public class UpgradeButton : MonoBehaviour
         if (gameObject.GetComponent<Image>().sprite.name == "None")
         {
             _Player = GameObject.Find("Player");
-            LevelUP.IsSelected = true;
+            Level.IsSelected = true;
         }
         else
         {
             LevelUP lvlUp = mainupgrader.GetComponent<LevelUP>();
-            lvlUp.isTaken[id] = true;
+            LevelUP.isTaken[id] = true;
             _Player = GameObject.Find("Player");
             ChooseUpgrade(lvlUp);
-            LevelUP.IsSelected = true;
+            Level.IsSelected = true;
         }
     }
 
@@ -35,7 +35,7 @@ public class UpgradeButton : MonoBehaviour
             case 0://лазер
                 Laser = GameObject.FindGameObjectWithTag("LaserGun");
                 Laser.GetComponent<LaserGun>().StartShoot();
-                if (lvlUp.isTaken[1])
+                if (LevelUP.isTaken[1])
                 {
                     Laser.AddComponent<DRAG>();
                 }
@@ -44,7 +44,7 @@ public class UpgradeButton : MonoBehaviour
 
             case 1://ѕеретаскивание турелей
 
-            GameObject.FindGameObjectWithTag("LaserGun").AddComponent<DRAG>();
+                GameObject.FindGameObjectWithTag("LaserGun").AddComponent<DRAG>();
                 GameObject.FindGameObjectWithTag("PC").AddComponent<DRAG>();
                 GameObject.FindGameObjectWithTag("PUSHKA").AddComponent<DRAG>();
                 _Player.GetComponent<InstantiateWall>().canmove = true;
@@ -81,7 +81,7 @@ public class UpgradeButton : MonoBehaviour
                 }
 
                 PUSHKA.GetComponent<PUSHKA>().StartShoot();
-                if (lvlUp.isTaken[1])
+                if (LevelUP.isTaken[1])
                 {
                     for (int i = 0; i < colesa.Length; i++)
                     {
@@ -106,12 +106,9 @@ public class UpgradeButton : MonoBehaviour
 
             case 10:
                 DashButton.SetActive(true);
+            _Player.GetComponent<Player>().dashRange *= 2;
                 break;
-
-            case 11:
-                SpawnerEnemy.elitePossibility[0] = true;
-                break;
-
+            //јйди 11 значит элитна€ б€ка
             case 12:
                 GameObject[] AuraObjects = GameObject.FindGameObjectsWithTag("Aura");
                 foreach (GameObject AuraObject in AuraObjects)
@@ -121,12 +118,9 @@ public class UpgradeButton : MonoBehaviour
                 }
                 break;
 
-            case 13:
-                Health.backStager = true;
-                break;
+            //јйди 13 значит удар в спину
 
             case 14:
-                Enemy.isDraggable = true;
             {
                 GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
                 foreach (GameObject enemy in enemies)
@@ -136,12 +130,9 @@ public class UpgradeButton : MonoBehaviour
             }
                 break;
 
-            case 15:
-                Player.isFlying = true;
-                break;
+            //јйди 15 значит полет
 
-            case 16:
-                Enemy.AntivirusHaveBoots = true;
+            case 16://јнтивирус может прыгать на врагах
             {
                 GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
                 foreach (GameObject enemy in enemies)
@@ -155,20 +146,23 @@ public class UpgradeButton : MonoBehaviour
                 PlayerAttack attacke = _Player.GetComponent<PlayerAttack>();
                 attacke.IsUltraAttack = true;
                 attacke.Damage = 4;
+                attacke._timeReload /=2;
+                Level.EnemyNeedToUpLVL /= 1.5f;
                 break;
-            case 18:
-                Enemy.isEvolution = true;
-                break;
+            //јйди 18 значит эволюцию вирусов
 
             case 19:
                 PC.IsFollowing = true;
-                break;
+            break;
             case 20:
                 Instantiate(Drone,_Player.transform.position,Quaternion.identity,_Player.transform.parent);
                 break;
             case 21:
                 NumberOfObjectsIsDamage.tagAlloved[0] = true;
                 break; 
+            case 22:
+            GameObject.Find("Carma").GetComponent<Image>().color = Color.white;
+            break;
         }
 
         
