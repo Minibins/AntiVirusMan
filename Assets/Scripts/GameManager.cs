@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] Portals;
     [SerializeField] private GameObject[] spawnPointPortals;
-    
+
     [SerializeField] private GameObject Player;
     [SerializeField] private GameObject firstAidKit;
     [SerializeField] private GameObject[] spawnPointFirstAidKit;
@@ -55,39 +55,20 @@ public class GameManager : MonoBehaviour
     }
 
 
-   IEnumerator SpawnFirstAidKit()
+    IEnumerator SpawnFirstAidKit()
     {
         while (true)
         {
-           GameObject _firstAidKit =     Instantiate(firstAidKit, spawnPointFirstAidKit[UnityEngine.Random.Range(0, spawnPointFirstAidKit.Length)].transform.position, Quaternion.identity);
+            GameObject _firstAidKit = Instantiate(firstAidKit,
+                spawnPointFirstAidKit[UnityEngine.Random.Range(0, spawnPointFirstAidKit.Length)].transform.position,
+                Quaternion.identity);
             yield return new WaitForSeconds(60);
             Destroy(_firstAidKit);
         }
     }
 
 
-    public void StartSpawnPortals()
-    {
-        StartCoroutine(SpawnPortals());
-    }
-
-
- IEnumerator SpawnPortals()
-    {
-        while (true)
-        {
-              GameObject Portals1 =  Instantiate(Portals[0], spawnPointPortals[UnityEngine.Random.Range(2, spawnPointPortals.Length)].transform.position, Quaternion.identity);
-            
-            GameObject Portals2 = Instantiate(Portals[1], spawnPointPortals[UnityEngine.Random.Range(2, spawnPointPortals.Length)].transform.position, Quaternion.identity);
-            Portals1.GetComponent<Portals>().secondPortal = Portals2;
-            Portals2.GetComponent<Portals>().secondPortal = Portals1;
-            yield return new WaitForSeconds(10);
-            Destroy(Portals1);
-            Destroy(Portals2);
-        }
   
-    }
-
 
 
     public void LoseGame()
@@ -99,13 +80,16 @@ public class GameManager : MonoBehaviour
         StopTime = false;
         Antivirus();
     }
+
     public void Antivirus()
-    {   enemy = GameObject.FindGameObjectsWithTag("Enemy");
-        for(int i = 0; i < enemy.Length; i++)
+    {
+        enemy = GameObject.FindGameObjectsWithTag("Enemy");
+        for (int i = 0; i < enemy.Length; i++)
         {
             Destroy(enemy[i]);
         }
     }
+
     IEnumerator TimeFlow()
     {
         while (StopTime == true)
@@ -120,14 +104,15 @@ public class GameManager : MonoBehaviour
                     if (boss = null)
                     {
                         save.LoadField();
-                        if (save.data.WinLocation < _level + 1)
+                        if (save.data.WinLocation < _level)
                         {
-                            save.data.WinLocation = _level + 1;
+                            save.data.WinLocation = _level;
                             save.SaveField();
                         }
                     }
                 }
             }
+
             fiilSprite = (Convert.ToSingle(min) * 60 + Convert.ToSingle(sec)) / (Convert.ToSingle(TimeToWin) * 60);
             TimeSprite.fillAmount = fiilSprite;
             sec++;
@@ -135,10 +120,12 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(1);
         }
     }
+
     private void OnDisable()
     {
         OnTimer = null;
     }
+
     public void MoveScene(string _Scene)
     {
         SceneManager.LoadScene(_Scene);
@@ -149,6 +136,6 @@ public class GameManager : MonoBehaviour
     {
         SettingsPanel.SetActive(Open);
         Buttons.SetActive(!Open);
-       Time.timeScale= Open ? 0 : 1;
+        Time.timeScale = Open ? 0 : 1;
     }
 }

@@ -12,7 +12,7 @@ public class MainMenu : MonoBehaviour
     {
         if (save.data.WinLocation >= _Scene)
         {
-            SceneManager.LoadScene(_Scene + 1);
+            SceneManager.LoadScene(_Scene);
         }
     }
 
