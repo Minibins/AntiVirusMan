@@ -46,7 +46,7 @@ public class Drone : Follower,IDamageble
         {
             GameObject bullet = Instantiate(bulletAsset,transform.position,transform.rotation);
             AttackProjectile bulletAttack=bullet.GetComponent<AttackProjectile>();
-            Vector3 velocity = bulletAttack._velosity;
+            Vector2 velocity = bulletAttack._velosity;
                 
             
             switch(i)
@@ -63,10 +63,7 @@ public class Drone : Follower,IDamageble
             }
             bullet.GetComponent<SpriteRenderer>().flipY = true;
             bulletAttack.Damage = damage;
-            float rotationInRadians=rotation*math.PI/180;
-            bulletAttack._velosity = new Vector3(velocity.x * Mathf.Cos(rotationInRadians) - velocity.y * Mathf.Sin(rotationInRadians),
-                                                velocity.x * Mathf.Sin(rotationInRadians) + velocity.y * Mathf.Cos(rotationInRadians)
-                                                 );
+            bulletAttack._velosity = MathA.RotatedVector(velocity,rotation);
             if(bulletAttack._velosity.y>0) bulletAttack._velosity*=-1;
             
             bulletAttack._mask.value = 23552;

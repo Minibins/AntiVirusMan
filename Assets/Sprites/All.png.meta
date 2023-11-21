@@ -13162,7 +13162,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -13183,7 +13183,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -13191,6 +13191,48 @@ TextureImporter:
       bones: []
       spriteID: 68d86a6dab4dae840a0bbdb01f45e02f
       internalID: -1220450171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: All_592
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 702
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fec997eb42f26b941ad87dc22d9a8f9c
+      internalID: 705758048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: All_593
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 734
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db5f8922276262743b7cd36fe512d01f
+      internalID: -357295630
       vertices: []
       indices: 
       edges: []
@@ -13754,6 +13796,8 @@ TextureImporter:
       All_59: -3506618276952092092
       All_590: -88253605
       All_591: -1220450171
+      All_592: 705758048
+      All_593: -357295630
       All_6: -5295634354576850911
       All_60: 5200012634210390329
       All_61: 2898021474652350614

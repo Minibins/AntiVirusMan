@@ -144,7 +144,7 @@ public class UpgradeButton : MonoBehaviour
 
             case 17:
                 PlayerAttack attacke = _Player.GetComponent<PlayerAttack>();
-                attacke.IsUltraAttack = true;
+                attacke.AttackType = PlayerAttack.attackTypes.Ultra;
                 attacke.Damage = 4;
                 attacke._timeReload /=2;
                 Level.EnemyNeedToUpLVL /= 1.5f;
