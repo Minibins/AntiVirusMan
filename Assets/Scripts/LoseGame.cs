@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LoseGame : MonoBehaviour
 {
@@ -9,15 +10,17 @@ public class LoseGame : MonoBehaviour
     [SerializeField] private GameObject HealthPanel;
     [SerializeField] private GameObject Buttons;
     [SerializeField] private GameObject LosePanel;
-    public Timer timer;
-    
+    [SerializeField] private Text LiveTextLose;
+
     public void Lose()
     {
         SE.GetComponent<SpawnerEnemy>().StopOrStartSpawn();
+      //  LiveTextLose.text = "You live:" + Timer.min.ToString("D2") + " : " + Timer.sec.ToString("D2");
+      LiveTextLose.text = Timer.min.ToString() + ":" + Timer.sec.ToString();
         LosePanel.SetActive(true);
         HealthPanel.SetActive(false);
         Buttons.SetActive(false);
-        timer.StopTime = false;
+        Timer.StopTime = false;
         Antivirus();
     }
 

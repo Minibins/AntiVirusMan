@@ -13,7 +13,7 @@ public class Settings : MonoBehaviour
     {
         SettingsPanel.SetActive(false);
         LosePanel.SetActive(false);
-        StartCoroutine(timer.TimeFlow());
+        timer.StartTimeFlow();
         Time.timeScale = 1;
     }
     

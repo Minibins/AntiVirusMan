@@ -1,29 +1,28 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    public static int sec;
-    public bool StopTime = true;
-    public static int min;
-    
     [SerializeField] private int _level;
     [SerializeField] private Save save;
     [SerializeField] private int TimeToWin;
     [SerializeField] private float fiilSprite;
     [SerializeField] private Image TimeSprite;
-    [SerializeField] private Text LiveTextLose;
-    
-    
-    
+    public static int sec;
+    public static bool StopTime = true;
+    public static int min;
     public Action OnTimer { get; set; }
-    
-    public IEnumerator TimeFlow()
+
+    public void StartTimeFlow()
     {
-        while (StopTime == true)
+        StartCoroutine(TimeFlow());
+    }
+
+    private IEnumerator TimeFlow()
+    {
+        while (StopTime)
         {
             if (sec == 59)
             {
@@ -47,11 +46,10 @@ public class Timer : MonoBehaviour
             fiilSprite = (Convert.ToSingle(min) * 60 + Convert.ToSingle(sec)) / (Convert.ToSingle(TimeToWin) * 60);
             TimeSprite.fillAmount = fiilSprite;
             sec++;
-            LiveTextLose.text = "You live:" + min.ToString("D2") + " : " + sec.ToString("D2");
             yield return new WaitForSeconds(1);
         }
     }
-    
+
     private void OnDisable()
     {
         OnTimer = null;

@@ -14845,7 +14845,7 @@ MonoBehaviour:
   HealthPanel: {fileID: 963383938}
   Buttons: {fileID: 1173642836}
   LosePanel: {fileID: 774730778}
-  timer: {fileID: 1297963859}
+  LiveTextLose: {fileID: 1523638599151307896}
 --- !u!1 &866710447
 GameObject:
   m_ObjectHideFlags: 0
@@ -16548,13 +16548,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbc11c9a2db732d4ba2cc5f2e5588c55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StopTime: 1
-  _level: 0
+  _level: 1
   save: {fileID: 586405110}
-  TimeToWin: 0
+  TimeToWin: 10
   fiilSprite: 0
-  TimeSprite: {fileID: 0}
-  LiveTextLose: {fileID: 1523638599151307896}
+  TimeSprite: {fileID: 1816037664}
 --- !u!4 &1297963860
 Transform:
   m_ObjectHideFlags: 0
@@ -19002,6 +19000,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1899637231}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1816037664 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4417986938952456623, guid: 0951b036ba0a12343a56eff64eed7b4c,
+    type: 3}
+  m_PrefabInstance: {fileID: 7865926053248113534}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1818123252 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4956601914960776985, guid: 0951b036ba0a12343a56eff64eed7b4c,
