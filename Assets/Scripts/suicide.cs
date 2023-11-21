@@ -2,7 +2,7 @@
 
 public class Suicide : MonoBehaviour
 {
-    void DestroyThis()
+    public void DestroyThis()
     {
         Destroy(gameObject);
     }

@@ -52,7 +52,6 @@ public class Level : MonoBehaviour
         {
             EnemyDie = 0;
             EnemyNeedToUpLVL *= 1.1f;
-            //Level++;
             LevelUpUI.SetActive(true);
             LevelUpScript.NewUpgrade();
         }
