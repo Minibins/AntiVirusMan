@@ -1,5 +1,4 @@
 ﻿using System;
-
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,7 +7,7 @@ public class MainMenu : MonoBehaviour
     public Save save;
     [SerializeField] private string CurrentVersion;
     [SerializeField] private GameObject Changelog;
-    
+
     public void LocationMove(int _Scene)
     {
         if (save.data.WinLocation >= _Scene)
@@ -20,10 +19,11 @@ public class MainMenu : MonoBehaviour
     private void Awake()
     {
         save.LoadField();
-        if(save.data.LastSessionVersion != CurrentVersion)
+        if (save.data.LastSessionVersion != CurrentVersion)
         {
             Changelog.SetActive(true);
         }
+
         save.data.LastSessionVersion = CurrentVersion;
     }
 
@@ -36,9 +36,11 @@ public class MainMenu : MonoBehaviour
     public void ExitGame()
     {
         save.SaveField();
-        Environment.Exit(42);
-
+        //  Environment.Exit(42);
+        Debug.Log("Quit");
+        Application.Quit();
     }
+
     public void OpenWebBrowser()
     {
         Application.OpenURL("https://patreon.com/DustyStudio");
