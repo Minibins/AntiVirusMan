@@ -1,6 +1,4 @@
-using System.ComponentModel;
 using UnityEngine;
-using UnityEngine.InputSystem.Controls;
 
 public class Paralax : MonoBehaviour
 {
@@ -10,7 +8,7 @@ public class Paralax : MonoBehaviour
     [SerializeField] private bool disableVerticalParallax;
     [SerializeField, Range(-1f, 1f)] float IsSkyComponent;
     private Vector3 targetpreviousPosition;
-    private GameManager gameManager;
+
     private void Start()
     {
         actualY = transform.position.y;
@@ -18,7 +16,6 @@ public class Paralax : MonoBehaviour
             followingTarget = Camera.main.transform;
 
         targetpreviousPosition = followingTarget.position;
-        if(IsSkyComponent!=0 ) gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
     }
 
     private void Update()
@@ -37,6 +34,6 @@ public class Paralax : MonoBehaviour
         case 0:
             return;
         }
-        transform.position += Vector3.up * (gameManager.min * 60 + gameManager.sec)*IsSkyComponent;
+        transform.position += Vector3.up * ((Timer.min * 60 + Timer.sec) * IsSkyComponent);
     }
 }

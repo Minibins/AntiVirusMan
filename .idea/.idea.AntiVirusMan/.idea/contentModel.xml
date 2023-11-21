@@ -19,6 +19,7 @@
             </e>
             <e p="Elite" t="Include">
               <e p="Baaka" t="Include" />
+              <e p="Judge" t="Include" />
             </e>
             <e p="Ground" t="Include">
               <e p="booka" t="Include" />
@@ -57,6 +58,7 @@
           <e p="Boss" t="Include" />
           <e p="Elite" t="Include">
             <e p="booka" t="Include" />
+            <e p="Toocha" t="Include" />
           </e>
           <e p="OnAir" t="Include" />
           <e p="OnGround" t="Include">
@@ -204,7 +206,6 @@
             <e p="UnityEvents.cs" t="Include" />
           </e>
           <e p="DeathLine.cs" t="Include" />
-          <e p="GameManager.cs" t="Include" />
           <e p="Interfaces and Abstract Classes" t="Include">
             <e p="Draggable.cs" t="Include" />
             <e p="Follower.cs" t="Include" />
@@ -212,6 +213,7 @@
           </e>
           <e p="Level.cs" t="Include" />
           <e p="LevelUP.cs" t="Include" />
+          <e p="LoseGame.cs" t="Include" />
           <e p="MainMenu.cs" t="Include" />
           <e p="Paralax.cs" t="Include" />
           <e p="Persons" t="Include">
@@ -238,8 +240,11 @@
             <e p="SaveButtons.cs" t="Include" />
           </e>
           <e p="SendFeedback.cs" t="Include" />
+          <e p="Settings.cs" t="Include" />
           <e p="shadowEffect.cs" t="Include" />
           <e p="SpawnerEnemy.cs" t="Include" />
+          <e p="SpawnFirstAidKit.cs" t="Include" />
+          <e p="SpawnPortals.cs" t="Include" />
           <e p="suicide.cs" t="Include" />
           <e p="SuicideAfterTime.cs" t="Include" />
           <e p="Timer.cs" t="Include" />

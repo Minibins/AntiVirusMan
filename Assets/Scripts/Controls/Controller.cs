@@ -5,7 +5,6 @@ public class Controller : MonoBehaviour
     private Player _player;
     private PlayerAttack _playerAttack;
     private InstantiateWall _wall;
-    private GameManager _gameManager;
     private NewInputSystem _newInputSystem;
     private Vector2 _moveValue;
     private void Awake()
