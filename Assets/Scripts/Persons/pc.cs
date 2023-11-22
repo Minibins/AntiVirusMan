@@ -34,6 +34,7 @@ public class PC : Follower
         StartCoroutine(LowCharge());
         rb=GetComponentInParent<Rigidbody2D>();
         PC.Carma = 7;
+        IsFollowing = false;
     }
 
     private protected void FixedUpdate()

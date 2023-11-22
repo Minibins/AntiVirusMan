@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class Settings : MonoBehaviour
@@ -22,5 +21,9 @@ public class Settings : MonoBehaviour
         SettingsPanel.SetActive(Open);
         Buttons.SetActive(!Open);
         Time.timeScale = Open ? 0 : 1;
+    }
+    public void GoToScene(string name) 
+    { 
+    SceneManager.LoadScene(name);
     }
 }

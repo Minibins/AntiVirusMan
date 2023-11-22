@@ -16,9 +16,9 @@ GameObject:
   - component: {fileID: -1960156336790782601}
   - component: {fileID: -3479756302495854425}
   - component: {fileID: 8106466791238120592}
-  - component: {fileID: -8847342664991260015}
   - component: {fileID: 957579766737629269}
   - component: {fileID: -8060305246413013081}
+  - component: {fileID: 311505630981763405}
   m_Layer: 11
   m_Name: BlackEnemy
   m_TagString: Enemy
@@ -232,27 +232,6 @@ MonoBehaviour:
   _jumpingPower: 10
   _speed: 0
   _spriteRenderer: {fileID: 0}
---- !u!114 &-8847342664991260015
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2515844324639823540}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d54634508f2eec47a76af005dde50f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maxHealth: 1
-  healthCells: []
-  gameManager: {fileID: 0}
-  DeathSound: {fileID: 7855115547837660963, guid: 8a7dd4256810a7d4291408ecbd5ed630,
-    type: 3}
-  PunchSound: {fileID: 7855115547837660963, guid: 39cc83147052dbe408f02c50abb0373f,
-    type: 3}
-  needVelocityForInvisibility: 9999
-  CurrentHealth: 0
 --- !u!114 &957579766737629269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,16 +244,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e95afecb9eede4499d9d9d041340a8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _explosion: {fileID: 5453186352399095394, guid: 1b264e8b19808f54d96abe41ed58d320,
-    type: 3}
-  _explosionRadius: 2
+  WhoAmI: 3
   _maskWhoKills:
     serializedVersion: 2
     m_Bits: 8192
+  moveDirection: 0
+  ChangeMove: 0
+  MoveToPoint: {fileID: 0}
+  _PC: {fileID: 0}
+  _explosion: {fileID: 5453186352399095394, guid: 1b264e8b19808f54d96abe41ed58d320,
+    type: 3}
+  _explosionRadius: 2
   otklonenieOtklonenia: 3.5
   SkorostOtklonenia: 0.01
   Speed: -0.011
   _explosionPower: 2
+  isElite: 0
 --- !u!114 &-8060305246413013081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,3 +272,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d867c4fff1b5944693ccdbdfbefa6c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &311505630981763405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2515844324639823540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b07e02b2b847bd4693c2639f7f9ff20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 1
+  DeathSound: {fileID: 7855115547837660963, guid: 8a7dd4256810a7d4291408ecbd5ed630,
+    type: 3}
+  PunchSound: {fileID: 7855115547837660963, guid: 39cc83147052dbe408f02c50abb0373f,
+    type: 3}
+  needVelocityForInvisibility: 9999
+  CurrentHealth: 0

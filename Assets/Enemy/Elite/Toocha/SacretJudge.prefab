@@ -267,11 +267,11 @@ GameObject:
   - component: {fileID: 5565963049751146188}
   - component: {fileID: 3959881449195203710}
   - component: {fileID: 877609933091623635}
-  - component: {fileID: 1568629810897685881}
   - component: {fileID: 1018971039209685417}
   - component: {fileID: 3840983604411001542}
   - component: {fileID: 2158308975165623579}
   - component: {fileID: 761592458066141478}
+  - component: {fileID: 2118469342290813070}
   m_Layer: 11
   m_Name: SacretJudge
   m_TagString: Enemy
@@ -397,27 +397,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1568629810897685881
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8912311358399435758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d54634508f2eec47a76af005dde50f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maxHealth: 4
-  healthCells: []
-  gameManager: {fileID: 0}
-  DeathSound: {fileID: 7855115547837660963, guid: 8a7dd4256810a7d4291408ecbd5ed630,
-    type: 3}
-  PunchSound: {fileID: 7855115547837660963, guid: 39cc83147052dbe408f02c50abb0373f,
-    type: 3}
-  needVelocityForInvisibility: 9999
-  CurrentHealth: 0
 --- !u!114 &1018971039209685417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -516,3 +495,22 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   _velosity: {x: 0, y: 0}
+--- !u!114 &2118469342290813070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8912311358399435758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b07e02b2b847bd4693c2639f7f9ff20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 4
+  DeathSound: {fileID: 7855115547837660963, guid: 8a7dd4256810a7d4291408ecbd5ed630,
+    type: 3}
+  PunchSound: {fileID: 7855115547837660963, guid: 39cc83147052dbe408f02c50abb0373f,
+    type: 3}
+  needVelocityForInvisibility: 9999
+  CurrentHealth: 0

@@ -12,13 +12,13 @@ GameObject:
   - component: {fileID: 9184660274169354516}
   - component: {fileID: 4482309314977752539}
   - component: {fileID: 222009399535578264}
-  - component: {fileID: 172344962344067345}
   - component: {fileID: -7254249747895268964}
   - component: {fileID: -7714455965291332328}
   - component: {fileID: 4300671704897370535}
   - component: {fileID: -2885257079954023851}
   - component: {fileID: 1573228806848738054}
   - component: {fileID: 8447996379547261968}
+  - component: {fileID: 2240668801627141990}
   m_Layer: 14
   m_Name: EnemyRed
   m_TagString: Enemy
@@ -144,27 +144,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &172344962344067345
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 49990711567001007}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d54634508f2eec47a76af005dde50f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maxHealth: 2
-  healthCells: []
-  gameManager: {fileID: 0}
-  DeathSound: {fileID: 7855115547837660963, guid: c7a11f2f13a13a840b6c0c4756e8dd5b,
-    type: 3}
-  PunchSound: {fileID: 7855115547837660963, guid: b9b484a404e1e0e43bd441be5bd5dec5,
-    type: 3}
-  needVelocityForInvisibility: 9999
-  CurrentHealth: 0
 --- !u!114 &-7254249747895268964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -285,6 +264,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d867c4fff1b5944693ccdbdfbefa6c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2240668801627141990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49990711567001007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b07e02b2b847bd4693c2639f7f9ff20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 2
+  DeathSound: {fileID: 7855115547837660963, guid: c7a11f2f13a13a840b6c0c4756e8dd5b,
+    type: 3}
+  PunchSound: {fileID: 7855115547837660963, guid: b9b484a404e1e0e43bd441be5bd5dec5,
+    type: 3}
+  needVelocityForInvisibility: 9999
+  CurrentHealth: 0
 --- !u!1 &1390221641294342662
 GameObject:
   m_ObjectHideFlags: 0
