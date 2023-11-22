@@ -5,6 +5,7 @@ public class DraggableButton : MonoBehaviour, IDragHandler
 {
     [SerializeField] public string playerPrefsKey;
 
+
     private void Start()
     {
         if (PlayerPrefs.HasKey(playerPrefsKey))
@@ -16,7 +17,7 @@ public class DraggableButton : MonoBehaviour, IDragHandler
 
     public void OnDrag(PointerEventData eventData)
     {
-        transform.position = Input.mousePosition;
+        if(SaveButtons.Draggble ) transform.position = Input.mousePosition;
     }
 
     public void ResetPosition()
