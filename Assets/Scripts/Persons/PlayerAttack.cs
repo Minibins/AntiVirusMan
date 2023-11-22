@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections;
-
 using Unity.VisualScripting;
-
 using UnityEngine;
 
 [RequireComponent(typeof(Animator)),
@@ -10,12 +8,14 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     [field: SerializeField] public bool IsSelectedBullet { get; set; }
+
     public enum attackTypes
     {
         Standard,
         Ultra,
         Laser
     }
+
     [field: SerializeField] public attackTypes AttackType { get; set; }
     [field: SerializeField] public int Damage { get; set; }
     [SerializeField, Range(0, 1)] private float SpeedIsDamageCutout;
@@ -23,7 +23,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private GameObject _bullet;
     [SerializeField] private Vector2 _spawnPoinBullet;
     [SerializeField] private GameObject _shield;
-    [SerializeField] private GameObject _shieldUltra,LaserPrefab;
+    [SerializeField] private GameObject _shieldUltra, LaserPrefab;
     [SerializeField] private Joystick Joystick;
     [SerializeField] private Vector2 _shieldSpawnPoint;
     [SerializeField] private Vector2 _shieldUltraSpawnPoint;
@@ -35,9 +35,11 @@ public class PlayerAttack : MonoBehaviour
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
     private Player player;
+
     private Vector2 _spawnPoinBulletNow,
-    _shieldSpawnPointNow,
-    _shieldUltraSpawnPointNow;
+        _shieldSpawnPointNow,
+        _shieldUltraSpawnPointNow;
+
     private PC pc;
 
     public bool isSpeedIsDamage
@@ -57,7 +59,7 @@ public class PlayerAttack : MonoBehaviour
     }
 
     public Action OnRefreshAmmo { get; set; }
-    public float[] coefficientAttack = {0f,0f};
+    public float[] coefficientAttack = {0f, 0f};
 
     public int Ammo
     {
@@ -82,7 +84,7 @@ public class PlayerAttack : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        player= GetComponent<Player>();
+        player = GetComponent<Player>();
         OnRefreshAmmo += AmmoBarRefresh;
     }
 
@@ -108,7 +110,7 @@ public class PlayerAttack : MonoBehaviour
     {
         SetSpawnPoint();
         GameObject _weapon = Instantiate(_shield, _shieldSpawnPointNow, Quaternion.identity);
-        _weapon.GetComponent<AttackProjectile>().Damage = Damage + (int)(coefficientAttack[0] + coefficientAttack[1]);
+        _weapon.GetComponent<AttackProjectile>().Damage = Damage + (int) (coefficientAttack[0] + coefficientAttack[1]);
         Instantiate(_AttackSound);
     }
 
@@ -129,14 +131,15 @@ public class PlayerAttack : MonoBehaviour
         slowUp();
         player.Dash(_spriteRenderer.flipX ? 1 : -1);
     }
+
     public void CreateLaser()
     {
         SetSpawnPoint();
-        Vector2 Rotatedvec=MathA.RotatedVector(_shieldSpawnPoint,Joystick.Direction);
+        Vector2 Rotatedvec = MathA.RotatedVector(_shieldSpawnPoint, Joystick.Direction);
         GameObject _weapon = Instantiate(LaserPrefab,
-            (Vector2)transform.position+Rotatedvec,
+            (Vector2) transform.position + Rotatedvec,
             MathA.VectorsAngle(Rotatedvec));
-        if(GetComponent<Move>().Velocity.x != 0) return;
+        if (GetComponent<Move>().Velocity.x != 0) return;
         _spriteRenderer.flipX = true;
     }
 
@@ -155,11 +158,11 @@ public class PlayerAttack : MonoBehaviour
     {
         if (Ammo < 1) return;
 
-        switch(AttackType)
+        switch (AttackType)
         {
             case attackTypes.Standard:
                 OnAttack();
-                if(IsSelectedBullet)
+                if (IsSelectedBullet)
                 {
                     OnFullAttack();
                     _animator.SetTrigger("FullAttack");
@@ -168,25 +171,27 @@ public class PlayerAttack : MonoBehaviour
                 {
                     _animator.SetTrigger("Attack");
                 }
-            break;
+
+                break;
             case attackTypes.Ultra:
-                if(Ammo < 5) return;
+                if (Ammo < 5) return;
                 Ammo -= 3;
                 _animator.SetTrigger("UltraAttaka");
-                Invoke(nameof(OnUltraAttack),0.5f);
-                if(IsSelectedBullet)
+                Invoke(nameof(OnUltraAttack), 0.5f);
+                if (IsSelectedBullet)
                 {
-                    Invoke(nameof(OnFullAttack),0.5f);
+                    Invoke(nameof(OnFullAttack), 0.5f);
                 }
-            break;
+
+                break;
             case attackTypes.Laser:
-                _spriteRenderer.flipX=Joystick.Horizontal<0;
+                _spriteRenderer.flipX = Joystick.Horizontal < 0;
                 _animator.SetTrigger("Attack");
                 AttackType = LevelUP.isTaken[17] ? attackTypes.Ultra : attackTypes.Standard;
                 Joystick.gameObject.SetActive(false);
-            return;
+                return;
         }
-        
+
         Ammo--;
         AmmoBarRefresh();
     }
@@ -200,7 +205,7 @@ public class PlayerAttack : MonoBehaviour
     public void slowUp()
     {
         rb.bodyType = RigidbodyType2D.Dynamic;
-        _animator.SetBool("IsChad",false);
+        _animator.SetBool("IsChad", false);
     }
 
     private void OnDestroy()

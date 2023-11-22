@@ -3,7 +3,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class Health: MonoBehaviour, Draggable, IDamageble
+public class Health : MonoBehaviour, Draggable, IDamageble
 {
     [SerializeField] protected int _maxHealth;
     [SerializeField] private GameObject DeathSound;
@@ -55,7 +55,6 @@ public class Health: MonoBehaviour, Draggable, IDamageble
     {
         CurrentHealth += health;
         CurrentHealth = CurrentHealth > _maxHealth ? _maxHealth : CurrentHealth;
-        
     }
 
     private void Awake()
@@ -79,8 +78,8 @@ public class Health: MonoBehaviour, Draggable, IDamageble
         OnApplyDamage = null;
     }
 
-    public virtual void DestroyHimself() {
-
+    public virtual void DestroyHimself()
+    {
     }
 
 

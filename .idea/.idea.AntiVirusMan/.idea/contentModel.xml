@@ -3,6 +3,7 @@
   <component name="ContentModelStore">
     <e p="C:\Project\Unity\AntiVirusMan" t="IncludeRecursive">
       <e p="AntiVirusMan.sln" t="IncludeFlat" />
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
@@ -67,6 +68,36 @@
           <e p="wire" t="Include" />
         </e>
         <e p="Fonts" t="Include" />
+        <e p="Joystick Pack" t="Include">
+          <e p="Examples" t="Include">
+            <e p="JoystickPlayerExample.cs" t="Include" />
+            <e p="JoystickSetterExample.cs" t="Include" />
+          </e>
+          <e p="Prefabs" t="Include" />
+          <e p="Scripts" t="Include">
+            <e p="Base" t="Include">
+              <e p="Joystick.cs" t="Include" />
+            </e>
+            <e p="Editor" t="Include">
+              <e p="DynamicJoystickEditor.cs" t="Include" />
+              <e p="FloatingJoystickEditor.cs" t="Include" />
+              <e p="JoystickEditor.cs" t="Include" />
+              <e p="VariableJoystickEditor.cs" t="Include" />
+            </e>
+            <e p="Joysticks" t="Include">
+              <e p="DynamicJoystick.cs" t="Include" />
+              <e p="FixedJoystick.cs" t="Include" />
+              <e p="FloatingJoystick.cs" t="Include" />
+              <e p="VariableJoystick.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Sprites" t="Include">
+            <e p="All Axis Backgrounds" t="Include" />
+            <e p="Handles" t="Include" />
+            <e p="Horizontal Backgrounds" t="Include" />
+            <e p="Vertical Backgrounds" t="Include" />
+          </e>
+        </e>
         <e p="Light" t="Include" />
         <e p="Materials" t="Include" />
         <e p="Package" t="Include">
@@ -207,9 +238,13 @@
           </e>
           <e p="DeathLine.cs" t="Include" />
           <e p="Interfaces and Abstract Classes" t="Include">
+            <e p="Contacter.cs" t="Include" />
             <e p="Draggable.cs" t="Include" />
             <e p="Follower.cs" t="Include" />
+            <e p="Health.cs" t="Include" />
             <e p="IPlayerDamageble.cs" t="Include" />
+            <e p="MathA.cs" t="Include" />
+            <e p="RawAttack.cs" t="Include" />
           </e>
           <e p="Level.cs" t="Include" />
           <e p="LevelUP.cs" t="Include" />
@@ -224,12 +259,13 @@
               <e p="AboveDeath.cs" t="Include" />
               <e p="blackenemy.cs" t="Include" />
               <e p="Enemy.cs" t="Include" />
+              <e p="EnemyHealth.cs" t="Include" />
               <e p="SpeedBoost.cs" t="Include" />
             </e>
-            <e p="Health.cs" t="Include" />
             <e p="HealthCell.cs" t="Include" />
             <e p="Move.cs" t="Include" />
             <e p="pc.cs" t="Include" />
+            <e p="PChealth.cs" t="Include" />
             <e p="Player.cs" t="Include" />
             <e p="PlayerAttack.cs" t="Include" />
           </e>
@@ -274,6 +310,7 @@
           <e p="World" t="Include">
             <e p="ExpCollectible.cs" t="Include" />
             <e p="randomSprite.cs" t="Include" />
+            <e p="Transformer.cs" t="Include" />
             <e p="WayPoint.cs" t="Include" />
           </e>
         </e>
