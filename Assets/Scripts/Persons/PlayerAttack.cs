@@ -136,6 +136,7 @@ public class PlayerAttack : MonoBehaviour
         GameObject _weapon = Instantiate(LaserPrefab,
             (Vector2)transform.position+Rotatedvec,
             MathA.VectorsAngle(Rotatedvec));
+        if(GetComponent<Move>().Velocity.x != 0) return;
         _spriteRenderer.flipX = true;
     }
 

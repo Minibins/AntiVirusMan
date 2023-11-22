@@ -25,13 +25,11 @@ public class SpawnPortals : MonoBehaviour
         while (true)
         {
             GameObject Portals1 = Instantiate(Portals[0],
-                spawnPointPortals[Random.Range(2, spawnPointPortals.Length)].transform.position,
+                spawnPointPortals[Random.Range(0, spawnPointPortals.Length)].transform.position,
                 Quaternion.identity);
 
             GameObject Portals2 = Instantiate(Portals[1],
-                new Vector3(
-                    Random.Range(spawnPointPortals[0].transform.position.x, spawnPointPortals[1].transform.position.x),
-                    spawnPointPortals[0].transform.position.y, 0), Quaternion.identity);
+                    spawnPointPortals[Random.Range(0, spawnPointPortals.Length)].transform.position, Quaternion.identity);
 
             Portals1.GetComponent<Portals>().secondPortal = Portals2;
             Portals2.GetComponent<Portals>().secondPortal = Portals1;

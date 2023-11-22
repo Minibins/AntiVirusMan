@@ -17,7 +17,8 @@ public class Move : MonoBehaviour, Draggable
     private Animator _animator;
     public SpriteRenderer _spriteRenderer;
 
-    private Vector2 _velocity = Vector2.zero;
+    private Vector2 _velocity;
+    public Vector2 Velocity { get { return _velocity; } }
 
     public bool CanJump
     {
