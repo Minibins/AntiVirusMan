@@ -7,7 +7,6 @@ public class DraggableButton : MonoBehaviour, IDragHandler
 
     private void Start()
     {
-        // «агрузка сохраненной позиции при старте
         if (PlayerPrefs.HasKey(playerPrefsKey))
         {
             Vector3 savedPosition = StringToVector3(PlayerPrefs.GetString(playerPrefsKey));
@@ -16,13 +15,14 @@ public class DraggableButton : MonoBehaviour, IDragHandler
     }
 
     public void OnDrag(PointerEventData eventData)
-    { 
+    {
         transform.position = Input.mousePosition;
     }
 
     public void ResetPosition()
     {
-        PlayerPrefs.SetString(playerPrefsKey, Vector3ToString(new Vector3(transform.position.x, transform.position.y, 0)));
+        PlayerPrefs.SetString(playerPrefsKey,
+            Vector3ToString(new Vector3(transform.position.x, transform.position.y, 0)));
         PlayerPrefs.Save();
     }
 
