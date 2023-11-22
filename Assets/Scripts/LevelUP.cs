@@ -21,7 +21,6 @@ public class LevelUP : MonoBehaviour
     {
         isTaken = IsTakenTemplate;
         string isTakenDebug= Convert.ToString(isTaken);
-        Debug.Log(isTakenDebug);
     }
     public void NewUpgrade()
     {

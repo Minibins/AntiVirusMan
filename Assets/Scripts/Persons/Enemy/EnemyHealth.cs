@@ -31,4 +31,8 @@ public class EnemyHealth : Health
         Destroy(gameObject);
         
     }
+    protected override void FixedUpdate()
+    {
+        
+    }
 }

@@ -84,7 +84,7 @@ public class Health: MonoBehaviour, Draggable, IDamageble
     }
 
 
-    private void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         if (rb.velocity.magnitude < needVelocityForInvisibility)
         {
