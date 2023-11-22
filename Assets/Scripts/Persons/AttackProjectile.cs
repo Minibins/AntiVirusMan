@@ -25,7 +25,7 @@ public class AttackProjectile : MonoBehaviour
     {
         _move = GetComponent<Move>();
     }
-    private void Start()
+    protected virtual void Start()
     {
         if (_move != null) {
         if(_velosity.x!=0)
@@ -46,16 +46,12 @@ public class AttackProjectile : MonoBehaviour
         }
         
     }
-    public void DestroyThis(float time = 0f)
-    {
-        Destroy(gameObject, time);
-    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (ExplodeIfCollideWithWall)
         {
             Instantiate(Explosion,transform.position,transform.rotation);
-            DestroyThis(0f);
+            Destroy(gameObject,0f);
         }
     }
 }

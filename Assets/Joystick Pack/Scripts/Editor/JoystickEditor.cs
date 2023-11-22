@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
@@ -12,6 +12,7 @@ public class JoystickEditor : Editor
     private SerializedProperty snapX;
     private SerializedProperty snapY;
     protected SerializedProperty background;
+    protected SerializedProperty OnDragEnd;
     private SerializedProperty handle;
 
     protected Vector2 center = new Vector2(0.5f, 0.5f);
@@ -25,6 +26,7 @@ public class JoystickEditor : Editor
         snapY = serializedObject.FindProperty("snapY");
         background = serializedObject.FindProperty("background");
         handle = serializedObject.FindProperty("handle");
+        OnDragEnd = serializedObject.FindProperty("OnDragEnd");
     }
 
     public override void OnInspectorGUI()
@@ -34,7 +36,8 @@ public class JoystickEditor : Editor
         DrawValues();
         EditorGUILayout.Space();
         DrawComponents();
-
+        EditorGUILayout.Space();
+        DrawEvents();
         serializedObject.ApplyModifiedProperties();
 
         if(handle != null)
@@ -54,6 +57,7 @@ public class JoystickEditor : Editor
         EditorGUILayout.PropertyField(axisOptions, new GUIContent("Axis Options", "Which axes the joystick uses."));
         EditorGUILayout.PropertyField(snapX, new GUIContent("Snap X", "Snap the horizontal input to a whole value."));
         EditorGUILayout.PropertyField(snapY, new GUIContent("Snap Y", "Snap the vertical input to a whole value."));
+        
     }
 
     protected virtual void DrawComponents()
@@ -61,4 +65,8 @@ public class JoystickEditor : Editor
         EditorGUILayout.ObjectField(background, new GUIContent("Background", "The background's RectTransform component."));
         EditorGUILayout.ObjectField(handle, new GUIContent("Handle", "The handle's RectTransform component."));
     }
-}
+    protected virtual void DrawEvents()
+    {
+        EditorGUILayout.ObjectField(OnDragEnd,new GUIContent("On Drag End","Event, which Invokes, when you stop dragging"));
+    }
+}*/

@@ -51,13 +51,9 @@ public class Drone : Follower,IDamageble
             
             switch(i)
             {
-                case 0:
-                    bullet.transform.rotation = Quaternion.Euler(180,180,rotation);
-                
-                break;
                 case 1:
                 rotation *= -1;
-                bullet.transform.rotation = Quaternion.Euler(180,180,rotation);
+                
                 
                 break;
             }
@@ -67,6 +63,7 @@ public class Drone : Follower,IDamageble
             if(bulletAttack._velosity.y>0) bulletAttack._velosity*=-1;
             
             bulletAttack._mask.value = 23552;
+            bullet.transform.rotation = MathA.VectorsAngle(bulletAttack._velosity);
         }
 
     }

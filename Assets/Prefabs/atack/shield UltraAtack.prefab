@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4351347600884552486}
   - component: {fileID: 4067551086222514235}
   - component: {fileID: 712682373744742078}
+  - component: {fileID: 4795321178717176958}
   m_Layer: 2
   m_Name: shield UltraAtack
   m_TagString: AntivirusAtack
@@ -207,3 +208,15 @@ MonoBehaviour:
   _jumpingPower: 0
   _speed: 0
   _spriteRenderer: {fileID: 0}
+--- !u!114 &4795321178717176958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4351347600884552508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3aa73394fcb4ef3489d741f052c85191, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

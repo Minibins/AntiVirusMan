@@ -123,16 +123,20 @@ public class PlayerAttack : MonoBehaviour
     {
         SetSpawnPoint();
         GameObject _weapon = Instantiate(_shieldUltra, _shieldUltraSpawnPointNow, Quaternion.identity);
-        _weapon.GetComponent<SpriteRenderer>().flipX = gameObject.GetComponent<SpriteRenderer>().flipX;
+        _weapon.GetComponent<SpriteRenderer>().flipX = _spriteRenderer.flipX;
         _weapon.GetComponent<AttackProjectile>().Damage = Damage;
         Instantiate(_AttackSound);
         slowUp();
         player.Dash(_spriteRenderer.flipX ? 1 : -1);
     }
-    void CreateLaser()
+    public void CreateLaser()
     {
-        GameObject _weapon = Instantiate(LaserPrefab, MathA.RotatedVector(_shieldSpawnPoint,Joystick.Direction), Quaternion.identity) ;
-       
+        SetSpawnPoint();
+        Vector2 Rotatedvec=MathA.RotatedVector(_shieldSpawnPoint,Joystick.Direction);
+        GameObject _weapon = Instantiate(LaserPrefab,
+            (Vector2)transform.position+Rotatedvec,
+            MathA.VectorsAngle(Rotatedvec));
+        _spriteRenderer.flipX = true;
     }
 
     IEnumerator SpeedIsDamage()
@@ -175,9 +179,9 @@ public class PlayerAttack : MonoBehaviour
                 }
             break;
             case attackTypes.Laser:
+                _spriteRenderer.flipX=Joystick.Horizontal<0;
                 _animator.SetTrigger("Attack");
                 AttackType = LevelUP.isTaken[17] ? attackTypes.Ultra : attackTypes.Standard;
-                CreateLaser();
                 Joystick.gameObject.SetActive(false);
             return;
         }

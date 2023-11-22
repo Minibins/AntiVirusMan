@@ -1,13 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 public class DynamicJoystick : Joystick
 {
     public float MoveThreshold { get { return moveThreshold; } set { moveThreshold = Mathf.Abs(value); } }
-    [SerializeField] private UnityEvent player;
     [SerializeField] private float moveThreshold = 1;
 
     protected override void Start()
@@ -27,8 +24,7 @@ public class DynamicJoystick : Joystick
     public override void OnPointerUp(PointerEventData eventData)
     {
         background.gameObject.SetActive(false);
-        player.Invoke();
-        base.OnPointerUp(eventData);
+        OnDragEnd.Invoke();
     }
 
     protected override void HandleInput(float magnitude, Vector2 normalised, Vector2 radius, Camera cam)
