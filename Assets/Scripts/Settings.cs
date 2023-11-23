@@ -5,6 +5,10 @@ public class Settings : MonoBehaviour
 {
     [SerializeField] private GameObject LosePanel;
     [SerializeField] private GameObject Buttons;
+    [SerializeField] private GameObject joystick;
+    [SerializeField] private GameObject leftButton;
+    [SerializeField] private GameObject rightButton;
+    private bool isUsingJoystick = true;
     public Timer timer;
     public GameObject SettingsPanel;
     
@@ -15,7 +19,16 @@ public class Settings : MonoBehaviour
         timer.StartTimeFlow();
         Time.timeScale = 1;
     }
-    
+
+    public void ChangeUI()
+    {
+        isUsingJoystick = !isUsingJoystick;
+
+        joystick.SetActive(isUsingJoystick);
+        leftButton.SetActive(!isUsingJoystick);
+        rightButton.SetActive(!isUsingJoystick);
+    }
+
     public void OpenSettings(bool Open)
     {
         SettingsPanel.SetActive(Open);
