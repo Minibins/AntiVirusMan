@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -6,11 +7,25 @@ using UnityEngine.EventSystems;
 
 public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
 {
+    public float Horizontal
+    {
+        get { return (snapX) ? SnapFloat(input.x, AxisOptions.Horizontal) : input.x; }
+    }
 
-    
-    public float Horizontal { get { return (snapX) ? SnapFloat(input.x, AxisOptions.Horizontal) : input.x; } }
-    public float Vertical { get { return (snapY) ? SnapFloat(input.y, AxisOptions.Vertical) : input.y; } }
-    public Vector2 Direction { get { return new Vector2(Horizontal, Vertical); } }
+    private void Update()
+    {
+        print(Horizontal.ToString());
+    }
+
+    public float Vertical
+    {
+        get { return (snapY) ? SnapFloat(input.y, AxisOptions.Vertical) : input.y; }
+    }
+
+    public Vector2 Direction
+    {
+        get { return new Vector2(Horizontal, Vertical); }
+    }
 
     public float HandleRange
     {
@@ -24,9 +39,23 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
         set { deadZone = Mathf.Abs(value); }
     }
 
-    public AxisOptions AxisOptions { get { return AxisOptions; } set { axisOptions = value; } }
-    public bool SnapX { get { return snapX; } set { snapX = value; } }
-    public bool SnapY { get { return snapY; } set { snapY = value; } }
+    public AxisOptions AxisOptions
+    {
+        get { return AxisOptions; }
+        set { axisOptions = value; }
+    }
+
+    public bool SnapX
+    {
+        get { return snapX; }
+        set { snapX = value; }
+    }
+
+    public bool SnapY
+    {
+        get { return snapY; }
+        set { snapY = value; }
+    }
 
     [SerializeField] private float handleRange = 1;
     [SerializeField] private float deadZone = 0;
@@ -36,6 +65,7 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
     [SerializeField] protected UnityEvent OnDragEnd;
     [SerializeField] protected RectTransform background = null;
     [SerializeField] private RectTransform handle = null;
+    [SerializeField] private bool isMovejoystick;
     private RectTransform baseRect = null;
 
     private Canvas canvas;
@@ -52,12 +82,18 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
         if (canvas == null)
             Debug.LogError("The Joystick is not placed inside a canvas");
 
+        ToCenter();
+    }
+
+    private void ToCenter()
+    {
         Vector2 center = new Vector2(0.5f, 0.5f);
         background.pivot = center;
         handle.anchorMin = center;
         handle.anchorMax = center;
         handle.pivot = center;
         handle.anchoredPosition = Vector2.zero;
+        input.x = 0f;
     }
 
     public virtual void OnPointerDown(PointerEventData eventData)
@@ -81,7 +117,7 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
 
     protected virtual void HandleInput(float magnitude, Vector2 normalised, Vector2 radius, Camera cam)
     {
-        if (magnitude > deadZone-0.000001f)
+        if (magnitude > deadZone - 0.000001f)
         {
             if (magnitude > 1)
                 input = normalised;
@@ -120,6 +156,7 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
                 else
                     return (value > 0) ? 1 : -1;
             }
+
             return value;
         }
         else
@@ -129,11 +166,16 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
             if (value < 0)
                 return -1;
         }
+
         return 0;
     }
 
     public virtual void OnPointerUp(PointerEventData eventData)
     {
+        if (isMovejoystick)
+        {
+            ToCenter();
+        }
     }
 
     protected Vector2 ScreenPointToAnchoredPosition(Vector2 screenPosition)
@@ -144,8 +186,14 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
             Vector2 pivotOffset = baseRect.pivot * baseRect.sizeDelta;
             return localPoint - (background.anchorMax * baseRect.sizeDelta) + pivotOffset;
         }
+
         return Vector2.zero;
     }
 }
 
-public enum AxisOptions { Both, Horizontal, Vertical }
+public enum AxisOptions
+{
+    Both,
+    Horizontal,
+    Vertical
+}
