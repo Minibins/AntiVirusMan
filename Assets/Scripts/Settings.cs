@@ -8,7 +8,7 @@ public class Settings : MonoBehaviour
     [SerializeField] private GameObject joystick;
     [SerializeField] private GameObject leftButton;
     [SerializeField] private GameObject rightButton;
-    private bool isUsingJoystick = true;
+    public static bool isUsingJoystick = false;
     public Timer timer;
     public GameObject SettingsPanel;
     
