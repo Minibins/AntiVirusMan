@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
@@ -10,11 +7,6 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
     public float Horizontal
     {
         get { return (snapX) ? SnapFloat(input.x, AxisOptions.Horizontal) : input.x; }
-    }
-
-    private void Update()
-    {
-        print(Horizontal.ToString());
     }
 
     public float Vertical
