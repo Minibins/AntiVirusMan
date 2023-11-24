@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private Transform _groundCheck;
     [SerializeField] private LayerMask _groundLayer;
-    [SerializeField] private Health _health;
+    [SerializeField] private PChealth _health;
     [SerializeField] public float dashRange;
     private PlayerAttack playerAttack;
     private bool Stunned;

@@ -11419,7 +11419,7 @@ MonoBehaviour:
   maxTimeSpawnWave: 7
   BossAlpha: {fileID: 1452801733}
   EliteSpawnChance: 8
-  isSpawn: 1
+  isSpawn: 0
 --- !u!4 &427215479
 Transform:
   m_ObjectHideFlags: 0
@@ -23871,6 +23871,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4417986938952456623, guid: 0951b036ba0a12343a56eff64eed7b4c,
+        type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4489515261119201353, guid: 0951b036ba0a12343a56eff64eed7b4c,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -24271,6 +24276,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8272684241438253747, guid: 0951b036ba0a12343a56eff64eed7b4c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8570206491671621076, guid: 0951b036ba0a12343a56eff64eed7b4c,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -24339,6 +24349,11 @@ PrefabInstance:
     - target: {fileID: 9060950942130076799, guid: 0951b036ba0a12343a56eff64eed7b4c,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9214942227113919116, guid: 0951b036ba0a12343a56eff64eed7b4c,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -24530,7 +24545,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _health
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 4765063866695837592}
     - target: {fileID: 193935507143263751, guid: ec94f27c1555e174ebada4b736dde08b,
         type: 3}
       propertyPath: flySpeed
