@@ -15,6 +15,12 @@ public class Timer : MonoBehaviour
     public static int min;
     public Action OnTimer { get; set; }
 
+    private void Start()
+    {
+        fiilSprite = (Convert.ToSingle(min) * 60 + Convert.ToSingle(sec)) / (Convert.ToSingle(TimeToWin) * 60);
+        TimeSprite.fillAmount = fiilSprite;
+    }
+
     public void StartTimeFlow()
     {
         StartCoroutine(TimeFlow());
@@ -31,7 +37,7 @@ public class Timer : MonoBehaviour
                 if (min * 60 >= (TimeToWin * 60) + 10)
                 {
                     GameObject boss = GameObject.FindGameObjectWithTag("Boss");
-                    if (boss = null)
+                    if (boss == null)
                     {
                         save.LoadField();
                         if (save.data.WinLocation < _level)
