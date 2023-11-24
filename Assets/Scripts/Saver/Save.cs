@@ -1,7 +1,5 @@
 using UnityEngine;
 using System.IO;
-using UnityEngine.UI;
-
 public class Save : MonoBehaviour
 {
     public Data data;
@@ -19,4 +17,17 @@ public class Save : MonoBehaviour
     {
         File.WriteAllText(Application.streamingAssetsPath + "/Data.avm", JsonUtility.ToJson(data));
     }
+    public struct Data
+    {
+        public float MusicVolume;
+        public int WinLocation;
+        public string LastSessionVersion;
+        public Data(float MusicVolume,int WinLocation,string LastSessionVersion)
+        {
+            this.MusicVolume = MusicVolume;
+            this.WinLocation = WinLocation;
+            this.LastSessionVersion = LastSessionVersion;
+        }
+    }
+
 }

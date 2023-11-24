@@ -1,20 +1,32 @@
 ﻿using System;
 
 using UnityEngine;
-
+public enum EnemyTypes
+    {
+        [EnemyTypesAttributes(0,0,0)]
+        Soplik,
+        [EnemyTypesAttributes(5,0,0)]
+        Stepa,
+        [EnemyTypesAttributes(0,5,0)]
+        Booka,
+        [EnemyTypesAttributes(-5,0,0)]
+        Toocha
+    }
+public class EnemyTypesAttributes:Attribute
+{
+    private Vector3Int position;
+    public EnemyTypesAttributes(int x,int y,int z)
+    {
+        this.position = new Vector3Int(x,y,z);
+    }
+}
 [RequireComponent(typeof(Health)),
  RequireComponent(typeof(Animator)),
  RequireComponent(typeof(Rigidbody2D)),
  RequireComponent(typeof(SpriteRenderer))]
 public class Enemy : MonoBehaviour
 {
-    private enum EnemyTypes
-    {
-        Soplik,
-        Stepa,
-        Booka,
-        Toocha
-    }
+    
     [SerializeField] private EnemyTypes WhoAmI;
     [SerializeField] private LayerMask _maskWhoKills;
     public float moveDirection;
