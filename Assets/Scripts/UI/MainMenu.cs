@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -30,14 +31,18 @@ public class MainMenu : MonoBehaviour
     private void Update()
     {
         save.SaveField();
+        
+        if (Input.GetKeyDown(KeyCode.Escape))
+            Application.Quit();
+            System.Environment.Exit(0);
     }
 
 
     public void ExitGame()
     {
         save.SaveField();
-        //  Environment.Exit(42);
-        Debug.Log("Quit");
+
+        System.Environment.Exit(0);
         Application.Quit();
     }
 
