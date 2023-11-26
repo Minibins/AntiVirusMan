@@ -48,7 +48,8 @@ public class Controller : MonoBehaviour
         }
         if(_moveValue.y < -0.1f)
         {
-            _player.Down();
+            if(LevelUP.isTaken[4])
+                _player.Down();
         }
     }
     private void StopMove()
@@ -70,6 +71,7 @@ public class Controller : MonoBehaviour
     }
     private void Dash()
     {
+        if(LevelUP.isTaken[10])
         _player.Dash(0);
     }
 }
