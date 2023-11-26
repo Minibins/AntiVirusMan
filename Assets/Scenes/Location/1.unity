@@ -12355,10 +12355,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 041f8a492e5db0548b6eeb7c5cf2eeaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data:
-    MusicVolume: 0
-    WinLocation: 0
-    LastSessionVersion: 
 --- !u!4 &586405111
 Transform:
   m_ObjectHideFlags: 0
@@ -17135,10 +17131,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f0388d3bb394763468d693076e95c9ba, type: 3}
   - {fileID: 21300000, guid: 31931b9eba8598f44836ff8fbd028a8f, type: 3}
   - {fileID: 21300000, guid: 9e2e2a35ebe23b24d8dc736eaa20e8e7, type: 3}
+  - {fileID: 21300000, guid: c15032fc062884746852fdd77406d6d3, type: 3}
   - {fileID: 21300000, guid: b4e583ea31204b14fa7681188939d428, type: 3}
-  - {fileID: 21300000, guid: c15032fc062884746852fdd77406d6d3, type: 3}
   - {fileID: 21300000, guid: 9cf100d219dc7cb4cbd21892a67735cb, type: 3}
-  - {fileID: 21300000, guid: c15032fc062884746852fdd77406d6d3, type: 3}
+  - {fileID: 21300000, guid: 7d4b5fa4155772e49be685cd2966330d, type: 3}
   - {fileID: 21300000, guid: d36c729e4c4588c49b5f54c35d754aa1, type: 3}
   IsTakenTemplate: 0000000000000000000000000000000000000000000000
   a: 0
@@ -23424,7 +23420,7 @@ PrefabInstance:
     - target: {fileID: 218296506991818270, guid: 0951b036ba0a12343a56eff64eed7b4c,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 168.05
+      value: 168.0498
       objectReference: {fileID: 0}
     - target: {fileID: 218296506991818270, guid: 0951b036ba0a12343a56eff64eed7b4c,
         type: 3}
@@ -23610,6 +23606,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864692429902805712, guid: 0951b036ba0a12343a56eff64eed7b4c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 7.069824
       objectReference: {fileID: 0}
     - target: {fileID: 1897799623379633847, guid: 0951b036ba0a12343a56eff64eed7b4c,
         type: 3}
