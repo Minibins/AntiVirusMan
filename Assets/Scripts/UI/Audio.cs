@@ -9,22 +9,19 @@ public class Audio : MonoBehaviour
     [SerializeField] private float _Volume;
     [SerializeField] private Text MusicVolumeText;
     [SerializeField] private Save save;
-    public bool a;
 
     private void Start()
     {
         _Volume = save.data.MusicVolume;
         slider.value = _Volume;
-        MusicVolumeText.text = "Music:" + Mathf.RoundToInt(_Volume * 100) + "%";   
+        MusicVolumeText.text = "Music:" + (_Volume * 100) + "%";   
     }
 
     private void Update()
     {
         _audio.volume = _Volume;
-        if (a)
-        {
-            slider.value = _Volume;
-        }
+         slider.value = _Volume;
+        
     }
 
     public void VolumeSlider()

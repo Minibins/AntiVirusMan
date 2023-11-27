@@ -13,7 +13,7 @@ public class LevelUP : MonoBehaviour
     public Sprite[] itemtextures;
     [SerializeField] private bool[] IsTakenTemplate;
     public static bool[] isTaken;
-    public int a;
+    private int a;
     private Image spritechangingFirst;
     private Image spritechangingSecond;
     private Image spritechangingThree;

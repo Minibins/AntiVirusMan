@@ -103,7 +103,7 @@ public class Player : MonoBehaviour
             _move.StartJump();
             Invoke(nameof(StopJump), 0.1f);
         }
-        if(LevelUP.isTaken[15])
+        if(LevelUP.isTaken[15]&&_rb.bodyType!=RigidbodyType2D.Static)
         {
             _move.CanJump = false;
             fly7 = true;

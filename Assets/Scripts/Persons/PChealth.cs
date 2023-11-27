@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PChealth : Health
+public class PChealth : DefaultHealth
 {
 
     [SerializeField] private HealthCell[] healthCells;
@@ -28,7 +28,7 @@ public class PChealth : Health
     }
     public override void DestroyHimself()
     {
-        GameObject.FindGameObjectWithTag("LoseGame").GetComponent<LoseGame>().Lose();
+        LoseGame.instance.Lose();
         SoundDead();
     }
 }

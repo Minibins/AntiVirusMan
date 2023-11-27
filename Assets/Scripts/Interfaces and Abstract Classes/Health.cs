@@ -8,11 +8,8 @@ public class Health : MonoBehaviour, Draggable, IDamageble
     [SerializeField] protected int _maxHealth;
     [SerializeField] private GameObject DeathSound;
     [SerializeField] private GameObject PunchSound;
-    [SerializeField] private float needVelocityForInvisibility = 9999;
     [field: SerializeField] public float CurrentHealth;
-    private bool IsInvisible;
-    private Rigidbody2D rb;
-    private Animator animator;
+    protected Animator animator;
     private Action _onDeath;
 
     public Action OnDeath
@@ -33,16 +30,14 @@ public class Health : MonoBehaviour, Draggable, IDamageble
 
     public virtual void ApplyDamage(float damage)
     {
-        if (!IsInvisible)
-        {
+        
             Instantiate(PunchSound);
             CurrentHealth -= damage;
             OnApplyDamage?.Invoke();
-            if (CurrentHealth <= 0)
+            if(CurrentHealth <= 0)
             {
                 OnDeath?.Invoke();
             }
-        }
     }
 
     public void SetMaxHealth(int maxHealth)
@@ -57,14 +52,14 @@ public class Health : MonoBehaviour, Draggable, IDamageble
         CurrentHealth = CurrentHealth > _maxHealth ? _maxHealth : CurrentHealth;
     }
 
-    private void Awake()
+    protected virtual void Awake()
     {
         CurrentHealth = _maxHealth;
     }
 
     protected virtual void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        
         animator = GetComponent<Animator>();
         if (OnDeath == null)
         {
@@ -83,19 +78,7 @@ public class Health : MonoBehaviour, Draggable, IDamageble
     }
 
 
-    protected virtual void FixedUpdate()
-    {
-        if (rb.velocity.magnitude < needVelocityForInvisibility)
-        {
-            IsInvisible = false;
-            animator.SetBool("IsInvisible", false);
-        }
-        else
-        {
-            IsInvisible = true;
-            animator.SetBool("IsInvisible", true);
-        }
-    }
+    
 
     public void SoundDead()
     {
@@ -108,7 +91,6 @@ public class Health : MonoBehaviour, Draggable, IDamageble
 
     public void OnDragEnd()
     {
-        IsInvisible = false;
     }
 
     public void OnDamageGet(int Damage)

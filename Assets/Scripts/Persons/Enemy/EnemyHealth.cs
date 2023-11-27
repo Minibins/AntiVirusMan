@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyHealth : Health
+public class EnemyHealth : DefaultHealth
 {
     private Enemy me;
     private Transform player;

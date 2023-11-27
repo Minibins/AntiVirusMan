@@ -14,11 +14,11 @@ GameObject:
   - component: {fileID: 4134125636454578512}
   - component: {fileID: 4700930493949401119}
   - component: {fileID: 2568750583019537692}
-  - component: {fileID: 7122927710741264080}
   - component: {fileID: 7110360366878091776}
   - component: {fileID: -6922692357126491764}
   - component: {fileID: 3636822425960529256}
   - component: {fileID: 2475791116143967761}
+  - component: {fileID: 4946646958024571949}
   m_Layer: 12
   m_Name: Baaka
   m_TagString: Enemy
@@ -177,25 +177,6 @@ MonoBehaviour:
   ChangeMove: 0
   MoveToPoint: {fileID: 0}
   _PC: {fileID: 0}
---- !u!114 &7122927710741264080
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8615089305505906155}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 296bae884819c4342a33c7d76ea9ff4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _correctionY: 0.71
-  ForcerePulsive: 30.9
-  Elite: 1
-  numberOfObjectsToSpawn: 50
-  objectToSpawn: {fileID: 6345187588179732482, guid: 79d973c793a321b419f64cc52cebd51e,
-    type: 3}
-  IsPlatform: 0
 --- !u!70 &7110360366878091776
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -279,5 +260,23 @@ MonoBehaviour:
     type: 3}
   PunchSound: {fileID: 7855115547837660963, guid: 2885d6336d009894796b76f5f36a03eb,
     type: 3}
-  needVelocityForInvisibility: 9999
   CurrentHealth: 0
+  needVelocityForInvisibility: 9999
+--- !u!114 &4946646958024571949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8615089305505906155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06631529ca980164c86e2e6fe92313e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _correctionY: 0.8
+  ForcerePulsive: 30.9
+  IsPlatform: 0
+  numberOfObjectsToSpawn: 50
+  objectToSpawn: {fileID: 6345187588179732482, guid: 79d973c793a321b419f64cc52cebd51e,
+    type: 3}

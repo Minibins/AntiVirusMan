@@ -9,8 +9,7 @@ public class Level : MonoBehaviour
     [SerializeField] private LevelUP LevelUpScript;
     [SerializeField] public static float EnemyNeedToUpLVL = 15;
     private static float EnemyDie;
-    public Image _enemyDieSprite;
-    public float i;
+    [SerializeField] private Image _enemyDieSprite;
     public Action OnEnemyDie { get; set; }
     private void Start()
     {
@@ -46,8 +45,7 @@ public class Level : MonoBehaviour
 
     private void Upgrade() 
     {
-        i = (float)EnemyDie / EnemyNeedToUpLVL;
-        _enemyDieSprite.fillAmount = i;
+        _enemyDieSprite.fillAmount = (float)EnemyDie / EnemyNeedToUpLVL;
         if (EnemyDie >= EnemyNeedToUpLVL)
         {
             EnemyDie = 0;
