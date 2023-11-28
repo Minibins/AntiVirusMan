@@ -6,6 +6,7 @@ public class AttackProjectile : MonoBehaviour
     [SerializeField] private GameObject Explosion;
     public int Damage
     {
+        
         get
         {
             return _damage;
@@ -35,15 +36,12 @@ public class AttackProjectile : MonoBehaviour
             
                 _move.MoveVertically(_velosity.y);
         }
-        }
+        };
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (((_mask.value & (1 << collision.gameObject.layer)) != 0) && collision.gameObject.TryGetComponent<IDamageble>(out _Target))
-        {
-            _Target.OnDamageGet(Damage);
-        }
         
+        OnSomethingEnter2D(collision);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -51,6 +49,14 @@ public class AttackProjectile : MonoBehaviour
         {
             Instantiate(Explosion,transform.position,transform.rotation);
             Destroy(gameObject,0f);
+        }
+        OnSomethingEnter2D(collision.collider);
+    }
+    private void OnSomethingEnter2D(Collider2D collision)
+    {
+        if(((_mask.value & (1 << collision.gameObject.layer)) != 0) && collision.gameObject.TryGetComponent<IDamageble>(out _Target))
+        {
+            _Target.OnDamageGet(Damage);
         }
     }
 }

@@ -10,7 +10,7 @@ public class CollisionChecker : MonoBehaviour
         CollisionStayAction,
         CollisionExitAction;
     //Те, кто зашел в контакт
-    protected List<GameObject> EnteredThings;
+    protected List<GameObject> EnteredThings=new List<GameObject>();
     //Условия при которых будет работать
     protected virtual bool EnterCondition(Collision2D other)
     {
@@ -30,6 +30,7 @@ public class CollisionChecker : MonoBehaviour
     {
         if(EnterCondition(other))
         {
+            if(CollisionEnterAction != null)
             CollisionEnterAction.Invoke();
 
             if(!EnteredThings.Contains(other.gameObject))
@@ -40,7 +41,7 @@ public class CollisionChecker : MonoBehaviour
     }
     protected virtual void OnCollisionStay2D(Collision2D other)
     {
-        if(StayCondition(other))
+        if(StayCondition(other)&&CollisionStayAction!=null)
         {
             CollisionStayAction.Invoke();
         }
@@ -49,7 +50,8 @@ public class CollisionChecker : MonoBehaviour
     {
         if(ExitCondition(other))
         {
-            CollisionExitAction.Invoke();
+            if(CollisionExitAction != null)
+                CollisionExitAction.Invoke();
             if(EnteredThings.Contains(other.gameObject))
             {
                 EnteredThings.Remove(other.gameObject);

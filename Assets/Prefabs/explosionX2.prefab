@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 6283972555444168515}
   - component: {fileID: 2782032616042719200}
   - component: {fileID: 8404085283939027207}
-  m_Layer: 0
+  - component: {fileID: 1878500852756508464}
+  m_Layer: 10
   m_Name: explosionX2
-  m_TagString: ATACK EVERYBODY
+  m_TagString: enemy projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -171,3 +172,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LittleExplosion: {fileID: 7400353856204738200, guid: ec1959a32c289f34a8e3b24bc60ec0f1,
     type: 3}
+--- !u!114 &1878500852756508464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6283972555444168526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9c4fd5ae8cbe924582d0b08150dbc86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 1
+  ExplodeIfCollideWithWall: 0
+  Explosion: {fileID: 0}
+  _mask:
+    serializedVersion: 2
+    m_Bits: 130047
+  _velosity: {x: 0, y: 0}
