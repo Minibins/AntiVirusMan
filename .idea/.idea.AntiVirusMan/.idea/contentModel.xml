@@ -27,6 +27,9 @@
               <e p="GreenEnemy" t="Include" />
               <e p="RedEmeny" t="Include" />
             </e>
+            <e p="Tutorial" t="Include">
+              <e p="Green" t="Include" />
+            </e>
             <e p="wire" t="Include">
               <e p="booka" t="Include" />
               <e p="Green" t="Include" />
@@ -53,6 +56,7 @@
           <e p="Spawner" t="Include" />
           <e p="Training" t="Include" />
           <e p="Wall" t="Include" />
+          <e p="wheels" t="Include" />
         </e>
         <e p="Documentation.cs" t="Include" />
         <e p="Enemy" t="Include">
@@ -203,10 +207,6 @@
             <e p="AVMMAN" t="Include">
               <e p="Materials" t="Include" />
             </e>
-            <e p="Button" t="Include">
-              <e p="Menu" t="Include" />
-              <e p="Settings" t="Include" />
-            </e>
             <e p="Chit" t="Include" />
             <e p="GreenEnemy" t="Include" />
             <e p="Knife" t="Include" />
@@ -217,6 +217,10 @@
             <e p="TV" t="Include" />
           </e>
           <e p="atack" t="Include" />
+          <e p="Button" t="Include">
+            <e p="Menu" t="Include" />
+            <e p="Settings" t="Include" />
+          </e>
           <e p="LevelUp" t="Include" />
           <e p="Portals" t="Include" />
           <e p="UpgradeButtons" t="Include" />
@@ -238,6 +242,7 @@
           </e>
           <e p="DeathLine.cs" t="Include" />
           <e p="Interfaces and Abstract Classes" t="Include">
+            <e p="AbovePlayerChecker.cs" t="Include" />
             <e p="Contacter.cs" t="Include" />
             <e p="Draggable.cs" t="Include" />
             <e p="Follower.cs" t="Include" />
@@ -254,9 +259,13 @@
             <e p="AmmoCell.cs" t="Include" />
             <e p="Attack.cs" t="Include" />
             <e p="AttackProjectile.cs" t="Include" />
+            <e p="DefaultHealth.cs" t="Include" />
             <e p="Enemy" t="Include">
               <e p="AboveDeath.cs" t="Include" />
               <e p="blackenemy.cs" t="Include" />
+              <e p="Elite" t="Include">
+                <e p="Baaka.cs" t="Include" />
+              </e>
               <e p="Enemy.cs" t="Include" />
               <e p="EnemyHealth.cs" t="Include" />
               <e p="SpeedBoost.cs" t="Include" />
@@ -278,10 +287,13 @@
           <e p="SpawnerEnemy.cs" t="Include" />
           <e p="SpawnFirstAidKit.cs" t="Include" />
           <e p="SpawnPortals.cs" t="Include" />
+          <e p="SpawnTrain.cs" t="Include" />
           <e p="Structures" t="Include" />
           <e p="suicide.cs" t="Include" />
           <e p="SuicideAfterTime.cs" t="Include" />
           <e p="Timer.cs" t="Include" />
+          <e p="TrainMove.cs" t="Include" />
+          <e p="TrainOption.cs" t="Include" />
           <e p="UI" t="Include">
             <e p="Audio.cs" t="Include" />
             <e p="DraggableButton.cs" t="Include" />
@@ -309,8 +321,15 @@
           <e p="UpgradeButton.cs" t="Include" />
           <e p="World" t="Include">
             <e p="ExpCollectible.cs" t="Include" />
+            <e p="LightFromTime.cs" t="Include" />
             <e p="randomSprite.cs" t="Include" />
             <e p="Transformer.cs" t="Include" />
+            <e p="Tutorial" t="Include">
+              <e p="AnimationsOnDamageGet.cs" t="Include" />
+              <e p="DummyHealth.cs" t="Include" />
+              <e p="Explosive.cs" t="Include" />
+              <e p="springBooka.cs" t="Include" />
+            </e>
             <e p="WayPoint.cs" t="Include" />
           </e>
         </e>
@@ -321,8 +340,17 @@
         <e p="Sprites" t="Include">
           <e p="Antivirus" t="Include" />
           <e p="TileMap" t="Include">
-            <e p="Platform" t="Include" />
-            <e p="wire" t="Include" />
+            <e p="Scene" t="Include">
+              <e p="1" t="Include">
+                <e p="Platform" t="Include" />
+                <e p="wire" t="Include" />
+              </e>
+              <e p="2" t="Include">
+                <e p="Platform" t="Include" />
+                <e p="Train" t="Include" />
+              </e>
+              <e p="Tutorial" t="Include" />
+            </e>
           </e>
           <e p="Upgrade" t="Include" />
         </e>
