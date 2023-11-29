@@ -4,56 +4,35 @@ using UnityEngine;
 public class UnityEvents : MonoBehaviour
 {
     private static Player _player;
+    private static InstantiateWall _wall;
     private static PlayerAttack _playerAttack;
     private static Settings _settings;
-    private static FixedJoystick _joystick;
-
     private void Start()
     {
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        _playerAttack = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerAttack>();
+        _playerAttack = _player.GetComponent<PlayerAttack>();
+        _wall = _player.GetComponent<InstantiateWall>();
         _settings = FindAnyObjectByType<Settings>();
-    }
-
-    private void FixedUpdate()
-    {
-        if (Settings.isUsingJoystick)
-        {
-            if (_joystick == null)
-            {
-                _joystick = GameObject.FindGameObjectWithTag("FixedJoystick").GetComponent<FixedJoystick>();
-            }
-
-            UE_joystick();
-        }
     }
 
     public static void UE_ButtonLeft()
     {
-        _player.Left();
+        _player.Walk(-1);
     }
 
     public static void UE_ButtonRigth()
     {
-        _player.Rigth();
+        _player.Walk(1);
     }
 
-    public static void UE_joystick()
+    public void UE_JoystickHorizontal(float input)
     {
-        if (_joystick.Horizontal < 0)
-        {
-            _player.Left();
-        }
-        else if (_joystick.Horizontal > 0)
-        {
-            _player.Rigth();
-        }
-        else if (_joystick.Horizontal == 0)
-        {
-            _player.Stop();
-        }
+        _player.Walk(input);
     }
-
+    public void UE_JoystickHorizontal(Vector2 input)
+    {
+        _player.Walk(input.x);
+    }
     public static void UE_ButtonDash()
     {
         _player.Dash(0);
@@ -61,12 +40,13 @@ public class UnityEvents : MonoBehaviour
 
     public static void UE_ButtonStop()
     {
-        _player.Stop();
+        _player.Walk(0);
     }
 
     public static void UE_ButtonJump()
     {
         _player.Jump();
+        _wall.OnJump();
     }
 
     public static void UE_ButtonDown()

@@ -8,6 +8,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Animator)),
  RequireComponent(typeof(SpriteRenderer))]
+
 public class PlayerAttack : MonoBehaviour
 {
     [field: SerializeField] public bool IsSelectedBullet { get; set; }
@@ -27,10 +28,9 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private Vector2 _spawnPoinBullet;
     [SerializeField] private GameObject _shield;
     [SerializeField] private GameObject _shieldUltra, LaserPrefab;
-    [SerializeField] private Joystick Joystick;
     [SerializeField] private Vector2 _shieldSpawnPoint;
     [SerializeField] private Vector2 _shieldUltraSpawnPoint;
-    [SerializeField] private AmmoCell[] AmmoCell;
+    
     [SerializeField] private int _ammo;
     [SerializeField] private int _maxAmmo;
     [SerializeField] public float _timeReload;
@@ -42,7 +42,7 @@ public class PlayerAttack : MonoBehaviour
     private Vector2 _spawnPoinBulletNow,
         _shieldSpawnPointNow,
         _shieldUltraSpawnPointNow;
-
+    
     private PC pc;
 
     public bool isSpeedIsDamage
@@ -93,6 +93,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void AmmoBarRefresh()
     {
+        var AmmoCell= UiElementsList.instance.Counters.AmmoCell;
         for (int i = 0; i < Ammo && i < AmmoCell.Length; i++)
         {
             AmmoCell[i].Enable();
@@ -138,7 +139,7 @@ public class PlayerAttack : MonoBehaviour
     public void CreateLaser()
     {
         SetSpawnPoint();
-        Vector2 Rotatedvec = MathA.RotatedVector(_shieldSpawnPoint, Joystick.Direction);
+        Vector2 Rotatedvec = MathA.RotatedVector(_shieldSpawnPoint, UiElementsList.instance.Joysticks.Attack.Direction);
         GameObject _weapon = Instantiate(LaserPrefab,
             (Vector2) transform.position + Rotatedvec,
             MathA.VectorsAngle(Rotatedvec));
@@ -188,6 +189,7 @@ public class PlayerAttack : MonoBehaviour
 
                 break;
             case attackTypes.Laser:
+                var Joystick = UiElementsList.instance.Joysticks.Attack;
                 _spriteRenderer.flipX = Joystick.Horizontal < 0;
                 _animator.SetTrigger("Attack");
                 AttackType = LevelUP.isTaken[17] ? attackTypes.Ultra : attackTypes.Standard;

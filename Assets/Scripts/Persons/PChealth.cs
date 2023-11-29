@@ -3,10 +3,20 @@ using UnityEngine;
 public class PChealth : DefaultHealth
 {
 
-    [SerializeField] private HealthCell[] healthCells;
+    
     public override void ApplyDamage(float damage)
     {
         base.ApplyDamage(damage);
+        UpdateUI();
+    }
+    public override void HealHealth(int health)
+    {
+        base.HealHealth(health);
+        UpdateUI();
+    }
+    private void UpdateUI()
+    {
+        var healthCells = UiElementsList.instance.Counters.HealthCell;
         for(int i = 0; i < CurrentHealth; i++)
         {
             healthCells[i].Enable();
@@ -15,15 +25,6 @@ public class PChealth : DefaultHealth
         for(int i = _maxHealth - 1; i >= Mathf.Max(CurrentHealth,0); i--)
         {
             healthCells[i].Disable();
-        }
-
-    }
-    public override void HealHealth(int health)
-    {
-        base.HealHealth(health);
-        for(int i = 0; i < CurrentHealth; i++)
-        {
-            healthCells[i].Enable();
         }
     }
     public override void DestroyHimself()

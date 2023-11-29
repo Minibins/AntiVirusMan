@@ -5,21 +5,28 @@ using UnityEngine.UI;
 public class Level : MonoBehaviour
 {
     public static bool IsSelected;
-    [SerializeField] private GameObject LevelUpUI;
     [SerializeField] private LevelUP LevelUpScript;
     [SerializeField] public static float EnemyNeedToUpLVL = 15;
     private static float EnemyDie;
-    [SerializeField] private Image _enemyDieSprite;
-    public Action OnEnemyDie { get; set; }
     private void Start()
     {
         EnemyNeedToUpLVL = 15;
         EnemyDie = 0;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        Upgrade();
+        var UI = UiElementsList.instance;
+        UI.Counters.Lvl.fillAmount = (float)EnemyDie / EnemyNeedToUpLVL;
+        var LevelUpUI = UI.Panels.levelUpPanel.Panel;
+        if(EnemyDie >= EnemyNeedToUpLVL)
+        {
+            EnemyDie = 0;
+
+            
+            LevelUpUI.SetActive(true);
+            LevelUpScript.NewUpgrade();
+        }
 
         if(IsSelected)
         {
@@ -38,20 +45,4 @@ public class Level : MonoBehaviour
         EnemyDie += kills;
     }
 
-    private void OnDisable()
-    {
-        OnEnemyDie = null;
-    }
-
-    private void Upgrade() 
-    {
-        _enemyDieSprite.fillAmount = (float)EnemyDie / EnemyNeedToUpLVL;
-        if (EnemyDie >= EnemyNeedToUpLVL)
-        {
-            EnemyDie = 0;
-            
-            LevelUpUI.SetActive(true);
-            LevelUpScript.NewUpgrade();
-        }
-    }
 }

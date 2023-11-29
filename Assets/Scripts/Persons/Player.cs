@@ -33,9 +33,10 @@ public class Player : MonoBehaviour
         return Physics2D.OverlapCircle(_groundCheck.position, 0.2f, _groundLayer);
     }
 
-    public void Left()
+    public void Walk(float direction)
     {
-        if (!Stunned) _move.MoveHorizontally(-1f);
+        if (!Stunned) _move.MoveHorizontally(direction);
+        else _move.MoveHorizontally(0f);
     }
 
     public void Dash(int direction)
@@ -84,16 +85,6 @@ public class Player : MonoBehaviour
         _move.enabled = true;
         playerAttack.enabled = true;
         Stunned = false;
-    }
-
-    public void Rigth()
-    {
-        if (!Stunned) _move.MoveHorizontally(1f);
-    }
-
-    public void Stop()
-    {
-        _move.MoveHorizontally(0f);
     }
 
     public void Jump()

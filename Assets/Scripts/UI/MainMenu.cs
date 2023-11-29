@@ -11,7 +11,7 @@ public class MainMenu : MonoBehaviour
 
     public void LocationMove(int _Scene)
     {
-        if (save.data.WinLocation >= _Scene)
+        if (Save.data.WinLocation >= _Scene)
         {
             SceneManager.LoadScene(_Scene);
         }
@@ -19,18 +19,18 @@ public class MainMenu : MonoBehaviour
 
     private void Awake()
     {
-        save.LoadField();
-        if (save.data.LastSessionVersion != CurrentVersion)
+        Save.LoadField();
+        if (Save.data.LastSessionVersion != CurrentVersion)
         {
             Changelog.SetActive(true);
         }
 
-        save.data.LastSessionVersion = CurrentVersion;
+        Save.LastSessionVersion = CurrentVersion;
     }
 
     private void Update()
     {
-        save.SaveField();
+        Save.SaveField();
         
         if (Input.GetKeyDown(KeyCode.Escape))
             Application.Quit();
@@ -40,7 +40,7 @@ public class MainMenu : MonoBehaviour
 
     public void ExitGame()
     {
-        save.SaveField();
+        Save.SaveField();
 
         System.Environment.Exit(0);
         Application.Quit();

@@ -6,10 +6,8 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour
 {
     [SerializeField] private int _level;
-    [SerializeField] private Save save;
     [SerializeField] private int TimeToWin;
     [SerializeField] private float fiilSprite;
-    [SerializeField] private Image TimeSprite;
     public static int sec;
     public static bool StopTime = true;
     public static int min;
@@ -17,13 +15,8 @@ public class Timer : MonoBehaviour
 
     private void Start()
     {
-        fiilSprite = (Convert.ToSingle(min) * 60 + Convert.ToSingle(sec)) / (Convert.ToSingle(TimeToWin) * 60);
-        TimeSprite.fillAmount = fiilSprite;
-    }
-
-    public void StartTimeFlow()
-    {
         StartCoroutine(TimeFlow());
+        fiilSprite = (Convert.ToSingle(min) * 60 + Convert.ToSingle(sec)) / (Convert.ToSingle(TimeToWin) * 60);
     }
 
     private IEnumerator TimeFlow()
@@ -39,23 +32,22 @@ public class Timer : MonoBehaviour
                     GameObject boss = GameObject.FindGameObjectWithTag("Boss");
                     if (boss == null)
                     {
-                        save.LoadField();
-                        if (save.data.WinLocation < _level)
+                        Save.LoadField();
+                        if (Save.WinLocation < _level)
                         {
-                            save.data.WinLocation = _level;
-                            save.SaveField();
+                            Save.WinLocation = _level;
+                            Save.SaveField();
                         }
                     }
                 }
             }
 
-            fiilSprite = (Convert.ToSingle(min) * 60 + Convert.ToSingle(sec)) / (Convert.ToSingle(TimeToWin) * 60);
-            TimeSprite.fillAmount = fiilSprite;
+            fiilSprite = (min * 60 + sec) / (TimeToWin * 60);
+            UiElementsList.instance.Counters.Time.fillAmount = fiilSprite;
             sec++;
             yield return new WaitForSeconds(1);
         }
     }
-
     private void OnDisable()
     {
         OnTimer = null;

@@ -4,31 +4,49 @@ using UnityEngine.UI;
 
 public class Audio : MonoBehaviour
 {
-    [SerializeField] private Slider slider;
     [SerializeField] private AudioSource _audio;
     [SerializeField] private float _Volume;
-    [SerializeField] private Text MusicVolumeText;
     [SerializeField] private Save save;
+    private string MusicVolumeText
+    {
+        set
+        {
+            UiElementsList.instance.Panels.SettingsPanel.MusicVolumeText.text = value;
+        }
+    }
+    private float Volume
+    {
+        get => _Volume; 
+        set
+            {
+            
+                _Volume = value; _audio.volume = Volume;
+                slider = Volume;
+            }
+    }
+    private float slider
+    {
+        get
+        {
+            return UiElementsList.instance.Panels.SettingsPanel.MusicVolumeSlider.value;
+        }
+        set
+        {
+            UiElementsList.instance.Panels.SettingsPanel.MusicVolumeSlider.value = value;
+        }
+    }
 
     private void Start()
     {
-        _Volume = save.data.MusicVolume;
-        slider.value = _Volume;
-        MusicVolumeText.text = "Music:" + (_Volume * 100) + "%";   
-    }
-
-    private void Update()
-    {
-        _audio.volume = _Volume;
-         slider.value = _Volume;
-        
+        Volume = Save.Volume;
+        MusicVolumeText = "Music:" + (Volume * 100) + "%";   
     }
 
     public void VolumeSlider()
     {
-        _Volume = slider.value;
-        save.data.MusicVolume = _Volume;
-        save.SaveField();
-        MusicVolumeText.text = "Music:" + Mathf.RoundToInt(_Volume * 100) + "%";
+        Volume = slider;
+        Save.Volume = Volume;
+        Save.SaveField();
+        MusicVolumeText = "Music:" + Mathf.RoundToInt(Volume * 100) + "%";
     }
 }

@@ -1,38 +1,31 @@
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class Settings : MonoBehaviour
-{
-    [SerializeField] private GameObject LosePanel;
-    [SerializeField] private GameObject Buttons;
-    [SerializeField] private GameObject joystick;
-    [SerializeField] private GameObject leftButton;
-    [SerializeField] private GameObject rightButton;
-    public static bool isUsingJoystick = false;
-    public Timer timer;
-    public GameObject SettingsPanel;
-    
+{   
     private void Start()
     {
-        SettingsPanel.SetActive(false);
-        LosePanel.SetActive(false);
-        timer.StartTimeFlow();
         Time.timeScale = 1;
     }
 
-    public void ChangeUI()
+    public void ChangeUI(bool isUsingJoystick)
     {
+        var UI = UiElementsList.instance;
         isUsingJoystick = !isUsingJoystick;
 
-        joystick.SetActive(isUsingJoystick);
-        leftButton.SetActive(!isUsingJoystick);
-        rightButton.SetActive(!isUsingJoystick);
+        UI.Joysticks.Walk.gameObject.SetActive(isUsingJoystick);
+        var Buttons = UI.Buttons;
+        Buttons.Right.gameObject.SetActive(!isUsingJoystick);
+        Buttons.Right.gameObject.SetActive(!isUsingJoystick);
+        Save.joystick = isUsingJoystick;
     }
-
+       
     public void OpenSettings(bool Open)
     {
-        SettingsPanel.SetActive(Open);
-        Buttons.SetActive(!Open);
+        var UI = UiElementsList.instance;
+        UI.Panels.SettingsPanel.Panel.SetActive(Open);
+        UI.Buttons.All.SetActive(!Open);
         Time.timeScale = Open ? 0 : 1;
     }
     public void GoToScene(string name) 

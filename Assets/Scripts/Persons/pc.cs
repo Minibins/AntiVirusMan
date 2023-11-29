@@ -7,7 +7,6 @@ public class PC : Follower
 {
     [SerializeField] private int radius;
     [SerializeField] private Transform pc;
-    [SerializeField] private Image capmaImage;
     [SerializeField] private Sprite[] carmaSprites;
     private GameObject _player;
     private Health health;
@@ -95,32 +94,33 @@ public class PC : Follower
 
     private void UpdateCarma()
     {
+        var carmaImage = UiElementsList.instance.Counters.Carma;
         switch (Convert.ToInt16(Carma))
         {
             default:
-                if (Carma < 0) capmaImage.sprite = carmaSprites[0];
-                else capmaImage.sprite = carmaSprites[6];
+                if (Carma < 0) carmaImage.sprite = carmaSprites[0];
+                else carmaImage.sprite = carmaSprites[6];
                 break;
             case 1:
-                capmaImage.sprite = carmaSprites[1];
+                carmaImage.sprite = carmaSprites[1];
                 break;
             case 2:
-                capmaImage.sprite = carmaSprites[2];
+                carmaImage.sprite = carmaSprites[2];
                 break;
             case 3:
-                capmaImage.sprite = carmaSprites[3];
+                carmaImage.sprite = carmaSprites[3];
                 break;
             case 4:
-                capmaImage.sprite = carmaSprites[4];
+                carmaImage.sprite = carmaSprites[4];
                 break;
             case 5:
-                capmaImage.sprite = carmaSprites[4];
+                carmaImage.sprite = carmaSprites[4];
                 break;
             case 6:
-                capmaImage.sprite = carmaSprites[5];
+                carmaImage.sprite = carmaSprites[5];
                 break;
             case 7:
-                capmaImage.sprite = carmaSprites[6];
+                carmaImage.sprite = carmaSprites[6];
                 break;
         }
     }
