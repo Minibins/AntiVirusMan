@@ -17,9 +17,14 @@ public class LoseGame : MonoBehaviour
     }
     public void Lose()
     {
-        SE.GetComponent<SpawnerEnemy>().StopOrStartSpawn();
-      //  LiveTextLose.text = "You live:" + Timer.min.ToString("D2") + " : " + Timer.sec.ToString("D2");
-      LiveTextLose.text = Timer.min.ToString() + ":" + Timer.sec.ToString();
+        if (SE != null)
+        {
+            SE.GetComponent<SpawnerEnemy>();
+            if (SE.isSpawn) SE.StopOrStartSpawn();
+        }
+
+        //  LiveTextLose.text = "You live:" + Timer.min.ToString("D2") + " : " + Timer.sec.ToString("D2");
+        LiveTextLose.text = Timer.min.ToString() + ":" + Timer.sec.ToString();
         LosePanel.SetActive(true);
         HealthPanel.SetActive(false);
         Buttons.SetActive(false);

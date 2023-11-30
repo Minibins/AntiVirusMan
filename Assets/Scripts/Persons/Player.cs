@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private PChealth _health;
     [SerializeField] public float dashRange;
+    [SerializeField] private LoseGame _loseGame;
     private PlayerAttack playerAttack;
     private bool Stunned;
     private Vector2 _velocity;
@@ -165,6 +166,10 @@ public class Player : MonoBehaviour
         {
             _health.HealHealth(1);
             Destroy(other.gameObject);
+        }
+        else if(other.CompareTag("DeadZone"))
+        {
+            _loseGame.Lose();
         }
     }
 }

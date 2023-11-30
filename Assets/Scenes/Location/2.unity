@@ -229,6 +229,8 @@ MonoBehaviour:
   - {fileID: -196031075, guid: 1df0e45a1e1783b4bac6578d311db4ef, type: 3}
   - {fileID: 715561146, guid: 1df0e45a1e1783b4bac6578d311db4ef, type: 3}
   - {fileID: -696506497, guid: 1df0e45a1e1783b4bac6578d311db4ef, type: 3}
+  _tileMaps:
+  - {fileID: 8074658951632374066, guid: aeafc5917f5acdd48976a2d61383bb60, type: 3}
 --- !u!4 &321910881
 Transform:
   m_ObjectHideFlags: 0
@@ -1134,6 +1136,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19075f141eec8c446b3fda08a07de955, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1459443627 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2961556035659128046, guid: 0951b036ba0a12343a56eff64eed7b4c,
+    type: 3}
+  m_PrefabInstance: {fileID: 387484455}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1711120237
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1162,6 +1170,11 @@ PrefabInstance:
       propertyPath: AmmoCell.Array.data[4]
       value: 
       objectReference: {fileID: 715281395}
+    - target: {fileID: 193935507143263751, guid: ec94f27c1555e174ebada4b736dde08b,
+        type: 3}
+      propertyPath: _loseGame
+      value: 
+      objectReference: {fileID: 6032902586856246492}
     - target: {fileID: 8304178653184876640, guid: ec94f27c1555e174ebada4b736dde08b,
         type: 3}
       propertyPath: m_Name
@@ -1232,6 +1245,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19075f141eec8c446b3fda08a07de955, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1962331238 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4267283270246016674, guid: 0951b036ba0a12343a56eff64eed7b4c,
+    type: 3}
+  m_PrefabInstance: {fileID: 387484455}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2032695333 stripped
@@ -1849,10 +1874,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: []
   SE: {fileID: 0}
-  HealthPanel: {fileID: 0}
-  Buttons: {fileID: 0}
-  LosePanel: {fileID: 0}
-  LiveTextLose: {fileID: 0}
+  HealthPanel: {fileID: 1459443627}
+  Buttons: {fileID: 855920391}
+  LosePanel: {fileID: 387001421}
+  LiveTextLose: {fileID: 1962331238}
 --- !u!114 &6574437097830051986
 MonoBehaviour:
   m_ObjectHideFlags: 0

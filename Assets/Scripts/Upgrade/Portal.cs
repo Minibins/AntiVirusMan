@@ -10,28 +10,28 @@ public class Portals : MonoBehaviour
     private void Start()
     {
         anim = GetComponent<Animator>();
-        if (!secondPortal) {
+        if (!secondPortal)
+        {
             secondPortal = GameObject.FindGameObjectWithTag("SecondPortal");
-                }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        
-                
-            
-        
-        if (!IsExploding) {if (other.tag == "Player") { 
-             gameObject.GetComponent<BoxCollider2D>().size = new Vector2(2, 2);
-            secondPortal.GetComponent<BoxCollider2D>().size = new Vector2(2, 2);
+        if (!IsExploding)
+        {
+            if (other.tag == "Player")
+            {
+                gameObject.GetComponent<BoxCollider2D>().size = new Vector2(2, 2);
+                secondPortal.GetComponent<BoxCollider2D>().size = new Vector2(2, 2);
             }
+
             secondPortal.GetComponent<Portals>().IsExploding = true;
             other.transform.position = secondPortal.transform.position;
-secondPortal.GetComponent<Animator>().SetTrigger("Exit");
-            anim.SetTrigger("Exit");}
-        IsExploding = true;    
-        
-        
+            secondPortal.GetComponent<Animator>().SetTrigger("Exit");
+            anim.SetTrigger("Exit");
+        }
+
+        IsExploding = true;
     }
-    
 }
