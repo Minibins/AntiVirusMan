@@ -60,23 +60,13 @@ public class Move : MonoBehaviour, Draggable
     public void MoveHorizontally(float direction)
     {
         _velocity.Set(0f, _rigidbody2D.velocity.y);
-        if (direction == 0f)
+        _velocity.x = _curentSpeed * direction;
+        _animator.SetBool("IsRunning",direction != 0);
+        if(direction!=0)
         {
-            _animator.SetBool("IsRunning", false);
+            _spriteRenderer.flipX = direction < 0;
         }
-        else if (direction < 0f)
-
-        {
-            _velocity.x = -_curentSpeed;
-            _spriteRenderer.flipX = true;
-            _animator.SetBool("IsRunning", true);
-        }
-        else
-        {
-            _velocity.x = _curentSpeed;
-            _spriteRenderer.flipX = false;
-            _animator.SetBool("IsRunning", true);
-        }
+        
     }
 
     public void MoveOnWire(GameObject MoveToPoint)

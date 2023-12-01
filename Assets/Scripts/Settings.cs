@@ -14,10 +14,10 @@ public class Settings : MonoBehaviour
         var UI = UiElementsList.instance;
         isUsingJoystick = !isUsingJoystick;
 
-        UI.Joysticks.Walk.gameObject.SetActive(isUsingJoystick);
+        UI.Joysticks.Walk.gameObject.SetActive(!isUsingJoystick);
         var Buttons = UI.Buttons;
-        Buttons.Right.gameObject.SetActive(!isUsingJoystick);
-        Buttons.Right.gameObject.SetActive(!isUsingJoystick);
+        Buttons.Right.gameObject.SetActive(isUsingJoystick);
+        Buttons.Left.gameObject.SetActive(isUsingJoystick);
         Save.joystick = isUsingJoystick;
     }
        

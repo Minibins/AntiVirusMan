@@ -38,8 +38,17 @@ public class PC : Follower
         rozetkaAnim = rozetka.GetComponent<Animator>();
         StartCoroutine(LowCharge());
         rb = GetComponentInParent<Rigidbody2D>();
-        PC.Carma = 7;
-        IsFollowing = false;
+        PC.carma = 7;
+        try
+        {
+            UpdateCarma();
+        }
+        catch
+        { 
+            UiElementsList.instance = FindObjectOfType<UiElementsList>();
+        }
+    
+            IsFollowing = false;
     }
 
     private protected void FixedUpdate()
@@ -94,35 +103,38 @@ public class PC : Follower
 
     private void UpdateCarma()
     {
+        
         var carmaImage = UiElementsList.instance.Counters.Carma;
-        switch (Convert.ToInt16(Carma))
-        {
-            default:
-                if (Carma < 0) carmaImage.sprite = carmaSprites[0];
+            switch(Convert.ToInt16(Carma))
+            {
+                default:
+                if(Carma < 0) carmaImage.sprite = carmaSprites[0];
                 else carmaImage.sprite = carmaSprites[6];
                 break;
-            case 1:
+                case 1:
                 carmaImage.sprite = carmaSprites[1];
                 break;
-            case 2:
+                case 2:
                 carmaImage.sprite = carmaSprites[2];
                 break;
-            case 3:
+                case 3:
                 carmaImage.sprite = carmaSprites[3];
                 break;
-            case 4:
+                case 4:
                 carmaImage.sprite = carmaSprites[4];
                 break;
-            case 5:
+                case 5:
                 carmaImage.sprite = carmaSprites[4];
                 break;
-            case 6:
+                case 6:
                 carmaImage.sprite = carmaSprites[5];
                 break;
-            case 7:
+                case 7:
                 carmaImage.sprite = carmaSprites[6];
                 break;
-        }
+            }
+        
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

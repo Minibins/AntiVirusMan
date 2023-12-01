@@ -7,7 +7,6 @@ public class Transformer : MonoBehaviour, IDamageble
 {
     PlayerAttack attack;
     Animator Anim;
-    [SerializeField] private GameObject joystick;
     private void Start()
     {
 
@@ -20,6 +19,6 @@ public class Transformer : MonoBehaviour, IDamageble
         attack.slowdown();
         attack.AttackType = PlayerAttack.attackTypes.Laser;
         Anim.SetBool("IsChad",true);
-        joystick.SetActive(true);
+        UiElementsList.instance.Joysticks.Attack.gameObject.SetActive(true);
     }
 }

@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+
+using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
@@ -55,7 +57,7 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
     [SerializeField] private bool snapX = false;
     [SerializeField] private bool snapY = false;
     [SerializeField] protected UnityEvent OnDragEnd;
-    [SerializeField] protected UnityEvent<Vector2> OnDragEvent;
+    [SerializeField] protected UnityEvent OnDragEvent;
     [SerializeField] protected RectTransform background = null;
     [SerializeField] private RectTransform handle = null;
     [SerializeField] private bool isMovejoystick;
@@ -106,7 +108,7 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
         FormatInput();
         HandleInput(input.magnitude, input.normalized, radius, cam);
         handle.anchoredPosition = input * radius * handleRange;
-        OnDragEvent.Invoke(Direction);
+        OnDragEvent.Invoke();
     }
 
     protected virtual void HandleInput(float magnitude, Vector2 normalised, Vector2 radius, Camera cam)
@@ -169,6 +171,7 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
         if (isMovejoystick)
         {
             ToCenter();
+            OnDragEnd.Invoke();
         }
     }
 

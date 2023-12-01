@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.InputSystem.Android.LowLevel;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
@@ -8,12 +9,12 @@ public class MainMenu : MonoBehaviour
     public Save save;
     [SerializeField] private string CurrentVersion;
     [SerializeField] private GameObject Changelog;
-
-    public void LocationMove(int _Scene)
+    [SerializeField] string[] scenes;
+    public void LocationMove(int id)
     {
-        if (Save.data.WinLocation >= _Scene)
+        if (Save.data.WinLocation >= id)
         {
-            SceneManager.LoadScene(_Scene);
+            SceneManager.LoadScene(scenes[id]);
         }
     }
 
@@ -34,7 +35,8 @@ public class MainMenu : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.Escape))
             Application.Quit();
-            System.Environment.Exit(0);
+            
+        
     }
 
 

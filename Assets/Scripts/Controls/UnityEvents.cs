@@ -29,9 +29,9 @@ public class UnityEvents : MonoBehaviour
     {
         _player.Walk(input);
     }
-    public void UE_JoystickHorizontal(Vector2 input)
+    public void UE_JoystickHorizontal()
     {
-        _player.Walk(input.x);
+        _player.Walk(UiElementsList.instance.Joysticks.Walk.Horizontal);
     }
     public static void UE_ButtonDash()
     {

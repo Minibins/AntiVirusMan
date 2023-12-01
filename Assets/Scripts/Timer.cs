@@ -15,6 +15,14 @@ public class Timer : MonoBehaviour
 
     private void Start()
     {
+        try
+        {
+            UiElementsList.instance.Counters.Time.name = "time";
+        }
+        catch 
+        {
+            UiElementsList.instance=FindObjectOfType<UiElementsList>();
+        }
         StartCoroutine(TimeFlow());
         fiilSprite = (Convert.ToSingle(min) * 60 + Convert.ToSingle(sec)) / (Convert.ToSingle(TimeToWin) * 60);
     }
@@ -44,6 +52,7 @@ public class Timer : MonoBehaviour
 
             fiilSprite = (min * 60 + sec) / (TimeToWin * 60);
             UiElementsList.instance.Counters.Time.fillAmount = fiilSprite;
+            
             sec++;
             yield return new WaitForSeconds(1);
         }

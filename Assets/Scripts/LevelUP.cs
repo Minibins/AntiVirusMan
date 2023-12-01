@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class LevelUP : MonoBehaviour
 {
-    [SerializeField] private GameObject FirstButton;
-    [SerializeField] private GameObject SecondButton;
-    [SerializeField] private GameObject ThreeButton;
+    private GameObject FirstButton=>UiElementsList.instance.Panels.levelUpPanel.Button1;
+    private GameObject SecondButton => UiElementsList.instance.Panels.levelUpPanel.Button2;
+    private GameObject ThreeButton => UiElementsList.instance.Panels.levelUpPanel.Button3;
     [SerializeField] private Sprite none;
     
     public Sprite[] itemtextures;
