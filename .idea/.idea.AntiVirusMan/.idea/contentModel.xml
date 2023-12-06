@@ -7,6 +7,15 @@
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="Album" t="Include">
+          <e p="BackGrounds" t="Include" />
+          <e p="How To draw a virus" t="Include">
+            <e p="Enemy" t="Include" />
+            <e p="Upgrade" t="Include" />
+          </e>
+          <e p="Menu Artworks" t="Include" />
+          <e p="Teplates" t="Include" />
+        </e>
         <e p="Animation" t="Include">
           <e p="Aura" t="Include" />
           <e p="AuthorText" t="Include" />
@@ -246,6 +255,7 @@
           <e p="DeathLine.cs" t="Include" />
           <e p="Interfaces and Abstract Classes" t="Include">
             <e p="AbovePlayerChecker.cs" t="Include" />
+            <e p="AbstractPortal.cs" t="Include" />
             <e p="Contacter.cs" t="Include" />
             <e p="Draggable.cs" t="Include" />
             <e p="Follower.cs" t="Include" />
@@ -253,13 +263,14 @@
             <e p="IPlayerDamageble.cs" t="Include" />
             <e p="MathA.cs" t="Include" />
             <e p="RawAttack.cs" t="Include" />
+            <e p="Setting.cs" t="Include" />
           </e>
           <e p="Level.cs" t="Include" />
           <e p="LevelUP.cs" t="Include" />
           <e p="LoseGame.cs" t="Include" />
           <e p="Paralax.cs" t="Include" />
+          <e p="Paralax2.cs" t="Include" />
           <e p="Persons" t="Include">
-            <e p="AmmoCell.cs" t="Include" />
             <e p="Attack.cs" t="Include" />
             <e p="AttackProjectile.cs" t="Include" />
             <e p="DefaultHealth.cs" t="Include" />
@@ -273,7 +284,6 @@
               <e p="EnemyHealth.cs" t="Include" />
               <e p="SpeedBoost.cs" t="Include" />
             </e>
-            <e p="HealthCell.cs" t="Include" />
             <e p="Move.cs" t="Include" />
             <e p="pc.cs" t="Include" />
             <e p="PChealth.cs" t="Include" />
@@ -299,10 +309,17 @@
           <e p="TrainOption.cs" t="Include" />
           <e p="UI" t="Include">
             <e p="Audio.cs" t="Include" />
+            <e p="CellAnimator.cs" t="Include" />
             <e p="DraggableButton.cs" t="Include" />
             <e p="DraggBUttonController.cs" t="Include" />
             <e p="LoadButtonPosition.cs" t="Include" />
             <e p="MainMenu.cs" t="Include" />
+            <e p="Settings" t="Include">
+              <e p="Button.cs" t="Include" />
+              <e p="SettingsMenu.cs" t="Include" />
+            </e>
+            <e p="UpgradeButton.cs" t="Include" />
+            <e p="WalkJoystick.cs" t="Include" />
           </e>
           <e p="Upgrade" t="Include">
             <e p="AuraPC.cs" t="Include" />
@@ -321,8 +338,8 @@
             <e p="starfall.cs" t="Include" />
             <e p="Wall.cs" t="Include" />
           </e>
-          <e p="UpgradeButton.cs" t="Include" />
           <e p="World" t="Include">
+            <e p="Door.cs" t="Include" />
             <e p="ExpCollectible.cs" t="Include" />
             <e p="LightFromTime.cs" t="Include" />
             <e p="randomSprite.cs" t="Include" />
@@ -358,6 +375,7 @@
           <e p="Upgrade" t="Include" />
         </e>
         <e p="StreamingAssets" t="Include" />
+        <e p="UiElementsList.cs" t="Include" />
       </e>
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive" />
