@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class TrainMove : MonoBehaviour
 {
-    [SerializeField] private float _speed;
-
     private void Update()
     {
         Move();
@@ -11,6 +9,6 @@ public class TrainMove : MonoBehaviour
 
     private void Move()
     {
-        transform.Translate(Vector3.left * _speed * Time.deltaTime);
+        transform.Translate(Vector3.left * TrainOption._speed * Time.deltaTime);
     }
 }
