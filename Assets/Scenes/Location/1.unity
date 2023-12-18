@@ -11349,6 +11349,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &485065618 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4267283270246016674, guid: 0951b036ba0a12343a56eff64eed7b4c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2313873072146739146}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &494131513
 GameObject:
   m_ObjectHideFlags: 0
@@ -11943,6 +11955,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &634199712 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6032902586808181032, guid: d8c31f8808ada594796ce6007cd874da,
+    type: 3}
+  m_PrefabInstance: {fileID: 14327596968153252}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c57e9a82f02538a47a199091a3a8fdfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &642039128
 GameObject:
   m_ObjectHideFlags: 0
@@ -19853,6 +19877,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1688928779 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2961556035659128046, guid: 0951b036ba0a12343a56eff64eed7b4c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2313873072146739146}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1723528267
 GameObject:
   m_ObjectHideFlags: 0
@@ -20583,6 +20613,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1899637231}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1824626466 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1413090539504973880, guid: 0951b036ba0a12343a56eff64eed7b4c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2313873072146739146}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1842592164
 GameObject:
   m_ObjectHideFlags: 0
@@ -21157,6 +21193,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1899637231}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2005188717 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2534247655149363551, guid: 0951b036ba0a12343a56eff64eed7b4c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2313873072146739146}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2009549008
 GameObject:
   m_ObjectHideFlags: 0
@@ -22157,24 +22199,29 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6032902586808181032, guid: d8c31f8808ada594796ce6007cd874da,
         type: 3}
+      propertyPath: SE
+      value: 
+      objectReference: {fileID: 427215480}
+    - target: {fileID: 6032902586808181032, guid: d8c31f8808ada594796ce6007cd874da,
+        type: 3}
       propertyPath: Buttons
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2005188717}
     - target: {fileID: 6032902586808181032, guid: d8c31f8808ada594796ce6007cd874da,
         type: 3}
       propertyPath: LosePanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1824626466}
     - target: {fileID: 6032902586808181032, guid: d8c31f8808ada594796ce6007cd874da,
         type: 3}
       propertyPath: HealthPanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1688928779}
     - target: {fileID: 6032902586808181032, guid: d8c31f8808ada594796ce6007cd874da,
         type: 3}
       propertyPath: LiveTextLose
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 485065618}
     - target: {fileID: 6574437097781452134, guid: d8c31f8808ada594796ce6007cd874da,
         type: 3}
       propertyPath: Buttons
@@ -22500,6 +22547,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5342036442849961774, guid: 0951b036ba0a12343a56eff64eed7b4c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 634199712}
+    - target: {fileID: 5342036442849961774, guid: 0951b036ba0a12343a56eff64eed7b4c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MoveScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 6039607671443307448, guid: 0951b036ba0a12343a56eff64eed7b4c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 634199712}
+    - target: {fileID: 6039607671443307448, guid: 0951b036ba0a12343a56eff64eed7b4c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MoveScene
       objectReference: {fileID: 0}
     - target: {fileID: 6083680177223422630, guid: 0951b036ba0a12343a56eff64eed7b4c,
         type: 3}
