@@ -78,60 +78,13 @@ public class Move : MonoBehaviour, Draggable
 
     public void MoveVertically(float direction)
     {
-        _velocity.Set(_velocity.x, direction);
-        if (direction == 0f)
-        {
-            _animator.SetBool("IsRunning", false);
-        }
-        else if (direction < 0f)
-        {
-            _velocity.y = direction;
-            _animator.SetBool("IsRunning", true);
-        }
-        else
-        {
-            _velocity.y = direction;
-            _animator.SetBool("IsRunning", true);
-        }
+        _velocity.y = _curentSpeed * direction;
     }
 
     public void MoveBoth(Vector2 direction)
     {
-        _velocity.Set(_rigidbody2D.velocity.x, 0f);
-        if (direction.y == 0f)
-        {
-            _animator.SetBool("IsRunning", false);
-        }
-        else if (direction.y < 0f)
-        {
-            _velocity.y = -_curentSpeed;
-            _animator.SetBool("IsRunning", true);
-        }
-        else
-        {
-            _velocity.y = _curentSpeed;
-            _animator.SetBool("IsRunning", true);
-        }
-
-        _velocity.Set(0f, _rigidbody2D.velocity.y);
-        if (direction.x == 0f)
-        {
-            _animator.SetBool("IsRunning", false);
-        }
-        else if (direction.x < 0f)
-        {
-            _velocity.x = -_curentSpeed;
-            ;
-            _spriteRenderer.flipX = true;
-            _animator.SetBool("IsRunning", true);
-        }
-        else
-        {
-            _velocity.x = _curentSpeed;
-
-            _spriteRenderer.flipX = false;
-            _animator.SetBool("IsRunning", true);
-        }
+        MoveHorizontally(direction.x);
+        MoveVertically(direction.y);
     }
 
     public void StartJump()

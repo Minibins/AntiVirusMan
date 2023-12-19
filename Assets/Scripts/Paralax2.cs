@@ -5,7 +5,11 @@ public class Paralax2 : MonoBehaviour
     [SerializeField] private float _speed;
     [SerializeField] private float _endX;
     [SerializeField] private float _startX;
-
+    new Transform transform;
+    private void Awake()
+    {
+         transform = base.transform;
+    }
     private void Update()
     {
         transform.Translate((Vector2.left * _speed * Time.deltaTime));

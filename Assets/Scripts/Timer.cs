@@ -1,5 +1,8 @@
 using System;
 using System.Collections;
+
+using Unity.Mathematics;
+
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,10 +12,10 @@ public class Timer : MonoBehaviour
     [SerializeField] private int TimeToWin;
     [SerializeField] private float fiilSprite;
     public static int sec;
-    public static bool StopTime = true;
     public static int min;
-    public Action OnTimer { get; set; }
-
+    public static int time { get => (min * 60 + sec); }
+    public static bool StopTime = true;
+   
     private void Start()
     {
         try
@@ -24,7 +27,7 @@ public class Timer : MonoBehaviour
             UiElementsList.instance=FindObjectOfType<UiElementsList>();
         }
         StartCoroutine(TimeFlow());
-        fiilSprite = (Convert.ToSingle(min) * 60 + Convert.ToSingle(sec)) / (Convert.ToSingle(TimeToWin) * 60);
+        fiilSprite = time / TimeToWin * 60;
     }
 
     private IEnumerator TimeFlow()
@@ -49,16 +52,10 @@ public class Timer : MonoBehaviour
                     }
                 }
             }
-
-            fiilSprite = (min * 60 + sec) / (TimeToWin * 60);
+            fiilSprite = math.max(math.min((float)time / ((float)TimeToWin * 60),1f),0f);
             UiElementsList.instance.Counters.Time.fillAmount = fiilSprite;
-            
             sec++;
             yield return new WaitForSeconds(1);
         }
-    }
-    private void OnDisable()
-    {
-        OnTimer = null;
     }
 }

@@ -34,6 +34,6 @@ public class Paralax : MonoBehaviour
         case 0:
             return;
         }
-        transform.position += Vector3.up * ((Timer.min * 60 + Timer.sec) * IsSkyComponent);
+        transform.position += Vector3.up * (Timer.time * IsSkyComponent);
     }
 }

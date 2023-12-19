@@ -28,14 +28,7 @@ public class AttackProjectile : MonoBehaviour
     protected virtual void Start()
     {
         if (_move != null) {
-        if(_velosity.x!=0)
-        { _move.MoveHorizontally(_velosity.x);
-        }
-        if(_velosity.y!=0)
-        {
-            
-                _move.MoveVertically(_velosity.y);
-        }
+            _move.MoveBoth(_velosity);
         };
     }
     private void OnTriggerEnter2D(Collider2D collision)
