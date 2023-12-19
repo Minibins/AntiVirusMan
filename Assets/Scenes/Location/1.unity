@@ -12078,7 +12078,7 @@ MonoBehaviour:
   followingTarget: {fileID: 519420032}
   parallaxStrenght: 1
   disableVerticalParallax: 0
-  IsSkyComponent: 0.03
+  IsSkyComponent: 0.12
 --- !u!1 &683887334
 GameObject:
   m_ObjectHideFlags: 0
@@ -22075,6 +22075,11 @@ PrefabInstance:
       propertyPath: m_LookAt
       value: 
       objectReference: {fileID: 429989188}
+    - target: {fileID: 381101037595757915, guid: d8c31f8808ada594796ce6007cd874da,
+        type: 3}
+      propertyPath: m_Lens.OrthographicSize
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 595837485899328781, guid: d8c31f8808ada594796ce6007cd874da,
         type: 3}
       propertyPath: LevelUpUI
@@ -22134,6 +22139,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2926377629697329162, guid: d8c31f8808ada594796ce6007cd874da,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.409
+      objectReference: {fileID: 0}
+    - target: {fileID: 3317415752648439470, guid: d8c31f8808ada594796ce6007cd874da,
+        type: 3}
+      propertyPath: orthographic size
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3411078001344453681, guid: d8c31f8808ada594796ce6007cd874da,
         type: 3}
@@ -22207,8 +22222,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7336038298012082939, guid: d8c31f8808ada594796ce6007cd874da,
         type: 3}
+      propertyPath: TimeToWin
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336038298012082939, guid: d8c31f8808ada594796ce6007cd874da,
+        type: 3}
       propertyPath: TimeSprite
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7808252038590689437, guid: d8c31f8808ada594796ce6007cd874da,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -22424,6 +22449,11 @@ PrefabInstance:
     - target: {fileID: 2033156064030364242, guid: 0951b036ba0a12343a56eff64eed7b4c,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2534247655149363551, guid: 0951b036ba0a12343a56eff64eed7b4c,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3413119316128616151, guid: 0951b036ba0a12343a56eff64eed7b4c,
