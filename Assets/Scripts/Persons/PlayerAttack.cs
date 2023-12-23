@@ -136,7 +136,7 @@ public class PlayerAttack : MonoBehaviour
         _weapon.GetComponent<AttackProjectile>().Damage = Damage;
         Instantiate(_AttackSound);
         slowUp();
-        player.Dash(_spriteRenderer.flipX ? 1 : -1);
+        player.Dash((_spriteRenderer.flipX ? 1 : -1) * (LevelUP.isTaken[10] ? 0.5f : 1f));
     }
 
     public void CreateLaser()

@@ -10,7 +10,6 @@ public class LoseGame : MonoBehaviour
     [SerializeField] private GameObject HealthPanel;
     [SerializeField] private GameObject Buttons;
     [SerializeField] private GameObject LosePanel;
-    [SerializeField] private Text LiveTextLose;
     private void Start()
     {
         instance = this;
@@ -22,12 +21,12 @@ public class LoseGame : MonoBehaviour
             SE.GetComponent<SpawnerEnemy>();
             if (SE.isSpawn) SE.StopOrStartSpawn();
         }
-
-        //  LiveTextLose.text = "You live:" + Timer.min.ToString("D2") + " : " + Timer.sec.ToString("D2");
-        LiveTextLose.text = Timer.min.ToString() + ":" + Timer.sec.ToString();
-        LosePanel.SetActive(true);
-        HealthPanel.SetActive(false);
-        Buttons.SetActive(false);
+        var UI = UiElementsList.instance;
+        var LosePanel = UI.Panels.LoseGame;
+        LosePanel.YouLiveText.text = Timer.min.ToString() + ":" + Timer.sec.ToString();
+        LosePanel.Panel.SetActive(true);
+        UI.Counters.All.SetActive(false);
+        UI.Buttons.All.SetActive(false);
         Timer.StopTime = false;
         Antivirus();
     }

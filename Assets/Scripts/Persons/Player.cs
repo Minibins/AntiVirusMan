@@ -6,7 +6,6 @@ public class Player : MoveBase
     [SerializeField] private Transform _groundCheck;
     [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private PChealth _health;
-    [SerializeField] private LoseGame _loseGame;
     public bool Stunned;
     private Dasher _dasher;
     [SerializeField] private float flySpeed;
@@ -32,7 +31,7 @@ public class Player : MoveBase
         else base.MoveHorizontally(0f);
     }
 
-    public void Dash(int direction)
+    public void Dash(float direction)
     {
         _dasher.Dash(direction);
     }
@@ -114,7 +113,7 @@ public class Player : MoveBase
         }
         else if(other.CompareTag("DeadZone"))
         {
-            _loseGame.Lose();
+            LoseGame.instance.Lose();
         }
     }
     [Serializable]

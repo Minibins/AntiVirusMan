@@ -36,7 +36,7 @@ public class Level : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.F))
         {
-            EnemyDie +=1;
+            EnemyDie +=4;
         }
     }
 
