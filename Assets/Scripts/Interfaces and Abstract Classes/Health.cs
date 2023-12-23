@@ -40,7 +40,7 @@ public class Health : MonoBehaviour, Draggable, IDamageble
             }
     }
 
-    public void SetMaxHealth(int maxHealth)
+    public void AddMaxHealth(int maxHealth)
     {
         CurrentHealth += maxHealth;
         _maxHealth += maxHealth;

@@ -14,7 +14,7 @@ public class AuraPC : MonoBehaviour
     {
         if (other.CompareTag("Enemy") && isStart != true && IsStartWork == true)
         {
-            other.GetComponent<Move>()._speed = other.GetComponent<Move>()._speed /= 2;
+            other.GetComponent<MoveBase>()._speed = other.GetComponent<MoveBase>()._speed /= 2;
             StartCoroutine(GiveDamage(other));
             isStart = true;
             GetComponent<SpriteRenderer>().enabled=true;

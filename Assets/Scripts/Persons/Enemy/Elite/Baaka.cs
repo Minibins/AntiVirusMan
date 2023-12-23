@@ -15,7 +15,7 @@ public class Baaka : AboveDeath
     {
         Player.velocity = new Vector2 (0, ForcerePulsive);
         LoseGame.instance.Antivirus();
-        Player.GetComponent<Move>().SetSpeedMultiplierTemporary(3,6.34f);
+        Player.GetComponent<MoveBase>().SetSpeedMultiplierTemporary(3,6.34f);
         Player.position = new Vector2(transform.position.x,15.44f);
         Bounds bounds = spawnArea.bounds;
         for(int i = 0; i < numberOfObjectsToSpawn; i++)

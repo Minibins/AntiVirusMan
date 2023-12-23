@@ -1,32 +1,24 @@
-﻿using System.Collections;
-using UnityEditor;
+﻿using System;
+using System.Collections;
 using UnityEngine;
-
-[RequireComponent(typeof(Move))]
-public class Player : MonoBehaviour
+public class Player : MoveBase
 {
     [SerializeField] private Transform _groundCheck;
     [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private PChealth _health;
-    [SerializeField] public float dashRange;
     [SerializeField] private LoseGame _loseGame;
-    private PlayerAttack playerAttack;
-    private bool Stunned;
-    private Vector2 _velocity;
-    private Move _move;
-    private Rigidbody2D _rb;
+    public bool Stunned;
+    private Dasher _dasher;
     [SerializeField] private float flySpeed;
-    private void FixedUpdate()
+    protected override void FixedUpdate()
     {
         transform.position = new Vector3(Mathf.Max(-18.527f, Mathf.Min(17.734f, transform.position.x)),
-            transform.position.y, transform.position.z);
+            transform.position.y, transform.position.z); base.FixedUpdate();
     }
 
     private void Awake()
     {
-        playerAttack = GetComponent<PlayerAttack>();
-        _rb = GetComponent<Rigidbody2D>();
-        _move = GetComponent<Move>();
+        _dasher = gameObject.AddComponent<Dasher>();
     }
 
     public bool IsGrounded()
@@ -34,70 +26,30 @@ public class Player : MonoBehaviour
         return Physics2D.OverlapCircle(_groundCheck.position, 0.2f, _groundLayer);
     }
 
-    public void Walk(float direction)
+    override public void MoveHorizontally(float direction)
     {
-        if (!Stunned) _move.MoveHorizontally(direction);
-        else _move.MoveHorizontally(0f);
+        if (!Stunned) base.MoveHorizontally(direction);
+        else base.MoveHorizontally(0f);
     }
 
     public void Dash(int direction)
     {
-        if (playerAttack.Ammo < 0)
-        {
-            return;
-        }
-
-        playerAttack.Ammo--;
-        if(direction == 0)
-        {
-            _move.PlayAnimation("Dash");
-            direction = _move._spriteRenderer.flipX? -1:1;
-        }
-        
-
-        RaycastHit2D
-            hit = Physics2D.Raycast(transform.position, Vector2.right * direction, dashRange, 1 << 10); // Тут рейкаст
-        if (hit)
-        {
-            transform.position = new Vector3(hit.point.x + -0.65f * direction * 0.5f, transform.position.y,
-                transform.position.z); // Тут перемещение
-        }
-        else
-        {
-            transform.position += Vector3.right * direction * dashRange * 0.5f;
-        }
-
-        
-        StartCoroutine(DashEnd(direction));
+        _dasher.Dash(direction);
     }
-
-    IEnumerator DashEnd(int direction)
+    public void Dash()
     {
-        Stunned = true;
-        playerAttack.enabled = false;
-        _move.enabled = false;
-
-        for (int a = 0; a <= 10; a++)
-        {
-            _rb.velocity = new Vector2(direction * (dashRange * 5 - a / 2 * dashRange) * 10, 0);
-            yield return new WaitForFixedUpdate();
-        }
-
-        _move.enabled = true;
-        playerAttack.enabled = true;
-        Stunned = false;
+        PlayAnimation("Dash");
+        _dasher.Dash(_spriteRenderer.flipX ? -1 : 1);
     }
-
     public void Jump()
     {
         if(IsGrounded()&& !Stunned)
         {
-            _move.StartJump();
+            StartJump();
             Invoke(nameof(StopJump), 0.1f);
         }
-        if(LevelUP.isTaken[15]&&_rb.bodyType!=RigidbodyType2D.Static)
+        if(LevelUP.isTaken[15]&&_rigidbody.bodyType!=RigidbodyType2D.Static)
         {
-            _move.CanJump = false;
             fly7 = true;
             StartCoroutine(fly());
             
@@ -108,8 +60,8 @@ public class Player : MonoBehaviour
     {
         while(fly7)
         {
-            _move.MoveVertically(flySpeed);
-            _move.PlayAnimation("Fly");
+            MoveVertically(flySpeed);
+            PlayAnimation("Fly");
             yield return new WaitForFixedUpdate();
         }
         
@@ -118,26 +70,28 @@ public class Player : MonoBehaviour
     {
         if (IsGrounded())
         {
-            _move.CanJump = true;
-            _move.StopJump();
+            StopJumpAnimation();
         }
         if(StopFly)
         {
             fly7= false;
-            _move.CanJump = true;
         }
-        
     }
     public void StopJump()
     {
         if(IsGrounded())
         {
-            _move.StopJump();
+            StopJumpAnimation();
         }
         else
         {
             Invoke(nameof(StopJump),0.1f);
         }
+    }
+
+    private void StopJumpAnimation()
+    {
+        _animator.SetBool("IsJumping",false);
     }
 
     public void Down()
@@ -146,7 +100,7 @@ public class Player : MonoBehaviour
         Debug.DrawLine(transform.position, hit.point);
         transform.position =
             new Vector3(transform.position.x, hit.point.y + 0.8f, transform.position.z); // Тут перемещение
-        _move.PlayAnimation("Grounded");
+        PlayAnimation("Grounded");
         Stunned = false;
     }
 
@@ -162,5 +116,10 @@ public class Player : MonoBehaviour
         {
             _loseGame.Lose();
         }
+    }
+    [Serializable]
+    private struct DashProperties
+    {
+
     }
 }

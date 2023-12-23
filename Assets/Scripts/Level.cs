@@ -34,9 +34,9 @@ public class Level : MonoBehaviour
             LevelUpUI.SetActive(false);
             Time.timeScale = 1;
         }
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKey(KeyCode.F))
         {
-            EnemyDie = 10000000;
+            EnemyDie +=1;
         }
     }
 

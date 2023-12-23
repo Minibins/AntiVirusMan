@@ -7,7 +7,7 @@ public class SpeedBoost : MonoBehaviour
     [SerializeField] private float _multiplierSpeed;
     [SerializeField] private float _durationBoost;
     [SerializeField] private float _ReloadTime;
-    private Move _moveTarget;
+    private MoveBase _moveTarget;
     private Animator _animator;
     private bool _reloadNow = false;
     private Collider2D[] _targets;
@@ -21,7 +21,7 @@ public class SpeedBoost : MonoBehaviour
         _reloadNow = false;
         _targets = Physics2D.OverlapCircleAll(transform.position, 0.2f, _maskWhoBoosts);
         _moveTarget = _targets.Where(x => x.gameObject != gameObject).
-                 Select(x => x.gameObject.GetComponent<Move>()).
+                 Select(x => x.gameObject.GetComponent<MoveBase>()).
                 Where(x => x != null && !x.IsMultiplierBoost()).
                 FirstOrDefault();
         if (_moveTarget != null)
