@@ -146,8 +146,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 156
+      x: 348
+      y: 4
       width: 336
       height: 144
     spriteID: 79eba69abc389f645800a7e31bde5209
@@ -158,7 +158,107 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
+    uvTransform: {x: 348, y: 4}
+  - name: railWayCarriage_Frame_2
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 156
+      width: 336
+      height: 144
+    spriteID: 611012f848b373f4992c93745c29a22c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
     uvTransform: {x: 4, y: 156}
+  - name: railWayCarriage_Frame_3
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 348
+      y: 156
+      width: 336
+      height: 144
+    spriteID: ef818955aa144e04eb1aeee4331c087e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 348, y: 156}
+  - name: railWayCarriage_Frame_4
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 308
+      width: 336
+      height: 144
+    spriteID: 0a861d5a9eed3cd4186afadcead13e1e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 308}
+  - name: railWayCarriage_Frame_5
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 348
+      y: 308
+      width: 336
+      height: 144
+    spriteID: 98b3b8918eb0f4547a05d20590b6fbd7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 348, y: 308}
+  - name: railWayCarriage_Frame_6
+    originalName: 
+    pivot: {x: 0.5, y: -0.125}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 460
+      width: 336
+      height: 128
+    spriteID: 3e6951f2d57586841b3557bed11c0663
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 460}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -184,6 +284,46 @@ ScriptedImporter:
         width: 336
         height: 144
       spriteId: 79eba69abc389f645800a7e31bde5209
+    - name: railWayCarriage_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 0
+        y: 0
+        width: 336
+        height: 144
+      spriteId: 611012f848b373f4992c93745c29a22c
+    - name: railWayCarriage_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 0
+        y: 0
+        width: 336
+        height: 144
+      spriteId: ef818955aa144e04eb1aeee4331c087e
+    - name: railWayCarriage_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 0
+        y: 0
+        width: 336
+        height: 144
+      spriteId: 0a861d5a9eed3cd4186afadcead13e1e
+    - name: railWayCarriage_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 0
+        y: 0
+        width: 336
+        height: 144
+      spriteId: 98b3b8918eb0f4547a05d20590b6fbd7
+    - name: railWayCarriage_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 0
+        y: 16
+        width: 336
+        height: 128
+      spriteId: 3e6951f2d57586841b3557bed11c0663
     linkedCells: []
     parentIndex: -1
   platformSettings: []

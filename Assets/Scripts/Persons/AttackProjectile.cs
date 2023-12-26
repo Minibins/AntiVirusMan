@@ -18,29 +18,21 @@ public class AttackProjectile : MonoBehaviour
     }
     [SerializeField] public LayerMask _mask;
     [SerializeField] public Vector2 _velosity;
-    private Move _move;
+    private MoveBase _move;
     private IDamageble _Target;
 
     private void Awake()
     {
-        _move = GetComponent<Move>();
+        _move = GetComponent<MoveBase>();
     }
     protected virtual void Start()
     {
         if (_move != null) {
-        if(_velosity.x!=0)
-        { _move.MoveHorizontally(_velosity.x);
-        }
-        if(_velosity.y!=0)
-        {
-            
-                _move.MoveVertically(_velosity.y);
-        }
+            _move.MoveBoth(_velosity);
         };
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
         OnSomethingEnter2D(collision);
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -54,6 +46,7 @@ public class AttackProjectile : MonoBehaviour
     }
     private void OnSomethingEnter2D(Collider2D collision)
     {
+        
         if(((_mask.value & (1 << collision.gameObject.layer)) != 0) && collision.gameObject.TryGetComponent<IDamageble>(out _Target))
         {
             _Target.OnDamageGet(Damage);

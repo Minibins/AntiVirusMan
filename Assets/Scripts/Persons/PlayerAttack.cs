@@ -81,6 +81,9 @@ public class PlayerAttack : MonoBehaviour
         private set { _maxAmmo = value; }
     }
 
+    public Rigidbody2D Rb { get => rb; set => rb = value; }
+    public Rigidbody2D Rb1 { get => rb; set => rb = value; }
+
     private void Awake()
     {
         pc = GameObject.FindGameObjectWithTag("PC").GetComponentInChildren<PC>();
@@ -133,7 +136,7 @@ public class PlayerAttack : MonoBehaviour
         _weapon.GetComponent<AttackProjectile>().Damage = Damage;
         Instantiate(_AttackSound);
         slowUp();
-        player.Dash(_spriteRenderer.flipX ? 1 : -1);
+        player.Dash((_spriteRenderer.flipX ? 1 : -1) * (LevelUP.isTaken[10] ? 0.5f : 1f));
     }
 
     public void CreateLaser()
@@ -143,7 +146,7 @@ public class PlayerAttack : MonoBehaviour
         GameObject _weapon = Instantiate(LaserPrefab,
             (Vector2) transform.position + Rotatedvec,
             MathA.VectorsAngle(Rotatedvec));
-        if (GetComponent<Move>().Velocity.x != 0) return;
+        if (GetComponent<MoveBase>().Velocity.x != 0) return;
         _spriteRenderer.flipX = true;
     }
 

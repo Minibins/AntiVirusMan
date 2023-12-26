@@ -1,15 +1,17 @@
 ﻿using System.Collections;
-
-using Unity.VisualScripting;
-
 using UnityEngine;
 
 public class LaserGun : MonoBehaviour,Draggable
 {
     [SerializeField] private GameObject Bullet;
     [SerializeField] private float TimeReload;
-    [SerializeField] private GameObject SpawnPoinBullet;
+    [SerializeField] private Transform SpawnPoinBullet;
     [SerializeField] private bool IsShoot;
+    new Transform transform;
+    private void Awake()
+    {
+        transform = base.transform;
+    }
     public void StartShoot()
     {
         gameObject.GetComponent<SpriteRenderer>().enabled = true;
@@ -44,7 +46,8 @@ public class LaserGun : MonoBehaviour,Draggable
         while (IsShoot)
         {
             yield return new WaitForSeconds(TimeReload);
-            Instantiate(Bullet, SpawnPoinBullet.transform.position, transform.rotation);
+            AttackProjectile bullet = Instantiate(Bullet, SpawnPoinBullet.position, transform.rotation).GetComponent<AttackProjectile>();
+            bullet._velosity=MathAVM.MathA.RotatedVector(bullet._velosity,transform.rotation.eulerAngles.z);
         }
     }
     public void OnDrag()

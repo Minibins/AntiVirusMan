@@ -203,7 +203,7 @@ MonoBehaviour:
   _mask:
     serializedVersion: 2
     m_Bits: 56384
-  _velosity: {x: 0, y: 10}
+  _velosity: {x: 1, y: 9}
 --- !u!114 &304440491880971904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,7 +218,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _canJump: 0
   _jumpingPower: 0
-  _speed: 10
+  _speed: 1.72
   _spriteRenderer: {fileID: 0}
 --- !u!61 &7813329653446608911
 BoxCollider2D:

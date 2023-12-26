@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private LayerMask _maskWhoKills;
     public float moveDirection;
     private protected Health _health;
-    private protected Move _move;
+    private protected MoveBase _move;
     private SpriteRenderer _spriteRenderer;
     private protected Animator _animator;
     private bool dead = false;
@@ -42,7 +42,7 @@ public class Enemy : MonoBehaviour
     virtual private protected void Awake()
     {
         _health = GetComponent<Health>();
-        _move = GetComponent<Move>();
+        _move = GetComponent<MoveBase>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
         if(LevelUP.isTaken[14])
@@ -55,7 +55,7 @@ public class Enemy : MonoBehaviour
         }
         if (LevelUP.isTaken[18])
         {
-            _health.SetMaxHealth(-1);
+            _health.AddMaxHealth(-1);
             _animator.Play("Wire");
             
         }
@@ -149,7 +149,7 @@ public class Enemy : MonoBehaviour
         if(other.CompareTag("PC")&& LevelUP.isTaken[18] && WhoAmI!=EnemyTypes.Toocha&&ChangeMove==0)
         {
             _animator.SetTrigger("Evolution");
-            _health.SetMaxHealth(1);
+            _health.AddMaxHealth(1);
         }
         if (other.CompareTag("WayPoint"))
         {

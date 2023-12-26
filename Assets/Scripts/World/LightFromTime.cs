@@ -31,11 +31,11 @@ public class LightFromTime : MonoBehaviour
         if(renderer is SpriteRenderer)
         {
             SpriteRenderer spriteRenderer = (SpriteRenderer)renderer;
-            spriteRenderer.color = MathA.ColorBetweenTwoOther(colorStart,colorEnd,transformationStart,transformationEnd,Timer.sec);
+            spriteRenderer.color = MathA.ColorBetweenTwoOther(colorStart,colorEnd,transformationStart,transformationEnd,Timer.time);
         }
         else if(renderer is Tilemap) {
             Tilemap spriteRenderer = (Tilemap)renderer;
-            spriteRenderer.color = MathA.ColorBetweenTwoOther(colorStart,colorEnd,transformationStart,transformationEnd,Timer.sec);
+            spriteRenderer.color = MathA.ColorBetweenTwoOther(colorStart,colorEnd,transformationStart,transformationEnd,Timer.time);
         }
     }
 }

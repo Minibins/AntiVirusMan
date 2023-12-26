@@ -1,97 +1,34 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class LevelUP : MonoBehaviour
 {
-    private GameObject FirstButton=>UiElementsList.instance.Panels.levelUpPanel.Button1;
-    private GameObject SecondButton => UiElementsList.instance.Panels.levelUpPanel.Button2;
-    private GameObject ThreeButton => UiElementsList.instance.Panels.levelUpPanel.Button3;
+    private GameObject firstButton=>UiElementsList.instance.Panels.levelUpPanel.Button1;
+    private GameObject secondButton => UiElementsList.instance.Panels.levelUpPanel.Button2;
+    private GameObject thirdButton => UiElementsList.instance.Panels.levelUpPanel.Button3;
     [SerializeField] private Sprite none;
-    
     public Sprite[] itemtextures;
     [SerializeField] private bool[] IsTakenTemplate;
     public static bool[] isTaken;
-    private int a;
-    private Image spritechangingFirst;
-    private Image spritechangingSecond;
-    private Image spritechangingThree;
     private void Start()
     {
         isTaken = IsTakenTemplate;
-        string isTakenDebug= Convert.ToString(isTaken);
     }
     public void NewUpgrade()
     {
         Time.timeScale = 0.1f;
-        a = UnityEngine.Random.Range(0, itemtextures.Length);
-        if (!isTaken[a])
-        {
-            FirstButton.GetComponent<UpgradeButton>().id = a;
-            spritechangingFirst = FirstButton.GetComponent<Image>();
-            spritechangingFirst.sprite = itemtextures[a];
+        IEnumerable<int> availableIndexes = Enumerable.Range(0, itemtextures.Length).Where(i => !isTaken[i]).OrderBy(_ => Random.value).Take(3);
 
-            a = UnityEngine.Random.Range(0, itemtextures.Length);
-            if (!isTaken[a] && FirstButton.GetComponent<UpgradeButton>().id != a)
-            {
-                SecondButton.GetComponent<UpgradeButton>().id = a;
-                spritechangingSecond = SecondButton.GetComponent<Image>();
-                spritechangingSecond.sprite = itemtextures[a];
+        List<int> indexes = availableIndexes.ToList();
 
-                a = UnityEngine.Random.Range(0, itemtextures.Length);
-                if (!isTaken[a] && FirstButton.GetComponent<UpgradeButton>().id != a &&
-                    SecondButton.GetComponent<UpgradeButton>().id != a)
-                {
-                    ThreeButton.GetComponent<UpgradeButton>().id = a;
-                    spritechangingThree = ThreeButton.GetComponent<Image>();
-                    spritechangingThree.sprite = itemtextures[a];
-                }
-                else
-                {
-                    if (isTaken.Count(b => b == false) >= 1)
-                    {
-                        NewUpgrade();
-                        return;
-                    }
-                    else
-                    {
-                        ThreeButton.GetComponent<UpgradeButton>().id = -1;
-                        spritechangingThree = ThreeButton.GetComponent<Image>();
-                        spritechangingThree.sprite = none;
-                    }
-                }
-            }
-            else
-            {
-                if (isTaken.Count(b => b == false) >= 2)
-                {
-                    NewUpgrade();
-                    return;
-                }
-                else
-                {
-                    SecondButton.GetComponent<UpgradeButton>().id = -1;
-                    spritechangingSecond = SecondButton.GetComponent<Image>();
-                    spritechangingSecond.sprite = none;
-                }
-            }
-        }
+        firstButton.GetComponent<Image>().sprite = indexes.Count >= 1 ? itemtextures[indexes[0]] : none;
+        secondButton.GetComponent<Image>().sprite = indexes.Count >= 2 ? itemtextures[indexes[1]] : none;
+        thirdButton.GetComponent<Image>().sprite = indexes.Count >= 3 ? itemtextures[indexes[2]] : none;
 
-        else
-        {
-            if (isTaken.Count(b => b == false) >= 3)
-            {
-                a = UnityEngine.Random.Range(0, itemtextures.Length);
-                NewUpgrade();
-                return;
-            }
-            else
-            {
-                FirstButton.GetComponent<UpgradeButton>().id = -1;
-                spritechangingFirst = FirstButton.GetComponent<Image>();
-                spritechangingFirst.sprite = none;
-            }
-        }
+        firstButton.GetComponent<UpgradeButton>().id = indexes.Count >= 1 ? indexes[0] : -1;
+        secondButton.GetComponent<UpgradeButton>().id = indexes.Count >= 2 ? indexes[1] : -1;
+        thirdButton.GetComponent<UpgradeButton>().id = indexes.Count >= 3 ? indexes[2] : -1;
     }
 }

@@ -20,7 +20,7 @@ public class blackenemy : Enemy
             PC.Carma = 7.5f;
         }
         _PC = GameObject.FindGameObjectWithTag("PC");
-        _move = GetComponent<Move>();
+        _move = GetComponent<MoveBase>();
         _health = GetComponent<Health>();
         _animator = GetComponent<Animator>();
         if(LevelUP.isTaken[14])

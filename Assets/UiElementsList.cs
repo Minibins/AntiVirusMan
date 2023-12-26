@@ -67,14 +67,15 @@ public class UiElementsList : MonoBehaviour
     [System.Serializable]
     public struct PanelsStruct 
     {
-        [SerializeField] public GameObject ButtonSettingsPanel,LosePanel,BossPanel;
+        [SerializeField] public GameObject ButtonSettingsPanel,BossPanel;
+        [SerializeField] public LoseGamePanel LoseGame;
         [SerializeField] public LevelUp levelUpPanel;
         [SerializeField] public settingsPanel SettingsPanel;
-        public PanelsStruct(settingsPanel SSettingsPanel,GameObject buttonSettingsPanel,GameObject losePanel,GameObject bossPanel,LevelUp levelUpPanel)
+        public PanelsStruct(settingsPanel SSettingsPanel,GameObject buttonSettingsPanel,LoseGamePanel losePanel,GameObject bossPanel,LevelUp levelUpPanel)
         {
             SettingsPanel = SSettingsPanel;
             ButtonSettingsPanel = buttonSettingsPanel;
-            LosePanel = losePanel;
+            LoseGame = losePanel;
             BossPanel = bossPanel;
             this.levelUpPanel = levelUpPanel;
         }
@@ -98,10 +99,20 @@ public class UiElementsList : MonoBehaviour
             [SerializeField] public Text MusicVolumeText;
             [SerializeField] public Slider MusicVolumeSlider;
         }
+        [System.Serializable]
+        public struct LoseGamePanel
+        {
+            [SerializeField] public GameObject Panel;
+            [SerializeField] public Text YouLiveText;
+        }
     }
     [System.Serializable]
     public struct UserInterface
     {
+        [SerializeField] public GameObject All
+        {
+            get { return Carma.transform.parent.gameObject; }
+        }
         [SerializeField] public CellAnimator[] AmmoCell,HealthCell;
         [SerializeField] public Image Time,Lvl,Carma;
     }

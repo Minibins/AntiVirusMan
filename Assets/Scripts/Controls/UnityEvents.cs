@@ -17,30 +17,30 @@ public class UnityEvents : MonoBehaviour
 
     public static void UE_ButtonLeft()
     {
-        _player.Walk(-1);
+        _player.MoveHorizontally(-1);
     }
 
     public static void UE_ButtonRigth()
     {
-        _player.Walk(1);
+        _player.MoveHorizontally(1);
     }
 
     public void UE_JoystickHorizontal(float input)
     {
-        _player.Walk(input);
+        _player.MoveHorizontally(input);
     }
     public void UE_JoystickHorizontal()
     {
-        _player.Walk(UiElementsList.instance.Joysticks.Walk.Horizontal);
+        _player.MoveHorizontally(UiElementsList.instance.Joysticks.Walk.Horizontal);
     }
     public static void UE_ButtonDash()
     {
-        _player.Dash(0);
+        _player.Dash();
     }
 
     public static void UE_ButtonStop()
     {
-        _player.Walk(0);
+        _player.MoveHorizontally(0);
     }
 
     public static void UE_ButtonJump()

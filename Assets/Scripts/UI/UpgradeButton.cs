@@ -103,7 +103,7 @@ public class UpgradeButton : MonoBehaviour
 
             case 10:
                 DashButton.SetActive(true);
-            _Player.GetComponent<Player>().dashRange *= 2;
+         //   _Player.GetComponent<Dasher>().dashRange *= 2;
                 break;
             
             //11
