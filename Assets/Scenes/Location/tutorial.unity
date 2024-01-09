@@ -466,7 +466,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _audio
       value: 
-      objectReference: {fileID: 464473592}
+      objectReference: {fileID: 0}
     - target: {fileID: 5968282388661179780, guid: d8c31f8808ada594796ce6007cd874da,
         type: 3}
       propertyPath: slider
@@ -714,12 +714,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1359134853}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &464473592 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 4162817930555077988, guid: 0951b036ba0a12343a56eff64eed7b4c,
-    type: 3}
-  m_PrefabInstance: {fileID: 670180527}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &505378350 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5735589849846521522, guid: 0951b036ba0a12343a56eff64eed7b4c,
@@ -1075,6 +1069,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 1168384674932973371, guid: 0951b036ba0a12343a56eff64eed7b4c,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1469759020642029893, guid: 0951b036ba0a12343a56eff64eed7b4c,
         type: 3}
       propertyPath: OnDragEvent.m_PersistentCalls.m_Calls.Array.size
@@ -1109,6 +1108,11 @@ PrefabInstance:
         type: 3}
       propertyPath: OnDragEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1897799623379633847, guid: 0951b036ba0a12343a56eff64eed7b4c,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3684711052714984343, guid: 0951b036ba0a12343a56eff64eed7b4c,
         type: 3}
