@@ -6,6 +6,6 @@ public class ExpCollectible : MonoBehaviour
     [SerializeField] public float Exp;
     public void AddEXP()
     {
-        Level.TakeEXP(Exp);
+        Level.EXP+=Exp;
     } 
 }

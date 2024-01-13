@@ -1,4 +1,4 @@
-﻿/*using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
@@ -69,4 +69,4 @@ public class JoystickEditor : Editor
     {
         EditorGUILayout.ObjectField(OnDragEnd,new GUIContent("On Drag End","Event, which Invokes, when you stop dragging"));
     }
-}*/
+}

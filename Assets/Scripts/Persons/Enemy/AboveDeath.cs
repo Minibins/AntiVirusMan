@@ -29,7 +29,7 @@ public class AboveDeath : BookaCollisionChecker
 			gameObject.layer = 12;
 		}
     }
-    protected override bool EnterCondition(Collision2D other)
+    protected override bool EnterCondition(Collider2D other)
     {
 		return other.transform == Player.transform&&base.EnterCondition(other);
     }

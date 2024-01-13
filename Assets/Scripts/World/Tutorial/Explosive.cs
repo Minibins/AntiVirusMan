@@ -7,6 +7,7 @@ public class Explosive : MonoBehaviour, IDamageble
     public void OnDamageGet(int Damage)
     {
         Instantiate(Explosion,transform.position,Quaternion.identity);
+        Level.EXP += 3;
         Destroy(gameObject);
     }
 }

@@ -30,6 +30,7 @@ public class DummyHealth : Health
 
     public override void DestroyHimself()
     {
+        Level.EXP += 3;
         Destroy(this);
     }
 }

@@ -7,21 +7,21 @@ public class Level : MonoBehaviour
     public static bool IsSelected;
     [SerializeField] private LevelUP LevelUpScript;
     [SerializeField] public static float EnemyNeedToUpLVL = 15;
-    private static float EnemyDie;
+    public static float EXP;
     private void Start()
     {
         EnemyNeedToUpLVL = 15;
-        EnemyDie = 0;
+        EXP = 0;
     }
 
     private void FixedUpdate()
     {
         var UI = UiElementsList.instance;
-        UI.Counters.Lvl.fillAmount = (float)EnemyDie / EnemyNeedToUpLVL;
+        UI.Counters.Lvl.fillAmount = (float)EXP / EnemyNeedToUpLVL;
         var LevelUpUI = UI.Panels.levelUpPanel.Panel;
-        if(EnemyDie >= EnemyNeedToUpLVL)
+        if(EXP >= EnemyNeedToUpLVL)
         {
-            EnemyDie = 0;
+            EXP = 0;
 
             
             LevelUpUI.SetActive(true);
@@ -36,13 +36,8 @@ public class Level : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.F))
         {
-            EnemyDie +=4;
+            EXP +=4;
         }
-    }
-
-    public static void TakeEXP(float kills)
-    {
-        EnemyDie += kills;
     }
 
 }

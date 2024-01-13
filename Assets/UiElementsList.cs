@@ -26,9 +26,10 @@ public class UiElementsList : MonoBehaviour
             , Dash
             , Pique
             , Settings;
+        [SerializeField] public InteractButton Interact;
         public GameObject All { get => Settings.transform.parent.gameObject; }
 
-        public ButtonsStruct(Button left,Button right,Button jump,Button attack,Button dash,Button pique,Button settings)
+        public ButtonsStruct(Button left,Button right,Button jump,Button attack,Button dash,Button pique,Button settings,InteractButton interact)
         {
             Left = left;
             Right = right;
@@ -37,6 +38,7 @@ public class UiElementsList : MonoBehaviour
             Dash = dash;
             Pique = pique;
             Settings = settings;
+            Interact = interact;
         }
 
         public Button[] AsArray
@@ -52,6 +54,12 @@ public class UiElementsList : MonoBehaviour
                         Pique,
                         Settings
                 };
+        }
+        [System.Serializable]
+        public struct InteractButton
+        {
+            [SerializeField] public Button button;
+            [SerializeField] public Image image;
         }
     }
     [System.Serializable]

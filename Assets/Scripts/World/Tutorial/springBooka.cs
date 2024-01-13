@@ -47,12 +47,12 @@ public class springBooka : BookaCollisionChecker
             transform.position = defaultPosition;
         }
     }
-    protected override bool EnterCondition(Collision2D other)
+    protected override bool EnterCondition(Collider2D other)
     {
         Rigidbody2D rigidbody;
         return base.EnterCondition(other)&&other.gameObject.TryGetComponent<Rigidbody2D>(out rigidbody);
     }
-    protected override bool ExitCondition(Collision2D other)
+    protected override bool ExitCondition(Collider2D other)
     {
         List<GameObject> EnteredThingsWithoutExiter=EnteredThings;
         if(EnteredThingsWithoutExiter.Contains(other.gameObject) )
