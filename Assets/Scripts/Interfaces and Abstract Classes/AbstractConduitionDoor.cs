@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ExpDoor : PlayersCollisionChecker
+public class AbstractConduitionDoor : PlayersCollisionChecker
 {
     Animator animator;
-    [SerializeField] int ExpReqired;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -14,7 +13,12 @@ public class ExpDoor : PlayersCollisionChecker
     }
     void OpenOrClose(bool Open)
     {
-        if(Level.EXP < ExpReqired) return;
-        animator.SetBool("Open", Open);
+        if(Conduition()) return;
+        animator.SetBool("Open",Open);
+    }
+
+    virtual protected bool Conduition()
+    {
+        return true;
     }
 }

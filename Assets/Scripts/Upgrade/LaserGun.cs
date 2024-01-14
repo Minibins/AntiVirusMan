@@ -47,7 +47,7 @@ public class LaserGun : MonoBehaviour,Draggable
         {
             yield return new WaitForSeconds(TimeReload);
             AttackProjectile bullet = Instantiate(Bullet, SpawnPoinBullet.position, transform.rotation).GetComponent<AttackProjectile>();
-            bullet._velosity=MathAVM.MathA.RotatedVector(bullet._velosity,transform.rotation.eulerAngles.z);
+            bullet._velosity=DustyStudios.MathAVM.MathA.RotatedVector(bullet._velosity,transform.rotation.eulerAngles.z);
         }
     }
     public void OnDrag()

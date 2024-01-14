@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-using MathAVM;
+using DustyStudios.MathAVM;
 
 using Unity.Mathematics;
 

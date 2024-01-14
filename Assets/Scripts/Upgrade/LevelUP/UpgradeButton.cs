@@ -1,7 +1,8 @@
-using Unity.VisualScripting;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using Unity.VisualScripting;
+using System;
 public class UpgradeButton : MonoBehaviour
 {
     [SerializeField] private GameObject DashButton;
@@ -9,7 +10,7 @@ public class UpgradeButton : MonoBehaviour
     private GameObject Laser, PUSHKA,_Player;
     public GameObject mainupgrader;
     public int id;
-   
+    public static Dictionary<int, Action> UpgradeActions = new Dictionary<int, Action>();
     public void onclick()
     {
         if (gameObject.GetComponent<Image>().sprite.name == "None")
@@ -29,6 +30,7 @@ public class UpgradeButton : MonoBehaviour
 
     private void ChooseUpgrade(LevelUP lvlUp)
     {
+        if(UpgradeActions.ContainsKey(id)) UpgradeActions[id]();
         switch (id)
         {
             case 0:

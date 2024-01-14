@@ -19,8 +19,6 @@ public class SendFeedback : MonoBehaviour
         string subject = "Отзыв о игре";
         string body = text.text;
         var Sender = new MailAddress(fromEmail);
-        {
-        }
         var smtpClient = new SmtpClient(smtpServer)
         {
             Port = smtpPort,

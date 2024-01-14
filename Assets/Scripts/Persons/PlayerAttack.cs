@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 
-using MathAVM;
+using DustyStudios.MathAVM;
 
 using Unity.VisualScripting;
 using UnityEngine;
