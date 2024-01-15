@@ -11,6 +11,7 @@ public class CellAnimator : MonoBehaviour
 
     public void Enable()
     {
+        anim.SetTrigger("Heal");
         gameObject.SetActive(true);
     }
 
