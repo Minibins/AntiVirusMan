@@ -14,7 +14,7 @@ public class MoveBase : MonoBehaviour
     public SpriteRenderer _spriteRenderer;
 
     private Vector2 _velocity;
-    public Vector2 Velocity { get { return _velocity; } }
+    public Vector2 Velocity { get; set; }
     public bool CanJump
     {
         get { return _canJump; }

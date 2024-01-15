@@ -12,7 +12,8 @@ public class Player : MoveBase
     protected override void FixedUpdate()
     {
         transform.position = new Vector3(Mathf.Max(-18.527f, Mathf.Min(17.734f, transform.position.x)),
-            transform.position.y, transform.position.z); base.FixedUpdate();
+            transform.position.y, transform.position.z); 
+        if(!Stunned)base.FixedUpdate();
     }
 
     private void Awake()

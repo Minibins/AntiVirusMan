@@ -13,7 +13,6 @@ class Dasher : MonoBehaviour
         {
             _move.Stunned = value;
             _playerAttack.enabled = !value;
-            _move.enabled = !value;
         }
     }
 
@@ -27,6 +26,7 @@ class Dasher : MonoBehaviour
     const float DashRange = 3.5f;
     public void Dash(float direction)
     {
+        isDashEnd = true;
         if(_playerAttack.Ammo <= 0)
         {
             return;
@@ -47,12 +47,13 @@ class Dasher : MonoBehaviour
     }
     IEnumerator DashEnd(float direction)
     {
-        isDashEnd = true;
+        Vector2 velocity = rb.velocity;
         for(float a = 0; a <= 10; a++)
         {
-            rb.velocity=new Vector2(direction * (DashRange * 5 - a / 2 * DashRange),0);
+            rb.velocity = new Vector2(direction * (DashRange * 5 - a * DashRange / 2),0);
             yield return new WaitForFixedUpdate();
         }
         isDashEnd = false;
+        rb.velocity = velocity;
     }
 }

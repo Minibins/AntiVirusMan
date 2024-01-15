@@ -21,7 +21,10 @@ public class Audio : MonoBehaviour
         get => UiElementsList.instance.Panels.SettingsPanel.MusicVolumeSlider.value;
         set => UiElementsList.instance.Panels.SettingsPanel.MusicVolumeSlider.value = value;
     }
-
+    private void Start()
+    {
+        Volume = slider;
+    }
     public void VolumeSlider()
     {
         Volume = slider;

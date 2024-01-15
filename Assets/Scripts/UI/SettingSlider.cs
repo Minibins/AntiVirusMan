@@ -10,8 +10,8 @@ public class SettingSlider : Slider
 {
     [SerializeField] public Text text;
     [SerializeField] string Name, SaveName;
-    protected override void Start()
-    {base.Start();
+    protected override void Awake()
+    {base.Awake();
 
         if(Save.SettingSliders.ContainsKey(SaveName))
         {
@@ -19,7 +19,14 @@ public class SettingSlider : Slider
         }
         else
         {
-            value = PlayerPrefs.GetFloat(SaveName);
+            try
+            {
+                value = PlayerPrefs.GetFloat(SaveName);
+            }
+            catch
+            {
+                PlayerPrefs.SetFloat(SaveName, 1f);
+            }
             Save.SettingSliders.Add(SaveName, value);
         }
         onValueChanged.AddListener(TextUpdate);
