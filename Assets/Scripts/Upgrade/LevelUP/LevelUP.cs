@@ -25,7 +25,7 @@ public class LevelUP : MonoBehaviour
     }
     public virtual void NewUpgrade()
     {
-        Time.timeScale = 0.1f;
+        
         IEnumerable<int> availableIndexes = Enumerable.Range(0, itemtextures.Length).Where(i => !isTaken[i]).OrderBy(_ => Random.value).Take(3);
 
         List<int> indexes = availableIndexes.ToList();
@@ -36,6 +36,7 @@ public class LevelUP : MonoBehaviour
     }
     public void generate(int first,int second,int third)
     {
+        Time.timeScale = 0.1f;
         firstButton.GetComponent<Image>().sprite = first!=-1 ? itemtextures[first] : none;
         secondButton.GetComponent<Image>().sprite = second != -1 ? itemtextures[second] : none;
         thirdButton.GetComponent<Image>().sprite = third != -1 ? itemtextures[third] : none;

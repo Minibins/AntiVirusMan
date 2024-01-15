@@ -13,7 +13,7 @@ namespace DustyStudios
         [SerializeField] private List<Type> queue;
         private Queue<Type> actualQueue;
         private InvalidOperationException emptyException= new InvalidOperationException("The queue is empty.");
-
+        public int Count {  get { return actualQueue.Count; } }
         private void serialize()
         {
             if(actualQueue == null)

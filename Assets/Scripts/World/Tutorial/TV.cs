@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class TV : MonoBehaviour
+public class TV : TalkingPerson
 {
     Animator anim;
     void Start()
@@ -19,5 +19,6 @@ public class TV : MonoBehaviour
     void HelloWorld()
     {
         anim.SetFloat("Speed",1);
+        Talk();
     }
 }

@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 1025521269204821961}
   - component: {fileID: 2575564419444698740}
   - component: {fileID: 8183317841816281767}
-  - component: {fileID: 508503864690187849}
   - component: {fileID: 1025521269204821963}
   - component: {fileID: -2489948543255898726}
   m_Layer: 13
@@ -31,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1025521269204821960}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2, y: -2.3, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
@@ -150,23 +149,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 10
-  DeathSound: {fileID: 7855115547837660963, guid: 9c569b4bb2c58444d8dbda395d075f61,
+  DeathSound: {fileID: 197607958394678711, guid: 5dd771321ccba6f41846268c7a419903,
     type: 3}
-  PunchSound: {fileID: 7855115547837660963, guid: 5c186a1ad9f9fd04e83434a41aec048a,
+  PunchSound: {fileID: 7731523407218121053, guid: 5c4e90b90fd5ebd489512d113f13fe1a,
     type: 3}
-  needVelocityForInvisibility: 20
   CurrentHealth: 0
-  healthCells:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  needVelocityForInvisibility: 20
 --- !u!50 &8183317841816281767
 Rigidbody2D:
   serializedVersion: 4
@@ -194,51 +182,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &508503864690187849
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1025521269204821960}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.01}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.29, y: 0.32}
-    newSize: {x: 0.31, y: 0.16}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.27, y: 0.28}
-  m_EdgeRadius: 0
 --- !u!95 &1025521269204821963
 Animator:
   serializedVersion: 5
@@ -450,6 +393,7 @@ GameObject:
   - component: {fileID: 6231739792212454658}
   - component: {fileID: 1893143932941983577}
   - component: {fileID: 7310078848306772266}
+  - component: {fileID: 2326301515243717963}
   m_Layer: 2
   m_Name: Circle
   m_TagString: PC
@@ -523,7 +467,6 @@ MonoBehaviour:
   distanceFromPlayer: 2.55
   radius: 8
   pc: {fileID: 1025521269847071292}
-  capmaImage: {fileID: 0}
   carmaSprites:
   - {fileID: -2042453451, guid: 1df0e45a1e1783b4bac6578d311db4ef, type: 3}
   - {fileID: 1874366238, guid: 1df0e45a1e1783b4bac6578d311db4ef, type: 3}
@@ -533,3 +476,48 @@ MonoBehaviour:
   - {fileID: 1664823429, guid: 1df0e45a1e1783b4bac6578d311db4ef, type: 3}
   - {fileID: -236806705, guid: 1df0e45a1e1783b4bac6578d311db4ef, type: 3}
   OnlyBehind: 0
+--- !u!61 &2326301515243717963
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7728969661828174176}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.01}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.29, y: 0.32}
+    newSize: {x: 0.31, y: 0.16}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.27, y: 0.28}
+  m_EdgeRadius: 0

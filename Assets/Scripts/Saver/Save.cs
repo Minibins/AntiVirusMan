@@ -31,6 +31,7 @@ public class Save : MonoBehaviour
         }
         set
         {
+            if(value> _data.WinLocation)
             _data.WinLocation = value;
             SaveField();
         }
