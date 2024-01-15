@@ -171,7 +171,6 @@ GameObject:
   - component: {fileID: 193935507143263751}
   - component: {fileID: 1126693211}
   - component: {fileID: 429989184}
-  - component: {fileID: 4017312075561032532}
   - component: {fileID: -808243191230757187}
   - component: {fileID: 527085403454745560}
   - component: {fileID: 4192231093048719063}
@@ -358,7 +357,7 @@ MonoBehaviour:
   <AttackType>k__BackingField: 0
   <Damage>k__BackingField: 1
   SpeedIsDamageCutout: 0.1
-  _AttackSound: {fileID: 7855115547837660963, guid: 3b160fa6e74db6244b15b28964020e71,
+  _AttackSound: {fileID: 1803008693175055407, guid: a6cca2416abefef4e800f9bd3e5cd50f,
     type: 3}
   _bullet: {fileID: 8801379529353642565, guid: bd3def6cba8e68f48a5a523deb793b45, type: 3}
   _spawnPoinBullet: {x: -0.5, y: 0}
@@ -396,41 +395,6 @@ MonoBehaviour:
   TimeToStart: 0.5
   IsOpenly: 0
   canmove: 0
---- !u!70 &4017312075561032532
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8304178653184876640}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.02, y: 0}
-  m_Size: {x: 0.15, y: 0.29}
-  m_Direction: 0
 --- !u!114 &-808243191230757187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -487,7 +451,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.02, y: 0.01}
+  m_Offset: {x: -0.02, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.4, y: 0.45}
@@ -498,5 +462,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.15, y: 0.27}
-  m_EdgeRadius: 0
+  m_Size: {x: 0.13, y: 0.27}
+  m_EdgeRadius: 0.05

@@ -22419,7 +22419,7 @@ PrefabInstance:
     - target: {fileID: 19737612044554191, guid: 0951b036ba0a12343a56eff64eed7b4c,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 217322444895022823, guid: 0951b036ba0a12343a56eff64eed7b4c,
         type: 3}
@@ -22454,7 +22454,7 @@ PrefabInstance:
     - target: {fileID: 1168384674932973371, guid: 0951b036ba0a12343a56eff64eed7b4c,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1469759020642029893, guid: 0951b036ba0a12343a56eff64eed7b4c,
         type: 3}
@@ -22529,7 +22529,7 @@ PrefabInstance:
     - target: {fileID: 1897799623379633847, guid: 0951b036ba0a12343a56eff64eed7b4c,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2033156064030364242, guid: 0951b036ba0a12343a56eff64eed7b4c,
         type: 3}
@@ -22733,6 +22733,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2575564419444698740, guid: 7cd7abddee6eef64faf67f84b4c443df,
+        type: 3}
+      propertyPath: DeathSound
+      value: 
+      objectReference: {fileID: 197607958394678711, guid: 5dd771321ccba6f41846268c7a419903,
+        type: 3}
+    - target: {fileID: 2575564419444698740, guid: 7cd7abddee6eef64faf67f84b4c443df,
+        type: 3}
+      propertyPath: PunchSound
+      value: 
+      objectReference: {fileID: 7731523407218121053, guid: 5c4e90b90fd5ebd489512d113f13fe1a,
+        type: 3}
     - target: {fileID: 2575564419444698740, guid: 7cd7abddee6eef64faf67f84b4c443df,
         type: 3}
       propertyPath: healthCells.Array.data[0]

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &5741882933912291641
+--- !u!1001 &8757144683911222581
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -12,21 +12,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 664c92c3db2a19648bb0942dc448ee31, type: 3}
+      objectReference: {fileID: 8300000, guid: 14335e04f862b494f86046d2ac167332, type: 3}
     - target: {fileID: 6231362319574557184, guid: 4e1c3da8224e93347958d4a0d66b08c1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -7.63
       objectReference: {fileID: 0}
     - target: {fileID: 6231362319574557184, guid: 4e1c3da8224e93347958d4a0d66b08c1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 2.34
       objectReference: {fileID: 0}
     - target: {fileID: 6231362319574557184, guid: 4e1c3da8224e93347958d4a0d66b08c1,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.13024612
       objectReference: {fileID: 0}
     - target: {fileID: 6231362319574557184, guid: 4e1c3da8224e93347958d4a0d66b08c1,
         type: 3}
@@ -66,7 +66,12 @@ PrefabInstance:
     - target: {fileID: 7855115547837660963, guid: 4e1c3da8224e93347958d4a0d66b08c1,
         type: 3}
       propertyPath: m_Name
-      value: GreenTakeDamage
+      value: LaserGun
+      objectReference: {fileID: 0}
+    - target: {fileID: 7855115547837660963, guid: 4e1c3da8224e93347958d4a0d66b08c1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

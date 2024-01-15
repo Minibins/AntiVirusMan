@@ -212,9 +212,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _correctionY: 0.65
   ForcerePulsive: 650
-  Elite: 0
-  numberOfObjectsToSpawn: 0
-  objectToSpawn: {fileID: 0}
   IsPlatform: 0
 --- !u!70 &4519855225380453706
 CapsuleCollider2D:
@@ -276,12 +273,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 4
-  DeathSound: {fileID: 7855115547837660963, guid: 2638429a3fce0d9478a9a0cc3408fdf2,
+  DeathSound: {fileID: 2695745963732147158, guid: 2638429a3fce0d9478a9a0cc3408fdf2,
     type: 3}
-  PunchSound: {fileID: 7855115547837660963, guid: 2885d6336d009894796b76f5f36a03eb,
+  PunchSound: {fileID: 410203351637440491, guid: 2885d6336d009894796b76f5f36a03eb,
     type: 3}
-  needVelocityForInvisibility: 9999
   CurrentHealth: 0
+  needVelocityForInvisibility: 9999
 --- !u!1 &8161061342530039711
 GameObject:
   m_ObjectHideFlags: 0
