@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 public class Player : MoveBase
 {
+    [SerializeField] private float FlightVelicityCap = 0;
     [SerializeField] private Transform _groundCheck;
     [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private PChealth _health;
@@ -60,11 +61,12 @@ public class Player : MoveBase
     {
         while(fly7)
         {
+            if(_rigidbody.velocity.y<= FlightVelicityCap) CanJump = false;
             MoveVertically(flySpeed);
-            PlayAnimation("Fly");
+            if(!CanJump) PlayAnimation("Fly");
             yield return new WaitForFixedUpdate();
         }
-        
+        CanJump = true;
     }
     public void StopJump(bool StopFly)
     {
