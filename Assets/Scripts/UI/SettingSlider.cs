@@ -10,8 +10,8 @@ public class SettingSlider : Slider
 {
     [SerializeField] public Text text;
     [SerializeField] string Name, SaveName;
-    protected override void Awake()
-    {base.Awake();
+    protected override void Start()
+    {base.Start();
 
         if(Save.SettingSliders.ContainsKey(SaveName))
         {

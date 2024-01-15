@@ -1545,6 +1545,11 @@ PrefabInstance:
       propertyPath: _loseGame
       value: 
       objectReference: {fileID: 6032902586856246492}
+    - target: {fileID: 4192231093048719063, guid: ec94f27c1555e174ebada4b736dde08b,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.03
+      objectReference: {fileID: 0}
     - target: {fileID: 8304178653184876640, guid: ec94f27c1555e174ebada4b736dde08b,
         type: 3}
       propertyPath: m_Name
@@ -1872,18 +1877,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1962331238 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4267283270246016674, guid: 0951b036ba0a12343a56eff64eed7b4c,
-    type: 3}
-  m_PrefabInstance: {fileID: 387484455}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2111589732
 GameObject:
   m_ObjectHideFlags: 0
@@ -2589,7 +2582,6 @@ MonoBehaviour:
   HealthPanel: {fileID: 1459443627}
   Buttons: {fileID: 855920391}
   LosePanel: {fileID: 387001421}
-  LiveTextLose: {fileID: 1962331238}
 --- !u!114 &6574437097830051986
 MonoBehaviour:
   m_ObjectHideFlags: 0
