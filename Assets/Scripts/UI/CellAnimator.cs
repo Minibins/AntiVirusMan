@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class CellAnimator : MonoBehaviour
 {
+    [SerializeField] private GameObject _gameObject;
     private Animator anim;
 
     private void Start()
@@ -23,5 +24,10 @@ public class CellAnimator : MonoBehaviour
     private void AfterDisable()
     {
         gameObject.SetActive(false);
+    }
+
+    private void AfterDisableObj()
+    {
+        _gameObject.SetActive(true);
     }
 }
