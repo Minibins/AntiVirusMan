@@ -11,6 +11,7 @@
           <e p="BackGrounds" t="Include" />
           <e p="How To draw a virus" t="Include">
             <e p="Enemy" t="Include" />
+            <e p="PixelArtTips" t="Include" />
             <e p="Upgrade" t="Include" />
           </e>
           <e p="Menu Artworks" t="Include" />
@@ -48,7 +49,9 @@
           <e p="explosion" t="Include" />
           <e p="FirstAidKit" t="Include" />
           <e p="PC" t="Include">
+            <e p="Classic" t="Include" />
             <e p="Modem" t="Include" />
+            <e p="TrainingSimulation" t="Include" />
           </e>
           <e p="Perehod" t="Include" />
           <e p="Player" t="Include">
@@ -62,11 +65,13 @@
             <e p="1" t="Include" />
             <e p="2" t="Include" />
           </e>
+          <e p="PreView" t="Include" />
           <e p="Spawner" t="Include" />
           <e p="Training" t="Include" />
           <e p="Wall" t="Include" />
           <e p="wheels" t="Include" />
         </e>
+        <e p="ColliderOffsetPLUS.cs" t="Include" />
         <e p="Documentation.cs" t="Include" />
         <e p="Enemy" t="Include">
           <e p="Boss" t="Include" />
@@ -235,12 +240,17 @@
           <e p="Trains" t="Include">
             <e p="TileMaps" t="Include" />
           </e>
+          <e p="TutorialSttets" t="Include">
+            <e p="Doors" t="Include" />
+            <e p="Enemies" t="Include" />
+          </e>
           <e p="UpgradeButtons" t="Include" />
         </e>
         <e p="Resources" t="Include">
           <e p="BillingMode.json" t="Include" />
         </e>
         <e p="Scenes" t="Include">
+          <e p="Debug" t="Include" />
           <e p="Location" t="Include">
             <e p="1" t="Include" />
           </e>
@@ -248,26 +258,41 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="bigexplosion.cs" t="Include" />
+          <e p="ControlledAudio.cs" t="Include" />
           <e p="Controls" t="Include">
             <e p="Controller.cs" t="Include" />
             <e p="UnityEvents.cs" t="Include" />
           </e>
           <e p="DeathLine.cs" t="Include" />
+          <e p="Debug" t="Include">
+            <e p="StrelaushaaShtuka.cs" t="Include" />
+          </e>
+          <e p="DustyStudio's" t="Include">
+            <e p="GetUsername.cs" t="Include" />
+            <e p="MathA.cs" t="Include" />
+            <e p="SerializableQueue.cs" t="Include" />
+          </e>
+          <e p="Editors" t="Include">
+            <e p="SliderSetting.cs" t="Include" />
+          </e>
           <e p="Interfaces and Abstract Classes" t="Include">
             <e p="AbovePlayerChecker.cs" t="Include" />
+            <e p="AbstractConduitionDoor.cs" t="Include" />
             <e p="AbstractPortal.cs" t="Include" />
-            <e p="Contacter.cs" t="Include" />
             <e p="Draggable.cs" t="Include" />
             <e p="Follower.cs" t="Include" />
             <e p="Health.cs" t="Include" />
             <e p="IPlayerDamageble.cs" t="Include" />
-            <e p="MathA.cs" t="Include" />
             <e p="RawAttack.cs" t="Include" />
             <e p="Setting.cs" t="Include" />
+            <e p="Upgrade.cs" t="Include" />
           </e>
-          <e p="Level.cs" t="Include" />
-          <e p="LevelUP.cs" t="Include" />
           <e p="LoseGame.cs" t="Include" />
+          <e p="Menu" t="Include">
+            <e p="LevelButton.cs" t="Include" />
+            <e p="MainMenu.cs" t="Include" />
+            <e p="SendFeedback.cs" t="Include" />
+          </e>
           <e p="Paralax.cs" t="Include" />
           <e p="Paralax2.cs" t="Include" />
           <e p="Persons" t="Include">
@@ -285,51 +310,62 @@
               <e p="SpeedBoost.cs" t="Include" />
             </e>
             <e p="Move.cs" t="Include" />
+            <e p="MoveBase.cs" t="Include" />
+            <e p="MovementClasses" t="Include">
+              <e p="Additional Actions" t="Include">
+                <e p="Dasher.cs" t="Include" />
+              </e>
+            </e>
             <e p="pc.cs" t="Include" />
             <e p="PChealth.cs" t="Include" />
             <e p="Player.cs" t="Include" />
             <e p="PlayerAttack.cs" t="Include" />
+            <e p="PlayerMove.cs" t="Include" />
           </e>
           <e p="PlayerRotatable.cs" t="Include" />
+          <e p="Preview.cs" t="Include" />
           <e p="Saver" t="Include">
             <e p="Save.cs" t="Include" />
           </e>
-          <e p="SendFeedback.cs" t="Include" />
           <e p="Settings.cs" t="Include" />
           <e p="shadowEffect.cs" t="Include" />
-          <e p="SpawnerEnemy.cs" t="Include" />
           <e p="SpawnFirstAidKit.cs" t="Include" />
           <e p="SpawnPortals.cs" t="Include" />
-          <e p="SpawnTrain.cs" t="Include" />
-          <e p="Structures" t="Include" />
+          <e p="Structures" t="Include">
+            <e p="UiElementsList.cs" t="Include" />
+          </e>
           <e p="suicide.cs" t="Include" />
           <e p="SuicideAfterTime.cs" t="Include" />
           <e p="Timer.cs" t="Include" />
-          <e p="TrainMove.cs" t="Include" />
-          <e p="TrainOption.cs" t="Include" />
           <e p="UI" t="Include">
             <e p="Audio.cs" t="Include" />
             <e p="CellAnimator.cs" t="Include" />
-            <e p="DraggableButton.cs" t="Include" />
-            <e p="DraggBUttonController.cs" t="Include" />
             <e p="LoadButtonPosition.cs" t="Include" />
-            <e p="MainMenu.cs" t="Include" />
             <e p="Settings" t="Include">
               <e p="Button.cs" t="Include" />
+              <e p="DraggableButton.cs" t="Include" />
+              <e p="DraggBUttonController.cs" t="Include" />
+              <e p="SettingSlider.cs" t="Include" />
               <e p="SettingsMenu.cs" t="Include" />
             </e>
-            <e p="UpgradeButton.cs" t="Include" />
             <e p="WalkJoystick.cs" t="Include" />
           </e>
           <e p="Upgrade" t="Include">
             <e p="AuraPC.cs" t="Include" />
             <e p="Bullet.cs" t="Include" />
+            <e p="ButtonsBehavior" t="Include" />
             <e p="DRAG.cs" t="Include" />
             <e p="Drone.cs" t="Include" />
             <e p="Fallingstar.cs" t="Include" />
             <e p="InstantiateWall.cs" t="Include" />
             <e p="jadro.cs" t="Include" />
             <e p="LaserGun.cs" t="Include" />
+            <e p="LevelUp" t="Include">
+              <e p="FixedProgression.cs" t="Include" />
+              <e p="Level.cs" t="Include" />
+              <e p="LevelUP.cs" t="Include" />
+              <e p="UpgradeButton.cs" t="Include" />
+            </e>
             <e p="mathyr.cs" t="Include" />
             <e p="NuclearBomb.cs" t="Include" />
             <e p="NumberOfObjectsIsDamage.cs" t="Include" />
@@ -341,14 +377,24 @@
           <e p="World" t="Include">
             <e p="Door.cs" t="Include" />
             <e p="ExpCollectible.cs" t="Include" />
+            <e p="GameWorldTV.cs" t="Include" />
             <e p="LightFromTime.cs" t="Include" />
             <e p="randomSprite.cs" t="Include" />
+            <e p="SpawnerEnemy.cs" t="Include" />
+            <e p="TrainLevel" t="Include">
+              <e p="SpawnTrain.cs" t="Include" />
+              <e p="TrainMove.cs" t="Include" />
+              <e p="TrainOption.cs" t="Include" />
+            </e>
             <e p="Transformer.cs" t="Include" />
             <e p="Tutorial" t="Include">
               <e p="AnimationsOnDamageGet.cs" t="Include" />
               <e p="DummyHealth.cs" t="Include" />
+              <e p="ExpDoor.cs" t="Include" />
               <e p="Explosive.cs" t="Include" />
               <e p="springBooka.cs" t="Include" />
+              <e p="TagDoor.cs" t="Include" />
+              <e p="TV.cs" t="Include" />
             </e>
             <e p="WayPoint.cs" t="Include" />
           </e>
@@ -375,7 +421,7 @@
           <e p="Upgrade" t="Include" />
         </e>
         <e p="StreamingAssets" t="Include" />
-        <e p="UiElementsList.cs" t="Include" />
+        <e p="TalkingPerson.cs" t="Include" />
       </e>
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive" />
