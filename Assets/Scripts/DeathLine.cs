@@ -1,9 +1,17 @@
 using UnityEngine;
 
-public class DeathLine : MonoBehaviour
+public class DeathLine : PlayersCollisionChecker
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+    [SerializeField] Vector3 respawn;
+    private void Start()
     {
-        Destroy(collision.gameObject);
+        CollisionEnterAction += damagePlayer;
+    }
+    void damagePlayer()
+    {
+        foreach(var player in EnteredThings)
+        {
+            player.GetComponent<Player>().TakeDamage(respawn);
+        }
     }
 }

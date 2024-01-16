@@ -30,13 +30,13 @@ public class CollisionChecker : MonoBehaviour
     {
         if(EnterCondition(other))
         {
-            if(CollisionEnterAction != null)
-            CollisionEnterAction.Invoke();
-
             if(!EnteredThings.Contains(other.gameObject))
             {
                 EnteredThings.Add(other.gameObject);
             }
+            if(CollisionEnterAction != null)
+            CollisionEnterAction.Invoke();
+
         }
     }
     protected virtual void OnSomethingStay2D(Collider2D other)

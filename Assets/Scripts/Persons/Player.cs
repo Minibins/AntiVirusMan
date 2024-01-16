@@ -114,14 +114,17 @@ public class Player : MoveBase
             _health.HealHealth(1);
             Destroy(other.gameObject);
         }
-        else if(other.CompareTag("DeadZone"))
-        {
-            LoseGame.instance.Lose();
-        }
     }
-    [Serializable]
-    private struct DashProperties
-    {
 
+    public void TakeDamage(Vector3 respawn)
+    {
+        PlayDamageAnimation();
+        transform.position = respawn;
+    }
+    [SerializeField] float damageForce;
+    private void PlayDamageAnimation()
+    {
+        PlayAnimation("TakeDamage");
+        _rigidbody.velocity.Set(_rigidbody.velocity.x,damageForce);
     }
 }
