@@ -9,7 +9,7 @@ using static UnityEngine.Rendering.DebugUI;
 public class SettingSlider : Slider
 {
     [SerializeField] public Text text;
-    [SerializeField] string Name, SaveName;
+    [SerializeField] public string Name, SaveName;
     protected override void Start()
     {base.Start();
 
@@ -32,6 +32,7 @@ public class SettingSlider : Slider
         onValueChanged.AddListener(TextUpdate);
         TextUpdate(value);
     }
+    public void Startp() => Start();
     private void TextUpdate(float Value) 
     {
         text.text = Name + ": " + Convert.ToByte(Value*100);

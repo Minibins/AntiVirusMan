@@ -5,28 +5,24 @@ using UnityEngine.UI;
 public class Audio : MonoBehaviour
 {
     [SerializeField] private AudioSource _audio;
-    [SerializeField] private float _Volume;
-    [SerializeField] private Save save;
     private float Volume
     {
-        get => _Volume; 
         set
             {
-                _Volume = value; _audio.volume = Volume;
-                slider = Volume;
+                _audio.volume = value;
             }
     }
-    private float slider
+    private SettingSlider slider
     {
-        get => UiElementsList.instance.Panels.SettingsPanel.MusicVolumeSlider.value;
-        set => UiElementsList.instance.Panels.SettingsPanel.MusicVolumeSlider.value = value;
+        get => UiElementsList.instance.Panels.SettingsPanel.MusicVolumeSlider;
     }
     private void Start()
     {
-        Volume = slider;
+        slider.Startp();
+        Volume = slider.value;
     }
     public void VolumeSlider()
     {
-        Volume = slider;
+        Volume = slider.value;
     }
 }

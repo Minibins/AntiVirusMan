@@ -8,14 +8,14 @@ using UnityEngine;
 public class springBooka : BookaCollisionChecker
 {
     bool UnderPreasure;
-    Rigidbody2D rigidbody;
+    Rigidbody2D _rigidbody;
     Vector2 defaultPosition;
     [SerializeField] float maxOffset,rotationOfVelocity,VelocityStrengh;
 
     void Start()
     {
         defaultPosition = transform.position;
-        rigidbody = GetComponent<Rigidbody2D>();
+        _rigidbody = GetComponent<Rigidbody2D>();
         CollisionEnterAction += SetUnderPreasureTrue;
         CollisionExitAction += SetUnderPreasureFalse;
     }
@@ -31,8 +31,8 @@ public class springBooka : BookaCollisionChecker
     {
         if (UnderPreasure)
         {
-            rigidbody.bodyType = RigidbodyType2D.Dynamic;
-            if(rigidbody.position.y<defaultPosition.y-maxOffset)
+            _rigidbody.bodyType = RigidbodyType2D.Dynamic;
+            if(_rigidbody.position.y<defaultPosition.y-maxOffset)
             {
                 UnderPreasure=false;
                 foreach(GameObject g in EnteredThings)
@@ -43,7 +43,7 @@ public class springBooka : BookaCollisionChecker
         }
         if (!UnderPreasure)
         {
-            rigidbody.bodyType = RigidbodyType2D.Static;
+            _rigidbody.bodyType = RigidbodyType2D.Static;
             transform.position = defaultPosition;
         }
     }
