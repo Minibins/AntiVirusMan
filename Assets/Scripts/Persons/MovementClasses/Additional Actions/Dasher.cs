@@ -26,7 +26,7 @@ class Dasher : MonoBehaviour
     const float DashRange = 3.5f;
     public void Dash(float direction)
     {
-        isDashEnd = true;
+        
         if(_playerAttack.Ammo <= 0)
         {
             return;
@@ -39,8 +39,8 @@ class Dasher : MonoBehaviour
         }
         else
         {
+            isDashEnd = true;
             transform.position += Vector3.right * direction * DashRange * 0.5f;
-            
             StartCoroutine(DashEnd(direction));
         }
         
