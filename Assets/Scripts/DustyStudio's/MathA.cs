@@ -23,7 +23,7 @@ namespace DustyStudios
 
             public static Quaternion VectorsAngle(Vector2 vector)
             {
-                return Quaternion.Euler(0,0,Mathf.Atan2(vector.y,vector.x) * Mathf.Rad2Deg);
+                return Quaternion.Euler(0,0,Mathf.Atan2(vector.y,vector.x)*Mathf.Rad2Deg);
             }
 
 
