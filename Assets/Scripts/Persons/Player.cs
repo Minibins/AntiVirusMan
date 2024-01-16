@@ -103,6 +103,7 @@ public class Player : MoveBase
         transform.position =
             new Vector3(transform.position.x, hit.point.y + 0.8f, transform.position.z); // Тут перемещение
         PlayAnimation("Grounded");
+        _rigidbody.velocity = Vector2.right*_rigidbody.velocity.x;
         Stunned = false;
     }
 
