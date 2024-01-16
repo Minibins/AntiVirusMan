@@ -18,8 +18,9 @@ public class LevelUP : MonoBehaviour
     public Sprite[] itemtextures;
     [SerializeField] private bool[] IsTakenTemplate;
     public static bool[] isTaken;
-    private void Start()
+    private void Awake()
     {
+        UpgradeButton.UpgradeActions.Clear();
         instance = this;
         isTaken = IsTakenTemplate;
     }
