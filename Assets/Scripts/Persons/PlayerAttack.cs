@@ -148,6 +148,7 @@ public class PlayerAttack : MonoBehaviour
             MathA.VectorsAngle(Rotatedvec));
         if (GetComponent<MoveBase>().Velocity.x != 0) return;
         _spriteRenderer.flipX = true;
+        _animator.SetBool("IsChad",false);
     }
 
     IEnumerator SpeedIsDamage()
@@ -213,7 +214,6 @@ public class PlayerAttack : MonoBehaviour
     public void slowUp()
     {
         rb.bodyType = RigidbodyType2D.Dynamic;
-        _animator.SetBool("IsChad", false);
     }
 
     private void OnDestroy()
