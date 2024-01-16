@@ -7,9 +7,12 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public Save save;
-    [SerializeField] private string CurrentVersion;
-    [SerializeField] private GameObject Changelog;
-    [SerializeField] string[] scenes;
+
+    [SerializeField]private string CurrentVersion;
+    [SerializeField]private GameObject Changelog;
+    [SerializeField]string[] scenes;
+
+    public static MainMenu instance;
     public void LocationMove(int id)
     {
         if (Save.data.WinLocation >= id)
@@ -20,6 +23,7 @@ public class MainMenu : MonoBehaviour
 
     private void Awake()
     {
+        instance = this;
         Save.LoadField();
         if (Save.data.LastSessionVersion != CurrentVersion)
         {
