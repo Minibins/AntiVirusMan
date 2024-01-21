@@ -8,7 +8,7 @@ using UnityEngine;
 namespace DustyStudios
 {
     [System.Serializable]
-    public class SerializableQueue<Type>
+    public class SerializableQueue<Type> 
     {
         [SerializeField] private List<Type> queue;
         private Queue<Type> actualQueue;

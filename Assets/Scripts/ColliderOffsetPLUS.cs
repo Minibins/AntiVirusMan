@@ -9,7 +9,7 @@ public class ColliderOffsetPLUS : MonoBehaviour
     Vector2 defaultColliderOffset;
     private void Awake()
     { 
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         collider = GetComponent<Collider2D>();
         defaultColliderOffset = collider.offset;
     }
