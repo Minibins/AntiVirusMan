@@ -13,7 +13,7 @@ public class Timer : MonoBehaviour
     [SerializeField] private float fiilSprite;
     public static int sec;
     public static int min;
-    public static int time { get => 540; }
+    public static int time { get => (min * 60 + sec); }
     public static bool StopTime = true;
    
     private void Start()
