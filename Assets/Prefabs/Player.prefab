@@ -149,7 +149,7 @@ Transform:
   m_GameObject: {fileID: 5432941576999770244}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.016, y: -0.147, z: 0}
+  m_LocalPosition: {x: 0, y: -0.147, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -376,8 +376,8 @@ MonoBehaviour:
   _health: {fileID: 0}
   Stunned: 0
   damageForce: 0
-  _flightVelicityCap: 2
-  _flySpeed: 3
+  _flightVelicityCap: 0.33
+  _flySpeed: 1.21
 --- !u!114 &1126693211
 MonoBehaviour:
   m_ObjectHideFlags: 0
