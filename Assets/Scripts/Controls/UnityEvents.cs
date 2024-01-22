@@ -3,15 +3,16 @@ using UnityEngine;
 
 public class UnityEvents : MonoBehaviour
 {
-    private static Player _player;
+    private static IPlayer _player;
     private static InstantiateWall _wall;
     private static PlayerAttack _playerAttack;
     private static Settings _settings;
     private void Start()
     {
-        _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        _playerAttack = _player.GetComponent<PlayerAttack>();
-        _wall = _player.GetComponent<InstantiateWall>();
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        _player = player.GetComponent<Player>();
+        _playerAttack = player.GetComponent<PlayerAttack>();
+        _wall = player.GetComponent<InstantiateWall>();
         _settings = FindAnyObjectByType<Settings>();
     }
 
@@ -66,6 +67,6 @@ public class UnityEvents : MonoBehaviour
 
     public static void UE_StopFly()
     {
-        _player.StopJump(true);
+        _player.StopJump();
     }
 }

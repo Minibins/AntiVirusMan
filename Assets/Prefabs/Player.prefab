@@ -332,17 +332,52 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _canJump: 1
-  _jumpingPower: 7
   _speed: 3.5
   _spriteRenderer: {fileID: 0}
-  FlightVelicityCap: 1.86
   _groundCheck: {fileID: 2522079714771889092}
   _groundLayer:
     serializedVersion: 2
     m_Bits: 5136
+  _flightVelicityCap: 0
+  _flySpeed: 0
+  _jumpingPower: 3.5
+  _jumpingCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -2.0114126
+      outSlope: -2.0114126
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.4957384
+      value: 0.0028655222
+      inSlope: -1.8187426
+      outSlope: -1.8187426
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.99999994
+      value: -0.49299252
+      inSlope: 0.041351065
+      outSlope: 0.041351065
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.66363853
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _maxJumpLeftover: 2.04
   _health: {fileID: 0}
   Stunned: 0
-  flySpeed: 1.31
+  damageForce: 0
 --- !u!114 &1126693211
 MonoBehaviour:
   m_ObjectHideFlags: 0

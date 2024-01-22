@@ -1,10 +1,10 @@
 using System;
 using UnityEngine;
+using System.Collections;
 
 public class MoveBase : MonoBehaviour
 {
     [SerializeField] private bool _canJump;
-    [SerializeField] private float _jumpingPower = 10f;
     public float _speed = 1f;
     private float _speedMultiplier = 1f;
     private float _curentSpeed;
@@ -79,15 +79,6 @@ public class MoveBase : MonoBehaviour
         MoveVertically(direction.y);
     }
 
-    public void StartJump()
-    {
-        if(CanJump)
-        {
-            _velocity.Set(_velocity.x,_jumpingPower);
-            _animator.SetBool("IsJumping",true);
-            _rigidbody.velocity = _velocity;
-        }
-    }
 
     public void SetSpeedMultiplierTemporary(float multiplier,float time = 1f)
     {
@@ -151,10 +142,62 @@ public class MoveBase : MonoBehaviour
         _move = SetDefaultSpeed;
     }
 
+    
     public void OnDragEnd()
     {
         CanJump = CanJump;
         transform.rotation = new Quaternion();
     }
-    
+    [SerializeField] protected Transform _groundCheck;
+    [SerializeField] protected LayerMask _groundLayer;
+    public bool IsGrounded()
+    {
+        return Physics2D.OverlapCircle(_groundCheck.position,0.2f,_groundLayer);
+    }
+    public void Jump()
+    {
+        if(IsGrounded())
+        {
+            StartJump();
+        }
+        if(LevelUP.isTaken[15] && _rigidbody.bodyType != RigidbodyType2D.Static)
+        {
+
+        }
+    }
+    private float _jumpStartTime;
+    public void StartJump()
+    {
+        if(CanJump)
+        {
+            _jumpStartTime = Time.time;
+            isJump = true;
+            StartCoroutine(jump());
+        }
+    }
+    private bool isJump;
+    [SerializeField] private float _flightVelicityCap = 0;
+    [SerializeField] private float _flySpeed;
+
+    [SerializeField] private float _jumpingPower = 10f;
+    [SerializeField] private AnimationCurve _jumpingCurve;
+    private IEnumerator jump()
+    {
+        while(isJump)
+        {
+            if(_rigidbody.velocity.y <= _flightVelicityCap) CanJump = false;
+            MoveVertically(_jumpingCurve.Evaluate(Time.time-_jumpStartTime)*_jumpingPower);
+            if(!CanJump) PlayAnimation("Fly");
+            yield return new WaitForFixedUpdate();
+        }
+        CanJump = true;
+    }
+    [SerializeField] private float _maxJumpLeftover = 0;
+    public virtual void StopJump()
+    {
+        _velocity = new Vector2(_velocity.x,Mathf.Min(_maxJumpLeftover,_rigidbody.velocity.y));
+        _rigidbody.velocity= _velocity;
+        isJump = false;
+        _canJump = true;
+    }
 }

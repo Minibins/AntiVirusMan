@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
-public class Player : MoveBase
+public class Player : MoveBase, IPlayer
 {
-    [SerializeField] private float FlightVelicityCap = 0;
-    [SerializeField] private Transform _groundCheck;
-    [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private PChealth _health;
     public bool Stunned;
     private Dasher _dasher;
-    [SerializeField] private float flySpeed;
+    
     protected override void FixedUpdate()
     {
         transform.position = new Vector3(Mathf.Max(-18.527f, Mathf.Min(17.734f, transform.position.x)),
@@ -22,15 +19,10 @@ public class Player : MoveBase
         _dasher = gameObject.AddComponent<Dasher>();
     }
 
-    public bool IsGrounded()
-    {
-        return Physics2D.OverlapCircle(_groundCheck.position, 0.2f, _groundLayer);
-    }
 
     override public void MoveHorizontally(float direction)
     {
-        if (!Stunned) base.MoveHorizontally(direction);
-        else base.MoveHorizontally(0f);
+        base.MoveHorizontally(direction);
     }
 
     public void Dash(float direction)
@@ -42,54 +34,7 @@ public class Player : MoveBase
         PlayAnimation("Dash");
         _dasher.Dash(_spriteRenderer.flipX ? -1 : 1);
     }
-    public void Jump()
-    {
-        if(IsGrounded()&& !Stunned)
-        {
-            StartJump();
-            Invoke(nameof(StopJump), 0.1f);
-        }
-        if(LevelUP.isTaken[15]&&_rigidbody.bodyType!=RigidbodyType2D.Static)
-        {
-            fly7 = true;
-            StartCoroutine(fly());
-            
-        }
-    }
-    private bool fly7;
-    private IEnumerator fly()
-    {
-        while(fly7)
-        {
-            if(_rigidbody.velocity.y<= FlightVelicityCap) CanJump = false;
-            MoveVertically(flySpeed);
-            if(!CanJump) PlayAnimation("Fly");
-            yield return new WaitForFixedUpdate();
-        }
-        CanJump = true;
-    }
-    public void StopJump(bool StopFly)
-    {
-        if (IsGrounded())
-        {
-            StopJumpAnimation();
-        }
-        if(StopFly)
-        {
-            fly7= false;
-        }
-    }
-    public void StopJump()
-    {
-        if(IsGrounded())
-        {
-            StopJumpAnimation();
-        }
-        else
-        {
-            Invoke(nameof(StopJump),0.1f);
-        }
-    }
+    
 
     private void StopJumpAnimation()
     {
@@ -127,5 +72,22 @@ public class Player : MoveBase
     {
         PlayAnimation("TakeDamage");
         _rigidbody.velocity.Set(_rigidbody.velocity.x,damageForce);
+    }
+
+    public override void StopJump()
+    {
+        base.StopJump();
+
+        if(IsGrounded())
+        {
+            StopJumpAnimation();
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(IsGrounded())
+        {
+            StopJump();
+        }
     }
 }
