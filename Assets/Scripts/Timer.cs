@@ -18,6 +18,8 @@ public class Timer : MonoBehaviour
    
     private void Start()
     {
+        sec = 0;
+        min = 0;
         try
         {
             UiElementsList.instance.Counters.Time.name = "time";

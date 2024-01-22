@@ -77,7 +77,7 @@ public class SpawnerEnemy : MonoBehaviour
     }
     IEnumerator WaitSpawnTime()
     {
-        yield return new WaitForSeconds(Random.Range(minTimeSpawn,maxTimeSpawn)-Mathf.Lerp(0,minTimeSpawn, (float)Timer.time/600));
+        yield return new WaitForSeconds(Random.Range(minTimeSpawn,maxTimeSpawn)-Mathf.Lerp(0,(maxTimeSpawn-minTimeSpawn)/2, (float)Timer.time/600));
     }
 
     public void StopOrStartSpawn()
