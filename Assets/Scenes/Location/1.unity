@@ -22485,6 +22485,21 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 400122307}
+    - target: {fileID: 5479902447667325016, guid: 0951b036ba0a12343a56eff64eed7b4c,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5479902447667325016, guid: 0951b036ba0a12343a56eff64eed7b4c,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 462414205}
+    - target: {fileID: 5479902447667325016, guid: 0951b036ba0a12343a56eff64eed7b4c,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StopJump
+      objectReference: {fileID: 0}
     - target: {fileID: 6039607671443307448, guid: 0951b036ba0a12343a56eff64eed7b4c,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -23036,6 +23051,16 @@ PrefabInstance:
       propertyPath: _health
       value: 
       objectReference: {fileID: 4765063866695837592}
+    - target: {fileID: 193935507143263751, guid: ec94f27c1555e174ebada4b736dde08b,
+        type: 3}
+      propertyPath: _flySpeed
+      value: 1.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 193935507143263751, guid: ec94f27c1555e174ebada4b736dde08b,
+        type: 3}
+      propertyPath: _flightVelicityCap
+      value: 0.33
+      objectReference: {fileID: 0}
     - target: {fileID: 8304178653184876640, guid: ec94f27c1555e174ebada4b736dde08b,
         type: 3}
       propertyPath: m_Name

@@ -154,15 +154,11 @@ public class MoveBase : MonoBehaviour
     {
         return Physics2D.OverlapCircle(_groundCheck.position,0.2f,_groundLayer);
     }
-    public void Jump()
+    public virtual void Jump()
     {
         if(IsGrounded())
         {
             StartJump();
-        }
-        if(LevelUP.isTaken[15] && _rigidbody.bodyType != RigidbodyType2D.Static)
-        {
-
         }
     }
     private float _jumpStartTime;
@@ -173,11 +169,10 @@ public class MoveBase : MonoBehaviour
             _jumpStartTime = Time.time;
             isJump = true;
             StartCoroutine(jump());
+            CanJump = false;
         }
     }
     private bool isJump;
-    [SerializeField] private float _flightVelicityCap = 0;
-    [SerializeField] private float _flySpeed;
 
     [SerializeField] private float _jumpingPower = 10f;
     [SerializeField] private AnimationCurve _jumpingCurve;
@@ -185,13 +180,17 @@ public class MoveBase : MonoBehaviour
     {
         while(isJump)
         {
-            if(_rigidbody.velocity.y <= _flightVelicityCap) CanJump = false;
-            MoveVertically(_jumpingCurve.Evaluate(Time.time-_jumpStartTime)*_jumpingPower);
-            if(!CanJump) PlayAnimation("Fly");
+            JumpAction();
             yield return new WaitForFixedUpdate();
         }
         CanJump = true;
     }
+
+    protected virtual void JumpAction()
+    {
+        MoveVertically(_jumpingCurve.Evaluate(Time.time - _jumpStartTime) * _jumpingPower);
+    }
+
     [SerializeField] private float _maxJumpLeftover = 0;
     public virtual void StopJump()
     {

@@ -73,7 +73,14 @@ public class Player : MoveBase, IPlayer
         PlayAnimation("TakeDamage");
         _rigidbody.velocity.Set(_rigidbody.velocity.x,damageForce);
     }
-
+    public override void Jump()
+    {
+        if(IsGrounded() || LevelUP.isTaken[15])
+        { 
+            StartJump();
+            _animator.SetBool("IsJumping",true);
+        }
+    }
     public override void StopJump()
     {
         base.StopJump();
@@ -82,6 +89,19 @@ public class Player : MoveBase, IPlayer
         {
             StopJumpAnimation();
         }
+    }
+    [SerializeField] private float _flightVelicityCap = 0;
+    [SerializeField] private float _flySpeed;
+    bool canFly = false;
+    protected override void JumpAction()
+    {
+        if(_rigidbody.velocity.y <= _flightVelicityCap&&LevelUP.isTaken[15] && _rigidbody.bodyType != RigidbodyType2D.Static) canFly = true;
+        if(canFly)
+        {
+            PlayAnimation("Fly");
+            MoveVertically(_flySpeed);
+        }
+        else base.JumpAction();
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
