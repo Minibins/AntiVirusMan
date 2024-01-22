@@ -1,18 +1,10 @@
-using System.Linq;
-
 using System;
-using System.Collections;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
-
-using UnityEditor.Rendering.LookDev;
-
 using UnityEngine;
 
 public class MoveBase : MonoBehaviour
 {
     [SerializeField] private bool _canJump;
-    [SerializeField] protected AnimationCurve _jumpingPower;
+    [SerializeField] private float _jumpingPower = 10f;
     public float _speed = 1f;
     private float _speedMultiplier = 1f;
     private float _curentSpeed;
@@ -41,8 +33,6 @@ public class MoveBase : MonoBehaviour
             }
         }
     }
-
-
     protected virtual void FixedUpdate()
     {
         _move();
@@ -55,7 +45,7 @@ public class MoveBase : MonoBehaviour
     private void Awake()
     {
         _animator = GetComponent<Animator>();
-        _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
         _rigidbody = GetComponent<Rigidbody2D>();
         SetSpeedMultiplierForOllTime(_speedMultiplier);
     }
@@ -89,46 +79,13 @@ public class MoveBase : MonoBehaviour
         MoveVertically(direction.y);
     }
 
-    [SerializeField] private Transform _groundCheck;
-    [SerializeField] protected LayerMask _groundLayer;
-    public bool IsGrounded()
+    public void StartJump()
     {
-        return Physics2D.OverlapCircle(_groundCheck.position,0.2f,_groundLayer);
-    }
-
-    bool isJump;
-    protected bool IsJump { get => isJump; }
-    float StartTime;
-    [SerializeField]float jumpMaxLeftover;
-    protected virtual void StartJump()
-    {
-        if(!CanJump||!IsGrounded())return;
-        StartTime = Time.time;
-        isJump = true;
-        _jumpEvents = _jumpEvents.OrderBy(tr => tr.Key).ToDictionary(tr => tr.Key,tr=>tr.Value);
-        StartCoroutine(nameof(jump));
-    }
-    public virtual void StopJump()
-    {
-        isJump = false;
-        _rigidbody.velocity=new Vector2(Velocity.x, Mathf.Min(_rigidbody.velocity.y,jumpMaxLeftover));
-    }
-    [SerializeField] protected float JumpPower = 5;
-    protected Dictionary<int, Action> _jumpEvents = new Dictionary<int, Action>(); 
-    public virtual IEnumerator jump()
-    {
-        while(IsJump)
+        if(CanJump)
         {
-            float power =_jumpingPower.Evaluate(Time.time - StartTime) * JumpPower;
-            _velocity.Set(_velocity.x,power);
-            if(_jumpEvents.ContainsKey((int)power))
-            {
-                _jumpEvents[(int)power].Invoke();
-            }
-            // _animator.SetBool("IsJumping",true);
+            _velocity.Set(_velocity.x,_jumpingPower);
+            _animator.SetBool("IsJumping",true);
             _rigidbody.velocity = _velocity;
-            yield return new WaitForFixedUpdate();
-            if(IsGrounded()&&power<0)isJump = false;
         }
     }
 

@@ -6,7 +6,8 @@ using DustyStudios.MathAVM;
 using Unity.VisualScripting;
 using UnityEngine;
 
-[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(Animator)),
+ RequireComponent(typeof(SpriteRenderer))]
 
 public class PlayerAttack : MonoBehaviour
 {
@@ -88,7 +89,7 @@ public class PlayerAttack : MonoBehaviour
         pc = GameObject.FindGameObjectWithTag("PC").GetComponentInChildren<PC>();
         rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
-        _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
         player = GetComponent<Player>();
         OnRefreshAmmo += AmmoBarRefresh;
     }
@@ -208,12 +209,10 @@ public class PlayerAttack : MonoBehaviour
     {
         rb.bodyType = RigidbodyType2D.Static;
         pc.OnlyBehind = true;
-        player.Stunned = true;
     }
 
     public void slowUp()
     {
-        player.Stunned = false;
         rb.bodyType = RigidbodyType2D.Dynamic;
     }
 
