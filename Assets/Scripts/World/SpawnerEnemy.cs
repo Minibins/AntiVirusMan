@@ -44,11 +44,11 @@ public class SpawnerEnemy : MonoBehaviour
                     {
                         int spawnPoint2 = Random.Range(0, spawnersEnemy.Length);
                         StartCoroutine(SpawnEnemy(spawnPoint2));
-                        yield return new WaitForSeconds(Random.Range(minTimeSpawn, maxTimeSpawn));
+                        yield return WaitSpawnTime();
                         StartCoroutine(SpawnEnemy(spawnPoint2));
-                        yield return new WaitForSeconds(Random.Range(minTimeSpawn, maxTimeSpawn));
+                        yield return WaitSpawnTime();
                         StartCoroutine(SpawnEnemy(spawnPoint2));
-                        yield return new WaitForSeconds(Random.Range(minTimeSpawn, maxTimeSpawn));
+                        yield return WaitSpawnTime();
                     }
 
                     break;
@@ -58,11 +58,11 @@ public class SpawnerEnemy : MonoBehaviour
                     {
                         int spawnPoint = Random.Range(0, spawnersEnemy.Length);
                         StartCoroutine(SpawnEnemy(spawnPoint));
-                        yield return new WaitForSeconds(Random.Range(minTimeSpawn, maxTimeSpawn));
+                        yield return WaitSpawnTime();
                         StartCoroutine(SpawnEnemy(spawnPoint));
-                        yield return new WaitForSeconds(Random.Range(minTimeSpawn, maxTimeSpawn));
-                        StartCoroutine(SpawnEnemy(spawnPoint));
-                        yield return new WaitForSeconds(Random.Range(minTimeSpawn, maxTimeSpawn));
+                    yield return WaitSpawnTime();
+                    StartCoroutine(SpawnEnemy(spawnPoint));
+                        yield return WaitSpawnTime();
                     }
 
                     int i = Random.Range(0, spawnersWireEnemy.Length);
@@ -74,6 +74,10 @@ public class SpawnerEnemy : MonoBehaviour
 
             yield return new WaitForSeconds(Random.Range(minTimeSpawnWave, maxTimeSpawnWave));
         }
+    }
+    IEnumerator WaitSpawnTime()
+    {
+        yield return new WaitForSeconds(Random.Range(minTimeSpawn,maxTimeSpawn)-Mathf.Lerp(0,minTimeSpawn, (float)Timer.time/600));
     }
 
     public void StopOrStartSpawn()
