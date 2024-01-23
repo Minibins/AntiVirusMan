@@ -441,7 +441,6 @@ RectTransform:
   - {fileID: 278640100}
   - {fileID: 1546063216}
   - {fileID: 1469644200}
-  - {fileID: 1185718424}
   - {fileID: 1641981027}
   - {fileID: 572611776}
   m_Father: {fileID: 0}
@@ -558,12 +557,37 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Hello, fellow Antivirus Man fans! Is first changelog ever )\nNow game
-    version is Alpha 1.1\nIn this version was added:\nThe \"fiesty\" upgrade, which
-    upgrades booka virus with fun intaraction. \nFixed several bugs\nViruses have
-    unique animation, when getting punched by Stepa\nWire viruses no longer jump
-    on the computer\nFixed turrel haul abuse by adding socket.\nSky texture has been
-    completed\nPlease, sponsor us on Patreon UoU"
+  m_text: 'Hello antivirus fans! This is a post-release patch. We heard about all
+    the bugs in the game and added new upgrades to the pool.
+
+    Learning has become
+    easier.
+
+    Interface bugs fixed.
+
+    Clouds spawn half as often.
+
+    The
+    height of the jump depends on the button pressed. (If you press it in time, you
+    can jump as much as THREE blocks)
+
+    Climb to the roof without flying, or
+    Vipers, to hear the SECRET.
+
+    Fixed a bug with adjusting the volume of sounds.
+
+    Fixed
+    a bug with non-resetting time.
+
+    Depending on the time, monster spawning
+    speeds up.
+
+    New upgrade Track Soles
+
+    We added this menu to talk about
+    patches.
+
+    Have fun!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
   m_sharedMaterial: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
@@ -590,8 +614,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 2.5
-  m_fontSizeBase: 2.5
+  m_fontSize: 2.09
+  m_fontSizeBase: 2.09
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -658,7 +682,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &73460145
 RectTransform:
   m_ObjectHideFlags: 0
@@ -666,16 +690,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 73460144}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.001244861, w: 0.9999992}
   m_LocalPosition: {x: 0, y: 0, z: -0.000026759353}
   m_LocalScale: {x: 2.2999997, y: 2.2999995, z: 2.2999995}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2029717300}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.143}
   m_AnchorMin: {x: 0.017, y: 0.76562965}
   m_AnchorMax: {x: 0.13647917, y: 0.98237044}
-  m_AnchoredPosition: {x: -1, y: -4.120117}
+  m_AnchoredPosition: {x: -1, y: -4.120178}
   m_SizeDelta: {x: -129.00006, y: -134}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &73460146
@@ -1603,7 +1627,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &360662264
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1611,16 +1635,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 360662263}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.001244861, w: 0.9999992}
   m_LocalPosition: {x: 0, y: 0, z: -0.000026759353}
   m_LocalScale: {x: 2.2999997, y: 2.2999995, z: 2.2999995}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2029717300}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.143}
   m_AnchorMin: {x: 0.017, y: 0.76562965}
   m_AnchorMax: {x: 0.13647917, y: 0.98237044}
-  m_AnchoredPosition: {x: 261.3479, y: -4.120117}
+  m_AnchoredPosition: {x: 261.34705, y: -4.7734375}
   m_SizeDelta: {x: -129.00006, y: -134}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &360662265
@@ -3483,7 +3507,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1185718423}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.000036713}
   m_LocalScale: {x: 10.74, y: 10.74, z: 10.74}
   m_ConstrainProportionsScale: 1
@@ -3492,7 +3516,7 @@ RectTransform:
   - {fileID: 60787513}
   - {fileID: 2119779361}
   - {fileID: 1873333689}
-  m_Father: {fileID: 32966448}
+  m_Father: {fileID: 2029717300}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4214,7 +4238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   save: {fileID: 958952363}
-  CurrentVersion: Alpha 1.1
+  CurrentVersion: PostReliasePatch1
   Changelog: {fileID: 1185718423}
   scenes:
   - tutorial
@@ -5455,7 +5479,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: e0f3b43cddf686b4e8e652c4836cd465, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -6441,7 +6465,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1919356124
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6449,16 +6473,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1919356123}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.001244861, w: 0.9999992}
   m_LocalPosition: {x: 0, y: 0, z: -0.00001783957}
   m_LocalScale: {x: 2.2999997, y: 2.2999995, z: 2.2999995}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2029717300}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.143}
   m_AnchorMin: {x: 0.8625209, y: 0.76562965}
   m_AnchorMax: {x: 0.9785209, y: 0.97800004}
-  m_AnchoredPosition: {x: 4, y: 1}
+  m_AnchoredPosition: {x: 3.9905396, y: -3.6087646}
   m_SizeDelta: {x: -123, y: -129}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1919356125
@@ -6585,6 +6609,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1185718424}
   - {fileID: 797544919}
   - {fileID: 1919356124}
   - {fileID: 360662264}

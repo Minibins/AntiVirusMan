@@ -27,7 +27,7 @@ public class MainMenu : MonoBehaviour
         Save.LoadField();
         if (Save.data.LastSessionVersion != CurrentVersion)
         {
-            //Changelog.SetActive(true);
+            Changelog.SetActive(true);
         }
 
         Save.LastSessionVersion = CurrentVersion;
