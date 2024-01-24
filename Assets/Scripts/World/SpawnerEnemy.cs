@@ -72,7 +72,7 @@ public class SpawnerEnemy : MonoBehaviour
                     break;
             }
 
-            yield return new WaitForSeconds(Random.Range(minTimeSpawnWave, maxTimeSpawnWave));
+            yield return new WaitForSeconds(Random.Range(minTimeSpawnWave, maxTimeSpawnWave)- Mathf.Lerp(0,(minTimeSpawnWave - maxTimeSpawnWave),(float)Timer.time / 600));
         }
     }
     IEnumerator WaitSpawnTime()

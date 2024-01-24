@@ -13,9 +13,8 @@ GameObject:
   - component: {fileID: 5778307210289841355}
   - component: {fileID: 194041917424408988}
   - component: {fileID: 8307379421477049360}
-  - component: {fileID: 1660451665624623605}
-  - component: {fileID: 4399941729334148409}
-  m_Layer: 0
+  - component: {fileID: 2380260459035283019}
+  m_Layer: 15
   m_Name: ExpCollectible
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -152,7 +151,7 @@ MonoBehaviour:
   images:
   - {fileID: 1138438350, guid: 1df0e45a1e1783b4bac6578d311db4ef, type: 3}
   - {fileID: 1549102881, guid: 1df0e45a1e1783b4bac6578d311db4ef, type: 3}
---- !u!114 &1660451665624623605
+--- !u!114 &2380260459035283019
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,50 +160,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6345187588179732482}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cfb49d723fe000449b9bb9ca83d6678, type: 3}
+  m_Script: {fileID: 11500000, guid: 6fb3364c66527484c8d46ad614d848f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  contactType: 0
-  onContact:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5778307210289841355}
-        m_TargetAssemblyTypeName: ExpCollectible, Assembly-CSharp
-        m_MethodName: AddEXP
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 4399941729334148409}
-        m_TargetAssemblyTypeName: Suicide, Assembly-CSharp
-        m_MethodName: DestroyThis
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  contacterLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  contacterTag: Player
---- !u!114 &4399941729334148409
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6345187588179732482}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3aa73394fcb4ef3489d741f052c85191, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  Time: 6.61
