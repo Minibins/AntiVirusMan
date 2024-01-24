@@ -1,19 +1,21 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class InstantiateWall : MonoBehaviour
+public class InstantiateWall : Upgrade
 {
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private GameObject Wall;
     [SerializeField] private GameObject MovableWall;
     [SerializeField] private float TimeToStart;
-    public bool IsOpenly;
     public bool canmove;
-
+    protected override void OnTake()
+    {
+        base.OnTake();
+    }
 
     public void OnJump()
     {
-        if (IsOpenly == true)
+        if (IsTaken)
         {
             StartCoroutine(SpawnWall());
         }

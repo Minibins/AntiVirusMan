@@ -75,7 +75,7 @@ public class Player : MoveBase, IPlayer
     }
     public override void Jump()
     {
-        if(IsGrounded() || LevelUP.isTaken[15])
+        if(IsGrounded() || LevelUP.Items[15].IsTaken)
         { 
             StartJump();
             _animator.SetBool("IsJumping",true);
@@ -95,7 +95,7 @@ public class Player : MoveBase, IPlayer
     bool canFly = false;
     protected override void JumpAction()
     {
-        if(_rigidbody.velocity.y <= _flightVelicityCap&&LevelUP.isTaken[15] && _rigidbody.bodyType != RigidbodyType2D.Static) canFly = true;
+        if(_rigidbody.velocity.y <= _flightVelicityCap&&LevelUP.Items[15].IsTaken && _rigidbody.bodyType != RigidbodyType2D.Static) canFly = true;
         if(canFly)
         {
             PlayAnimation("Fly");

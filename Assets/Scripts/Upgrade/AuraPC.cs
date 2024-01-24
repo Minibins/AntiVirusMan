@@ -3,16 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AuraPC : MonoBehaviour
+public class AuraPC : Upgrade
 {
     [SerializeField] private float Damage;
     private bool isStart;
-    public bool IsStartWork;
-    
+    protected override void OnTake()
+    {
+        base.OnTake();
+        GetComponent<SpriteRenderer>().enabled = true;
+    }
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy") && isStart != true && IsStartWork == true)
+        if (other.CompareTag("Enemy") && !isStart && IsTaken)
         {
             other.GetComponent<MoveBase>()._speed = other.GetComponent<MoveBase>()._speed /= 2;
             StartCoroutine(GiveDamage(other));

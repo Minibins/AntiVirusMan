@@ -15,19 +15,17 @@ public class LevelUP : MonoBehaviour
     private GameObject thirdButton => UiElementsList.instance.Panels.levelUpPanel.Button3;
 
     [SerializeField] private Sprite none;
-    public Sprite[] itemtextures;
-    [SerializeField] private bool[] IsTakenTemplate;
-    public static bool[] isTaken;
+    public static List<Upgrade> Items = new List<Upgrade>();
     private void Awake()
     {
         UpgradeButton.UpgradeActions.Clear();
         instance = this;
-        isTaken = IsTakenTemplate;
+        Items.Clear();
     }
     public virtual void NewUpgrade()
     {
         
-        IEnumerable<int> availableIndexes = Enumerable.Range(0, itemtextures.Length).Where(i => !isTaken[i]).OrderBy(_ => Random.value).Take(3);
+        IEnumerable<int> availableIndexes = Enumerable.Range(0, Items.Count).Where(i => !Items[i].IsTaken).OrderBy(_ => Random.value).Take(3);
 
         List<int> indexes = availableIndexes.ToList();
         generate(
@@ -38,9 +36,9 @@ public class LevelUP : MonoBehaviour
     public void generate(int first,int second,int third)
     {
         Time.timeScale = 0.1f;
-        firstButton.GetComponent<Image>().sprite = first!=-1 ? itemtextures[first] : none;
-        secondButton.GetComponent<Image>().sprite = second != -1 ? itemtextures[second] : none;
-        thirdButton.GetComponent<Image>().sprite = third != -1 ? itemtextures[third] : none;
+        firstButton.GetComponent<Image>().sprite = first!=-1 ? Items[first].Sprite : none;
+        secondButton.GetComponent<Image>().sprite = second != -1 ? Items[second].Sprite : none;
+        thirdButton.GetComponent<Image>().sprite = third != -1 ? Items[third].Sprite : none;
 
         firstButton.GetComponent<UpgradeButton>().id = first;
         secondButton.GetComponent<UpgradeButton>().id = second;

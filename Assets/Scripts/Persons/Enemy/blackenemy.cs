@@ -23,11 +23,11 @@ public class blackenemy : Enemy
         _move = GetComponent<MoveBase>();
         _health = GetComponent<Health>();
         _animator = GetComponent<Animator>();
-        if(LevelUP.isTaken[14])
+        if(LevelUP.Items[14].IsTaken)
         {
             gameObject.AddComponent<DRAG>();
         }
-        if(LevelUP.isTaken[16])
+        if(LevelUP.Items[16].IsTaken)
         {
             AddBookaComponent();
         }

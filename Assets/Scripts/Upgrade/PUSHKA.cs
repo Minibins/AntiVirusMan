@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class PUSHKA : MonoBehaviour, Draggable
+public class PUSHKA : Upgrade, Draggable
 {
     [SerializeField] private GameObject Bullet;
     [SerializeField] public float TimeReload;
@@ -22,13 +22,16 @@ public class PUSHKA : MonoBehaviour, Draggable
         }
         
     }
-    private void Start()
+    private void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
     }
 
-    public void StartShoot()
+    protected override void OnTake()
     {
+        base.OnTake();
+
+        Coleso.enabled = true;
         sprite.enabled = true;
         istemporaryboost = false;
         StartCoroutine(Shoot());

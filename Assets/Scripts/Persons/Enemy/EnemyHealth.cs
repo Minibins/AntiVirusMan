@@ -14,7 +14,7 @@ public class EnemyHealth : DefaultHealth
 
     public override void ApplyDamage(float damage)
     {
-        if (LevelUP.isTaken[13] == true)
+        if (LevelUP.Items[13].IsTaken == true)
         {
             if (me.moveDirection == -1f && player.position.x > transform.position.x ||
                 me.moveDirection == 1f && player.position.x < transform.position.x)

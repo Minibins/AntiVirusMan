@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 
 using UnityEngine;
 
-public class NumberOfObjectsIsDamage : MonoBehaviour
+public class NumberOfObjectsIsDamage : Upgrade
 {
     private PlayerAttack playerAttack;
     [SerializeField] private string[] objectsTag;
@@ -15,6 +15,11 @@ public class NumberOfObjectsIsDamage : MonoBehaviour
     {
         tagAlloved=new bool[objectsTag.Length];
         playerAttack=GameObject.FindWithTag("Player").GetComponent<PlayerAttack>();
+    }
+    protected override void OnTake()
+    {
+        base.OnTake();
+        tagAlloved[0]=true;
     }
     public void ChangeDamage()
     {

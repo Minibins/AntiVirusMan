@@ -45,15 +45,15 @@ public class Enemy : MonoBehaviour
         _move = GetComponent<MoveBase>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
-        if(LevelUP.isTaken[14])
+        if(LevelUP.Items[14].IsTaken)
         {
             gameObject.AddComponent<DRAG>();
         }
-        if(LevelUP.isTaken[16])
+        if(LevelUP.Items[16].IsTaken)
         {
            AddBookaComponent();
         }
-        if (LevelUP.isTaken[18])
+        if (LevelUP.Items[18].IsTaken)
         {
             _health.AddMaxHealth(-1);
             _animator.Play("Wire");
@@ -146,7 +146,7 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("PC")&& LevelUP.isTaken[18] && WhoAmI!=EnemyTypes.Toocha&&ChangeMove==0)
+        if(other.CompareTag("PC")&& LevelUP.Items[18].IsTaken && WhoAmI!=EnemyTypes.Toocha&&ChangeMove==0)
         {
             _animator.SetTrigger("Evolution");
             _health.AddMaxHealth(1);

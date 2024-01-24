@@ -80,6 +80,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -92,6 +93,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -104,6 +106,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -116,6 +119,33 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -125,8 +155,8 @@ TextureImporter:
       name: Wire_0
       rect:
         serializedVersion: 2
-        x: 18
-        y: 57
+        x: 0
+        y: 48
         width: 16
         height: 16
       alignment: 0
@@ -146,8 +176,8 @@ TextureImporter:
       name: Wire_1
       rect:
         serializedVersion: 2
-        x: 34
-        y: 57
+        x: 16
+        y: 48
         width: 16
         height: 16
       alignment: 0
@@ -167,8 +197,8 @@ TextureImporter:
       name: Wire_2
       rect:
         serializedVersion: 2
-        x: 50
-        y: 57
+        x: 32
+        y: 48
         width: 16
         height: 16
       alignment: 0
@@ -188,8 +218,8 @@ TextureImporter:
       name: Wire_3
       rect:
         serializedVersion: 2
-        x: 66
-        y: 57
+        x: 48
+        y: 48
         width: 16
         height: 16
       alignment: 0
@@ -209,8 +239,8 @@ TextureImporter:
       name: Wire_4
       rect:
         serializedVersion: 2
-        x: 18
-        y: 41
+        x: 0
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -230,8 +260,8 @@ TextureImporter:
       name: Wire_5
       rect:
         serializedVersion: 2
-        x: 34
-        y: 41
+        x: 16
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -251,8 +281,8 @@ TextureImporter:
       name: Wire_6
       rect:
         serializedVersion: 2
-        x: 50
-        y: 41
+        x: 32
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -272,8 +302,8 @@ TextureImporter:
       name: Wire_7
       rect:
         serializedVersion: 2
-        x: 66
-        y: 41
+        x: 48
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -293,12 +323,12 @@ TextureImporter:
       name: Wire_8
       rect:
         serializedVersion: 2
-        x: 66
-        y: 25
+        x: 48
+        y: 16
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -314,12 +344,12 @@ TextureImporter:
       name: Wire_9
       rect:
         serializedVersion: 2
-        x: 50
-        y: 25
+        x: 32
+        y: 16
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -335,12 +365,12 @@ TextureImporter:
       name: Wire_10
       rect:
         serializedVersion: 2
-        x: 34
-        y: 25
+        x: 16
+        y: 16
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -356,12 +386,12 @@ TextureImporter:
       name: Wire_11
       rect:
         serializedVersion: 2
-        x: 18
-        y: 25
+        x: 0
+        y: 16
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -377,12 +407,12 @@ TextureImporter:
       name: Wire_12
       rect:
         serializedVersion: 2
-        x: 66
-        y: 9
+        x: 48
+        y: 0
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -398,12 +428,12 @@ TextureImporter:
       name: Wire_13
       rect:
         serializedVersion: 2
-        x: 50
-        y: 9
+        x: 32
+        y: 0
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -419,12 +449,12 @@ TextureImporter:
       name: Wire_14
       rect:
         serializedVersion: 2
-        x: 34
-        y: 9
+        x: 16
+        y: 0
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -440,12 +470,12 @@ TextureImporter:
       name: Wire_15
       rect:
         serializedVersion: 2
-        x: 18
-        y: 9
+        x: 0
+        y: 0
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

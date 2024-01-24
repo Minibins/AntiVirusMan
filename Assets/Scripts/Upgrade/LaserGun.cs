@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class LaserGun : MonoBehaviour,Draggable
+public class LaserGun : Upgrade,Draggable
 {
     [SerializeField] private GameObject Bullet;
     [SerializeField] private float TimeReload;
@@ -12,9 +12,11 @@ public class LaserGun : MonoBehaviour,Draggable
     {
         transform = base.transform;
     }
-    public void StartShoot()
+    protected override void OnTake()
     {
-        gameObject.GetComponent<SpriteRenderer>().enabled = true;
+        base.OnTake();
+
+        GetComponent<SpriteRenderer>().enabled = true;
         StartCoroutine(Shoot());
     }
 

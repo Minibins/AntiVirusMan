@@ -2,21 +2,14 @@ using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class SpawnPortals : MonoBehaviour
+public class SpawnPortals : Upgrade
 {
     [SerializeField] private GameObject[] Portals;
     [SerializeField] private GameObject[] spawnPointPortals;
-
-    private void Update()
+    protected override void OnTake()
     {
-        if (Input.GetKeyUp(KeyCode.Escape))
-        {
-            StartSpawnPortals();
-        }
-    }
+        base.OnTake();
 
-    public void StartSpawnPortals()
-    {
         StartCoroutine(Spawn());
     }
 

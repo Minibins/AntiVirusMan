@@ -94,7 +94,7 @@ public class SpawnerEnemy : MonoBehaviour
         int Iselite = Random.Range(0, EliteSpawnChance);
         try
         {
-            if (LevelUP.isTaken[EliteID[enemy]] && Iselite == 0)
+            if (LevelUP.Items[EliteID[enemy]].IsTaken && Iselite == 0)
             {
                 Instantiate(EnemiesV2[Random.Range(0, Enemies.Length)], spawnersEnemy[spawnPoint].transform.position,
                     Quaternion.identity);
@@ -107,7 +107,7 @@ public class SpawnerEnemy : MonoBehaviour
         }
         catch
         {
-            Debug.Log("Enemy:" + enemy + " IsElite:" + Iselite + " IsTaken:" + LevelUP.isTaken.ToString() +
+            Debug.Log("Enemy:" + enemy + " IsElite:" + Iselite + " IsTaken:" + LevelUP.Items.ToString() +
                       " EliteID:" + EliteID[enemy]);
         }
     }

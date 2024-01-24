@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnFirstAidKit : MonoBehaviour
+public class SpawnFirstAidKit : Upgrade
 {
     [SerializeField] private GameObject firstAidKit;
     [SerializeField] private GameObject[] spawnPointFirstAidKit;
-    
-    public void StartSpawnAid()
+    protected override void OnTake()
     {
+        base.OnTake();
         StartCoroutine(Spawn());
     }
     

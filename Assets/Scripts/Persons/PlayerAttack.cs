@@ -11,8 +11,6 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    [field: SerializeField] public bool IsSelectedBullet { get; set; }
-
     public enum attackTypes
     {
         Standard,
@@ -136,7 +134,7 @@ public class PlayerAttack : MonoBehaviour
         _weapon.GetComponent<AttackProjectile>().Damage = Damage;
         Instantiate(_AttackSound);
         slowUp();
-        player.Dash((_spriteRenderer.flipX ? 1 : -1) * (LevelUP.isTaken[10] ? 0.5f : 1f));
+        player.Dash((_spriteRenderer.flipX ? 1 : -1) * (LevelUP.Items[10].IsTaken ? 0.5f : 1f));
     }
 
     public void CreateLaser()
@@ -170,7 +168,7 @@ public class PlayerAttack : MonoBehaviour
         {
             case attackTypes.Standard:
                 OnAttack();
-                if (IsSelectedBullet)
+                if(LevelUP.Items[5].IsTaken)
                 {
                     OnFullAttack();
                     _animator.SetTrigger("FullAttack");
@@ -186,7 +184,7 @@ public class PlayerAttack : MonoBehaviour
                 Ammo -= 3;
                 _animator.SetTrigger("UltraAttaka");
                 Invoke(nameof(OnUltraAttack), 0.5f);
-                if (IsSelectedBullet)
+                if (LevelUP.Items[5].IsTaken)
                 {
                     Invoke(nameof(OnFullAttack), 0.5f);
                 }
@@ -196,7 +194,7 @@ public class PlayerAttack : MonoBehaviour
                 var Joystick = UiElementsList.instance.Joysticks.Attack;
                 _spriteRenderer.flipX = Joystick.Horizontal < 0;
                 _animator.SetTrigger("Attack");
-                AttackType = LevelUP.isTaken[17] ? attackTypes.Ultra : attackTypes.Standard;
+                AttackType = LevelUP.Items[17].IsTaken ? attackTypes.Ultra : attackTypes.Standard;
                 Joystick.gameObject.SetActive(false);
                 return;
         }
