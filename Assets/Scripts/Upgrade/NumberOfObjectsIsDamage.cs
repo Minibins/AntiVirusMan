@@ -11,7 +11,7 @@ public class NumberOfObjectsIsDamage : Upgrade
     [SerializeField] private string[] objectsTag;
     [SerializeField] private float[] multiplerDamage;
     public static bool[] tagAlloved;
-    private void Start()
+    private void Awake()
     {
         tagAlloved=new bool[objectsTag.Length];
         playerAttack=GameObject.FindWithTag("Player").GetComponent<PlayerAttack>();

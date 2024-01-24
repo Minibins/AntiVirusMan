@@ -15,7 +15,7 @@ using UnityEngine;
             LevelUP.Items[ID] = this;
         else
         {
-            while(LevelUP.Items.Count<= ID+1)
+            while(LevelUP.Items.Count< ID+1)
             LevelUP.Items.Add(new Upgrade());
             LevelUP.Items[ID] = this;
         }
