@@ -13,6 +13,7 @@ public class LevelUP : MonoBehaviour
     private GameObject firstButton => UiElementsList.instance.Panels.levelUpPanel.Button1;
     private GameObject secondButton => UiElementsList.instance.Panels.levelUpPanel.Button2;
     private GameObject thirdButton => UiElementsList.instance.Panels.levelUpPanel.Button3;
+    [SerializeField] private GameObject BuyButton;
 
     [SerializeField] private Sprite none;
     public static List<Upgrade> Items = new List<Upgrade>();
@@ -43,5 +44,9 @@ public class LevelUP : MonoBehaviour
         firstButton.GetComponent<UpgradeButton>().id = first;
         secondButton.GetComponent<UpgradeButton>().id = second;
         thirdButton.GetComponent<UpgradeButton>().id = third;
+
+             if(first == Items.Count-1) Instantiate(BuyButton,firstButton. transform);
+        else if(second== Items.Count-1) Instantiate(BuyButton,secondButton.transform);
+        else if(third == Items.Count-1) Instantiate(BuyButton,thirdButton. transform);
     }
 }

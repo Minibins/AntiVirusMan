@@ -42,7 +42,7 @@ public class MoveBase : MonoBehaviour
         _animator.Play(name);
     }
 
-    private void Awake()
+    protected virtual void Awake()
     {
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();

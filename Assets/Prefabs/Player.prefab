@@ -267,6 +267,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5272752002bc9dc41822756ec8e88356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsTaken: 0
+  Sprite: {fileID: 0}
+  ID: 0
+  synergies: []
   objectsTag:
   - AntivirusAtack
   multiplerDamage:
@@ -337,7 +341,7 @@ MonoBehaviour:
   _groundCheck: {fileID: 2522079714771889092}
   _groundLayer:
     serializedVersion: 2
-    m_Bits: 5136
+    m_Bits: 136208
   _jumpingPower: 2.75
   _jumpingCurve:
     serializedVersion: 2
@@ -390,7 +394,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afef24755c993cb478e6bc603a74fa35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <IsSelectedBullet>k__BackingField: 0
   <AttackType>k__BackingField: 0
   <Damage>k__BackingField: 1
   SpeedIsDamageCutout: 0.1
@@ -423,6 +426,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b5197b4f3088e444afee55b44f7fa7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsTaken: 0
+  Sprite: {fileID: 0}
+  ID: 0
+  synergies: []
   layerMask:
     serializedVersion: 2
     m_Bits: 9232
@@ -430,7 +437,6 @@ MonoBehaviour:
   MovableWall: {fileID: 2508600207770711463, guid: 61ac5b876010cab48a3f459a660671ba,
     type: 3}
   TimeToStart: 0.5
-  IsOpenly: 0
   canmove: 0
 --- !u!114 &-808243191230757187
 MonoBehaviour:

@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class UnityEvents : MonoBehaviour
 {
+    public enum ClickTypes
+    {
+        Start
+    }
     private static IPlayer _player;
     private static InstantiateWall _wall;
     private static PlayerAttack _playerAttack;

@@ -6,7 +6,7 @@ public class Player : MoveBase, IPlayer
     [SerializeField] private PChealth _health;
     public bool Stunned;
     private Dasher _dasher;
-    
+    public static bool IsJump;
     protected override void FixedUpdate()
     {
         transform.position = new Vector3(Mathf.Max(-18.527f, Mathf.Min(17.734f, transform.position.x)),
@@ -14,8 +14,9 @@ public class Player : MoveBase, IPlayer
         if(!Stunned)base.FixedUpdate();
     }
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         _dasher = gameObject.AddComponent<Dasher>();
     }
 
@@ -75,6 +76,7 @@ public class Player : MoveBase, IPlayer
     }
     public override void Jump()
     {
+        IsJump = true;
         if(IsGrounded() || LevelUP.Items[15].IsTaken)
         { 
             StartJump();
@@ -83,6 +85,7 @@ public class Player : MoveBase, IPlayer
     }
     public override void StopJump()
     {
+        IsJump = false;
         base.StopJump();
 
         if(IsGrounded())
@@ -107,7 +110,8 @@ public class Player : MoveBase, IPlayer
     {
         if(IsGrounded())
         {
-            StopJump();
+            base.StopJump();
+            StopJumpAnimation();
         }
     }
 }
