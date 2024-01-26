@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2079754781}
-  m_Layer: 9
+  m_Layer: 17
   m_Name: RoofCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -342,7 +342,7 @@ MonoBehaviour:
   _roofCheck: {fileID: 2079754781}
   _groundLayer:
     serializedVersion: 2
-    m_Bits: 136208
+    m_Bits: 5136
   _jumpingPower: 2.75
   _jumpingCurve:
     serializedVersion: 2
@@ -383,6 +383,9 @@ MonoBehaviour:
   damageForce: 0
   _flightVelicityCap: 0.33
   _flySpeed: 1.21
+  TreksolesLayer:
+    serializedVersion: 2
+    m_Bits: 131072
 --- !u!114 &1126693211
 MonoBehaviour:
   m_ObjectHideFlags: 0

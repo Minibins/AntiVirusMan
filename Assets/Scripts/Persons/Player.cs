@@ -115,4 +115,9 @@ public class Player : MoveBase, IPlayer
             StopJumpAnimation();
         }
     }
+    [SerializeField] LayerMask TreksolesLayer;
+    new public bool IsGrounded()
+    {
+        return base.IsGrounded() || base.IsGrounded(TreksolesLayer);
+    }
 }

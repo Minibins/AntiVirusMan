@@ -154,6 +154,10 @@ public class MoveBase : MonoBehaviour
     {
         return Physics2D.OverlapCircle(_groundCheck.position,0.2f,_groundLayer);
     }
+    public bool IsGrounded(LayerMask layerMask)
+    {
+        return Physics2D.OverlapCircle(_groundCheck.position,0.2f,layerMask);
+    }
     public virtual void Jump()
     {
         if(IsGrounded())
