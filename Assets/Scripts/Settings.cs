@@ -7,6 +7,8 @@ public class Settings : MonoBehaviour
     private void Start()
     {
         Time.timeScale = 1;
+
+        UiElementsList.instance.Panels.SettingsPanel.SoundSlider.Startp();
     }
 
     public void ChangeUI(bool isUsingJoystick)

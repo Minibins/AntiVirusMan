@@ -106,8 +106,9 @@ public class Player : MoveBase, IPlayer
         }
         else base.JumpAction();
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    protected override void OnCollisionEnter2D(Collision2D collision)
     {
+        base.OnCollisionEnter2D(collision);
         if(IsGrounded())
         {
             base.StopJump();

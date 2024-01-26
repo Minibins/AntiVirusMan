@@ -148,7 +148,7 @@ public class MoveBase : MonoBehaviour
         CanJump = CanJump;
         transform.rotation = new Quaternion();
     }
-    [SerializeField] protected Transform _groundCheck;
+    [SerializeField] protected Transform _groundCheck, _roofCheck;
     [SerializeField] protected LayerMask _groundLayer;
     public bool IsGrounded()
     {
@@ -198,5 +198,12 @@ public class MoveBase : MonoBehaviour
         _rigidbody.velocity= _velocity;
         isJump = false;
         _canJump = true;
+    }
+    protected virtual void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(_roofCheck!=null && Physics2D.OverlapCircle(_roofCheck.position,0.2f,_groundLayer))
+        {
+            _jumpStartTime = Time.time-_jumpingCurve.keys[_jumpingCurve.keys.Length-1].time/2f;
+        }
     }
 }

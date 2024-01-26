@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2079754781}
   m_Layer: 9
-  m_Name: GameObject
+  m_Name: RoofCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56,7 +56,7 @@ Transform:
   m_GameObject: {fileID: 2079754780}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.103, y: -0.018, z: 0}
+  m_LocalPosition: {x: 0, y: 0.16, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -268,8 +268,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsTaken: 0
-  Sprite: {fileID: 0}
-  ID: 0
+  Sprite: {fileID: 21300000, guid: 7d4b5fa4155772e49be685cd2966330d, type: 3}
+  ID: 21
   synergies: []
   objectsTag:
   - AntivirusAtack
@@ -339,6 +339,7 @@ MonoBehaviour:
   _speed: 3.5
   _spriteRenderer: {fileID: 0}
   _groundCheck: {fileID: 2522079714771889092}
+  _roofCheck: {fileID: 2079754781}
   _groundLayer:
     serializedVersion: 2
     m_Bits: 136208
@@ -349,12 +350,12 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 1
-      inSlope: -2.0114126
-      outSlope: -2.0114126
-      tangentMode: 34
+      inSlope: -0.37358496
+      outSlope: -0.37358496
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.33333334
+      outWeight: 0.42024854
     - serializedVersion: 3
       time: 0.4957384
       value: 0.0028655222
@@ -427,8 +428,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsTaken: 0
-  Sprite: {fileID: 0}
-  ID: 0
+  Sprite: {fileID: 21300000, guid: 5e4d826e182450c48a772b7e12d59d0c, type: 3}
+  ID: 3
   synergies: []
   layerMask:
     serializedVersion: 2
