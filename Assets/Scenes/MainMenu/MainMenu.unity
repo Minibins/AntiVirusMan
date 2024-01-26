@@ -571,23 +571,23 @@ MonoBehaviour:
     height of the jump depends on the button pressed. (If you press it in time, you
     can jump as much as THREE blocks)
 
-    Climb to the roof without flying, or
-    Vipers, to hear the SECRET.
+    Climb to the roof without flying, or Vipers,
+    to hear the SECRET.
 
     Fixed a bug with adjusting the volume of sounds.
 
     Fixed
     a bug with non-resetting time.
 
-    Depending on the time, monster spawning
-    speeds up.
+    Depending on the time, monster spawning speeds
+    up.
 
     New upgrade Track Soles
 
-    We added this menu to talk about
-    patches.
+    We added this menu to talk about patches.
 
-    Have fun!'
+    Have
+    fun!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
   m_sharedMaterial: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
@@ -4238,7 +4238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   save: {fileID: 958952363}
-  CurrentVersion: PostReliasePatch1
+  CurrentVersion: PostReliase1
   Changelog: {fileID: 1185718423}
   scenes:
   - tutorial
@@ -6671,6 +6671,7 @@ GameObject:
   - component: {fileID: 2119779364}
   - component: {fileID: 2119779363}
   - component: {fileID: 2119779362}
+  - component: {fileID: 2119779365}
   m_Layer: 5
   m_Name: Patreon
   m_TagString: Untagged
@@ -6741,16 +6742,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1383299109}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+      - m_Target: {fileID: 2119779365}
+        m_TargetAssemblyTypeName: BrowserButton, Assembly-CSharp
         m_MethodName: OpenWebBrowser
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: https://patreon.com/DustyStudio
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2119779363
@@ -6791,6 +6792,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2119779360}
   m_CullTransparentMesh: 1
+--- !u!114 &2119779365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2119779360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da6ca4b74865b214eb5b6aa37c7817bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2124588279
 GameObject:
   m_ObjectHideFlags: 0

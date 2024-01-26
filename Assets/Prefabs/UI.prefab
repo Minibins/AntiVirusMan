@@ -1491,7 +1491,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2081531902976136358
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1532,7 +1532,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2120,10 +2120,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c18dad5bdf88ef42b8c40a98c18d965, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DashButton: {fileID: 8272684241438253747}
-  DownButton: {fileID: 9214942227113919116}
-  Drone: {fileID: 8464362740318822757, guid: 84002fb7195b409499e11b42b87b9fea, type: 3}
-  mainupgrader: {fileID: 7505012306168895900}
   id: 99999
 --- !u!114 &3778133806247730163
 MonoBehaviour:
@@ -2292,10 +2288,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c18dad5bdf88ef42b8c40a98c18d965, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DashButton: {fileID: 8272684241438253747}
-  DownButton: {fileID: 9214942227113919116}
-  Drone: {fileID: 8464362740318822757, guid: 84002fb7195b409499e11b42b87b9fea, type: 3}
-  mainupgrader: {fileID: 7505012306168895900}
   id: 99999
 --- !u!114 &3839443584872511222
 MonoBehaviour:
@@ -2544,10 +2536,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c18dad5bdf88ef42b8c40a98c18d965, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DashButton: {fileID: 8272684241438253747}
-  DownButton: {fileID: 9214942227113919116}
-  Drone: {fileID: 8464362740318822757, guid: 84002fb7195b409499e11b42b87b9fea, type: 3}
-  mainupgrader: {fileID: 7505012306168895900}
   id: 99999
 --- !u!114 &4324475317017421943
 MonoBehaviour:
@@ -4413,7 +4401,7 @@ MonoBehaviour:
         - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: Player, Assembly-CSharp
           m_MethodName: StopJump
-          m_Mode: 6
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5014,7 +5002,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.48977086, y: 0}
   m_AnchorMax: {x: 0.71960413, y: 0.22800002}
-  m_AnchoredPosition: {x: -36, y: 7.069824}
+  m_AnchoredPosition: {x: -36, y: 7.0702515}
   m_SizeDelta: {x: -85.8042, y: -81.856445}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7906367650405322662
@@ -5815,8 +5803,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Player, Assembly-CSharp
-        m_MethodName: Down
+        m_TargetAssemblyTypeName: UnityEvents, Assembly-CSharp
+        m_MethodName: UE_ButtonDown
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5925,6 +5913,21 @@ PrefabInstance:
       propertyPath: _buttonsList.Array.data[5]
       value: 
       objectReference: {fileID: 8272684241438253747}
+    - target: {fileID: 1324110775191113675, guid: a163418f5c48cd74e85af557fee7f82f,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1324110775191113675, guid: a163418f5c48cd74e85af557fee7f82f,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1324110775191113675, guid: a163418f5c48cd74e85af557fee7f82f,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2577144647416013956, guid: a163418f5c48cd74e85af557fee7f82f,
         type: 3}
       propertyPath: m_Name
@@ -5945,6 +5948,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 5507290037603765158}
+    - target: {fileID: 4965130025789864805, guid: a163418f5c48cd74e85af557fee7f82f,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4965130025789864805, guid: a163418f5c48cd74e85af557fee7f82f,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5391852857315160889, guid: a163418f5c48cd74e85af557fee7f82f,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
@@ -5955,6 +5968,21 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 5507290037603765158}
+    - target: {fileID: 5937127515623957299, guid: a163418f5c48cd74e85af557fee7f82f,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5937127515623957299, guid: a163418f5c48cd74e85af557fee7f82f,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5937127515623957299, guid: a163418f5c48cd74e85af557fee7f82f,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6621686454492799832, guid: a163418f5c48cd74e85af557fee7f82f,
         type: 3}
       propertyPath: m_Pivot.x
@@ -6065,6 +6093,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
       objectReference: {fileID: 5507290037603765158}
+    - target: {fileID: 7501630176703546907, guid: a163418f5c48cd74e85af557fee7f82f,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7501630176703546907, guid: a163418f5c48cd74e85af557fee7f82f,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

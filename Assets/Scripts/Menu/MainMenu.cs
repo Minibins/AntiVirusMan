@@ -51,9 +51,4 @@ public class MainMenu : MonoBehaviour
         System.Environment.Exit(0);
         Application.Quit();
     }
-
-    public void OpenWebBrowser()
-    {
-        Application.OpenURL("https://patreon.com/DustyStudio");
-    }
 }
