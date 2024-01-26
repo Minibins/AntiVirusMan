@@ -1,11 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
+
+using UnityEditor.PackageManager.UI;
+
 using UnityEngine;
 using UnityEngine.UI;
 
 public class LevelUP : MonoBehaviour
 {
-    static LevelUP instance;
+    static public LevelUP instance;
     public static void Generate(int first,int second,int third)
     {
         instance.generate(first, second, third);
@@ -36,6 +40,13 @@ public class LevelUP : MonoBehaviour
     }
     public void generate(int first,int second,int third)
     {
+#if UNITY_STANDALONE_WIN
+
+ 
+
+#endif
+        
+        UiElementsList.instance.Panels.levelUpPanel.Panel.SetActive(true);
         Time.timeScale = 0.1f;
         firstButton.GetComponent<Image>().sprite = first!=-1 ? Items[first].Sprite : none;
         secondButton.GetComponent<Image>().sprite = second != -1 ? Items[second].Sprite : none;
@@ -48,5 +59,10 @@ public class LevelUP : MonoBehaviour
              if(first == Items.Count-1) Instantiate(BuyButton,firstButton. transform);
         else if(second== Items.Count-1) Instantiate(BuyButton,secondButton.transform);
         else if(third == Items.Count-1) Instantiate(BuyButton,thirdButton. transform);
+    }
+    static public void Select()
+    {
+        UiElementsList.instance.Panels.levelUpPanel.Panel.SetActive(false);
+        Time.timeScale = 1;
     }
 }

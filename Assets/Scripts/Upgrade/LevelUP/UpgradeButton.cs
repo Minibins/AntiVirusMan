@@ -9,7 +9,7 @@ public class UpgradeButton : MonoBehaviour
     {
         LevelUP.Items[id].IsTaken = true;
         if(UpgradeActions.ContainsKey(id)) UpgradeActions[id]();
-        Level.IsSelected = true;
+        LevelUP.Select();
         var buttons = UiElementsList.instance.Panels.levelUpPanel;
         for(int i = buttons.Button1.transform.childCount - 1; i >= 0;)
         {

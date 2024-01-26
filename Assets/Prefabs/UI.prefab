@@ -1301,7 +1301,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1405672113768695759
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1830,6 +1830,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5208305152012229947}
   - component: {fileID: 703595709279163060}
+  - component: {fileID: 6993522960677686868}
   m_Layer: 2
   m_Name: UI
   m_TagString: Untagged
@@ -1920,6 +1921,20 @@ MonoBehaviour:
     Time: {fileID: 4417986938952456623}
     Lvl: {fileID: 1538222181002088758}
     Carma: {fileID: 4687344563657493416}
+--- !u!114 &6993522960677686868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3684711052714984343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 618d955c0737fc146947904d48f9c3e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameObjectsToEnableInAndroid:
+  - {fileID: 2534247655149363551}
 --- !u!1 &3763609813200554093
 GameObject:
   m_ObjectHideFlags: 0

@@ -995,6 +995,7 @@ GameObject:
   - component: {fileID: 6621686454492799832}
   - component: {fileID: 3684221014146580222}
   - component: {fileID: 2489112809425444007}
+  - component: {fileID: 5885357707520717124}
   m_Layer: 2
   m_Name: Settingspanel
   m_TagString: Untagged
@@ -1067,6 +1068,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5885357707520717124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2577144647416013956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 618d955c0737fc146947904d48f9c3e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameObjectsToEnableInAndroid:
+  - {fileID: 8640251287421221357}
+  - {fileID: 200268140919970405}
 --- !u!1 &3490037238363502518
 GameObject:
   m_ObjectHideFlags: 0

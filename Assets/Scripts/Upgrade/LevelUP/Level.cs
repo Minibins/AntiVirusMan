@@ -4,38 +4,36 @@ using UnityEngine.UI;
 
 public class Level : MonoBehaviour
 {
-    public static bool IsSelected;
     [SerializeField] private LevelUP LevelUpScript;
-    [SerializeField] public static float EnemyNeedToUpLVL = 15;
-    public static float EXP;
+    public static float EnemyNeedToUpLVL = 15;
+    private static float eXP;
+    public static float EXP { 
+        get => eXP;
+        set 
+        { 
+            eXP = value; 
+            UiElementsList.instance.Counters.Lvl.fillAmount = (float)EXP / EnemyNeedToUpLVL;
+            if(EXP >= EnemyNeedToUpLVL)
+            {
+                EXP = 0;
+                LevelUP.instance.NewUpgrade();
+            }
+        }
+    }
+
     private void Start()
     {
-        EnemyNeedToUpLVL = 15;
         EXP = 0;
+        EnemyNeedToUpLVL = 15;
     }
 
     private void FixedUpdate()
     {
-        var UI = UiElementsList.instance;
-        UI.Counters.Lvl.fillAmount = (float)EXP / EnemyNeedToUpLVL;
-        var LevelUpUI = UI.Panels.levelUpPanel.Panel;
-        if(EXP >= EnemyNeedToUpLVL)
-        {
-            EXP = 0;
-
-            LevelUpUI.SetActive(true);
-            LevelUpScript.NewUpgrade();
-        }
-
-        if(IsSelected)
-        {
-            IsSelected = false;
-            LevelUpUI.SetActive(false);
-            Time.timeScale = 1;
-        }
+        #if UNITY_EDITOR
         if (Input.GetKey(KeyCode.F))
         {
             EXP +=4;
         }
+        #endif
     }
 }
