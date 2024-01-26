@@ -240,6 +240,7 @@
           <e p="Trains" t="Include">
             <e p="TileMaps" t="Include" />
           </e>
+          <e p="Treksoles" t="Include" />
           <e p="TutorialSttets" t="Include">
             <e p="Doors" t="Include" />
             <e p="Enemies" t="Include" />
@@ -282,6 +283,8 @@
             <e p="Draggable.cs" t="Include" />
             <e p="Follower.cs" t="Include" />
             <e p="Health.cs" t="Include" />
+            <e p="Interfaces" t="Include" />
+            <e p="IPlayer.cs" t="Include" />
             <e p="IPlayerDamageble.cs" t="Include" />
             <e p="RawAttack.cs" t="Include" />
             <e p="Setting.cs" t="Include" />
@@ -339,6 +342,7 @@
           <e p="Timer.cs" t="Include" />
           <e p="UI" t="Include">
             <e p="Audio.cs" t="Include" />
+            <e p="BrowserButton.cs" t="Include" />
             <e p="CellAnimator.cs" t="Include" />
             <e p="LoadButtonPosition.cs" t="Include" />
             <e p="Settings" t="Include">
@@ -353,7 +357,19 @@
           <e p="Upgrade" t="Include">
             <e p="AuraPC.cs" t="Include" />
             <e p="Bullet.cs" t="Include" />
-            <e p="ButtonsBehavior" t="Include" />
+            <e p="ButtonsBehavior" t="Include">
+              <e p="BigAttacksUpgrade.cs" t="Include" />
+              <e p="Drag" t="Include" />
+              <e p="DragEnemyUpgrade.cs" t="Include" />
+              <e p="DragUpgrade.cs" t="Include" />
+              <e p="DroneUpgrade.cs" t="Include" />
+              <e p="EnablerUpgrade.cs" t="Include" />
+              <e p="JumpOnEnemyUpgrade.cs" t="Include" />
+              <e p="PCFollowsUpgrade.cs" t="Include" />
+              <e p="SpeedIsDamage.cs" t="Include" />
+              <e p="StarfallUpgrade.cs" t="Include" />
+              <e p="TreksolesUpgrade.cs" t="Include" />
+            </e>
             <e p="DRAG.cs" t="Include" />
             <e p="Drone.cs" t="Include" />
             <e p="Fallingstar.cs" t="Include" />
@@ -379,6 +395,7 @@
             <e p="ExpCollectible.cs" t="Include" />
             <e p="GameWorldTV.cs" t="Include" />
             <e p="LightFromTime.cs" t="Include" />
+            <e p="PlayerTrigger.cs" t="Include" />
             <e p="randomSprite.cs" t="Include" />
             <e p="SpawnerEnemy.cs" t="Include" />
             <e p="TrainLevel" t="Include">
@@ -396,7 +413,10 @@
               <e p="TagDoor.cs" t="Include" />
               <e p="TV.cs" t="Include" />
             </e>
-            <e p="WayPoint.cs" t="Include" />
+            <e p="TV Level" t="Include">
+              <e p="SecretGuy.cs" t="Include" />
+              <e p="WayPoint.cs" t="Include" />
+            </e>
           </e>
         </e>
         <e p="Sound" t="Include">
