@@ -64,9 +64,10 @@ public class LevelUP : MonoBehaviour
         Time.timeScale = 1;
     }
     [DustyConsoleCommand("getitem","Get item with id", typeof(int))]
-    static void GetItem(int ID)
+    static string GetItem(int ID)
     {
         UpgradeButton.UpgradeActions[ID]();
         LevelUP.Items[ID].IsTaken = true;
+        return "Given item "+ ID;
     }
 }

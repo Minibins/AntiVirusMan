@@ -1,7 +1,6 @@
 using System.Reflection;
 using System.Collections;
 using System;
-using Unity.Mathematics;
 using DustyStudios;
 using UnityEngine;
 using UnityEngine.UI;
@@ -54,7 +53,7 @@ public class Timer : MonoBehaviour
                     }
                 }
             }
-            fiilSprite = math.max(math.min((float)time / ((float)TimeToWin * 60),1f),0f);
+            fiilSprite = Math.Max(Math.Min((float)time / ((float)TimeToWin * 60),1f),0f);
             UiElementsList.instance.Counters.Time.fillAmount = fiilSprite;
             sec++;
             yield return new WaitForSeconds(1);
@@ -62,15 +61,15 @@ public class Timer : MonoBehaviour
     }
 
     [DustyConsoleCommand("setsec","Set time in seconds",typeof(int))]
-    public static void SetSec(int s)
+    public static string SetSec(int s)
     {
         sec = s;
-        Debug.Log("Time setted: " + time);
+        return "Time setted: " + time;
     }
     [DustyConsoleCommand("setmin","Set time in minutes",typeof(int))]
-    public static void SetMin(int m)
+    public static string SetMin(int m)
     {
         min = m;
-        Debug.Log("Time setted: " + time);
+        return "Time setted: " + time;
     }
 }
