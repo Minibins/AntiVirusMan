@@ -1,14 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using DustyStudios;
+using System.Collections.Generic;
 using System.Linq;
-using System.Security.Principal;
-
-using UnityEditor.PackageManager.UI;
-
 using UnityEngine;
 using UnityEngine.UI;
 
 public class LevelUP : MonoBehaviour
 {
+
     static public LevelUP instance;
     public static void Generate(int first,int second,int third)
     {
@@ -64,5 +62,11 @@ public class LevelUP : MonoBehaviour
     {
         UiElementsList.instance.Panels.levelUpPanel.Panel.SetActive(false);
         Time.timeScale = 1;
+    }
+    [DustyConsoleCommand("getitem","Get item with id", typeof(int))]
+    static void GetItem(int ID)
+    {
+        UpgradeButton.UpgradeActions[ID]();
+        LevelUP.Items[ID].IsTaken = true;
     }
 }

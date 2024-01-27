@@ -10,7 +10,6 @@ public class SpawnerEnemy : MonoBehaviour
     [SerializeField] private GameObject[] Enemies, EnemiesV2, WireEnemies, spawnersWireEnemy;
     [SerializeField] private int[] EliteID;
     [SerializeField] private float minTimeSpawn, maxTimeSpawn, minTimeSpawnWave, maxTimeSpawnWave;
-    [SerializeField] private GameObject BossAlpha;
     [SerializeField] private int EliteSpawnChance;
     public bool isSpawn;
 
@@ -32,7 +31,7 @@ public class SpawnerEnemy : MonoBehaviour
                         Instantiate(Boss, spawnersBoss[Random.Range(0, spawnersBoss.Length)].transform.position,
                             Quaternion.identity);
                         print("Boss has spawned");
-                        BossAlpha.SetActive(true);
+                        UiElementsList.instance.Panels.BossPanel.SetActive(true);
                         BossSpawned = true;
                     }
 

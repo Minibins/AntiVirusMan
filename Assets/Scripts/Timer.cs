@@ -1,8 +1,8 @@
-using System;
+using System.Reflection;
 using System.Collections;
-
+using System;
 using Unity.Mathematics;
-
+using DustyStudios;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,7 +15,7 @@ public class Timer : MonoBehaviour
     public static int min;
     public static int time { get => (min * 60 + sec); }
     public static bool StopTime = true;
-   
+
     private void Start()
     {
         sec = 0;
@@ -24,9 +24,9 @@ public class Timer : MonoBehaviour
         {
             UiElementsList.instance.Counters.Time.name = "time";
         }
-        catch 
+        catch
         {
-            UiElementsList.instance=FindObjectOfType<UiElementsList>();
+            UiElementsList.instance = FindObjectOfType<UiElementsList>();
         }
         StartCoroutine(TimeFlow());
         fiilSprite = time / TimeToWin * 60;
@@ -34,19 +34,19 @@ public class Timer : MonoBehaviour
 
     private IEnumerator TimeFlow()
     {
-        while (StopTime)
+        while(StopTime)
         {
-            if (sec == 59)
+            if(sec == 59)
             {
                 min++;
                 sec = -1;
-                if (min * 60 >= (TimeToWin * 60) + 10)
+                if(min * 60 >= (TimeToWin * 60) + 10)
                 {
                     GameObject boss = GameObject.FindGameObjectWithTag("Boss");
-                    if (boss == null)
+                    if(boss == null)
                     {
                         Save.LoadField();
-                        if (Save.WinLocation < _level)
+                        if(Save.WinLocation < _level)
                         {
                             Save.WinLocation = _level;
                             Save.SaveField();
@@ -59,5 +59,18 @@ public class Timer : MonoBehaviour
             sec++;
             yield return new WaitForSeconds(1);
         }
+    }
+
+    [DustyConsoleCommand("setsec","Set time in seconds",typeof(int))]
+    public static void SetSec(int s)
+    {
+        sec = s;
+        Debug.Log("Time setted: " + time);
+    }
+    [DustyConsoleCommand("setmin","Set time in minutes",typeof(int))]
+    public static void SetMin(int m)
+    {
+        min = m;
+        Debug.Log("Time setted: " + time);
     }
 }
