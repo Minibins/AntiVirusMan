@@ -73,6 +73,9 @@
         </e>
         <e p="ColliderOffsetPLUS.cs" t="Include" />
         <e p="Documentation.cs" t="Include" />
+        <e p="Editor" t="Include">
+          <e p="SliderSetting.cs" t="Include" />
+        </e>
         <e p="Enemy" t="Include">
           <e p="Boss" t="Include" />
           <e p="Elite" t="Include">
@@ -269,12 +272,14 @@
             <e p="StrelaushaaShtuka.cs" t="Include" />
           </e>
           <e p="DustyStudio's" t="Include">
+            <e p="Editer" t="Include" />
+            <e p="Enablers" t="Include">
+              <e p="AndroidEnabler.cs" t="Include" />
+              <e p="NewBehaviourScript.cs" t="Include" />
+            </e>
             <e p="GetUsername.cs" t="Include" />
             <e p="MathA.cs" t="Include" />
             <e p="SerializableQueue.cs" t="Include" />
-          </e>
-          <e p="Editors" t="Include">
-            <e p="SliderSetting.cs" t="Include" />
           </e>
           <e p="Interfaces and Abstract Classes" t="Include">
             <e p="AbovePlayerChecker.cs" t="Include" />
@@ -368,6 +373,7 @@
               <e p="PCFollowsUpgrade.cs" t="Include" />
               <e p="SpeedIsDamage.cs" t="Include" />
               <e p="StarfallUpgrade.cs" t="Include" />
+              <e p="TotalRelativity.cs" t="Include" />
               <e p="TreksolesUpgrade.cs" t="Include" />
             </e>
             <e p="DRAG.cs" t="Include" />
