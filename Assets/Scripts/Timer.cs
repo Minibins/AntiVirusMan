@@ -60,13 +60,13 @@ public class Timer : MonoBehaviour
         }
     }
 
-   
+    [DustyConsoleCommand("setsec","Set time in seconds",typeof(int))]
     public static string SetSec(int s)
     {
         sec = s;
         return "Time setted: " + time;
     }
-
+    [DustyConsoleCommand("setmin","Set time in minutes",typeof(int))]
     public static string SetMin(int m)
     {
         min = m;

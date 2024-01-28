@@ -63,7 +63,7 @@ public class LevelUP : MonoBehaviour
         UiElementsList.instance.Panels.levelUpPanel.Panel.SetActive(false);
         Time.timeScale = 1;
     }
-    
+    [DustyConsoleCommand("getitem","Get item with id", typeof(int))]
     static string GetItem(int ID)
     {
         UpgradeButton.UpgradeActions[ID]();
