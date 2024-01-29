@@ -335,8 +335,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76c38b12b451944eb48c671f865855c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsTaken: 0
+  Sprite: {fileID: 21300000, guid: 87a931427a056d543b78fbb384660d9c, type: 3}
+  ID: 12
+  synergies: []
   Damage: 1
-  IsStartWork: 0
 --- !u!61 &8683240789240558306
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -26,7 +26,7 @@ public class AuraPC : Upgrade
 
     IEnumerator GiveDamage(Collider2D other)
     {
-        Level.EXP--;
+        Level.EXP-=5;
         other.GetComponent<Health>().ApplyDamage(Damage);
         yield return new WaitForSeconds(1f);
         isStart = false;

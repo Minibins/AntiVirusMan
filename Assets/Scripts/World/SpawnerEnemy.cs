@@ -37,32 +37,14 @@ public class SpawnerEnemy : MonoBehaviour
 
                     break;
 
-
-                case > 5:
-                    if (Timer.min < 10 && BossSpawned == false)
-                    {
-                        int spawnPoint2 = Random.Range(0, spawnersEnemy.Length);
-                        StartCoroutine(SpawnEnemy(spawnPoint2));
-                        yield return WaitSpawnTime();
-                        StartCoroutine(SpawnEnemy(spawnPoint2));
-                        yield return WaitSpawnTime();
-                        StartCoroutine(SpawnEnemy(spawnPoint2));
-                        yield return WaitSpawnTime();
-                    }
-
-                    break;
-
-                case < 5:
-                    if (Timer.min <= 5 && BossSpawned == false)
-                    {
+                case < 10:
                         int spawnPoint = Random.Range(0, spawnersEnemy.Length);
                         StartCoroutine(SpawnEnemy(spawnPoint));
                         yield return WaitSpawnTime();
                         StartCoroutine(SpawnEnemy(spawnPoint));
-                    yield return WaitSpawnTime();
-                    StartCoroutine(SpawnEnemy(spawnPoint));
                         yield return WaitSpawnTime();
-                    }
+                        StartCoroutine(SpawnEnemy(spawnPoint));
+                        yield return WaitSpawnTime();
 
                     int i = Random.Range(0, spawnersWireEnemy.Length);
                     GameObject WireEnemy = Instantiate(WireEnemies[Random.Range(0, WireEnemies.Length)],
@@ -71,7 +53,7 @@ public class SpawnerEnemy : MonoBehaviour
                     break;
             }
 
-            yield return new WaitForSeconds(Random.Range(minTimeSpawnWave, maxTimeSpawnWave)- Mathf.Lerp(0,(minTimeSpawnWave - maxTimeSpawnWave),(float)Timer.time / 600));
+            yield return new WaitForSeconds(Mathf.Max(Random.Range(minTimeSpawnWave, maxTimeSpawnWave)- Mathf.Lerp(0,maxTimeSpawnWave,(float)Timer.time / 600),0));
         }
     }
     IEnumerator WaitSpawnTime()
