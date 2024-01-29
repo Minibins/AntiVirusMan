@@ -22,6 +22,7 @@ public class starfall : MonoBehaviour
     {
         while(true)
         {
+            Level.EXP -= 0.01f;
             spawnstar(new Vector3(Random.Range(0,0.4f),Random.Range(-1,-3),0));
             yield return new WaitForSeconds(0.3f);
         }

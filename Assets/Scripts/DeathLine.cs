@@ -11,7 +11,7 @@ public class DeathLine : PlayersCollisionChecker
     {
         foreach(var player in EnteredThings)
         {
-            player.GetComponent<Player>().TakeDamage(respawn);
+            Player.TakeDamage(respawn);
         }
     }
 }

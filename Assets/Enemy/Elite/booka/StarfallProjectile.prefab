@@ -11,10 +11,9 @@ GameObject:
   - component: {fileID: 2196851316796623912}
   - component: {fileID: 733034383264282391}
   - component: {fileID: 5974837319349029961}
-  - component: {fileID: 6672414290189798892}
-  - component: {fileID: 1364116839064211346}
   - component: {fileID: 6577590459668806273}
   - component: {fileID: -1596364657429300502}
+  - component: {fileID: 801760719654490754}
   m_Layer: 0
   m_Name: StarfallProjectile
   m_TagString: Untagged
@@ -104,52 +103,6 @@ MonoBehaviour:
   images:
   - {fileID: -1220450171, guid: 1df0e45a1e1783b4bac6578d311db4ef, type: 3}
   - {fileID: -88253605, guid: 1df0e45a1e1783b4bac6578d311db4ef, type: 3}
---- !u!114 &6672414290189798892
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4072054016672296125}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ea8c2c16cc0695418974d3b9ee305bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  damage: 1
---- !u!114 &1364116839064211346
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4072054016672296125}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cfb49d723fe000449b9bb9ca83d6678, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  contactType: 2
-  onContact:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6672414290189798892}
-        m_TargetAssemblyTypeName: RawAttack, Assembly-CSharp
-        m_MethodName: Damage
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  contacterLayer:
-    serializedVersion: 2
-    m_Bits: 512
-  contacterTag: Player
 --- !u!58 &6577590459668806273
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -212,3 +165,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &801760719654490754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4072054016672296125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a102ceff0857a824fa8b166662533412, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Exp: -4.06

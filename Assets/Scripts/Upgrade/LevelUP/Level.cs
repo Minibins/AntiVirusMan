@@ -7,6 +7,7 @@ public class Level : MonoBehaviour
     [SerializeField] private LevelUP LevelUpScript;
     public static float EnemyNeedToUpLVL = 15;
     private static float eXP;
+    public static Action onNegativeExp;
     public static float EXP { 
         get => eXP;
         set 
@@ -18,6 +19,11 @@ public class Level : MonoBehaviour
                 EXP = 0;
                 LevelUP.instance.NewUpgrade();
             }
+            if(eXP < 0)
+            {
+                onNegativeExp.Invoke();
+                eXP = EnemyNeedToUpLVL - 1;
+            }
         }
     }
 
@@ -25,6 +31,7 @@ public class Level : MonoBehaviour
     {
         EXP = 0;
         EnemyNeedToUpLVL = 15;
+        onNegativeExp = new(()=> Player.TakeDamage());
     }
 
     private void FixedUpdate()

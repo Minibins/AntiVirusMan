@@ -154,9 +154,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _canJump: 1
-  _jumpingPower: 10
   _speed: 1
   _spriteRenderer: {fileID: 0}
+  _groundCheck: {fileID: 0}
+  _roofCheck: {fileID: 0}
+  _groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  _jumpingPower: 10
+  _jumpingCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _maxJumpLeftover: 0
 --- !u!114 &2568750583019537692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,4 +291,6 @@ MonoBehaviour:
   IsPlatform: 0
   numberOfObjectsToSpawn: 50
   objectToSpawn: {fileID: 6345187588179732482, guid: 79d973c793a321b419f64cc52cebd51e,
+    type: 3}
+  starfallProjectile: {fileID: 4072054016672296125, guid: 0c5bd57b26002f54cae77cbdf1b23cda,
     type: 3}

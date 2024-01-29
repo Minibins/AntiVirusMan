@@ -8,7 +8,7 @@ using UnityEngine;
     [SerializeField] public int ID;
     public Dictionary<int, Action> Synergies = new Dictionary<int, Action>();
     [SerializeField] protected Synergy[] synergies =new Synergy[0];
-    private void Start()
+    public void Start()
     {
         var Actions = UpgradeButton.UpgradeActions;
         if(LevelUP.Items.Count > ID) 
@@ -34,6 +34,10 @@ using UnityEngine;
         {
             if(LevelUP.Items[synergy.Key].IsTaken) synergy.Value.Invoke();
         }
+    }
+    public Upgrade()
+    {
+
     }
 }
 public class Synergy : MonoBehaviour

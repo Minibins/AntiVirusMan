@@ -12,7 +12,7 @@ public class SpawnerEnemy : MonoBehaviour
     [SerializeField] private float minTimeSpawn, maxTimeSpawn, minTimeSpawnWave, maxTimeSpawnWave;
     [SerializeField] private int EliteSpawnChance;
     public bool isSpawn;
-
+    public static float SpawnCoeficient =1f;
     private void Start()
     {
         BossSpawned = false;
@@ -76,7 +76,7 @@ public class SpawnerEnemy : MonoBehaviour
     }
     IEnumerator WaitSpawnTime()
     {
-        yield return new WaitForSeconds(Random.Range(minTimeSpawn,maxTimeSpawn)-Mathf.Lerp(0,(maxTimeSpawn-minTimeSpawn)/2, (float)Timer.time/600));
+        yield return new WaitForSeconds((Random.Range(minTimeSpawn,maxTimeSpawn)-Mathf.Lerp(0,(maxTimeSpawn-minTimeSpawn)/2, (float)Timer.time/600))/SpawnCoeficient);
     }
 
     public void StopOrStartSpawn()

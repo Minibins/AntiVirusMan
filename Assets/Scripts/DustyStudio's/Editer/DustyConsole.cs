@@ -7,10 +7,11 @@ using System.Linq;
 using System.Collections;
 namespace DustyStudios
 {
+#if UNITY_EDITOR
     public class DustyConsole : EditorWindow
     {
         string command = "";
-        List<string> output = new();
+        static List<string> output = new();
         string Output
         {
             get
@@ -49,6 +50,10 @@ namespace DustyStudios
             float otherElementsYsize = (EditorGUIUtility.singleLineHeight+EditorGUIUtility.standardVerticalSpacing)*3;
             EditorGUI.TextArea(new Rect(0,otherElementsYsize,position.width,position.height - otherElementsYsize),Output);
             numberOfOutputInScreen = (int)((position.size.y-otherElementsYsize)/ EditorGUIUtility.singleLineHeight);
+        }
+        public static void Print(string line)
+        {
+            output.Add(line);
         }
         public void ExecuteCommand(string commandName,string[] arguments)
         {
@@ -158,6 +163,7 @@ namespace DustyStudios
             return commands;
         }
     }
+#endif
     [AttributeUsage(AttributeTargets.Method,AllowMultiple = false,Inherited = false)]
     public class DustyConsoleCommandAttribute : Attribute
     {

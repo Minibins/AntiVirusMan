@@ -10,6 +10,7 @@ public class SpawnFirstAidKit : Upgrade
     {
         base.OnTake();
         StartCoroutine(Spawn());
+        StartCoroutine(Steal());
     }
     
     private IEnumerator Spawn()
@@ -21,6 +22,14 @@ public class SpawnFirstAidKit : Upgrade
                 Quaternion.identity);
             yield return new WaitForSeconds(60);
             Destroy(_firstAidKit);
+        }
+    }
+    private IEnumerator Steal()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(4);
+            Level.EXP--;
         }
     }
 }

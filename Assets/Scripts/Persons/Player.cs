@@ -7,6 +7,7 @@ public class Player : MoveBase, IPlayer
     public bool Stunned;
     private Dasher _dasher;
     public static bool IsJump;
+    static Player instance;
     protected override void FixedUpdate()
     {
         transform.position = new Vector3(Mathf.Max(-18.527f, Mathf.Min(17.734f, transform.position.x)),
@@ -16,6 +17,7 @@ public class Player : MoveBase, IPlayer
 
     protected override void Awake()
     {
+        instance = this;
         base.Awake();
         _dasher = gameObject.AddComponent<Dasher>();
     }
@@ -62,10 +64,18 @@ public class Player : MoveBase, IPlayer
             Destroy(other.gameObject);
         }
     }
-
-    public void TakeDamage(Vector3 respawn)
+    public static void TakeDamage(Vector3 respawn)
+    {
+        instance.takeDamage(respawn);
+    }
+    public static void TakeDamage()
+    {
+        instance.takeDamage(instance.transform.position);
+    }
+    public void takeDamage(Vector3 respawn)
     {
         PlayDamageAnimation();
+        _health.ApplyDamage(1);
         transform.position = respawn;
     }
     [SerializeField] float damageForce;
