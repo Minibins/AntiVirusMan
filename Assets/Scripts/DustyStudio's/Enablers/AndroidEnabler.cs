@@ -6,7 +6,7 @@ public class AndroidEnabler : MonoBehaviour
     {
 #if UNITY_ANDROID
         foreach(var obj in gameObjectsToEnableInAndroid)
-            if(!obj.active) obj.SetActive(true);
+            obj.SetActive(true);
 #endif
     }
 }

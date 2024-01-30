@@ -77,12 +77,12 @@ public class SpawnerEnemy : MonoBehaviour
         {
             if (LevelUP.Items[EliteID[enemy]].IsTaken && Iselite == 0)
             {
-                Instantiate(EnemiesV2[Random.Range(0, Enemies.Length)], spawnersEnemy[spawnPoint].transform.position,
+                Instantiate(EnemiesV2[enemy], spawnersEnemy[spawnPoint].transform.position,
                     Quaternion.identity);
             }
             else
             {
-                Instantiate(Enemies[Random.Range(0, Enemies.Length)], spawnersEnemy[spawnPoint].transform.position,
+                Instantiate(Enemies[enemy], spawnersEnemy[spawnPoint].transform.position,
                     Quaternion.identity);
             }
         }

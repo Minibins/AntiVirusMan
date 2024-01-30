@@ -1,4 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+
 using UnityEngine;
 
 public class LaserGun : Upgrade,Draggable
@@ -15,8 +18,15 @@ public class LaserGun : Upgrade,Draggable
     protected override void OnTake()
     {
         base.OnTake();
-
-        GetComponent<SpriteRenderer>().enabled = true;
+        foreach(Behaviour c in GetComponents<Behaviour>())
+        {
+            c.enabled = true;
+        }
+        foreach(Renderer c in GetComponents<Renderer>())
+        { 
+            c.enabled = true; 
+        }
+        gameObject.GetComponent<Rigidbody2D>().simulated = true;
         StartCoroutine(Shoot());
     }
 

@@ -30,7 +30,7 @@ public class shadowEffect : MonoBehaviour
     void Update()
     {
         shadowRenderer.sprite = renderere.sprite;
-        shadow.transform.localScale=new Vector3(renderere.flipX?-1: 1,1,1);
+        shadow.transform.localScale = new Vector3(renderere.flipX ? -1 : 1,1,1);
         shadow.transform.position = transform.position + shadowOffset;
     }
 }

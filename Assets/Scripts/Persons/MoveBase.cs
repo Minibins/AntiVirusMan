@@ -129,7 +129,7 @@ public class MoveBase : MonoBehaviour
 
     private void MoveNotJump()
     {
-        _rigidbody.velocity = _velocity;
+        if(!gameObject.isStatic) _rigidbody.velocity = _velocity;
     }
 
     private void OnDisable()
