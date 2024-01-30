@@ -2,14 +2,14 @@
 
 public class Wall : MonoBehaviour
 {
-    [SerializeField] private float Health;
-
-    public void TakeDamageWall(float Damage)
+    public float TowerHeight = 0;
+    [SerializeField] new Collider2D collider;
+    private void Start()
     {
-        Health -= Damage;
-        if (Health <= 0)
-        {
-            Destroy(gameObject);
-        }
+        TowerHeight =
+            Physics2D.Raycast(collider.bounds.min.y * Vector3.up - Vector3.up + transform.position.x * Vector3.right,Vector2.down).
+            collider.GetComponent<Wall>().TowerHeight++; TowerHeight += 1;
+        if(TowerHeight >= 5)
+            InstantiateWall.ClearWalls();
     }
 }

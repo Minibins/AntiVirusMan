@@ -107,6 +107,7 @@ public class UiElementsList : MonoBehaviour
         {
             [SerializeField] public GameObject Panel;
             [SerializeField] public SettingSlider MusicVolumeSlider, SoundSlider;
+            [SerializeField]public Toggle Joystick;
         }
         [System.Serializable]
         public struct LoseGamePanel

@@ -7,8 +7,19 @@ public class Settings : MonoBehaviour
     private void Start()
     {
         Time.timeScale = 1;
-
-        UiElementsList.instance.Panels.SettingsPanel.SoundSlider.Startp();
+        try
+        {
+            UiElementsList.instance.Panels.SettingsPanel.SoundSlider.Startp();
+        }
+        catch 
+        {
+            UiElementsList.instance = GameObject.FindObjectOfType<UiElementsList>();
+            UiElementsList.instance.Panels.SettingsPanel.SoundSlider.Startp();
+        }
+        ChangeUI(!Save.joystick);
+        var JoystickCheck = UiElementsList.instance.Panels.SettingsPanel.Joystick;
+        JoystickCheck.isOn = !Save.joystick;
+        JoystickCheck.graphic.enabled= !Save.joystick;
     }
 
     public void ChangeUI(bool isUsingJoystick)
@@ -33,5 +44,6 @@ public class Settings : MonoBehaviour
     public void GoToScene(string name) 
     { 
     SceneManager.LoadScene(name);
+        Time.timeScale = 1;
     }
 }

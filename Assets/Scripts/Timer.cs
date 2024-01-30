@@ -19,16 +19,18 @@ public class Timer : MonoBehaviour
     {
         sec = 0;
         min = 0;
+        StopTime = true;
+        fiilSprite = time / TimeToWin * 60;
         try
         {
-            UiElementsList.instance.Counters.Time.name = "time";
+            UiElementsList.instance.Counters.Time.fillAmount = fiilSprite;
         }
         catch
         {
             UiElementsList.instance = FindObjectOfType<UiElementsList>();
+            UiElementsList.instance.Counters.Time.fillAmount = fiilSprite;
         }
         StartCoroutine(TimeFlow());
-        fiilSprite = time / TimeToWin * 60;
     }
 
     private IEnumerator TimeFlow()

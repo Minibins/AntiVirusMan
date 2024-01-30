@@ -19,8 +19,11 @@ using UnityEngine;
             LevelUP.Items.Add(new Upgrade());
             LevelUP.Items[ID] = this;
         }
-        if(Actions.ContainsKey(ID)) 
-            throw new System.Exception("лни юидх онбрнпхкяъ )=");
+        if(Actions.ContainsKey(ID))
+        {
+            Debug.LogError("лни юидх онбрнпхкяъ )=");
+            return;
+        }
         Actions.Add(ID,OnTake);
         if(synergies.Length!=0)
         foreach(Synergy synergy in synergies)
