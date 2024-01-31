@@ -2,13 +2,13 @@
 using System.Collections;
 using Unity.VisualScripting;
 
-public class DRAG : MonoBehaviour,Draggable
+public class DRAG : MonoBehaviour,iDraggable
 {
     bool isdrgging;
     private Vector2 offset;
     private Rigidbody2D rb;
     private PlayerAttack pa;
-    private Draggable MyScript;
+    private iDraggable MyScript;
     private void Start()
     {
         if(name == "PC")

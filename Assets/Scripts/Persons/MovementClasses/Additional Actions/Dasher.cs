@@ -31,7 +31,6 @@ class Dasher : MonoBehaviour
         {
             return;
         }
-        _playerAttack.Ammo--;
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right * direction, DashRange, 1 << 10); // Тут рейкаст
         if(hit)
         {
@@ -53,6 +52,8 @@ class Dasher : MonoBehaviour
             rb.velocity = new Vector2(direction * (DashRange * 5 - a * DashRange / 2),0);
             yield return new WaitForFixedUpdate();
         }
+
+        _playerAttack.Ammo--;
         isDashEnd = false;
         rb.velocity = velocity;
     }

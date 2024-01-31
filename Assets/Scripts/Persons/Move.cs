@@ -3,7 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D)),
  RequireComponent(typeof(Animator)),
  RequireComponent(typeof(SpriteRenderer))]
-public class Move : MoveBase, Draggable
+public class Move : MoveBase, iDraggable
 {
     
 }

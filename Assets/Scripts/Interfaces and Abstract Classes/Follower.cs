@@ -1,7 +1,7 @@
 using TMPro;
 
 using UnityEngine;
-public class Follower:MonoBehaviour,Draggable
+public class Follower:MonoBehaviour,iDraggable
 {
 
     [SerializeField] private protected float speed;

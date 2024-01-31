@@ -3,7 +3,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class Health : MonoBehaviour, Draggable, IDamageble
+public class Health : MonoBehaviour, iDraggable, IDamageble
 {
     [SerializeField] protected int _maxHealth;
     [SerializeField] private GameObject DeathSound;

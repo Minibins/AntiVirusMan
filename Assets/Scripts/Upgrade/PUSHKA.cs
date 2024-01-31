@@ -1,26 +1,27 @@
 using System.Collections;
 using UnityEngine;
 
-public class PUSHKA : Upgrade, Draggable
+public class PUSHKA : TurretLikeUpgrade, IDamageble
 {
     [SerializeField] private GameObject Bullet;
     [SerializeField] public float TimeReload;
     [SerializeField] private GameObject SpawnPoinBullet;
-    [SerializeField] private bool IsShoot;
-    [SerializeField] private SpriteRenderer Coleso;
     private SpriteRenderer sprite;
-    [SerializeField] private Sprite uncharged;
-    [SerializeField] private Sprite charged;
-    public bool istemporaryboost;
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "AntivirusAtack")
+    [SerializeField] private Sprite uncharged, charged;
+    private bool istemporaryboost;
+    public bool IsTemporaryBoost 
+    { 
+        get => istemporaryboost;
+        set
         {
-               transform.rotation= new Quaternion(0, 0,transform.rotation.z*-1,transform.rotation.w);
-               istemporaryboost=true;
-            sprite.sprite = charged;
+            sprite.sprite = value ? charged : uncharged;
+            istemporaryboost = value;
         }
-        
+    }
+    public void OnDamageGet(int Damage)
+    {
+        transform.rotation = new Quaternion(0,0,transform.rotation.z * -1,transform.rotation.w);
+        IsTemporaryBoost = true;
     }
     private void Awake()
     {
@@ -30,36 +31,32 @@ public class PUSHKA : Upgrade, Draggable
     protected override void OnTake()
     {
         base.OnTake();
-
-        Coleso.enabled = true;
-        sprite.enabled = true;
-        istemporaryboost = false;
+        IsTemporaryBoost = false;
         StartCoroutine(Shoot());
     }
 
     public IEnumerator Shoot()
     {
-        while (IsShoot)
+        yield return new WaitForSeconds(TimeReload);
+        while (IsTaken)
         {
-            
             GameObject bullet = Instantiate(Bullet, SpawnPoinBullet.transform.position, transform.rotation);
-            if(istemporaryboost)
+            if(IsTemporaryBoost)
             {
                 bullet.GetComponent<AttackProjectile>().Damage *= 2; 
-                istemporaryboost=false;
-                sprite.sprite = uncharged;
+                IsTemporaryBoost = false;
             }
             yield return new WaitForSeconds(TimeReload);
         }
     }
-    public void OnDrag()
+    override public void OnDrag()
     {
         StopAllCoroutines();
         StartCoroutine(Shoot());
-        istemporaryboost = true;
+        IsTemporaryBoost = true;
         TimeReload = 0.2f;
     }
-    public void OnDragEnd()
+    override public void OnDragEnd()
     {
         TimeReload = 3f;
     }

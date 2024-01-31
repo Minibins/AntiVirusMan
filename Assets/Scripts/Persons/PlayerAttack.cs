@@ -21,16 +21,12 @@ public class PlayerAttack : MonoBehaviour
     [field: SerializeField] public attackTypes AttackType { get; set; }
     [field: SerializeField] public int Damage { get; set; }
     [SerializeField, Range(0, 1)] private float SpeedIsDamageCutout;
-    [SerializeField] private GameObject _AttackSound;
-    [SerializeField] private GameObject _bullet;
-    [SerializeField] private Vector2 _spawnPoinBullet;
-    [SerializeField] private GameObject _shield;
-    [SerializeField] private GameObject _shieldUltra, LaserPrefab;
-    [SerializeField] private Vector2 _shieldSpawnPoint;
-    [SerializeField] private Vector2 _shieldUltraSpawnPoint;
+
+    [SerializeField] private GameObject _shield, _shieldUltra, _laser,_bullet,_AttackSound;
+
+    [SerializeField] private Vector2 _shieldSpawnPoint,_shieldUltraSpawnPoint,_spawnPoinBullet;
     
-    [SerializeField] private int _ammo;
-    [SerializeField] private int _maxAmmo;
+    [SerializeField] private int _ammo, _maxAmmo;
     [SerializeField] public float _timeReload;
     private Rigidbody2D rb;
     private Animator _animator;
@@ -70,6 +66,7 @@ public class PlayerAttack : MonoBehaviour
             _ammo = Mathf.Min(Mathf.Max(0, value), MaxAmmo);
             OnRefreshAmmo?.Invoke();
             AmmoBarRefresh();
+            StartCoroutine(Reload());
         }
     }
 
@@ -105,12 +102,6 @@ public class PlayerAttack : MonoBehaviour
             AmmoCell[i].Disable();
         }
     }
-
-    private void Start()
-    {
-        StartCoroutine(Reload());
-    }
-
     void OnAttack()
     {
         SetSpawnPoint();
@@ -141,7 +132,7 @@ public class PlayerAttack : MonoBehaviour
     {
         SetSpawnPoint();
         Vector2 Rotatedvec = MathA.RotatedVector(_shieldSpawnPoint, UiElementsList.instance.Joysticks.Attack.Direction);
-        GameObject _weapon = Instantiate(LaserPrefab,
+        GameObject _weapon = Instantiate(_laser,
             (Vector2) transform.position + Rotatedvec,
             MathA.VectorsAngle(Rotatedvec));
         if (GetComponent<MoveBase>().Velocity.x != 0) return;
@@ -238,15 +229,18 @@ public class PlayerAttack : MonoBehaviour
             _spawnPoinBulletNow.x = transform.position.x + _spawnPoinBullet.x;
         }
     }
-
+    bool isOnReload;
     private IEnumerator Reload()
     {
-        while (true)
+        if(!isOnReload && Ammo < MaxAmmo)
         {
-            yield return new WaitForSeconds(_timeReload);
-
-            Ammo++;
-            AmmoBarRefresh();
+            isOnReload = true;
+            while(Ammo < MaxAmmo)
+            {
+                yield return new WaitForSeconds(_timeReload);
+                Ammo++;
+            }
+            isOnReload = false;
         }
     }
 }
