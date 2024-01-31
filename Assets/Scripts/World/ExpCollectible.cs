@@ -5,7 +5,7 @@ public class ExpCollectible : PlayersCollisionChecker
 {
     private void Start()
     {
-        CollisionEnterAction += AddEXP;
+        EnterAction += AddEXP;
     }
     [SerializeField] public float Exp;
     public void AddEXP()

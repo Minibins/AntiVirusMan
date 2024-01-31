@@ -21,7 +21,7 @@ GameObject:
   m_TagString: AntivirusAtack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8801379529353642567
 Transform:
@@ -202,8 +202,8 @@ MonoBehaviour:
     type: 3}
   _mask:
     serializedVersion: 2
-    m_Bits: 56384
-  _velosity: {x: 1, y: 9}
+    m_Bits: 318528
+  _velosity: {x: 0, y: 10}
 --- !u!114 &304440491880971904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,9 +217,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _canJump: 0
-  _jumpingPower: 0
   _speed: 1.72
   _spriteRenderer: {fileID: 0}
+  _groundCheck: {fileID: 0}
+  _roofCheck: {fileID: 0}
+  _groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  _jumpingPower: 0
+  _jumpingCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _maxJumpLeftover: 0
 --- !u!61 &7813329653446608911
 BoxCollider2D:
   m_ObjectHideFlags: 0

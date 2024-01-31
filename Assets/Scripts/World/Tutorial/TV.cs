@@ -14,7 +14,14 @@ public class TV : TalkingPerson
     }
     private void OnID(int Id)
     {
-        UpgradeButton.UpgradeActions.Add(Id,(HelloWorld));
+        if(!UpgradeButton.UpgradeActions.ContainsKey(Id))
+        {
+            UpgradeButton.UpgradeActions.Add(Id,(HelloWorld));
+        }
+        else
+        {
+            UpgradeButton.UpgradeActions[Id]+=HelloWorld;
+        }
     }
     void HelloWorld()
     {

@@ -19,7 +19,6 @@ public class Settings : MonoBehaviour
         ChangeUI(!Save.joystick);
         var JoystickCheck = UiElementsList.instance.Panels.SettingsPanel.Joystick;
         JoystickCheck.isOn = !Save.joystick;
-        JoystickCheck.graphic.enabled= !Save.joystick;
     }
 
     public void ChangeUI(bool isUsingJoystick)

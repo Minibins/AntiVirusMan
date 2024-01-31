@@ -82,7 +82,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 999
+  m_SortingOrder: 998
   m_Sprite: {fileID: -3713437408908627528, guid: 1df0e45a1e1783b4bac6578d311db4ef,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -156,9 +156,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _canJump: 1
-  _jumpingPower: 10
   _speed: 0.4
   _spriteRenderer: {fileID: 0}
+  _groundCheck: {fileID: 0}
+  _roofCheck: {fileID: 0}
+  _groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  _jumpingPower: 10
+  _jumpingCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _maxJumpLeftover: 0
 --- !u!114 &-5198353998425603602
 MonoBehaviour:
   m_ObjectHideFlags: 0

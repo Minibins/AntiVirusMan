@@ -14,8 +14,8 @@ public class Door : PlayersCollisionChecker
     {
         portal = GetComponent<AbstractPortal>();
         anotherEnd = portal.secondPortal.GetComponent<Door>();
-        CollisionEnterAction += () => SetEnterUI(true);
-        CollisionExitAction += () => SetEnterUI(false);
+        EnterAction += () => SetEnterUI(true);
+        ExitAction += () => SetEnterUI(false);
     }
     private void SetEnterUI(bool IsEnable)
     {

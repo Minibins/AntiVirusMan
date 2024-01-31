@@ -167,7 +167,7 @@ MonoBehaviour:
   Explosion: {fileID: 0}
   _mask:
     serializedVersion: 2
-    m_Bits: 55360
+    m_Bits: 317504
   _velosity: {x: 1, y: 0}
 --- !u!50 &-3162637589574794086
 Rigidbody2D:
@@ -230,9 +230,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _canJump: 0
-  _jumpingPower: 10
   _speed: 3
   _spriteRenderer: {fileID: 0}
+  _groundCheck: {fileID: 0}
+  _roofCheck: {fileID: 0}
+  _groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  _jumpingPower: 10
+  _jumpingCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _maxJumpLeftover: 0
 --- !u!1001 &2559051835963309209
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -16,8 +16,8 @@ public class springBooka : BookaCollisionChecker
     {
         defaultPosition = transform.position;
         _rigidbody = GetComponent<Rigidbody2D>();
-        CollisionEnterAction += SetUnderPreasureTrue;
-        CollisionExitAction += SetUnderPreasureFalse;
+        EnterAction += SetUnderPreasureTrue;
+        ExitAction += SetUnderPreasureFalse;
     }
     private void SetUnderPreasureTrue()
     {

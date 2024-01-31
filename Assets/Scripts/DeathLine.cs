@@ -5,7 +5,7 @@ public class DeathLine : PlayersCollisionChecker
     [SerializeField] Vector3 respawn;
     private void Start()
     {
-        CollisionEnterAction += damagePlayer;
+        EnterAction += damagePlayer;
     }
     void damagePlayer()
     {

@@ -8,8 +8,8 @@ public class AbstractConduitionDoor : PlayersCollisionChecker
     void Start()
     {
         animator = GetComponent<Animator>();
-        CollisionEnterAction += () => OpenOrClose(true);
-        CollisionExitAction += () => OpenOrClose(false);
+        EnterAction += () => OpenOrClose(true);
+        ExitAction += () => OpenOrClose(false);
     }
     void OpenOrClose(bool Open)
     {

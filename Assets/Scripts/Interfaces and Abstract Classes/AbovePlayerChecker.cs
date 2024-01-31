@@ -6,9 +6,9 @@ using System;
 public class CollisionChecker : MonoBehaviour
 {   //Действия
     protected Action
-        CollisionEnterAction,
-        CollisionStayAction,
-        CollisionExitAction;
+        EnterAction,
+        StayAction,
+        ExitAction;
     //Те, кто зашел в контакт
     protected List<GameObject> EnteredThings=new List<GameObject>();
     //Условия при которых будет работать
@@ -34,28 +34,28 @@ public class CollisionChecker : MonoBehaviour
             {
                 EnteredThings.Add(other.gameObject);
             }
-            if(CollisionEnterAction != null)
-            CollisionEnterAction.Invoke();
+            if(EnterAction != null)
+                EnterAction.Invoke();
 
         }
     }
     protected virtual void OnSomethingStay2D(Collider2D other)
     {
-        if(StayCondition(other)&&CollisionStayAction!=null)
+        if(StayCondition(other)&&StayAction!=null)
         {
-            CollisionStayAction.Invoke();
+            StayAction.Invoke();
         }
     }
     protected virtual void OnSomethingExit2D(Collider2D other)
     {
         if(ExitCondition(other))
         {
-            if(CollisionExitAction != null)
-                CollisionExitAction.Invoke();
             if(EnteredThings.Contains(other.gameObject))
             {
                 EnteredThings.Remove(other.gameObject);
             }
+            if(ExitAction != null)
+                ExitAction.Invoke();
         }
     }
     //Перенаправление

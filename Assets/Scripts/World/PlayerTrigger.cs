@@ -6,6 +6,6 @@ public class PlayerTrigger : PlayersCollisionChecker
     [SerializeField] UnityEvent enterEvent;
     private void Awake()
     {
-        CollisionEnterAction += ()=> enterEvent.Invoke();
+        EnterAction += ()=> enterEvent.Invoke();
     }
 }

@@ -309,13 +309,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac53ac6ef10d2544da0a496c2662f507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsTaken: 0
+  Sprite: {fileID: -1210851057, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
+  ID: 0
+  synergies: []
   Bullet: {fileID: 3442695944532549959, guid: 9e7b92eaf20d0f549b691b7de46ea835, type: 3}
   TimeReload: 1
   SpawnPoinBullet: {fileID: 6927925437947165431}
   IsShoot: 1
   Coleso: {fileID: 905840337789602248}
-  uncharged: {fileID: 0}
-  charged: {fileID: 0}
+  uncharged: {fileID: -1215809981, guid: 1df0e45a1e1783b4bac6578d311db4ef, type: 3}
+  charged: {fileID: 932419665, guid: 1df0e45a1e1783b4bac6578d311db4ef, type: 3}
   istemporaryboost: 0
 --- !u!61 &1586614083219532197
 BoxCollider2D:

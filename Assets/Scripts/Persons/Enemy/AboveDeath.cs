@@ -12,7 +12,7 @@ public class AboveDeath : BookaCollisionChecker
 	private Health _health;
 	protected virtual void Awake()
 	{
-		CollisionEnterAction += OnPlayerStep;
+		EnterAction += OnPlayerStep;
 		_health = GetComponent<Health>();
 		Player=GameObject.Find("Player").GetComponent<Rigidbody2D>();
 		

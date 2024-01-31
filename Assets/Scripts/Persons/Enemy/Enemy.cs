@@ -189,7 +189,7 @@ public class Enemy : MonoBehaviour
             dead = true;
         }
         
-        Level.EXP += 0.5f;
+        Level.EXP += 0.6f;
         
     }
 }
