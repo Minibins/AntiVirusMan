@@ -11,27 +11,7 @@ public class DRAG : MonoBehaviour,iDraggable
     private iDraggable MyScript;
     private void Start()
     {
-        if(name == "PC")
-        {
-            MyScript = GetComponentInChildren<PC>();
-        }
-        else if(name =="DONBAS_Gun")
-        {
-            MyScript = GetComponent<PUSHKA>();
-        }
-        else if(name =="LaserGun")
-        {
-            MyScript=GetComponent<LaserGun>();
-        }
-        else if (name== "Movable Wall(Clone)")
-        {
-            MyScript = this;
-        }
-
-        if (CompareTag("Enemy"))
-        {
-            MyScript = GetComponent<Move>();
-        }
+        MyScript = GetComponent<iDraggable>();
 
         rb = GetComponent<Rigidbody2D>();
         pa = GameObject.Find("Player").GetComponent<PlayerAttack>();

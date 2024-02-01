@@ -7,9 +7,9 @@ public class DragUpgrade : Upgrade
     protected override void OnTake()
     {
         base.OnTake();
-        GameObject.FindObjectOfType<LaserGun>().AddComponent<DRAG>();
+        foreach(TurretLikeUpgrade turret in GameObject.FindObjectsOfType<TurretLikeUpgrade>())
+            turret.AddComponent<DRAG>();
         GameObject.FindObjectOfType<PChealth>().AddComponent<DRAG>();
-        GameObject.FindObjectOfType<PUSHKA>().AddComponent<DRAG>();
         FindObjectOfType<InstantiateWall>().canmove = true;
     }
 }
