@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using System.Collections;
+using DustyStudios.MathAVM;
 
 public class MoveBase : MonoBehaviour
 {
@@ -70,7 +71,7 @@ public class MoveBase : MonoBehaviour
 
     public void MoveVertically(float direction)
     {
-        _velocity.y = _curentSpeed * direction;
+        _velocity.y = (_curentSpeed * direction) - _rigidbody.totalForce.y;
     }
 
     public void MoveBoth(Vector2 direction)
@@ -120,18 +121,18 @@ public class MoveBase : MonoBehaviour
         Awake();
         CanJump = CanJump;
     }
-
     private void MoveAndJump()
     {
         _velocity.y = _rigidbody.velocity.y;
-        MoveNotJump();
+        MoveNotJump(); 
     }
-
     private void MoveNotJump()
     {
-        if(!gameObject.isStatic) _rigidbody.velocity = _velocity;
+        if(!gameObject.isStatic)
+        {
+            _rigidbody.velocity = _velocity + _rigidbody.totalForce;
+        }
     }
-
     private void OnDisable()
     {
         _move = null;
@@ -199,7 +200,6 @@ public class MoveBase : MonoBehaviour
     public virtual void StopJump()
     {
         _velocity = new Vector2(_velocity.x,Mathf.Min(_maxJumpLeftover,_rigidbody.velocity.y));
-        _rigidbody.velocity= _velocity;
         isJump = false;
         _canJump = true;
     }

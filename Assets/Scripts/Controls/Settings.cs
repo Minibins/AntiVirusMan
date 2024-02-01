@@ -38,6 +38,7 @@ public class Settings : MonoBehaviour
         var UI = UiElementsList.instance;
         UI.Panels.SettingsPanel.Panel.SetActive(Open);
         UI.Buttons.All.SetActive(!Open);
+        UI.Joysticks.Walk.OnPointerUp(null);
         Time.timeScale = Open ? 0 : 1;
     }
     public void GoToScene(string name) 

@@ -1,3 +1,5 @@
+using System.Linq;
+
 using UnityEngine;
 namespace DustyStudios
 {
@@ -5,6 +7,30 @@ namespace DustyStudios
     {
         public struct MathA
         {
+            private static Vector2[] OrderByMagnitude(params Vector2[] args)
+            {
+                return args.OrderByDescending(arg => arg.magnitude).ToArray();
+            }
+            public static Vector2 Max(params Vector2[] args)
+            {
+                return OrderByMagnitude(args)[0];
+            }
+            public static Vector2 Min(params Vector2[] args)
+            {
+                return OrderByMagnitude(args).Last();
+            }
+            private static Vector3[] OrderByMagnitude(params Vector3[] args)
+            {
+                return args.OrderByDescending(arg => arg.magnitude).ToArray();
+            }
+            public static Vector3 Max(params Vector3[] args)
+            {
+                return OrderByMagnitude(args)[0];
+            }
+            public static Vector3 Min(params Vector3[] args)
+            {
+                return OrderByMagnitude(args).Last();
+            }
             public static Vector2 RotatedVector(Vector2 VectorToRotate,float angle)
             {
                 float rotationInRadians=angle*Mathf.PI/180;

@@ -19,6 +19,7 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
     public Vector2 Direction
     {
         get { return new Vector2(Horizontal, Vertical); }
+        set { input = value;  }
     }
 
     public float HandleRange
