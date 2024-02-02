@@ -571,37 +571,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Hello antivirus fans! This is a post-release patch. We heard about all
-    the bugs in the game and added new upgrades to the pool.
+  m_text: 'Hello antivirus fans! This is a second patch. We heard about all the bugs
+    in the game and added new upgrades to the pool.
 
-    Learning has become
-    easier.
+    Bugs fixed
 
-    Interface bugs fixed.
+    New enemy
+    Yasha
 
-    Clouds spawn half as often.
-
-    The
-    height of the jump depends on the button pressed. (If you press it in time, you
-    can jump as much as THREE blocks)
-
-    Climb to the roof without flying, or Vipers,
-    to hear the SECRET.
-
-    Fixed a bug with adjusting the volume of sounds.
-
-    Fixed
-    a bug with non-resetting time.
-
-    Depending on the time, monster spawning speeds
-    up.
-
-    New upgrade Track Soles
-
-    We added this menu to talk about patches.
-
-    Have
-    fun!'
+    New upgrade "Vortex Turret", for which we improved the movement script'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
   m_sharedMaterial: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
@@ -1904,7 +1882,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &460251830
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3081,7 +3059,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1064116543
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6864,11 +6842,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1185718424}
   - {fileID: 797544919}
   - {fileID: 1919356124}
   - {fileID: 360662264}
   - {fileID: 73460145}
+  - {fileID: 1185718424}
   m_Father: {fileID: 32966448}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

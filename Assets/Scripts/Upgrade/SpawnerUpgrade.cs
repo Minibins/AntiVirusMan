@@ -28,8 +28,6 @@ public class SpawnerUpgrade : MonoBehaviour
             }
             _upgrade.Sprite = upgrade.icon;
             _upgrade.ID = upgrade.id;
-
-            DustyStudios.DustyConsole.Print(_upgrade.ID.ToString());
         }
     }
     GameObject Instantiate(GameObject obj)

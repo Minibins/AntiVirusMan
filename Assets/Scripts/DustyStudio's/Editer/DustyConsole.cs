@@ -51,9 +51,9 @@ namespace DustyStudios
             EditorGUI.TextArea(new Rect(0,otherElementsYsize,position.width,position.height - otherElementsYsize),Output);
             numberOfOutputInScreen = (int)((position.size.y-otherElementsYsize)/ EditorGUIUtility.singleLineHeight);
         }
-        public static void Print(string line)
+        public static void Print(object line)
         {
-            output.Add(line);
+            output.Add(line.ToString());
         }
         public void ExecuteCommand(string commandName,string[] arguments)
         {

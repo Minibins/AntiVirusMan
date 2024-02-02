@@ -1,13 +1,24 @@
 using System.Collections.Generic;
 using System;
+using System.Linq;
 using UnityEngine;
 [System.Serializable] public class Upgrade : MonoBehaviour
 {
-    [HideInInspector] public bool IsTaken = false;
+    [HideInInspector] private bool isTaken = false;
     [SerializeField] public Sprite Sprite;
     [SerializeField] public int ID;
     public Dictionary<int, Action> Synergies = new Dictionary<int, Action>();
     [SerializeField] protected Synergy[] synergies =new Synergy[0];
+
+    public bool IsTaken 
+    { 
+        get => isTaken;
+        set
+        {
+            isTaken = value;
+        }
+    }
+
     public void Start()
     {
         var Actions = UpgradeButton.UpgradeActions;
@@ -16,7 +27,7 @@ using UnityEngine;
         else
         {
             while(LevelUP.Items.Count< ID+1)
-            LevelUP.Items.Add(new Upgrade());
+            LevelUP.Items.Add(null);
             LevelUP.Items[ID] = this;
         }
         if(Actions.ContainsKey(ID))

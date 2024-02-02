@@ -88,7 +88,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.3, y: 0.32}
+  m_Size: {x: 0.68, y: 0.47}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -229,9 +229,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _canJump: 0
-  _jumpingPower: 10
   _speed: 0
   _spriteRenderer: {fileID: 0}
+  _groundCheck: {fileID: 0}
+  _roofCheck: {fileID: 0}
+  _groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  _jumpingPower: 10
+  _jumpingCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _maxJumpLeftover: 0
 --- !u!114 &957579766737629269
 MonoBehaviour:
   m_ObjectHideFlags: 0

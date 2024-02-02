@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.U2D;
 using UnityEngine.UI;
 
 public class LevelUP : MonoBehaviour
 {
-
     static public LevelUP instance;
     public static void Generate(int first,int second,int third)
     {
@@ -46,17 +46,17 @@ public class LevelUP : MonoBehaviour
         
         UiElementsList.instance.Panels.levelUpPanel.Panel.SetActive(true);
         Time.timeScale = 0.1f;
-        firstButton.GetComponent<Image>().sprite = first!=-1 ? Items[first].Sprite : none;
-        secondButton.GetComponent<Image>().sprite = second != -1 ? Items[second].Sprite : none;
-        thirdButton.GetComponent<Image>().sprite = third != -1 ? Items[third].Sprite : none;
-
-        firstButton.GetComponent<UpgradeButton>().id = first;
-        secondButton.GetComponent<UpgradeButton>().id = second;
-        thirdButton.GetComponent<UpgradeButton>().id = third;
-
-             if(first == Items.Count-1) Instantiate(BuyButton,firstButton. transform);
-        else if(second== Items.Count-1) Instantiate(BuyButton,secondButton.transform);
-        else if(third == Items.Count-1) Instantiate(BuyButton,thirdButton. transform);
+        generateButton(first,firstButton);
+        generateButton(second,secondButton);
+        generateButton(third,thirdButton);
+        
+        void generateButton(int id,GameObject button)
+        {
+            button.GetComponent<Image>().sprite = id != -1 ? Items[id].Sprite : none;
+            button.GetComponent<UpgradeButton>().id = id;
+            if(id == Items.Count - 1)
+                Instantiate(BuyButton,button.transform);
+        }
     }
     static public void Select()
     {

@@ -410,9 +410,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _canJump: 0
-  _jumpingPower: 0.52
   _speed: 0.94
   _spriteRenderer: {fileID: 877609933091623635}
+  _groundCheck: {fileID: 0}
+  _roofCheck: {fileID: 0}
+  _groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  _jumpingPower: 0.52
+  _jumpingCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _maxJumpLeftover: 0
 --- !u!114 &3840983604411001542
 MonoBehaviour:
   m_ObjectHideFlags: 0

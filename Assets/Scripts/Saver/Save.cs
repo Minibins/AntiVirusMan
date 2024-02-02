@@ -2,12 +2,14 @@ using UnityEngine;
 using System.IO;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using DustyStudios;
 public class Save : MonoBehaviour
 {
     const string JoystickSaveName = "Joystick";
     const string VersionSaveName = "LastSessionVersion";
     const string LocationSaveName = "WinLocation";
-    private static Data _data;
+    private static Data _data = new();
 
     public static Data data 
     {
@@ -70,40 +72,36 @@ public class Save : MonoBehaviour
     private void Awake()
     {
         LoadField();
+
     }
     public static void LoadField()
     {
         _data.Set(
             new Dictionary<string,float>(),
-            PlayerPrefs.GetInt(LocationSaveName),
+            getInt(LocationSaveName),
             PlayerPrefs.GetString(VersionSaveName),
-            Convert.ToBoolean(PlayerPrefs.GetInt(JoystickSaveName))
+            Convert.ToBoolean(getInt(JoystickSaveName))
             );
+        int getInt(string key) => PlayerPrefs.GetInt(key);
     }
     public static void SaveField()
     {
-        PlayerPrefs.SetInt(LocationSaveName,_data.WinLocation);
+        setInt(LocationSaveName,_data.WinLocation);
+        setInt(JoystickSaveName,Convert.ToByte(_data.Joystick));
         PlayerPrefs.SetString(VersionSaveName,_data.LastSessionVersion);
-        PlayerPrefs.SetInt(JoystickSaveName,Convert.ToByte(_data.Joystick));
         foreach(var s in SettingSliders)
         {
             PlayerPrefs.SetFloat(s.Key,s.Value);
         }
         PlayerPrefs.Save();
+        void setInt(string name, int value) => PlayerPrefs.SetInt(name,value);
     }
-    public struct Data
+    public class Data
     {
         public int WinLocation;
         public string LastSessionVersion;
         public bool Joystick;
         public Dictionary<string, float> SettingSliders;
-        public Data(Dictionary<string,float> SettingSliders, int WinLocation,string LastSessionVersion,bool joystick)
-        {
-            this.SettingSliders = SettingSliders;
-            this.WinLocation = WinLocation;
-            this.LastSessionVersion = LastSessionVersion;
-            Joystick = joystick;
-        }
         public void Set(Dictionary<string,float> SettingSliders,int WinLocation,string LastSessionVersion,bool joystick)
         {
             this.SettingSliders = SettingSliders;
