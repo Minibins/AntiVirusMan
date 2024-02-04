@@ -106,7 +106,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ca2904298f84594fb3ec29a58be65c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsTaken: 0
   Sprite: {fileID: -306294354, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
   ID: 20
   synergies: []
@@ -186,7 +185,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c72a578de434eb440a66ee438bbe5ae3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsTaken: 0
   Sprite: {fileID: 341770268, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
   ID: 8
   synergies: []
@@ -234,7 +232,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27848f4d10d695f4bb761944081279b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsTaken: 0
   Sprite: {fileID: 3450184, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
   ID: 10
   synergies: []
@@ -399,7 +396,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2c8d8f35287fe64787fc8bde5a61247, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsTaken: 0
   Sprite: {fileID: 173371272, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
   ID: 16
   synergies: []
@@ -771,7 +767,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6671250909959919723}
-  - component: {fileID: 3237262901342813882}
+  - component: {fileID: 6015183541874017086}
   m_Layer: 0
   m_Name: Baaka
   m_TagString: Untagged
@@ -794,7 +790,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2796017653573438044}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3237262901342813882
+--- !u!114 &6015183541874017086
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -803,13 +799,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 2680400156248893155}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8670e5eeb639f49478a89e54b9c4cc60, type: 3}
+  m_Script: {fileID: 11500000, guid: 9521ffcf35d1dd746b3403101130c212, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsTaken: 0
   Sprite: {fileID: 1268264028, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
   ID: 11
   synergies: []
+  enemyID: 2
+  Enemy: {fileID: 8615089305505906155, guid: 10d565a45fc129d4f8838dbc48f6dc51, type: 3}
+  spawner: {fileID: 0}
+  EliteSpawnChance: 11
 --- !u!1 &3169376947079809402
 GameObject:
   m_ObjectHideFlags: 0
@@ -901,7 +900,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6fa26e9f607bf7498069f9d179d9aaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsTaken: 0
   Sprite: {fileID: 1249703002, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
   ID: 15
   synergies: []
@@ -1019,7 +1017,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8670e5eeb639f49478a89e54b9c4cc60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsTaken: 0
   Sprite: {fileID: 1159548843, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
   ID: 18
   synergies: []
@@ -1098,7 +1095,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8516b24480a8c04f805a866de67ecad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsTaken: 0
   Sprite: {fileID: -638884355, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
   ID: 1
   synergies: []
@@ -1164,7 +1160,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d5d32627cc5123498e7b54d61d28f83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsTaken: 0
   Sprite: {fileID: -1459163127, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
   ID: 9
   synergies: []
@@ -1296,7 +1291,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d614215f32bef14b8a2a27ee359cf61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsTaken: 0
   Sprite: {fileID: 150372231, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
   ID: 17
   synergies: []
@@ -1509,7 +1503,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27848f4d10d695f4bb761944081279b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsTaken: 0
   Sprite: {fileID: -964694292, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
   ID: 22
   synergies: []
@@ -1559,7 +1552,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa33117648f2d6f4888907666c84ad42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsTaken: 0
   Sprite: {fileID: 1276338102, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
   ID: 2
   synergies: []
@@ -1700,7 +1692,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -1741,7 +1733,7 @@ PointEffector2D:
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 524286
   m_ForceMagnitude: -0.6
   m_ForceVariation: 0
   m_DistanceScale: 1
@@ -1762,7 +1754,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2ca2aa37ad8c6b4d865354547518fe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsTaken: 0
   Sprite: {fileID: -1286088328, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
   ID: 24
   synergies: []
@@ -1934,7 +1925,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1266df6224708254491567ee75b15695, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsTaken: 0
   Sprite: {fileID: -96330901, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
   ID: 19
   synergies: []
@@ -2067,7 +2057,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b82edd6d8b349944bd14a46e657304c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsTaken: 0
   Sprite: {fileID: -676039635, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
   ID: 14
   synergies: []
@@ -2146,7 +2135,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8670e5eeb639f49478a89e54b9c4cc60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsTaken: 0
   Sprite: {fileID: 1509958527, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
   ID: 13
   synergies: []
@@ -2283,7 +2271,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eef80a91c874e2d488022b02d6dfeff9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsTaken: 0
   Sprite: {fileID: 973768193, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
   ID: 0
   synergies: []
@@ -2418,7 +2405,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27848f4d10d695f4bb761944081279b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsTaken: 0
   Sprite: {fileID: -1495834921, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
   ID: 4
   synergies: []
@@ -2467,7 +2453,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8670e5eeb639f49478a89e54b9c4cc60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsTaken: 0
   Sprite: {fileID: -2118654598, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
   ID: 5
   synergies: []
@@ -2755,7 +2740,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f64b715d5f59b5a44b16c94d0a60090a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsTaken: 0
   Sprite: {fileID: 1537371839, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
   ID: 7
   synergies: []

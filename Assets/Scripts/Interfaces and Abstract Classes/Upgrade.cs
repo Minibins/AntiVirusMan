@@ -22,25 +22,27 @@ using UnityEngine;
     public void Start()
     {
         var Actions = UpgradeButton.UpgradeActions;
-        if(LevelUP.Items.Count > ID) 
-            LevelUP.Items[ID] = this;
-        else
-        {
-            while(LevelUP.Items.Count< ID+1)
-            LevelUP.Items.Add(null);
-            LevelUP.Items[ID] = this;
-        }
         if(Actions.ContainsKey(ID))
         {
-            Debug.LogError("ÌÎÉ ÀÉÄÈ ÏÎÂÒÎÐÈËÑß )=");
-            return;
+            Actions[ID]+=OnTake;
         }
-        Actions.Add(ID,OnTake);
-        if(synergies.Length!=0)
-        foreach(Synergy synergy in synergies)
+        else
         {
-            LevelUP.Items[synergy.ID].Synergies.Add(ID, synergy.OnTake);
+            if(LevelUP.Items.Count > ID) 
+                LevelUP.Items[ID] = this;
+            else
+            {
+                while(LevelUP.Items.Count< ID+1)
+                LevelUP.Items.Add(null);
+                LevelUP.Items[ID] = this;
+            }
+            Actions.Add(ID,OnTake);
         }
+        if(synergies.Length!=0)
+            foreach(Synergy synergy in synergies)
+            {
+                LevelUP.Items[synergy.ID].Synergies.Add(ID,synergy.OnTake);
+            }
     }
     protected virtual void OnTake()
     {

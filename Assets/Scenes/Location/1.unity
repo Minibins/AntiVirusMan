@@ -10914,6 +10914,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextPoint:
   - {fileID: 494131513}
+--- !u!1 &375476808 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6108180417966080131, guid: 856d8bdf4e9002f418c0530690235da9,
+    type: 3}
+  m_PrefabInstance: {fileID: 280865273492685901}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &375476811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 375476808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9521ffcf35d1dd746b3403101130c212, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sprite: {fileID: -964694292, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
+  ID: 22
+  synergies: []
+  enemyID: 0
+  Enemy: {fileID: 8912311358399435758, guid: ab1182728795cc24f8829ea4e7b168f8, type: 3}
+  spawner: {fileID: 981528893}
+  EliteSpawnChance: 7
 --- !u!114 &400122307 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6574437097781452134, guid: d8c31f8808ada594796ce6007cd874da,
@@ -11174,23 +11199,13 @@ MonoBehaviour:
   spawnersEnemy:
   - {fileID: 898510851}
   - {fileID: 2014086871}
-  spawnersAnim:
-  - {fileID: 898510853}
-  - {fileID: 2014086874}
   spawnersBoss:
   - {fileID: 898510851}
   - {fileID: 2014086871}
-  Boss: {fileID: 1419220866596668024, guid: a5cc35f23e8f8084c886c53d4b55b714, type: 3}
-  BossSpawned: 0
   Enemies:
   - {fileID: 1419220866596668024, guid: fa669012f4ac8d44e8dbf3927957c63c, type: 3}
   - {fileID: 49990711567001007, guid: b87c79d457c719c48a591a636b0f9b4c, type: 3}
   - {fileID: 4953599130190571075, guid: 6979025a8a9985b40bb22e1cd47364f2, type: 3}
-  - {fileID: 330429843486129006, guid: 4b7e92bc882f5f84398b6d0cf8d48e13, type: 3}
-  EnemiesV2:
-  - {fileID: 1419220866596668024, guid: fa669012f4ac8d44e8dbf3927957c63c, type: 3}
-  - {fileID: 49990711567001007, guid: b87c79d457c719c48a591a636b0f9b4c, type: 3}
-  - {fileID: 8615089305505906155, guid: 10d565a45fc129d4f8838dbc48f6dc51, type: 3}
   - {fileID: 330429843486129006, guid: 4b7e92bc882f5f84398b6d0cf8d48e13, type: 3}
   WireEnemies:
   - {fileID: 49990711567001007, guid: 47ac73ba65e784f4aa71b65d9c9b93c2, type: 3}
@@ -11198,12 +11213,15 @@ MonoBehaviour:
   spawnersWireEnemy:
   - {fileID: 426602435}
   - {fileID: 1956088430}
-  EliteID: 00000000010000000b00000002000000
+  spawnersAnim:
+  - {fileID: 898510853}
+  - {fileID: 2014086874}
+  Boss: {fileID: 1419220866596668024, guid: a5cc35f23e8f8084c886c53d4b55b714, type: 3}
+  BossSpawned: 0
   minTimeSpawn: 2
   maxTimeSpawn: 4
   minTimeSpawnWave: 5
   maxTimeSpawnWave: 7
-  EliteSpawnChance: 10
   isSpawn: 1
 --- !u!4 &429989188 stripped
 Transform:
@@ -18573,22 +18591,13 @@ MonoBehaviour:
   - {fileID: 1565447688}
   - {fileID: 1434496846}
   - {fileID: 2014513987}
-  spawnersAnim:
-  - {fileID: 422250851}
-  - {fileID: 1565447690}
-  - {fileID: 1434496848}
-  - {fileID: 2014513989}
   spawnersBoss:
   - {fileID: 422250848}
   - {fileID: 1565447688}
   - {fileID: 1434496846}
   - {fileID: 2014513987}
-  Boss: {fileID: 2515844324639823540, guid: 489d5049014ff034482eda7cd50bf2bb, type: 3}
-  BossSpawned: 0
   Enemies:
   - {fileID: 2515844324639823540, guid: 489d5049014ff034482eda7cd50bf2bb, type: 3}
-  EnemiesV2:
-  - {fileID: 8912311358399435758, guid: ab1182728795cc24f8829ea4e7b168f8, type: 3}
   WireEnemies:
   - {fileID: 2515844324639823540, guid: 489d5049014ff034482eda7cd50bf2bb, type: 3}
   spawnersWireEnemy:
@@ -18596,12 +18605,17 @@ MonoBehaviour:
   - {fileID: 1565447688}
   - {fileID: 1434496846}
   - {fileID: 2014513987}
-  EliteID: 16000000
+  spawnersAnim:
+  - {fileID: 422250851}
+  - {fileID: 1565447690}
+  - {fileID: 1434496848}
+  - {fileID: 2014513989}
+  Boss: {fileID: 2515844324639823540, guid: 489d5049014ff034482eda7cd50bf2bb, type: 3}
+  BossSpawned: 0
   minTimeSpawn: 7
   maxTimeSpawn: 32
   minTimeSpawnWave: 10
   maxTimeSpawnWave: 16
-  EliteSpawnChance: 6
   isSpawn: 1
 --- !u!1 &1031010974
 GameObject:
@@ -25356,11 +25370,6 @@ PrefabInstance:
       propertyPath: followingTarget
       value: 
       objectReference: {fileID: 519420032}
-    - target: {fileID: 703291597500819005, guid: 856d8bdf4e9002f418c0530690235da9,
-        type: 3}
-      propertyPath: m_ExcludeLayers.m_Bits
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 997198533032352212, guid: 856d8bdf4e9002f418c0530690235da9,
         type: 3}
       propertyPath: followingTarget
@@ -25381,11 +25390,6 @@ PrefabInstance:
       propertyPath: followingTarget
       value: 
       objectReference: {fileID: 519420032}
-    - target: {fileID: 2748724296149147832, guid: 856d8bdf4e9002f418c0530690235da9,
-        type: 3}
-      propertyPath: m_ColliderMask.m_Bits
-      value: 524286
-      objectReference: {fileID: 0}
     - target: {fileID: 2796017653573438044, guid: 856d8bdf4e9002f418c0530690235da9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -25441,6 +25445,11 @@ PrefabInstance:
       propertyPath: ToEnable
       value: 
       objectReference: {fileID: 345646103}
+    - target: {fileID: 6015183541874017086, guid: 856d8bdf4e9002f418c0530690235da9,
+        type: 3}
+      propertyPath: spawner
+      value: 
+      objectReference: {fileID: 427215480}
     - target: {fileID: 6972922209250983042, guid: 856d8bdf4e9002f418c0530690235da9,
         type: 3}
       propertyPath: ToEnable
@@ -25464,7 +25473,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6108180417966080131, guid: 856d8bdf4e9002f418c0530690235da9,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 375476811}
   m_SourcePrefab: {fileID: 100100000, guid: 856d8bdf4e9002f418c0530690235da9, type: 3}
 --- !u!1001 &2313873072146739146
 PrefabInstance:

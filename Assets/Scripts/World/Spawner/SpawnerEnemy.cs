@@ -1,18 +1,16 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 public class SpawnerEnemy : MonoBehaviour
 {
-    [SerializeField] private GameObject[] spawnersEnemy;
+    [SerializeField] private GameObject[] spawnersEnemy, spawnersBoss,Enemies, WireEnemies, spawnersWireEnemy;
     [SerializeField] private Animator[] spawnersAnim;
-    [SerializeField] private GameObject[] spawnersBoss;
     [SerializeField] private GameObject Boss;
     [SerializeField] private bool BossSpawned;
-    [SerializeField] private GameObject[] Enemies, EnemiesV2, WireEnemies, spawnersWireEnemy;
-    [SerializeField] private int[] EliteID;
     [SerializeField] private float minTimeSpawn, maxTimeSpawn, minTimeSpawnWave, maxTimeSpawnWave;
-    [SerializeField] private int EliteSpawnChance;
     public bool isSpawn;
     public static float SpawnCoeficient =1f;
+    public List<ISpawnerModule> spawnerModules = new List<ISpawnerModule>();
     private void Start()
     {
         BossSpawned = false;
@@ -30,7 +28,6 @@ public class SpawnerEnemy : MonoBehaviour
                     {
                         Instantiate(Boss, spawnersBoss[Random.Range(0, spawnersBoss.Length)].transform.position,
                             Quaternion.identity);
-                        print("Boss has spawned");
                         UiElementsList.instance.Panels.BossPanel.SetActive(true);
                         BossSpawned = true;
                     }
@@ -38,14 +35,12 @@ public class SpawnerEnemy : MonoBehaviour
                     break;
 
                 case < 10:
-                        int spawnPoint = Random.Range(0, spawnersEnemy.Length);
-                        StartCoroutine(SpawnEnemy(spawnPoint));
-                        yield return WaitSpawnTime();
-                        StartCoroutine(SpawnEnemy(spawnPoint));
-                        yield return WaitSpawnTime();
-                        StartCoroutine(SpawnEnemy(spawnPoint));
-                        yield return WaitSpawnTime();
-
+                    int spawnPoint = Random.Range(0, spawnersEnemy.Length);
+                for(int X = Random.Range(2, 5); X-- > 0;)
+                {
+                    StartCoroutine(SpawnEnemy(spawnPoint));
+                    yield return WaitSpawnTime();
+                }
                     int i = Random.Range(0, spawnersWireEnemy.Length);
                     GameObject WireEnemy = Instantiate(WireEnemies[Random.Range(0, WireEnemies.Length)],
                         spawnersWireEnemy[i].transform.position, Quaternion.identity);
@@ -71,25 +66,15 @@ public class SpawnerEnemy : MonoBehaviour
     {
         spawnersAnim[spawnPoint].SetTrigger("Spawn");
         yield return new WaitForSeconds(0.7f);
-        int enemy = Random.Range(0, Enemies.Length);
-        int Iselite = Random.Range(0, EliteSpawnChance);
-        try
+        int enemyID = Random.Range(0, Enemies.Length);
+        foreach(ISpawnerModule module in spawnerModules)
         {
-            if (LevelUP.Items[EliteID[enemy]].IsTaken && Iselite == 0)
+            if(module.CanExecute(enemyID,spawnPoint))
             {
-                Instantiate(EnemiesV2[enemy], spawnersEnemy[spawnPoint].transform.position,
-                    Quaternion.identity);
-            }
-            else
-            {
-                Instantiate(Enemies[enemy], spawnersEnemy[spawnPoint].transform.position,
-                    Quaternion.identity);
+                module.Spawn(spawnersEnemy[spawnPoint]);
+                yield return null;
             }
         }
-        catch
-        {
-            Debug.Log("Enemy:" + enemy + " IsElite:" + Iselite + " IsTaken:" + LevelUP.Items.ToString() +
-                      " EliteID:" + EliteID[enemy]);
-        }
+            Instantiate(Enemies[enemyID],spawnersEnemy[spawnPoint].transform.position,Quaternion.identity);
     }
 }
