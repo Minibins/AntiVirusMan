@@ -18,8 +18,16 @@ public class Audio : MonoBehaviour
     }
     private void Start()
     {
+        try
+        {
         slider.Startp();
-        Volume = slider.value;
+            Volume = slider.value;
+        }
+        catch
+        {
+            UiElementsList.instance = GameObject.FindObjectOfType<UiElementsList>();
+            Start();
+        }
     }
     public void VolumeSlider()
     {

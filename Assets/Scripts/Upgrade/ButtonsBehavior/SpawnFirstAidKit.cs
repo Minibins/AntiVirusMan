@@ -20,7 +20,7 @@ public class SpawnFirstAidKit : Upgrade
             GameObject _firstAidKit = Instantiate(firstAidKit,
                 spawnPointFirstAidKit[UnityEngine.Random.Range(0, spawnPointFirstAidKit.Length)].transform.position,
                 Quaternion.identity);
-            yield return new WaitForSeconds(60);
+            yield return new WaitForSeconds(4);
             Destroy(_firstAidKit);
         }
     }
@@ -28,8 +28,8 @@ public class SpawnFirstAidKit : Upgrade
     {
         while (true)
         {
-            yield return new WaitForSeconds(6);
-            Level.EXP--;
+            yield return new WaitForSeconds(4);
+            Level.EXP-=0.5f;
         }
     }
 }

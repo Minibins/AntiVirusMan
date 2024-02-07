@@ -11,6 +11,7 @@ public class Drone : Follower,IDamageble
 {
     private SpriteRenderer sprite;
     [SerializeField] float howMuchUp;
+    [SerializeField] LayerMask layerMask;
     [SerializeField] GameObject bulletAsset;
     private int damage;
     private Animator anim;
@@ -61,8 +62,7 @@ public class Drone : Follower,IDamageble
             bulletAttack.Damage = damage;
             bulletAttack._velosity = MathA.RotatedVector(velocity,rotation);
             if(bulletAttack._velosity.y>0) bulletAttack._velosity*=-1;
-            
-            bulletAttack._mask.value = 23552;
+            bulletAttack._mask=layerMask ;
             bullet.transform.rotation = MathA.VectorsAngle(MathA.RotatedVector(bulletAttack._velosity,90));
         }
 

@@ -128,7 +128,7 @@ public class MoveBase : MonoBehaviour
     }
     private void MoveNotJump()
     {
-        if(!gameObject.isStatic)
+        if(!gameObject.isStatic&&_rigidbody.bodyType!=RigidbodyType2D.Static)
         {
             _rigidbody.velocity = _velocity + _rigidbody.totalForce;
         }

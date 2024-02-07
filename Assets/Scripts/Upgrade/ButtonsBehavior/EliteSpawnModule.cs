@@ -1,20 +1,15 @@
 using UnityEngine;
-public class EliteEnemyModule : Upgrade, ISpawnerModule
+public class EliteEnemyModule : UpgradeSpawnModule
 {
-    private void Awake()
-    {
-        spawner.spawnerModules.Add(this);
-    }
     [SerializeField] int enemyID;
     [SerializeField] GameObject Enemy;
-    [SerializeField] SpawnerEnemy spawner;
     [SerializeField] int EliteSpawnChance;
-    public bool CanExecute(int ID, int spawnerID)
+    public override bool CanExecute(int ID, int spawnerID,int waveCount)
     {
         return IsTaken&&ID==enemyID&&Random.Range(0,EliteSpawnChance)==0;
     }
 
-    public void Spawn(GameObject spawnPoint)
+    public override void Spawn(int ID,GameObject spawnPoint)
     {
         Instantiate(Enemy, spawnPoint.transform.position, Quaternion.identity);
     }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public class SpawnerEnemy : MonoBehaviour
 {
-    [SerializeField] private GameObject[] spawnersEnemy, spawnersBoss,Enemies, WireEnemies, spawnersWireEnemy;
+    [SerializeField] private GameObject[] spawnersEnemy, spawnersBoss,enemies, WireEnemies, spawnersWireEnemy;
     [SerializeField] private Animator[] spawnersAnim;
     [SerializeField] private GameObject Boss;
     [SerializeField] private bool BossSpawned;
@@ -11,6 +11,10 @@ public class SpawnerEnemy : MonoBehaviour
     public bool isSpawn;
     public static float SpawnCoeficient =1f;
     public List<ISpawnerModule> spawnerModules = new List<ISpawnerModule>();
+    [SerializeField] private Vector2 WaveSizeRange;
+
+    public GameObject[] Enemies { get => enemies; private set => enemies = value; }
+
     private void Start()
     {
         BossSpawned = false;
@@ -36,9 +40,10 @@ public class SpawnerEnemy : MonoBehaviour
 
                 case < 10:
                     int spawnPoint = Random.Range(0, spawnersEnemy.Length);
-                for(int X = Random.Range(2, 5); X-- > 0;)
+                int enemiesInWave = (int)Random.Range(WaveSizeRange.x, WaveSizeRange.y);
+                for(int X = 0; X < enemiesInWave;)
                 {
-                    StartCoroutine(SpawnEnemy(spawnPoint));
+                    StartCoroutine(SpawnEnemy(spawnPoint,X++));
                     yield return WaitSpawnTime();
                 }
                     int i = Random.Range(0, spawnersWireEnemy.Length);
@@ -62,16 +67,16 @@ public class SpawnerEnemy : MonoBehaviour
         StartCoroutine(Spawn());
     }
 
-    IEnumerator SpawnEnemy(int spawnPoint)
+    IEnumerator SpawnEnemy(int spawnPoint,int waveCount)
     {
         spawnersAnim[spawnPoint].SetTrigger("Spawn");
         yield return new WaitForSeconds(0.7f);
         int enemyID = Random.Range(0, Enemies.Length);
         foreach(ISpawnerModule module in spawnerModules)
         {
-            if(module.CanExecute(enemyID,spawnPoint))
+            if(module.CanExecute(enemyID,spawnPoint,waveCount))
             {
-                module.Spawn(spawnersEnemy[spawnPoint]);
+                module.Spawn(enemyID,spawnersEnemy[spawnPoint]);
                 yield return null;
             }
         }
