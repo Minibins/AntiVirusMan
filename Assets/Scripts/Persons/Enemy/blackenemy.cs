@@ -4,14 +4,11 @@
  RequireComponent(typeof(Rigidbody2D))]
 public class blackenemy : Enemy
 {
-    [SerializeField] GameObject _explosion;
-    [SerializeField] float _explosionRadius;
     [SerializeField] private float otklonenieOtklonenia;
     [SerializeField] private float SkorostOtklonenia;
     [SerializeField] private float Speed;
-    [SerializeField] int _explosionPower;
     private float otklonenie;
-    [SerializeField] private bool isElite;
+    
 
     new protected private void Awake()
     {
@@ -35,8 +32,8 @@ public class blackenemy : Enemy
 
     new private void OnEnable()
     {
-        _health.OnDeath += ExplosionInvoke;
-        onComputerReach += ExplosionInvoke;
+        _health.OnDeath += () => gameObject.GetComponent<Rigidbody2D>().simulated = true;
+        onComputerReach += () => gameObject.GetComponent<Rigidbody2D>().simulated = true;
         base.OnEnable();
         if(isElite)
         {
@@ -46,18 +43,13 @@ public class blackenemy : Enemy
 
     new private void OnDisable()
     {
-        _health.OnDeath -= ExplosionInvoke;
-        onComputerReach -= ExplosionInvoke;
+        _health.OnDeath -= () => gameObject.GetComponent<Rigidbody2D>().simulated = true;
+        onComputerReach -= () => gameObject.GetComponent<Rigidbody2D>().simulated = true;
         base.OnDisable();
         if(isElite)
         {
             _health.OnDeath -= CarmaSetZero;
         }
-    }
-    private void ExplosionInvoke()
-    {
-        gameObject.GetComponent<Rigidbody2D>().simulated = true;
-        Invoke(nameof(Explosion), 2f);
     }
     private void CarmaSetZero()
     {
@@ -73,16 +65,5 @@ public class blackenemy : Enemy
         FlyVector *= Speed;
         transform.position += FlyVector;
         otklonenie++;
-    }
-
-    private void Explosion()
-    {
-        Destroy(gameObject);
-
-        GameObject explosion= Instantiate(_explosion, transform.position, Quaternion.identity);
-        if(isElite)
-        {
-            explosion.GetComponent<ExpCollectible>().Exp = PC.Carma;
-        }
     }
 }

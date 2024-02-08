@@ -40,10 +40,6 @@ public class LevelUP : MonoBehaviour
     {
 #if UNITY_STANDALONE_WIN
 
-        foreach(var display in Display.displays)
-        {
-            print(display.active);
-        }
  
 
 #endif

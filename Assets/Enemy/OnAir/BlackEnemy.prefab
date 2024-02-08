@@ -13,12 +13,12 @@ GameObject:
   - component: {fileID: 5871702051723667390}
   - component: {fileID: 5938378712818822686}
   - component: {fileID: 3622740985699501776}
-  - component: {fileID: -1960156336790782601}
   - component: {fileID: -3479756302495854425}
   - component: {fileID: 8106466791238120592}
   - component: {fileID: 957579766737629269}
   - component: {fileID: -8060305246413013081}
   - component: {fileID: 311505630981763405}
+  - component: {fileID: 3910043662591374944}
   m_Layer: 11
   m_Name: BlackEnemy
   m_TagString: Enemy
@@ -177,26 +177,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.35, y: 0.25}
   m_Direction: 1
---- !u!114 &-1960156336790782601
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2515844324639823540}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ebef5ecc067c3349877bb5875cd77ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WhoAmI: 3
-  _maskWhoKills:
-    serializedVersion: 2
-    m_Bits: 0
-  moveDirection: 0
-  ChangeMove: 0
-  MoveToPoint: {fileID: 0}
-  _PC: {fileID: 0}
 --- !u!114 &-3479756302495854425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,6 +236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e95afecb9eede4499d9d9d041340a8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isElite: 0
   WhoAmI: 3
   _maskWhoKills:
     serializedVersion: 2
@@ -264,14 +245,9 @@ MonoBehaviour:
   ChangeMove: 0
   MoveToPoint: {fileID: 0}
   _PC: {fileID: 0}
-  _explosion: {fileID: 5453186352399095394, guid: 1b264e8b19808f54d96abe41ed58d320,
-    type: 3}
-  _explosionRadius: 2
   otklonenieOtklonenia: 3.5
   SkorostOtklonenia: 0.01
   Speed: -0.011
-  _explosionPower: 1
-  isElite: 0
 --- !u!114 &-8060305246413013081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,3 +279,19 @@ MonoBehaviour:
     type: 3}
   CurrentHealth: 0
   needVelocityForInvisibility: 9999
+--- !u!114 &3910043662591374944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2515844324639823540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30107f1734f112a41961866690548490, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _explosion: {fileID: 5453186352399095394, guid: 1b264e8b19808f54d96abe41ed58d320,
+    type: 3}
+  _explosionRadius: 0.56
+  _explosionPower: 2

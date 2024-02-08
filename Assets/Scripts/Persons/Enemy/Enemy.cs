@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using System.Runtime.InteropServices;
 
 using UnityEngine;
 public enum EnemyTypes
@@ -26,7 +28,7 @@ public class EnemyTypesAttributes:Attribute
  RequireComponent(typeof(SpriteRenderer))]
 public class Enemy : MonoBehaviour
 {
-    
+    [SerializeField] public bool isElite;
     [SerializeField] private EnemyTypes WhoAmI;
     [SerializeField] private LayerMask _maskWhoKills;
     public float moveDirection;
@@ -178,13 +180,19 @@ public class Enemy : MonoBehaviour
             {
 
                 Destroy(gameObject, 1.10f);
-                _animator.SetTrigger("Up");
+                const string ComboAnimationName = "Up";
+                if(_animator.parameters.Any(a => a.name== ComboAnimationName))
+                    _animator.SetTrigger(ComboAnimationName);
             }
         }
         else
         {
             _move.SetSpeedMultiplierForOllTime(0);
-            _animator.SetTrigger("Die");
+            const string DeathAnimationName = "Die";
+            if(_animator.parameters.Any(a => a.name == DeathAnimationName))
+                _animator.SetTrigger(DeathAnimationName);
+            else
+                Destroy(gameObject);
             Destroy(GetComponent<AttackProjectile>());
             dead = true;
         }

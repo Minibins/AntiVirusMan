@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using System.Collections;
 using DustyStudios.MathAVM;
+using System.Linq;
 
 public class MoveBase : MonoBehaviour
 {
@@ -43,18 +44,22 @@ public class MoveBase : MonoBehaviour
         _animator.Play(name);
     }
 
+    const string WalkAnimationName = "IsRunning";
     protected virtual void Awake()
     {
         _animator = GetComponent<Animator>();
+        if(_animator.parameters.Any(a => a.name == WalkAnimationName))
+            hasRunAnimation = true;
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _rigidbody = GetComponent<Rigidbody2D>();
         SetSpeedMultiplierForOllTime(_speedMultiplier);
     }
-
+    bool hasRunAnimation = false;
     virtual public void MoveHorizontally(float direction)
     {
         _velocity.Set(_curentSpeed * direction,_rigidbody.velocity.y);
-        _animator.SetBool("IsRunning",direction != 0);
+        if(hasRunAnimation)
+            _animator.SetBool(WalkAnimationName,direction != 0);
         if(direction != 0)
         {
             _spriteRenderer.flipX = direction < 0;
