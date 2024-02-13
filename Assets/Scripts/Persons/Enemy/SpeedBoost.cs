@@ -1,37 +1,42 @@
+using System.Collections;
 using System.Linq;
 using UnityEngine;
 
-public class SpeedBoost : MonoBehaviour
+public class SpeedBoost : TagCollisionChecker
 {
-    [SerializeField] private LayerMask _maskWhoBoosts;
     [SerializeField] private float _multiplierSpeed;
     [SerializeField] private float _durationBoost;
     [SerializeField] private float _ReloadTime;
-    private MoveBase _moveTarget;
     private Animator _animator;
     private bool _reloadNow = false;
-    private Collider2D[] _targets;
     private void Start()
     {
-        _animator = GetComponent<Animator>();
-        Setboost();
+        _animator = GetComponentInParent<Animator>();
+        StayAction+=()=>StartCoroutine(Setboost());
     }
-    private void Setboost()
+    protected override bool StayCondition(Collider2D other)=> !_reloadNow && base.StayCondition(other);
+    private IEnumerator Setboost()
     {
-        _reloadNow = false;
-        _targets = Physics2D.OverlapCircleAll(transform.position, 0.2f, _maskWhoBoosts);
-        _moveTarget = _targets.Where(x => x.gameObject != gameObject).
-                 Select(x => x.gameObject.GetComponent<MoveBase>()).
-                Where(x => x != null && !x.IsMultiplierBoost()).
-                FirstOrDefault();
-        if (_moveTarget != null)
+        if(EnteredThings.Count> 0)
         {
-            _moveTarget.SetSpeedMultiplierTemporary(_multiplierSpeed, _durationBoost);
-            _animator.SetTrigger("peenok");
-            _reloadNow = true;
+            MoveBase[] moveTargets = EnteredThings.Where(x => x.gameObject != gameObject).
+                     Select(x => x.gameObject.GetComponent<MoveBase>()).
+                    Where(x => x != null && !x.IsMultiplierBoost()).ToArray();
+            if(moveTargets != null && moveTargets.Length > 0)
+            {
+                _reloadNow = true;
+                for(int i = moveTargets.Length; --i>=0;)
+                {
+                    if(moveTargets[i] != null)
+                    {
+                        _animator.SetTrigger("peenok");
+                        moveTargets[i].SetSpeedMultiplierTemporary(_multiplierSpeed,_durationBoost);
+                        yield return new WaitForSeconds(_ReloadTime);
+                    }
+                }
+            }
         }
-        Invoke(nameof(Setboost), _reloadNow ? _ReloadTime : 0.2f);
-        
+        _reloadNow = false;
     }
 }
 

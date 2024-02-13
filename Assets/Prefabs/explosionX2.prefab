@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2782032616042719200}
   - component: {fileID: 8404085283939027207}
   - component: {fileID: 1878500852756508464}
+  - component: {fileID: 4626267100145674678}
   m_Layer: 0
   m_Name: explosionX2
   m_TagString: enemy projectile
@@ -191,3 +192,15 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   _velosity: {x: 0, y: 0}
+--- !u!114 &4626267100145674678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6283972555444168526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbafdc1c30d5ad949a860cc0b8f400e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

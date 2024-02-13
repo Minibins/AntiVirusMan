@@ -1,6 +1,4 @@
 using UnityEngine;
-
-
 public class Portals : AbstractPortal
 {
     private Animator anim;
@@ -18,10 +16,6 @@ public class Portals : AbstractPortal
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        
-                
-            
-        
         if (!IsExploding) {if (other.tag == "Player") 
         { 
              gameObject.GetComponent<BoxCollider2D>().size = Explosion;

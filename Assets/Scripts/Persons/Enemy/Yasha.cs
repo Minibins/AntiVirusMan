@@ -2,26 +2,8 @@ using System;
 
 using UnityEngine;
 
-public class Yasha : CollisionChecker
+public class Yasha : TagCollisionChecker
 {
-    [SerializeField] LayerMask PusherMask;
-    protected override bool EnterCondition(Collider2D other)
-    {
-        return Condition(other);
-    }
-    protected override bool ExitCondition(Collider2D other)
-    {
-        return Condition(other);
-    }
-    protected override bool StayCondition(Collider2D other)
-    {
-        return false;
-    }
-    bool Condition(Collider2D other)
-    {
-        return (PusherMask.value & (1 << other.gameObject.layer)) != 0;
-    }
-
     Animator anim;
     Move move;
     void Start()

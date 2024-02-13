@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-
 using UnityEngine;
 using System;
 
@@ -95,4 +94,13 @@ public class BookaCollisionChecker : CollisionChecker
     {
         return false;
     }
+}
+
+public class TagCollisionChecker : CollisionChecker
+{
+    [SerializeField] private LayerMask layerMask;
+    protected override bool EnterCondition(Collider2D other) => CompareMask(other);
+    protected override bool ExitCondition(Collider2D other) => CompareMask(other);
+    protected override bool StayCondition(Collider2D other) => CompareMask(other);
+    private bool CompareMask(Collider2D other) => (layerMask.value & (1 << other.gameObject.layer)) != 0;
 }

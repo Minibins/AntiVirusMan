@@ -272,6 +272,9 @@ GameObject:
   - component: {fileID: 2158308975165623579}
   - component: {fileID: 761592458066141478}
   - component: {fileID: 2118469342290813070}
+  - component: {fileID: 2190369204087587778}
+  - component: {fileID: 2260657415947418427}
+  - component: {fileID: 1484696065160483319}
   m_Layer: 11
   m_Name: SacretJudge
   m_TagString: Enemy
@@ -289,8 +292,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -9.56, y: 11.28, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: -5, y: 5, z: 5}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2763989601242545986}
   - {fileID: 6013798491877319345}
@@ -437,6 +440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e95afecb9eede4499d9d9d041340a8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isElite: 1
   WhoAmI: 3
   _maskWhoKills:
     serializedVersion: 2
@@ -445,14 +449,9 @@ MonoBehaviour:
   ChangeMove: 0
   MoveToPoint: {fileID: 0}
   _PC: {fileID: 0}
-  _explosion: {fileID: 6345187588179732482, guid: 79d973c793a321b419f64cc52cebd51e,
-    type: 3}
-  _explosionRadius: 0.43
   otklonenieOtklonenia: 3.25
   SkorostOtklonenia: 0.013
   Speed: -0.016
-  _explosionPower: -1
-  isElite: 1
 --- !u!70 &2158308975165623579
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -526,3 +525,62 @@ MonoBehaviour:
     type: 3}
   CurrentHealth: 0
   needVelocityForInvisibility: 9999
+--- !u!114 &2190369204087587778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8912311358399435758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ce7479bcdd30424b9c03a11639cc879, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  X: 1
+  Y: 0
+  Gameobject: {fileID: 0}
+--- !u!114 &2260657415947418427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8912311358399435758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30107f1734f112a41961866690548490, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chargeTime: 2.66
+  _explosion: {fileID: 6345187588179732482, guid: 79d973c793a321b419f64cc52cebd51e,
+    type: 3}
+  _explosionRadius: 0
+  _explosionPower: 0
+--- !u!114 &1484696065160483319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8912311358399435758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58ac4e2cbaf2b0c4d8447beb163870cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Action:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2260657415947418427}
+        m_TargetAssemblyTypeName: ExplodeAndDeath, Assembly-CSharp
+        m_MethodName: Action
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

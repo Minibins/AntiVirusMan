@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5453186352399095407}
   - component: {fileID: 4180317138445850316}
   - component: {fileID: 3023476184840697715}
+  - component: {fileID: 9075921132690631436}
   m_Layer: 10
   m_Name: explosion
   m_TagString: ATACK EVERYBODY
@@ -176,3 +177,15 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   _velosity: {x: 0, y: 0}
+--- !u!114 &9075921132690631436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5453186352399095394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbafdc1c30d5ad949a860cc0b8f400e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

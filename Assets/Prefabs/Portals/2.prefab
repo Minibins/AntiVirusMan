@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5564350559912559848}
   - component: {fileID: 2087012121376316812}
   - component: {fileID: 7940839314121143662}
+  - component: {fileID: 2467202532879045285}
   m_Layer: 0
   m_Name: 2
   m_TagString: SecondPortal
@@ -148,7 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   secondPortal: {fileID: 0}
   IsExploding: 0
-  ExplosionSize: 0
+  ExplosionSize: 1
 --- !u!50 &5564350559912559848
 Rigidbody2D:
   serializedVersion: 4
@@ -209,3 +210,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aa73394fcb4ef3489d741f052c85191, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2467202532879045285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4577363845238683039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9c4fd5ae8cbe924582d0b08150dbc86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 9999
+  ExplodeIfCollideWithWall: 0
+  Explosion: {fileID: 0}
+  _mask:
+    serializedVersion: 2
+    m_Bits: 317440
+  _velosity: {x: 0, y: 0}

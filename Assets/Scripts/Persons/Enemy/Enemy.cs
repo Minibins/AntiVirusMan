@@ -40,7 +40,7 @@ public class Enemy : MonoBehaviour
     public int ChangeMove;
     public GameObject MoveToPoint;
     public GameObject _PC;
-    protected Action onComputerReach;
+    public Action onComputerReach;
     virtual private protected void Awake()
     {
         _health = GetComponent<Health>();
@@ -139,10 +139,6 @@ public class Enemy : MonoBehaviour
                 onComputerReach();
                 PC.Carma += 2;
             }
-            else if ((collision.CompareTag("Portal") || collision.CompareTag("SecondPortal")))
-            {
-                _health.ApplyDamage(999);
-            }
         }
     }
 
@@ -192,7 +188,7 @@ public class Enemy : MonoBehaviour
             if(_animator.parameters.Any(a => a.name == DeathAnimationName))
                 _animator.SetTrigger(DeathAnimationName);
             else
-                Destroy(gameObject);
+                Destroy(gameObject,Time.fixedDeltaTime*3);
             Destroy(GetComponent<AttackProjectile>());
             dead = true;
         }

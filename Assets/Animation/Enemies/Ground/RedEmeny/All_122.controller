@@ -114,16 +114,16 @@ AnimatorStateMachine:
     m_Position: {x: 230, y: 260, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7463380940092929126}
-    m_Position: {x: 190, y: -30, z: 0}
+    m_Position: {x: 230, y: 190, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4241094810185738255}
-    m_Position: {x: 430, y: 70, z: 0}
+    m_Position: {x: 450, y: 260, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -4256977923465356199}
-    m_Position: {x: -110, y: 320, z: 0}
+    m_Position: {x: -110, y: 330, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7362596673409640351}
-    m_Position: {x: -40, y: 420, z: 0}
+    m_Position: {x: -110, y: 380, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8078932299518507305}
     m_Position: {x: 110, y: 330, z: 0}
@@ -177,25 +177,25 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: peenok
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: IsRunning
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Evolution
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer

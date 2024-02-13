@@ -1,22 +1,20 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(Health)),
- RequireComponent(typeof(Rigidbody2D))]
+ RequireComponent(typeof(Rigidbody2D)),
+ RequireComponent(typeof(RotateToGameobject))]
 public class blackenemy : Enemy
 {
-    [SerializeField] private float otklonenieOtklonenia;
-    [SerializeField] private float SkorostOtklonenia;
-    [SerializeField] private float Speed;
+    [SerializeField] private float otklonenieOtklonenia, SkorostOtklonenia, Speed;
     private float otklonenie;
-    
-
-    new protected private void Awake()
+    new protected void Awake()
     {
+        _PC = GameObject.FindGameObjectWithTag("PC");
+        GetComponent<RotateToGameobject>().Gameobject = _PC.transform;
         if(isElite)
         {
             PC.Carma = 7.5f;
         }
-        _PC = GameObject.FindGameObjectWithTag("PC");
         _move = GetComponent<MoveBase>();
         _health = GetComponent<Health>();
         _animator = GetComponent<Animator>();
@@ -37,7 +35,7 @@ public class blackenemy : Enemy
         base.OnEnable();
         if(isElite)
         {
-            _health.OnDeath += CarmaSetZero;
+            _health.OnDeath += () => PC.Carma = 0;
         }
     }
 
@@ -48,14 +46,9 @@ public class blackenemy : Enemy
         base.OnDisable();
         if(isElite)
         {
-            _health.OnDeath -= CarmaSetZero;
+            _health.OnDeath -= () => PC.Carma = 0;
         }
     }
-    private void CarmaSetZero()
-    {
-        PC.Carma = 0;
-    }
-
     override protected private void EnemyMove()
     {
         Vector3 FlyVector = transform.position - _PC.transform.position;
