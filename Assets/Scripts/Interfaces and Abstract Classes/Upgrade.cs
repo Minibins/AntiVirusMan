@@ -12,7 +12,7 @@ using UnityEngine;
 
     public bool IsTaken 
     { 
-        get => isTaken;
+        get => LevelUP.Items[ID].isTaken;
         set
         {
             isTaken = value;

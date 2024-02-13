@@ -274,7 +274,7 @@ MonoBehaviour:
     type: 3}
   PunchSound: {fileID: 6399508649748986052, guid: b9b484a404e1e0e43bd441be5bd5dec5,
     type: 3}
-  CurrentHealth: 0
+  CurrentHealth: 2
   needVelocityForInvisibility: 9999
 --- !u!1 &1390221641294342662
 GameObject:
@@ -287,7 +287,7 @@ GameObject:
   - component: {fileID: 7180264809983310948}
   - component: {fileID: 6332553112138248543}
   - component: {fileID: 3215064090734204971}
-  m_Layer: 15
+  m_Layer: 14
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -359,6 +359,6 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 6144
+  _ReloadTime: 3
   _multiplierSpeed: 5
   _durationBoost: 1
-  _ReloadTime: 3

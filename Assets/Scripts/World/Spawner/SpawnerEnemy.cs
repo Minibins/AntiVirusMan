@@ -77,7 +77,7 @@ public class SpawnerEnemy : MonoBehaviour
             if(module.CanExecute(enemyID,spawnPoint,waveCount))
             {
                 module.Spawn(enemyID,spawnersEnemy[spawnPoint]);
-                yield return null;
+                yield break;
             }
         }
             Instantiate(Enemies[enemyID],spawnersEnemy[spawnPoint].transform.position,Quaternion.identity);

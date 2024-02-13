@@ -6,7 +6,6 @@ using UnityEngine;
 public class AuraPC : AbstractAura
 {
     [SerializeField] private float Damage, SelfExpDamage;
-    private bool isStart;
     void OnEnable()
     {
         GetComponent<SpriteRenderer>().enabled = true;
@@ -19,6 +18,5 @@ public class AuraPC : AbstractAura
         Level.EXP -= SelfExpDamage;
         EnteredThings[0].GetComponent<Health>().ApplyDamage(Damage);
         yield return new WaitForSeconds(_ReloadTime);
-        isStart = false;
     }
 }

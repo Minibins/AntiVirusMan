@@ -45,11 +45,14 @@ public class MoveBase : MonoBehaviour
     }
 
     const string WalkAnimationName = "IsRunning";
+    const string BoostAnimationName = "Boosted";
     protected virtual void Awake()
     {
         _animator = GetComponent<Animator>();
         if(_animator.parameters.Any(a => a.name == WalkAnimationName))
             hasRunAnimation = true;
+        if(_animator.parameters.Any(a => a.name == BoostAnimationName))
+            hasBoostAnimation = true;
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _rigidbody = GetComponent<Rigidbody2D>();
         SetSpeedMultiplierForOllTime(_speedMultiplier);
@@ -70,8 +73,7 @@ public class MoveBase : MonoBehaviour
     public void MoveOnWire(GameObject MoveToPoint)
     {
         _rigidbody.gravityScale = 0;
-        transform.position = Vector3.MoveTowards(transform.position,MoveToPoint.transform.position,
-            Time.deltaTime * _curentSpeed);
+        transform.position = Vector3.MoveTowards(transform.position,MoveToPoint.transform.position, Time.deltaTime * _curentSpeed);
     }
 
     public void MoveVertically(float direction)
@@ -85,13 +87,14 @@ public class MoveBase : MonoBehaviour
         MoveVertically(direction.y);
     }
 
-
+    private bool hasBoostAnimation;
     public void SetSpeedMultiplierTemporary(float multiplier,float time = 1f)
     {
         _curentSpeed = _speed * multiplier;
         ResetSpeed();
         Invoke(nameof(SetDefaultSpeed),time);
-        _animator.SetBool("Boosted",true);
+        if(hasBoostAnimation)
+            _animator.SetBool(BoostAnimationName,true);
     }
 
     public void SetSpeedMultiplierForOllTime(float multiplier = 1f)

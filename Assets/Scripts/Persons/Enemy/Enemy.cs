@@ -113,16 +113,8 @@ public class Enemy : MonoBehaviour
     {
         if (ChangeMove == 0)
         {
-            if (_PC.transform.position.x < transform.position.x)
-            {
-                moveDirection = -1f;
-                _move.MoveHorizontally(moveDirection);
-            }
-            else
-            {
-                moveDirection = 1f;
-                _move.MoveHorizontally(moveDirection);
-            }
+            moveDirection = DustyStudios.MathAVM.MathA.OneOrNegativeOne(_PC.transform.position.x < transform.position.x);
+            _move.MoveHorizontally(moveDirection);
         }
         else if (ChangeMove == 1)
         {
@@ -163,7 +155,7 @@ public class Enemy : MonoBehaviour
             }
         }
     }
-
+    float deathTime;
     private void OnDeath()
     {
         if (dead)
@@ -174,8 +166,7 @@ public class Enemy : MonoBehaviour
             }
             else
             {
-
-                Destroy(gameObject, 1.10f);
+                Destroy(gameObject, deathTime);
                 const string ComboAnimationName = "Up";
                 if(_animator.parameters.Any(a => a.name== ComboAnimationName))
                     _animator.SetTrigger(ComboAnimationName);
@@ -191,6 +182,7 @@ public class Enemy : MonoBehaviour
                 Destroy(gameObject,Time.fixedDeltaTime*3);
             Destroy(GetComponent<AttackProjectile>());
             dead = true;
+            deathTime = _animator.GetCurrentAnimatorStateInfo(0).length;
         }
         
         Level.EXP += 0.4f;

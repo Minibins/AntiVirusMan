@@ -70,4 +70,20 @@ public class LevelUP : MonoBehaviour
         LevelUP.Items[ID].IsTaken = true;
         return "Given item "+ ID;
     }
+    [DustyConsoleCommand("itemaction","Get item actions",typeof(int))]
+    static string GetUpgradeListeners(int ID)
+    {
+        var upgradeActions = UpgradeButton.UpgradeActions[ID];
+
+        if(upgradeActions == null || upgradeActions.GetInvocationList().Length == 0)
+        {
+            return "No actions for Item " + ID;
+        }
+
+        var listenerNames = upgradeActions.GetInvocationList()
+        .Select(listener => $"{listener.Method.DeclaringType}.{listener.Method.Name}")
+        .ToArray();
+
+        return $"Item {ID} has {listenerNames.Length} actions:\n{string.Join("\n",listenerNames)}";
+    }
 }

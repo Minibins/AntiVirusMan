@@ -8,10 +8,35 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7714455965291332328, guid: b87c79d457c719c48a591a636b0f9b4c,
+        type: 3}
+      propertyPath: isElite
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7714455965291332328, guid: b87c79d457c719c48a591a636b0f9b4c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7714455965291332328, guid: b87c79d457c719c48a591a636b0f9b4c,
+        type: 3}
+      propertyPath: ChangeMove
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 49990711567001007, guid: b87c79d457c719c48a591a636b0f9b4c,
         type: 3}
       propertyPath: m_Name
       value: Stepa
+      objectReference: {fileID: 0}
+    - target: {fileID: 4300671704897370535, guid: b87c79d457c719c48a591a636b0f9b4c,
+        type: 3}
+      propertyPath: _mask.m_Bits
+      value: 40960
+      objectReference: {fileID: 0}
+    - target: {fileID: 4300671704897370535, guid: b87c79d457c719c48a591a636b0f9b4c,
+        type: 3}
+      propertyPath: ExplodeIfCollideWithWall
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4482309314977752539, guid: b87c79d457c719c48a591a636b0f9b4c,
         type: 3}
@@ -74,7 +99,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -545317509, guid: 1df0e45a1e1783b4bac6578d311db4ef,
         type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3215064090734204971, guid: b87c79d457c719c48a591a636b0f9b4c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
