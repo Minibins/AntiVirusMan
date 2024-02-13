@@ -2,30 +2,25 @@ using System.Collections;
 using System.Linq;
 using UnityEngine;
 
-public class SpeedBoost : TagCollisionChecker
+public class SpeedBoost : AbstractAura
 {
     [SerializeField] private float _multiplierSpeed;
     [SerializeField] private float _durationBoost;
-    [SerializeField] private float _ReloadTime;
     private Animator _animator;
-    private bool _reloadNow = false;
-    private void Start()
+    private void Awake()
     {
-        _animator = GetComponentInParent<Animator>();
-        StayAction+=()=>StartCoroutine(Setboost());
+        _animator = GetComponent<Animator>();
     }
-    protected override bool StayCondition(Collider2D other)=> !_reloadNow && base.StayCondition(other);
-    private IEnumerator Setboost()
+    protected override IEnumerator AuraAction()
     {
-        if(EnteredThings.Count> 0)
+        if(EnteredThings.Count > 0)
         {
             MoveBase[] moveTargets = EnteredThings.Where(x => x.gameObject != gameObject).
                      Select(x => x.gameObject.GetComponent<MoveBase>()).
                     Where(x => x != null && !x.IsMultiplierBoost()).ToArray();
             if(moveTargets != null && moveTargets.Length > 0)
             {
-                _reloadNow = true;
-                for(int i = moveTargets.Length; --i>=0;)
+                for(int i = moveTargets.Length; --i >= 0;)
                 {
                     if(moveTargets[i] != null)
                     {
@@ -36,7 +31,5 @@ public class SpeedBoost : TagCollisionChecker
                 }
             }
         }
-        _reloadNow = false;
     }
 }
-

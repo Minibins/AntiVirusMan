@@ -3,32 +3,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AuraPC : Upgrade
+public class AuraPC : AbstractAura
 {
-    [SerializeField] private float Damage;
+    [SerializeField] private float Damage, SelfExpDamage;
     private bool isStart;
-    protected override void OnTake()
+    void OnEnable()
     {
-        base.OnTake();
         GetComponent<SpriteRenderer>().enabled = true;
     }
 
-    private void OnTriggerStay2D(Collider2D other)
-    {
-        if (other.CompareTag("Enemy") && !isStart && IsTaken)
-        {
-            other.GetComponent<MoveBase>()._speed = other.GetComponent<MoveBase>()._speed /= 2;
-            StartCoroutine(GiveDamage(other));
-            isStart = true;
-            GetComponent<SpriteRenderer>().enabled=true;
-        }
-    }
 
-    IEnumerator GiveDamage(Collider2D other)
+    protected override IEnumerator AuraAction()
     {
-        Level.EXP-=5;
-        other.GetComponent<Health>().ApplyDamage(Damage);
-        yield return new WaitForSeconds(1f);
+        EnteredThings[0].GetComponent<MoveBase>()._speed = EnteredThings[0].GetComponent<MoveBase>()._speed /= 2;
+        Level.EXP -= SelfExpDamage;
+        EnteredThings[0].GetComponent<Health>().ApplyDamage(Damage);
+        yield return new WaitForSeconds(_ReloadTime);
         isStart = false;
     }
 }
