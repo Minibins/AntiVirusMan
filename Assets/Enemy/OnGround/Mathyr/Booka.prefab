@@ -1,0 +1,114 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3520371146272202550
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4953599130190571075, guid: 6979025a8a9985b40bb22e1cd47364f2,
+        type: 3}
+      propertyPath: m_Name
+      value: Booka
+      objectReference: {fileID: 0}
+    - target: {fileID: 4953599130190571075, guid: 6979025a8a9985b40bb22e1cd47364f2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4953599130190571085, guid: 6979025a8a9985b40bb22e1cd47364f2,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: cc2692e7a52049d448d1a628d936f3f2, type: 2}
+    - target: {fileID: 4953599130190571086, guid: 6979025a8a9985b40bb22e1cd47364f2,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1641551102223294508, guid: 1df0e45a1e1783b4bac6578d311db4ef,
+        type: 3}
+    - target: {fileID: 4953599130190571087, guid: 6979025a8a9985b40bb22e1cd47364f2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4953599130190571087, guid: 6979025a8a9985b40bb22e1cd47364f2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4953599130190571087, guid: 6979025a8a9985b40bb22e1cd47364f2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4953599130190571087, guid: 6979025a8a9985b40bb22e1cd47364f2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4953599130190571087, guid: 6979025a8a9985b40bb22e1cd47364f2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4953599130190571087, guid: 6979025a8a9985b40bb22e1cd47364f2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4953599130190571087, guid: 6979025a8a9985b40bb22e1cd47364f2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4953599130190571087, guid: 6979025a8a9985b40bb22e1cd47364f2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4953599130190571087, guid: 6979025a8a9985b40bb22e1cd47364f2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4953599130190571087, guid: 6979025a8a9985b40bb22e1cd47364f2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4953599130190571075, guid: 6979025a8a9985b40bb22e1cd47364f2,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2153316062512191432}
+  m_SourcePrefab: {fileID: 100100000, guid: 6979025a8a9985b40bb22e1cd47364f2, type: 3}
+--- !u!1 &8386941441047771509 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4953599130190571075, guid: 6979025a8a9985b40bb22e1cd47364f2,
+    type: 3}
+  m_PrefabInstance: {fileID: 3520371146272202550}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2153316062512191432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8386941441047771509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30107f1734f112a41961866690548490, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chargeTime: 0
+  _explosion: {fileID: 5916545268974012944, guid: 37777857fd09b15438c1203b12145747,
+    type: 3}
+  _explosionRadius: 0.5
+  _explosionPower: 1
+  DestroyHimself: 0

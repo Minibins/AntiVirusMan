@@ -112,7 +112,8 @@ public class MoveBase : MonoBehaviour
     private void SetDefaultSpeed()
     {
         SetSpeedMultiplierForOllTime(_speedMultiplier);
-        _animator.SetBool("Boosted",false);
+        if(hasBoostAnimation)
+            _animator.SetBool(BoostAnimationName,false);
     }
 
     private void ResetSpeed()

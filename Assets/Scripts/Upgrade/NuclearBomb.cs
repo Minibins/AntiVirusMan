@@ -1,37 +1,30 @@
 ﻿using UnityEngine;
-
-public class NuclearBomb : MonoBehaviour
+public class NuclearBomb : ExplodeAndDeath, IExplosion
 {
-    [SerializeField] private GameObject explosion;
-    [SerializeField] private Vector2 startvelocity;
-    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] Vector2 startvelocity;
+    Rigidbody2D rb;
+    float radius;
+    int power;
+    public float Radius { set => radius = value; }
+    public int Power { set => power = value; }
     private void Start()
     {
-        rb = gameObject.GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
         rb.velocity = startvelocity;
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (!other.gameObject.CompareTag("Enemy"))
-        {
-            explode();
-        }
+        OnCollisionEnter2D(other);
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.gameObject.CompareTag("Enemy"))
+        if (!other.gameObject.CompareTag("Enemy")&&!other.CompareTag("Player"))
         {
-            explode();
+            Action();
         }
-    }
-    void explode()
-    {
-        GameObject xplosion = Instantiate(explosion, transform.position, Quaternion.identity);
-        //xplosion.GetComponent<AtackProjectile>().power = 0.5f;
-        Destroy(gameObject);
     }
     private void Update()
     {
-        transform.rotation = new Quaternion(transform.rotation.x, transform.rotation.y, transform.rotation.z + 1 / rb.velocity.y / 5, transform.rotation.w);
+        transform.rotation = Quaternion.Euler(0,0,rb.velocity.y*(180/startvelocity.y));
     }
 }

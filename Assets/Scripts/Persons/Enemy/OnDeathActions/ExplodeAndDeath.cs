@@ -6,13 +6,13 @@ public class ExplodeAndDeath : MonoBehaviour
     [SerializeField] GameObject _explosion;
     [SerializeField] float _explosionRadius;
     [SerializeField] int _explosionPower;
+    [SerializeField] bool DestroyHimself = true;
     public void Action()
     {
         Invoke(nameof(Explosion),chargeTime);
     }
-    private void Explosion()
+    protected virtual GameObject Explosion()
     {
-        Destroy(gameObject);
 
         GameObject explosion= Instantiate(_explosion, transform.position, Quaternion.identity);
         if(GetComponent<Enemy>().isElite)
@@ -25,5 +25,8 @@ public class ExplodeAndDeath : MonoBehaviour
             Explosion.Radius = _explosionRadius;
             Explosion.Power = _explosionPower;
         }
+        if(DestroyHimself) 
+            Destroy(gameObject);
+        return explosion;
     }
 }
