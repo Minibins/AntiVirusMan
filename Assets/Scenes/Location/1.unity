@@ -25528,54 +25528,14 @@ PrefabInstance:
       objectReference: {fileID: 694642002}
     - target: {fileID: 1469759020642029893, guid: 0951b036ba0a12343a56eff64eed7b4c,
         type: 3}
-      propertyPath: OnDragEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1469759020642029893, guid: 0951b036ba0a12343a56eff64eed7b4c,
-        type: 3}
       propertyPath: OnDragEnd.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 694642002}
     - target: {fileID: 1469759020642029893, guid: 0951b036ba0a12343a56eff64eed7b4c,
         type: 3}
-      propertyPath: OnDragEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1469759020642029893, guid: 0951b036ba0a12343a56eff64eed7b4c,
-        type: 3}
       propertyPath: OnDragEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1087813776}
-    - target: {fileID: 1469759020642029893, guid: 0951b036ba0a12343a56eff64eed7b4c,
-        type: 3}
-      propertyPath: OnDragEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 400122307}
-    - target: {fileID: 1469759020642029893, guid: 0951b036ba0a12343a56eff64eed7b4c,
-        type: 3}
-      propertyPath: OnDragEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1469759020642029893, guid: 0951b036ba0a12343a56eff64eed7b4c,
-        type: 3}
-      propertyPath: OnDragEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: OpenSettings
-      objectReference: {fileID: 0}
-    - target: {fileID: 1469759020642029893, guid: 0951b036ba0a12343a56eff64eed7b4c,
-        type: 3}
-      propertyPath: OnDragEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: Settings, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 1469759020642029893, guid: 0951b036ba0a12343a56eff64eed7b4c,
-        type: 3}
-      propertyPath: OnDragEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1469759020642029893, guid: 0951b036ba0a12343a56eff64eed7b4c,
-        type: 3}
-      propertyPath: OnDragEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 2033156064030364242, guid: 0951b036ba0a12343a56eff64eed7b4c,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -25585,11 +25545,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UI
-      objectReference: {fileID: 0}
-    - target: {fileID: 4331319381139353284, guid: 0951b036ba0a12343a56eff64eed7b4c,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4640002808759533563, guid: 0951b036ba0a12343a56eff64eed7b4c,
         type: 3}
@@ -25666,8 +25621,7 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 400122307}
-    m_RemovedComponents:
-    - {fileID: 4331319381139353284, guid: 0951b036ba0a12343a56eff64eed7b4c, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

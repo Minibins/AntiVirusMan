@@ -764,13 +764,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: All_15
+      name: UI_BackgroundUpgrades
       rect:
         serializedVersion: 2
-        x: 673
-        y: 760
-        width: 112
-        height: 64
+        x: 672
+        y: 750
+        width: 96
+        height: 54
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -827,7 +827,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_23
+      name: UI_Restart
       rect:
         serializedVersion: 2
         x: 688
@@ -848,7 +848,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_29
+      name: UI_Home
       rect:
         serializedVersion: 2
         x: 720
@@ -1226,7 +1226,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_21
+      name: UI_Attack
       rect:
         serializedVersion: 2
         x: 672
@@ -1247,7 +1247,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_24
+      name: UI_X
       rect:
         serializedVersion: 2
         x: 704
@@ -1268,7 +1268,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_25
+      name: UI_Arrow
       rect:
         serializedVersion: 2
         x: 672
@@ -1289,7 +1289,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_27
+      name: UI_Settings
       rect:
         serializedVersion: 2
         x: 688
@@ -1310,7 +1310,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_28
+      name: UI_Empty_Green
       rect:
         serializedVersion: 2
         x: 672
@@ -1319,7 +1319,7 @@ TextureImporter:
         height: 7
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 1, y: 1, z: 1, w: 1}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1331,7 +1331,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_30
+      name: UI_Empty_Red
       rect:
         serializedVersion: 2
         x: 672
@@ -1340,7 +1340,7 @@ TextureImporter:
         height: 7
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 1, y: 1, z: 1, w: 1}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -2990,13 +2990,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_76
+      name: UI_BackgroundSettings
       rect:
         serializedVersion: 2
-        x: 793
-        y: 760
-        width: 112
-        height: 64
+        x: 768
+        y: 750
+        width: 96
+        height: 54
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3893,7 +3893,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_79
+      name: UI_Exit
       rect:
         serializedVersion: 2
         x: 704
@@ -3914,7 +3914,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_187
+      name: UI_Dash
       rect:
         serializedVersion: 2
         x: 704
@@ -3935,7 +3935,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_188
+      name: UI_Devs
       rect:
         serializedVersion: 2
         x: 720
@@ -5531,11 +5531,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_246
+      name: UI_Slider_Handle
       rect:
         serializedVersion: 2
-        x: 766
-        y: 747
+        x: 864
+        y: 787
         width: 3
         height: 6
       alignment: 0
@@ -5552,16 +5552,16 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_247
+      name: UI_Slider_Empty
       rect:
         serializedVersion: 2
-        x: 766
-        y: 738
-        width: 29
+        x: 864
+        y: 779
+        width: 32
         height: 8
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 11, y: 0, z: 11, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -5573,16 +5573,16 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_248
+      name: UI_Slider_Filled
       rect:
         serializedVersion: 2
-        x: 766
-        y: 729
-        width: 29
+        x: 864
+        y: 771
+        width: 32
         height: 8
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 16, y: 0, z: 12, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -5594,16 +5594,16 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_249
+      name: UI_Tablet
       rect:
         serializedVersion: 2
-        x: 797
-        y: 694
-        width: 112
-        height: 64
+        x: 864
+        y: 750
+        width: 24
+        height: 21
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 7, y: 5, z: 7, w: 5}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -8198,16 +8198,16 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_10
+      name: UI_Empty_Blue
       rect:
         serializedVersion: 2
         x: 688
         y: 703
-        width: 47
+        width: 48
         height: 15
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 5, y: 3, z: 5, w: 3}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -8219,7 +8219,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_11
+      name: UI_V
       rect:
         serializedVersion: 2
         x: 736
@@ -9668,7 +9668,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_424
+      name: UI_Cinema
       rect:
         serializedVersion: 2
         x: 736
@@ -10067,11 +10067,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_450
+      name: UI_Patreon
       rect:
         serializedVersion: 2
         x: 768
-        y: 702
+        y: 686
         width: 29
         height: 16
       alignment: 0
@@ -10865,7 +10865,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_488
+      name: UI_Talk
       rect:
         serializedVersion: 2
         x: 736
@@ -13049,7 +13049,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_592
+      name: UI_Joystick_Round
       rect:
         serializedVersion: 2
         x: 640
@@ -13070,12 +13070,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_593
+      name: UI_Joystick_Handle
       rect:
         serializedVersion: 2
         x: 658
         y: 751
-        width: 13
+        width: 12
         height: 13
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -13112,7 +13112,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_595
+      name: UI_Joystick_Horisontal
       rect:
         serializedVersion: 2
         x: 672
@@ -15652,6 +15652,69 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: UI_MainMenu_Play
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 737
+        width: 48
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 919a2189d657ad642b0b8523f9959af6
+      internalID: 477315693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainMenu_Data
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 721
+        width: 48
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f9ac2c4d5fe8b448921a4bd4e3bac31
+      internalID: 1436707120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainMenu_Leave
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 705
+        width: 48
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22b4890b548ebdb49972433a232ca3e1
+      internalID: -614112816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -15665,7 +15728,6 @@ TextureImporter:
     nameFileIdTable:
       All_0: -3346575053172843645
       All_1: -1072127175970171052
-      All_10: 3690171236379502049
       All_100: -2090683442398890991
       All_101: 5648650440942586977
       All_102: 5581816770122821316
@@ -15676,7 +15738,6 @@ TextureImporter:
       All_107: -2988107766620297159
       All_108: 6850527960797863558
       All_109: 5104228421663992750
-      All_11: 745281222233168866
       All_110: 225267727177540215
       All_111: -7689777611508998770
       All_112: -4617123005227256637
@@ -15720,7 +15781,6 @@ TextureImporter:
       All_147: -1729097129779419771
       All_148: 2334095030201103965
       All_149: 4814717996318606440
-      All_15: -863085938886467031
       All_150: 93915020349881927
       All_151: 7588772589841591027
       All_152: -3713437408908627528
@@ -15759,8 +15819,6 @@ TextureImporter:
       All_184: 191743684290451801
       All_185: 5491992275738161759
       All_186: -5187961157170702591
-      All_187: 2727100470839331737
-      All_188: 971936852293500252
       All_189: 3552737690590536426
       All_19: 2744306470954413329
       All_190: 7318260551317132003
@@ -15785,7 +15843,6 @@ TextureImporter:
       All_207: 310354536045021670
       All_208: -5065865620985430043
       All_209: -7471442037842917411
-      All_21: 8794887783633769927
       All_210: 452973633265590478
       All_211: 431545246429670880
       All_212: -4179904189838870186
@@ -15798,7 +15855,6 @@ TextureImporter:
       All_227: -1529133569352085505
       All_228: 6408532011539056140
       All_229: -4839399733607070130
-      All_23: 365965013498129155
       All_230: 2319040750470627046
       All_231: -4211009963096155115
       All_232: -4264793283782238742
@@ -15809,18 +15865,12 @@ TextureImporter:
       All_237: -24629073
       All_238: -1673299822
       All_239: -228931557
-      All_24: 6986707411545232357
       All_240: 479695222
       All_241: 626782018
       All_242: -1715902387
       All_243: 484885576
       All_244: -378952224
       All_245: -524029886
-      All_246: 859108152
-      All_247: 488025758
-      All_248: -1641691525
-      All_249: -1211303296
-      All_25: 2841289461607724601
       All_250: -10171756
       All_251: -832401484
       All_252: 366540295
@@ -15842,7 +15892,6 @@ TextureImporter:
       All_267: -1100008816
       All_268: 1064072959
       All_269: -526518603
-      All_27: 767666730290430688
       All_270: -1675573450
       All_271: 12826618
       All_272: 605513096
@@ -15853,7 +15902,6 @@ TextureImporter:
       All_277: -1078890715
       All_278: -943742007
       All_279: -934026678
-      All_28: 1042296230591896111
       All_280: 1708646714
       All_281: 11640100
       All_282: 2001539917
@@ -15864,7 +15912,6 @@ TextureImporter:
       All_287: -116171184
       All_288: 1100953831
       All_289: -1586035949
-      All_29: 3675678726731658386
       All_290: -988126027
       All_291: 1062193978
       All_292: -16215220
@@ -15876,7 +15923,6 @@ TextureImporter:
       All_298: 1788253006
       All_299: -83848227
       All_3: -8274502759410492490
-      All_30: 2332211156770463673
       All_300: 1489779665
       All_301: -153098218
       All_302: 1903723530
@@ -16004,7 +16050,6 @@ TextureImporter:
       All_421: -837814241
       All_422: -53537881
       All_423: -482264917
-      All_424: 543193943
       All_425: 1942123518
       All_426: -430005028
       All_427: -699878869
@@ -16031,7 +16076,6 @@ TextureImporter:
       All_448: 1882629101
       All_449: -1692162214
       All_45: 2558205896284596883
-      All_450: -942403918
       All_451: -1960067366
       All_452: 14940299
       All_453: -1012179632
@@ -16070,7 +16114,6 @@ TextureImporter:
       All_485: -534288919
       All_486: -1798551529
       All_487: 1893990527
-      All_488: 962750346
       All_489: 1766395314
       All_49: 208160340796084907
       All_490: 60998376
@@ -16186,10 +16229,7 @@ TextureImporter:
       All_59: -3506618276952092092
       All_590: -88253605
       All_591: -1220450171
-      All_592: 705758048
-      All_593: -357295630
       All_594: -561453609
-      All_595: 45530447
       All_596: -2805776
       All_597: 904577271
       All_598: -1456719182
@@ -16251,10 +16291,8 @@ TextureImporter:
       All_73: 2605544692709302248
       All_74: -1862560017891525819
       All_75: -7243777624731449425
-      All_76: -5404101728115882706
       All_77: 1531646901430194561
       All_78: 8015631046963919875
-      All_79: 2998939587712369824
       All_8: -3773535540893857118
       All_80: -2650771296557143352
       All_81: 8638111053690301260
@@ -16336,6 +16374,34 @@ TextureImporter:
       StepaMathyr7: -4176809
       StepaMathyr8: -441939918
       StepaMathyr9: 645809102
+      UI_Arrow: 2841289461607724601
+      UI_Attack: 8794887783633769927
+      UI_BackgroundSettings: -5404101728115882706
+      UI_BackgroundUpgrades: -863085938886467031
+      UI_Cinema: 543193943
+      UI_Dash: 2727100470839331737
+      UI_Devs: 971936852293500252
+      UI_Empty_Blue: 3690171236379502049
+      UI_Empty_Green: 1042296230591896111
+      UI_Empty_Red: 2332211156770463673
+      UI_Exit: 2998939587712369824
+      UI_Home: 3675678726731658386
+      UI_Joystick_Handle: -357295630
+      UI_Joystick_Horisontal: 45530447
+      UI_Joystick_Round: 705758048
+      UI_MainMenu_Data: 1436707120
+      UI_MainMenu_Leave: -614112816
+      UI_MainMenu_Play: 477315693
+      UI_Patreon: -942403918
+      UI_Restart: 365965013498129155
+      UI_Settings: 767666730290430688
+      UI_Slider_Empty: 488025758
+      UI_Slider_Filled: -1641691525
+      UI_Slider_Handle: 859108152
+      UI_Tablet: -1211303296
+      UI_Talk: 962750346
+      UI_V: 745281222233168866
+      UI_X: 6986707411545232357
       Yasha0: -1006392905
       Yasha1: 1163918412
       Yasha10: 1235401438
