@@ -568,6 +568,7 @@ Transform:
   - {fileID: 9150898400964876415}
   - {fileID: 1010714892108368970}
   - {fileID: 6671250909959919723}
+  - {fileID: 5325416877671083256}
   - {fileID: 647563820196531958}
   - {fileID: 4049646474920310871}
   - {fileID: 5249208515457590349}
@@ -578,8 +579,57 @@ Transform:
   - {fileID: 6025927261406082598}
   - {fileID: 8626943955720814163}
   - {fileID: 4467924895626730485}
+  - {fileID: 6757135953788698089}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1503484111432995492
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5325416877671083256}
+  - component: {fileID: 2720445451577617879}
+  m_Layer: 0
+  m_Name: AuraEnabler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5325416877671083256
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1503484111432995492}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2796017653573438044}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2720445451577617879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1503484111432995492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27848f4d10d695f4bb761944081279b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sprite: {fileID: 21300000, guid: 87a931427a056d543b78fbb384660d9c, type: 3}
+  ID: 12
+  synergies: []
+  ToEnable: {fileID: 0}
 --- !u!1 &1561061820576586421
 GameObject:
   m_ObjectHideFlags: 0
@@ -805,10 +855,64 @@ MonoBehaviour:
   Sprite: {fileID: 1268264028, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
   ID: 11
   synergies: []
+  spawner: {fileID: 0}
   enemyID: 2
   Enemy: {fileID: 8615089305505906155, guid: 10d565a45fc129d4f8838dbc48f6dc51, type: 3}
-  spawner: {fileID: 0}
   EliteSpawnChance: 11
+--- !u!1 &3153034326922520185
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6757135953788698089}
+  - component: {fileID: 4998111809531841865}
+  m_Layer: 0
+  m_Name: Mathyrs
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6757135953788698089
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3153034326922520185}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.0057926, y: 2.6802487, z: 0.16284063}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5111154906876484383}
+  m_Father: {fileID: 2796017653573438044}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4998111809531841865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3153034326922520185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cacb8dd62977e3042a2c0c030f7ff098, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sprite: {fileID: 72891707, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
+  ID: 25
+  synergies: []
+  spawner: {fileID: 0}
+  Enemies:
+  - {fileID: 454909814521623962, guid: d73c188592a02a946a621146e9f214ed, type: 3}
+  - {fileID: 1875030639063743957, guid: a5ac6a50e2d5b5843accc916e56a8b8d, type: 3}
+  - {fileID: 8386941441047771509, guid: 5b01dec243b18be4dba47151b6a550fc, type: 3}
+  - {fileID: 454909814521623962, guid: d73c188592a02a946a621146e9f214ed, type: 3}
 --- !u!1 &3169376947079809402
 GameObject:
   m_ObjectHideFlags: 0
@@ -1216,6 +1320,56 @@ Transform:
   m_Children: []
   m_Father: {fileID: 9150898400964876415}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5090448195720359329
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5111154906876484383}
+  - component: {fileID: 3001143456989681954}
+  m_Layer: 0
+  m_Name: Mathyrs (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5111154906876484383
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5090448195720359329}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6757135953788698089}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3001143456989681954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5090448195720359329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cacb8dd62977e3042a2c0c030f7ff098, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sprite: {fileID: 72891707, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
+  ID: 25
+  synergies: []
+  spawner: {fileID: 0}
+  Enemies:
+  - {fileID: 8993548246668910028, guid: 30987a2c98a4d274ab95a3065638f385, type: 3}
 --- !u!1 &5279746588335441706
 GameObject:
   m_ObjectHideFlags: 0
@@ -1469,6 +1623,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8626943955720814163}
   - component: {fileID: 8190621368561334825}
+  - component: {fileID: 8141452513671290534}
   m_Layer: 0
   m_Name: Judje
   m_TagString: Untagged
@@ -1507,6 +1662,25 @@ MonoBehaviour:
   ID: 22
   synergies: []
   ToEnable: {fileID: 0}
+--- !u!114 &8141452513671290534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6108180417966080131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9521ffcf35d1dd746b3403101130c212, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sprite: {fileID: -964694292, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
+  ID: 22
+  synergies: []
+  spawner: {fileID: 0}
+  enemyID: 0
+  Enemy: {fileID: 8912311358399435758, guid: ab1182728795cc24f8829ea4e7b168f8, type: 3}
+  EliteSpawnChance: 7
 --- !u!1 &6322778316307042614
 GameObject:
   m_ObjectHideFlags: 0
@@ -1602,7 +1776,7 @@ GameObject:
   - component: {fileID: 3913107560684790153}
   - component: {fileID: 3080106428048300933}
   - component: {fileID: 7893335418187692524}
-  m_Layer: 15
+  m_Layer: 7
   m_Name: MyPC
   m_TagString: LaserGun
   m_Icon: {fileID: 0}
@@ -1618,7 +1792,7 @@ Transform:
   m_GameObject: {fileID: 7046675449512287729}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.66, y: -2.22, z: 0}
+  m_LocalPosition: {x: 9.26, y: -1.24, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1692,7 +1866,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 262144
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -1733,7 +1907,7 @@ PointEffector2D:
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
-    m_Bits: 524286
+    m_Bits: 262142
   m_ForceMagnitude: -0.6
   m_ForceVariation: 0
   m_DistanceScale: 1
@@ -1809,10 +1983,10 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_ContactCaptureLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 239103
   m_CallbackLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 239103
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
