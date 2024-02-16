@@ -6,8 +6,7 @@ using Random = UnityEngine.Random;
 public class Health : MonoBehaviour, iDraggable, IDamageble
 {
     [SerializeField] protected int _maxHealth;
-    [SerializeField] private GameObject DeathSound;
-    [SerializeField] private GameObject PunchSound;
+    [SerializeField] private GameObject DeathSound, PunchSound;
     [field: SerializeField] public float CurrentHealth;
     protected Animator animator;
     private Action _onDeath;

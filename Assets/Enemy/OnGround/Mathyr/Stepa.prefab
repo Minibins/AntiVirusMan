@@ -31,7 +31,7 @@ PrefabInstance:
     - target: {fileID: 1390221641294342662, guid: b87c79d457c719c48a591a636b0f9b4c,
         type: 3}
       propertyPath: m_Layer
-      value: 13
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 3215064090734204971, guid: b87c79d457c719c48a591a636b0f9b4c,
         type: 3}
@@ -183,6 +183,7 @@ MonoBehaviour:
     type: 3}
   _explosionRadius: 1
   _explosionPower: 1
+  DestroyHimself: 1
 --- !u!95 &2630300875120672161 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 4482309314977752539, guid: b87c79d457c719c48a591a636b0f9b4c,

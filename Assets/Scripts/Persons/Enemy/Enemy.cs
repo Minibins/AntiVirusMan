@@ -114,7 +114,10 @@ public class Enemy : MonoBehaviour
         if (ChangeMove == 0)
         {
             moveDirection = DustyStudios.MathAVM.MathA.OneOrNegativeOne(_PC.transform.position.x < transform.position.x);
-            _move.MoveHorizontally(moveDirection);
+            if(_move!=null)
+            {
+                _move.MoveHorizontally(moveDirection);
+            }
         }
         else if (ChangeMove == 1)
         {
@@ -184,7 +187,7 @@ public class Enemy : MonoBehaviour
             dead = true;
             deathTime = _animator.GetCurrentAnimatorStateInfo(0).length;
         }
-        
+        _health.SoundDead();
         Level.EXP += 0.4f;
         
     }
