@@ -32,10 +32,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2172731005738570638}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.24, y: 1.052}
-  m_SizeDelta: {x: 1332.09, y: 591.842}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 1.0761719, y: 1.0517578}
+  m_SizeDelta: {x: -63.819, y: -56.15799}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2165145669892826735
 CanvasRenderer:
@@ -984,7 +984,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.46112505, y: 0.26222226}
   m_AnchorMax: {x: 1, y: 0.5352222}
-  m_AnchoredPosition: {x: 10.400879, y: -39}
+  m_AnchoredPosition: {x: 10.400391, y: -39}
   m_SizeDelta: {x: -20.8024, y: -8.62}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &4624030759410492582
@@ -1927,9 +1927,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1203641460116070206}
   - {fileID: 1405672113768695759}
   - {fileID: 1071470697673440339}
-  - {fileID: 1203641460116070206}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &703595709279163060
@@ -3416,7 +3416,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00043869, y: -0.00018310547}
+  m_AnchoredPosition: {x: -0.00043869, y: -0.00024414062}
   m_SizeDelta: {x: 344.26, y: 150.85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6626920302929304457
@@ -4089,7 +4089,7 @@ GameObject:
   - component: {fileID: 234191685310526497}
   - component: {fileID: 5526776871038950346}
   m_Layer: 2
-  m_Name: Canvas
+  m_Name: LevelUP And Counters
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4685,10 +4685,10 @@ RectTransform:
   - {fileID: 3778133806247730164}
   m_Father: {fileID: 1203641460116070206}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 23, y: 0}
-  m_SizeDelta: {x: -733.60046, y: -431.95367}
+  m_AnchorMin: {x: 0.25, y: 0.19622223}
+  m_AnchorMax: {x: 0.5, y: 0.8037778}
+  m_AnchoredPosition: {x: 270.36914, y: 0}
+  m_SizeDelta: {x: 567.408, y: -7.954}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5602646779678708848
 CanvasRenderer:
@@ -4741,7 +4741,7 @@ GameObject:
   - component: {fileID: 8534129969837095384}
   - component: {fileID: 9012144030634045465}
   m_Layer: 2
-  m_Name: Canvas
+  m_Name: Panels
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5999,6 +5999,16 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 176099457542109591}
+    - target: {fileID: 3656527197005487234, guid: a163418f5c48cd74e85af557fee7f82f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.88671875
+      objectReference: {fileID: 0}
+    - target: {fileID: 3656527197005487234, guid: a163418f5c48cd74e85af557fee7f82f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.3720703
+      objectReference: {fileID: 0}
     - target: {fileID: 4055805129193597526, guid: a163418f5c48cd74e85af557fee7f82f,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
@@ -6018,6 +6028,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -4.580017
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413235307704408792, guid: a163418f5c48cd74e85af557fee7f82f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 70.53223
       objectReference: {fileID: 0}
     - target: {fileID: 4965130025789864805, guid: a163418f5c48cd74e85af557fee7f82f,
         type: 3}
@@ -6183,6 +6198,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8998378146229919834, guid: a163418f5c48cd74e85af557fee7f82f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 93.28125
+      objectReference: {fileID: 0}
+    - target: {fileID: 8998378146229919834, guid: a163418f5c48cd74e85af557fee7f82f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -69.78711
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

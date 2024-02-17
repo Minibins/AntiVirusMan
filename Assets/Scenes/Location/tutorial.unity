@@ -1248,13 +1248,24 @@ PrefabInstance:
       propertyPath: ToEnable
       value: 
       objectReference: {fileID: 410075499}
+    - target: {fileID: 4998111809531841865, guid: 856d8bdf4e9002f418c0530690235da9,
+        type: 3}
+      propertyPath: spawner
+      value: 
+      objectReference: {fileID: 1354942301}
     - target: {fileID: 6015183541874017086, guid: 856d8bdf4e9002f418c0530690235da9,
         type: 3}
       propertyPath: spawner
       value: 
       objectReference: {fileID: 1354942301}
+    - target: {fileID: 8141452513671290534, guid: 856d8bdf4e9002f418c0530690235da9,
+        type: 3}
+      propertyPath: spawner
+      value: 
+      objectReference: {fileID: 1354942301}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5090448195720359329, guid: 856d8bdf4e9002f418c0530690235da9, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 856d8bdf4e9002f418c0530690235da9, type: 3}
