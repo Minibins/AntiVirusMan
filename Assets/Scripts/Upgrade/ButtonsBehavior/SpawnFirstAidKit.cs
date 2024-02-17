@@ -28,7 +28,7 @@ public class SpawnFirstAidKit : Upgrade
     {
         while (true)
         {
-            yield return new WaitForSeconds(4);
+            yield return new PrecitionWait(4);
             Level.EXP-=0.5f;
         }
     }

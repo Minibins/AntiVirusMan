@@ -25,7 +25,7 @@ public class SpawnPortals : Upgrade
             Portals1.GetComponent<Portals>().secondPortal = Portals2;
             Portals2.GetComponent<Portals>().secondPortal = Portals1;
 
-            yield return new WaitForSeconds(10);
+            yield return new PrecitionWait(10);
 
             Destroy(Portals1);
             Destroy(Portals2);

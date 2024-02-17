@@ -49,10 +49,13 @@ public class MoveBase : MonoBehaviour
     protected virtual void Awake()
     {
         _animator = GetComponent<Animator>();
-        if(_animator.parameters.Any(a => a.name == WalkAnimationName))
-            hasRunAnimation = true;
-        if(_animator.parameters.Any(a => a.name == BoostAnimationName))
-            hasBoostAnimation = true;
+        if(_animator != null&&_animator.isActiveAndEnabled)
+        {
+            if(_animator.parameters.Any(a => a.name == WalkAnimationName))
+                hasRunAnimation = true;
+            if(_animator.parameters.Any(a => a.name == BoostAnimationName))
+                hasBoostAnimation = true;
+        }
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _rigidbody = GetComponent<Rigidbody2D>();
         SetSpeedMultiplierForOllTime(_speedMultiplier);

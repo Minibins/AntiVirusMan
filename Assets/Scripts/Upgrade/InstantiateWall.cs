@@ -32,7 +32,7 @@ public class InstantiateWall : Upgrade
     {
         RaycastHit2D hit = Hit(); // Тут рейкаст
         Vector2 playerpos=new Vector2(transform.position.x, hit.point.y + 0.8f);
-        yield return new WaitForSeconds(TimeToStart);
+        yield return new PrecitionWait(TimeToStart);
         Physics2D.Raycast(transform.position, Vector2.down * 99, 99, layerMask);
         playerpos = new Vector2((transform.position.x+playerpos.x)/2,Hit().point.y+ 0.8f) ;
         
@@ -43,7 +43,7 @@ public class InstantiateWall : Upgrade
     {
         walls.Add(Instantiate(type,(Vector3)pos,Quaternion.identity));
         clearDestroyed();
-        if(walls.Count > 8)
+        if(walls.Count > 8 && !LevelUP.Items[26].IsTaken)
         {
             ClearWalls();
         }
