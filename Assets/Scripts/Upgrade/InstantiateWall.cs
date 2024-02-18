@@ -32,7 +32,7 @@ public class InstantiateWall : Upgrade
     {
         RaycastHit2D hit = Hit(); // Тут рейкаст
         Vector2 playerpos=new Vector2(transform.position.x, hit.point.y + 0.8f);
-        yield return new PrecitionWait(TimeToStart);
+        yield return new PrecitionWait(TimeToStart, 1);
         Physics2D.Raycast(transform.position, Vector2.down * 99, 99, layerMask);
         playerpos = new Vector2((transform.position.x+playerpos.x)/2,Hit().point.y+ 0.8f) ;
         

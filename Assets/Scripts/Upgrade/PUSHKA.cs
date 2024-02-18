@@ -46,7 +46,7 @@ public class PUSHKA : TurretLikeUpgrade, IDamageble
                 bullet.GetComponent<AttackProjectile>().Damage *= 2; 
                 IsTemporaryBoost = false;
             }
-            yield return new PrecitionWait(TimeReload);
+            yield return new PrecitionWait(TimeReload, TimeReload);
         }
     }
     override public void OnDrag()

@@ -69,7 +69,7 @@ public class SpawnerEnemy : MonoBehaviour
 
     IEnumerator SpawnEnemy(int spawnPoint,int waveCount)
     {
-        yield return new PrecitionWait(Time.deltaTime);
+        yield return new PrecitionWait(Time.fixedDeltaTime, 1);
         spawnersAnim[spawnPoint].SetTrigger("Spawn");
         yield return new WaitForSeconds(0.7f);
         int enemyID = Random.Range(0, Enemies.Length);

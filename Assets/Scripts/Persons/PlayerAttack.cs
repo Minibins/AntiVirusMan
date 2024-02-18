@@ -153,7 +153,7 @@ public class PlayerAttack : MonoBehaviour
 
     public void Shot()
     {
-        PrecitionWait.DecreaseAllTimers();
+        WaitForPlayerAttack.Shot();
         if (Ammo < 1) return;
 
         switch (AttackType)

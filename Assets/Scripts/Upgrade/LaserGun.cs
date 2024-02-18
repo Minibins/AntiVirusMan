@@ -27,14 +27,14 @@ public class LaserGun : TurretLikeUpgrade, IDamageble
     }
     IEnumerator Shoot()
     {
-        yield return new PrecitionWait(TimeReload);
+        yield return new PrecitionWait(TimeReload,1);
         while (IsTaken)
         {
             AttackProjectile bullet = Instantiate(Bullet, SpawnPoinBullet.position, transform.rotation).GetComponent<AttackProjectile>();
             bullet._velosity=DustyStudios.MathAVM.MathA.RotatedVector(bullet._velosity,transform.rotation.eulerAngles.z);
             Level.EXP+=Math.Min((greases+0.5f)/2,1);
             greases = -2;
-            yield return new PrecitionWait(TimeReload);
+            yield return new PrecitionWait(TimeReload,1);
         }
     }
     public override void OnDrag()

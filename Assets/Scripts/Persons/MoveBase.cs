@@ -49,7 +49,7 @@ public class MoveBase : MonoBehaviour
     protected virtual void Awake()
     {
         _animator = GetComponent<Animator>();
-        if(_animator != null&&_animator.isActiveAndEnabled)
+        if(_animator != null&&_animator.isActiveAndEnabled&&gameObject.activeInHierarchy)
         {
             if(_animator.parameters.Any(a => a.name == WalkAnimationName))
                 hasRunAnimation = true;

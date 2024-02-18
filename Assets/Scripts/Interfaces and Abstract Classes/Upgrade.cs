@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System;
 using System.Linq;
 using UnityEngine;
+using System.Collections;
 [System.Serializable] public class Upgrade : MonoBehaviour
 {
     [HideInInspector] private bool isTaken = false;
@@ -38,17 +39,28 @@ using UnityEngine;
             }
             Actions.Add(ID,OnTake);
         }
-        if(synergies.Length!=0)
+        StartCoroutine(setSynergy());
+        IEnumerator setSynergy()
+        {
+            yield return new WaitForEndOfFrame();
             foreach(Synergy synergy in synergies)
             {
-                LevelUP.Items[synergy.ID].Synergies.Add(ID,synergy.OnTake);
+                var LevelUPSynergies=LevelUP.Items[synergy.SynergentID].Synergies;
+                if(  LevelUPSynergies.ContainsKey(synergy.InitiatorID))
+                     LevelUPSynergies[synergy.InitiatorID] += synergy.OnTake;
+                else LevelUPSynergies.Add(synergy.InitiatorID,synergy.OnTake);
             }
+        }
     }
     protected virtual void OnTake()
     {
         foreach (var synergy in Synergies)
         {
             if(LevelUP.Items[synergy.Key].IsTaken) synergy.Value.Invoke();
+        }
+        foreach(Synergy synergy in synergies)
+        {
+            if(LevelUP.Items[synergy.SynergentID].IsTaken) synergy.OnTake();
         }
     }
     public Upgrade()
@@ -58,10 +70,22 @@ using UnityEngine;
 }
 public class Synergy : MonoBehaviour
 {
-    protected Upgrade Invoker => LevelUP.Items[ID];
-    [SerializeField] public int ID;
-
-    public virtual void OnTake()
+    bool isTaken = false;
+    protected Upgrade Invoker => LevelUP.Items[InitiatorID];
+    public bool IsWorking
+    {
+        get => LevelUP.Items[InitiatorID].IsTaken && LevelUP.Items[SynergentID].IsTaken;
+    }
+    [SerializeField] public int InitiatorID, SynergentID;
+    public void OnTake()
+    {
+        if(!isTaken)
+        {
+            onTake();
+            isTaken = true;
+        }
+    }
+    protected virtual void onTake()
     {
         
     }

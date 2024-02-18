@@ -44,14 +44,19 @@ public class Drone : Follower,IDamageble
     }
     public void Shoot(float rotation)
     {
+        StartCoroutine(couroutine(rotation));
+    }
+    IEnumerator couroutine(float rotation)
+    {
+        yield return new WaitForPlayerAttack();
         rotation = rotation % 180;
-        for (int i = 0; i < 2; i++)
+        for(int i = 0; i < 2; i++)
         {
             GameObject bullet = Instantiate(bulletAsset,transform.position,transform.rotation);
             AttackProjectile bulletAttack=bullet.GetComponent<AttackProjectile>();
             Vector2 velocity = MathA.RotatedVector(bulletAttack._velosity,Vector2.left);
-            
-            
+
+
             switch(i)
             {
                 case 1:
@@ -61,10 +66,9 @@ public class Drone : Follower,IDamageble
             bullet.GetComponent<SpriteRenderer>().flipY = true;
             bulletAttack.Damage = damage;
             bulletAttack._velosity = MathA.RotatedVector(velocity,rotation);
-            if(bulletAttack._velosity.y>0) bulletAttack._velosity*=-1;
-            bulletAttack._mask=layerMask ;
+            if(bulletAttack._velosity.y > 0) bulletAttack._velosity *= -1;
+            bulletAttack._mask = layerMask;
             bullet.transform.rotation = MathA.VectorsAngle(MathA.RotatedVector(bulletAttack._velosity,90));
         }
-
     }
 }
