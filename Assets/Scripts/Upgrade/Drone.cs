@@ -48,7 +48,7 @@ public class Drone : Follower,IDamageble
     }
     IEnumerator couroutine(float rotation)
     {
-        yield return new WaitForPlayerAttack();
+        if(LevelUP.Items[26].IsTaken) yield return new WaitForPlayerAttack();
         rotation = rotation % 180;
         for(int i = 0; i < 2; i++)
         {
