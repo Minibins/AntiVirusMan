@@ -36,7 +36,7 @@ public class Drone : Follower,IDamageble
             }
        if(Grounded.IsGrounded()) Following(playerPosition.position+Vector3.up*howMuchUp,true,transform);
     }
-    public void OnDamageGet(int Damage)
+    public void OnDamageGet(int Damage,IDamageble.DamageType type)
     {
         
         anim.SetTrigger("Attack");

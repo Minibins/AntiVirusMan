@@ -15,7 +15,7 @@ public class LaserGun : TurretLikeUpgrade, IDamageble
     {
         transform = base.transform;
     }
-    public void OnDamageGet(int Damage)
+    public void OnDamageGet(int Damage,IDamageble.DamageType type)
     {
         greases += Damage;
     }

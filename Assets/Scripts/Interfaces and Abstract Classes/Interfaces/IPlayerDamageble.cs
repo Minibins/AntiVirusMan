@@ -1,4 +1,8 @@
 public interface IDamageble
 {
-    abstract public void OnDamageGet(int Damage);
+    public enum DamageType
+    {
+        Default, Explosion, Everynovment, Punishment
+    }
+    public void OnDamageGet(int Damage, DamageType type);
 }

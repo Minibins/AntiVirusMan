@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8404085283939027207}
   - component: {fileID: 1878500852756508464}
   - component: {fileID: 4626267100145674678}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: explosionX2
   m_TagString: enemy projectile
   m_Icon: {fileID: 0}
@@ -132,7 +132,7 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.06}
@@ -188,6 +188,7 @@ MonoBehaviour:
   _damage: 1
   ExplodeIfCollideWithWall: 0
   Explosion: {fileID: 0}
+  DamageType: 1
   _mask:
     serializedVersion: 2
     m_Bits: 4294967295

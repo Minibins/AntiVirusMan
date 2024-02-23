@@ -54,7 +54,7 @@ public class LevelUP : MonoBehaviour
         {
             button.GetComponent<Image>().sprite = id != -1 ? Items[id].Sprite : none;
             button.GetComponent<UpgradeButton>().id = id;
-            if(id == Items.Count - 2)
+            if(id == Items.Count - 1)
                 Instantiate(BuyButton,button.transform);
         }
     }

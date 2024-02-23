@@ -14,7 +14,7 @@ public class Transformer : MonoBehaviour, IDamageble
         attack = player.GetComponent<PlayerAttack>();
         Anim= player.GetComponent<Animator>();
     }
-    public void OnDamageGet(int damage)
+    public void OnDamageGet(int damage,IDamageble.DamageType type)
     {
         attack.slowdown();
         attack.AttackType = PlayerAttack.attackTypes.Laser;

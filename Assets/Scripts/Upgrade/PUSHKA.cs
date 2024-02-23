@@ -18,7 +18,7 @@ public class PUSHKA : TurretLikeUpgrade, IDamageble
             istemporaryboost = value;
         }
     }
-    public void OnDamageGet(int Damage)
+    public void OnDamageGet(int Damage,IDamageble.DamageType type)
     {
         transform.rotation = new Quaternion(0,0,transform.rotation.z * -1,transform.rotation.w);
         IsTemporaryBoost = true;

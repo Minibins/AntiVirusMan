@@ -7,6 +7,18 @@ namespace DustyStudios
     {
         public struct MathA
         {
+            private static Vector2Int[] OrderByMagnitude(params Vector2Int[] args)
+            {
+                return args.OrderByDescending(arg => arg.magnitude).ToArray();
+            }
+            public static Vector2Int Max(params Vector2Int[] args)
+            {
+                return OrderByMagnitude(args)[0];
+            }
+            public static Vector2Int Min(params Vector2Int[] args)
+            {
+                return OrderByMagnitude(args).Last();
+            }
             private static Vector2[] OrderByMagnitude(params Vector2[] args)
             {
                 return args.OrderByDescending(arg => arg.magnitude).ToArray();

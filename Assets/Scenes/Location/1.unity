@@ -25559,6 +25559,12 @@ PrefabInstance:
       propertyPath: spawner
       value: 
       objectReference: {fileID: 427215480}
+    - target: {fileID: 4998111809531841865, guid: 856d8bdf4e9002f418c0530690235da9,
+        type: 3}
+      propertyPath: Enemies.Array.data[3]
+      value: 
+      objectReference: {fileID: 9987051662415198, guid: 8f6a462050698924ca55f21f602bd9b7,
+        type: 3}
     - target: {fileID: 6015183541874017086, guid: 856d8bdf4e9002f418c0530690235da9,
         type: 3}
       propertyPath: spawner
@@ -25645,11 +25651,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 400122307}
-    - target: {fileID: 2534247655149363551, guid: 0951b036ba0a12343a56eff64eed7b4c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3684711052714984343, guid: 0951b036ba0a12343a56eff64eed7b4c,
         type: 3}
       propertyPath: m_Name
@@ -25665,11 +25666,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 400122307}
-    - target: {fileID: 5190874173244086256, guid: 0951b036ba0a12343a56eff64eed7b4c,
-        type: 3}
-      propertyPath: m_VertexColorAlwaysGammaSpace
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5208305152012229947, guid: 0951b036ba0a12343a56eff64eed7b4c,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -1,12 +1,12 @@
 using System;
-using Unity.VisualScripting;
-using UnityEngine;
-using Random = UnityEngine.Random;
+using System.Linq;
 
+using UnityEngine;
 public class Health : MonoBehaviour, iDraggable, IDamageble
 {
     [SerializeField] protected int _maxHealth;
     [SerializeField] private GameObject DeathSound, PunchSound;
+    [SerializeField] IDamageble.DamageType[] parrybleDamageTypes;
     [field: SerializeField] public float CurrentHealth;
     protected Animator animator;
     private Action _onDeath;
@@ -25,7 +25,7 @@ public class Health : MonoBehaviour, iDraggable, IDamageble
         }
     }
 
-    public Action OnApplyDamage { get; set; }
+    public Action OnApplyDamage;
 
     public virtual void ApplyDamage(float damage)
     {
@@ -60,6 +60,11 @@ public class Health : MonoBehaviour, iDraggable, IDamageble
     {
         
         animator = GetComponent<Animator>();
+        if(animator != null && animator.isActiveAndEnabled && gameObject.activeInHierarchy)
+        {
+            if(animator.parameters.Any(a => a.name == parryAnimName))
+                hasParryAnim = true;
+        }
         if (OnDeath == null)
         {
             OnDeath = DestroyHimself;
@@ -75,10 +80,6 @@ public class Health : MonoBehaviour, iDraggable, IDamageble
     public virtual void DestroyHimself()
     {
     }
-
-
-    
-
     public void SoundDead()
     {
         Instantiate(DeathSound);
@@ -91,9 +92,12 @@ public class Health : MonoBehaviour, iDraggable, IDamageble
     public void OnDragEnd()
     {
     }
-
-    public void OnDamageGet(int Damage)
+    bool hasParryAnim;
+    const string parryAnimName = "Parry";
+    public void OnDamageGet(int Damage, IDamageble.DamageType type)
     {
-        ApplyDamage(Damage);
+        if(parrybleDamageTypes!=null&&!parrybleDamageTypes.Contains(type))
+            ApplyDamage(Damage);
+        else if(hasParryAnim) animator.SetTrigger(parryAnimName);
     }
 }

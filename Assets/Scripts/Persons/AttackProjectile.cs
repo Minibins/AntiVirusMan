@@ -4,6 +4,7 @@ public class AttackProjectile : MonoBehaviour
     [SerializeField, Min(0)] private int _damage;
     [SerializeField] private bool ExplodeIfCollideWithWall;
     [SerializeField] private GameObject Explosion;
+    [SerializeField] IDamageble.DamageType DamageType;
     public int Damage
     {
         
@@ -49,7 +50,7 @@ public class AttackProjectile : MonoBehaviour
         
         if(((_mask.value & (1 << collision.gameObject.layer)) != 0) && collision.gameObject.TryGetComponent<IDamageble>(out _Target))
         {
-            _Target.OnDamageGet(Damage);
+            _Target.OnDamageGet(Damage,DamageType);
         }
     }
 }

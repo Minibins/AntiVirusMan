@@ -124,7 +124,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 100
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
@@ -200,6 +200,7 @@ MonoBehaviour:
   ExplodeIfCollideWithWall: 1
   Explosion: {fileID: 3890442344620783478, guid: 84525b33db394bc4797c261f4038d751,
     type: 3}
+  DamageType: 0
   _mask:
     serializedVersion: 2
     m_Bits: 318528
