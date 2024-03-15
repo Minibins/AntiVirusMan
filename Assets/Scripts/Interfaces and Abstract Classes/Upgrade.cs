@@ -5,15 +5,18 @@ using UnityEngine;
 using System.Collections;
 [System.Serializable] public class Upgrade : MonoBehaviour
 {
-    [HideInInspector] private bool isTaken = false;
+    [HideInInspector] public bool isTaken = false;
     [SerializeField] public Sprite Sprite;
     [SerializeField] public int ID;
     public Dictionary<int, Action> Synergies = new Dictionary<int, Action>();
     [SerializeField] protected Synergy[] synergies =new Synergy[0];
 
     public bool IsTaken 
-    { 
-        get => LevelUP.Items[ID].isTaken;
+    {
+        get
+        {
+            return LevelUP.Items[ID].isTaken;
+        }
         set
         {
             isTaken = value;

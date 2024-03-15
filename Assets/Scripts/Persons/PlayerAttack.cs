@@ -81,12 +81,12 @@ public class PlayerAttack : MonoBehaviour
 
     private void Awake()
     {
-        pc = GameObject.FindGameObjectWithTag("PC").GetComponentInChildren<PC>();
         rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         player = GetComponent<Player>();
         OnRefreshAmmo += AmmoBarRefresh;
+        pc = GameObject.FindGameObjectWithTag("PC").GetComponentInChildren<PC>();
     }
 
     private void AmmoBarRefresh()
@@ -155,7 +155,6 @@ public class PlayerAttack : MonoBehaviour
     {
         WaitForPlayerAttack.Shot();
         if (Ammo < 1) return;
-
         switch (AttackType)
         {
             case attackTypes.Standard:

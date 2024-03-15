@@ -1,10 +1,13 @@
+using System.Collections;
+
 using UnityEngine;
 
 public class TV : TalkingPerson
 {
     Animator anim;
-    void Start()
+    IEnumerator Start()
     {
+        yield return new WaitForEndOfFrame();
         anim = GetComponent<Animator>();
         #region
         OnID(19);

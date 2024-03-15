@@ -30,10 +30,8 @@ public class Paralax : MonoBehaviour
 
         transform.position += delta * parallaxStrenght;
         actualY = transform.position.y;
-        switch(IsSkyComponent){
-        case 0:
+        if(IsSkyComponent==0)
             return;
-        }
         transform.position += Vector3.up * (Timer.time * IsSkyComponent);
     }
 }
