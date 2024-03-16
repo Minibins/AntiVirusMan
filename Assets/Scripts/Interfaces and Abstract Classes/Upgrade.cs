@@ -15,8 +15,9 @@ public class Upgrade : MonoBehaviour
     public bool IsTaken
     {
         get => LevelUP.Items[ID].isTaken;
-        set { isTaken = value; }
+        set { LevelUP.Items[ID].isTaken = value; }
     }
+   
 
     public void Start()
     {

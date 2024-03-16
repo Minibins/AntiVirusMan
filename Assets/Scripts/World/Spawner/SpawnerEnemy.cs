@@ -17,6 +17,7 @@ public class SpawnerEnemy : MonoBehaviour
 
     private void Start()
     {
+        Enemy.Enemies.Clear();
         BossSpawned = false;
         StartCoroutine(Spawn());
     }

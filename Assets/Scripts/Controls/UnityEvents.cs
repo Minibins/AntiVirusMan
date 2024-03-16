@@ -33,16 +33,22 @@ public class UnityEvents : MonoBehaviour
 
     public static void UE_ButtonLeft()
     {
-        _player.MoveHorizontally(-1);
         if(CheatToFlyQueue.Peek() != 0) restartFlyCheat();
-        else CheatToFlyQueue.Dequeue();
+        else
+        {
+            CheatToFlyQueue.Dequeue();
+        }
+        _player.MoveHorizontally(-1);
     }
 
     public static void UE_ButtonRigth()
     {
-        _player.MoveHorizontally(1);
         if(CheatToFlyQueue.Peek() != 1) restartFlyCheat();
-        else CheatToFlyQueue.Dequeue();
+        else
+        {
+            CheatToFlyQueue.Dequeue();
+        }
+        _player.MoveHorizontally(1);
     }
 
     public void UE_JoystickHorizontal(float input)
@@ -57,7 +63,10 @@ public class UnityEvents : MonoBehaviour
     {
         _player.Dash();
         if(CheatToFlyQueue.Peek() != 6) restartFlyCheat();
-        else CheatToFlyQueue.Dequeue();
+        else
+        {
+            CheatToFlyQueue.Dequeue();
+        }
 
     }
 
@@ -71,14 +80,20 @@ public class UnityEvents : MonoBehaviour
         _player.Jump();
         _wall.OnJump();
         if(CheatToFlyQueue.Peek() != 3) restartFlyCheat();
-        else CheatToFlyQueue.Dequeue();
+        else
+        {
+            CheatToFlyQueue.Dequeue();
+        }
     }
 
     public static void UE_ButtonDown()
     {
         _player.Down();
         if(CheatToFlyQueue.Peek() != 4) restartFlyCheat();
-        else CheatToFlyQueue.Dequeue();
+        else
+        {
+            CheatToFlyQueue.Dequeue();
+        }
     }
 
     public static void UE_ButtonShot()

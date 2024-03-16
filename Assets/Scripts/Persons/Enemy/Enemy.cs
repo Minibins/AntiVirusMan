@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
 
@@ -28,8 +29,9 @@ public class EnemyTypesAttributes:Attribute
  RequireComponent(typeof(SpriteRenderer))]
 public class Enemy : MonoBehaviour
 {
+    public static List<Enemy> Enemies = new();
     [SerializeField] public bool isElite;
-    [SerializeField] private EnemyTypes WhoAmI;
+    [SerializeField] public EnemyTypes WhoAmI;
     [SerializeField] private LayerMask _maskWhoKills;
     public float moveDirection;
     private protected Health _health;
@@ -53,15 +55,22 @@ public class Enemy : MonoBehaviour
         }
         if(LevelUP.Items[16].IsTaken)
         {
-           AddBookaComponent();
+            AddBookaComponent();
         }
-        if (LevelUP.Items[18].IsTaken)
+        if(LevelUP.Items[18].IsTaken)
         {
             _health.AddMaxHealth(-1);
             _animator.Play("Wire");
-            
         }
+        ResetPC();
+        Enemies.Add(this);
     }
+
+    public void ResetPC()
+    {
+        _PC = GameObject.FindGameObjectWithTag("PC");
+    }
+
     public void AddBookaComponent()
     {   if(WhoAmI == EnemyTypes.Booka) { return; }
        AboveDeath MyDeath= gameObject.AddComponent<AboveDeath>();
@@ -88,7 +97,6 @@ public class Enemy : MonoBehaviour
 
             }
         }
-        _PC = GameObject.FindGameObjectWithTag("PC");
     }
 
     private void FixedUpdate()
