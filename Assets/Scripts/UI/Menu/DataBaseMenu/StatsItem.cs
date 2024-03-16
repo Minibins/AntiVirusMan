@@ -10,16 +10,16 @@ public class StatsItem : MonoBehaviour
 
     private void Start()
     {
-      //  _count = PlayerPrefs.GetInt(_key, 0);
-
+        SetSprite();
+        _count = PlayerPrefs.GetInt("Database."+_key, 0);
         transform.GetChild(1).gameObject.GetComponent<Text>().text = _count.ToString();
 
-        SetSprite();
     }
 
     protected virtual void SetSprite()
     {
         _itemSprite = transform.GetChild(0).gameObject.GetComponent<Image>();
         _itemSprite.sprite = _sprite;
+        _itemSprite.color = _count>0 ? Color.white : Color.black;
     }
 }
