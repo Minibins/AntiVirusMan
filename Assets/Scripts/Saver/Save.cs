@@ -4,26 +4,28 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using DustyStudios;
+
 public class Save : MonoBehaviour
 {
     const string JoystickSaveName = "Joystick";
     const string VersionSaveName = "LastSessionVersion";
     const string LocationSaveName = "WinLocation";
-    private static Data _data = new();
+    private static Data _data = new ();
 
-    public static Data data 
+    public static Data data
     {
-        get 
-        { 
+        get
+        {
             LoadField();
             return _data;
         }
-        set 
-        { 
+        set
+        {
             _data = value;
             SaveField();
-        } 
+        }
     }
+
     public static int WinLocation
     {
         get
@@ -33,11 +35,12 @@ public class Save : MonoBehaviour
         }
         set
         {
-            if(value> _data.WinLocation)
-            _data.WinLocation = value;
+            if (value > _data.WinLocation)
+                _data.WinLocation = value;
             SaveField();
         }
     }
+
     public static string LastSessionVersion
     {
         get
@@ -45,17 +48,23 @@ public class Save : MonoBehaviour
             LoadField();
             return _data.LastSessionVersion;
         }
-        set 
-        { 
+        set
+        {
             _data.LastSessionVersion = value;
-            SaveField() ;
+            SaveField();
         }
     }
-    public static Dictionary<string,float> SettingSliders
+
+    public static Dictionary<string, float> SettingSliders
     {
         get { return _data.SettingSliders; }
-        set { _data.SettingSliders = value; SaveField(); }
+        set
+        {
+            _data.SettingSliders = value;
+            SaveField();
+        }
     }
+
     public static bool joystick
     {
         get
@@ -63,46 +72,52 @@ public class Save : MonoBehaviour
             LoadField();
             return _data.Joystick;
         }
-        set 
-        { 
+        set
+        {
             _data.Joystick = value;
             SaveField();
         }
     }
+
     private void Awake()
     {
         LoadField();
-
     }
+
     public static void LoadField()
     {
         _data.Set(
-            new Dictionary<string,float>(),
+            new Dictionary<string, float>(),
             getInt(LocationSaveName),
             PlayerPrefs.GetString(VersionSaveName),
             Convert.ToBoolean(getInt(JoystickSaveName))
-            );
+        );
         int getInt(string key) => PlayerPrefs.GetInt(key);
     }
+
     public static void SaveField()
     {
-        setInt(LocationSaveName,_data.WinLocation);
-        setInt(JoystickSaveName,Convert.ToByte(_data.Joystick));
-        PlayerPrefs.SetString(VersionSaveName,_data.LastSessionVersion);
-        foreach(var s in SettingSliders)
+        setInt(LocationSaveName, _data.WinLocation);
+        setInt(JoystickSaveName, Convert.ToByte(_data.Joystick));
+        PlayerPrefs.SetString(VersionSaveName, _data.LastSessionVersion);
+        foreach (var s in SettingSliders)
         {
-            PlayerPrefs.SetFloat(s.Key,s.Value);
+            PlayerPrefs.SetFloat(s.Key, s.Value);
         }
+
         PlayerPrefs.Save();
-        void setInt(string name, int value) => PlayerPrefs.SetInt(name,value);
+        void setInt(string name, int value) => PlayerPrefs.SetInt(name, value);
     }
+
     public class Data
     {
         public int WinLocation;
         public string LastSessionVersion;
         public bool Joystick;
         public Dictionary<string, float> SettingSliders;
-        public void Set(Dictionary<string,float> SettingSliders,int WinLocation,string LastSessionVersion,bool joystick)
+
+        public void Set(Dictionary<string, float> SettingSliders, int WinLocation, string LastSessionVersion,
+            bool joystick)
         {
             this.SettingSliders = SettingSliders;
             this.WinLocation = WinLocation;
@@ -110,5 +125,4 @@ public class Save : MonoBehaviour
             Joystick = joystick;
         }
     }
-
 }
