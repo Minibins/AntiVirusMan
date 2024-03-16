@@ -251,9 +251,7 @@
             <e p="Menu" t="Include" />
             <e p="Settings" t="Include" />
           </e>
-          <e p="DataBase" t="Include">
-            <e p="Enemy" t="Include" />
-          </e>
+          <e p="DataBase" t="Include" />
           <e p="LevelUp" t="Include" />
           <e p="Portals" t="Include" />
           <e p="Trains" t="Include">
@@ -375,9 +373,8 @@
             <e p="LoadButtonPosition.cs" t="Include" />
             <e p="Menu" t="Include">
               <e p="DataBaseMenu" t="Include">
-                <e p="DataBaseMenu.cs" t="Include" />
-                <e p="Stats.cs" t="Include" />
-                <e p="UpgradeStats.cs" t="Include" />
+                <e p="StatsItem.cs" t="Include" />
+                <e p="UpgradeStatsItem.cs" t="Include" />
               </e>
               <e p="LevelButton.cs" t="Include" />
               <e p="MainMenu.cs" t="Include" />
