@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
-public class Player : MoveBase, IPlayer
+public class Player : MoveBase, IPlayer, IHealable
 {
     [SerializeField] private PChealth _health;
     public bool Stunned;
@@ -58,10 +58,10 @@ public class Player : MoveBase, IPlayer
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("FAK"))
+        Collectible collectible;
+        if (other.TryGetComponent<Collectible>(out collectible))
         {
-            _health.HealHealth(1);
-            Destroy(other.gameObject);
+            collectible.Pick(gameObject);
         }
     }
     public static void TakeDamage(Vector3 respawn)
@@ -129,5 +129,10 @@ public class Player : MoveBase, IPlayer
     new public bool IsGrounded()
     {
         return base.IsGrounded() || base.IsGrounded(TreksolesLayer);
+    }
+
+    public void Heal(int hp)
+    {
+        _health.HealHealth(hp);
     }
 }

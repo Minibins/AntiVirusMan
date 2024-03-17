@@ -388,7 +388,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 999
   m_Sprite: {fileID: 1580946199, guid: 1df0e45a1e1783b4bac6578d311db4ef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -428,6 +428,9 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _maxJumpLeftover: 0
+  AutojumpRange: 0
+  AutojumpHeight: 0
+  Autojump: 0
 --- !u!114 &3840983604411001542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -441,11 +444,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isElite: 1
+  isLittle: 0
   WhoAmI: 3
   _maskWhoKills:
     serializedVersion: 2
     m_Bits: 8192
   moveDirection: 0
+  playerPrefsName: EnemyToochaElite
+  playerPrefsLittleName: EnemyToochaElite
   ChangeMove: 0
   MoveToPoint: {fileID: 0}
   _PC: {fileID: 0}
@@ -502,6 +508,7 @@ MonoBehaviour:
   _damage: 0
   ExplodeIfCollideWithWall: 0
   Explosion: {fileID: 0}
+  DamageType: 0
   _mask:
     serializedVersion: 2
     m_Bits: 0
@@ -523,6 +530,7 @@ MonoBehaviour:
     type: 3}
   PunchSound: {fileID: 4645561069262401768, guid: 39cc83147052dbe408f02c50abb0373f,
     type: 3}
+  parrybleDamageTypes: 
   CurrentHealth: 0
   needVelocityForInvisibility: 9999
 --- !u!114 &2190369204087587778
@@ -557,6 +565,7 @@ MonoBehaviour:
     type: 3}
   _explosionRadius: 0
   _explosionPower: 0
+  DestroyHimself: 1
 --- !u!114 &1484696065160483319
 MonoBehaviour:
   m_ObjectHideFlags: 0

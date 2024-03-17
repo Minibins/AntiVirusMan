@@ -170,6 +170,9 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _maxJumpLeftover: 0
+  AutojumpRange: 0
+  AutojumpHeight: 0
+  Autojump: 0
 --- !u!114 &-5198353998425603602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,11 +186,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isElite: 0
+  isLittle: 0
   WhoAmI: 2
   _maskWhoKills:
     serializedVersion: 2
     m_Bits: 8192
   moveDirection: 0
+  playerPrefsName: EnemyBooka
+  playerPrefsLittleName: EnemyBookaLittle
   ChangeMove: 0
   MoveToPoint: {fileID: 0}
   _PC: {fileID: 0}
@@ -206,6 +212,7 @@ MonoBehaviour:
   _damage: 1
   ExplodeIfCollideWithWall: 0
   Explosion: {fileID: 0}
+  DamageType: 0
   _mask:
     serializedVersion: 2
     m_Bits: 40960
@@ -289,5 +296,6 @@ MonoBehaviour:
     type: 3}
   PunchSound: {fileID: 410203351637440491, guid: 2885d6336d009894796b76f5f36a03eb,
     type: 3}
+  parrybleDamageTypes: 
   CurrentHealth: 0
   needVelocityForInvisibility: 9999

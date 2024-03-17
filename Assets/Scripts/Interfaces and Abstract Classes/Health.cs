@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 
 using UnityEngine;
-public class Health : MonoBehaviour, iDraggable, IDamageble
+public class Health : MonoBehaviour, iDraggable, IDamageble, IHealable
 {
     [SerializeField] protected int _maxHealth;
     [SerializeField] private GameObject DeathSound, PunchSound;
@@ -45,6 +45,7 @@ public class Health : MonoBehaviour, iDraggable, IDamageble
         _maxHealth += maxHealth;
     }
 
+    public void Heal(int hp) => HealHealth(hp);
     public virtual void HealHealth(int health)
     {
         CurrentHealth += health;
@@ -100,4 +101,5 @@ public class Health : MonoBehaviour, iDraggable, IDamageble
             ApplyDamage(Damage);
         else if(hasParryAnim) animator.SetTrigger(parryAnimName);
     }
+
 }

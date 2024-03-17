@@ -188,11 +188,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ebef5ecc067c3349877bb5875cd77ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isElite: 0
+  isLittle: 0
   WhoAmI: 0
   _maskWhoKills:
     serializedVersion: 2
     m_Bits: 8192
   moveDirection: 0
+  playerPrefsName: EnemyGreen
+  playerPrefsLittleName: EnemyGreenLittle
   ChangeMove: 0
   MoveToPoint: {fileID: 0}
   _PC: {fileID: 0}
@@ -224,6 +228,9 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _maxJumpLeftover: 0
+  AutojumpRange: 0
+  AutojumpHeight: 0
+  Autojump: 0
 --- !u!114 &5645338690043026744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,6 +246,7 @@ MonoBehaviour:
   _damage: 1
   ExplodeIfCollideWithWall: 0
   Explosion: {fileID: 0}
+  DamageType: 0
   _mask:
     serializedVersion: 2
     m_Bits: 40960
@@ -272,6 +280,7 @@ MonoBehaviour:
     type: 3}
   PunchSound: {fileID: 2498862153922688538, guid: 8941f31dbf449624c85e903dcf64159e,
     type: 3}
+  parrybleDamageTypes: 
   CurrentHealth: 0
   needVelocityForInvisibility: 9999
 --- !u!1 &8978152591157368893

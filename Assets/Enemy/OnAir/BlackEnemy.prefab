@@ -195,6 +195,7 @@ MonoBehaviour:
   _damage: 0
   ExplodeIfCollideWithWall: 0
   Explosion: {fileID: 0}
+  DamageType: 0
   _mask:
     serializedVersion: 2
     m_Bits: 40960
@@ -227,6 +228,9 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _maxJumpLeftover: 0
+  AutojumpRange: 0
+  AutojumpHeight: 0
+  Autojump: 0
 --- !u!114 &957579766737629269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,11 +244,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isElite: 0
+  isLittle: 0
   WhoAmI: 3
   _maskWhoKills:
     serializedVersion: 2
     m_Bits: 8192
   moveDirection: 0
+  playerPrefsName: EnemyToocha
+  playerPrefsLittleName: EnemyToocha
   ChangeMove: 0
   MoveToPoint: {fileID: 0}
   _PC: {fileID: 0}
@@ -280,6 +287,7 @@ MonoBehaviour:
     type: 3}
   PunchSound: {fileID: 4645561069262401768, guid: 39cc83147052dbe408f02c50abb0373f,
     type: 3}
+  parrybleDamageTypes: 
   CurrentHealth: 0
   needVelocityForInvisibility: 9999
 --- !u!114 &3910043662591374944
@@ -299,6 +307,7 @@ MonoBehaviour:
     type: 3}
   _explosionRadius: 0.56
   _explosionPower: 2
+  DestroyHimself: 1
 --- !u!114 &3878945866936436762
 MonoBehaviour:
   m_ObjectHideFlags: 0

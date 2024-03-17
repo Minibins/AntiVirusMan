@@ -30,14 +30,19 @@ public class EnemyTypesAttributes:Attribute
 public class Enemy : MonoBehaviour
 {
     public static List<Enemy> Enemies = new();
-    [SerializeField] public bool isElite;
+    [SerializeField] public bool isElite,isLittle;
     [SerializeField] public EnemyTypes WhoAmI;
-    [SerializeField] private LayerMask _maskWhoKills;
+    [SerializeField] public LayerMask _maskWhoKills;
     public float moveDirection;
-    private protected Health _health;
-    private protected MoveBase _move;
-    private SpriteRenderer _spriteRenderer;
-    private protected Animator _animator;
+    protected Health _health;
+    protected MoveBase _move;
+    [SerializeField] string playerPrefsName,playerPrefsLittleName;
+    public MoveBase Move
+    {
+        get => _move;
+    }
+    SpriteRenderer _spriteRenderer;
+    protected Animator _animator;
     private bool dead = false;
     public int ChangeMove;
     public GameObject MoveToPoint;
@@ -59,6 +64,7 @@ public class Enemy : MonoBehaviour
         }
         if(LevelUP.Items[18].IsTaken)
         {
+            isLittle=true;
             _health.AddMaxHealth(-1);
             _animator.Play("Wire");
         }
@@ -149,6 +155,7 @@ public class Enemy : MonoBehaviour
     {
         if(other.CompareTag("PC")&& LevelUP.Items[18].IsTaken && WhoAmI!=EnemyTypes.Toocha&&ChangeMove==0)
         {
+            isLittle = false;
             _animator.SetTrigger("Evolution");
             _health.AddMaxHealth(1);
         }
@@ -185,6 +192,9 @@ public class Enemy : MonoBehaviour
         }
         else
         {
+            string ppname = isLittle ? playerPrefsLittleName : playerPrefsName;
+            PlayerPrefs.SetInt(ppname,PlayerPrefs.GetInt(ppname,0) + 1);
+            Enemies.Remove(this);
             _move.SetSpeedMultiplierForOllTime(0);
             const string DeathAnimationName = "Die";
             if(_animator.parameters.Any(a => a.name == DeathAnimationName))

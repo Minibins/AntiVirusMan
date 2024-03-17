@@ -83,6 +83,11 @@ PrefabInstance:
       propertyPath: _maxHealth
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7732253043999153131, guid: fa669012f4ac8d44e8dbf3927957c63c,
+        type: 3}
+      propertyPath: playerPrefsName
+      value: EnemyGreenMathyr
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -123,6 +128,7 @@ MonoBehaviour:
     type: 3}
   _explosionRadius: 0.56
   _explosionPower: 1
+  DestroyHimself: 1
 --- !u!114 &-1859177028706343883
 MonoBehaviour:
   m_ObjectHideFlags: 0

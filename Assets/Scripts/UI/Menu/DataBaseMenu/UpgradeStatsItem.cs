@@ -1,17 +1,24 @@
 using UnityEngine;
 
-    public class UpgradeStatsItem : StatsItem
+public class UpgradeStatsItem : StatsItem
+{
+    [SerializeField] private Sprite unknowSprite;
+    private void Awake()
     {
-        [SerializeField] private Sprite unknowSprite;
-        
-        
-        
-        protected override void SetSprite()
+        _key = _sprite.name;
+    }
+
+
+    protected override void SetSprite()
+    {
+        if(_count <= 0)
+        {
+            _itemSprite.sprite = unknowSprite;
+        }
+        else
         {
             base.SetSprite();
-            if (_count <= 0)
-            {
-                _itemSprite.sprite = unknowSprite;
-            }
+
         }
     }
+}

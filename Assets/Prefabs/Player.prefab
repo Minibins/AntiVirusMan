@@ -196,9 +196,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2079754781}
+  - {fileID: 2522079714771889092}
   - {fileID: 2177878831559018960}
   - {fileID: 3219266167972560455}
-  - {fileID: 2522079714771889092}
   - {fileID: 1179947044}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -266,7 +266,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5272752002bc9dc41822756ec8e88356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsTaken: 0
   Sprite: {fileID: -2117689282, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
   ID: 21
   synergies: []
@@ -400,17 +399,16 @@ MonoBehaviour:
   <AttackType>k__BackingField: 0
   <Damage>k__BackingField: 1
   SpeedIsDamageCutout: 0.1
-  _AttackSound: {fileID: 1803008693175055407, guid: a6cca2416abefef4e800f9bd3e5cd50f,
-    type: 3}
-  _bullet: {fileID: 8801379529353642565, guid: bd3def6cba8e68f48a5a523deb793b45, type: 3}
-  _spawnPoinBullet: {x: -0.5, y: 0}
   _shield: {fileID: 4351347600884552508, guid: cd320506de2923e49ac056599fd38309, type: 3}
   _shieldUltra: {fileID: 4351347600884552508, guid: 62027f6e8cf032e4e92690abf563abb5,
     type: 3}
-  LaserPrefab: {fileID: 7618958194167764102, guid: 24479b2684bcbf346828da14ea24cbd3,
+  _laser: {fileID: 0}
+  _bullet: {fileID: 8801379529353642565, guid: bd3def6cba8e68f48a5a523deb793b45, type: 3}
+  _AttackSound: {fileID: 1803008693175055407, guid: a6cca2416abefef4e800f9bd3e5cd50f,
     type: 3}
   _shieldSpawnPoint: {x: 0.65, y: -0.08}
   _shieldUltraSpawnPoint: {x: 0.65, y: -0.08}
+  _spawnPoinBullet: {x: -0.5, y: 0}
   _ammo: 5
   _maxAmmo: 5
   _timeReload: 1
@@ -429,7 +427,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b5197b4f3088e444afee55b44f7fa7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsTaken: 0
   Sprite: {fileID: 123766120, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
   ID: 3
   synergies: []

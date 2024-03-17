@@ -77,8 +77,6 @@ public class PlayersCollisionChecker : CollisionChecker
         return other.CompareTag("Player");
     }
 }
-
-
 public class BookaCollisionChecker : CollisionChecker
 {
     [SerializeField] private float _correctionY = 0.5f;

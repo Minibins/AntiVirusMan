@@ -63,7 +63,7 @@ public class MoveBase : MonoBehaviour
     bool hasRunAnimation = false;
     virtual public void MoveHorizontally(float direction)
     {
-        _velocity.Set(_curentSpeed * direction,_rigidbody.velocity.y);
+        _velocity.x = _curentSpeed * direction;
         if(hasRunAnimation)
             _animator.SetBool(WalkAnimationName,direction != 0);
         if(direction != 0)
@@ -81,7 +81,7 @@ public class MoveBase : MonoBehaviour
 
     public void MoveVertically(float direction)
     {
-        _velocity.y = (_curentSpeed * direction) - _rigidbody.totalForce.y;
+        _velocity.y = _curentSpeed * direction;
     }
 
     public void MoveBoth(Vector2 direction)
@@ -121,10 +121,10 @@ public class MoveBase : MonoBehaviour
 
     private void ResetSpeed()
     {
-        MoveHorizontally(_velocity.x);
+        MoveHorizontally(Mathf.Clamp( _velocity.x,-1,1));
         if(!CanJump)
         {
-            MoveVertically(_velocity.y);
+            MoveVertically(Mathf.Clamp(_velocity.y,-1,1));
         }
     }
 
@@ -178,7 +178,7 @@ public class MoveBase : MonoBehaviour
             StartJump();
         }
     }
-    private float _jumpStartTime;
+    protected float _jumpStartTime;
     public void StartJump()
     {
         if(CanJump)
@@ -192,14 +192,15 @@ public class MoveBase : MonoBehaviour
     private bool isJump;
 
     [SerializeField] private float _jumpingPower = 10f;
-    [SerializeField] private AnimationCurve _jumpingCurve;
+    [SerializeField] protected AnimationCurve _jumpingCurve;
     private IEnumerator jump()
     {
-        while(isJump)
+        do
         {
-            JumpAction();
             yield return new WaitForFixedUpdate();
+            JumpAction();
         }
+        while(isJump);
         CanJump = true;
     }
 
@@ -211,7 +212,7 @@ public class MoveBase : MonoBehaviour
     [SerializeField] private float _maxJumpLeftover = 0;
     public virtual void StopJump()
     {
-        _velocity = new Vector2(_velocity.x,Mathf.Min(_maxJumpLeftover,_rigidbody.velocity.y));
+        _velocity.y = Mathf.Min(_maxJumpLeftover,_rigidbody.velocity.y);
         isJump = false;
         _canJump = true;
     }

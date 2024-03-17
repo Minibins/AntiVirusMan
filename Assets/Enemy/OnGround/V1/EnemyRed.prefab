@@ -170,6 +170,9 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _maxJumpLeftover: 0
+  AutojumpRange: 0
+  AutojumpHeight: 0
+  Autojump: 0
 --- !u!114 &-7714455965291332328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,11 +186,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isElite: 0
+  isLittle: 0
   WhoAmI: 1
   _maskWhoKills:
     serializedVersion: 2
     m_Bits: 8192
   moveDirection: 0
+  playerPrefsName: EnemyStepa
+  playerPrefsLittleName: EnemyStepaLittle
   ChangeMove: 0
   MoveToPoint: {fileID: 0}
   _PC: {fileID: 0}
@@ -206,6 +212,7 @@ MonoBehaviour:
   _damage: 1
   ExplodeIfCollideWithWall: 0
   Explosion: {fileID: 0}
+  DamageType: 0
   _mask:
     serializedVersion: 2
     m_Bits: 40960
@@ -274,6 +281,7 @@ MonoBehaviour:
     type: 3}
   PunchSound: {fileID: 6399508649748986052, guid: b9b484a404e1e0e43bd441be5bd5dec5,
     type: 3}
+  parrybleDamageTypes: 
   CurrentHealth: 2
   needVelocityForInvisibility: 9999
 --- !u!1 &1390221641294342662

@@ -1,5 +1,134 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &308697290777129163
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6085264736243980034}
+  m_Layer: 9
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6085264736243980034
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 308697290777129163}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.302, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7093544336266005028}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3802878627273291846
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7821597805759239883}
+  m_Layer: 17
+  m_Name: RoofCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7821597805759239883
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3802878627273291846}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.164, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7093544336266005028}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8740216438924382387
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4695723004733277805}
+  - component: {fileID: 7288612771219200898}
+  m_Layer: 14
+  m_Name: collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4695723004733277805
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8740216438924382387}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7093544336266005028}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!70 &7288612771219200898
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8740216438924382387}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 1bc3e988f34fa5a4abf4cbe1046c1a64, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.007377529, y: -0.058993947}
+  m_Size: {x: 0.11420975, y: 0.36201203}
+  m_Direction: 0
 --- !u!1 &8794950870521176466
 GameObject:
   m_ObjectHideFlags: 0
@@ -12,12 +141,13 @@ GameObject:
   - component: {fileID: 8969436829089104092}
   - component: {fileID: 1393097978877745351}
   - component: {fileID: 285659455151757216}
-  - component: {fileID: 3975348228578392578}
   - component: {fileID: 6276663972824703520}
   - component: {fileID: 8088315683273614995}
   - component: {fileID: 124779413663992955}
-  - component: {fileID: 700190894334538055}
   - component: {fileID: -3534810928973679938}
+  - component: {fileID: 1943638704912828058}
+  - component: {fileID: 6823414666307728004}
+  - component: {fileID: 1327002428118180926}
   m_Layer: 14
   m_Name: HedgehogStepa
   m_TagString: Enemy
@@ -37,7 +167,10 @@ Transform:
   m_LocalPosition: {x: -3.32, y: -1.87, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 1
-  m_Children: []
+  m_Children:
+  - {fileID: 7821597805759239883}
+  - {fileID: 6085264736243980034}
+  - {fileID: 4695723004733277805}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8969436829089104092
@@ -80,7 +213,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 999
   m_Sprite: {fileID: -1874523033, guid: 1df0e45a1e1783b4bac6578d311db4ef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -125,23 +258,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d30642bcc9770144390aa51853873c0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3975348228578392578
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8794950870521176466}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d54634508f2eec47a76af005dde50f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maxHealth: 0
-  DeathSound: {fileID: 0}
-  PunchSound: {fileID: 0}
-  parrybleDamageTypes: 
-  CurrentHealth: 0
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 6144
+  _ReloadTime: 1
+  _multiplierSpeed: 1.1
+  _durationBoost: 666
+  ring: {fileID: 1387997128448877411, guid: 9cb9a2672c2cb2849b0cac92824e6e95, type: 3}
 --- !u!50 &6276663972824703520
 Rigidbody2D:
   serializedVersion: 4
@@ -154,7 +277,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 150
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -182,11 +305,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isElite: 1
+  isLittle: 0
   WhoAmI: 1
   _maskWhoKills:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8192
   moveDirection: 0
+  playerPrefsName: EnemyStepaElite
+  playerPrefsLittleName: EnemyStepaElite
   ChangeMove: 0
   MoveToPoint: {fileID: 0}
   _PC: {fileID: 0}
@@ -202,8 +328,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d867c4fff1b5944693ccdbdfbefa6c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!70 &700190894334538055
-CapsuleCollider2D:
+--- !u!114 &-3534810928973679938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8794950870521176466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ac0864a499e6c245b5123faa04be24d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canJump: 1
+  _speed: 2.44
+  _spriteRenderer: {fileID: 0}
+  _groundCheck: {fileID: 6085264736243980034}
+  _roofCheck: {fileID: 7821597805759239883}
+  _groundLayer:
+    serializedVersion: 2
+    m_Bits: 9232
+  _jumpingPower: 1.5
+  _jumpingCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.00083398446
+      value: 2.0213215
+      inSlope: -4.504166
+      outSlope: -4.504166
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.08979351
+    - serializedVersion: 3
+      time: 2.0844376
+      value: -1.9613569
+      inSlope: -4.5837636
+      outSlope: -4.5837636
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.07169811
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _maxJumpLeftover: 3.47
+  AutojumpRange: 3.03
+  AutojumpHeight: -0.89
+  Autojump: 1
+--- !u!58 &1943638704912828058
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -214,7 +389,7 @@ CapsuleCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -231,13 +406,13 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.007377529, y: -0.058993947}
-  m_Size: {x: 0.11420975, y: 0.36201203}
-  m_Direction: 0
---- !u!114 &-3534810928973679938
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.25
+--- !u!114 &6823414666307728004
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -246,22 +421,34 @@ MonoBehaviour:
   m_GameObject: {fileID: 8794950870521176466}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ac0864a499e6c245b5123faa04be24d, type: 3}
+  m_Script: {fileID: 11500000, guid: b9c4fd5ae8cbe924582d0b08150dbc86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _canJump: 1
-  _speed: 2.44
-  _spriteRenderer: {fileID: 0}
-  _groundCheck: {fileID: 0}
-  _roofCheck: {fileID: 0}
-  _groundLayer:
+  _damage: 0
+  ExplodeIfCollideWithWall: 0
+  Explosion: {fileID: 0}
+  DamageType: 0
+  _mask:
     serializedVersion: 2
-    m_Bits: 0
-  _jumpingPower: 10
-  _jumpingCurve:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  _maxJumpLeftover: 0
+    m_Bits: 8192
+  _velosity: {x: 0, y: 0}
+--- !u!114 &1327002428118180926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8794950870521176466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b07e02b2b847bd4693c2639f7f9ff20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 1
+  DeathSound: {fileID: 5075999706666878516, guid: c7a11f2f13a13a840b6c0c4756e8dd5b,
+    type: 3}
+  PunchSound: {fileID: 6399508649748986052, guid: b9b484a404e1e0e43bd441be5bd5dec5,
+    type: 3}
+  parrybleDamageTypes: 
+  CurrentHealth: 1
+  needVelocityForInvisibility: 9999

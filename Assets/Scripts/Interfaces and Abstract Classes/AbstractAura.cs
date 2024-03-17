@@ -5,7 +5,7 @@ public class AbstractAura : TagCollisionChecker
 {
     [SerializeField] protected float _ReloadTime;
     private bool _reloadNow = false;
-    private void Start()
+    protected virtual void Start()
     {
         StayAction += () => StartCoroutine(SlowCoroutine());
     }

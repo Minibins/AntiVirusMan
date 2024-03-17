@@ -9,7 +9,20 @@ public class SpeedBoost : AbstractAura
     private Animator _animator;
     private void Awake()
     {
+            _animator = GetComponent<Animator>();
+        if(_animator == null )
+        {
         _animator = GetComponentInParent<Animator>();
+        }
+    }
+    protected override bool StayCondition(Collider2D other)
+    {
+        MoveBase otherMove = other.GetComponent<MoveBase>();
+        if(otherMove != null)
+        {
+            return base.StayCondition(other) && !otherMove.IsMultiplierBoost();
+        }
+        else return false;
     }
     protected override IEnumerator AuraAction()
     {
