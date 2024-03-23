@@ -7,7 +7,6 @@ public class AttackProjectile : MonoBehaviour
     [SerializeField] IDamageble.DamageType DamageType;
     public int Damage
     {
-        
         get
         {
             return _damage;
@@ -20,8 +19,6 @@ public class AttackProjectile : MonoBehaviour
     [SerializeField] public LayerMask _mask;
     [SerializeField] public Vector2 _velosity;
     private MoveBase _move;
-    private IDamageble _Target;
-
     private void Awake()
     {
         _move = GetComponent<MoveBase>();
@@ -38,17 +35,17 @@ public class AttackProjectile : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        OnSomethingEnter2D(collision.collider);
         if (ExplodeIfCollideWithWall)
         {
             Instantiate(Explosion,transform.position,transform.rotation);
             Destroy(gameObject,0f);
         }
-        OnSomethingEnter2D(collision.collider);
     }
     private void OnSomethingEnter2D(Collider2D collision)
     {
-        
-        if(((_mask.value & (1 << collision.gameObject.layer)) != 0) && collision.gameObject.TryGetComponent<IDamageble>(out _Target))
+        IDamageble _Target;
+        if((_mask.value & (1 << collision.gameObject.layer)) != 0 && collision.gameObject.TryGetComponent<IDamageble>(out _Target))
         {
             _Target.OnDamageGet(Damage,DamageType);
         }

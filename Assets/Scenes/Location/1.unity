@@ -4568,7 +4568,6 @@ Transform:
   - {fileID: 662362643}
   - {fileID: 558584584}
   - {fileID: 642039129}
-  - {fileID: 699025416}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &238451923
@@ -17692,9 +17691,10 @@ GameObject:
   - component: {fileID: 699025415}
   - component: {fileID: 699025414}
   - component: {fileID: 699025417}
-  m_Layer: 0
+  - component: {fileID: 699025418}
+  m_Layer: 11
   m_Name: Rozetka
-  m_TagString: Untagged
+  m_TagString: PC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -17781,11 +17781,11 @@ Transform:
   m_GameObject: {fileID: 699025413}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.49, y: -4.506, z: 0}
-  m_LocalScale: {x: 6, y: 6, z: 6}
+  m_LocalPosition: {x: 0.25, y: -4.25, z: 0}
+  m_LocalScale: {x: 6.25, y: 6.25, z: 6.25}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 238451922}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &699025417
 BoxCollider2D:
@@ -17803,7 +17803,7 @@ BoxCollider2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_LayerOverridePriority: 0
+  m_LayerOverridePriority: -10
   m_ForceSendLayers:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -17816,7 +17816,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -17832,6 +17832,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.16, y: 0.16}
   m_EdgeRadius: 0
+--- !u!114 &699025418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699025413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98ac74647f6ecf1418cb12635423a5fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 699025414}
+  DamageTriggerName: Shock
 --- !u!1 &719234732
 GameObject:
   m_ObjectHideFlags: 0
@@ -26367,5 +26381,6 @@ SceneRoots:
   - {fileID: 14327596968153252}
   - {fileID: 2313873072146739146}
   - {fileID: 1679223243}
+  - {fileID: 699025416}
   - {fileID: 238451922}
   - {fileID: 280865273492685901}

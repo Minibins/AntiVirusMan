@@ -10235,7 +10235,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_458
+      name: Socket0
       rect:
         serializedVersion: 2
         x: 864
@@ -10256,7 +10256,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_459
+      name: Socket1
       rect:
         serializedVersion: 2
         x: 880
@@ -10277,7 +10277,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_460
+      name: Socket2
       rect:
         serializedVersion: 2
         x: 896
@@ -10298,7 +10298,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_461
+      name: SocketSad0
       rect:
         serializedVersion: 2
         x: 864
@@ -10319,7 +10319,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_462
+      name: SocketSad1
       rect:
         serializedVersion: 2
         x: 880
@@ -10340,7 +10340,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_463
+      name: SocketSad2
       rect:
         serializedVersion: 2
         x: 896
@@ -10361,7 +10361,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_464
+      name: SocketCharge0
       rect:
         serializedVersion: 2
         x: 864
@@ -10382,7 +10382,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_465
+      name: SocketCharge1
       rect:
         serializedVersion: 2
         x: 880
@@ -10403,7 +10403,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_466
+      name: SocketCharge2
       rect:
         serializedVersion: 2
         x: 896
@@ -18277,6 +18277,69 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Socket+-0
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 878
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43b4afadc71f8d74dbc8961cf273f0f8
+      internalID: 540443694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Socket+-1
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 878
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76a6da81a607b6f4495df7fab62f299f
+      internalID: 1596713502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Socket+-2
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 878
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bb457ba26ff4424aabb6588eb14d5f8
+      internalID: -1288520799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -18589,15 +18652,6 @@ TextureImporter:
       All_455: -1986203749
       All_456: -673939162
       All_457: 1097560820
-      All_458: 1695999864
-      All_459: -315771525
-      All_460: 314138547
-      All_461: 158777235
-      All_462: -2012179817
-      All_463: -563607878
-      All_464: -228078483
-      All_465: -693910397
-      All_466: -1528844028
       All_479: -732876384
       All_48: -5920281769983656131
       All_480: -1282361243
@@ -18979,6 +19033,18 @@ TextureImporter:
       MyPC6: 6307402238731681909
       MyPC7: -8797839331235733144
       MyPC8: -1938552854760300935
+      Socket+-0: 540443694
+      Socket+-1: 1596713502
+      Socket+-2: -1288520799
+      Socket0: 1695999864
+      Socket1: -315771525
+      Socket2: 314138547
+      SocketCharge0: -228078483
+      SocketCharge1: -693910397
+      SocketCharge2: -1528844028
+      SocketSad0: 158777235
+      SocketSad1: -2012179817
+      SocketSad2: -563607878
       StepaFAK: -1375158078
       StepaMathyr0: -1295817251
       StepaMathyr1: -204113230
