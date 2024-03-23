@@ -11,10 +11,14 @@ public class MoveBase : MonoBehaviour
     private float _speedMultiplier = 1f;
     private float _curentSpeed;
     private Action _move;
-    protected Rigidbody2D _rigidbody;
+    Rigidbody2D _rigidbody;
+    public Rigidbody2D Rigidbody
+    {
+        get { return _rigidbody; }
+    }
     protected Animator _animator;
     public SpriteRenderer _spriteRenderer;
-
+    [SerializeField] bool isUsingRigidbody = true;
     private Vector2 _velocity;
     public Vector2 Velocity { get; set; }
     public bool CanJump
@@ -140,9 +144,16 @@ public class MoveBase : MonoBehaviour
     }
     private void MoveNotJump()
     {
-        if(!gameObject.isStatic&&_rigidbody.bodyType!=RigidbodyType2D.Static)
+        if(isUsingRigidbody)
         {
-            _rigidbody.velocity = _velocity + _rigidbody.totalForce;
+            if(!gameObject.isStatic&&_rigidbody.bodyType!=RigidbodyType2D.Static)
+            {
+                _rigidbody.velocity = _velocity + _rigidbody.totalForce;
+            }
+        }
+        else
+        {
+            transform.position += (Vector3)_velocity*Time.fixedDeltaTime;
         }
     }
     private void OnDisable()
