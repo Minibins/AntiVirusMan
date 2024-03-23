@@ -6,6 +6,6 @@ public class Collectible : MonoBehaviour
 {
     public virtual void Pick(GameObject picker)
     {
-        Destroy(gameObject);
+        GetComponent<Animator>().SetTrigger("Pick");
     }
 }
