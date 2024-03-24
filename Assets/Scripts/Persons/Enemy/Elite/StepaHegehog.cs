@@ -23,7 +23,7 @@ public class StepaHedgehog : SpeedBoost
 
     private void SetTarget()
     {
-        IOrderedEnumerable<Enemy> targets = Enemy.Enemies.Where(e => e.WhoAmI != EnemyTypes.Toocha && e.WhoAmI != EnemyTypes.Stepa && e.ChangeMove==0 && 
+        IOrderedEnumerable<Enemy> targets = Enemy.Enemies.Where(e =>( e.WhoAmI == EnemyTypes.Soplik || e.WhoAmI == EnemyTypes.Booka )&& e.ChangeMove==0 && 
         !e.Move.IsMultiplierBoost()).OrderBy(e=>Random.Range(0,10));
         if(targets.ToArray().Length > 0)
             me._PC = targets.LastOrDefault().gameObject;

@@ -1,26 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices;
 
 using UnityEngine;
 public enum EnemyTypes
     {
-        [EnemyTypesAttributes(0,0,0)]
+        [EnemyTypesAttributes(500,0,0,0)]
         Soplik,
-        [EnemyTypesAttributes(5,0,0)]
+        [EnemyTypesAttributes(0,5,0,0)]
         Stepa,
-        [EnemyTypesAttributes(0,5,0)]
+        [EnemyTypesAttributes(-1,0,5,0)]
         Booka,
-        [EnemyTypesAttributes(-5,0,0)]
-        Toocha
+        [EnemyTypesAttributes(1000,-5,0,0)]
+        Toocha,
+        [EnemyTypesAttributes(20,0,-5,0)]
+        Yasha
     }
 public class EnemyTypesAttributes:Attribute
 {
-    private Vector3Int position;
-    public EnemyTypesAttributes(int x,int y,int z)
+    public readonly Vector3Int Position;
+    public readonly float ForcerePulsive;
+    public EnemyTypesAttributes(float forcerePulsive, int x,int y,int z)
     {
-        this.position = new Vector3Int(x,y,z);
+        Position = new Vector3Int(x,y,z);
+        ForcerePulsive = forcerePulsive;
     }
 }
 [RequireComponent(typeof(Health)),
@@ -78,16 +83,11 @@ public class Enemy : MonoBehaviour
     }
 
     public void AddBookaComponent()
-    {   if(WhoAmI == EnemyTypes.Booka) { return; }
-       AboveDeath MyDeath= gameObject.AddComponent<AboveDeath>();
-        if(WhoAmI==EnemyTypes.Soplik)
-        {
-            MyDeath.ForcerePulsive = 500;
-        }
-        else if(WhoAmI == EnemyTypes.Toocha)
-        {
-            MyDeath.ForcerePulsive = 1000;
-        }
+    {   
+        EnemyTypesAttributes myAttributes = typeof(EnemyTypes).GetField(WhoAmI.ToString()).GetCustomAttribute<EnemyTypesAttributes>();
+        if(myAttributes.ForcerePulsive<0) { return; }
+        AboveDeath MyDeath= gameObject.AddComponent<AboveDeath>();
+        MyDeath.ForcerePulsive = myAttributes.ForcerePulsive;
         MyDeath.IsPlatform = true;
     }
     private void Start()
@@ -125,17 +125,18 @@ public class Enemy : MonoBehaviour
 
     virtual private protected void EnemyMove()
     {
-        if (ChangeMove == 0)
+        if(_move != null)
         {
-            moveDirection = DustyStudios.MathAVM.MathA.OneOrNegativeOne(_PC.transform.position.x < transform.position.x);
-            if(_move!=null)
+            if(ChangeMove == 0)
             {
+                moveDirection = DustyStudios.MathAVM.MathA.OneOrNegativeOne(_PC.transform.position.x < transform.position.x);
+
                 _move.MoveHorizontally(moveDirection);
             }
-        }
-        else if (ChangeMove == 1)
-        {
-            _move.MoveOnWire(MoveToPoint);
+            else if(ChangeMove == 1)
+            {
+                _move.MoveOnWire(MoveToPoint);
+            }
         }
     }
 
@@ -195,7 +196,8 @@ public class Enemy : MonoBehaviour
             string ppname = isLittle ? playerPrefsLittleName : playerPrefsName;
             PlayerPrefs.SetInt(ppname,PlayerPrefs.GetInt(ppname,0) + 1);
             Enemies.Remove(this);
-            _move.SetSpeedMultiplierForOllTime(0);
+            if(_move!=null)
+                _move.SetSpeedMultiplierForOllTime(0);
             const string DeathAnimationName = "Die";
             if(_animator.parameters.Any(a => a.name == DeathAnimationName))
                 _animator.SetTrigger(DeathAnimationName);

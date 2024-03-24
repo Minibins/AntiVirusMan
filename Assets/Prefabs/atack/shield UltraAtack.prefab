@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 4067551086222514235}
   - component: {fileID: 712682373744742078}
   - component: {fileID: 4795321178717176958}
+  - component: {fileID: 826265033762971427}
+  - component: {fileID: -6783859161104641496}
   m_Layer: 2
   m_Name: shield UltraAtack
   m_TagString: AntivirusAtack
@@ -81,7 +83,7 @@ SpriteRenderer:
   m_SortingOrder: 1100
   m_Sprite: {fileID: -1944040806, guid: 1df0e45a1e1783b4bac6578d311db4ef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.32, y: 0.24}
@@ -188,6 +190,7 @@ MonoBehaviour:
   _damage: 4
   ExplodeIfCollideWithWall: 0
   Explosion: {fileID: 0}
+  DamageType: 0
   _mask:
     serializedVersion: 2
     m_Bits: 317504
@@ -207,6 +210,7 @@ MonoBehaviour:
   _canJump: 0
   _speed: 0
   _spriteRenderer: {fileID: 0}
+  isUsingRigidbody: 1
   _groundCheck: {fileID: 0}
   _roofCheck: {fileID: 0}
   _groundLayer:
@@ -220,6 +224,9 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _maxJumpLeftover: 0
+  AutojumpRange: 0
+  AutojumpHeight: 0
+  Autojump: 0
 --- !u!114 &4795321178717176958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,3 +239,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aa73394fcb4ef3489d741f052c85191, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &826265033762971427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4351347600884552508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0409c112f42b52b4babf9fd916cdc647, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Power: 13.76
+  layer:
+    serializedVersion: 2
+    m_Bits: 16
+--- !u!114 &-6783859161104641496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4351347600884552508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e866a455f97e5847b45518fbc22fe94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Power: 2.12
+  bouncyMaterial: {fileID: 6200000, guid: 9275f45628cc98e46a00c26b41116779, type: 2}

@@ -6,14 +6,12 @@ using System;
 public class TreksolesUpgrade : Upgrade
 {
     [SerializeField] Tilemap[] renderers;
-    List<GameObject> children = new List<GameObject>();
-
+    Collider2D[] children;
+    Transform player;
     private void Awake()
     {
-        for(int i = transform.childCount; 0 < i;)
-        {
-                children.Add(transform.GetChild(--i).gameObject);
-        }
+        player = GameObject.FindObjectOfType<Player>().transform;
+        children = GetComponentsInChildren<Collider2D>();
     }
     private void FixedUpdate()
     {
@@ -24,7 +22,7 @@ public class TreksolesUpgrade : Upgrade
         }
         foreach(var c in children)
         {
-            c.SetActive(color.a != 0f);
+            c.isTrigger = !(color.a != 0f&&c.transform.position.y<player.position.y);
         }
     }
 }

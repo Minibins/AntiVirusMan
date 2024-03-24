@@ -12,6 +12,7 @@ public class SecretGuy : Upgrade
     }
     protected override void OnTake()
     {
+        base.OnTake();
         Destroy(gameObject);
     }
 }

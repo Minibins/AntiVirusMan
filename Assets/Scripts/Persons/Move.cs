@@ -16,10 +16,10 @@ public class Move : MoveBase, iDraggable
         base.FixedUpdate();
         if(Autojump&& CanJump)
         {
-            if(Physics2D.Raycast(transform.position + Vector3.up * AutojumpHeight,Vector2.right * MathA.OneOrNegativeOne(_rigidbody.velocity.x),AutojumpRange, _groundLayer))
+            if(Physics2D.Raycast(transform.position + Vector3.up * AutojumpHeight,Vector2.right * MathA.OneOrNegativeOne(Rigidbody.velocity.x),AutojumpRange, _groundLayer))
             {
                 Jump();
-                Debug.DrawRay(transform.position + Vector3.up * AutojumpHeight,Vector2.right * MathA.OneOrNegativeOne(_rigidbody.velocity.x) * AutojumpRange);
+                Debug.DrawRay(transform.position + Vector3.up * AutojumpHeight,Vector2.right * MathA.OneOrNegativeOne(Rigidbody.velocity.x) * AutojumpRange);
             }
             else
             {

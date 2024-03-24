@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2202602805587505162}
   - component: {fileID: 4461567825328166211}
   - component: {fileID: 206274981864007530}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Laser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2048
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -116,7 +116,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.0021524113}
@@ -147,9 +147,10 @@ MonoBehaviour:
   _damage: 2
   ExplodeIfCollideWithWall: 0
   Explosion: {fileID: 0}
+  DamageType: 0
   _mask:
     serializedVersion: 2
-    m_Bits: 317440
+    m_Bits: 516095
   _velosity: {x: 0, y: 0}
 --- !u!95 &206274981864007530
 Animator:
@@ -183,7 +184,7 @@ GameObject:
   - component: {fileID: 3820493826682351756}
   - component: {fileID: 1319191506372563987}
   - component: {fileID: 6972152004216655020}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Laser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -199,7 +200,7 @@ Transform:
   m_GameObject: {fileID: 7618958194167764102}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.466162, y: 2.9204268, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

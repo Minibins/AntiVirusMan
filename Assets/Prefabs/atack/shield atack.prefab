@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 4067551086222514235}
   - component: {fileID: 712682373744742078}
   - component: {fileID: 2544317166920297421}
+  - component: {fileID: 360356189290837711}
   m_Layer: 2
   m_Name: shield atack
   m_TagString: AntivirusAtack
@@ -189,6 +190,7 @@ MonoBehaviour:
   _damage: 1
   ExplodeIfCollideWithWall: 0
   Explosion: {fileID: 0}
+  DamageType: 0
   _mask:
     serializedVersion: 2
     m_Bits: 317504
@@ -208,6 +210,7 @@ MonoBehaviour:
   _canJump: 0
   _speed: 0
   _spriteRenderer: {fileID: 0}
+  isUsingRigidbody: 1
   _groundCheck: {fileID: 0}
   _roofCheck: {fileID: 0}
   _groundLayer:
@@ -221,6 +224,9 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _maxJumpLeftover: 0
+  AutojumpRange: 0
+  AutojumpHeight: 0
+  Autojump: 0
 --- !u!114 &2544317166920297421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,3 +239,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aa73394fcb4ef3489d741f052c85191, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &360356189290837711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4351347600884552508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0409c112f42b52b4babf9fd916cdc647, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Power: 1
+  layer:
+    serializedVersion: 2
+    m_Bits: 16

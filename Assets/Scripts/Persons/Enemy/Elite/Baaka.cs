@@ -15,7 +15,7 @@ public class Baaka : AboveDeath
     protected override void OnPlayerStep()
     {
         Player.velocity = new Vector2 (0, ForcerePulsive);
-        LoseGame.instance.Antivirus();
+        GetComponent<EnemyHealth>().OnDeath();
         Player.GetComponent<MoveBase>().SetSpeedMultiplierTemporary(3,6.34f);
         Player.position = new Vector2(transform.position.x,15.44f);
         Bounds bounds = spawnArea.bounds;
@@ -41,6 +41,6 @@ public class Baaka : AboveDeath
                 Destroy(spawnedObject,6.34f);
             }
         }
-        Destroy(gameObject);
+        LoseGame.instance.Antivirus();
     }
 }
