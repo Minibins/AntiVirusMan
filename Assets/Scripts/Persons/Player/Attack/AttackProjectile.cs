@@ -46,21 +46,25 @@ public class AttackProjectile : MonoBehaviour
     }
     private void OnSomethingEnter2D(Collider2D collision)
     {
-        IDamageble _Target;
-        if((_mask.value & (1 << collision.gameObject.layer)) != 0 && collision.gameObject.TryGetComponent<IDamageble>(out _Target))
+        IDamageble[] _Targets = collision.GetComponents<IDamageble>();
+        if((_mask.value & (1 << collision.gameObject.layer)) != 0 && _Targets.Length!=0)
         {
-            _Target.OnDamageGet(Damage,DamageType);
-            try
+            foreach (var _Target in _Targets)
             {
-            foreach(IAttackProjectileModule module in modules)
-            module.Attack(_Target, collision);
-            }
-            catch
-            {
-                Awake();
-                Start();
+                _Target.OnDamageGet(Damage,DamageType);
+                try
+                {
                 foreach(IAttackProjectileModule module in modules)
-                    module.Attack(_Target,collision);
+                module.Attack(_Target, collision);
+                }
+                catch
+                {
+                    Awake();
+                    Start();
+                    foreach(IAttackProjectileModule module in modules)
+                        module.Attack(_Target,collision);
+                }
+
             }
         }
     }
