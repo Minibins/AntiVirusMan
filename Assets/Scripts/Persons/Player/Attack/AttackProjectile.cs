@@ -50,8 +50,18 @@ public class AttackProjectile : MonoBehaviour
         if((_mask.value & (1 << collision.gameObject.layer)) != 0 && collision.gameObject.TryGetComponent<IDamageble>(out _Target))
         {
             _Target.OnDamageGet(Damage,DamageType);
+            try
+            {
             foreach(IAttackProjectileModule module in modules)
             module.Attack(_Target, collision);
+            }
+            catch
+            {
+                Awake();
+                Start();
+                foreach(IAttackProjectileModule module in modules)
+                    module.Attack(_Target,collision);
+            }
         }
     }
 }

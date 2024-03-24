@@ -45,6 +45,7 @@ public class GreenKingMovement : MonoBehaviour, IDamageble
         if(collision.gameObject.CompareTag("Throne"))
         {
             GetComponent<EnemyHealth>().OnDeath();
+            collision.gameObject.GetComponentInParent<Animator>().SetTrigger("Die");
         }
     }
     public void Teleport()
@@ -54,7 +55,7 @@ public class GreenKingMovement : MonoBehaviour, IDamageble
         dashRange = defaultDashRange * MathA.OneOrNegativeOne(PC.position.x < transform.position.x);
         canDamagePC = PC.position.x < transform.position.x != PC.position.x < nextPos(colider).x;
         SetTargetPos();
-        if(transform.position==PC.position) { PC.GetComponent<PChealth>().ApplyDamage(1); }
+        if(transform.position==PC.position) { GameObject.FindObjectOfType<PChealth>().ApplyDamage(1); }
     }
     void SetTargetPos()
     {
