@@ -11,7 +11,7 @@ public class GreenKingMovement : MonoBehaviour, IDamageble
     new Transform transform;
     Collider2D colider;
     [SerializeField] float defaultDashRange, damageDashReducing, reloadTime;
-    float dashRange;
+    float dashRange,exp=0;
     bool canDamagePC;
     Vector3 nextPos(Collider2D collider)
     {
@@ -26,6 +26,7 @@ public class GreenKingMovement : MonoBehaviour, IDamageble
     {
         dashRange -= Damage*(1+Convert.ToInt16(canDamagePC))*damageDashReducing*MathA.OneOrNegativeOne(PC.position.x<transform.position.x);
         canDamagePC = false;
+        exp += Damage / 2;
         SetTargetPos();
     }
     IEnumerator Start()
@@ -46,6 +47,7 @@ public class GreenKingMovement : MonoBehaviour, IDamageble
         {
             GetComponent<EnemyHealth>().OnDeath();
             collision.gameObject.GetComponentInParent<Animator>().SetTrigger("Die");
+            Level.EXP += exp;
         }
     }
     public void Teleport()
