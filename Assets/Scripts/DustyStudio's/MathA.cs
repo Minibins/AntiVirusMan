@@ -5,7 +5,7 @@ namespace DustyStudios
 {
     namespace MathAVM
     {
-        public struct MathA
+        public static class MathA
         {
             private static Vector2Int[] OrderByMagnitude(params Vector2Int[] args)
             {
@@ -58,7 +58,10 @@ namespace DustyStudios
                 return angleExample.normalized * VectorToRotate.magnitude;
             }
 
-
+            public static Vector3 Multiply(this Vector3 vector, Vector3 vector2)
+            {
+                return new Vector3(vector.x * vector2.x,vector.y * vector2.y,vector.z * vector2.z);
+            }
             public static Quaternion VectorsAngle(Vector2 vector)
             {
                 return Quaternion.Euler(0,0,Mathf.Atan2(vector.y,vector.x)*Mathf.Rad2Deg);

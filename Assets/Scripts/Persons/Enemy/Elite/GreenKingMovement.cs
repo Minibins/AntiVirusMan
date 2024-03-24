@@ -1,5 +1,6 @@
 using DustyStudios.MathAVM;
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,33 +9,55 @@ public class GreenKingMovement : MonoBehaviour, IDamageble
 {
     [SerializeField] Transform PC, target;
     new Transform transform;
+    Collider2D colider;
     [SerializeField] float defaultDashRange, damageDashReducing, reloadTime;
     float dashRange;
     bool canDamagePC;
-    Vector3 nextPos
+    Vector3 nextPos(Collider2D collider)
     {
-        get => canDamagePC ? PC.position : transform.position + dashRange * Vector3.right;
+        Vector3 colliderPos = new(transform.position.x+ dashRange, collider.bounds.size.y/2-5);
+        while(Physics2D.OverlapPoint(colliderPos,1<<10))
+        {
+            colliderPos.y++;
+        }
+        return canDamagePC ? PC.position : new(transform.position.x + dashRange,colliderPos.y);
     }
     public void OnDamageGet(int Damage,IDamageble.DamageType type)
     {
+        dashRange -= Damage*(1+Convert.ToInt16(canDamagePC))*damageDashReducing*MathA.OneOrNegativeOne(PC.position.x<transform.position.x);
         canDamagePC = false;
-        dashRange -= Damage*damageDashReducing*MathA.OneOrNegativeOne(PC.position.x<transform.position.x);
         SetTargetPos();
     }
     IEnumerator Start()
     {
+        PC = GetComponent<Enemy>()._PC.transform;
+        Animator anim =GetComponent<Animator>();
         transform = base.transform;
+        colider = GetComponent<Collider2D>();
         while(true)
         {
-            dashRange = defaultDashRange * MathA.OneOrNegativeOne(PC.position.x < transform.position.x);
-            canDamagePC = PC.position.x < transform.position.x != PC.position.x < nextPos.x;
-            SetTargetPos();
+            anim.SetTrigger("Teleport");
             yield return new WaitForSeconds(reloadTime);
-            transform.position = nextPos;
         }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("Throne"))
+        {
+            GetComponent<EnemyHealth>().OnDeath();
+        }
+    }
+    public void Teleport()
+    {
+        transform.position = nextPos(colider);
+        
+        dashRange = defaultDashRange * MathA.OneOrNegativeOne(PC.position.x < transform.position.x);
+        canDamagePC = PC.position.x < transform.position.x != PC.position.x < nextPos(colider).x;
+        SetTargetPos();
+        if(transform.position==PC.position) { PC.GetComponent<PChealth>().ApplyDamage(1); }
     }
     void SetTargetPos()
     {
-        target.position = nextPos;
+        target.position = nextPos(colider);
     }
 }

@@ -119,7 +119,7 @@ public class Player : MoveBase, IPlayer, IHealable
     protected override void OnCollisionEnter2D(Collision2D collision)
     {
         base.OnCollisionEnter2D(collision);
-        if(IsGrounded())
+        if(base.IsGrounded())
         {
             base.StopJump();
             StopJumpAnimation();

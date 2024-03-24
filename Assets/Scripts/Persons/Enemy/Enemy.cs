@@ -125,17 +125,18 @@ public class Enemy : MonoBehaviour
 
     virtual private protected void EnemyMove()
     {
-        if (ChangeMove == 0)
+        if(_move != null)
         {
-            moveDirection = DustyStudios.MathAVM.MathA.OneOrNegativeOne(_PC.transform.position.x < transform.position.x);
-            if(_move!=null)
+            if(ChangeMove == 0)
             {
+                moveDirection = DustyStudios.MathAVM.MathA.OneOrNegativeOne(_PC.transform.position.x < transform.position.x);
+
                 _move.MoveHorizontally(moveDirection);
             }
-        }
-        else if (ChangeMove == 1)
-        {
-            _move.MoveOnWire(MoveToPoint);
+            else if(ChangeMove == 1)
+            {
+                _move.MoveOnWire(MoveToPoint);
+            }
         }
     }
 
@@ -195,7 +196,8 @@ public class Enemy : MonoBehaviour
             string ppname = isLittle ? playerPrefsLittleName : playerPrefsName;
             PlayerPrefs.SetInt(ppname,PlayerPrefs.GetInt(ppname,0) + 1);
             Enemies.Remove(this);
-            _move.SetSpeedMultiplierForOllTime(0);
+            if(_move!=null)
+                _move.SetSpeedMultiplierForOllTime(0);
             const string DeathAnimationName = "Die";
             if(_animator.parameters.Any(a => a.name == DeathAnimationName))
                 _animator.SetTrigger(DeathAnimationName);
