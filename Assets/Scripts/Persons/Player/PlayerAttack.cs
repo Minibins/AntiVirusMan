@@ -111,7 +111,7 @@ public class PlayerAttack : MonoBehaviour
         Instantiate(_AttackSound);
     }
 
-    void OnFullAttack()
+    public void OnFullAttack()
     {
         SetSpawnPoint();
         GameObject _weapon = Instantiate(_bullet, _spawnPoinBulletNow, Quaternion.identity);
@@ -151,7 +151,10 @@ public class PlayerAttack : MonoBehaviour
             coefficientAttack[0] = Vector3.Distance(transform.position, _transform3fago) * SpeedIsDamageCutout;
         }
     }
-
+    public void StopAttack()
+    {
+        _animator.SetBool("Attack",false);
+    }
     public void Shot()
     {
         WaitForPlayerAttack.Shot();
@@ -160,21 +163,10 @@ public class PlayerAttack : MonoBehaviour
         {
             case attackTypes.Standard:
                 OnAttack();
-                if(LevelUP.Items[5].IsTaken)
-                {
-                    OnFullAttack();
-                    _animator.SetTrigger("FullAttack");
-                }
-                else
-                {
-                    _animator.SetTrigger("Attack");
-                }
-
                 break;
             case attackTypes.Ultra:
                 if (Ammo < 5) return;
                 Ammo -= 3;
-                _animator.SetTrigger("UltraAttaka");
                 Invoke(nameof(OnUltraAttack), 0.5f);
                 if (LevelUP.Items[5].IsTaken)
                 {
@@ -185,12 +177,11 @@ public class PlayerAttack : MonoBehaviour
             case attackTypes.Laser:
                 var Joystick = UiElementsList.instance.Joysticks.Attack;
                 _spriteRenderer.flipX = Joystick.Horizontal < 0;
-                _animator.SetTrigger("Attack");
-                AttackType = LevelUP.Items[17].IsTaken ? attackTypes.Ultra : attackTypes.Standard;
+            AttackType = LevelUP.Items[17].IsTaken ? attackTypes.Ultra : attackTypes.Standard;
                 Joystick.gameObject.SetActive(false);
                 return;
         }
-
+        _animator.SetBool("Attack",true);
         Ammo--;
         AmmoBarRefresh();
     }

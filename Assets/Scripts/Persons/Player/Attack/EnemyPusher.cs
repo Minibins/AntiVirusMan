@@ -13,7 +13,6 @@ public class EnemyPusher : MonoBehaviour, IAttackProjectileModule
         MoveBase move;
         if(collision.gameObject.TryGetComponent<MoveBase>(out move))
         {
-            print(collision.IsTouchingLayers(layer));
             move.Rigidbody.velocity = new( MathA.OneOrNegativeOne(GetComponent<SpriteRenderer>().flipX)*Power*(1+Convert.ToInt16(collision.IsTouchingLayers(layer))),move.Rigidbody.velocity.y);
         }
     }

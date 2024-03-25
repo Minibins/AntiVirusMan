@@ -12,6 +12,7 @@ public class Controller : UnityEvents
         _newInputSystem.Basic.Jump.performed += context => UE_ButtonJump();
         _newInputSystem.Basic.Jump.canceled += context => UE_StopFly();
         _newInputSystem.Basic.Attack.performed += context => UE_ButtonShot();
+        _newInputSystem.Basic.Attack.canceled += context => UE_ButtonStopShot();
         _newInputSystem.Basic.Move.performed += context => Move();
         _newInputSystem.Basic.Move.canceled += context => UE_ButtonStop(); 
         _newInputSystem.Basic.Dash.performed += context => Dash();

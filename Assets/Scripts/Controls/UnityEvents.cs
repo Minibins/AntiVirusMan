@@ -103,7 +103,10 @@ public class UnityEvents : MonoBehaviour
         else
         { LevelUP.Items[15].IsTaken = true; print("Я читер"); }
     }
-
+    public static void UE_ButtonStopShot()
+    {
+        _playerAttack.StopAttack();
+    }
     public static void UE_ButtonSettings(bool open)
     {
         _settings.OpenSettings(open);

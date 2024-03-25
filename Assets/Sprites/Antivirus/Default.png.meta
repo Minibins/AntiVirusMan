@@ -149,7 +149,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Default_0
+      name: Default_Idle0
       rect:
         serializedVersion: 2
         x: 0
@@ -170,7 +170,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default_1
+      name: Default_Idle1
       rect:
         serializedVersion: 2
         x: 32
@@ -191,7 +191,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default_2
+      name: Default_Idle2
       rect:
         serializedVersion: 2
         x: 64
@@ -212,7 +212,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default_3
+      name: Default_Idle3
       rect:
         serializedVersion: 2
         x: 96
@@ -233,7 +233,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default_4
+      name: Default_Idle4
       rect:
         serializedVersion: 2
         x: 128
@@ -254,7 +254,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default_5
+      name: Default_Idle5
       rect:
         serializedVersion: 2
         x: 160
@@ -275,7 +275,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default_6
+      name: Default_Idle6
       rect:
         serializedVersion: 2
         x: 192
@@ -296,7 +296,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default_7
+      name: Default_Idle7
       rect:
         serializedVersion: 2
         x: 224
@@ -317,7 +317,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default_8
+      name: Default_Idle8
       rect:
         serializedVersion: 2
         x: 256
@@ -338,7 +338,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default_9
+      name: Default_Idle9
       rect:
         serializedVersion: 2
         x: 288
@@ -359,7 +359,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default_13
+      name: Default_Attack
       rect:
         serializedVersion: 2
         x: 0
@@ -380,7 +380,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default_14
+      name: Default_Attack1
       rect:
         serializedVersion: 2
         x: 32
@@ -401,7 +401,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default_15
+      name: Default_Attack2
       rect:
         serializedVersion: 2
         x: 64
@@ -422,7 +422,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default_16
+      name: Default_Attack3
       rect:
         serializedVersion: 2
         x: 96
@@ -443,7 +443,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default_21
+      name: Default_FullAttack0
       rect:
         serializedVersion: 2
         x: 0
@@ -464,7 +464,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default_22
+      name: Default_FullAttack1
       rect:
         serializedVersion: 2
         x: 32
@@ -485,7 +485,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default_23
+      name: Default_FullAttack2
       rect:
         serializedVersion: 2
         x: 64
@@ -506,7 +506,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default_24
+      name: Default_FullAttack3
       rect:
         serializedVersion: 2
         x: 96
@@ -1451,7 +1451,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default_10
+      name: Default_BigAttack0
       rect:
         serializedVersion: 2
         x: 0
@@ -1472,7 +1472,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default_11
+      name: Default_BigAttack1
       rect:
         serializedVersion: 2
         x: 32
@@ -1493,7 +1493,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default_12
+      name: Default_BigAttack2
       rect:
         serializedVersion: 2
         x: 64
@@ -1514,7 +1514,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default_17
+      name: Default_BigAttack3
       rect:
         serializedVersion: 2
         x: 96
@@ -1535,7 +1535,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default_18
+      name: Default_BigAttack4
       rect:
         serializedVersion: 2
         x: 128
@@ -1556,7 +1556,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default_19
+      name: Default_BigAttack5
       rect:
         serializedVersion: 2
         x: 160
@@ -1577,7 +1577,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default_20
+      name: Default_BigAttack6
       rect:
         serializedVersion: 2
         x: 192
@@ -2269,6 +2269,258 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Default_Scan0
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 448
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3a9add3c9c427d45900b8360ec5c0a3
+      internalID: -1416926946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Default_Scan1
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 448
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3464ef66670935942b6d57646826a703
+      internalID: -2002717275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Default_Scan2
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 448
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0162b4ff598d70d49aa234fafe583717
+      internalID: -180820377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Default_Scan3
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 448
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 915dc10866ba24c40b597fb4801cc981
+      internalID: -804122493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Default_Scan4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 448
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f41b3551d8bf9c46be9efb426555b1f
+      internalID: 383994679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Default_Scan5
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 448
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d794cd10bce71c44be8056c957b88ac
+      internalID: 660279832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Default_Scan6
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 448
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae2232977b13bdb4cb2245a3e8efb5ef
+      internalID: -1129801337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Default_Scan7
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 448
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 707fa23290ec143428c6563c7fe77b58
+      internalID: -129541889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Default_Scan8
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 448
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b5f898386c1c1343baeb57eb81952a3
+      internalID: 1678323823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Default_Scan9
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 448
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ff09bb7379765f43b0803cc31b2c375
+      internalID: -1174780612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Default_Scan10
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 448
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0d733ccb19d88744aaaa8441c6e1094
+      internalID: 847523400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Default_FullAttackStop
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 416
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89ff7332be6a0714da79ffcdfd87894b
+      internalID: 2090636173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -2280,31 +2532,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Default_0: 1276035056
-      Default_1: 1798276642
-      Default_10: -994485885
       Default_100: -11178068
-      Default_11: -99889288
-      Default_12: 1618852579
-      Default_13: 1432359109
-      Default_14: -374359671
-      Default_15: -2102164846
-      Default_16: 466610759
-      Default_17: 444528621
-      Default_18: -950469078
-      Default_19: -1647863757
-      Default_2: 1973568379
-      Default_20: 1059642291
-      Default_21: -238497741
-      Default_22: -166444109
-      Default_23: 2081737255
-      Default_24: -299486216
       Default_25: 1631135973
       Default_26: 345135111
       Default_27: 769539822
       Default_28: 1874536996
       Default_29: -1538262126
-      Default_3: 1631138320
       Default_30: 362241369
       Default_31: 630101969
       Default_32: -1109889582
@@ -2315,7 +2548,6 @@ TextureImporter:
       Default_37: -1204085793
       Default_38: -1631212158
       Default_39: -717281088
-      Default_4: -2118481283
       Default_40: -1515514578
       Default_41: -916416895
       Default_42: 1445149322
@@ -2326,7 +2558,6 @@ TextureImporter:
       Default_47: -288661295
       Default_48: -1910901324
       Default_49: 1250445323
-      Default_5: -870372185
       Default_50: -1501486732
       Default_51: -1693782408
       Default_52: 589821901
@@ -2337,7 +2568,6 @@ TextureImporter:
       Default_57: 679627257
       Default_58: 742909800
       Default_59: 359553726
-      Default_6: 1080511100
       Default_60: 1840273784
       Default_61: -1082408665
       Default_62: -1185550934
@@ -2348,7 +2578,6 @@ TextureImporter:
       Default_67: 1952865126
       Default_68: 1422232618
       Default_69: 236436504
-      Default_7: -31261096
       Default_70: -762778105
       Default_71: -71838531
       Default_72: -1044417213
@@ -2359,7 +2588,6 @@ TextureImporter:
       Default_77: 1095806830
       Default_78: -1973792553
       Default_79: 2100524183
-      Default_8: -1483237901
       Default_80: -1622577974
       Default_81: 2139549750
       Default_82: -1662885917
@@ -2370,7 +2598,6 @@ TextureImporter:
       Default_87: 1781911624
       Default_88: 791945539
       Default_89: 34541851
-      Default_9: 2032789029
       Default_90: 3007587
       Default_91: 2069943751
       Default_92: 1168123045
@@ -2381,6 +2608,43 @@ TextureImporter:
       Default_97: -823103611
       Default_98: -1378206240
       Default_99: -726076520
+      Default_Attack: 1432359109
+      Default_Attack1: -374359671
+      Default_Attack2: -2102164846
+      Default_Attack3: 466610759
+      Default_BigAttack0: -994485885
+      Default_BigAttack1: -99889288
+      Default_BigAttack2: 1618852579
+      Default_BigAttack3: 444528621
+      Default_BigAttack4: -950469078
+      Default_BigAttack5: -1647863757
+      Default_BigAttack6: 1059642291
+      Default_FullAttack0: -238497741
+      Default_FullAttack1: -166444109
+      Default_FullAttack2: 2081737255
+      Default_FullAttack3: -299486216
+      Default_FullAttackStop: 2090636173
+      Default_Idle0: 1276035056
+      Default_Idle1: 1798276642
+      Default_Idle2: 1973568379
+      Default_Idle3: 1631138320
+      Default_Idle4: -2118481283
+      Default_Idle5: -870372185
+      Default_Idle6: 1080511100
+      Default_Idle7: -31261096
+      Default_Idle8: -1483237901
+      Default_Idle9: 2032789029
+      Default_Scan0: -2002717275
+      Default_Scan1: -180820377
+      Default_Scan10: 847523400
+      Default_Scan2: -804122493
+      Default_Scan3: 383994679
+      Default_Scan4: 660279832
+      Default_Scan5: -1129801337
+      Default_Scan6: -1129801337
+      Default_Scan7: -129541889
+      Default_Scan8: 1678323823
+      Default_Scan9: -1174780612
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
