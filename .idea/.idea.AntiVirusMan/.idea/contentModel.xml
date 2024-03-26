@@ -15,6 +15,9 @@
             <e p="PixelArtTips" t="Include" />
             <e p="Upgrade" t="Include" />
           </e>
+          <e p="Ideas" t="Include">
+            <e p="Mewlogical Loot DLC.txt" t="Include" />
+          </e>
           <e p="Menu Artworks" t="Include" />
           <e p="Teplates" t="Include" />
         </e>
@@ -23,6 +26,11 @@
           <e p="AuthorText" t="Include" />
           <e p="BackGround" t="Include" />
           <e p="ButtonUpgrades" t="Include" />
+          <e p="Collectibles" t="Include">
+            <e p="ExpOne" t="Include" />
+            <e p="ExpZero" t="Include" />
+            <e p="FAK" t="Include" />
+          </e>
           <e p="Drone" t="Include" />
           <e p="Enemies" t="Include">
             <e p="Air" t="Include">
@@ -31,7 +39,9 @@
             </e>
             <e p="Elite" t="Include">
               <e p="Baaka" t="Include" />
+              <e p="Green" t="Include" />
               <e p="Judge" t="Include" />
+              <e p="Stepa" t="Include" />
             </e>
             <e p="Ground" t="Include">
               <e p="booka" t="Include" />
@@ -91,6 +101,8 @@
           <e p="Boss" t="Include" />
           <e p="Elite" t="Include">
             <e p="booka" t="Include" />
+            <e p="GreenKing" t="Include" />
+            <e p="Hedgehog" t="Include" />
             <e p="Toocha" t="Include" />
           </e>
           <e p="OnAir" t="Include" />
@@ -104,6 +116,10 @@
         <e p="Json" t="Include" />
         <e p="Light" t="Include" />
         <e p="Materials" t="Include" />
+        <e p="Music" t="Include">
+          <e p="Tutorial" t="Include" />
+          <e p="TvTower" t="Include" />
+        </e>
         <e p="Package" t="Include">
           <e p="Joystick Pack" t="Include">
             <e p="Examples" t="Include">
@@ -251,6 +267,7 @@
             <e p="Menu" t="Include" />
             <e p="Settings" t="Include" />
           </e>
+          <e p="Collectible" t="Include" />
           <e p="DataBase" t="Include" />
           <e p="LevelUp" t="Include" />
           <e p="Portals" t="Include" />
@@ -276,7 +293,13 @@
           <e p="MainMenu" t="Include" />
         </e>
         <e p="Scripts" t="Include">
+          <e p="BackgroundMusic.cs" t="Include" />
           <e p="bigexplosion.cs" t="Include" />
+          <e p="Collectibles" t="Include">
+            <e p="ExpCollectible.cs" t="Include" />
+            <e p="FirstAid.cs" t="Include" />
+            <e p="SonicRing.cs" t="Include" />
+          </e>
           <e p="Controls" t="Include">
             <e p="Controller.cs" t="Include" />
             <e p="LoseGame.cs" t="Include" />
@@ -307,13 +330,16 @@
             <e p="AbstractAura.cs" t="Include" />
             <e p="AbstractConduitionDoor.cs" t="Include" />
             <e p="AbstractPortal.cs" t="Include" />
+            <e p="Collectible.cs" t="Include" />
             <e p="ControlledAudio.cs" t="Include" />
             <e p="ExplosionConfiger.cs" t="Include" />
             <e p="Follower.cs" t="Include" />
             <e p="Health.cs" t="Include" />
-            <e p="iDraggable.cs" t="Include" />
-            <e p="IExplosion1.cs" t="Include" />
             <e p="Interfaces" t="Include">
+              <e p="IAttackProjectileModule.cs" t="Include" />
+              <e p="iDraggable.cs" t="Include" />
+              <e p="IExplosion1.cs" t="Include" />
+              <e p="IHealable.cs" t="Include" />
               <e p="IPlayer.cs" t="Include" />
               <e p="IPlayerDamageble.cs" t="Include" />
             </e>
@@ -323,14 +349,14 @@
             <e p="Upgrade.cs" t="Include" />
           </e>
           <e p="Persons" t="Include">
-            <e p="Attack.cs" t="Include" />
-            <e p="AttackProjectile.cs" t="Include" />
             <e p="DefaultHealth.cs" t="Include" />
             <e p="Enemy" t="Include">
               <e p="AboveDeath.cs" t="Include" />
               <e p="blackenemy.cs" t="Include" />
               <e p="Elite" t="Include">
                 <e p="Baaka.cs" t="Include" />
+                <e p="GreenKingMovement.cs" t="Include" />
+                <e p="StepaHegehog.cs" t="Include" />
               </e>
               <e p="Enemy.cs" t="Include" />
               <e p="EnemyHealth.cs" t="Include" />
@@ -351,8 +377,16 @@
             </e>
             <e p="pc.cs" t="Include" />
             <e p="PChealth.cs" t="Include" />
-            <e p="Player.cs" t="Include" />
-            <e p="PlayerAttack.cs" t="Include" />
+            <e p="Player" t="Include">
+              <e p="Attack" t="Include">
+                <e p="AttackProjectile.cs" t="Include" />
+                <e p="EnemyPusher.cs" t="Include" />
+                <e p="MakeEnemyJump.cs" t="Include" />
+              </e>
+              <e p="Attack.cs" t="Include" />
+              <e p="Player.cs" t="Include" />
+              <e p="PlayerAttack.cs" t="Include" />
+            </e>
             <e p="PlayerMove.cs" t="Include" />
             <e p="RotateToGameobject.cs" t="Include" />
           </e>
@@ -415,6 +449,7 @@
             </e>
             <e p="Cooler.cs" t="Include" />
             <e p="DRAG.cs" t="Include" />
+            <e p="DraggableAsTurret.cs" t="Include" />
             <e p="Drone.cs" t="Include" />
             <e p="Fallingstar.cs" t="Include" />
             <e p="InstantiateWall.cs" t="Include" />
@@ -425,6 +460,7 @@
               <e p="Level.cs" t="Include" />
               <e p="LevelUP.cs" t="Include" />
               <e p="UpgradeButton.cs" t="Include" />
+              <e p="UpgradeInitializer.cs" t="Include" />
             </e>
             <e p="mathyr.cs" t="Include" />
             <e p="NuclearBomb.cs" t="Include" />
@@ -444,13 +480,15 @@
           <e p="World" t="Include">
             <e p="DeathLine.cs" t="Include" />
             <e p="Door.cs" t="Include" />
-            <e p="ExpCollectible.cs" t="Include" />
             <e p="GameWorldTV.cs" t="Include" />
             <e p="LightFromTime.cs" t="Include" />
             <e p="Paralax.cs" t="Include" />
             <e p="Paralax2.cs" t="Include" />
             <e p="PlayerTrigger.cs" t="Include" />
-            <e p="randomSprite.cs" t="Include" />
+            <e p="Randomisation" t="Include">
+              <e p="randomAnimator.cs" t="Include" />
+              <e p="randomSprite.cs" t="Include" />
+            </e>
             <e p="Spawner" t="Include">
               <e p="ISpawnerModule.cs" t="Include" />
               <e p="SpawnerEnemy.cs" t="Include" />
@@ -487,14 +525,21 @@
         </e>
         <e p="Sprites" t="Include">
           <e p="Antivirus" t="Include" />
+          <e p="Font" t="Include">
+            <e p="SupportedSymbols.txt" t="Include" />
+            <e p="SupportedSymbolsV2.txt" t="Include" />
+          </e>
           <e p="TileMap" t="Include">
+            <e p="Platform" t="Include" />
             <e p="Scene" t="Include">
               <e p="1" t="Include">
+                <e p="BackGrounds" t="Include" />
                 <e p="Platform" t="Include" />
                 <e p="wire" t="Include" />
               </e>
               <e p="2" t="Include">
                 <e p="Platform" t="Include" />
+                <e p="Snakes" t="Include" />
                 <e p="Train" t="Include" />
               </e>
               <e p="Tutorial" t="Include">
@@ -502,7 +547,6 @@
               </e>
             </e>
           </e>
-          <e p="Upgrade" t="Include" />
         </e>
         <e p="StreamingAssets" t="Include" />
         <e p="TalkingPerson.cs" t="Include" />
