@@ -18869,6 +18869,56 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1036601004
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1036601005}
+  - component: {fileID: 1036601006}
+  m_Layer: 9
+  m_Name: ScannerAttack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1036601005
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1036601004}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.06, y: 0.074, z: 0}
+  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1246749627}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1036601006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1036601004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f5eab709379c9a4485af8953a70ccca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 4338215580284683787, guid: d3d2133648413ea43880559034d312e5, type: 3}
+  attackSound: {fileID: 0}
+  LoadTime: 0
+  AmmoCost: 0
+  isUsingJoystick: 0
+  allowOtherAttacks: 0
 --- !u!1 &1041601985
 GameObject:
   m_ObjectHideFlags: 0
@@ -19890,6 +19940,12 @@ MonoBehaviour:
   nextPoint:
   - {fileID: 1943639070}
   - {fileID: 1899678027}
+--- !u!4 &1246749627 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2177878831559018960, guid: ec94f27c1555e174ebada4b736dde08b,
+    type: 3}
+  m_PrefabInstance: {fileID: 8304178652091816245}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1287163082 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6161445882460628827, guid: 2441870b3d9f2e2478d91b05988c52a7,
@@ -26692,6 +26748,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1126693211, guid: ec94f27c1555e174ebada4b736dde08b, type: 3}
+      propertyPath: MainAttack
+      value: 
+      objectReference: {fileID: 1036601006}
     - target: {fileID: 193935507143263751, guid: ec94f27c1555e174ebada4b736dde08b,
         type: 3}
       propertyPath: _health
@@ -26789,7 +26849,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 2177878831559018960, guid: ec94f27c1555e174ebada4b736dde08b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1036601005}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec94f27c1555e174ebada4b736dde08b, type: 3}
 --- !u!95 &8304178652091816246 stripped

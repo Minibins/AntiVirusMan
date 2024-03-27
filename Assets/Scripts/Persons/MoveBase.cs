@@ -81,18 +81,33 @@ public class MoveBase : MonoBehaviour
             _animator.SetBool(WalkAnimationName,direction != 0);
         if(direction != 0)
         {
+            RotateSprite();
+        }
+
+    }
+
+    private void RotateSprite()
+    {
+        if(_velocity.x == 0)
+        {
+            return;
+        }
+        if(_rigidbody.bodyType == RigidbodyType2D.Dynamic)
+        {
             switch(rotationMode)
             {
                 case RotationMode.Transform:
-                transform.localScale = new Vector3(defaultXscale * MathA.OneOrNegativeOne(direction < 0),transform.localScale.y,transform.localScale.z);
+                transform.localScale = new Vector3(defaultXscale * MathA.OneOrNegativeOne(_velocity.x < 0),transform.localScale.y,transform.localScale.z);
                 break;
                 case RotationMode.SpriteRenderer:
-
-                _spriteRenderer.flipX = direction < 0;
+                _spriteRenderer.flipX = _velocity.x < 0;
                 break;
             }
         }
-
+        else
+        {
+            Invoke(nameof(RotateSprite),Time.deltaTime);
+        }
     }
 
     public void MoveOnWire(GameObject MoveToPoint)

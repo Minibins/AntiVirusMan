@@ -25,22 +25,6 @@ public class PlayerAttack : MonoBehaviour
     
     private PC pc;
 
-    public bool isSpeedIsDamage
-    {
-        set
-        {
-            switch (value)
-            {
-                case true:
-                    //StartCoroutine(SpeedIsDamage());
-                    break;
-                case false:
-                   // StopCoroutine(SpeedIsDamage());
-                    break;
-            }
-        }
-    }
-
     public Action OnRefreshAmmo { get; set; }
 
     public int Ammo
@@ -87,19 +71,7 @@ public class PlayerAttack : MonoBehaviour
             AmmoCell[i].Disable();
         }
     }
-    public void SpeedIsDamage()
-    {
-        Vector3 _transform3fago = transform.position;
-        try
-        {
-            Damage.multiplers[0] = Vector3.Distance(transform.position, _transform3fago) * SpeedIsDamageCutout;
-
-        }
-        catch
-        {
-            Damage.multiplers.Add(0);
-        }
-    }
+    
     public void StopAttack()
     {
         _animator.SetBool("Attack",false);

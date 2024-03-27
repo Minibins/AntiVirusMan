@@ -44,7 +44,7 @@ public class AttackProjectile : MonoBehaviour
             Destroy(gameObject,0f);
         }
     }
-    private void OnSomethingEnter2D(Collider2D collision)
+    protected void OnSomethingEnter2D(Collider2D collision)
     {
         IDamageble[] _Targets = collision.GetComponents<IDamageble>();
         if((_mask.value & (1 << collision.gameObject.layer)) != 0 && _Targets.Length!=0)
