@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-
 public class AbstractAura : TagCollisionChecker
 {
     [SerializeField] protected float _ReloadTime;

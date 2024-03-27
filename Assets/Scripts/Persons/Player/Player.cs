@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DustyStudios.MathAVM;
+
+using System;
 using System.Collections;
 using UnityEngine;
 public class Player : MoveBase, IPlayer, IHealable
@@ -35,7 +37,7 @@ public class Player : MoveBase, IPlayer, IHealable
     public void Dash()
     {
         PlayAnimation("Dash");
-        _dasher.Dash(_spriteRenderer.flipX ? -1 : 1);
+        _dasher.Dash(MathA.OneOrNegativeOne(transform.localScale.x));
     }
     
 

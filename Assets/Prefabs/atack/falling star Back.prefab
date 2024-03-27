@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: -2422789037902379398}
   m_Layer: 0
   m_Name: falling star Back
-  m_TagString: AntivirusAtack
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -322,6 +322,7 @@ MonoBehaviour:
   _damage: 1
   ExplodeIfCollideWithWall: 0
   Explosion: {fileID: 0}
+  DamageType: 0
   _mask:
     serializedVersion: 2
     m_Bits: 0

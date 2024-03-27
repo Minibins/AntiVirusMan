@@ -28,7 +28,9 @@ public class Controller : UnityEvents
     private void Move()
     {
         var _moveValue = _newInputSystem.Basic.Move.ReadValue<Vector2>();
-        UE_JoystickHorizontal(_moveValue.x);
+        if(_moveValue.x == 1) UE_ButtonRigth();
+        else if (_moveValue.x == -1) UE_ButtonLeft();
+        else if (_moveValue.x != 0) UE_JoystickHorizontal(_moveValue.x);
         if(_moveValue.y < -0.1f)
         {
             if(LevelUP.Items[4].IsTaken)

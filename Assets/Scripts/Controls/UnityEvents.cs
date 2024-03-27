@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -25,12 +26,10 @@ public class UnityEvents : MonoBehaviour
         _settings = FindAnyObjectByType<Settings>();
         restartFlyCheat();
     }
-
     private static void restartFlyCheat()
     {
         CheatToFlyQueue = new Queue<int>(CheatToFly.ToList());
     }
-
     public static void UE_ButtonLeft()
     {
         if(CheatToFlyQueue.Peek() != 0) restartFlyCheat();
@@ -40,7 +39,6 @@ public class UnityEvents : MonoBehaviour
         }
         _player.MoveHorizontally(-1);
     }
-
     public static void UE_ButtonRigth()
     {
         if(CheatToFlyQueue.Peek() != 1) restartFlyCheat();
@@ -115,13 +113,5 @@ public class UnityEvents : MonoBehaviour
     public static void UE_StopFly()
     {
         _player.StopJump();
-    }
-    class Button
-    {
-        int ID;
-        enum ActionType
-        {
-
-        }
     }
 }

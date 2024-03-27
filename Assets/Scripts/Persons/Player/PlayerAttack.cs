@@ -32,10 +32,10 @@ public class PlayerAttack : MonoBehaviour
             switch (value)
             {
                 case true:
-                    StartCoroutine(SpeedIsDamage());
+                    //StartCoroutine(SpeedIsDamage());
                     break;
                 case false:
-                    StopCoroutine(SpeedIsDamage());
+                   // StopCoroutine(SpeedIsDamage());
                     break;
             }
         }

@@ -8,6 +8,7 @@ using UnityEngine;
 public class NumberOfObjectsIsDamage : Upgrade
 {
     private PlayerAttack playerAttack;
+    private NewInputSystem inputActions;
     [SerializeField] private string[] objectsTag;
     [SerializeField] private float[] multiplerDamage;
     public static bool[] tagAlloved;
@@ -20,6 +21,10 @@ public class NumberOfObjectsIsDamage : Upgrade
     {
         base.OnTake();
         tagAlloved[0]=true;
+        InvokeRepeating(nameof(ChangeDamage), 2,2);
+        inputActions = new();
+        inputActions.Basic.Attack.performed += context => ChangeDamage();
+        inputActions.Enable();
     }
     public void ChangeDamage()
     {

@@ -17863,10 +17863,10 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_ContactCaptureLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 524283
   m_CallbackLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 524283
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -25845,6 +25845,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2035105915543376964, guid: d8c31f8808ada594796ce6007cd874da,
+        type: 3}
+      propertyPath: m_PointerBehavior
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2336483485342255519, guid: d8c31f8808ada594796ce6007cd874da,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2926377629697329162, guid: d8c31f8808ada594796ce6007cd874da,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -26039,6 +26049,21 @@ PrefabInstance:
       propertyPath: followingTarget
       value: 
       objectReference: {fileID: 519420032}
+    - target: {fileID: 7862945462744942540, guid: 856d8bdf4e9002f418c0530690235da9,
+        type: 3}
+      propertyPath: maxTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7862945462744942540, guid: 856d8bdf4e9002f418c0530690235da9,
+        type: 3}
+      propertyPath: DamageMultipler
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 7862945462744942540, guid: 856d8bdf4e9002f418c0530690235da9,
+        type: 3}
+      propertyPath: followingTransform
+      value: 
+      objectReference: {fileID: 429989188}
     - target: {fileID: 8141452513671290534, guid: 856d8bdf4e9002f418c0530690235da9,
         type: 3}
       propertyPath: spawner
@@ -26682,6 +26707,11 @@ PrefabInstance:
       propertyPath: LoadTime
       value: 0.16666667
       objectReference: {fileID: 0}
+    - target: {fileID: 1386982755463281953, guid: ec94f27c1555e174ebada4b736dde08b,
+        type: 3}
+      propertyPath: AmmoCost
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3219266167972560455, guid: ec94f27c1555e174ebada4b736dde08b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -26691,6 +26721,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.017
+      objectReference: {fileID: 0}
+    - target: {fileID: 4617479979570608980, guid: ec94f27c1555e174ebada4b736dde08b,
+        type: 3}
+      propertyPath: LoadTime
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 4854561843651644255, guid: ec94f27c1555e174ebada4b736dde08b,
         type: 3}
