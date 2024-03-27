@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 
 using DustyStudios.MathAVM;
 
@@ -11,31 +12,16 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    public enum attackTypes
-    {
-        Standard,
-        Ultra,
-        Laser
-    }
-
-    [field: SerializeField] public attackTypes AttackType { get; set; }
-    [field: SerializeField] public int Damage { get; set; }
-    [SerializeField, Range(0, 1)] private float SpeedIsDamageCutout;
-
-    [SerializeField] private GameObject _shield, _shieldUltra, _laser,_bullet,_AttackSound;
-
-    [SerializeField] private Vector2 _shieldSpawnPoint,_shieldUltraSpawnPoint,_spawnPoinBullet;
-    
+    [SerializeField] public AbstractAttack MainAttack;
+    [SerializeField] public AbstractAttack TemporaryAttackSubstitute;
+    [SerializeField] public List<AbstractAttack> AdditionalAttacks;
+    [SerializeField] public Stat Damage;
+    [SerializeField, Range(0, 1)] private float SpeedIsDamageCutout;    
     [SerializeField] private int _ammo, _maxAmmo;
     [SerializeField] public float _timeReload;
     private Rigidbody2D rb;
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
-    private Player player;
-
-    private Vector2 _spawnPoinBulletNow,
-        _shieldSpawnPointNow,
-        _shieldUltraSpawnPointNow;
     
     private PC pc;
 
@@ -56,7 +42,6 @@ public class PlayerAttack : MonoBehaviour
     }
 
     public Action OnRefreshAmmo { get; set; }
-    public float[] coefficientAttack = {0f, 0f};
 
     public int Ammo
     {
@@ -84,7 +69,7 @@ public class PlayerAttack : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        player = GetComponent<Player>();
+       
         OnRefreshAmmo += AmmoBarRefresh;
         pc = GameObject.FindGameObjectWithTag("PC").GetComponentInChildren<PC>();
     }
@@ -102,53 +87,17 @@ public class PlayerAttack : MonoBehaviour
             AmmoCell[i].Disable();
         }
     }
-    void OnAttack()
+    public void SpeedIsDamage()
     {
-        SetSpawnPoint();
-        GameObject _weapon = Instantiate(_shield, _shieldSpawnPointNow, Quaternion.identity);
-        _weapon.GetComponent<SpriteRenderer>().flipX = _spriteRenderer.flipX;
-        _weapon.GetComponent<AttackProjectile>().Damage = Damage + (int) (coefficientAttack[0] + coefficientAttack[1]);
-        Instantiate(_AttackSound);
-    }
-
-    public void OnFullAttack()
-    {
-        SetSpawnPoint();
-        GameObject _weapon = Instantiate(_bullet, _spawnPoinBulletNow, Quaternion.identity);
-        _weapon.GetComponent<AttackProjectile>().Damage = Damage;
-    }
-
-    void OnUltraAttack()
-    {
-        SetSpawnPoint();
-        GameObject _weapon = Instantiate(_shieldUltra, _shieldUltraSpawnPointNow, Quaternion.identity);
-        _weapon.GetComponent<SpriteRenderer>().flipX = _spriteRenderer.flipX;
-        _weapon.GetComponent<AttackProjectile>().Damage = Damage;
-        Instantiate(_AttackSound);
-        slowUp();
-        player.Dash((_spriteRenderer.flipX ? 1 : -1) * (LevelUP.Items[10].IsTaken ? 0.5f : 1f));
-    }
-
-    public void CreateLaser()
-    {
-        SetSpawnPoint();
-        Vector2 Rotatedvec = MathA.RotatedVector(_shieldSpawnPoint, UiElementsList.instance.Joysticks.Attack.Direction);
-        GameObject _weapon = Instantiate(_laser,
-            (Vector2) transform.position + Rotatedvec,
-            MathA.VectorsAngle(Rotatedvec));
-        if (GetComponent<MoveBase>().Velocity.x != 0) return;
-        _spriteRenderer.flipX = true;
-        _animator.SetBool("IsChad",false);
-    }
-
-    IEnumerator SpeedIsDamage()
-    {
-        while (true)
+        Vector3 _transform3fago = transform.position;
+        try
         {
-            Vector3 _transform3fago = transform.position;
+            Damage.multiplers[0] = Vector3.Distance(transform.position, _transform3fago) * SpeedIsDamageCutout;
 
-            yield return new WaitForSeconds(3f);
-            coefficientAttack[0] = Vector3.Distance(transform.position, _transform3fago) * SpeedIsDamageCutout;
+        }
+        catch
+        {
+            Damage.multiplers.Add(0);
         }
     }
     public void StopAttack()
@@ -158,32 +107,26 @@ public class PlayerAttack : MonoBehaviour
     public void Shot()
     {
         WaitForPlayerAttack.Shot();
-        if (Ammo < 1) return;
-        switch (AttackType)
+        AbstractAttack FirstAttack = TemporaryAttackSubstitute!=null?TemporaryAttackSubstitute:MainAttack;
+        if (Ammo < FirstAttack.AmmoCost) return;
+        FirstAttack.Attack(FirstAttack.LoadTime);
+        Ammo -= FirstAttack.AmmoCost;
+        
+        var Joystick = UiElementsList.instance.Joysticks.Attack;
+        if(FirstAttack.isUsingJoystick)
+            _spriteRenderer.flipX = Joystick.Horizontal < 0;
+        Joystick.gameObject.SetActive(MainAttack.isUsingJoystick);
+        if(FirstAttack.allowOtherAttacks)
         {
-            case attackTypes.Standard:
-                OnAttack();
-                break;
-            case attackTypes.Ultra:
-                if (Ammo < 5) return;
-                Ammo -= 3;
-                Invoke(nameof(OnUltraAttack), 0.5f);
-                if (LevelUP.Items[5].IsTaken)
-                {
-                    Invoke(nameof(OnFullAttack), 0.5f);
-                }
-
-                break;
-            case attackTypes.Laser:
-                var Joystick = UiElementsList.instance.Joysticks.Attack;
-                _spriteRenderer.flipX = Joystick.Horizontal < 0;
-            AttackType = LevelUP.Items[17].IsTaken ? attackTypes.Ultra : attackTypes.Standard;
-                Joystick.gameObject.SetActive(false);
-                return;
+            foreach(AbstractAttack attack in AdditionalAttacks)
+            {
+                Ammo -= attack.AmmoCost;
+                attack.Attack(FirstAttack.LoadTime+attack.LoadTime);
+            }
         }
-        _animator.SetBool("Attack",true);
-        Ammo--;
         AmmoBarRefresh();
+        TemporaryAttackSubstitute = null;
+        _animator.SetBool("Attack",true);
     }
 
     public void slowdown()
@@ -200,26 +143,6 @@ public class PlayerAttack : MonoBehaviour
     private void OnDestroy()
     {
         OnRefreshAmmo = null;
-    }
-
-    private void SetSpawnPoint()
-    {
-        _spawnPoinBulletNow = _spawnPoinBullet + (Vector2) transform.position;
-        _shieldSpawnPointNow = _shieldSpawnPoint + (Vector2) transform.position;
-        _shieldUltraSpawnPointNow = _shieldUltraSpawnPoint + (Vector2) transform.position;
-        if (_spriteRenderer.flipX)
-        {
-            _shieldSpawnPointNow.x = transform.position.x - _shieldSpawnPoint.x;
-            _shieldUltraSpawnPointNow.x = transform.position.x - _shieldUltraSpawnPoint.x;
-            _spawnPoinBulletNow.x = transform.position.x - _spawnPoinBullet.x;
-        }
-        else
-        {
-            _shieldSpawnPointNow.x = transform.position.x + _shieldSpawnPoint.x;
-            _shieldUltraSpawnPointNow.x = transform.position.x + _shieldUltraSpawnPoint.x;
-            _shieldUltraSpawnPointNow.x = transform.position.x + _shieldUltraSpawnPoint.x;
-            _spawnPoinBulletNow.x = transform.position.x + _spawnPoinBullet.x;
-        }
     }
     bool isOnReload;
     private IEnumerator Reload()

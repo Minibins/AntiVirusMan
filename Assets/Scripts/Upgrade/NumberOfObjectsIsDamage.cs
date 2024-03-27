@@ -23,15 +23,19 @@ public class NumberOfObjectsIsDamage : Upgrade
     }
     public void ChangeDamage()
     {
-        playerAttack.coefficientAttack[1] = 0f;
+        while(playerAttack.Damage.multiplers.Count < 2)
+        {
+            playerAttack.Damage.multiplers.Add(0f);
+        }
+        playerAttack.Damage.multiplers[1] = 0f;
         sbyte iterateon=-1;
         foreach (var tag in objectsTag)
         {
             if(!tagAlloved[++iterateon]) {
                 continue;
             }
-            playerAttack.coefficientAttack[1]+= GameObject.FindGameObjectsWithTag(tag).Length * multiplerDamage[iterateon];
+            playerAttack.Damage.multiplers[1]+= GameObject.FindGameObjectsWithTag(tag).Length * multiplerDamage[iterateon];
         }
-        Debug.Log(playerAttack.coefficientAttack[1]);
+        Debug.Log(playerAttack.Damage.multiplers[1]);
     }
 }

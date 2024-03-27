@@ -4,5 +4,5 @@ public interface IDamageble
     {
         Default, Explosion, Everynovment, Punishment
     }
-    public void OnDamageGet(int Damage, DamageType type);
+    public void OnDamageGet(float Damage, DamageType type);
 }

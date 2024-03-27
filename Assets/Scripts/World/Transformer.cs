@@ -5,19 +5,20 @@ using UnityEngine;
 
 public class Transformer : MonoBehaviour, IDamageble
 {
+    LaserAttack laserAttack;
     PlayerAttack attack;
     Animator Anim;
     private void Start()
     {
-
+        laserAttack = GameObject.FindObjectOfType<LaserAttack>();
         GameObject player = GameObject.FindWithTag("Player");
         attack = player.GetComponent<PlayerAttack>();
         Anim= player.GetComponent<Animator>();
     }
-    public void OnDamageGet(int damage,IDamageble.DamageType type)
+    public void OnDamageGet(float damage,IDamageble.DamageType type)
     {
         attack.slowdown();
-        attack.AttackType = PlayerAttack.attackTypes.Laser;
+        attack.TemporaryAttackSubstitute = laserAttack;
         Anim.SetBool("IsChad",true);
         UiElementsList.instance.Joysticks.Attack.gameObject.SetActive(true);
     }

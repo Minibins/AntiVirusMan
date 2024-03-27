@@ -49,6 +49,7 @@ class Dasher : MonoBehaviour
         Vector2 velocity = rb.velocity;
         for(float a = 0; a <= 10; a++)
         {
+            rb.bodyType = RigidbodyType2D.Dynamic;
             rb.velocity = new Vector2(direction * (DashRange * 5 - a * DashRange / 2),0);
             yield return new WaitForFixedUpdate();
         }

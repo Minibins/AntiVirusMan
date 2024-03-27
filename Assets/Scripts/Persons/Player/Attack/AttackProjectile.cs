@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 public class AttackProjectile : MonoBehaviour
 {
-    [SerializeField, Min(0)] private int _damage;
+    [SerializeField, Min(0)] private float _damage;
     [SerializeField] private bool ExplodeIfCollideWithWall;
     [SerializeField] private GameObject Explosion;
     [SerializeField] IDamageble.DamageType DamageType;
     IAttackProjectileModule[] modules;
-    public int Damage
+    public float Damage
     {
         get
         {

@@ -10,12 +10,12 @@ public class LaserGun : TurretLikeUpgrade, IDamageble
     [SerializeField] private float TimeReload;
     [SerializeField] private Transform SpawnPoinBullet;
     new Transform transform;
-    int greases;
+    float greases;
     private void Awake()
     {
         transform = base.transform;
     }
-    public void OnDamageGet(int Damage,IDamageble.DamageType type)
+    public void OnDamageGet(float Damage,IDamageble.DamageType type)
     {
         greases += Damage;
     }

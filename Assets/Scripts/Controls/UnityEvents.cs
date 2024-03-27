@@ -116,4 +116,12 @@ public class UnityEvents : MonoBehaviour
     {
         _player.StopJump();
     }
+    class Button
+    {
+        int ID;
+        enum ActionType
+        {
+
+        }
+    }
 }

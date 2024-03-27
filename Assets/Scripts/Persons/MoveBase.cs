@@ -17,6 +17,7 @@ public class MoveBase : MonoBehaviour
         get { return _rigidbody; }
     }
     protected Animator _animator;
+    public new Transform transform;
     public SpriteRenderer _spriteRenderer;
     [SerializeField] bool isUsingRigidbody = true;
     private Vector2 _velocity;
@@ -52,6 +53,8 @@ public class MoveBase : MonoBehaviour
     const string BoostAnimationName = "Boosted";
     protected virtual void Awake()
     {
+        transform = base.transform;
+        defaultXscale = transform.localScale.x;
         _animator = GetComponent<Animator>();
         if(_animator != null&&_animator.isActiveAndEnabled&&gameObject.activeInHierarchy)
         {
@@ -65,6 +68,12 @@ public class MoveBase : MonoBehaviour
         SetSpeedMultiplierForOllTime(_speedMultiplier);
     }
     bool hasRunAnimation = false;
+    enum RotationMode
+    {
+        Transform, SpriteRenderer, none
+    }
+    [SerializeField] RotationMode rotationMode = RotationMode.SpriteRenderer;
+    float defaultXscale;
     virtual public void MoveHorizontally(float direction)
     {
         _velocity.x = _curentSpeed * direction;
@@ -72,7 +81,16 @@ public class MoveBase : MonoBehaviour
             _animator.SetBool(WalkAnimationName,direction != 0);
         if(direction != 0)
         {
-            _spriteRenderer.flipX = direction < 0;
+            switch(rotationMode)
+            {
+                case RotationMode.Transform:
+                transform.localScale = new Vector3(defaultXscale * MathA.OneOrNegativeOne(direction < 0),transform.localScale.y,transform.localScale.z);
+                break;
+                case RotationMode.SpriteRenderer:
+
+                _spriteRenderer.flipX = direction < 0;
+                break;
+            }
         }
 
     }

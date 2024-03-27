@@ -95,7 +95,7 @@ public class Health : MonoBehaviour, iDraggable, IDamageble, IHealable
     }
     bool hasParryAnim;
     const string parryAnimName = "Parry";
-    public void OnDamageGet(int Damage, IDamageble.DamageType type)
+    public void OnDamageGet(float Damage, IDamageble.DamageType type)
     {
         if(parrybleDamageTypes!=null&&!parrybleDamageTypes.Contains(type))
             ApplyDamage(Damage);

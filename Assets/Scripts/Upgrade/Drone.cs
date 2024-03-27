@@ -13,7 +13,7 @@ public class Drone : Follower,IDamageble
     [SerializeField] float howMuchUp;
     [SerializeField] LayerMask layerMask;
     [SerializeField] GameObject bulletAsset;
-    private int damage;
+    private float damage;
     private Animator anim;
     private Player Grounded;
     override private protected void Start()
@@ -36,7 +36,7 @@ public class Drone : Follower,IDamageble
             }
        if(Grounded.IsGrounded()) Following(playerPosition.position+Vector3.up*howMuchUp,true,transform);
     }
-    public void OnDamageGet(int Damage,IDamageble.DamageType type)
+    public void OnDamageGet(float Damage,IDamageble.DamageType type)
     {
         
         anim.SetTrigger("Attack");

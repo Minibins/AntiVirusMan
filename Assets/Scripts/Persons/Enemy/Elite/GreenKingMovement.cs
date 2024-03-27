@@ -22,7 +22,7 @@ public class GreenKingMovement : MonoBehaviour, IDamageble
         }
         return canDamagePC ? PC.position : new(transform.position.x + dashRange,colliderPos.y);
     }
-    public void OnDamageGet(int Damage,IDamageble.DamageType type)
+    public void OnDamageGet(float Damage,IDamageble.DamageType type)
     {
         dashRange -= Damage*(1+Convert.ToInt16(canDamagePC))*damageDashReducing*MathA.OneOrNegativeOne(PC.position.x<transform.position.x);
         canDamagePC = false;
