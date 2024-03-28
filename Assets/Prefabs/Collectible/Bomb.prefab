@@ -117,7 +117,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!58 &1230313734671982637
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -171,7 +171,7 @@ MonoBehaviour:
   AmmoCost: 1
   isUsingJoystick: 0
   allowOtherAttacks: 0
-  Force: 15.1
+  Force: 4.2
   collider: {fileID: 1230313734671982637}
 --- !u!114 &7000572255200639585
 MonoBehaviour:
@@ -185,6 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 309e777453ecbb14abec6a6241640a18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canPick: 1
   collectionTime: 999
   holdPos: {x: 0.1, y: 0.01}
   collider: {fileID: 1230313734671982637}

@@ -6,7 +6,7 @@ public class ExplodeAndDeath : MonoBehaviour, IScannable
     [SerializeField] GameObject _explosion;
     [SerializeField] float _explosionRadius;
     [SerializeField] int _explosionPower;
-    [SerializeField] bool DestroyHimself = true;
+    [SerializeField] bool DestroyHimself = true, OnScan=true;
     public void Action()
     {
         Invoke(nameof(Explosion),chargeTime);
@@ -14,6 +14,7 @@ public class ExplodeAndDeath : MonoBehaviour, IScannable
 
     public void EndScan()
     {
+        if(OnScan)
         Explosion();
     }
 
