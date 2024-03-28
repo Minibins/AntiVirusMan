@@ -3,12 +3,18 @@ using UnityEngine;
 public class Explosive : MonoBehaviour, IDamageble
 {
     [SerializeField] GameObject Explosion;
+    [SerializeField] string ppname = "EnemyToochaTutorial";
+    [SerializeField] int exp = 3;
     public void OnDamageGet(float Damage,IDamageble.DamageType type)
     {
+        Explode();
+    }
+    public void Explode()
+    {
         Instantiate(Explosion,transform.position,Quaternion.identity);
-        Level.EXP += 3;
+        Level.EXP += exp;
         Destroy(gameObject);
-        const string ppname = "EnemyToochaTutorial";
-        PlayerPrefs.SetInt(ppname,PlayerPrefs.GetInt(ppname,0) + 1);
+        if(ppname != "")
+            PlayerPrefs.SetInt(ppname,PlayerPrefs.GetInt(ppname,0) + 1);
     }
 }

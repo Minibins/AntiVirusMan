@@ -370,7 +370,6 @@ GameObject:
   - component: {fileID: -808243191230757187}
   - component: {fileID: 527085403454745560}
   - component: {fileID: 4192231093048719063}
-  - component: {fileID: 4260927256009720717}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -593,7 +592,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afef24755c993cb478e6bc603a74fa35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MainAttack: {fileID: 3448601621365781195}
+  MainAttack: {fileID: 4617479979570608980}
   TemporaryAttackSubstitute: {fileID: 0}
   AdditionalAttacks: []
   Damage:
@@ -695,15 +694,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.11, y: 0.25}
   m_EdgeRadius: 0.1
---- !u!114 &4260927256009720717
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8304178653184876640}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eba6d060d18f39d45b528a804bb97801, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

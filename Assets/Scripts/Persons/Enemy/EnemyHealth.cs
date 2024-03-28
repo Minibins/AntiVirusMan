@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyHealth : DefaultHealth, IScannable
+public class EnemyHealth : DefaultHealth
 {
     private Enemy me;
     private Transform player;
@@ -29,23 +29,11 @@ public class EnemyHealth : DefaultHealth, IScannable
     public override void DestroyHimself()
     {
         me._PC.GetComponentInChildren<PC>().EnemyKilled();
+        base.DestroyHimself();
         Destroy(gameObject);
     }
 
     protected override void FixedUpdate()
     {
-    }
-
-    public void StartScan()
-    {
-    }
-
-    public void StopScan()
-    {
-    }
-
-    public void EndScan()
-    {
-        ApplyDamage(9999);
     }
 }

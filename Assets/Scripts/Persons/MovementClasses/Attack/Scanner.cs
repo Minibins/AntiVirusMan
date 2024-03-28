@@ -12,7 +12,9 @@ public class Scanner : AbstractAttack
         GameObject laserBeam =base.attack();
         laserBeam.transform.SetParent(transform);
         Destroy(laserBeam, 1);
-        laserBeam.GetComponent<AttackProjectile>()._velosity=Vector2.right*transform.lossyScale.x;
+        AttackProjectile projectile = laserBeam.GetComponent<AttackProjectile>();
+        projectile._velosity=Vector2.right*transform.lossyScale.x;
+        projectile.Damage = playerAttack.Damage;
         Laser = laserBeam;
         return laserBeam;
     }

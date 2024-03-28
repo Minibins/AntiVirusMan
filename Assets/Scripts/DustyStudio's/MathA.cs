@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 
 using UnityEngine;
@@ -61,6 +62,14 @@ namespace DustyStudios
             public static Vector3 Multiply(this Vector3 vector, Vector3 vector2)
             {
                 return new Vector3(vector.x * vector2.x,vector.y * vector2.y,vector.z * vector2.z);
+            }
+            public static Vector3 Delit(this Vector3 vector,Vector3 vector2)
+            {
+                return new Vector3(vector.x /vector2.x,vector.y /vector2.y,vector.z / vector2.z);
+            }
+            public static Vector3 VozvestiVstepen(this Vector3 vector, int stepen)
+            {
+                return new Vector3((float)Math.Pow((double)vector.x,(double)stepen),(float)Math.Pow((double)vector.y,(double)stepen),(float)Math.Pow((double)vector.z,(double)stepen));
             }
             public static Quaternion VectorsAngle(Vector2 vector)
             {

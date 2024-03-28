@@ -1,6 +1,6 @@
 using UnityEngine;
 [RequireComponent(typeof(Enemy))]
-public class ExplodeAndDeath : MonoBehaviour
+public class ExplodeAndDeath : MonoBehaviour, IScannable
 {
     [SerializeField] float chargeTime = 2f;
     [SerializeField] GameObject _explosion;
@@ -11,6 +11,20 @@ public class ExplodeAndDeath : MonoBehaviour
     {
         Invoke(nameof(Explosion),chargeTime);
     }
+
+    public void EndScan()
+    {
+        Explosion();
+    }
+
+    public void StartScan()
+    {
+    }
+
+    public void StopScan()
+    {
+    }
+
     protected virtual GameObject Explosion()
     {
 

@@ -63,7 +63,8 @@ public class Player : MoveBase, IPlayer, IHealable
         Collectible collectible;
         if (other.TryGetComponent<Collectible>(out collectible))
         {
-            collectible.Pick(gameObject);
+            if(collectible.isActiveAndEnabled)
+                collectible.Pick(gameObject);
         }
     }
     public static void TakeDamage(Vector3 respawn)

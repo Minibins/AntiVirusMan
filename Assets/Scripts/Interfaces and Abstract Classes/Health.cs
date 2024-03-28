@@ -16,7 +16,7 @@ public class Health : MonoBehaviour, iDraggable, IDamageble, IHealable
         get => _onDeath;
         set
         {
-            if (_onDeath != null)
+            if (value != null)
             {
                 _onDeath -= DestroyHimself;
             }

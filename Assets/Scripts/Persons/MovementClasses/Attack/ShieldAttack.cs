@@ -16,7 +16,6 @@ public class ShieldAttack : AbstractAttack
         GameObject _weapon = base.attack();
         _weapon.GetComponent<SpriteRenderer>().flipX = transform.lossyScale.x<0;
         _weapon.GetComponent<AttackProjectile>().Damage = playerAttack.Damage;
-        print(playerAttack.Damage.Value);
         return _weapon;
     }
 }
