@@ -63,7 +63,7 @@ public class Player : MoveBase, IPlayer, IHealable
         Collectible collectible;
         if (other.TryGetComponent<Collectible>(out collectible))
         {
-            if(collectible.isActiveAndEnabled)
+            if(collectible.canPick)
                 collectible.Pick(gameObject);
         }
     }
