@@ -1325,7 +1325,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default_88
+      name: Default_HeroPose
       rect:
         serializedVersion: 2
         x: 0
@@ -1346,7 +1346,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default_89
+      name: Default_Military
       rect:
         serializedVersion: 2
         x: 32
@@ -1367,7 +1367,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default_90
+      name: Default_Ghost
       rect:
         serializedVersion: 2
         x: 64
@@ -1388,7 +1388,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default_91
+      name: Default_Proud
       rect:
         serializedVersion: 2
         x: 96
@@ -1409,7 +1409,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default_92
+      name: Default_Like
       rect:
         serializedVersion: 2
         x: 128
@@ -1430,7 +1430,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default_93
+      name: Default_HeroicalFall
       rect:
         serializedVersion: 2
         x: 160
@@ -1598,7 +1598,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default_25
+      name: Default_Electroshock0
       rect:
         serializedVersion: 2
         x: 192
@@ -1619,7 +1619,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default_26
+      name: Default_Electroshock1
       rect:
         serializedVersion: 2
         x: 224
@@ -1640,7 +1640,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default_27
+      name: Default_ChadIdle0
       rect:
         serializedVersion: 2
         x: 0
@@ -1661,7 +1661,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default_28
+      name: Default_ChadIdle1
       rect:
         serializedVersion: 2
         x: 32
@@ -1682,7 +1682,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default_29
+      name: Default_ChadIdle2
       rect:
         serializedVersion: 2
         x: 64
@@ -1703,7 +1703,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default_30
+      name: Default_ChadIdle3
       rect:
         serializedVersion: 2
         x: 96
@@ -1724,7 +1724,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default_31
+      name: Default_ChadIdle4
       rect:
         serializedVersion: 2
         x: 128
@@ -1745,7 +1745,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default_41
+      name: Default_ChadIdle5
       rect:
         serializedVersion: 2
         x: 160
@@ -1766,7 +1766,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default_42
+      name: Default_ChadIdle6
       rect:
         serializedVersion: 2
         x: 192
@@ -1787,7 +1787,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default_52
+      name: Default_ChadIdle7
       rect:
         serializedVersion: 2
         x: 224
@@ -2228,7 +2228,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default_99
+      name: Default_Dash
       rect:
         serializedVersion: 2
         x: 256
@@ -2249,7 +2249,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default_100
+      name: Default_Damaged
       rect:
         serializedVersion: 2
         x: 288
@@ -2530,7 +2530,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2538,6 +2538,48 @@ TextureImporter:
       bones: []
       spriteID: 8b814223a2b5f3347b8bb1f971e0f274
       internalID: 1499072974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Default_BookaShampoo
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52af43b8c50952848b4caa73ead5c0cb
+      internalID: 715908483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Default_Throw
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e6ddf6d854b7374eaa635e2fa5d6841
+      internalID: -573781441
       vertices: []
       indices: 
       edges: []
@@ -2553,14 +2595,6 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Default_100: -11178068
-      Default_25: 1631135973
-      Default_26: 345135111
-      Default_27: 769539822
-      Default_28: 1874536996
-      Default_29: -1538262126
-      Default_30: 362241369
-      Default_31: 630101969
       Default_32: -1109889582
       Default_33: -550976021
       Default_34: 1341527503
@@ -2570,8 +2604,6 @@ TextureImporter:
       Default_38: -1631212158
       Default_39: -717281088
       Default_40: -1515514578
-      Default_41: -916416895
-      Default_42: 1445149322
       Default_43: -1522399176
       Default_44: 1016215649
       Default_45: -198569736
@@ -2581,7 +2613,6 @@ TextureImporter:
       Default_49: 1250445323
       Default_50: -1501486732
       Default_51: -1693782408
-      Default_52: 589821901
       Default_53: -2109930233
       Default_54: 1810788366
       Default_55: -1276652914
@@ -2617,18 +2648,11 @@ TextureImporter:
       Default_85: 292713758
       Default_86: 1997145526
       Default_87: 1781911624
-      Default_88: 791945539
-      Default_89: 34541851
-      Default_90: 3007587
-      Default_91: 2069943751
-      Default_92: 1168123045
-      Default_93: 1447981606
       Default_94: -228558274
       Default_95: -554428426
       Default_96: 2047523437
       Default_97: -823103611
       Default_98: -1378206240
-      Default_99: -726076520
       Default_Attack: 1432359109
       Default_Attack1: -374359671
       Default_Attack2: -2102164846
@@ -2640,11 +2664,27 @@ TextureImporter:
       Default_BigAttack4: -950469078
       Default_BigAttack5: -1647863757
       Default_BigAttack6: 1059642291
+      Default_BookaShampoo: 715908483
+      Default_ChadIdle0: 769539822
+      Default_ChadIdle1: 1874536996
+      Default_ChadIdle2: -1538262126
+      Default_ChadIdle3: 362241369
+      Default_ChadIdle4: 630101969
+      Default_ChadIdle5: -916416895
+      Default_ChadIdle6: 1445149322
+      Default_ChadIdle7: 589821901
+      Default_Damaged: -11178068
+      Default_Dash: -726076520
+      Default_Electroshock0: 1631135973
+      Default_Electroshock1: 345135111
       Default_FullAttack0: -238497741
       Default_FullAttack1: -166444109
       Default_FullAttack2: 2081737255
       Default_FullAttack3: -299486216
       Default_FullAttackStop: 2090636173
+      Default_Ghost: 3007587
+      Default_HeroPose: 791945539
+      Default_HeroicalFall: 1447981606
       Default_Idle0: 1276035056
       Default_Idle1: 1798276642
       Default_Idle2: 1973568379
@@ -2655,6 +2695,9 @@ TextureImporter:
       Default_Idle7: -31261096
       Default_Idle8: -1483237901
       Default_Idle9: 2032789029
+      Default_Like: 1168123045
+      Default_Military: 34541851
+      Default_Proud: 2069943751
       Default_Scan0: -2002717275
       Default_Scan1: -180820377
       Default_Scan10: 847523400
@@ -2667,6 +2710,7 @@ TextureImporter:
       Default_Scan8: 1678323823
       Default_Scan9: -1174780612
       Default_ScanStop: 1499072974
+      Default_Throw: -573781441
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

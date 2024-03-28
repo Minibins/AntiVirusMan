@@ -19,6 +19,10 @@ GameObject:
   - component: {fileID: 4519855225380453706}
   - component: {fileID: -5813609316073180957}
   - component: {fileID: -4064362704216976054}
+  - component: {fileID: 4971651184275482996}
+  - component: {fileID: -6768165490565685532}
+  - component: {fileID: 6060476478080955811}
+  - component: {fileID: 6823596612242230691}
   m_Layer: 12
   m_Name: Booka
   m_TagString: Enemy
@@ -156,8 +160,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _canJump: 1
   _speed: 0.4
+  transform: {fileID: 0}
   _spriteRenderer: {fileID: 0}
   isUsingRigidbody: 1
+  rotationMode: 1
   _groundCheck: {fileID: 0}
   _roofCheck: {fileID: 0}
   _groundLayer:
@@ -300,3 +306,85 @@ MonoBehaviour:
   parrybleDamageTypes: 
   CurrentHealth: 0
   needVelocityForInvisibility: 9999
+--- !u!114 &4971651184275482996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4953599130190571075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1e48c61f5f1a504585185f50b09b321, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-6768165490565685532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4953599130190571075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19d48f322225f514f836f166b5b0ee13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &6060476478080955811
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4953599130190571075}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 1552
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0003555566, y: -0.03664933}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.32, y: 0.32}
+    newSize: {x: 0.32, y: 0.32}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.27984664, y: 0.23002172}
+  m_EdgeRadius: 0
+--- !u!114 &6823596612242230691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4953599130190571075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0351fae6e3f6af4fa6df8c613c71326, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drop: {fileID: 131416467253493456, guid: 0e824479e9e957a478f3c401f3caf0c7, type: 3}

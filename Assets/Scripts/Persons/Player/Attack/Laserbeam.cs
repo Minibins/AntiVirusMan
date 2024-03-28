@@ -15,11 +15,16 @@ public class Laserbeam : AttackProjectile
         Vector2 pos = transform.position;
         lineRenderer.SetPosition(0, pos);
         RaycastHit2D raycast = Physics2D.Raycast(pos, _velosity, 999,_mask) ;
-        lineRenderer.SetPosition(1, raycast.point!=null?raycast.point:pos+_velosity*99);
+        lineRenderer.SetPosition(1, raycast.point!=Vector2.zero?raycast.point:pos+_velosity*99);
         if(raycast.collider != null&&!colliders.Contains(raycast.collider))
         {
             colliders.Add(raycast.collider);
-            OnSomethingEnter2D(raycast.collider);
+            IScannable[] scannables = raycast.collider.GetComponents<IScannable>();
+            if(scannables.Length!=0)
+            {
+                foreach (var scannable in scannables)
+                    scannable.StartScan();
+            }
         }
     }
 }

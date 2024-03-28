@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 3878945866936436762}
   - component: {fileID: 8582397747714703605}
   - component: {fileID: 5473081039433379525}
+  - component: {fileID: 2638276182769063428}
   m_Layer: 11
   m_Name: BlackEnemy
   m_TagString: Enemy
@@ -214,8 +215,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _canJump: 0
   _speed: 0
+  transform: {fileID: 0}
   _spriteRenderer: {fileID: 0}
   isUsingRigidbody: 0
+  rotationMode: 1
   _groundCheck: {fileID: 0}
   _roofCheck: {fileID: 0}
   _groundLayer:
@@ -378,3 +381,15 @@ MonoBehaviour:
   X: 1
   Y: 0
   Gameobject: {fileID: 0}
+--- !u!114 &2638276182769063428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2515844324639823540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1e48c61f5f1a504585185f50b09b321, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

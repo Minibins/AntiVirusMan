@@ -20,6 +20,9 @@ GameObject:
   - component: {fileID: 3255907650555286272}
   - component: {fileID: 1430154191912778110}
   - component: {fileID: 7744856452938332140}
+  - component: {fileID: -5457074461841902967}
+  - component: {fileID: 8294584678801467904}
+  - component: {fileID: 2341678091891051340}
   m_Layer: 18
   m_Name: Yasha
   m_TagString: Enemy
@@ -215,8 +218,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _canJump: 1
   _speed: 0.3
+  transform: {fileID: 0}
   _spriteRenderer: {fileID: 0}
   isUsingRigidbody: 1
+  rotationMode: 1
   _groundCheck: {fileID: 0}
   _roofCheck: {fileID: 0}
   _groundLayer:
@@ -319,3 +324,40 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
+--- !u!114 &-5457074461841902967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330429843486129006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19d48f322225f514f836f166b5b0ee13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8294584678801467904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330429843486129006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1e48c61f5f1a504585185f50b09b321, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2341678091891051340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330429843486129006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0351fae6e3f6af4fa6df8c613c71326, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drop: {fileID: 1739291689364484153, guid: 6c37efe324ea9f1428e2a0b26e50d4e3, type: 3}

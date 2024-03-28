@@ -24,4 +24,8 @@ public class AbstractAttack : MonoBehaviour
     {
         Invoke(nameof(attack), time);
     }
+    public virtual void StopAttack() 
+    { 
+        
+    }
 }

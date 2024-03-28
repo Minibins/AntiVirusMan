@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1392441348465677313}
   - component: {fileID: 7207915063942493922}
   - component: {fileID: 4916220527829989009}
+  - component: {fileID: 2486548314084819693}
   m_Layer: 11
   m_Name: GreenElite
   m_TagString: Untagged
@@ -235,6 +236,18 @@ MonoBehaviour:
   ChangeMove: 0
   MoveToPoint: {fileID: 0}
   _PC: {fileID: 0}
+--- !u!114 &2486548314084819693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3579794987717536575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1e48c61f5f1a504585185f50b09b321, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6411782365135609626
 GameObject:
   m_ObjectHideFlags: 0

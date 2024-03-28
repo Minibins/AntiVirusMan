@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 8801379529353642565, guid: bd3def6cba8e68f48a5a523deb793b45, type: 3}
   attackSound: {fileID: 0}
-  LoadTime: 0
+  LoadTime: 0.16666667
   AmmoCost: 0
   isUsingJoystick: 0
   allowOtherAttacks: 0
@@ -114,6 +114,7 @@ Transform:
   - {fileID: 1179947044}
   - {fileID: 1303943950996959429}
   - {fileID: 7207046062404512161}
+  - {fileID: 3586357840812234108}
   m_Father: {fileID: 8304178653184876642}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3614414121191925108
@@ -164,9 +165,59 @@ MonoBehaviour:
   attackSound: {fileID: 1803008693175055407, guid: a6cca2416abefef4e800f9bd3e5cd50f,
     type: 3}
   LoadTime: 0.5
-  AmmoCost: 0
+  AmmoCost: 4
   isUsingJoystick: 0
   allowOtherAttacks: 1
+--- !u!1 &3903852105067660738
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3586357840812234108}
+  - component: {fileID: 3448601621365781195}
+  m_Layer: 9
+  m_Name: ScannerAttack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3586357840812234108
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3903852105067660738}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.06, y: 0.074, z: 0}
+  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2177878831559018960}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3448601621365781195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3903852105067660738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f5eab709379c9a4485af8953a70ccca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 4338215580284683787, guid: d3d2133648413ea43880559034d312e5, type: 3}
+  attackSound: {fileID: 0}
+  LoadTime: 0
+  AmmoCost: 0
+  isUsingJoystick: 0
+  allowOtherAttacks: 0
 --- !u!1 &4874057754220416084
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,7 +244,7 @@ Transform:
   m_GameObject: {fileID: 4874057754220416084}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0835, y: -0.0053999904, z: 0}
+  m_LocalPosition: {x: 0.124, y: -0.017, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -214,7 +265,7 @@ MonoBehaviour:
   prefab: {fileID: 4351347600884552508, guid: cd320506de2923e49ac056599fd38309, type: 3}
   attackSound: {fileID: 1803008693175055407, guid: a6cca2416abefef4e800f9bd3e5cd50f,
     type: 3}
-  LoadTime: 0
+  LoadTime: 0.03
   AmmoCost: 1
   isUsingJoystick: 0
   allowOtherAttacks: 1
@@ -295,7 +346,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 7618958194167764102, guid: 24479b2684bcbf346828da14ea24cbd3, type: 3}
   attackSound: {fileID: 0}
-  LoadTime: 0.8
+  LoadTime: 0.516129
   AmmoCost: 0
   isUsingJoystick: 0
   allowOtherAttacks: 0
@@ -478,8 +529,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _canJump: 1
   _speed: 3.5
+  transform: {fileID: 0}
   _spriteRenderer: {fileID: 0}
   isUsingRigidbody: 1
+  rotationMode: 0
   _groundCheck: {fileID: 2522079714771889092}
   _roofCheck: {fileID: 2079754781}
   _groundLayer:
@@ -540,14 +593,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afef24755c993cb478e6bc603a74fa35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MainAttack: {fileID: 4617479979570608980}
+  MainAttack: {fileID: 3448601621365781195}
   TemporaryAttackSubstitute: {fileID: 0}
   AdditionalAttacks: []
   Damage:
     multiplers: []
     additions: []
     baseValue: 1
-  SpeedIsDamageCutout: 0.37
   _ammo: 5
   _maxAmmo: 5
   _timeReload: 1

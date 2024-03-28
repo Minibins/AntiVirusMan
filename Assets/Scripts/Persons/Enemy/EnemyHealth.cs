@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyHealth : DefaultHealth
+public class EnemyHealth : DefaultHealth, IScannable
 {
     private Enemy me;
     private Transform player;
@@ -34,5 +34,18 @@ public class EnemyHealth : DefaultHealth
 
     protected override void FixedUpdate()
     {
+    }
+
+    public void StartScan()
+    {
+    }
+
+    public void StopScan()
+    {
+    }
+
+    public void EndScan()
+    {
+        ApplyDamage(9999);
     }
 }

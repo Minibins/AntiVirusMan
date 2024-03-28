@@ -18,6 +18,9 @@ GameObject:
   - component: {fileID: 1573228806848738054}
   - component: {fileID: 8447996379547261968}
   - component: {fileID: 2240668801627141990}
+  - component: {fileID: -6261435483635148326}
+  - component: {fileID: 5915284413708559273}
+  - component: {fileID: 3247176739403350194}
   m_Layer: 14
   m_Name: EnemyRed
   m_TagString: Enemy
@@ -156,8 +159,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _canJump: 1
   _speed: 0.6
+  transform: {fileID: 0}
   _spriteRenderer: {fileID: 0}
   isUsingRigidbody: 0
+  rotationMode: 1
   _groundCheck: {fileID: 0}
   _roofCheck: {fileID: 0}
   _groundLayer:
@@ -285,6 +290,43 @@ MonoBehaviour:
   parrybleDamageTypes: 
   CurrentHealth: 2
   needVelocityForInvisibility: 9999
+--- !u!114 &-6261435483635148326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49990711567001007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19d48f322225f514f836f166b5b0ee13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5915284413708559273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49990711567001007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1e48c61f5f1a504585185f50b09b321, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3247176739403350194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49990711567001007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0351fae6e3f6af4fa6df8c613c71326, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drop: {fileID: 4243589442766721163, guid: 35ba108093e65e9429b708e0d73e69a1, type: 3}
 --- !u!1 &1390221641294342662
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,7 +338,7 @@ GameObject:
   - component: {fileID: 7180264809983310948}
   - component: {fileID: 6332553112138248543}
   - component: {fileID: 3215064090734204971}
-  m_Layer: 14
+  m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 5645338690043026744}
   - component: {fileID: 2491760720974407732}
   - component: {fileID: -6994109870560037976}
+  - component: {fileID: -3271397687478423339}
   m_Layer: 11
   m_Name: Enemy
   m_TagString: Enemy
@@ -213,8 +214,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _canJump: 1
   _speed: 1
+  transform: {fileID: 0}
   _spriteRenderer: {fileID: 0}
   isUsingRigidbody: 0
+  rotationMode: 1
   _groundCheck: {fileID: 0}
   _roofCheck: {fileID: 0}
   _groundLayer:
@@ -283,3 +286,15 @@ MonoBehaviour:
   parrybleDamageTypes: 
   CurrentHealth: 0
   needVelocityForInvisibility: 9999
+--- !u!114 &-3271397687478423339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1419220866596668024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1e48c61f5f1a504585185f50b09b321, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

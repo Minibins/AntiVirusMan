@@ -181,13 +181,14 @@ public class MoveBase : MonoBehaviour
         {
             if(!gameObject.isStatic&&_rigidbody.bodyType!=RigidbodyType2D.Static)
             {
-                _rigidbody.velocity = _velocity + _rigidbody.totalForce;
+                _rigidbody.velocity = _velocity;
             }
         }
         else
         {
             transform.position += (Vector3)_velocity*Time.fixedDeltaTime;
         }
+        _rigidbody.velocity += _rigidbody.totalForce;
     }
     private void OnDisable()
     {

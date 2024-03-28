@@ -22,8 +22,8 @@ public class Player : MoveBase, IPlayer, IHealable
         instance = this;
         base.Awake();
         _dasher = gameObject.AddComponent<Dasher>();
+        
     }
-
 
     override public void MoveHorizontally(float direction)
     {

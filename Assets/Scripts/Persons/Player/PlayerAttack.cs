@@ -14,15 +14,15 @@ public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] public AbstractAttack MainAttack;
     [SerializeField] public AbstractAttack TemporaryAttackSubstitute;
+    AbstractAttack FirstAttack => TemporaryAttackSubstitute!=null?TemporaryAttackSubstitute:MainAttack;
     [SerializeField] public List<AbstractAttack> AdditionalAttacks;
     [SerializeField] public Stat Damage;
-    [SerializeField, Range(0, 1)] private float SpeedIsDamageCutout;    
     [SerializeField] private int _ammo, _maxAmmo;
     [SerializeField] public float _timeReload;
     private Rigidbody2D rb;
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
-    
+    Scanner scanner;
     private PC pc;
 
     public Action OnRefreshAmmo { get; set; }
@@ -53,7 +53,7 @@ public class PlayerAttack : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
-       
+        scanner = GetComponentInChildren<Scanner>();
         OnRefreshAmmo += AmmoBarRefresh;
         pc = GameObject.FindGameObjectWithTag("PC").GetComponentInChildren<PC>();
     }
@@ -71,15 +71,25 @@ public class PlayerAttack : MonoBehaviour
             AmmoCell[i].Disable();
         }
     }
-    
+
+    public void EndScanner()
+    {
+        scanner.EndAttack();
+    }
+    public void StartScanner()
+    {
+        TemporaryAttackSubstitute = scanner;
+        Shot();
+    }
     public void StopAttack()
     {
         _animator.SetBool("Attack",false);
+        FirstAttack.StopAttack();
+        TemporaryAttackSubstitute = null;
     }
     public void Shot()
     {
         WaitForPlayerAttack.Shot();
-        AbstractAttack FirstAttack = TemporaryAttackSubstitute!=null?TemporaryAttackSubstitute:MainAttack;
         if (Ammo < FirstAttack.AmmoCost) return;
         FirstAttack.Attack(FirstAttack.LoadTime);
         Ammo -= FirstAttack.AmmoCost;
@@ -97,7 +107,6 @@ public class PlayerAttack : MonoBehaviour
             }
         }
         AmmoBarRefresh();
-        TemporaryAttackSubstitute = null;
         _animator.SetBool("Attack",true);
     }
 

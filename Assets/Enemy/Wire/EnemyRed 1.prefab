@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 8139804192362469569}
   - component: {fileID: -3232048528765222662}
   - component: {fileID: -6418358215614470869}
+  - component: {fileID: 1191920092378028705}
   m_Layer: 11
   m_Name: EnemyRed 1
   m_TagString: Enemy
@@ -155,8 +156,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _canJump: 1
   _speed: 0.5
+  transform: {fileID: 0}
   _spriteRenderer: {fileID: 0}
   isUsingRigidbody: 0
+  rotationMode: 1
   _groundCheck: {fileID: 0}
   _roofCheck: {fileID: 0}
   _groundLayer:
@@ -284,6 +287,18 @@ MonoBehaviour:
   parrybleDamageTypes: 
   CurrentHealth: 0
   needVelocityForInvisibility: 9999
+--- !u!114 &1191920092378028705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49990711567001007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1e48c61f5f1a504585185f50b09b321, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7266390856897857272
 GameObject:
   m_ObjectHideFlags: 0
