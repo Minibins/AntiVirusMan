@@ -18,8 +18,7 @@ public class Transformer : MonoBehaviour, IDamageble
     public void OnDamageGet(float damage,IDamageble.DamageType type)
     {
         attack.slowdown();
-        attack.TemporaryAttackSubstitute = laserAttack;
+        attack.AddTemporaryAttackSubstitute( laserAttack);
         Anim.SetBool("IsChad",true);
-        UiElementsList.instance.Joysticks.Attack.gameObject.SetActive(true);
     }
 }

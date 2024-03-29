@@ -81,6 +81,57 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8304178653184876642}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1072069520741371041
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4086737418669338743}
+  - component: {fileID: 3094369973545094627}
+  m_Layer: 9
+  m_Name: BookaShampooAttack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4086737418669338743
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1072069520741371041}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2177878831559018960}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3094369973545094627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1072069520741371041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 231adf29f1d32ea4a837594ef1c3e00f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 4632695051306765894, guid: dad8a7e2db23c3846a90095fc777624c, type: 3}
+  attackSound: {fileID: 0}
+  LoadTime: 0
+  AmmoCost: 1
+  isUsingJoystick: 1
+  allowOtherAttacks: 0
+  Force: 11.4
 --- !u!1 &2530329029609531676
 GameObject:
   m_ObjectHideFlags: 0
@@ -115,6 +166,7 @@ Transform:
   - {fileID: 1303943950996959429}
   - {fileID: 7207046062404512161}
   - {fileID: 3586357840812234108}
+  - {fileID: 4086737418669338743}
   m_Father: {fileID: 8304178653184876642}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3614414121191925108
@@ -326,7 +378,7 @@ Transform:
   m_GameObject: {fileID: 7378304945537147408}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.015000011, z: 0}
+  m_LocalPosition: {x: 0.03, y: -0.006, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -348,9 +400,9 @@ MonoBehaviour:
   attackSound: {fileID: 0}
   LoadTime: 0.516129
   AmmoCost: 0
-  isUsingJoystick: 0
+  isUsingJoystick: 1
   allowOtherAttacks: 0
-  spawnPosDistance: 0.6
+  spawnPosDistance: 0.3
 --- !u!1 &8304178653184876640
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,7 +488,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1002
-  m_Sprite: {fileID: 1276035056, guid: 80520dda58204084f884e0db6d0507b4, type: 3}
+  m_Sprite: {fileID: 791945539, guid: 80520dda58204084f884e0db6d0507b4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -593,7 +645,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MainAttack: {fileID: 4617479979570608980}
-  TemporaryAttackSubstitute: {fileID: 0}
+  TemporaryAttackSubstitute: []
   AdditionalAttacks: []
   Damage:
     multiplers: []

@@ -19,6 +19,7 @@ public class BombAttack : AbstractAttack
             yield return new WaitForSeconds(0.2f);
             collectible.canPick = true;
         }
+        playerAttack.Animator.Play("ThrowThing");
         return gameObject;
     }
 }

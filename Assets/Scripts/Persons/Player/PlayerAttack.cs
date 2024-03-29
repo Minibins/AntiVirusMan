@@ -13,20 +13,25 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] public AbstractAttack MainAttack;
-    [SerializeField] public AbstractAttack TemporaryAttackSubstitute;
-    AbstractAttack FirstAttack => TemporaryAttackSubstitute!=null?TemporaryAttackSubstitute:MainAttack;
+    [HideInInspector] public List<AbstractAttack> TemporaryAttackSubstitute = new();
+    AbstractAttack FirstAttack => TemporaryAttackSubstitute.Count > 0 ? TemporaryAttackSubstitute[0] :MainAttack;
     [SerializeField] public List<AbstractAttack> AdditionalAttacks;
     [SerializeField] public Stat Damage;
     [SerializeField] private int _ammo, _maxAmmo;
     [SerializeField] public float _timeReload;
     private Rigidbody2D rb;
     private Animator _animator;
+    public Animator Animator { get => _animator; }
     private SpriteRenderer _spriteRenderer;
     Scanner scanner;
     private PC pc;
 
     public Action OnRefreshAmmo { get; set; }
-
+    public void AddTemporaryAttackSubstitute(AbstractAttack substitute)
+    {
+        if(substitute.isUsingJoystick) UiElementsList.instance.Joysticks.Attack.gameObject.SetActive(true);
+        TemporaryAttackSubstitute.Add(substitute);
+    }
     public int Ammo
     {
         get { return _ammo; }
@@ -78,14 +83,15 @@ public class PlayerAttack : MonoBehaviour
     }
     public void StartScanner()
     {
-        TemporaryAttackSubstitute = scanner;
+        AddTemporaryAttackSubstitute( scanner);
         Shot();
     }
     public void StopAttack()
     {
         _animator.SetBool("Attack",false);
         FirstAttack.StopAttack();
-        TemporaryAttackSubstitute = null;
+        if(TemporaryAttackSubstitute.Count > 0) 
+        TemporaryAttackSubstitute.RemoveAt(0);
     }
     public void Shot()
     {
@@ -96,7 +102,7 @@ public class PlayerAttack : MonoBehaviour
         
         var Joystick = UiElementsList.instance.Joysticks.Attack;
         if(FirstAttack.isUsingJoystick)
-            _spriteRenderer.flipX = Joystick.Horizontal < 0;
+            transform.localScale = new(Mathf.Abs(transform.localScale.x)* MathA.OneOrNegativeOne(Joystick.Horizontal < 0),transform.localScale.y,transform.localScale.z);
         Joystick.gameObject.SetActive(MainAttack.isUsingJoystick);
         if(FirstAttack.allowOtherAttacks)
         {

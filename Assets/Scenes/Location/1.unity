@@ -4786,6 +4786,63 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2313873072146739146}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &350902658 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2177878831559018960, guid: ec94f27c1555e174ebada4b736dde08b,
+    type: 3}
+  m_PrefabInstance: {fileID: 8304178652091816245}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &360195248
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 360195249}
+  - component: {fileID: 360195250}
+  m_Layer: 9
+  m_Name: BookaShampooAttack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &360195249
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 360195248}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 350902658}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &360195250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 360195248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 231adf29f1d32ea4a837594ef1c3e00f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 4632695051306765894, guid: dad8a7e2db23c3846a90095fc777624c, type: 3}
+  attackSound: {fileID: 0}
+  LoadTime: 0
+  AmmoCost: 1
+  isUsingJoystick: 1
+  allowOtherAttacks: 0
+  Force: 11.4
 --- !u!1 &361553402
 GameObject:
   m_ObjectHideFlags: 0
@@ -26707,6 +26764,26 @@ PrefabInstance:
       propertyPath: _health
       value: 
       objectReference: {fileID: 4765063866695837592}
+    - target: {fileID: 4854561843651644255, guid: ec94f27c1555e174ebada4b736dde08b,
+        type: 3}
+      propertyPath: isUsingJoystick
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4854561843651644255, guid: ec94f27c1555e174ebada4b736dde08b,
+        type: 3}
+      propertyPath: spawnPosDistance
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7207046062404512161, guid: ec94f27c1555e174ebada4b736dde08b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 7207046062404512161, guid: ec94f27c1555e174ebada4b736dde08b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.006
+      objectReference: {fileID: 0}
     - target: {fileID: 8304178653184876640, guid: ec94f27c1555e174ebada4b736dde08b,
         type: 3}
       propertyPath: m_Name
@@ -26764,7 +26841,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 2177878831559018960, guid: ec94f27c1555e174ebada4b736dde08b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 360195249}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec94f27c1555e174ebada4b736dde08b, type: 3}
 --- !u!95 &8304178652091816246 stripped

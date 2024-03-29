@@ -21,7 +21,6 @@ public class ExplodeAndDeath : MonoBehaviour, IScannable
     public void StartScan()
     {
     }
-
     public void StopScan()
     {
     }
