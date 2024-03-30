@@ -25,7 +25,6 @@ public class Settings : MonoBehaviour
     {
         var UI = UiElementsList.instance;
         isUsingJoystick = !isUsingJoystick;
-
         UI.Joysticks.Walk.gameObject.SetActive(!isUsingJoystick);
         var Buttons = UI.Buttons;
         Buttons.Right.gameObject.SetActive(isUsingJoystick);

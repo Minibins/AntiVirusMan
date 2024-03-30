@@ -86,7 +86,7 @@ public class PlayerAttack : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
         player = GetComponent<Player>();
         OnRefreshAmmo += AmmoBarRefresh;
-        pc = GameObject.FindGameObjectWithTag("PC").GetComponentInChildren<PC>();
+        pc = GameObject.FindObjectOfType<PC>();
     }
 
     private void AmmoBarRefresh()

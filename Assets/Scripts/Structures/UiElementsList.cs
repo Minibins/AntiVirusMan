@@ -11,7 +11,7 @@ public class UiElementsList : MonoBehaviour
     [SerializeField] public JoysticksStruct Joysticks;
     [SerializeField] public PanelsStruct Panels;
     [SerializeField] public UserInterface Counters;
-    private void Start()
+    private void Awake()
     {
         instance = this;
     }
