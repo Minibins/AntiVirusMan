@@ -44,8 +44,8 @@ public class SpawnerEnemy : MonoBehaviour
                 int enemiesInWave = (int)Random.Range(WaveSizeRange.x, WaveSizeRange.y);
                 for(int X = 0; X < enemiesInWave;)
                 {
-                    StartCoroutine(SpawnEnemy(spawnPoint,X++));
                     yield return WaitSpawnTime();
+                    StartCoroutine(SpawnEnemy(spawnPoint,X++));
                 }
                     int i = Random.Range(0, spawnersWireEnemy.Length);
                     GameObject WireEnemy = Instantiate(WireEnemies[Random.Range(0, WireEnemies.Length)],

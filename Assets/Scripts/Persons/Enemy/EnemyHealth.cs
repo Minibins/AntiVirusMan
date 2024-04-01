@@ -28,9 +28,8 @@ public class EnemyHealth : DefaultHealth
 
     public override void DestroyHimself()
     {
-        me._PC.GetComponentInChildren<PC>().EnemyKilled();
-        base.DestroyHimself();
         Destroy(gameObject);
+        me._PC.GetComponentInChildren<PC>().EnemyKilled();
     }
 
     protected override void FixedUpdate()

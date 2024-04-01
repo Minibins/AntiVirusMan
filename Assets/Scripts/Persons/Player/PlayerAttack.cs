@@ -60,7 +60,7 @@ public class PlayerAttack : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
         scanner = GetComponentInChildren<Scanner>();
         OnRefreshAmmo += AmmoBarRefresh;
-        pc = GameObject.FindGameObjectWithTag("PC").GetComponentInChildren<PC>();
+        pc = GameObject.FindObjectOfType<PC>();
     }
 
     private void AmmoBarRefresh()
