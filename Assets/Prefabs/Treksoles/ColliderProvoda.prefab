@@ -10,13 +10,58 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7026338563288098210, guid: 3da04fd40fc040d4484537e6137b29cc,
         type: 3}
+      propertyPath: m_Size.y
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7026338563288098210, guid: 3da04fd40fc040d4484537e6137b29cc,
+        type: 3}
       propertyPath: m_Offset.y
       value: 0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 7026338563288098210, guid: 3da04fd40fc040d4484537e6137b29cc,
+        type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 523775
       objectReference: {fileID: 0}
     - target: {fileID: 7710095788160726484, guid: 3da04fd40fc040d4484537e6137b29cc,
         type: 3}
       propertyPath: m_Name
       value: ColliderProvoda
+      objectReference: {fileID: 0}
+    - target: {fileID: 7710095788160726484, guid: 3da04fd40fc040d4484537e6137b29cc,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8604510286501030312, guid: 3da04fd40fc040d4484537e6137b29cc,
+        type: 3}
+      propertyPath: m_SideArc
+      value: 85
+      objectReference: {fileID: 0}
+    - target: {fileID: 8604510286501030312, guid: 3da04fd40fc040d4484537e6137b29cc,
+        type: 3}
+      propertyPath: m_SurfaceArc
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8604510286501030312, guid: 3da04fd40fc040d4484537e6137b29cc,
+        type: 3}
+      propertyPath: m_UseSideBounce
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8604510286501030312, guid: 3da04fd40fc040d4484537e6137b29cc,
+        type: 3}
+      propertyPath: m_UseColliderMask
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8604510286501030312, guid: 3da04fd40fc040d4484537e6137b29cc,
+        type: 3}
+      propertyPath: m_UseSideFriction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8604510286501030312, guid: 3da04fd40fc040d4484537e6137b29cc,
+        type: 3}
+      propertyPath: m_ColliderMask.m_Bits
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 9058352460165264895, guid: 3da04fd40fc040d4484537e6137b29cc,
         type: 3}

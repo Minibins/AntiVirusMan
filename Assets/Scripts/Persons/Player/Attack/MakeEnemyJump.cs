@@ -12,6 +12,7 @@ public class MakeEnemyJump : MonoBehaviour, IAttackProjectileModule
         {
             rb.velocity += Vector2.up * Power;
             rb.sharedMaterial = bouncyMaterial;
+            rb.mass = 1f;
         }
     }
 }

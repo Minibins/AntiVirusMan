@@ -26476,6 +26476,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5311696973045053190, guid: 2441870b3d9f2e2478d91b05988c52a7,
+        type: 3}
+      propertyPath: m_AutoTiling
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6161445882460628827, guid: 2441870b3d9f2e2478d91b05988c52a7,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -26529,6 +26534,16 @@ PrefabInstance:
     - target: {fileID: 6161445882460628827, guid: 2441870b3d9f2e2478d91b05988c52a7,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6871716189050174220, guid: 2441870b3d9f2e2478d91b05988c52a7,
+        type: 3}
+      propertyPath: m_UseSideFriction
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6871716189050174220, guid: 2441870b3d9f2e2478d91b05988c52a7,
+        type: 3}
+      propertyPath: m_UseOneWayGrouping
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
