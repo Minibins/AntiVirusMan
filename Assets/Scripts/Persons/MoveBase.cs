@@ -211,11 +211,11 @@ public class MoveBase : MonoBehaviour
     [SerializeField] protected LayerMask _groundLayer;
     public bool IsGrounded()
     {
-        return Physics2D.OverlapCircle(_groundCheck.position,0.2f,_groundLayer);
+        return physics2D.OverlapCircleWithoutTrigger(_groundCheck.position,0.2f,_groundLayer);
     }
     public bool IsGrounded(LayerMask layerMask)
     {
-        return Physics2D.OverlapCircle(_groundCheck.position,0.2f,layerMask);
+        return physics2D.OverlapCircleWithoutTrigger(_groundCheck.position,0.2f,layerMask);
     }
     public virtual void Jump()
     {
