@@ -24502,7 +24502,7 @@ TextureImporter:
         width: 16
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -24510,6 +24510,174 @@ TextureImporter:
       bones: []
       spriteID: eda8f5286e7883e4a871a59fa97f11ef
       internalID: -1594850760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_LevelUpProgress_NotPicked_Empty
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 734
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27e05473911d4f04e89da8cc646b726d
+      internalID: 1345739683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_LevelUpProgress_NotPicked_Scanner
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 734
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b5263ffe879f174cabe765ac9908736
+      internalID: 784088187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_LevelUpProgress_NotPicked_Pique
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 734
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b95683201181f80479d43f568cbce07d
+      internalID: -1654162011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_LevelUpProgress_NotPicked_Dash
+      rect:
+        serializedVersion: 2
+        x: 848
+        y: 734
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f18f5c237d714cc4487f26f588174850
+      internalID: 497479480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_LevelUpProgress_Picked_Empty
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 718
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af537c95fb05d0c44944ca8b60435694
+      internalID: -637135585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_LevelUpProgress_Picked_Scanner
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 718
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af0625642f5ccf84e8476a0425d85aab
+      internalID: -1483363036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_LevelUpProgress_Picked_Pique
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 718
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81d2db1988b212d4d884af794afa3e8b
+      internalID: 432531837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_LevelUpProgress_Picked_Dash
+      rect:
+        serializedVersion: 2
+        x: 848
+        y: 718
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d257c1ef563fed40b20d1b5a3e8e70d
+      internalID: -1364149075
       vertices: []
       indices: 
       edges: []
@@ -25513,6 +25681,14 @@ TextureImporter:
       UI_Joystick_Handle: 45530447
       UI_Joystick_Horisontal: 705758048
       UI_Joystick_Round: 1436707120
+      UI_LevelUpProgress_NotPicked_Dash: 497479480
+      UI_LevelUpProgress_NotPicked_Empty: 1345739683
+      UI_LevelUpProgress_NotPicked_Pique: -1654162011
+      UI_LevelUpProgress_NotPicked_Scanner: 784088187
+      UI_LevelUpProgress_Picked_Dash: -1364149075
+      UI_LevelUpProgress_Picked_Empty: -637135585
+      UI_LevelUpProgress_Picked_Pique: 432531837
+      UI_LevelUpProgress_Picked_Scanner: -1483363036
       UI_MainMenu_Data: -614112816
       UI_MainMenu_Leave: 477315693
       UI_MainMenu_Play: -942403918

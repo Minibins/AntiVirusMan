@@ -76,11 +76,12 @@ public class UiElementsList : MonoBehaviour
     public struct PanelsStruct 
     {
         [SerializeField] public GameObject ButtonSettingsPanel,BossPanel;
+        [SerializeField] public RectTransform UpgradesList,Progress;
         [SerializeField] public LoseGamePanel LoseGame;
         [SerializeField] public LevelUp levelUpPanel;
         [SerializeField] public settingsPanel SettingsPanel;
         [SerializeField] public Dialogue DialogueBox;
-        public PanelsStruct(settingsPanel SSettingsPanel,GameObject buttonSettingsPanel,LoseGamePanel losePanel,GameObject bossPanel,LevelUp levelUpPanel, Dialogue dialogueBox)
+        public PanelsStruct(settingsPanel SSettingsPanel,GameObject buttonSettingsPanel,LoseGamePanel losePanel,GameObject bossPanel,LevelUp levelUpPanel, Dialogue dialogueBox, RectTransform upgradesList, RectTransform progress)
         {
             SettingsPanel = SSettingsPanel;
             ButtonSettingsPanel = buttonSettingsPanel;
@@ -88,6 +89,8 @@ public class UiElementsList : MonoBehaviour
             BossPanel = bossPanel;
             DialogueBox = dialogueBox;
             this.levelUpPanel = levelUpPanel;
+            UpgradesList = upgradesList;
+            Progress = progress;
         }
         [System.Serializable]
         public struct LevelUp
