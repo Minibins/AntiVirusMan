@@ -167,10 +167,37 @@ public class Enemy : MonoBehaviour
         }
         else if (other.CompareTag("EndWire"))
         {
-            ChangeMove = 0;
-            if (gameObject.GetComponent<blackenemy>() == null)
+            ExitWire();
+        }
+    }
+
+    private void ExitWire()
+    {
+        ChangeMove = 0;
+        if(gameObject.GetComponent<blackenemy>() == null)
+        {
+            gameObject.GetComponent<Rigidbody2D>().gravityScale = 1;
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+
+        if(isFallFromWire)
+        {
+            _animator.SetTrigger("Corpse");
+            isFallFromWire = false;
+        }
+    }
+    bool isFallFromWire;
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(ChangeMove==1)
+        {
+            if(collision.CompareTag("Way"))
             {
-                gameObject.GetComponent<Rigidbody2D>().gravityScale = 1;
+                ExitWire();
+                _animator.SetTrigger("Fall");
+                isFallFromWire = true;
             }
         }
     }

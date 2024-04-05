@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f8a04fda0616c7049b713816c7c12edf
+guid: 92cdbf59135e4f745a831479aad3ef18
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -136,11 +136,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Green_Little_Fall0
+      name: Stepa_fall
       rect:
         serializedVersion: 2
-        x: 192
-        y: 312
+        x: 512
+        y: 24
         width: 8
         height: 8
       alignment: 0
@@ -150,18 +150,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a1a3fb7afe1f5a4408a7fbfc5cdb7005
-      internalID: 1001635456
+      spriteID: a7b32bd25d40b0b4cb070199e1e08cef
+      internalID: 192858437
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Little_Fall1
+      name: Stepa_corpse
       rect:
         serializedVersion: 2
-        x: 200
-        y: 312
+        x: 520
+        y: 24
         width: 8
         height: 8
       alignment: 0
@@ -171,71 +171,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c8510eba9842de44aab4d95f98afa05d
-      internalID: -1086634634
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Green_Little_Fall2
-      rect:
-        serializedVersion: 2
-        x: 208
-        y: 312
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c8b828dbe8cf09f4c8cac271c725c47f
-      internalID: -463801134
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Green_Little_Fall3
-      rect:
-        serializedVersion: 2
-        x: 216
-        y: 312
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4c46fc5bd7000164c90f4d4d03d2633c
-      internalID: -1428253339
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Green_Little_Corpse
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 312
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b64d5132e72712c4f9698cd44f555192
-      internalID: -721834322
+      spriteID: 0c8747cbfe8d43b47bd9b0fd4183280d
+      internalID: -515478960
       vertices: []
       indices: 
       edges: []
@@ -244,18 +181,15 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 0
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Green_Little_Corpse: -721834322
-      Green_Little_Fall0: 1001635456
-      Green_Little_Fall1: -1086634634
-      Green_Little_Fall2: -463801134
-      Green_Little_Fall3: -1428253339
+      Stepa_corpse: -515478960
+      Stepa_fall: 192858437
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
