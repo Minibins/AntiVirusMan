@@ -10,9 +10,10 @@ public class Player : MoveBase, IPlayer, IHealable
     private Dasher _dasher;
     public static bool IsJump;
     static Player instance;
+    [SerializeField] Vector2 locationBounds = new(-18.527f,17.734f);
     protected override void FixedUpdate()
     {
-        transform.position = new Vector3(Mathf.Max(-18.527f, Mathf.Min(17.734f, transform.position.x)),
+        transform.position = new Vector3(Mathf.Max(locationBounds.x, Mathf.Min(locationBounds.y, transform.position.x)),
             transform.position.y, transform.position.z); 
         if(!Stunned)base.FixedUpdate();
     }

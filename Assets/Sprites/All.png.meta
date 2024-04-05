@@ -13133,7 +13133,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_596
+      name: TutorialDoor_Condition_PC
       rect:
         serializedVersion: 2
         x: 1216
@@ -13244,9 +13244,9 @@ TextureImporter:
         x: 1312
         y: 238
         width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 16
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -13301,7 +13301,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_604
+      name: TutorialDoor_Condition_Exp1
       rect:
         serializedVersion: 2
         x: 1312
@@ -13322,7 +13322,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_605
+      name: TutorialDoor_Condition_Exp2
       rect:
         serializedVersion: 2
         x: 1328
@@ -13343,7 +13343,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_606
+      name: TutorialDoor_Condition_Exp3
       rect:
         serializedVersion: 2
         x: 1312
@@ -13364,7 +13364,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_607
+      name: TutorialDoor_Condition_Exp4
       rect:
         serializedVersion: 2
         x: 1328
@@ -13385,7 +13385,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_608
+      name: TutorialDoor
       rect:
         serializedVersion: 2
         x: 1344
@@ -24409,6 +24409,111 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: TutorialDoor_Condition_ExpLess1
+      rect:
+        serializedVersion: 2
+        x: 1072
+        y: 302
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf15b4da6cfd44744a36ab75a254b6de
+      internalID: 2121295143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutorialDoor_Condition_ExpLess2
+      rect:
+        serializedVersion: 2
+        x: 1072
+        y: 286
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d465f03752d20f94cbac81d88f7ef63f
+      internalID: -546453480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutorialDoor_Condition_ExpLess3
+      rect:
+        serializedVersion: 2
+        x: 1072
+        y: 270
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0c622e9c38991a4db81f8de0c2a5d4f
+      internalID: -1462028548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutorialDoor_Condition_ExpLess4
+      rect:
+        serializedVersion: 2
+        x: 1072
+        y: 254
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ffd547fd4a149941bb37e14851a7891
+      internalID: 2065839229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashUpgradeGameworld
+      rect:
+        serializedVersion: 2
+        x: 1072
+        y: 222
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eda8f5286e7883e4a871a59fa97f11ef
+      internalID: -1594850760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -24716,16 +24821,10 @@ TextureImporter:
       All_590: -88253605
       All_591: -1220450171
       All_594: -561453609
-      All_596: -2805776
       All_6: -5295634354576850911
       All_60: 5200012634210390329
       All_602: -1360260583
       All_603: 528564287
-      All_604: -1723128268
-      All_605: -2096225364
-      All_606: 1144900279
-      All_607: -1984278525
-      All_608: 1557369467
       All_609: -32861265
       All_610: 40899667
       All_611: -644795560
@@ -24872,6 +24971,7 @@ TextureImporter:
       Booka_Wire_Scan2: 2108380642
       Booka_Wire_Scan3: 1822305649
       Booka_Wire_Scan4: -2121017234
+      DashUpgradeGameworld: -1594850760
       Dummy_Hp0: -1029182439
       Dummy_Hp1: -1976785493
       Dummy_Hp2: 1853063904
@@ -25388,6 +25488,16 @@ TextureImporter:
       Toocha_Old5: 5581816770122821316
       Toocha_Old6: -699945206448445704
       Toocha_Old7: 249287654443925331
+      TutorialDoor: 1557369467
+      TutorialDoor_Condition_Exp1: -1723128268
+      TutorialDoor_Condition_Exp2: -2096225364
+      TutorialDoor_Condition_Exp3: 1144900279
+      TutorialDoor_Condition_Exp4: -1984278525
+      TutorialDoor_Condition_ExpLess1: 2121295143
+      TutorialDoor_Condition_ExpLess2: -546453480
+      TutorialDoor_Condition_ExpLess3: -1462028548
+      TutorialDoor_Condition_ExpLess4: 2065839229
+      TutorialDoor_Condition_PC: -2805776
       UI_Arrow: 8794887783633769927
       UI_Attack: -5404101728115882706
       UI_BackgroundSettings: -863085938886467031

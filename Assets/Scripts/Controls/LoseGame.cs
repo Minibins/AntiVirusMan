@@ -43,6 +43,6 @@ public class LoseGame : MonoBehaviour
     public void MoveScene(string _Scene)
     {
         SceneManager.LoadScene(_Scene);
-        LevelUP.Items = null;
+        LevelUP.Items.Clear();
     }
 }

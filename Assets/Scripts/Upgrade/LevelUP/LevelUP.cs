@@ -19,11 +19,13 @@ public class LevelUP : MonoBehaviour
 
     [SerializeField] private Sprite none;
     public static List<Upgrade> Items = new List<Upgrade>();
+    public static List<Upgrade> pickedItems = new List<Upgrade>();
     private void Awake()
     {
         UpgradeButton.UpgradeActions.Clear();
         instance = this;
         Items.Clear();
+        pickedItems.Clear();
     }
     public virtual void NewUpgrade()
     {
@@ -64,10 +66,11 @@ public class LevelUP : MonoBehaviour
         Time.timeScale = 1;
     }
     [DustyConsoleCommand("getitem","Get item with id", typeof(int))]
-    static string GetItem(int ID)
+    public static string GetItem(int ID)
     {
         UpgradeButton.UpgradeActions[ID]();
         LevelUP.Items[ID].IsTaken = true;
+        pickedItems.Add(Items[ID]);
         return "Given item "+ ID;
     }
     [DustyConsoleCommand("itemaction","Get item actions",typeof(int))]

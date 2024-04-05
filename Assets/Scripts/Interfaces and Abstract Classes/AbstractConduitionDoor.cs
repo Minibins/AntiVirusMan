@@ -13,7 +13,7 @@ public class AbstractConduitionDoor : PlayersCollisionChecker
     }
     void OpenOrClose(bool Open)
     {
-        if(Conduition()) return;
+        if(!Conduition()) return;
         animator.SetBool("Open",Open);
     }
 
