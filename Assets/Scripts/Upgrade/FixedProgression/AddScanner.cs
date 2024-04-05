@@ -1,18 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class AddScanner : MonoBehaviour
+public class AddScanner : FixedProgressionUpgrade
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void Pick()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        base.Pick();
+        GetComponentInParent<Animator>().SetBool("CanScan", true);
+        GetComponentInParent<PlayerAttack>().stopAttackOnAnimationEnd = false;
     }
 }

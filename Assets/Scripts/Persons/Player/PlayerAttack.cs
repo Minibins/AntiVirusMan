@@ -25,7 +25,7 @@ public class PlayerAttack : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     Scanner scanner;
     private PC pc;
-
+    public bool stopAttackOnAnimationEnd = true;
     public Action OnRefreshAmmo { get; set; }
     public void AddTemporaryAttackSubstitute(AbstractAttack substitute)
     {
@@ -125,6 +125,8 @@ public class PlayerAttack : MonoBehaviour
     public void slowUp()
     {
         rb.bodyType = RigidbodyType2D.Dynamic;
+        if(stopAttackOnAnimationEnd)
+            StopAttack();
     }
 
     private void OnDestroy()

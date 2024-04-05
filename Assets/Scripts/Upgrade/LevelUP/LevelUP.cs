@@ -86,7 +86,8 @@ public class LevelUP : MonoBehaviour
         }
         FixedProgressionItems[upgrade.Level-1] = upgrade;
         if(!FixedProgressionUpgradeActions.ContainsKey(upgrade.Level))
-            FixedProgressionUpgradeActions.Add(upgrade.Level, upgrade.Pick);
+            FixedProgressionUpgradeActions.Add(upgrade.Level,upgrade.Pick);
+        else FixedProgressionUpgradeActions[upgrade.Level] += ()=>upgrade.Pick();
         upgrade.Image = UiElementsList.instance.Panels.Progress.GetChild(upgrade.Level-1).GetComponent<Image>();
         upgrade.Image.sprite = upgrade.notSelectedSprite;
     }
