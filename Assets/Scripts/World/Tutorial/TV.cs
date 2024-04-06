@@ -11,8 +11,8 @@ public class TV : TalkingPerson
         anim = GetComponent<Animator>();
         #region
         OnID(19);
-        OnID(5);
-        OnID(20);
+        OnID(7);
+        OnID(4);
         #endregion
     }
     private void OnID(int Id)

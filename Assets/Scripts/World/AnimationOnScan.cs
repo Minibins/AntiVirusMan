@@ -14,11 +14,11 @@ public class AnimationOnScan : MonoBehaviour, IScannable
 
     public virtual void StartScan()
     {
-        anim.SetBool("isScan",true);
+        anim.SetBool("IsScan",true);
     }
 
     public virtual void StopScan()
     {
-        anim.SetBool("isScan",false);
+        anim.SetBool("IsScan",false);
     }
 }

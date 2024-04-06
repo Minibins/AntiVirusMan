@@ -15,9 +15,9 @@ public class FixedProgression : LevelUP
             LevelUP.Generate(First, Second, Third);
         }
     }
-    [SerializeField] SerializableQueue<UpgradeList> Upgrades = new SerializableQueue<UpgradeList>();
+    [SerializeField] List<UpgradeList> Upgrades = new List<UpgradeList>();
     public override void NewUpgrade()
     {
-        Upgrades.Dequeue().Generate();
+        Upgrades[pickedItems.Count].Generate();
     }
 }

@@ -403,6 +403,54 @@ MonoBehaviour:
   isUsingJoystick: 1
   allowOtherAttacks: 0
   spawnPosDistance: 0.3
+--- !u!1 &8147896587332803658
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4995947290549074155}
+  - component: {fileID: 4151636065444523252}
+  m_Layer: 9
+  m_Name: FixedProgression
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4995947290549074155
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8147896587332803658}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8304178653184876642}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4151636065444523252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8147896587332803658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57309deb1b79e0c4fadd2af5b931ff99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Level: 5
+  SelectedSprite: {fileID: -1483363036, guid: 1df0e45a1e1783b4bac6578d311db4ef, type: 3}
+  notSelectedSprite: {fileID: 784088187, guid: 1df0e45a1e1783b4bac6578d311db4ef, type: 3}
+  Image: {fileID: 0}
 --- !u!1 &8304178653184876640
 GameObject:
   m_ObjectHideFlags: 0
@@ -445,6 +493,7 @@ Transform:
   - {fileID: 2079754781}
   - {fileID: 2522079714771889092}
   - {fileID: 2177878831559018960}
+  - {fileID: 4995947290549074155}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8304178653184876655
@@ -626,6 +675,7 @@ MonoBehaviour:
   _maxJumpLeftover: 5
   _health: {fileID: 0}
   Stunned: 0
+  locationBounds: {x: -18.527, y: 17.734}
   damageForce: 0
   _flightVelicityCap: 0.33
   _flySpeed: 1.21
@@ -654,6 +704,7 @@ MonoBehaviour:
   _ammo: 5
   _maxAmmo: 5
   _timeReload: 1
+  stopAttackOnAnimationEnd: 1
 --- !u!114 &429989184
 MonoBehaviour:
   m_ObjectHideFlags: 0

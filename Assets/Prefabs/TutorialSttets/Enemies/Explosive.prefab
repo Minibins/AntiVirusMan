@@ -12,6 +12,9 @@ GameObject:
   - component: {fileID: 8973448643098283516}
   - component: {fileID: 1100521461001919417}
   - component: {fileID: 2155247005616274053}
+  - component: {fileID: 709288105111580626}
+  - component: {fileID: 5964535268820659656}
+  - component: {fileID: 6867782557622092694}
   m_Layer: 11
   m_Name: Explosive
   m_TagString: Untagged
@@ -30,7 +33,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 14.3, y: 3.9, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
-  m_ConstrainProportionsScale: 1
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -100,6 +103,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Explosion: {fileID: 6283972555444168526, guid: 149eecbf51437cb45bb020883d88d86c,
     type: 3}
+  ppname: EnemyToochaTutorial
+  exp: 3
 --- !u!61 &2155247005616274053
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -145,3 +150,48 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.43463093, y: 0.25842798}
   m_EdgeRadius: 0
+--- !u!114 &709288105111580626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6223946486867407728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3e51bb697998d24195193b5e9b62829, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &5964535268820659656
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6223946486867407728}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 99cab4f1d5a68bb46a85ad4c2113079f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6867782557622092694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6223946486867407728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1e48c61f5f1a504585185f50b09b321, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

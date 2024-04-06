@@ -6,6 +6,6 @@ public class GameWorldUpgrade : Collectible
     public override void Pick(GameObject picker)
     {
         base.Pick(picker);
-        LevelUP.GetItem(ID);
+        if(!LevelUP.Items[ID].IsTaken) LevelUP.GetItem(ID);
     }
 }

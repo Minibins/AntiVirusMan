@@ -105,6 +105,7 @@ public class LevelUP : MonoBehaviour
         UpgradeButton.UpgradeActions[ID]();
         LevelUP.Items[ID].IsTaken = true;
         AddPickedItem(Items[ID]);
+        Select();
         return "Given item "+ ID;
     }
     [DustyConsoleCommand("itemaction","Get item actions",typeof(int))]
