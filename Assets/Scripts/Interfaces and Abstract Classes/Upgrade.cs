@@ -12,7 +12,6 @@ public class Upgrade : MonoBehaviour
     [SerializeField] public int ID;
     public Dictionary<int, Action> Synergies = new Dictionary<int, Action>();
     [SerializeField] protected Synergy[] synergies = new Synergy[0];
-    [SerializeField] bool isFixedProgression;
     public bool IsTaken
     {
         get => LevelUP.Items[ID].isTaken;
