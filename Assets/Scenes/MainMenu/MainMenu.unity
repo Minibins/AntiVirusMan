@@ -480,6 +480,8 @@ MonoBehaviour:
   Panels:
     ButtonSettingsPanel: {fileID: 0}
     BossPanel: {fileID: 0}
+    UpgradesList: {fileID: 0}
+    Progress: {fileID: 0}
     LoseGame:
       Panel: {fileID: 0}
       YouLiveText: {fileID: 0}
@@ -721,28 +723,27 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Hello antivirus fans! This is a fourth patch. We heard about all the bugs
+  m_text: 'Hello antivirus fans! This is a new patch. We heard about all the bugs
     in the game and added new upgrades to the pool.
 
-    * Added new elite virus
-    - Green king
-
-    * Added two new tracks by Who
-
-    * Added attack knockback,
-    which increases when virus is near walls.
-
-    * Added more animations.
+    * Added a new gameplay system
+    - a scanner. To get it, collect any five upgrades. Then you can hold attack.
 
     *
-    Added synergy between turret haul and medicine
+    Added inventory visualisation
+
+    * Improved tutorial level.
+
+    * Buffed damage
+    upgrades.
+
+    * Reduced virus mass
 
     * Fixed several bugs
 
-
-    We
-    started working on a localization system. If you would like to help translate
-    the game into your native language, please email dustystudio10@gmail.com'
+    We started
+    working on a localization system. If you would like to help translate the game
+    into your native language, please email dustystudio10@gmail.com'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
   m_sharedMaterial: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
@@ -10149,7 +10150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   save: {fileID: 958952363}
-  CurrentVersion: PostReliase.5!
+  CurrentVersion: PostReliase.6!
   Changelog: {fileID: 1185718423}
   scenes:
   - tutorial
