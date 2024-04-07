@@ -52,7 +52,6 @@ public class MoveBase : MonoBehaviour
     protected virtual void Awake()
     {
         _curentSpeed.baseValue = _speed;
-        _curentSpeed.multiplers.Clear();
         transform = base.transform;
         defaultXscale = transform.localScale.x;
         _animator = GetComponent<Animator>();
@@ -125,20 +124,24 @@ public class MoveBase : MonoBehaviour
     }
     public void SetSpeedMultiplierTemporary(float multiplier,float time = 1f)
     {
-        _curentSpeed.multiplers.Add( multiplier);
+        _curentSpeed.multiplingMultiplers.Add( multiplier);
         ResetSpeed();
         StartCoroutine(resetSpeed());
         IEnumerator resetSpeed()
         {
             yield return new WaitForSeconds(time);
-            _curentSpeed.multiplers.Remove( multiplier);
+            _curentSpeed.multiplingMultiplers.Remove( multiplier);
             ResetSpeed();
         }
     }
-
-    public void SetSpeedMultiplierForOllTime(float multiplier = 1f)
+    public void SetSpeedMultiplierForever(float multiplier = 1f)
     {
-        _curentSpeed.multiplers.Add(multiplier);
+        _curentSpeed.multiplingMultiplers.Add(multiplier);
+        ResetSpeed();
+    }
+    public void ClearSpeedMultiplers()
+    {
+        _curentSpeed.multiplingMultiplers.Clear();
         ResetSpeed();
     }
     private void ResetSpeed()

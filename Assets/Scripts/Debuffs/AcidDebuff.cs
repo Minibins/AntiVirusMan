@@ -7,7 +7,7 @@ public class AcidDebuff : Debuff
         base.OnAdd(bank);
         if(bank.TryGetComponent<Health>(out health))
         {
-            health.multiplerDamage.multiplers.Add(2);
+            health.multiplerDamage.summingMultiplers.Add(2);
         }
     }
     public override void Clear()
@@ -15,7 +15,7 @@ public class AcidDebuff : Debuff
         base.Clear();
         if(health != null )
         {
-            health.multiplerDamage.multiplers.Remove(2);
+            health.multiplerDamage.summingMultiplers.Remove(2);
         }
     }
 }

@@ -4,17 +4,31 @@ using System;
 [System.Serializable]
 public class Stat
 {
-    public List<float> multiplers=new(new float[1]{1}), additions=new();
+    public List<float> summingMultiplers=new(new float[1]{1}), multiplingMultiplers = new(), additions=new();
     public float baseValue = 1;
 
     public Stat(float baseValue)
     {
         this.baseValue = baseValue;
     }
-
+    public float multiplingMultiplersResult
+    {
+        get
+        {
+            switch(multiplingMultiplers.Count)
+            {
+                case 0:
+                return 1;
+                case 1:
+                return multiplingMultiplers[0];
+                default:
+                return multiplingMultiplers.Aggregate((x,y) => x * y);
+            }
+        }
+    }
     public float Value
     {
-        get => baseValue * Math.Max(multiplers.Sum(),1) + additions.Sum();
+        get => (baseValue * Math.Max(summingMultiplers.Sum(),1) + additions.Sum())* multiplingMultiplersResult;
     }
     public static implicit operator int(Stat stat)
     {
@@ -26,6 +40,6 @@ public class Stat
     }
     public override string ToString()
     {
-        return $"Value = {Value}, Base Value = {baseValue}, Sum of multiplers = {multiplers.Sum()}, Sum of additions = {additions.Sum()}";
+        return $"Value = {Value}, Base Value = {baseValue}, Sum of multiplers = {summingMultiplers.Sum()}, Sum of additions = {additions.Sum()}";
     }
 }

@@ -11,7 +11,7 @@ public class AuraPC : AbstractAura
     protected override IEnumerator AuraAction()
     {
         MoveBase move;
-        if(EnteredThings[0].TryGetComponent<MoveBase>(out move)) move.SetSpeedMultiplierForOllTime(0.8f);
+        if(EnteredThings[0].TryGetComponent<MoveBase>(out move)) move.SetSpeedMultiplierForever(0.8f);
         IDamageble health;
         if(EnteredThings[0].TryGetComponent<IDamageble>(out health))
         {

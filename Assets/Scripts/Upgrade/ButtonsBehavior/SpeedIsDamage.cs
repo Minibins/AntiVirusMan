@@ -49,11 +49,11 @@ public class SpeedIsDamage : Upgrade
         multipler *= DamageMultipler;
         try
         {
-            playerDamage.multiplers[0] = multipler;
+            playerDamage.summingMultiplers[0] = multipler;
         }
         catch
         {
-            playerDamage.multiplers.Add(multipler);
+            playerDamage.summingMultiplers.Add(multipler);
         }
     }
 }

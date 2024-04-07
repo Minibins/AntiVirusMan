@@ -224,7 +224,7 @@ public class Enemy : MonoBehaviour
             PlayerPrefs.SetInt(ppname,PlayerPrefs.GetInt(ppname,0) + 1);
             Enemies.Remove(this);
             if(_move!=null)
-                _move.SetSpeedMultiplierForOllTime(0);
+                _move.SetSpeedMultiplierForever(0);
             const string DeathAnimationName = "Die";
             if(_animator.parameters.Any(a => a.name == DeathAnimationName))
                 _animator.SetTrigger(DeathAnimationName);

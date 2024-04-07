@@ -14,8 +14,10 @@ public class Yasha : TagCollisionChecker
         ExitAction += OnUpdateEnteredThings;
     }
     void OnUpdateEnteredThings()
-    {
-        move.SetSpeedMultiplierForOllTime(Convert.ToInt16(EnteredThings.Count == 0));
+    {   
+        if(EnteredThings.Count > 0) 
+        move.SetSpeedMultiplierForever(0);
+        else move.ClearSpeedMultiplers();
         anim.SetBool("IsPushed",EnteredThings.Count > 0);
     }
 }
