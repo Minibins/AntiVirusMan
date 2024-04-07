@@ -4819,9 +4819,9 @@ GameObject:
   - component: {fileID: 237757251}
   - component: {fileID: 237757254}
   - component: {fileID: 237757253}
+  - component: {fileID: 237757256}
   - component: {fileID: 237757252}
   - component: {fileID: 237757255}
-  - component: {fileID: 237757256}
   m_Layer: 10
   m_Name: LakeHole (1)
   m_TagString: Untagged
@@ -5280,6 +5280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67a9caf7d82ada943bb6cd10556248aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blob: {fileID: 6009270706981038861, guid: ef2c6e14a90abd447b2e7f95c62b899f, type: 3}
 --- !u!1 &238451920
 GameObject:
   m_ObjectHideFlags: 0
@@ -24155,6 +24156,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1735873006 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1025521269204821960, guid: 7cd7abddee6eef64faf67f84b4c443df,
+    type: 3}
+  m_PrefabInstance: {fileID: 3001987158326336888}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1764872954
 GameObject:
   m_ObjectHideFlags: 0
@@ -27205,7 +27212,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1025521269204821960, guid: 7cd7abddee6eef64faf67f84b4c443df,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4765063866695837599}
   m_SourcePrefab: {fileID: 100100000, guid: 7cd7abddee6eef64faf67f84b4c443df, type: 3}
 --- !u!1001 &3646994556732908745
 PrefabInstance:
@@ -27291,12 +27302,25 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 3001987158326336888}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1735873006}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 737653f4595ff0948b877b126bbbd122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4765063866695837599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735873006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67a9caf7d82ada943bb6cd10556248aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blob: {fileID: 6009270706981038861, guid: ef2c6e14a90abd447b2e7f95c62b899f, type: 3}
 --- !u!1001 &5490010134606984070
 PrefabInstance:
   m_ObjectHideFlags: 0

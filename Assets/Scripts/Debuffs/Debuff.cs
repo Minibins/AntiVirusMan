@@ -1,4 +1,6 @@
-public class Debuff
+using System;
+
+public class Debuff:IDisposable
 {
     protected DebuffBank bank;
     public virtual float time { get => 9999; }
@@ -8,7 +10,11 @@ public class Debuff
         this.bank = bank;
     }
     public virtual void Clear() 
-    { 
-        
+    {
+        Dispose();
+    }
+
+    public void Dispose()
+    {bank=null;
     }
 }

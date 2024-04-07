@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Unity.VisualScripting;
+using UnityEngine.InputSystem;
 
 public class DRAG : MonoBehaviour,iDraggable
 {
@@ -11,27 +12,27 @@ public class DRAG : MonoBehaviour,iDraggable
     private iDraggable MyScript;
     private void Start()
     {
-        MyScript = GetComponent<iDraggable>();
 
         rb = GetComponent<Rigidbody2D>();
-        pa = GameObject.Find("Player").GetComponent<PlayerAttack>();
+        pa = GameObject.FindAnyObjectByType<PlayerAttack>();
+        MyScript = GetComponent<iDraggable>();
     }
-
-    private void OnMouseDown()
+    public void SetDragging()
     {
         isdrgging = true;
         StaminaConchaeca();
-        offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
+        offset = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
         MyScript.OnDrag();
     }
-
-    private void OnMouseUp()
+    public void StopDragging()
     {
         isdrgging = false;
         MyScript.OnDragEnd();
     }
+    private void OnMouseDown() => SetDragging();
+    private void OnMouseUp() => StopDragging();
 
-    private void OnMouseDrag()
+    private void FixedUpdate()
     {
         if (pa.Ammo > 0&&isdrgging)
         {
@@ -44,7 +45,16 @@ public class DRAG : MonoBehaviour,iDraggable
 
     private void StaminaConchaeca()
     {
-        if (isdrgging) {pa.Ammo--;
+        if (isdrgging) {
+            try
+            {
+                pa.Ammo--;
+            }
+            catch
+            {
+                Start();
+                pa.Ammo--;
+            }
         
         Invoke(nameof(StaminaConchaeca), 0.75f); }
         if(pa.Ammo == 0)

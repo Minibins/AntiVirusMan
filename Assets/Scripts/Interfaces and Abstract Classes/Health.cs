@@ -29,7 +29,6 @@ public class Health : MonoBehaviour, iDraggable, IDamageble, IHealable
 
     public virtual void ApplyDamage(float damage)
     {
-        print(multiplerDamage);
             Instantiate(PunchSound);
             CurrentHealth -= damage*multiplerDamage;
             OnApplyDamage?.Invoke();

@@ -39,8 +39,10 @@ public class DebuffBank : MonoBehaviour,IScannable
             anim.SetBool(debuff.animationName,state);
         else if(visualizer != null)
         {
-            visualizer.gameObject.SetActive(state||AnyOfDebuffsUsesVisualizer!=null);
-            visualizer.Play(state ? debuff.animationName:AnyOfDebuffsUsesVisualizer.animationName);
+            Debuff AnyOfDebuffs =AnyOfDebuffsUsesVisualizer;
+            visualizer.gameObject.SetActive(state||AnyOfDebuffs!=null);
+            if(AnyOfDebuffs != null)
+            visualizer.Play(state ? debuff.animationName:AnyOfDebuffs.animationName);
         }
     }
     Debuff AnyOfDebuffsUsesVisualizer
