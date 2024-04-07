@@ -33,16 +33,16 @@ public class AcidLake : MonoBehaviour
     }
     private void OnMouseUp()
     {
-        otpustitBloby();
+        if(otpustitBloby != null && !otpustitBloby.IsDestroyed())
+            otpustitBloby.StopDragging();
         otpustitBloby=null;
     }
-    event Action otpustitBloby;
+    DRAG otpustitBloby;
     IEnumerator CreateBlob()
     {
-        DRAG blobDrag=Instantiate(blob,(Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition),Quaternion.identity);
-        blobDrag.SetDragging();
-        otpustitBloby += ()=>blobDrag.StopDragging();
-        Transform blobTransform = blobDrag.transform;
+        otpustitBloby = Instantiate(blob,(Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition),Quaternion.identity);
+        otpustitBloby.SetDragging();
+        Transform blobTransform = otpustitBloby.transform;
         for(float i = 0; i < 1f; i+=Time.fixedDeltaTime)
         {
             if(blobTransform.IsDestroyed()) yield break;

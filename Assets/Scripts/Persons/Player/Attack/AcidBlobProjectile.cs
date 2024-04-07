@@ -7,8 +7,8 @@ public class AcidBlobProjectile : MonoBehaviour, IAttackProjectileModule
         DebuffBank debuffBank;
         if(collision.TryGetComponent<DebuffBank>(out debuffBank) && !debuffBank.HasDebuffOfType(typeof(AcidDebuff)))
         {
-            debuffBank.AddDebuff(new AcidDebuff());
             target.OnDamageGet(1,IDamageble.DamageType.Default);
+            debuffBank.AddDebuff(new AcidDebuff());
         }
     }
 }

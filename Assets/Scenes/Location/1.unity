@@ -2452,6 +2452,12 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!4 &78811424 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2796017653573438044, guid: 856d8bdf4e9002f418c0530690235da9,
+    type: 3}
+  m_PrefabInstance: {fileID: 280865273492685901}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &104540325
 GameObject:
   m_ObjectHideFlags: 0
@@ -4823,12 +4829,12 @@ GameObject:
   - component: {fileID: 237757252}
   - component: {fileID: 237757255}
   m_Layer: 10
-  m_Name: LakeHole (1)
+  m_Name: Lake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &237757251
 Transform:
   m_ObjectHideFlags: 0
@@ -20388,6 +20394,73 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextPoint:
   - {fileID: 166476394}
+--- !u!1 &1216590215
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1216590216}
+  - component: {fileID: 1216590217}
+  - component: {fileID: 1216590218}
+  m_Layer: 0
+  m_Name: Precision Mechanism (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1216590216
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1216590215}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 78811424}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1216590217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1216590215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27848f4d10d695f4bb761944081279b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sprite: {fileID: -876271729, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
+  ID: 29
+  synergies: []
+  isEnabliyng: 1
+  ToEnable: {fileID: 237757250}
+--- !u!114 &1216590218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1216590215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27848f4d10d695f4bb761944081279b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sprite: {fileID: -876271729, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
+  ID: 29
+  synergies: []
+  isEnabliyng: 0
+  ToEnable: {fileID: 1992810113}
 --- !u!1 &1235080834
 GameObject:
   m_ObjectHideFlags: 0
@@ -25602,7 +25675,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1992810114
 Transform:
   m_ObjectHideFlags: 0
@@ -26995,7 +27068,11 @@ PrefabInstance:
       objectReference: {fileID: 313822842}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 2796017653573438044, guid: 856d8bdf4e9002f418c0530690235da9,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1216590216}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 856d8bdf4e9002f418c0530690235da9, type: 3}
 --- !u!1001 &2313873072146739146
