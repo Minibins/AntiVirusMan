@@ -8,8 +8,7 @@ public class MoveBase : MonoBehaviour
 {
     [SerializeField] private bool _canJump;
     public float _speed = 1f;
-    private float _speedMultiplier = 1f;
-    private float _curentSpeed;
+    private Stat _curentSpeed = new(1);
     private Action _move;
     Rigidbody2D _rigidbody;
     public Rigidbody2D Rigidbody
@@ -49,10 +48,11 @@ public class MoveBase : MonoBehaviour
         _animator.Play(name);
     }
 
-    const string WalkAnimationName = "IsRunning";
-    const string BoostAnimationName = "Boosted";
+    const string WalkAnimationName = "isRunning";
     protected virtual void Awake()
     {
+        _curentSpeed.baseValue = _speed;
+        _curentSpeed.multiplers.Clear();
         transform = base.transform;
         defaultXscale = transform.localScale.x;
         _animator = GetComponent<Animator>();
@@ -60,12 +60,9 @@ public class MoveBase : MonoBehaviour
         {
             if(_animator.parameters.Any(a => a.name == WalkAnimationName))
                 hasRunAnimation = true;
-            if(_animator.parameters.Any(a => a.name == BoostAnimationName))
-                hasBoostAnimation = true;
         }
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _rigidbody = GetComponent<Rigidbody2D>();
-        SetSpeedMultiplierForOllTime(_speedMultiplier);
     }
     bool hasRunAnimation = false;
     enum RotationMode
@@ -126,36 +123,24 @@ public class MoveBase : MonoBehaviour
         MoveHorizontally(direction.x);
         MoveVertically(direction.y);
     }
-
-    private bool hasBoostAnimation;
     public void SetSpeedMultiplierTemporary(float multiplier,float time = 1f)
     {
-        _curentSpeed = _speed * multiplier;
+        _curentSpeed.multiplers.Add( multiplier);
         ResetSpeed();
-        Invoke(nameof(SetDefaultSpeed),time);
-        if(hasBoostAnimation)
-            _animator.SetBool(BoostAnimationName,true);
+        StartCoroutine(resetSpeed());
+        IEnumerator resetSpeed()
+        {
+            yield return new WaitForSeconds(time);
+            _curentSpeed.multiplers.Remove( multiplier);
+            ResetSpeed();
+        }
     }
 
     public void SetSpeedMultiplierForOllTime(float multiplier = 1f)
     {
-        _speedMultiplier = multiplier;
-        _curentSpeed = _speed * _speedMultiplier;
+        _curentSpeed.multiplers.Add(multiplier);
         ResetSpeed();
     }
-
-    public bool IsMultiplierBoost()
-    {
-        return IsInvoking(nameof(SetDefaultSpeed));
-    }
-
-    private void SetDefaultSpeed()
-    {
-        SetSpeedMultiplierForOllTime(_speedMultiplier);
-        if(hasBoostAnimation)
-            _animator.SetBool(BoostAnimationName,false);
-    }
-
     private void ResetSpeed()
     {
         MoveHorizontally(Mathf.Clamp( _velocity.x,-1,1));
@@ -198,7 +183,7 @@ public class MoveBase : MonoBehaviour
 
     public void OnDrag()
     {
-        _move = SetDefaultSpeed;
+        _move = null;
     }
 
     

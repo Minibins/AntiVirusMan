@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -16,14 +17,17 @@ public class DebuffBank : MonoBehaviour,IScannable
     }
     public void AddDebuff(Debuff debuff)
     {
-        debuffs.Add(debuff);
-        debuff.OnAdd(this);
-        SetAnim(true, debuff);
-        StartCoroutine(ClearDebuff());
-        IEnumerator ClearDebuff()
+        if(debuff.canStack || !HasDebuffOfType(debuff.GetType()))
         {
-            yield return new WaitForSeconds(debuff.time);
-            RemoveDebuff(debuff);
+            debuffs.Add(debuff);
+            debuff.OnAdd(this);
+            SetAnim(true, debuff);
+            StartCoroutine(ClearDebuff());
+            IEnumerator ClearDebuff()
+            {
+                yield return new WaitForSeconds(debuff.time);
+                RemoveDebuff(debuff);
+            }
         }
     }
     Dictionary<string,bool> animatorHasBool = new();
@@ -59,6 +63,7 @@ public class DebuffBank : MonoBehaviour,IScannable
         debuff.Clear();
         SetAnim(false,debuff);
     }
+    public bool HasDebuffOfType(Type type)=>debuffs.Any(d=>d.GetType()==type);
     public void StartScan()
     {
         AddDebuff(new ScannerDebuff());

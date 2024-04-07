@@ -1,6 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+
+using Unity.VisualScripting;
+
 using UnityEngine;
 public class AcidLake : MonoBehaviour
 {
@@ -36,12 +39,13 @@ public class AcidLake : MonoBehaviour
     event Action otpustitBloby;
     IEnumerator CreateBlob()
     {
-        DRAG blobDrag=Instantiate(blob,Camera.main.ScreenToWorldPoint(Input.mousePosition),Quaternion.identity);
+        DRAG blobDrag=Instantiate(blob,(Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition),Quaternion.identity);
         blobDrag.SetDragging();
         otpustitBloby += ()=>blobDrag.StopDragging();
         Transform blobTransform = blobDrag.transform;
-        for(float i = 0; i < 1f; i+=Time.fixedDeltaTime) 
-        { 
+        for(float i = 0; i < 1f; i+=Time.fixedDeltaTime)
+        {
+            if(blobTransform.IsDestroyed()) yield break;
             blobTransform.localScale = Vector3.one*5*i;
             yield return new WaitForFixedUpdate();
         }

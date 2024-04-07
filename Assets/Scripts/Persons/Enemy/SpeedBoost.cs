@@ -19,10 +19,10 @@ public class SpeedBoost : AbstractAura
     {
         if(base.StayCondition(other))
         {
-            MoveBase otherMove = other.GetComponent<MoveBase>();
+            DebuffBank otherMove = other.GetComponent<DebuffBank>();
             if(otherMove != null)
             {
-                return !otherMove.IsMultiplierBoost()&&other.GetComponent<DebuffBank>()!=null;
+                return !otherMove.HasDebuffOfType(typeof(Speeding))&&other.GetComponent<MoveBase>()!=null;
             }
         }
         return false;
@@ -32,9 +32,8 @@ public class SpeedBoost : AbstractAura
         if(EnteredThings.Count > 0)
         {
             DebuffBank[] moveTargets = EnteredThings.Where(x => x.gameObject != gameObject).
-                    Select(x => x.GetComponent<MoveBase>()).
-                    Where(x => x != null && !x.IsMultiplierBoost()).
-                    Select(x=>x.GetComponent<DebuffBank>()).ToArray();
+                    Select(x => x.GetComponent<DebuffBank>()).
+                    Where(x => x != null && x.GetComponent<MoveBase>()!=null && !x.HasDebuffOfType(typeof(Speeding))).ToArray();
             if(moveTargets != null && moveTargets.Length > 0)
             {
                 for(int i = moveTargets.Length; --i >= 0;)

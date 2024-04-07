@@ -9,11 +9,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8062662202914849086}
+  - component: {fileID: 5879499227890279321}
+  - component: {fileID: 3179805724110249700}
   - component: {fileID: 253741205754373855}
   - component: {fileID: 1061538414461962260}
   - component: {fileID: 6009270706981038861}
   - component: {fileID: 6726167897383211479}
   - component: {fileID: 2589555200504636227}
+  - component: {fileID: -2645624958228030827}
+  - component: {fileID: 6700068908251602366}
   m_Layer: 0
   m_Name: AcidBlob
   m_TagString: Untagged
@@ -36,6 +40,31 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5879499227890279321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6598249235195901140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e03e3f4c239d304d8b93ea8b6f8fafb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3179805724110249700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6598249235195901140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 827bc37bdb8406845bece398460e5b50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationName: AcidBlobEvaporation
 --- !u!212 &253741205754373855
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -136,7 +165,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 0.7
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -183,3 +212,35 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.08
+--- !u!114 &-2645624958228030827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6598249235195901140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9c4fd5ae8cbe924582d0b08150dbc86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 0
+  ExplodeIfCollideWithWall: 0
+  Explosion: {fileID: 0}
+  DamageType: 0
+  _mask:
+    serializedVersion: 2
+    m_Bits: 317440
+  _velosity: {x: 0, y: 0}
+--- !u!114 &6700068908251602366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6598249235195901140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3aa73394fcb4ef3489d741f052c85191, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
