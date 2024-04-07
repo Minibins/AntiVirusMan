@@ -10,7 +10,7 @@ public class Health : MonoBehaviour, iDraggable, IDamageble, IHealable
     [field: SerializeField] public float CurrentHealth;
     protected Animator animator;
     private Action _onDeath;
-
+    public Stat multiplerDamage = new(1);
     public Action OnDeath
     {
         get => _onDeath;
@@ -29,9 +29,9 @@ public class Health : MonoBehaviour, iDraggable, IDamageble, IHealable
 
     public virtual void ApplyDamage(float damage)
     {
-        
+        print(multiplerDamage);
             Instantiate(PunchSound);
-            CurrentHealth -= damage;
+            CurrentHealth -= damage*multiplerDamage;
             OnApplyDamage?.Invoke();
             if(CurrentHealth <= 0)
             {

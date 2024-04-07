@@ -19,7 +19,7 @@ public class EnemyHealth : DefaultHealth
             if (me.moveDirection == -1f && player.position.x > transform.position.x ||
                 me.moveDirection == 1f && player.position.x < transform.position.x)
             {
-                CurrentHealth -= damage;
+                CurrentHealth -= damage * multiplerDamage;
             }
         }
 

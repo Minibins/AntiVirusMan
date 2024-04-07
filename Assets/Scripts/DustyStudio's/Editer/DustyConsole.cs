@@ -5,14 +5,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Collections;
+using UnityEditor.Rendering;
+using Unity.VisualScripting;
 namespace DustyStudios
 {
-#if UNITY_EDITOR
-    public class DustyConsole : EditorWindow
+    public class DustyConsole
     {
-        string command = "";
         static List<string> output = new();
-        string Output
+        public static string Output
         {
             get
             {
@@ -25,37 +25,42 @@ namespace DustyStudios
                 return o;
             }
         }
-        static int numberOfOutputInScreen;
-        [MenuItem("Window/𝗗𝘂𝘀𝘁𝘆 𝗖𝗼𝗻𝘀𝗼𝗹𝗲")]
-        public static void ShowWindow()
-        {
-            GetWindow<DustyConsole>("Dusty Console");
-        }
-        private void Awake()
-        {
-            output.Add("Dusty Console ready for work （￣︶￣）↗");
-        }
-        private void OnGUI()
-        {
-            GUILayout.Label("Enter Command:");
-            command = GUILayout.TextField(command);
-
-            if(GUILayout.Button("Execute"))
-            {
-                string[] parts = command.Split(' ');
-                string commandName = parts[0];
-                string[] arguments = parts.Skip(1).ToArray();
-                ExecuteCommand(commandName,arguments);
-            }
-            float otherElementsYsize = (EditorGUIUtility.singleLineHeight+EditorGUIUtility.standardVerticalSpacing)*3;
-            EditorGUI.TextArea(new Rect(0,otherElementsYsize,position.width,position.height - otherElementsYsize),Output);
-            numberOfOutputInScreen = (int)((position.size.y-otherElementsYsize)/ EditorGUIUtility.singleLineHeight);
-        }
+        public static int numberOfOutputInScreen = 6;
+        
+        
+        public static event Action<string> onPrint;
         public static void Print(object line)
         {
-            output.Add(line.ToString());
+            string Line = line.ToString();
+            output.Add(Line);
+            onPrint(Line);
         }
-        public void ExecuteCommand(string commandName,string[] arguments)
+        public static void ExecuteCommandWithString(string command)
+        {
+            string[] parts = command.Split(' ');
+            string commandName = parts[0];
+            string[] arguments = parts.Skip(1).ToArray();
+            ExecuteCommand(commandName,arguments);
+        }
+        public static void LogCallback(string message,string stackTrace,LogType type)
+        {
+            string symbol = "";
+            switch(type)
+            {
+                case LogType.Error:
+                    symbol = "!!"; break;
+                case LogType.Log:
+                    symbol = "i"; break;
+                case LogType.Assert:
+                    symbol = "I"; break;
+                case LogType.Warning:
+                    symbol = "!"; break;
+                case LogType.Exception:
+                    symbol = "!!!"; break;
+            }
+            Print(symbol + ": " + message);
+        }
+        public static void ExecuteCommand(string commandName,string[] arguments)
         {
             object[] resultArray = ConvertArray(arguments);
             MethodInfo[] methods = GetCommands();
@@ -83,14 +88,14 @@ namespace DustyStudios
 
                         if(validSignature)
                         {
-                            output.Add(method.Invoke(null,resultArray).ToString());
+                            Print(method.Invoke(null,resultArray).ToString());
                             return;
                         }
                     }
                 }
             }
 
-            output.Add("Invalid command or arguments.");
+            Print("Invalid command or arguments.");
         }
 
         static MethodInfo[] GetCommands()
@@ -163,7 +168,7 @@ namespace DustyStudios
             return commands;
         }
     }
-#endif
+
     [AttributeUsage(AttributeTargets.Method,AllowMultiple = false,Inherited = false)]
     public class DustyConsoleCommandAttribute : Attribute
     {

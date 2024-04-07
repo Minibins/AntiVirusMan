@@ -1,24 +1,27 @@
 using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using TMPro;
 
 public class Settings : MonoBehaviour
 {   
     private void Start()
     {
         Time.timeScale = 1;
+        var SettingsPanel = UiElementsList.instance.Panels.SettingsPanel;
         try
         {
-            UiElementsList.instance.Panels.SettingsPanel.SoundSlider.Startp();
+            SettingsPanel.SoundSlider.Startp();
         }
         catch 
         {
             UiElementsList.instance = GameObject.FindObjectOfType<UiElementsList>();
-            UiElementsList.instance.Panels.SettingsPanel.SoundSlider.Startp();
+            SettingsPanel.SoundSlider.Startp();
         }
         ChangeUI(!Save.joystick);
-        var JoystickCheck = UiElementsList.instance.Panels.SettingsPanel.Joystick;
-        JoystickCheck.isOn = !Save.joystick;
+        ChangeConsole(Save.console);
+        SettingsPanel.Joystick.isOn = !Save.joystick;
+        SettingsPanel.Console.isOn = Save.console;
     }
 
     public void ChangeUI(bool isUsingJoystick)
@@ -31,7 +34,11 @@ public class Settings : MonoBehaviour
         Buttons.Left.gameObject.SetActive(isUsingJoystick);
         Save.joystick = isUsingJoystick;
     }
-       
+    public void ChangeConsole(bool open)
+    {
+        UiElementsList.instance.Panels.ConsolePanel.SetActive(open);
+        Save.console = open;
+    }
     public void OpenSettings(bool Open)
     {
         var UI = UiElementsList.instance;
@@ -44,5 +51,9 @@ public class Settings : MonoBehaviour
     { 
     SceneManager.LoadScene(name);
         Time.timeScale = 1;
+    }
+    public void RestartScene()
+    {
+        GoToScene(SceneManager.GetActiveScene().name);
     }
 }

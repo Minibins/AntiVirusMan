@@ -480,6 +480,7 @@ MonoBehaviour:
   Panels:
     ButtonSettingsPanel: {fileID: 0}
     BossPanel: {fileID: 0}
+    ConsolePanel: {fileID: 1628061639}
     UpgradesList: {fileID: 0}
     Progress: {fileID: 0}
     LoseGame:
@@ -495,6 +496,7 @@ MonoBehaviour:
       MusicVolumeSlider: {fileID: 494209972}
       SoundSlider: {fileID: 1010914074}
       Joystick: {fileID: 997825792}
+      Console: {fileID: 1508255869}
     DialogueBox:
       Panel: {fileID: 0}
       text: {fileID: 0}
@@ -11062,6 +11064,16 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5010887610185948392, guid: a163418f5c48cd74e85af557fee7f82f,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 32966450}
+    - target: {fileID: 5010887610185948392, guid: a163418f5c48cd74e85af557fee7f82f,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeConsole
+      objectReference: {fileID: 0}
     - target: {fileID: 5391852857315160889, guid: a163418f5c48cd74e85af557fee7f82f,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -11487,6 +11499,18 @@ PrefabInstance:
       addedObject: {fileID: 124796251}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a163418f5c48cd74e85af557fee7f82f, type: 3}
+--- !u!114 &1508255869 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5010887610185948392, guid: a163418f5c48cd74e85af557fee7f82f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1508255868}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1510007804
 PrefabInstance:
   m_ObjectHideFlags: 0

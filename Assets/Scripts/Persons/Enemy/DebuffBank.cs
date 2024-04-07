@@ -1,15 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using UnityEngine;
 
 public class DebuffBank : MonoBehaviour,IScannable
 {
     List<Debuff> debuffs = new();
-    Animator anim;
+    Animator anim, visualizer;
     private void Awake()
     {
         anim = GetComponent<Animator>();
+        visualizer = GetComponentsInChildren<Animator>().Where(a=>a!=anim).First();
+        visualizer.gameObject.SetActive(false);
     }
     public void AddDebuff(Debuff debuff)
     {
@@ -23,11 +26,29 @@ public class DebuffBank : MonoBehaviour,IScannable
             RemoveDebuff(debuff);
         }
     }
+    Dictionary<string,bool> animatorHasBool = new();
+    bool AnimatorHasBool(string name)
+    {
+        if(!animatorHasBool.ContainsKey(name))
+            animatorHasBool.Add(name,anim.parameters.Any(p => p.name == name&&p.type==AnimatorControllerParameterType.Bool));
+        return animatorHasBool[name];
+    }
     void SetAnim(bool state,Debuff debuff)
     {
-        if(debuff.animationName != "")
-        {
+        if(debuff.animationName != ""&&AnimatorHasBool(debuff.animationName))
             anim.SetBool(debuff.animationName,state);
+        else if(visualizer != null)
+        {
+            visualizer.gameObject.SetActive(state||AnyOfDebuffsUsesVisualizer!=null);
+            visualizer.Play(state ? debuff.animationName:AnyOfDebuffsUsesVisualizer.animationName);
+        }
+    }
+    Debuff AnyOfDebuffsUsesVisualizer
+    {
+        get
+        {
+            IEnumerable<Debuff> Out = debuffs.Where(d => d.animationName != "" && !AnimatorHasBool(d.animationName));
+            return Out.Count()>0 ? Out.First():null;
         }
     }
     public void RemoveDebuff(Debuff debuff)

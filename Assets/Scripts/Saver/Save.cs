@@ -8,6 +8,7 @@ using DustyStudios;
 public class Save : MonoBehaviour
 {
     const string JoystickSaveName = "Joystick";
+    const string ConsoleSaveName = "ConsoleEnable";
     const string VersionSaveName = "LastSessionVersion";
     const string LocationSaveName = "WinLocation";
     private static Data _data = new ();
@@ -78,7 +79,19 @@ public class Save : MonoBehaviour
             SaveField();
         }
     }
-
+    public static bool console
+    {
+        get
+        {
+            LoadField();
+            return _data.Console;
+        }
+        set
+        {
+            _data.Console = value;
+            SaveField();
+        }
+    }
     private void Awake()
     {
         LoadField();
@@ -90,7 +103,8 @@ public class Save : MonoBehaviour
             new Dictionary<string, float>(),
             getInt(LocationSaveName),
             PlayerPrefs.GetString(VersionSaveName),
-            Convert.ToBoolean(getInt(JoystickSaveName))
+            Convert.ToBoolean(getInt(JoystickSaveName)),
+            Convert.ToBoolean(getInt(ConsoleSaveName))
         );
         int getInt(string key) => PlayerPrefs.GetInt(key);
     }
@@ -99,6 +113,7 @@ public class Save : MonoBehaviour
     {
         setInt(LocationSaveName, _data.WinLocation);
         setInt(JoystickSaveName, Convert.ToByte(_data.Joystick));
+        setInt(ConsoleSaveName,Convert.ToByte(_data.Console));
         PlayerPrefs.SetString(VersionSaveName, _data.LastSessionVersion);
         foreach (var s in SettingSliders)
         {
@@ -113,16 +128,17 @@ public class Save : MonoBehaviour
     {
         public int WinLocation;
         public string LastSessionVersion;
-        public bool Joystick;
+        public bool Joystick, Console;
         public Dictionary<string, float> SettingSliders;
 
         public void Set(Dictionary<string, float> SettingSliders, int WinLocation, string LastSessionVersion,
-            bool joystick)
+            bool joystick, bool console)
         {
             this.SettingSliders = SettingSliders;
             this.WinLocation = WinLocation;
             this.LastSessionVersion = LastSessionVersion;
             Joystick = joystick;
+            Console = console;
         }
     }
 }

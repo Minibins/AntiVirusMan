@@ -17,20 +17,24 @@ public class SpeedBoost : AbstractAura
     }
     protected override bool StayCondition(Collider2D other)
     {
-        MoveBase otherMove = other.GetComponent<MoveBase>();
-        if(otherMove != null)
+        if(base.StayCondition(other))
         {
-            return base.StayCondition(other) && !otherMove.IsMultiplierBoost();
+            MoveBase otherMove = other.GetComponent<MoveBase>();
+            if(otherMove != null)
+            {
+                return !otherMove.IsMultiplierBoost()&&other.GetComponent<DebuffBank>()!=null;
+            }
         }
-        else return false;
+        return false;
     }
     protected override IEnumerator AuraAction()
     {
         if(EnteredThings.Count > 0)
         {
-            MoveBase[] moveTargets = EnteredThings.Where(x => x.gameObject != gameObject).
-                     Select(x => x.gameObject.GetComponent<MoveBase>()).
-                    Where(x => x != null && !x.IsMultiplierBoost()).ToArray();
+            DebuffBank[] moveTargets = EnteredThings.Where(x => x.gameObject != gameObject).
+                    Select(x => x.GetComponent<MoveBase>()).
+                    Where(x => x != null && !x.IsMultiplierBoost()).
+                    Select(x=>x.GetComponent<DebuffBank>()).ToArray();
             if(moveTargets != null && moveTargets.Length > 0)
             {
                 for(int i = moveTargets.Length; --i >= 0;)
@@ -38,7 +42,7 @@ public class SpeedBoost : AbstractAura
                     if(moveTargets[i] != null)
                     {
                         _animator.SetTrigger("peenok");
-                        moveTargets[i].SetSpeedMultiplierTemporary(_multiplierSpeed,_durationBoost);
+                        moveTargets[i].AddDebuff(new Speeding(_durationBoost,_multiplierSpeed));
                         yield return new WaitForSeconds(_ReloadTime);
                     }
                 }
