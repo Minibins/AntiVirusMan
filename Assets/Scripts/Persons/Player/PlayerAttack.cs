@@ -42,7 +42,7 @@ public class PlayerAttack : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
         scanner = GetComponentInChildren<Scanner>();
         pc = GameObject.FindObjectOfType<PC>();
-        Ammo = new(new(_maxAmmo,0),_maxAmmo,_timeReload,1);
+        Ammo = new(new(_maxAmmo,0),_maxAmmo,_timeReload,1,value=>new WaitForSeconds(value));
         Ammo.ValueChanged += AmmoBarRefresh;
     }
 

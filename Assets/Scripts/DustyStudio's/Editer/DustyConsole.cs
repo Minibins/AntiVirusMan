@@ -33,7 +33,7 @@ namespace DustyStudios
         {
             string Line = line.ToString();
             output.Add(Line);
-            onPrint(Line);
+            onPrint?.Invoke(Line);
         }
         public static void ExecuteCommandWithString(string command)
         {

@@ -13,18 +13,21 @@ public class RechargingValue
         set
         {
             _value = bounds.Clamp(value);
-            ValueChanged?.Invoke(_value);
+            ValueChanged?.Invoke(value);
             CoroutineRunner.instance.StartCoroutine(Reload());
         }
     }
-    public float RechargeTime=1, RechargeStep=1;
+    public float RechargeStep=1, RechargeTime=1;
+    public delegate T ReloadInstruction<T>(float time);
+    ReloadInstruction<object> reloadDelegate;
     bool isOnReload;
 
-    public RechargingValue(ValueBounds bounds,float value,float rechargeTime,float rechargeStep)
+    public RechargingValue(ValueBounds bounds,float value,float rechargeTime,float rechargeStep,ReloadInstruction<object> reload)
     {
         this.bounds = bounds;
         _value = value;
-        RechargeTime = rechargeTime;
+        RechargeTime = rechargeTime; 
+        reloadDelegate = reload;
         RechargeStep = rechargeStep;
     }
 
@@ -33,13 +36,11 @@ public class RechargingValue
         if(!isOnReload && bounds.isInBounds(Value))
         {
             isOnReload = true;
-            yield return new WaitForSeconds(RechargeTime);
-            while(bounds.isInBounds(Value + RechargeStep,false))
+            while(bounds.isInBounds(Value + RechargeStep))
             {
+                yield return reloadDelegate(RechargeTime);
                 Value += RechargeStep;
-                yield return new WaitForSeconds(RechargeTime);
             }
-            Value = RechargeStep > 0 ? bounds.max : bounds.min;
             isOnReload = false;
         }
     }
@@ -77,5 +78,9 @@ public class RechargingValue
     {
         value.Value /= divisor;
         return value;
+    }
+    public override string ToString()
+    {
+        return Value.ToString();
     }
 }

@@ -4828,6 +4828,7 @@ GameObject:
   - component: {fileID: 237757256}
   - component: {fileID: 237757252}
   - component: {fileID: 237757255}
+  - component: {fileID: 237757257}
   m_Layer: 10
   m_Name: Lake
   m_TagString: Untagged
@@ -5287,6 +5288,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blob: {fileID: 6009270706981038861, guid: ef2c6e14a90abd447b2e7f95c62b899f, type: 3}
+--- !u!114 &237757257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 237757250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da11f431630c6754fbdeae58b8a56f1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &238451920
 GameObject:
   m_ObjectHideFlags: 0
@@ -25669,7 +25682,6 @@ GameObject:
   - component: {fileID: 1992810117}
   - component: {fileID: 1992810116}
   - component: {fileID: 1992810115}
-  - component: {fileID: 1992810118}
   m_Layer: 10
   m_Name: LakeHole
   m_TagString: Untagged
@@ -26313,18 +26325,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!114 &1992810118
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1992810113}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da11f431630c6754fbdeae58b8a56f1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2014086871
 GameObject:
   m_ObjectHideFlags: 0
@@ -27229,12 +27229,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PC
       objectReference: {fileID: 0}
-    - target: {fileID: 1025521269204821962, guid: 7cd7abddee6eef64faf67f84b4c443df,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 961980790, guid: 1df0e45a1e1783b4bac6578d311db4ef,
-        type: 3}
     - target: {fileID: 1025521269847071292, guid: 7cd7abddee6eef64faf67f84b4c443df,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -27284,16 +27278,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2575564419444698740, guid: 7cd7abddee6eef64faf67f84b4c443df,
-        type: 3}
-      propertyPath: multiplerDamage.baseValue
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2799703115907409118, guid: 7cd7abddee6eef64faf67f84b4c443df,
-        type: 3}
-      propertyPath: _ReloadTime
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -27814,7 +27798,6 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 3001987158326336888}
   - {fileID: 8304178652091816245}
   - {fileID: 14327596968153252}
   - {fileID: 2313873072146739146}
@@ -27822,3 +27805,4 @@ SceneRoots:
   - {fileID: 699025416}
   - {fileID: 238451922}
   - {fileID: 280865273492685901}
+  - {fileID: 3001987158326336888}
