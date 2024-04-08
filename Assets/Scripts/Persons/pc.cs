@@ -28,6 +28,9 @@ public class PC : Follower
         }
     }
 
+    public Animator Animator { get => animator;}
+    public Health Health { get => health;}
+
     private protected override void Start()
     {
         _player = GameObject.FindGameObjectWithTag("Player");
@@ -136,7 +139,6 @@ public class PC : Follower
         
         
     }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Enemy")
@@ -144,14 +146,11 @@ public class PC : Follower
             animator.SetTrigger("NoCalm");
         }
     }
-
     public void EnemyKilled()
     {
         animator.SetTrigger("HeKilledEnemy");
         Carma -= 1f;
     }
-
-
     IEnumerator LowCharge()
     {
         while (true)

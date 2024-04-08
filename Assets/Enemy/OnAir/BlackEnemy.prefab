@@ -295,7 +295,9 @@ MonoBehaviour:
   parrybleDamageTypes: 
   CurrentHealth: 0
   multiplerDamage:
-    multiplers: []
+    summingMultiplers:
+    - 1
+    multiplingMultiplers: []
     additions: []
     baseValue: 1
   needVelocityForInvisibility: 9999

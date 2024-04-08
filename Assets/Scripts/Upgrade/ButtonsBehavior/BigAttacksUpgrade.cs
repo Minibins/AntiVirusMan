@@ -6,7 +6,7 @@ public class BigAttacksUpgrade : Upgrade
         base.OnTake();
         PlayerAttack attacke = GameObject.FindObjectOfType<PlayerAttack>();
         attacke.Damage.additions.Add(3);
-        attacke._timeReload /= 2;
+        attacke.Ammo.RechargeTime /= 2;
         Level.EnemyNeedToUpLVL /= 1.5f;
     }
 }

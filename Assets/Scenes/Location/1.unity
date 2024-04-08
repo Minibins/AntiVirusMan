@@ -4834,7 +4834,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &237757251
 Transform:
   m_ObjectHideFlags: 0
@@ -25669,13 +25669,14 @@ GameObject:
   - component: {fileID: 1992810117}
   - component: {fileID: 1992810116}
   - component: {fileID: 1992810115}
+  - component: {fileID: 1992810118}
   m_Layer: 10
   m_Name: LakeHole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1992810114
 Transform:
   m_ObjectHideFlags: 0
@@ -26312,6 +26313,18 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1992810118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1992810113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da11f431630c6754fbdeae58b8a56f1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2014086871
 GameObject:
   m_ObjectHideFlags: 0
@@ -27113,12 +27126,7 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 400122307}
-    - target: {fileID: 2534247655149363551, guid: 0951b036ba0a12343a56eff64eed7b4c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3333168397740096519, guid: 0951b036ba0a12343a56eff64eed7b4c,
+    - target: {fileID: 3270852742559193630, guid: 0951b036ba0a12343a56eff64eed7b4c,
         type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -27127,11 +27135,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UI
-      objectReference: {fileID: 0}
-    - target: {fileID: 3684711052714984343, guid: 0951b036ba0a12343a56eff64eed7b4c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4640002808759533563, guid: 0951b036ba0a12343a56eff64eed7b4c,
         type: 3}
@@ -27226,6 +27229,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: PC
       objectReference: {fileID: 0}
+    - target: {fileID: 1025521269204821962, guid: 7cd7abddee6eef64faf67f84b4c443df,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 961980790, guid: 1df0e45a1e1783b4bac6578d311db4ef,
+        type: 3}
     - target: {fileID: 1025521269847071292, guid: 7cd7abddee6eef64faf67f84b4c443df,
         type: 3}
       propertyPath: m_LocalPosition.x

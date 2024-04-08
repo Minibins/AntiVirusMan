@@ -17,7 +17,7 @@ public class PlayerAttack : MonoBehaviour
     AbstractAttack FirstAttack => TemporaryAttackSubstitute.Count > 0 ? TemporaryAttackSubstitute[0] :MainAttack;
     [SerializeField] public List<AbstractAttack> AdditionalAttacks;
     [SerializeField] public Stat Damage;
-    [SerializeField] private int _ammo, _maxAmmo;
+    [SerializeField] private int _maxAmmo;
     [SerializeField] public float _timeReload;
     private Rigidbody2D rb;
     private Animator _animator;
@@ -26,30 +26,12 @@ public class PlayerAttack : MonoBehaviour
     Scanner scanner;
     private PC pc;
     public bool stopAttackOnAnimationEnd = true;
-    public Action OnRefreshAmmo { get; set; }
     public void AddTemporaryAttackSubstitute(AbstractAttack substitute)
     {
         if(substitute.isUsingJoystick) UiElementsList.instance.Joysticks.Attack.gameObject.SetActive(true);
         TemporaryAttackSubstitute.Add(substitute);
     }
-    public int Ammo
-    {
-        get { return _ammo; }
-        set
-        {
-            _ammo = Mathf.Min(Mathf.Max(0, value), MaxAmmo);
-            OnRefreshAmmo?.Invoke();
-            AmmoBarRefresh();
-            StartCoroutine(Reload());
-        }
-    }
-
-    public int MaxAmmo
-    {
-        get { return _maxAmmo; }
-        private set { _maxAmmo = value; }
-    }
-
+    public RechargingValue Ammo;
     public Rigidbody2D Rb { get => rb; set => rb = value; }
     public Rigidbody2D Rb1 { get => rb; set => rb = value; }
 
@@ -59,11 +41,12 @@ public class PlayerAttack : MonoBehaviour
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         scanner = GetComponentInChildren<Scanner>();
-        OnRefreshAmmo += AmmoBarRefresh;
         pc = GameObject.FindObjectOfType<PC>();
+        Ammo = new(new(_maxAmmo,0),_maxAmmo,_timeReload,1);
+        Ammo.ValueChanged += AmmoBarRefresh;
     }
 
-    private void AmmoBarRefresh()
+    private void AmmoBarRefresh(float Ammo)
     {
         var AmmoCell= UiElementsList.instance.Counters.AmmoCell;
         for (int i = 0; i < Ammo && i < AmmoCell.Length; i++)
@@ -71,7 +54,7 @@ public class PlayerAttack : MonoBehaviour
             AmmoCell[i].Enable();
         }
 
-        for (int i = Ammo; i < MaxAmmo; i++)
+        for (int i = (int)Ammo; i < _maxAmmo && i < AmmoCell.Length; i++)
         {
             AmmoCell[i].Disable();
         }
@@ -112,7 +95,6 @@ public class PlayerAttack : MonoBehaviour
                 attack.Attack(FirstAttack.LoadTime+attack.LoadTime);
             }
         }
-        AmmoBarRefresh();
         _animator.SetBool("Attack",true);
     }
 
@@ -127,24 +109,5 @@ public class PlayerAttack : MonoBehaviour
         rb.bodyType = RigidbodyType2D.Dynamic;
         if(stopAttackOnAnimationEnd)
             StopAttack();
-    }
-
-    private void OnDestroy()
-    {
-        OnRefreshAmmo = null;
-    }
-    bool isOnReload;
-    private IEnumerator Reload()
-    {
-        if(!isOnReload && Ammo < MaxAmmo)
-        {
-            isOnReload = true;
-            while(Ammo < MaxAmmo)
-            {
-                yield return new WaitForSeconds(_timeReload);
-                Ammo++;
-            }
-            isOnReload = false;
-        }
     }
 }
