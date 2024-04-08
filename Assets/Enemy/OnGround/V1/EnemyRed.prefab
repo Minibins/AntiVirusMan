@@ -221,7 +221,7 @@ MonoBehaviour:
   DamageType: 0
   _mask:
     serializedVersion: 2
-    m_Bits: 40960
+    m_Bits: 40976
   _velosity: {x: 0, y: 0}
 --- !u!70 &1573228806848738054
 CapsuleCollider2D:
@@ -290,7 +290,9 @@ MonoBehaviour:
   parrybleDamageTypes: 
   CurrentHealth: 2
   multiplerDamage:
-    multiplers: []
+    summingMultiplers:
+    - 1
+    multiplingMultiplers: []
     additions: []
     baseValue: 1
   needVelocityForInvisibility: 9999

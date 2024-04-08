@@ -194,7 +194,7 @@ MonoBehaviour:
   WhoAmI: 1
   _maskWhoKills:
     serializedVersion: 2
-    m_Bits: 40960
+    m_Bits: 40976
   moveDirection: 0
   playerPrefsName: EnemyStepa
   playerPrefsLittleName: EnemyStepaLittle
@@ -288,7 +288,9 @@ MonoBehaviour:
   parrybleDamageTypes: 
   CurrentHealth: 0
   multiplerDamage:
-    multiplers: []
+    summingMultiplers:
+    - 1
+    multiplingMultiplers: []
     additions: []
     baseValue: 1
   needVelocityForInvisibility: 9999

@@ -270,7 +270,6 @@ GameObject:
   - component: {fileID: 1018971039209685417}
   - component: {fileID: 3840983604411001542}
   - component: {fileID: 2158308975165623579}
-  - component: {fileID: 761592458066141478}
   - component: {fileID: 2118469342290813070}
   - component: {fileID: 2190369204087587778}
   - component: {fileID: 2260657415947418427}
@@ -498,26 +497,6 @@ CapsuleCollider2D:
   m_Offset: {x: -0.045222472, y: -0.021281147}
   m_Size: {x: 0.38955498, y: 0.43743762}
   m_Direction: 0
---- !u!114 &761592458066141478
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8912311358399435758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9c4fd5ae8cbe924582d0b08150dbc86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damage: 0
-  ExplodeIfCollideWithWall: 0
-  Explosion: {fileID: 0}
-  DamageType: 0
-  _mask:
-    serializedVersion: 2
-    m_Bits: 0
-  _velosity: {x: 0, y: 0}
 --- !u!114 &2118469342290813070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -538,7 +517,9 @@ MonoBehaviour:
   parrybleDamageTypes: 
   CurrentHealth: 0
   multiplerDamage:
-    multiplers: []
+    summingMultiplers:
+    - 1
+    multiplingMultiplers: []
     additions: []
     baseValue: 1
   needVelocityForInvisibility: 9999

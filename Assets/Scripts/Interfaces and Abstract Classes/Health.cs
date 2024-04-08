@@ -29,13 +29,14 @@ public class Health : MonoBehaviour, iDraggable, IDamageble, IHealable
 
     public virtual void ApplyDamage(float damage)
     {
-            Instantiate(PunchSound);
-            CurrentHealth -= damage*multiplerDamage;
-            OnApplyDamage?.Invoke();
-            if(CurrentHealth <= 0)
-            {
-                OnDeath?.Invoke();
-            }
+        CurrentHealth -= damage * multiplerDamage;
+        print(CurrentHealth);
+        OnApplyDamage?.Invoke();
+        if(CurrentHealth <= 0)
+        {
+            OnDeath?.Invoke();
+        }
+        if(PunchSound != null) Instantiate(PunchSound);
     }
 
     public void AddMaxHealth(int maxHealth)
@@ -82,7 +83,7 @@ public class Health : MonoBehaviour, iDraggable, IDamageble, IHealable
     }
     public void SoundDead()
     {
-        Instantiate(DeathSound);
+        if(DeathSound != null) Instantiate(DeathSound);
     }
 
     public void OnDrag()

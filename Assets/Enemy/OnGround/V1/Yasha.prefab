@@ -257,7 +257,7 @@ MonoBehaviour:
   DamageType: 0
   _mask:
     serializedVersion: 2
-    m_Bits: 40960
+    m_Bits: 40976
   _velosity: {x: 0, y: 0}
 --- !u!114 &25759624978556804
 MonoBehaviour:
@@ -291,7 +291,9 @@ MonoBehaviour:
   parrybleDamageTypes: 
   CurrentHealth: 3
   multiplerDamage:
-    multiplers: []
+    summingMultiplers:
+    - 1
+    multiplingMultiplers: []
     additions: []
     baseValue: 1
   needVelocityForInvisibility: 9999

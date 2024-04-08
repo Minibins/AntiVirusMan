@@ -165,9 +165,10 @@ MonoBehaviour:
   _damage: 1
   ExplodeIfCollideWithWall: 0
   Explosion: {fileID: 0}
+  DamageType: 0
   _mask:
     serializedVersion: 2
-    m_Bits: 317504
+    m_Bits: 317520
   _velosity: {x: 1, y: 0}
 --- !u!50 &-3162637589574794086
 Rigidbody2D:
@@ -231,7 +232,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _canJump: 0
   _speed: 3
+  transform: {fileID: 0}
   _spriteRenderer: {fileID: 0}
+  isUsingRigidbody: 1
+  rotationMode: 1
   _groundCheck: {fileID: 0}
   _roofCheck: {fileID: 0}
   _groundLayer:
@@ -245,6 +249,9 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _maxJumpLeftover: 0
+  AutojumpRange: 0
+  AutojumpHeight: 0
+  Autojump: 0
 --- !u!1001 &2559051835963309209
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,8 +1,27 @@
 ﻿using UnityEngine;
-public class Wall : MonoBehaviour
+public class Wall : MonoBehaviour, IAcidable
 {
     public float TowerHeight = 0;
     [SerializeField] new Collider2D collider;
+    private Animator animator;
+    public Animator Animator
+    {
+        get
+        {
+            if(animator==null) animator =GetComponent<Animator>();
+            return animator;
+        }
+    }
+    public void OblitCislotoy()
+    {
+        Animator.SetBool("IsAcid",true);
+        health = gameObject.AddComponent<Health>();
+        health.AddMaxHealth(3);
+        health.OnApplyDamage = test; //animator.SetInteger("DestroyStage",3 - (int)health.CurrentHealth);
+        health.OnDeath += () => animator.SetTrigger("Destroy");
+    }
+    void test() { print("И так тоже"); }
+    Health health;
     private void Start()
     {
         {

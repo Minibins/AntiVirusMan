@@ -3263,7 +3263,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_93
+      name: Wall0
       rect:
         serializedVersion: 2
         x: 272
@@ -3284,7 +3284,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_94
+      name: Wall6
       rect:
         serializedVersion: 2
         x: 288
@@ -3305,7 +3305,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_98
+      name: Wall1
       rect:
         serializedVersion: 2
         x: 288
@@ -3326,7 +3326,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_100
+      name: Wall2
       rect:
         serializedVersion: 2
         x: 304
@@ -3347,7 +3347,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_101
+      name: Wall3
       rect:
         serializedVersion: 2
         x: 272
@@ -3368,7 +3368,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_103
+      name: Wall9
       rect:
         serializedVersion: 2
         x: 288
@@ -3389,7 +3389,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_142
+      name: Wall4
       rect:
         serializedVersion: 2
         x: 288
@@ -3410,7 +3410,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_143
+      name: Wall10
       rect:
         serializedVersion: 2
         x: 304
@@ -3431,7 +3431,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_145
+      name: Wall5
       rect:
         serializedVersion: 2
         x: 272
@@ -3452,7 +3452,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_149
+      name: Wall7
       rect:
         serializedVersion: 2
         x: 304
@@ -3473,7 +3473,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_150
+      name: Wall8
       rect:
         serializedVersion: 2
         x: 272
@@ -5867,27 +5867,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stepa_Death_0
-      rect:
-        serializedVersion: 2
-        x: 349
-        y: 110
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e6a009f1b700e4148896c2b17294be7f
-      internalID: 1780257450
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Stepa_Death_1
       rect:
         serializedVersion: 2
@@ -5933,12 +5912,12 @@ TextureImporter:
       name: Stepa_Death_3
       rect:
         serializedVersion: 2
-        x: 349
+        x: 352
         y: 78
-        width: 32
+        width: 28
         height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.46428573, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -5996,9 +5975,9 @@ TextureImporter:
       name: Stepa_Death_6
       rect:
         serializedVersion: 2
-        x: 349
+        x: 352
         y: 46
-        width: 32
+        width: 26
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -26644,7 +26623,7 @@ TextureImporter:
         width: 29
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -26665,7 +26644,7 @@ TextureImporter:
         width: 29
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -26686,7 +26665,7 @@ TextureImporter:
         width: 29
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -26694,6 +26673,174 @@ TextureImporter:
       bones: []
       spriteID: b82b67aad9803dd498763b0e533fbc13
       internalID: 1664006066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wall_Acid0
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 126
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d4d1173048a02c41a1d4cc0e222f37e
+      internalID: -1667082295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wall_Acid1
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 126
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cb70d5929a8c374ead8a0ce4c9d6557
+      internalID: 1314181781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wall_Acid2
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 94
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c39bbab9cb4ff9b4b89791e1c879a372
+      internalID: 129605171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wall_Acid3
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 94
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bc4f195bbb2a884c80dbd43d07b2721
+      internalID: -794941253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wall_Acid4
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 62
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f52c2a6bdbe3a53448e0de81276c7d26
+      internalID: -1955719656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wall_Acid5
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 62
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b93ed2e7dd05984683a706272e9fce6
+      internalID: -49312730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wall_Acid6
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 46
+        width: 16
+        height: 16
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57d43f3beeac4aa45ac813224afe1efe
+      internalID: 1646853658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wall_Acid7
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 46
+        width: 16
+        height: 16
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfb2d7991c16bdc4084634ee24901db3
+      internalID: -2061382292
       vertices: []
       indices: 
       edges: []
@@ -26720,9 +26867,6 @@ TextureImporter:
       All_0: -3346575053172843645
       All_1: -1072127175970171052
       All_10: -1859367548
-      All_100: -2090683442398890991
-      All_101: 5648650440942586977
-      All_103: -9133983883208827398
       All_12: 8755054611862819910
       All_136: -4012547197266128678
       All_137: -3590082343012989365
@@ -26730,14 +26874,9 @@ TextureImporter:
       All_139: -3295359961329942283
       All_140: 7573305100358134402
       All_141: -7672217831038224688
-      All_142: 2528182791056904221
-      All_143: -1673191766622629998
       All_144: 2356321235338187319
-      All_145: -3587909991816963801
       All_146: -7439830506601746753
       All_147: -1729097129779419771
-      All_149: 4814717996318606440
-      All_150: 93915020349881927
       All_16: 5313313365195421003
       All_169: -2992531943476814738
       All_17: -1559685414125227526
@@ -27033,9 +27172,6 @@ TextureImporter:
       All_9: -9034024255245367701
       All_90: -5088923540690421642
       All_91: 7225669373263600482
-      All_93: 6147922343333243950
-      All_94: 8896472865544804164
-      All_98: -1428768662127270070
       Bestiary_Booka: -1323015587
       Bestiary_EliteBooka: -1533091656
       Bestiary_EliteToocha: 39238
@@ -27814,6 +27950,25 @@ TextureImporter:
       UI_UpgradeList: -359581204
       UI_V: 6986707411545232357
       UI_X: -1006392905
+      Wall0: 6147922343333243950
+      Wall1: -1428768662127270070
+      Wall10: -1673191766622629998
+      Wall2: -2090683442398890991
+      Wall3: 5648650440942586977
+      Wall4: 2528182791056904221
+      Wall5: -3587909991816963801
+      Wall6: 8896472865544804164
+      Wall7: 4814717996318606440
+      Wall8: 93915020349881927
+      Wall9: -9133983883208827398
+      Wall_Acid0: -1667082295
+      Wall_Acid1: 1314181781
+      Wall_Acid2: 129605171
+      Wall_Acid3: -794941253
+      Wall_Acid4: -1955719656
+      Wall_Acid5: -49312730
+      Wall_Acid6: 1646853658
+      Wall_Acid7: -2061382292
       Yasha0: 1163918412
       Yasha1: 1235401438
       Yasha10: 1064062707

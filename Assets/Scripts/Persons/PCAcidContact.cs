@@ -21,7 +21,6 @@ public class PCAcidContact : MonoBehaviour, IAcidable
             if(LastOpyanenieValue <= Opyanenie)
                 PC.Health.ApplyDamage(Mathf.Clamp(Pyanstvo - 2,0,3));
         }
-        print($"Opyanenie = {Opyanenie}, Pyanstvo = {Pyanstvo}");
         PC.Animator.SetInteger("PoisonLevel",Pyanstvo>=3?3:Opyanenie);
         LastOpyanenieValue = Opyanenie;
     }
