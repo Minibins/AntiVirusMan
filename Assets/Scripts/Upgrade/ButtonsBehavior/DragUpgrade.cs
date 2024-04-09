@@ -11,7 +11,7 @@ public class DragUpgrade : Upgrade
             turret.AddComponent<DRAG>();
         foreach(DraggableAsTurret draggable in GameObject.FindObjectsOfType<DraggableAsTurret>()) 
             draggable.AddComponent<DRAG>();
-        GameObject.FindObjectOfType<PChealth>().AddComponent<DRAG>();
+        PChealth.instance.AddComponent<DRAG>();
         FindObjectOfType<InstantiateWall>().canmove = true;
     }
 }

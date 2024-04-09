@@ -5,7 +5,7 @@ using UnityEngine;
 public class DefaultHealth : Health
 {
     private Rigidbody2D rb;
-    [SerializeField] private float needVelocityForInvisibility = 9999;
+    public float needVelocityForInvisibility = 9999;
     private bool IsInvisible;
 
     protected override void Start()

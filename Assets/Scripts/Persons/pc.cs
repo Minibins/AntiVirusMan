@@ -9,7 +9,6 @@ public class PC : Follower
     [SerializeField] private Transform pc;
     [SerializeField] private Sprite[] carmaSprites;
     private GameObject _player;
-    private Health health;
     private Animator animator;
     private Transform rozetka;
     private Animator rozetkaAnim;
@@ -29,7 +28,6 @@ public class PC : Follower
     }
 
     public Animator Animator { get => animator;}
-    public Health Health { get => health;}
     public bool Lowchrge 
     {
         get => lowchrge;
@@ -43,12 +41,10 @@ public class PC : Follower
             }
         }
     }
-
     private protected override void Start()
     {
         _player = GameObject.FindGameObjectWithTag("Player");
         playerPosition = _player.transform;
-        health = GetComponentInParent<Health>();
         animator = GetComponentInParent<Animator>();
         rozetka = GameObject.Find("Rozetka").transform;
         rozetkaAnim = rozetka.GetComponent<Animator>();
@@ -172,8 +168,8 @@ public class PC : Follower
         UiElementsList.instance.Panels.SusIPpanel.SetActive(LowChargeDamage);
         while (Lowchrge)
         {
-            if(LowChargeDamage) health.CurrentHealth--;
-            health.ApplyDamage(0);
+            if(LowChargeDamage) PChealth.instance.CurrentHealth--;
+            PChealth.instance.ApplyDamage(0);
             yield return new WaitForSeconds(5);
         }
         lowChargeCoroutineRunning=false;

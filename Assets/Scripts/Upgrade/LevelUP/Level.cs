@@ -1,3 +1,5 @@
+using DustyStudios;
+
 using System;
 using UnityEngine;
 using UnityEngine.UI;
@@ -42,5 +44,11 @@ public class Level : MonoBehaviour
             EXP +=4;
         }
         #endif
+    }
+    [DustyConsoleCommand("exp", "Set EXP into value", typeof(float))]
+    public static string SetHealth(int exp)
+    {
+        EXP = exp;
+        return $"Expirience are {exp} now";
     }
 }

@@ -5,7 +5,6 @@ using System.Collections;
 using UnityEngine;
 public class Player : MoveBase, IPlayer, IHealable
 {
-    [SerializeField] private PChealth _health;
     public bool Stunned;
     private Dasher _dasher;
     public static bool IsJump;
@@ -79,7 +78,7 @@ public class Player : MoveBase, IPlayer, IHealable
     public void takeDamage(Vector3 respawn)
     {
         PlayDamageAnimation();
-        _health.ApplyDamage(1);
+        PChealth.instance.ApplyDamage(1);
         transform.position = respawn;
     }
     [SerializeField] float damageForce;
@@ -137,6 +136,6 @@ public class Player : MoveBase, IPlayer, IHealable
 
     public void Heal(int hp)
     {
-        _health.HealHealth(hp);
+        PChealth.instance.HealHealth(hp);
     }
 }

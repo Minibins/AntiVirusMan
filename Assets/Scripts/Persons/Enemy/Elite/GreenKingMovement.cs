@@ -57,7 +57,7 @@ public class GreenKingMovement : MonoBehaviour, IDamageble
         dashRange = defaultDashRange * MathA.OneOrNegativeOne(PC.position.x < transform.position.x);
         canDamagePC = PC.position.x < transform.position.x != PC.position.x < nextPos(colider).x;
         SetTargetPos();
-        if(transform.position==PC.position) { GameObject.FindObjectOfType<PChealth>().ApplyDamage(1); }
+        if(transform.position==PC.position) { PChealth.instance.ApplyDamage(1); }
     }
     void SetTargetPos()
     {

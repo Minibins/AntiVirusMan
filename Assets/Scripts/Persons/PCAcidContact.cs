@@ -12,7 +12,7 @@ public class PCAcidContact : MonoBehaviour, IAcidable
     }
     void PyanstvoUpdate(float f)
     {
-        PC.Health.multiplerDamage.baseValue = 1+Convert.ToInt16(Opyanenie!=0);
+        PChealth.instance.multiplerDamage.baseValue = 1+Convert.ToInt16(Opyanenie!=0);
         PC.LowChargeDamage = Opyanenie == 0;
         if(Opyanenie == 0)
             Pyanstvo = 0;
@@ -20,7 +20,7 @@ public class PCAcidContact : MonoBehaviour, IAcidable
         {
             Pyanstvo++;
             if(LastOpyanenieValue <= Opyanenie)
-                PC.Health.ApplyDamage(Mathf.Clamp(Pyanstvo - 2,0,3));
+                PChealth.instance.ApplyDamage(Mathf.Clamp(Pyanstvo - 2,0,3));
         }
         PC.Animator.SetInteger("PoisonLevel",Pyanstvo>=3?3:Opyanenie);
         LastOpyanenieValue = Opyanenie;

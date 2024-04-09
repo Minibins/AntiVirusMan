@@ -59,7 +59,7 @@ namespace DustyStudios
                 case LogType.Exception:
                 symbol = "!!!"; 
                 Match match = Regex.Match(stackTrace, @"\((at <[^)]+>:0)\)");
-                if(match.Success) symbol += '\n' + match.Groups[1].Value;
+                if(match.Success) symbol += '\n' + match.Groups[1].Value+ '\n';
                 break;
             }
             Print(symbol + ": " + message);
