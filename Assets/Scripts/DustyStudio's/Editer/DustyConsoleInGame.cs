@@ -6,6 +6,7 @@ namespace DustyStudios
     public class DustyConsoleInGame : MonoBehaviour
     {
         [SerializeField] Text input, output;
+        public static bool UsedConsoleInSession;
         void Start()
         {
             Application.logMessageReceived += DustyConsole.LogCallback;

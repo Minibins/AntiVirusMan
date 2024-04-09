@@ -1,3 +1,5 @@
+using DustyStudios;
+
 using System.Collections;
 
 using UnityEngine;
@@ -26,7 +28,7 @@ public class DummyHealth : Health
     public override void DestroyHimself()
     {
         const string ppname = "EnemyGreenTutorial";
-        if(!Save.console)
+        if(!DustyConsoleInGame.UsedConsoleInSession)
             PlayerPrefs.SetInt(ppname,PlayerPrefs.GetInt(ppname,0) + 1);
         Level.EXP += 3;
         Destroy(this);

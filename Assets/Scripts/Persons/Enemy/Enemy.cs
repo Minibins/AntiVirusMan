@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DustyStudios;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -221,7 +223,7 @@ public class Enemy : MonoBehaviour
         else
         {
             string ppname = isLittle ? playerPrefsLittleName : playerPrefsName; 
-            if(!Save.console)
+            if(!DustyConsoleInGame.UsedConsoleInSession)
                 PlayerPrefs.SetInt(ppname,PlayerPrefs.GetInt(ppname,0) + 1);
             Enemies.Remove(this);
             if(_move!=null)

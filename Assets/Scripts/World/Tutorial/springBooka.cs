@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
+using DustyStudios;
 using DustyStudios.MathAVM;
 
 using UnityEngine;
@@ -40,7 +41,7 @@ public class springBooka : BookaCollisionChecker
                     g.GetComponent<Rigidbody2D>().velocity=MathA.RotatedVector( Vector2.up*VelocityStrengh,rotationOfVelocity);
                 }
                 const string ppname = "EnemyBookaTutorial";
-                if(!Save.console&&EnteredThings.Count>0) PlayerPrefs.SetInt(ppname,PlayerPrefs.GetInt(ppname,0) + 1);
+                if(!DustyConsoleInGame.UsedConsoleInSession && EnteredThings.Count>0) PlayerPrefs.SetInt(ppname,PlayerPrefs.GetInt(ppname,0) + 1);
             }
         }
         if (!UnderPreasure)

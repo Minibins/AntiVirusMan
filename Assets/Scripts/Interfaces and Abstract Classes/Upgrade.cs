@@ -3,6 +3,7 @@ using System;
 using UnityEngine;
 using System.Collections;
 using Unity.VisualScripting;
+using DustyStudios;
 
 [System.Serializable]
 public class Upgrade : MonoBehaviour
@@ -57,7 +58,7 @@ public class Upgrade : MonoBehaviour
 
     protected virtual void OnTake()
     {
-        if(!Save.console)
+        if(!DustyConsoleInGame.UsedConsoleInSession)
         {
             PlayerPrefs.SetInt(Sprite.name, PlayerPrefs.GetInt(Sprite.name,0)+1);
             PlayerPrefs.Save();

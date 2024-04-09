@@ -88,6 +88,7 @@ public class Save : MonoBehaviour
         }
         set
         {
+            DustyConsoleInGame.UsedConsoleInSession |= value;
             _data.Console = value;
             SaveField();
         }

@@ -1,3 +1,5 @@
+using DustyStudios;
+
 using UnityEngine;
 
 public class Explosive : MonoBehaviour, IDamageble
@@ -14,7 +16,7 @@ public class Explosive : MonoBehaviour, IDamageble
         Instantiate(Explosion,transform.position,Quaternion.identity);
         Level.EXP += exp;
         Destroy(gameObject);
-        if(ppname != ""&&!Save.console)
+        if(ppname != ""&&!DustyConsoleInGame.UsedConsoleInSession)
                 PlayerPrefs.SetInt(ppname,PlayerPrefs.GetInt(ppname,0) + 1);
     }
 }
