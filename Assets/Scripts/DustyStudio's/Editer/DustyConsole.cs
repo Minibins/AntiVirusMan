@@ -7,6 +7,7 @@ using System.Linq;
 using System.Collections;
 using UnityEditor.Rendering;
 using Unity.VisualScripting;
+using System.Text.RegularExpressions;
 namespace DustyStudios
 {
     public class DustyConsole
@@ -56,7 +57,10 @@ namespace DustyStudios
                 case LogType.Warning:
                     symbol = "!"; break;
                 case LogType.Exception:
-                    symbol = "!!!"; break;
+                symbol = "!!!"; 
+                Match match = Regex.Match(stackTrace, @"\((at <[^)]+>:0)\)");
+                if(match.Success) symbol += '\n' + match.Groups[1].Value;
+                break;
             }
             Print(symbol + ": " + message);
         }
