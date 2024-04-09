@@ -13,8 +13,6 @@ public class UpgradeButton : MonoBehaviour
         if(id != -1)
         {
             LevelUP.Items[id].IsTaken = true;
-            int lastCount = PlayerPrefs.GetInt("Upgrade" + id);
-            PlayerPrefs.SetInt("Upgrade" + id,lastCount + 1);
             if(UpgradeActions.ContainsKey(id)) UpgradeActions[id]();
             LevelUP.AddPickedItem(LevelUP.Items[id]);
         }

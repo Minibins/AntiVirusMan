@@ -26,7 +26,8 @@ public class DummyHealth : Health
     public override void DestroyHimself()
     {
         const string ppname = "EnemyGreenTutorial";
-        PlayerPrefs.SetInt(ppname,PlayerPrefs.GetInt(ppname,0) + 1);
+        if(!Save.console)
+            PlayerPrefs.SetInt(ppname,PlayerPrefs.GetInt(ppname,0) + 1);
         Level.EXP += 3;
         Destroy(this);
     }

@@ -57,8 +57,11 @@ public class Upgrade : MonoBehaviour
 
     protected virtual void OnTake()
     {
-        PlayerPrefs.SetInt(Sprite.name, PlayerPrefs.GetInt(Sprite.name,0)+1);
-        PlayerPrefs.Save();
+        if(!Save.console)
+        {
+            PlayerPrefs.SetInt(Sprite.name, PlayerPrefs.GetInt(Sprite.name,0)+1);
+            PlayerPrefs.Save();
+        }
         foreach (var synergy in Synergies)
         {
             if (LevelUP.Items[synergy.Key].IsTaken) synergy.Value.Invoke();

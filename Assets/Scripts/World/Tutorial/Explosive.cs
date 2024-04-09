@@ -14,7 +14,7 @@ public class Explosive : MonoBehaviour, IDamageble
         Instantiate(Explosion,transform.position,Quaternion.identity);
         Level.EXP += exp;
         Destroy(gameObject);
-        if(ppname != "")
-            PlayerPrefs.SetInt(ppname,PlayerPrefs.GetInt(ppname,0) + 1);
+        if(ppname != ""&&!Save.console)
+                PlayerPrefs.SetInt(ppname,PlayerPrefs.GetInt(ppname,0) + 1);
     }
 }

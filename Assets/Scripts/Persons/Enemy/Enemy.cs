@@ -220,8 +220,9 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            string ppname = isLittle ? playerPrefsLittleName : playerPrefsName;
-            PlayerPrefs.SetInt(ppname,PlayerPrefs.GetInt(ppname,0) + 1);
+            string ppname = isLittle ? playerPrefsLittleName : playerPrefsName; 
+            if(!Save.console)
+                PlayerPrefs.SetInt(ppname,PlayerPrefs.GetInt(ppname,0) + 1);
             Enemies.Remove(this);
             if(_move!=null)
                 _move.SetSpeedMultiplierForever(0);

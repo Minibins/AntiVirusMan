@@ -37,10 +37,10 @@ public class springBooka : BookaCollisionChecker
                 UnderPreasure=false;
                 foreach(GameObject g in EnteredThings)
                 {
-                    const string ppname = "EnemyBookaTutorial";
-                    PlayerPrefs.SetInt(ppname,PlayerPrefs.GetInt(ppname,0) + 1);
                     g.GetComponent<Rigidbody2D>().velocity=MathA.RotatedVector( Vector2.up*VelocityStrengh,rotationOfVelocity);
                 }
+                const string ppname = "EnemyBookaTutorial";
+                if(!Save.console&&EnteredThings.Count>0) PlayerPrefs.SetInt(ppname,PlayerPrefs.GetInt(ppname,0) + 1);
             }
         }
         if (!UnderPreasure)
