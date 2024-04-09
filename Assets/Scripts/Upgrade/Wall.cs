@@ -1,5 +1,7 @@
-﻿using UnityEngine;
-public class Wall : MonoBehaviour, IAcidable
+﻿using System;
+
+using UnityEngine;
+public class Wall : MonoBehaviour, IAcidable, IDamageble
 {
     public float TowerHeight = 0;
     [SerializeField] new Collider2D collider;
@@ -12,16 +14,16 @@ public class Wall : MonoBehaviour, IAcidable
             return animator;
         }
     }
+
+    public float DestroyLevel { get => Animator.GetInteger("DestroyStage"); set => animator.SetInteger("DestroyStage", (int)value); }
+
+    bool isDamagable;
+
     public void OblitCislotoy()
     {
         Animator.SetBool("IsAcid",true);
-        health = gameObject.AddComponent<Health>();
-        health.AddMaxHealth(3);
-        health.OnApplyDamage = test; //animator.SetInteger("DestroyStage",3 - (int)health.CurrentHealth);
-        health.OnDeath += () => animator.SetTrigger("Destroy");
+        isDamagable = true;
     }
-    void test() { print("И так тоже"); }
-    Health health;
     private void Start()
     {
         {
@@ -33,5 +35,11 @@ public class Wall : MonoBehaviour, IAcidable
         TowerHeight += 1;
         if(TowerHeight >= 5)
             InstantiateWall.ClearWalls();
+    }
+
+    public void OnDamageGet(float Damage,IDamageble.DamageType type)
+    {
+        if(isDamagable)
+            DestroyLevel += Damage;
     }
 }

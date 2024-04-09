@@ -13,6 +13,7 @@ public class PCAcidContact : MonoBehaviour, IAcidable
     void PyanstvoUpdate(float f)
     {
         PC.Health.multiplerDamage.baseValue = 1+Convert.ToInt16(Opyanenie!=0);
+        PC.LowChargeDamage = Opyanenie == 0;
         if(Opyanenie == 0)
             Pyanstvo = 0;
         else 

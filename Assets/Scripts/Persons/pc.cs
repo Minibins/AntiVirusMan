@@ -16,7 +16,7 @@ public class PC : Follower
     private bool lowchrge;
     public bool OnlyBehind;
     private static float carma;
-    public static bool IsFollowing;
+    public static bool IsFollowing,LowChargeDamage;
 
     public static float Carma
     {
@@ -30,6 +30,19 @@ public class PC : Follower
 
     public Animator Animator { get => animator;}
     public Health Health { get => health;}
+    public bool Lowchrge 
+    {
+        get => lowchrge;
+        set 
+        { 
+            lowchrge = value;
+            if(value) StartCoroutine(LowCharge());
+            else
+            {
+                StopCoroutine(LowCharge());lowChargeCoroutineRunning = false;
+            }
+        }
+    }
 
     private protected override void Start()
     {
@@ -39,7 +52,6 @@ public class PC : Follower
         animator = GetComponentInParent<Animator>();
         rozetka = GameObject.Find("Rozetka").transform;
         rozetkaAnim = rozetka.GetComponent<Animator>();
-        StartCoroutine(LowCharge());
         rb = GetComponentInParent<Rigidbody2D>();
         PC.carma = 7;
         try
@@ -50,8 +62,9 @@ public class PC : Follower
         { 
             UiElementsList.instance = FindObjectOfType<UiElementsList>();
         }
-    
+        defaultPos = transform.parent.position;
             IsFollowing = false;
+        LowChargeDamage = true;
     }
 
     private protected void FixedUpdate()
@@ -59,12 +72,12 @@ public class PC : Follower
         if (Vector2.Distance(rozetka.position, transform.position) > radius)
         {
             rozetkaAnim.SetBool("Sad", true);
-            lowchrge = true;
+            Lowchrge = true;
         }
         else
         {
             rozetkaAnim.SetBool("Sad", false);
-            lowchrge = false;
+            Lowchrge = false;
         }
     }
 
@@ -79,9 +92,9 @@ public class PC : Follower
                     pc.transform.position.y,
                     0)
                 ,
-                !lowchrge, pc);
+                !Lowchrge, pc);
             animator.SetBool("IsRunning",
-                !lowchrge && (Mathf.Abs(playerPosition.position.x - pc.position.x) > distanceFromPlayer / 2) ||
+                !Lowchrge && (Mathf.Abs(playerPosition.position.x - pc.position.x) > distanceFromPlayer / 2) ||
                 OnlyBehind);
         }
     }
@@ -151,17 +164,23 @@ public class PC : Follower
         animator.SetTrigger("HeKilledEnemy");
         Carma -= 1f;
     }
+    bool lowChargeCoroutineRunning;
     IEnumerator LowCharge()
     {
-        while (true)
+        if(lowChargeCoroutineRunning) yield break;
+        lowChargeCoroutineRunning = true;
+        UiElementsList.instance.Panels.SusIPpanel.SetActive(LowChargeDamage);
+        while (Lowchrge)
         {
+            if(LowChargeDamage) health.CurrentHealth--;
+            health.ApplyDamage(0);
             yield return new WaitForSeconds(5);
-            while (lowchrge)
-            {
-                health.CurrentHealth--;
-                health.ApplyDamage(0);
-                yield return new WaitForSeconds(5);
-            }
         }
+        lowChargeCoroutineRunning=false;
+    }
+    Vector2 defaultPos;
+    public void ResetPosition()
+    {
+        transform.parent.position = defaultPos;
     }
 }

@@ -30,7 +30,6 @@ public class Health : MonoBehaviour, iDraggable, IDamageble, IHealable
     public virtual void ApplyDamage(float damage)
     {
         CurrentHealth -= damage * multiplerDamage;
-        print(CurrentHealth);
         OnApplyDamage?.Invoke();
         if(CurrentHealth <= 0)
         {
