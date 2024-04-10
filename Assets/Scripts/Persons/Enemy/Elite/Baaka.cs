@@ -41,6 +41,6 @@ public class Baaka : AboveDeath
                 Destroy(spawnedObject,6.34f);
             }
         }
-        LoseGame.instance.Antivirus();
+        LoseGame.Antivirus();
     }
 }

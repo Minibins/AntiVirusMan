@@ -1,11 +1,15 @@
+using DustyStudios;
+
+using Unity.VisualScripting;
+
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class LoseGame : MonoBehaviour
+public class LoseGame : MonoBehaviour, ISingleton
 {
     public static LoseGame instance;
-    [SerializeField] private GameObject[] enemy;
     [SerializeField] private SpawnerEnemy SE;
     [SerializeField] private GameObject HealthPanel;
     [SerializeField] private GameObject Buttons;
@@ -30,14 +34,28 @@ public class LoseGame : MonoBehaviour
         Timer.StopTime = false;
         Antivirus();
     }
-
-    public void Antivirus()
+    [DustyConsoleCommand("sos","Destroy viruses if 0, Scan viruses if 1, kill viruses if else", typeof(int))]
+    public static string Sos(int mode)
     {
-        enemy = GameObject.FindGameObjectsWithTag("Enemy");
-        for (int i = 0; i < enemy.Length; i++)
+        switch(mode)
         {
-            Destroy(enemy[i]);
+            case 0:
+            Antivirus();
+            return "Everyone is cleared";
+            case 1:
+            foreach(DebuffBank bank in GameObject.FindObjectsOfType<DebuffBank>()) bank.AddDebuff(new ScannerDebuff());
+            Scanner.EndScan();
+            return "Everyone is scanned";
+            default:
+            foreach(EnemyHealth enemy in GameObject.FindObjectsOfType<EnemyHealth>()) enemy.ApplyDamage(999);
+            return "Everyone is killed";
         }
+    }
+    public static void Antivirus()
+    {
+        GameObject[] enemy = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject go in enemy)
+            Destroy(go);
     }
 
     public void MoveScene(string _Scene)

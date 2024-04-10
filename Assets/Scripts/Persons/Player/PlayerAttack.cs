@@ -32,8 +32,6 @@ public class PlayerAttack : MonoBehaviour
         TemporaryAttackSubstitute.Add(substitute);
     }
     public RechargingValue Ammo;
-    public Rigidbody2D Rb { get => rb; set => rb = value; }
-    public Rigidbody2D Rb1 { get => rb; set => rb = value; }
 
     private void Awake()
     {

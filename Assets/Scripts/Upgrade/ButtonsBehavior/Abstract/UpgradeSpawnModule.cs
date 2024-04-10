@@ -10,10 +10,7 @@ public class UpgradeSpawnModule : Upgrade, ISpawnerModule
     {
         spawner.spawnerModules.Add(this);
     }
-    public virtual bool CanExecute(int ID,int SpawnerID,int waveCount)
-    {
-        return IsTaken;
-    }
+    public virtual bool CanExecute(int ID,int SpawnerID,int waveCount) => IsTaken;
     public virtual void Spawn(int ID,GameObject spawnPoint)
     {
         throw new NotImplementedException();

@@ -5,6 +5,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using System;
+using Unity.VisualScripting;
 
 public class LevelUP : MonoBehaviour
 {
@@ -61,7 +62,7 @@ public class LevelUP : MonoBehaviour
         
         void generateButton(int id,GameObject button)
         {
-            button.GetComponent<Image>().sprite = id != -1 ? Items[id].Sprite : none;
+            button.GetComponent<Image>().sprite = id != -1 ? Items[id].sprite : none;
             button.GetComponent<UpgradeButton>().id = id;
             if(id == Items.Count - 1)
                 Instantiate(BuyButton,button.transform);
@@ -71,7 +72,7 @@ public class LevelUP : MonoBehaviour
     { 
         pickedItems.Add(upgrade);
         Image image = Instantiate(instance.UpgradeIndicator);
-        image.sprite = upgrade.Sprite;
+        image.sprite = upgrade.sprite;
         image.transform.SetParent( UiElementsList.instance.Panels.UpgradesList);
     }
     public static void AddFixedProgressionItem(FixedProgressionUpgrade upgrade)
@@ -103,7 +104,6 @@ public class LevelUP : MonoBehaviour
     public static string GetItem(int ID)
     {
         UpgradeButton.UpgradeActions[ID]();
-        LevelUP.Items[ID].IsTaken = true;
         AddPickedItem(Items[ID]);
         Select();
         return "Given item "+ ID;
@@ -121,7 +121,20 @@ public class LevelUP : MonoBehaviour
         var listenerNames = upgradeActions.GetInvocationList()
         .Select(listener => $"{listener.Method.DeclaringType}.{listener.Method.Name}")
         .ToArray();
-
         return $"Item {ID} has {listenerNames.Length} actions:\n{string.Join("\n",listenerNames)}";
+    }
+    [DustyConsoleCommand("godmode","Get all ugrades")]
+    static string Godmode()
+    {
+        CoroutineRunner.instance.StartCoroutine(enumerator());
+        IEnumerator enumerator()
+        {
+            for(int i = 0; i < Items.Count;)
+            {
+                GetItem(i++);
+                yield return new WaitForEndOfFrame();
+            }
+        }
+        return "Ok, now you are god";
     }
 }

@@ -12,12 +12,8 @@ public class UpgradeButton : MonoBehaviour
     {
         if(id != -1)
         {
-            LevelUP.Items[id].IsTaken = true;
-            if(UpgradeActions.ContainsKey(id)) UpgradeActions[id]();
-            LevelUP.AddPickedItem(LevelUP.Items[id]);
+            LevelUP.GetItem(id);
         }
-        LevelUP.Select();
-
         var buttons = UiElementsList.instance.Panels.levelUpPanel;
         for (int i = buttons.Button1.transform.childCount - 1; i >= 0;)
             Destroy(buttons.Button1.transform.GetChild(i--).gameObject);

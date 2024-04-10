@@ -99,7 +99,7 @@ public class UnityEvents : MonoBehaviour
         _playerAttack.Shot();
         if(CheatToFlyQueue.Peek() != 5) restartFlyCheat();
         else
-        { LevelUP.Items[15].IsTaken = true; print("Я читер"); }
+        { LevelUP.GetItem(15); print("Я читер"); }
     }
     public static void UE_ButtonStopShot()
     {

@@ -6,7 +6,7 @@ public class PUSHKA : TurretLikeUpgrade, IDamageble
     [SerializeField] private GameObject Bullet;
     [SerializeField] public float TimeReload;
     [SerializeField] private GameObject SpawnPoinBullet;
-    private SpriteRenderer sprite;
+    private SpriteRenderer Sprite;
     [SerializeField] private Sprite uncharged, charged;
     private bool istemporaryboost;
     public bool IsTemporaryBoost 
@@ -14,7 +14,7 @@ public class PUSHKA : TurretLikeUpgrade, IDamageble
         get => istemporaryboost;
         set
         {
-            sprite.sprite = value ? charged : uncharged;
+            Sprite.sprite = value ? charged : uncharged;
             istemporaryboost = value;
         }
     }
@@ -25,7 +25,7 @@ public class PUSHKA : TurretLikeUpgrade, IDamageble
     }
     private void Awake()
     {
-        sprite = GetComponent<SpriteRenderer>();
+        Sprite = GetComponent<SpriteRenderer>();
     }
 
     protected override void OnTake()

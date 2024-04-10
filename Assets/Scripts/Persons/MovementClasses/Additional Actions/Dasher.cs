@@ -46,16 +46,16 @@ class Dasher : MonoBehaviour
     }
     IEnumerator DashEnd(float direction)
     {
-        Vector2 velocity = rb.velocity;
+        Vector2 velocity = rb.velocity; //тут я сохраняю скорость игрока
         for(float a = 0; a <= 10; a++)
         {
             rb.bodyType = RigidbodyType2D.Dynamic;
-            rb.velocity = new Vector2(direction * (DashRange * 5 - a * DashRange / 2),0);
+            rb.velocity = new Vector2(direction * (DashRange * 5 - a * DashRange / 2),0); // тут она перезаписывается
             yield return new WaitForFixedUpdate();
         }
 
         _playerAttack.Ammo--;
         isDashEnd = false;
-        rb.velocity = velocity;
+        rb.velocity = velocity; //тут я возвращаю скорость, как было
     }
 }

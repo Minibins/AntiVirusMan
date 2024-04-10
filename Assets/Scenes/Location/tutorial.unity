@@ -1683,6 +1683,18 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1570445942}
   m_SourcePrefab: {fileID: 100100000, guid: d8c31f8808ada594796ce6007cd874da, type: 3}
+--- !u!114 &340179922 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2998545765642728566, guid: d8c31f8808ada594796ce6007cd874da,
+    type: 3}
+  m_PrefabInstance: {fileID: 340179921}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2de5633d77a14c46afad147636b5309, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &341103208 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8839909843141719625, guid: 0951b036ba0a12343a56eff64eed7b4c,
@@ -2200,7 +2212,7 @@ PrefabInstance:
         type: 3}
       propertyPath: OnDragEnd.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 733231932}
+      objectReference: {fileID: 340179922}
     - target: {fileID: 1469759020642029893, guid: 0951b036ba0a12343a56eff64eed7b4c,
         type: 3}
       propertyPath: OnDragEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2391,18 +2403,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2112728102}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &733231932 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 193935507143263751, guid: ec94f27c1555e174ebada4b736dde08b,
-    type: 3}
-  m_PrefabInstance: {fileID: 2112728102}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28927956bd5f73c40a92f431bf48a8b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &791549553 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4687344563657493416, guid: 0951b036ba0a12343a56eff64eed7b4c,

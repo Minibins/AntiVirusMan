@@ -9,36 +9,38 @@ using DustyStudios;
 public class Upgrade : MonoBehaviour
 {
     [HideInInspector] private bool isTaken = false;
-    [SerializeField] public Sprite Sprite;
-    [SerializeField] public int ID;
+    [SerializeField] private Sprite Sprite;
+    public Sprite sprite { get => Sprite; }
+
+    [SerializeField] private int ID;
+    public int Id { get => ID; }
     public Dictionary<int, Action> Synergies = new Dictionary<int, Action>();
     [SerializeField] protected Synergy[] synergies = new Synergy[0];
     public bool IsTaken
     {
-        get => LevelUP.Items[ID].isTaken;
-        set { LevelUP.Items[ID].isTaken = value; }
+        get => LevelUP.Items[Id].isTaken;
     }
-   
+
 
     public void Start()
     {
         var Actions = UpgradeButton.UpgradeActions;
-        if (Actions.ContainsKey(ID))
+        if (Actions.ContainsKey(Id))
         {
-            Actions[ID] += OnTake;
+            Actions[Id] += OnTake;
         }
         else
         {
-            if (LevelUP.Items.Count > ID)
-                LevelUP.Items[ID] = this;
+            if (LevelUP.Items.Count > Id)
+                LevelUP.Items[Id] = this;
             else
             {
-                while (LevelUP.Items.Count < ID + 1)
+                while (LevelUP.Items.Count < Id + 1)
                     LevelUP.Items.Add(null);
-                LevelUP.Items[ID] = this;
+                LevelUP.Items[Id] = this;
             }
 
-            Actions.Add(ID, OnTake);
+            Actions.Add(Id, OnTake);
         }
 
         StartCoroutine(setSynergy());
@@ -58,9 +60,10 @@ public class Upgrade : MonoBehaviour
 
     protected virtual void OnTake()
     {
+        isTaken = true;
         if(!DustyConsoleInGame.UsedConsoleInSession)
         {
-            PlayerPrefs.SetInt(Sprite.name, PlayerPrefs.GetInt(Sprite.name,0)+1);
+            PlayerPrefs.SetInt(sprite.name, PlayerPrefs.GetInt(sprite.name,0)+1);
             PlayerPrefs.Save();
         }
         foreach (var synergy in Synergies)

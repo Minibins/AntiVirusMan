@@ -26,9 +26,9 @@ public class Scanner : AbstractAttack
     public void EndAttack()
     {
         if(Laser != null) Destroy(Laser);
-        foreach(IScannable target in GetAllTargets()) target.EndScan();
+        EndScan();
     }
-    List<IScannable> GetAllTargets()
+    static public List<IScannable> GetAllTargets()
     {
         List<IScannable> results = new();
         foreach(DebuffBank debuffed in ScannerDebuff.owners)
@@ -37,5 +37,9 @@ public class Scanner : AbstractAttack
                     results.Add(target);
         ScannerDebuff.owners.Clear();
         return results;
+    }
+    public static void EndScan()
+    {
+        foreach(IScannable target in GetAllTargets()) target.EndScan();
     }
 }

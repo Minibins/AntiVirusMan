@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 2486548314084819693}
   m_Layer: 11
   m_Name: GreenElite
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -213,7 +213,9 @@ MonoBehaviour:
   parrybleDamageTypes: 00000000
   CurrentHealth: 1
   multiplerDamage:
-    multiplers: []
+    summingMultiplers:
+    - 1
+    multiplingMultiplers: []
     additions: []
     baseValue: 1
   needVelocityForInvisibility: 9999
