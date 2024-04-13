@@ -98,7 +98,7 @@ public class LevelUP : MonoBehaviour
         UiElementsList.instance.Panels.levelUpPanel.Panel.SetActive(false);
         Time.timeScale = 1;
         if(FixedProgressionUpgradeActions.ContainsKey(pickedItems.Count)) FixedProgressionUpgradeActions[pickedItems.Count]();
-        else UiElementsList.instance.Panels.Progress.GetChild(pickedItems.Count-1).GetComponent<Image>().sprite = instance.selectedFixedProgressionLine;
+        else if(UiElementsList.instance.Panels.Progress.childCount> pickedItems.Count - 1) UiElementsList.instance.Panels.Progress.GetChild(pickedItems.Count-1).GetComponent<Image>().sprite = instance.selectedFixedProgressionLine;
     }
     [DustyConsoleCommand("getitem","Get item with id", typeof(int))]
     public static string GetItem(int ID)

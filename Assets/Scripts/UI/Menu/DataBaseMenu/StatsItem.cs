@@ -7,7 +7,6 @@ public class StatsItem : MonoBehaviour
     [SerializeField] protected Sprite _sprite;
     public int _count;
     protected Image _itemSprite;
-
     private void Start()
     {
         _count = PlayerPrefs.GetInt(_key, 0);

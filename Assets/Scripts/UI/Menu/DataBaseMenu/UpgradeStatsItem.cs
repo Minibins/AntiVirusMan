@@ -3,8 +3,21 @@ using UnityEngine;
 public class UpgradeStatsItem : StatsItem
 {
     [SerializeField] private Sprite unknowSprite;
+
+    public Sprite UnknowSprite { get => unknowSprite; set => unknowSprite = value; }
+    public Sprite Sprite
+    {
+        get => _sprite;
+        set
+        {
+            _key = _sprite.name;
+            _sprite = value;
+        }
+    }
+
     private void Awake()
     {
+        if(_key.Length<1)
         _key = _sprite.name;
     }
 
@@ -13,7 +26,7 @@ public class UpgradeStatsItem : StatsItem
     {
         if(_count <= 0)
         {
-            _itemSprite.sprite = unknowSprite;
+            _itemSprite.sprite = UnknowSprite;
         }
         else
         {

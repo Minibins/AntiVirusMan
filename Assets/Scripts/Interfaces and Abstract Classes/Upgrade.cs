@@ -8,10 +8,19 @@ using DustyStudios;
 [System.Serializable]
 public class Upgrade : MonoBehaviour
 {
-    [HideInInspector] private bool isTaken = false;
+    bool isTaken = false;
     [SerializeField] private Sprite Sprite;
-    public Sprite sprite { get => Sprite; }
-
+    public Sprite sprite 
+    { 
+        get => Sprite;
+        set
+        {
+            if(spriteName==null) spriteName = Sprite.name;
+            Sprite = value;
+        }
+    }
+    string spriteName;
+    string PlayerPrefsName => spriteName != null ? spriteName : Sprite.name;
     [SerializeField] private int ID;
     public int Id { get => ID; }
     public Dictionary<int, Action> Synergies = new Dictionary<int, Action>();
@@ -63,7 +72,7 @@ public class Upgrade : MonoBehaviour
         isTaken = true;
         if(!DustyConsoleInGame.UsedConsoleInSession)
         {
-            PlayerPrefs.SetInt(sprite.name, PlayerPrefs.GetInt(sprite.name,0)+1);
+            PlayerPrefs.SetInt(PlayerPrefsName, PlayerPrefs.GetInt(PlayerPrefsName,0)+1);
             PlayerPrefs.Save();
         }
         foreach (var synergy in Synergies)

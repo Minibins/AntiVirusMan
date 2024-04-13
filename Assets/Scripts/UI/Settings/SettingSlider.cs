@@ -10,6 +10,7 @@ public class SettingSlider : Slider
 {
     [SerializeField] public Text text;
     [SerializeField] public string Name, SaveName;
+    public string NAME { set { Name = value; } }
     protected override void Start()
     {base.Start();
 

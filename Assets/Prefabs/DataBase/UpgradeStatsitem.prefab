@@ -66,7 +66,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 45a5099506a3be3468f174054c1e3d41, type: 3}
+    m_Font: {fileID: 12800000, guid: d107bfce3bafaed4fb64ffac4ae97afa, type: 3}
     m_FontSize: 300
     m_FontStyle: 0
     m_BestFit: 0
@@ -89,7 +89,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6762687655917935136}
   - component: {fileID: 3837470412124935401}
+  - component: {fileID: 3633456333430484554}
   - component: {fileID: 1543603728315650063}
+  - component: {fileID: 67950048897520660}
   m_Layer: 5
   m_Name: UpgradeStatsitem
   m_TagString: Untagged
@@ -126,6 +128,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7295652643341215522}
   m_CullTransparentMesh: 1
+--- !u!114 &3633456333430484554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7295652643341215522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f55fcc3768689a4f9cf863b8c11c618, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LocalizedAssetReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:1cc52e6191f7233409f27d914bae0b7a
+    m_TableEntryReference:
+      m_KeyId: 774364336930816
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+  m_UpdateAsset:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1543603728315650063}
+        m_TargetAssemblyTypeName: UpgradeStatsItem, Assembly-CSharp
+        m_MethodName: set_UnknowSprite
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1543603728315650063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,6 +179,41 @@ MonoBehaviour:
   _sprite: {fileID: 0}
   _count: 0
   unknowSprite: {fileID: 258879610, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
+--- !u!114 &67950048897520660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7295652643341215522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f55fcc3768689a4f9cf863b8c11c618, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LocalizedAssetReference:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+  m_UpdateAsset:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1543603728315650063}
+        m_TargetAssemblyTypeName: StatsItem, Assembly-CSharp
+        m_MethodName: set_Sprite
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8039524825292161490
 GameObject:
   m_ObjectHideFlags: 0
