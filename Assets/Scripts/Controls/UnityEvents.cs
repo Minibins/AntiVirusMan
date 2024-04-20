@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-
 using UnityEngine;
 
 public class UnityEvents : MonoBehaviour
@@ -10,6 +8,7 @@ public class UnityEvents : MonoBehaviour
     {
         Start
     }
+
     private static IPlayer _player;
     private static InstantiateWall _wall;
     private static PlayerAttack _playerAttack;
@@ -17,6 +16,7 @@ public class UnityEvents : MonoBehaviour
 
     private static readonly int[] CheatToFly = {3, 3, 4, 4, 0, 1, 0, 1, 6, 5};
     private static Queue<int> CheatToFlyQueue;
+
     private void Start()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
@@ -26,26 +26,31 @@ public class UnityEvents : MonoBehaviour
         _settings = FindAnyObjectByType<Settings>();
         restartFlyCheat();
     }
+
     private static void restartFlyCheat()
     {
         CheatToFlyQueue = new Queue<int>(CheatToFly.ToList());
     }
+
     public static void UE_ButtonLeft()
     {
-        if(CheatToFlyQueue.Peek() != 0) restartFlyCheat();
+        if (CheatToFlyQueue.Peek() != 0) restartFlyCheat();
         else
         {
             CheatToFlyQueue.Dequeue();
         }
+
         _player.MoveHorizontally(-1);
     }
+
     public static void UE_ButtonRigth()
     {
-        if(CheatToFlyQueue.Peek() != 1) restartFlyCheat();
+        if (CheatToFlyQueue.Peek() != 1) restartFlyCheat();
         else
         {
             CheatToFlyQueue.Dequeue();
         }
+
         _player.MoveHorizontally(1);
     }
 
@@ -53,19 +58,20 @@ public class UnityEvents : MonoBehaviour
     {
         _player.MoveHorizontally(input);
     }
+
     public void UE_JoystickHorizontal()
     {
         _player.MoveHorizontally(UiElementsList.instance.Joysticks.Walk.Horizontal);
     }
+
     public static void UE_ButtonDash()
     {
         _player.Dash();
-        if(CheatToFlyQueue.Peek() != 6) restartFlyCheat();
+        if (CheatToFlyQueue.Peek() != 6) restartFlyCheat();
         else
         {
             CheatToFlyQueue.Dequeue();
         }
-
     }
 
     public static void UE_ButtonStop()
@@ -77,7 +83,7 @@ public class UnityEvents : MonoBehaviour
     {
         _player.Jump();
         _wall.OnJump();
-        if(CheatToFlyQueue.Peek() != 3) restartFlyCheat();
+        if (CheatToFlyQueue.Peek() != 3) restartFlyCheat();
         else
         {
             CheatToFlyQueue.Dequeue();
@@ -87,7 +93,7 @@ public class UnityEvents : MonoBehaviour
     public static void UE_ButtonDown()
     {
         _player.Down();
-        if(CheatToFlyQueue.Peek() != 4) restartFlyCheat();
+        if (CheatToFlyQueue.Peek() != 4) restartFlyCheat();
         else
         {
             CheatToFlyQueue.Dequeue();
@@ -97,14 +103,19 @@ public class UnityEvents : MonoBehaviour
     public static void UE_ButtonShot()
     {
         _playerAttack.Shot();
-        if(CheatToFlyQueue.Peek() != 5) restartFlyCheat();
+        if (CheatToFlyQueue.Peek() != 5) restartFlyCheat();
         else
-        { LevelUP.GetItem(15); print("Я читер"); }
+        {
+            LevelUP.GetItem(15);
+            print("пїЅ пїЅпїЅпїЅпїЅпїЅ");
+        }
     }
+
     public static void UE_ButtonStopShot()
     {
         _playerAttack.StopAttack();
     }
+
     public static void UE_ButtonSettings(bool open)
     {
         _settings.OpenSettings(open);

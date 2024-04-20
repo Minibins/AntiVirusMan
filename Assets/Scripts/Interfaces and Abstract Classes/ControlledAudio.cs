@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ControlledAudio : MonoBehaviour
 {
-    void Start()
+    private void Start()
     {
         GetComponent<AudioSource>().volume = UiElementsList.instance.Panels.SettingsPanel.SoundSlider.value;
     }

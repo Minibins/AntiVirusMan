@@ -1,12 +1,10 @@
 using DustyStudios;
-
-using System.Collections;
-
 using UnityEngine;
 
 public class DummyHealth : Health
 {
-    [SerializeField] int TimeForRegeneration = 1;
+    [SerializeField] private int TimeForRegeneration = 1;
+
     protected override void Awake()
     {
         base.Awake();
@@ -22,14 +20,14 @@ public class DummyHealth : Health
     private void SetNextFinishing()
     {
         animator.SetTrigger("Finishing");
-        Invoke(nameof(HealHealth),TimeForRegeneration);
+        Invoke(nameof(HealHealth), TimeForRegeneration);
     }
 
     public override void DestroyHimself()
     {
         const string ppname = "EnemyGreenTutorial";
-        if(!DustyConsoleInGame.UsedConsoleInSession)
-            PlayerPrefs.SetInt(ppname,PlayerPrefs.GetInt(ppname,0) + 1);
+        if (!DustyConsoleInGame.UsedConsoleInSession)
+            PlayerPrefs.SetInt(ppname, PlayerPrefs.GetInt(ppname, 0) + 1);
         Level.EXP += 3;
         Destroy(this);
     }

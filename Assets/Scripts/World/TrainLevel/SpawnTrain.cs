@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
-using Random = UnityEngine.Random;
 
 public class SpawnTrain : MonoBehaviour
 {
@@ -11,7 +10,7 @@ public class SpawnTrain : MonoBehaviour
     [SerializeField] private Sprite[] _interior;
     [SerializeField] private Sprite[] _wheels;
     [SerializeField] private Tilemap[] _tileMaps;
-    
+
     private void Update()
     {
         for (int i = 0; i < _spawnedObjects.Length; i++)
@@ -21,7 +20,7 @@ public class SpawnTrain : MonoBehaviour
                 Destroy(_spawnedObjects[i]);
 
                 _spawnedObjects[i] = Instantiate(_trainPrefab, _spawnPoint.position, Quaternion.identity);
-                
+
                 NewOption(i);
             }
         }
@@ -29,7 +28,8 @@ public class SpawnTrain : MonoBehaviour
 
     private void NewOption(int _index)
     {
-        _spawnedObjects[_index].GetComponent<TrainOption>().ChangeTrain(_tileMaps[Random.Range(0, _tileMaps.Length)],_interior[Random.Range(0, _interior.Length)],
+        _spawnedObjects[_index].GetComponent<TrainOption>().ChangeTrain(_tileMaps[Random.Range(0, _tileMaps.Length)],
+            _interior[Random.Range(0, _interior.Length)],
             _wheels[Random.Range(0, _wheels.Length)], _wheels[Random.Range(0, _wheels.Length)],
             _wheels[Random.Range(0, _wheels.Length)], _wheels[Random.Range(0, _wheels.Length)]);
     }

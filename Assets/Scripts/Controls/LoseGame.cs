@@ -1,11 +1,7 @@
 using DustyStudios;
-
 using Unity.VisualScripting;
-
 using UnityEngine;
-using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class LoseGame : MonoBehaviour, ISingleton
 {
@@ -14,10 +10,12 @@ public class LoseGame : MonoBehaviour, ISingleton
     [SerializeField] private GameObject HealthPanel;
     [SerializeField] private GameObject Buttons;
     [SerializeField] private GameObject LosePanel;
+
     private void Start()
     {
         instance = this;
     }
+
     public void Lose()
     {
         if (SE != null)
@@ -25,6 +23,7 @@ public class LoseGame : MonoBehaviour, ISingleton
             SE.GetComponent<SpawnerEnemy>();
             if (SE.isSpawn) SE.StopOrStartSpawn();
         }
+
         var UI = UiElementsList.instance;
         var LosePanel = UI.Panels.LoseGame;
         LosePanel.YouLiveText.text = Timer.min.ToString() + ":" + Timer.sec.ToString();
@@ -34,23 +33,25 @@ public class LoseGame : MonoBehaviour, ISingleton
         Timer.StopTime = false;
         Antivirus();
     }
-    [DustyConsoleCommand("sos","Destroy viruses if 0, Scan viruses if 1, kill viruses if else", typeof(int))]
+
+    [DustyConsoleCommand("sos", "Destroy viruses if 0, Scan viruses if 1, kill viruses if else", typeof(int))]
     public static string Sos(int mode)
     {
-        switch(mode)
+        switch (mode)
         {
             case 0:
-            Antivirus();
-            return "Everyone is cleared";
+                Antivirus();
+                return "Everyone is cleared";
             case 1:
-            foreach(DebuffBank bank in GameObject.FindObjectsOfType<DebuffBank>()) bank.AddDebuff(new ScannerDebuff());
-            Scanner.EndScan();
-            return "Everyone is scanned";
+                foreach (DebuffBank bank in FindObjectsOfType<DebuffBank>()) bank.AddDebuff(new ScannerDebuff());
+                Scanner.EndScan();
+                return "Everyone is scanned";
             default:
-            foreach(EnemyHealth enemy in GameObject.FindObjectsOfType<EnemyHealth>()) enemy.ApplyDamage(999);
-            return "Everyone is killed";
+                foreach (EnemyHealth enemy in FindObjectsOfType<EnemyHealth>()) enemy.ApplyDamage(999);
+                return "Everyone is killed";
         }
     }
+
     public static void Antivirus()
     {
         GameObject[] enemy = GameObject.FindGameObjectsWithTag("Enemy");

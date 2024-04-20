@@ -1,35 +1,37 @@
 using UnityEngine;
+
 [RequireComponent(typeof(Enemy))]
 public class ExplodeAndDeath : MonoBehaviour, IScannable
 {
-    [SerializeField] float chargeTime = 2f;
-    [SerializeField] GameObject _explosion;
-    [SerializeField] float _explosionRadius;
-    [SerializeField] int _explosionPower;
-    [SerializeField] bool DestroyHimself = true, OnScan=true;
+    [SerializeField] private float chargeTime = 2f;
+    [SerializeField] private GameObject _explosion;
+    [SerializeField] private float _explosionRadius;
+    [SerializeField] private int _explosionPower;
+    [SerializeField] private bool DestroyHimself = true, OnScan = true;
+
     public void Action()
     {
-        Invoke(nameof(Explosion),chargeTime);
+        Invoke(nameof(Explosion), chargeTime);
     }
 
     public void EndScan()
     {
-        if(OnScan)
-        Explosion();
+        if (OnScan)
+            Explosion();
     }
 
     public void StartScan()
     {
     }
+
     public void StopScan()
     {
     }
 
-    protected virtual GameObject Explosion()
+    protected GameObject Explosion()
     {
-
-        GameObject explosion= Instantiate(_explosion, transform.position, Quaternion.identity);
-        if(GetComponent<Enemy>().isElite)
+        GameObject explosion = Instantiate(_explosion, transform.position, Quaternion.identity);
+        if (GetComponent<Enemy>().isElite)
         {
             explosion.GetComponent<ExpCollectible>().Exp = PC.Carma;
         }
@@ -39,7 +41,8 @@ public class ExplodeAndDeath : MonoBehaviour, IScannable
             Explosion.Radius = _explosionRadius;
             Explosion.Power = _explosionPower;
         }
-        if(DestroyHimself) 
+
+        if (DestroyHimself)
             Destroy(gameObject);
         return explosion;
     }

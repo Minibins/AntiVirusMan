@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class AnimationOnScan : MonoBehaviour, IScannable
 {
-    Animator anim;
+    private Animator anim;
+
     private void Awake()
     {
         anim = GetComponent<Animator>();

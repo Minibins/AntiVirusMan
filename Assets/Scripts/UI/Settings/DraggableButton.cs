@@ -17,7 +17,7 @@ public class DraggableButton : MonoBehaviour, IDragHandler
 
     public void OnDrag(PointerEventData eventData)
     {
-        if(DraggButtonController.Draggble ) transform.position = Input.mousePosition;
+        if (DraggButtonController.Draggble) transform.position = Input.mousePosition;
     }
 
     public void ResetPosition()

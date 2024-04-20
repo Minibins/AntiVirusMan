@@ -1,7 +1,7 @@
 public class AcidDebuff : Debuff    
 {
     public override string animationName => "Acid";
-    Health health;
+    private Health health;
     public override void OnAdd(DebuffBank bank)
     {
         base.OnAdd(bank);

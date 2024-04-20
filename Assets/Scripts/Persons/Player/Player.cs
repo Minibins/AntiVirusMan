@@ -8,8 +8,8 @@ public class Player : MoveBase, IPlayer, IHealable
     public bool Stunned;
     private Dasher _dasher;
     public static bool IsJump;
-    static Player instance;
-    [SerializeField] Vector2 locationBounds = new(-18.527f,17.734f);
+    private static Player instance;
+    [SerializeField] private Vector2 locationBounds = new Vector2(-18.527f,17.734f);
     protected override void FixedUpdate()
     {
         transform.position = new Vector3(Mathf.Max(locationBounds.x, Mathf.Min(locationBounds.y, transform.position.x)),
@@ -24,12 +24,7 @@ public class Player : MoveBase, IPlayer, IHealable
         _dasher = gameObject.AddComponent<Dasher>();
         
     }
-
-    override public void MoveHorizontally(float direction)
-    {
-        base.MoveHorizontally(direction);
-    }
-
+    
     public void Dash(float direction)
     {
         _dasher.Dash(direction);
@@ -40,7 +35,6 @@ public class Player : MoveBase, IPlayer, IHealable
         _dasher.Dash(MathA.OneOrNegativeOne(transform.localScale.x));
     }
     
-
     private void StopJumpAnimation()
     {
         _animator.SetBool("IsJumping",false);
@@ -81,7 +75,7 @@ public class Player : MoveBase, IPlayer, IHealable
         PChealth.instance.ApplyDamage(1);
         transform.position = respawn;
     }
-    [SerializeField] float damageForce;
+    [SerializeField] private float damageForce;
     private void PlayDamageAnimation()
     {
         PlayAnimation("TakeDamage");
@@ -108,7 +102,7 @@ public class Player : MoveBase, IPlayer, IHealable
     }
     [SerializeField] private float _flightVelicityCap = 0;
     [SerializeField] private float _flySpeed;
-    bool canFly = false;
+    private bool canFly = false;
     protected override void JumpAction()
     {
         if(Rigidbody.velocity.y <= _flightVelicityCap&&LevelUP.Items[15].IsTaken && Rigidbody.bodyType != RigidbodyType2D.Static) canFly = true;
@@ -128,7 +122,7 @@ public class Player : MoveBase, IPlayer, IHealable
             StopJumpAnimation();
         }
     }
-    [SerializeField] LayerMask TreksolesLayer;
+    [SerializeField] private LayerMask TreksolesLayer;
     new public bool IsGrounded()
     {
         return base.IsGrounded() || base.IsGrounded(TreksolesLayer);

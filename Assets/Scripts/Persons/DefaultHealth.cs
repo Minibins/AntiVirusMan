@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DefaultHealth : Health
@@ -13,24 +11,26 @@ public class DefaultHealth : Health
         rb = GetComponent<Rigidbody2D>();
         base.Start();
     }
+
     public override void ApplyDamage(float damage)
     {
-        if(!IsInvisible)
+        if (!IsInvisible)
         {
             base.ApplyDamage(damage);
         }
     }
+
     protected virtual void FixedUpdate()
     {
-        if(rb.velocity.magnitude < needVelocityForInvisibility)
+        if (rb.velocity.magnitude < needVelocityForInvisibility)
         {
             IsInvisible = false;
-            animator.SetBool("IsInvisible",false);
+            animator.SetBool("IsInvisible", false);
         }
         else
         {
             IsInvisible = true;
-            animator.SetBool("IsInvisible",true);
+            animator.SetBool("IsInvisible", true);
         }
     }
 }

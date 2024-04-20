@@ -7,7 +7,7 @@ public class TrainOption : MonoBehaviour
     [SerializeField] private SpriteRenderer[] _currenderwheels;
     [SerializeField] private GameObject _grid;
     public static float _speed = 3;
-    
+
 
     public void ChangeTrain(Tilemap _tilemap, Sprite _interior, Sprite _wheel1, Sprite _wheel2, Sprite _wheel3,
         Sprite _wheel4)

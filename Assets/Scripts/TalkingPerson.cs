@@ -1,20 +1,22 @@
-using UnityEngine;
-using UnityEngine.UI;
+using System;
 using DustyStudios;
+using DustyStudios.SystemUtilities;
+using UnityEngine;
 using UnityEngine.Events;
-
-using Dialogue = UiElementsList.PanelsStruct.Dialogue;
+using UnityEngine.UI;
 using CustomButton = UiElementsList.ButtonsStruct.InteractButton;
+
 public class TalkingPerson : MonoBehaviour
 {
-    [SerializeField] SerializableQueue<Replica> Dialogue;
-    [SerializeField] Sprite sprite;
-    Dialogue dialogue
+    [SerializeField] private SerializableQueue<Replica> Dialogue;
+    [SerializeField] private Sprite sprite;
+
+    private UiElementsList.PanelsStruct.Dialogue dialogue
     {
         get => UiElementsList.instance.Panels.DialogueBox;
     }
 
-    CustomButton next
+    private CustomButton next
     {
         get => UiElementsList.instance.Buttons.Interact;
     }
@@ -26,9 +28,10 @@ public class TalkingPerson : MonoBehaviour
         openMenu(true);
         Dialogue.Dequeue().Say();
     }
+
     public void Continue()
     {
-        if(Dialogue.Count > 0) Dialogue.Dequeue().Say();
+        if (Dialogue.Count > 0) Dialogue.Dequeue().Say();
         else openMenu(false);
     }
 
@@ -40,19 +43,19 @@ public class TalkingPerson : MonoBehaviour
         next.button.onClick.RemoveAllListeners();
         next.button.onClick.AddListener(Continue);
     }
-    [System.Serializable]
-    class Replica
+
+    [Serializable]
+    private class Replica
     {
-        [SerializeField]
-        public string phrase;
+        [SerializeField] public string phrase;
         public UnityEvent Action;
 
         public static Text Box;
+
         public void Say()
         {
-            Box.text = phrase.Replace("Username",DustyStudios.SystemUtilities.User.Username());
+            Box.text = phrase.Replace("Username", User.Username());
             Action.Invoke();
         }
     }
 }
-

@@ -6,5 +6,4 @@ public class Suicide : MonoBehaviour
     {
         Destroy(gameObject);
     }
-
 }

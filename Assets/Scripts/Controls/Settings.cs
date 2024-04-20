@@ -1,10 +1,8 @@
-using UnityEngine.SceneManagement;
 using UnityEngine;
-using UnityEngine.Tilemaps;
-using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Settings : MonoBehaviour
-{   
+{
     private void Start()
     {
         Time.timeScale = 1;
@@ -13,11 +11,12 @@ public class Settings : MonoBehaviour
         {
             SettingsPanel.SoundSlider.Startp();
         }
-        catch 
+        catch
         {
-            UiElementsList.instance = GameObject.FindObjectOfType<UiElementsList>();
+            UiElementsList.instance = FindObjectOfType<UiElementsList>();
             SettingsPanel.SoundSlider.Startp();
         }
+
         ChangeUI(!Save.joystick);
         ChangeConsole(Save.console);
         SettingsPanel.Joystick.isOn = !Save.joystick;
@@ -34,11 +33,13 @@ public class Settings : MonoBehaviour
         Buttons.Left.gameObject.SetActive(isUsingJoystick);
         Save.joystick = isUsingJoystick;
     }
+
     public void ChangeConsole(bool open)
     {
         UiElementsList.instance.Panels.ConsolePanel.SetActive(open);
         Save.console = open;
     }
+
     public void OpenSettings(bool Open)
     {
         var UI = UiElementsList.instance;
@@ -47,11 +48,13 @@ public class Settings : MonoBehaviour
         UI.Joysticks.Walk.OnPointerUp(null);
         Time.timeScale = Open ? 0 : 1;
     }
-    public void GoToScene(string name) 
-    { 
-    SceneManager.LoadScene(name);
+
+    public void GoToScene(string name)
+    {
+        SceneManager.LoadScene(name);
         Time.timeScale = 1;
     }
+
     public void RestartScene()
     {
         GoToScene(SceneManager.GetActiveScene().name);

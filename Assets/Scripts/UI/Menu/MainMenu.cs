@@ -1,17 +1,15 @@
 ﻿using System;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public Save save;
-
-    [SerializeField]private string CurrentVersion;
-    [SerializeField]private GameObject Changelog;
-    [SerializeField]string[] scenes;
+    [SerializeField] private string CurrentVersion;
+    [SerializeField] private GameObject Changelog;
+    [SerializeField] string[] scenes;
 
     public static MainMenu instance;
+
     public void LocationMove(int id)
     {
         if (Save.data.WinLocation >= id)
@@ -35,11 +33,9 @@ public class MainMenu : MonoBehaviour
     private void Update()
     {
         Save.SaveField();
-        
+
         if (Input.GetKeyDown(KeyCode.Escape))
             Application.Quit();
-            
-        
     }
 
 
@@ -47,7 +43,7 @@ public class MainMenu : MonoBehaviour
     {
         Save.SaveField();
 
-        System.Environment.Exit(0);
+        Environment.Exit(0);
         Application.Quit();
     }
 }

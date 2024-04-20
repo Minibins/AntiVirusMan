@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PC : Follower
 {
@@ -15,7 +14,7 @@ public class PC : Follower
     private bool lowchrge;
     public bool OnlyBehind;
     private static float carma;
-    public static bool IsFollowing,LowChargeDamage;
+    public static bool IsFollowing, LowChargeDamage;
 
     public static float Carma
     {
@@ -27,20 +26,26 @@ public class PC : Follower
         }
     }
 
-    public Animator Animator { get => animator;}
-    public bool Lowchrge 
+    public Animator Animator
+    {
+        get => animator;
+    }
+
+    public bool Lowchrge
     {
         get => lowchrge;
-        set 
-        { 
+        set
+        {
             lowchrge = value;
-            if(value) StartCoroutine(LowCharge());
+            if (value) StartCoroutine(LowCharge());
             else
             {
-                StopCoroutine(LowCharge());lowChargeCoroutineRunning = false;
+                StopCoroutine(LowCharge());
+                lowChargeCoroutineRunning = false;
             }
         }
     }
+
     private protected override void Start()
     {
         _player = GameObject.FindGameObjectWithTag("Player");
@@ -49,17 +54,18 @@ public class PC : Follower
         rozetka = GameObject.Find("Rozetka").transform;
         rozetkaAnim = rozetka.GetComponent<Animator>();
         rb = GetComponentInParent<Rigidbody2D>();
-        PC.carma = 7;
+        carma = 7;
         try
         {
             UpdateCarma();
         }
         catch
-        { 
+        {
             UiElementsList.instance = FindObjectOfType<UiElementsList>();
         }
+
         defaultPos = transform.parent.position;
-            IsFollowing = false;
+        IsFollowing = false;
         LowChargeDamage = true;
     }
 
@@ -115,39 +121,37 @@ public class PC : Follower
 
     private void UpdateCarma()
     {
-        
         var carmaImage = UiElementsList.instance.Counters.Carma;
-            switch(Convert.ToInt16(Carma))
-            {
-                default:
-                if(Carma < 0) carmaImage.sprite = carmaSprites[0];
+        switch (Convert.ToInt16(Carma))
+        {
+            default:
+                if (Carma < 0) carmaImage.sprite = carmaSprites[0];
                 else carmaImage.sprite = carmaSprites[6];
                 break;
-                case 1:
+            case 1:
                 carmaImage.sprite = carmaSprites[1];
                 break;
-                case 2:
+            case 2:
                 carmaImage.sprite = carmaSprites[2];
                 break;
-                case 3:
+            case 3:
                 carmaImage.sprite = carmaSprites[3];
                 break;
-                case 4:
+            case 4:
                 carmaImage.sprite = carmaSprites[4];
                 break;
-                case 5:
+            case 5:
                 carmaImage.sprite = carmaSprites[4];
                 break;
-                case 6:
+            case 6:
                 carmaImage.sprite = carmaSprites[5];
                 break;
-                case 7:
+            case 7:
                 carmaImage.sprite = carmaSprites[6];
                 break;
-            }
-        
-        
+        }
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Enemy")
@@ -155,26 +159,32 @@ public class PC : Follower
             animator.SetTrigger("NoCalm");
         }
     }
+
     public void EnemyKilled()
     {
         animator.SetTrigger("HeKilledEnemy");
         Carma -= 1f;
     }
-    bool lowChargeCoroutineRunning;
+
+    private bool lowChargeCoroutineRunning;
+
     IEnumerator LowCharge()
     {
-        if(lowChargeCoroutineRunning) yield break;
+        if (lowChargeCoroutineRunning) yield break;
         lowChargeCoroutineRunning = true;
         UiElementsList.instance.Panels.SusIPpanel.SetActive(LowChargeDamage);
         while (Lowchrge)
         {
-            if(LowChargeDamage) PChealth.instance.CurrentHealth--;
+            if (LowChargeDamage) PChealth.instance.CurrentHealth--;
             PChealth.instance.ApplyDamage(0);
             yield return new WaitForSeconds(5);
         }
-        lowChargeCoroutineRunning=false;
+
+        lowChargeCoroutineRunning = false;
     }
-    Vector2 defaultPos;
+
+    private Vector2 defaultPos;
+
     public void ResetPosition()
     {
         transform.parent.position = defaultPos;

@@ -17,7 +17,7 @@ public class CellAnimator : MonoBehaviour
 
     public void Disable()
     {
-        anim.SetBool("IsEnabled",false);
+        anim.SetBool("IsEnabled", false);
     }
 
     private void AfterDisable()

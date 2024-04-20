@@ -3,9 +3,10 @@ using UnityEngine.Events;
 
 public class PlayerTrigger : PlayersCollisionChecker
 {
-    [SerializeField] UnityEvent enterEvent;
+    [SerializeField] private UnityEvent enterEvent;
+
     private void Awake()
     {
-        EnterAction += ()=> enterEvent.Invoke();
+        EnterAction += () => enterEvent.Invoke();
     }
 }

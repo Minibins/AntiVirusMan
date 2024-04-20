@@ -2,14 +2,16 @@ using UnityEngine;
 
 public class BackgroundMusic : MonoBehaviour
 {
-    [SerializeField] AudioClip[] playlist;
-    AudioSource audioSource;
-    void Start()
+    [SerializeField] private AudioClip[] playlist;
+    private AudioSource audioSource;
+
+    private void Start()
     {
         audioSource = GetComponent<AudioSource>();
         PlayRandomSong();
     }
-    void PlayRandomSong()
+
+    private void PlayRandomSong()
     {
         AudioClip randomClip = playlist[Random.Range(0, playlist.Length)];
         audioSource.clip = randomClip;

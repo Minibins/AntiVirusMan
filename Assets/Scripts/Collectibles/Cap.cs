@@ -1,4 +1,5 @@
 using UnityEngine;
+
 public class Cap : HoldCollectible
 {
     public override void Pick(GameObject picker)
@@ -6,6 +7,7 @@ public class Cap : HoldCollectible
         base.Pick(picker);
         transform.parent.parent.gameObject.layer = 18;
     }
+
     public override void Rid()
     {
         transform.parent.parent.gameObject.layer = 9;

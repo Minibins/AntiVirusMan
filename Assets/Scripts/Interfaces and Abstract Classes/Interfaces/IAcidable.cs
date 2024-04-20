@@ -1,5 +1,4 @@
-
-public interface IAcidable 
+public interface IAcidable
 {
     public void OblitCislotoy();
 }

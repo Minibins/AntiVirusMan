@@ -3,16 +3,16 @@ using System;
 using UnityEngine;
 public class ExpDoor : AbstractConduitionDoor
 {
-    [SerializeField] int ExpReqired;
-    [SerializeField] ConditionMode Mode = ConditionMode.More;
-    [SerializeField] bool countUpgrades;
-    enum ConditionMode
+    [SerializeField] private int ExpReqired;
+    [SerializeField] private ConditionMode Mode = ConditionMode.More;
+    [SerializeField] private bool countUpgrades;
+    private enum ConditionMode
     {
         More,
         Less,
         Equal
     }
-    override protected bool Conduition()
+    protected override bool Conduition()
     {
         float EXP = Level.EXP + Convert.ToInt16(countUpgrades) * Level.EnemyNeedToUpLVL * LevelUP.pickedItems.Count;
         switch(Mode)

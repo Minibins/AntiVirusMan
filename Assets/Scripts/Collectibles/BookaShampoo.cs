@@ -1,4 +1,5 @@
 using UnityEngine;
+
 public class BookaShampoo : Collectible
 {
     public override void Pick(GameObject picker)
