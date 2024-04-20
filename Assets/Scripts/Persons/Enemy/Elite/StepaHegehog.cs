@@ -1,16 +1,15 @@
 using System.Collections;
 using System.Linq;
-
 using Unity.VisualScripting;
-
 using UnityEngine;
 
 public class StepaHedgehog : SpeedBoost
 {
-    Enemy me;
-    new Transform transform;
-    LayerMask maskWhoKills;
-    [SerializeField] GameObject ring;
+    private Enemy me;
+    private new Transform transform;
+    private LayerMask maskWhoKills;
+    [SerializeField] private GameObject ring;
+
     protected override void Start()
     {
         me = GetComponent<Enemy>();
@@ -23,27 +22,30 @@ public class StepaHedgehog : SpeedBoost
 
     private void SetTarget()
     {
-        IOrderedEnumerable<Enemy> targets = Enemy.Enemies.Where(e =>( e.WhoAmI == EnemyTypes.Soplik || e.WhoAmI == EnemyTypes.Booka )&& e.ChangeMove==0 && 
-        !e.Move.IsMultiplierBoost()).OrderBy(e=>Random.Range(0,10));
-        if(targets.ToArray().Length > 0)
+        IOrderedEnumerable<Enemy> targets = Enemy.Enemies.Where(e =>
+            (e.WhoAmI == EnemyTypes.Soplik || e.WhoAmI == EnemyTypes.Booka) && e.ChangeMove == 0 &&
+            !e.GetComponent<DebuffBank>().HasDebuffOfType(typeof(Speeding))).OrderBy(e => Random.Range(0, 10));
+        if (targets.ToArray().Length > 0)
             me._PC = targets.LastOrDefault().gameObject;
         else
         {
             me.ResetPC();
             GetComponent<AttackProjectile>().Damage = 2;
-            me._maskWhoKills = maskWhoKills; 
+            me._maskWhoKills = maskWhoKills;
         }
     }
+
     private void FixedUpdate()
     {
-        if(me._PC == null || me._PC.IsDestroyed()) 
+        if (me._PC == null || me._PC.IsDestroyed())
         {
             SetTarget();
         }
     }
+
     protected override IEnumerator AuraAction()
     {
-        Instantiate(ring, transform.position,Quaternion.identity);
+        Instantiate(ring, transform.position, Quaternion.identity);
         yield return base.AuraAction();
         SetTarget();
     }

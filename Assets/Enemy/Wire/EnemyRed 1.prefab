@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 8139804192362469569}
   - component: {fileID: -3232048528765222662}
   - component: {fileID: -6418358215614470869}
+  - component: {fileID: 1191920092378028705}
   m_Layer: 11
   m_Name: EnemyRed 1
   m_TagString: Enemy
@@ -39,6 +40,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6873636728429283986}
+  - {fileID: 6480033615480624942}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &9184660274169354516
@@ -155,8 +157,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _canJump: 1
   _speed: 0.5
+  transform: {fileID: 0}
   _spriteRenderer: {fileID: 0}
   isUsingRigidbody: 0
+  rotationMode: 1
   _groundCheck: {fileID: 0}
   _roofCheck: {fileID: 0}
   _groundLayer:
@@ -190,7 +194,7 @@ MonoBehaviour:
   WhoAmI: 1
   _maskWhoKills:
     serializedVersion: 2
-    m_Bits: 40960
+    m_Bits: 40976
   moveDirection: 0
   playerPrefsName: EnemyStepa
   playerPrefsLittleName: EnemyStepaLittle
@@ -283,7 +287,25 @@ MonoBehaviour:
     type: 3}
   parrybleDamageTypes: 
   CurrentHealth: 0
+  multiplerDamage:
+    summingMultiplers:
+    - 1
+    multiplingMultiplers: []
+    additions: []
+    baseValue: 1
   needVelocityForInvisibility: 9999
+--- !u!114 &1191920092378028705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49990711567001007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1e48c61f5f1a504585185f50b09b321, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7266390856897857272
 GameObject:
   m_ObjectHideFlags: 0
@@ -370,3 +392,77 @@ MonoBehaviour:
   _ReloadTime: 3
   _multiplierSpeed: 3
   _durationBoost: 0.5
+--- !u!1001 &4213374306154459403
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5514700931504253472}
+    m_Modifications:
+    - target: {fileID: 7175744549892400677, guid: 828b6b280af26764cb69d4db17f21b78,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7175744549892400677, guid: 828b6b280af26764cb69d4db17f21b78,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7175744549892400677, guid: 828b6b280af26764cb69d4db17f21b78,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7175744549892400677, guid: 828b6b280af26764cb69d4db17f21b78,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7175744549892400677, guid: 828b6b280af26764cb69d4db17f21b78,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7175744549892400677, guid: 828b6b280af26764cb69d4db17f21b78,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7175744549892400677, guid: 828b6b280af26764cb69d4db17f21b78,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7175744549892400677, guid: 828b6b280af26764cb69d4db17f21b78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7175744549892400677, guid: 828b6b280af26764cb69d4db17f21b78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7175744549892400677, guid: 828b6b280af26764cb69d4db17f21b78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8665692668682927120, guid: 828b6b280af26764cb69d4db17f21b78,
+        type: 3}
+      propertyPath: m_Name
+      value: DebuffVisualEffect
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 828b6b280af26764cb69d4db17f21b78, type: 3}
+--- !u!4 &6480033615480624942 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7175744549892400677, guid: 828b6b280af26764cb69d4db17f21b78,
+    type: 3}
+  m_PrefabInstance: {fileID: 4213374306154459403}
+  m_PrefabAsset: {fileID: 0}

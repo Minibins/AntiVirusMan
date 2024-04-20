@@ -1,16 +1,18 @@
-﻿using System;
+﻿using DustyStudios.MathAVM;
+
+using System;
 using System.Collections;
 using UnityEngine;
 public class Player : MoveBase, IPlayer, IHealable
 {
-    [SerializeField] private PChealth _health;
     public bool Stunned;
     private Dasher _dasher;
     public static bool IsJump;
-    static Player instance;
+    private static Player instance;
+    [SerializeField] private Vector2 locationBounds = new Vector2(-18.527f,17.734f);
     protected override void FixedUpdate()
     {
-        transform.position = new Vector3(Mathf.Max(-18.527f, Mathf.Min(17.734f, transform.position.x)),
+        transform.position = new Vector3(Mathf.Max(locationBounds.x, Mathf.Min(locationBounds.y, transform.position.x)),
             transform.position.y, transform.position.z); 
         if(!Stunned)base.FixedUpdate();
     }
@@ -20,14 +22,9 @@ public class Player : MoveBase, IPlayer, IHealable
         instance = this;
         base.Awake();
         _dasher = gameObject.AddComponent<Dasher>();
+        
     }
-
-
-    override public void MoveHorizontally(float direction)
-    {
-        base.MoveHorizontally(direction);
-    }
-
+    
     public void Dash(float direction)
     {
         _dasher.Dash(direction);
@@ -35,10 +32,9 @@ public class Player : MoveBase, IPlayer, IHealable
     public void Dash()
     {
         PlayAnimation("Dash");
-        _dasher.Dash(_spriteRenderer.flipX ? -1 : 1);
+        _dasher.Dash(MathA.OneOrNegativeOne(transform.localScale.x));
     }
     
-
     private void StopJumpAnimation()
     {
         _animator.SetBool("IsJumping",false);
@@ -61,7 +57,8 @@ public class Player : MoveBase, IPlayer, IHealable
         Collectible collectible;
         if (other.TryGetComponent<Collectible>(out collectible))
         {
-            collectible.Pick(gameObject);
+            if(collectible.canPick)
+                collectible.Pick(gameObject);
         }
     }
     public static void TakeDamage(Vector3 respawn)
@@ -75,10 +72,10 @@ public class Player : MoveBase, IPlayer, IHealable
     public void takeDamage(Vector3 respawn)
     {
         PlayDamageAnimation();
-        _health.ApplyDamage(1);
+        PChealth.instance.ApplyDamage(1);
         transform.position = respawn;
     }
-    [SerializeField] float damageForce;
+    [SerializeField] private float damageForce;
     private void PlayDamageAnimation()
     {
         PlayAnimation("TakeDamage");
@@ -105,7 +102,7 @@ public class Player : MoveBase, IPlayer, IHealable
     }
     [SerializeField] private float _flightVelicityCap = 0;
     [SerializeField] private float _flySpeed;
-    bool canFly = false;
+    private bool canFly = false;
     protected override void JumpAction()
     {
         if(Rigidbody.velocity.y <= _flightVelicityCap&&LevelUP.Items[15].IsTaken && Rigidbody.bodyType != RigidbodyType2D.Static) canFly = true;
@@ -125,7 +122,7 @@ public class Player : MoveBase, IPlayer, IHealable
             StopJumpAnimation();
         }
     }
-    [SerializeField] LayerMask TreksolesLayer;
+    [SerializeField] private LayerMask TreksolesLayer;
     new public bool IsGrounded()
     {
         return base.IsGrounded() || base.IsGrounded(TreksolesLayer);
@@ -133,6 +130,6 @@ public class Player : MoveBase, IPlayer, IHealable
 
     public void Heal(int hp)
     {
-        _health.HealHealth(hp);
+        PChealth.instance.HealHealth(hp);
     }
 }

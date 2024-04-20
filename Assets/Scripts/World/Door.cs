@@ -1,15 +1,18 @@
 using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
-
 using UnityEngine;
 
 public class Door : PlayersCollisionChecker
 {
-    UiElementsList.ButtonsStruct.InteractButton InteractButton { get => UiElementsList.instance.Buttons.Interact; }
-    AbstractPortal portal;
-    Door anotherEnd;
-    [SerializeField] Sprite DoorSprite;
+    private UiElementsList.ButtonsStruct.InteractButton InteractButton
+    {
+        get => UiElementsList.instance.Buttons.Interact;
+    }
+
+    private AbstractPortal portal;
+    private Door anotherEnd;
+    [SerializeField] private Sprite DoorSprite;
+
     private void Start()
     {
         portal = GetComponent<AbstractPortal>();
@@ -17,6 +20,7 @@ public class Door : PlayersCollisionChecker
         EnterAction += () => SetEnterUI(true);
         ExitAction += () => SetEnterUI(false);
     }
+
     private void SetEnterUI(bool IsEnable)
     {
         InteractButton.image.sprite = DoorSprite;
@@ -24,8 +28,8 @@ public class Door : PlayersCollisionChecker
         Button.gameObject.SetActive(IsEnable);
         Button.onClick.RemoveAllListeners();
         Button.onClick.AddListener(() => StartCoroutine(Teleport()));
-
     }
+
     public IEnumerator Teleport()
     {
         try
@@ -35,16 +39,15 @@ public class Door : PlayersCollisionChecker
         }
         catch
         {
+        }
+        finally
+        {
+            var ButtonAction = InteractButton.button.onClick;
+            ButtonAction.RemoveAllListeners();
+            ButtonAction.AddListener(() => StartCoroutine(anotherEnd.Teleport()));
+        }
 
-        }
-        finally 
-        { 
-        
-        var ButtonAction = InteractButton.button.onClick;
-        ButtonAction.RemoveAllListeners();
-        ButtonAction.AddListener(() => StartCoroutine(anotherEnd.Teleport()));
-        }
         yield return new WaitForFixedUpdate();
-        InteractButton.button.gameObject.SetActive(true); 
+        InteractButton.button.gameObject.SetActive(true);
     }
 }

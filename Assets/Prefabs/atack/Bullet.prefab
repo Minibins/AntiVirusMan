@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 1332795503663992019}
   - component: {fileID: 5811492573336532030}
   - component: {fileID: -3162637589574794086}
-  - component: {fileID: -1563968891743397054}
   - component: {fileID: 6277087313440149145}
   m_Layer: 2
   m_Name: Bullet
@@ -165,9 +164,10 @@ MonoBehaviour:
   _damage: 1
   ExplodeIfCollideWithWall: 0
   Explosion: {fileID: 0}
+  DamageType: 0
   _mask:
     serializedVersion: 2
-    m_Bits: 317504
+    m_Bits: 317520
   _velosity: {x: 1, y: 0}
 --- !u!50 &-3162637589574794086
 Rigidbody2D:
@@ -196,27 +196,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!95 &-1563968891743397054
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4926493693542066365}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &6277087313440149145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,7 +210,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _canJump: 0
   _speed: 3
+  transform: {fileID: 0}
   _spriteRenderer: {fileID: 0}
+  isUsingRigidbody: 1
+  rotationMode: 1
   _groundCheck: {fileID: 0}
   _roofCheck: {fileID: 0}
   _groundLayer:
@@ -245,6 +227,9 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _maxJumpLeftover: 0
+  AutojumpRange: 0
+  AutojumpHeight: 0
+  Autojump: 0
 --- !u!1001 &2559051835963309209
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PC : Follower
 {
@@ -9,14 +8,13 @@ public class PC : Follower
     [SerializeField] private Transform pc;
     [SerializeField] private Sprite[] carmaSprites;
     private GameObject _player;
-    private Health health;
     private Animator animator;
     private Transform rozetka;
     private Animator rozetkaAnim;
     private bool lowchrge;
     public bool OnlyBehind;
     private static float carma;
-    public static bool IsFollowing;
+    public static bool IsFollowing, LowChargeDamage;
 
     public static float Carma
     {
@@ -28,27 +26,47 @@ public class PC : Follower
         }
     }
 
+    public Animator Animator
+    {
+        get => animator;
+    }
+
+    public bool Lowchrge
+    {
+        get => lowchrge;
+        set
+        {
+            lowchrge = value;
+            if (value) StartCoroutine(LowCharge());
+            else
+            {
+                StopCoroutine(LowCharge());
+                lowChargeCoroutineRunning = false;
+            }
+        }
+    }
+
     private protected override void Start()
     {
         _player = GameObject.FindGameObjectWithTag("Player");
         playerPosition = _player.transform;
-        health = GetComponentInParent<Health>();
         animator = GetComponentInParent<Animator>();
         rozetka = GameObject.Find("Rozetka").transform;
         rozetkaAnim = rozetka.GetComponent<Animator>();
-        StartCoroutine(LowCharge());
         rb = GetComponentInParent<Rigidbody2D>();
-        PC.carma = 7;
+        carma = 7;
         try
         {
             UpdateCarma();
         }
         catch
-        { 
+        {
             UiElementsList.instance = FindObjectOfType<UiElementsList>();
         }
-    
-            IsFollowing = false;
+
+        defaultPos = transform.parent.position;
+        IsFollowing = false;
+        LowChargeDamage = true;
     }
 
     private protected void FixedUpdate()
@@ -56,12 +74,12 @@ public class PC : Follower
         if (Vector2.Distance(rozetka.position, transform.position) > radius)
         {
             rozetkaAnim.SetBool("Sad", true);
-            lowchrge = true;
+            Lowchrge = true;
         }
         else
         {
             rozetkaAnim.SetBool("Sad", false);
-            lowchrge = false;
+            Lowchrge = false;
         }
     }
 
@@ -76,9 +94,9 @@ public class PC : Follower
                     pc.transform.position.y,
                     0)
                 ,
-                !lowchrge, pc);
+                !Lowchrge, pc);
             animator.SetBool("IsRunning",
-                !lowchrge && (Mathf.Abs(playerPosition.position.x - pc.position.x) > distanceFromPlayer / 2) ||
+                !Lowchrge && (Mathf.Abs(playerPosition.position.x - pc.position.x) > distanceFromPlayer / 2) ||
                 OnlyBehind);
         }
     }
@@ -103,38 +121,35 @@ public class PC : Follower
 
     private void UpdateCarma()
     {
-        
         var carmaImage = UiElementsList.instance.Counters.Carma;
-            switch(Convert.ToInt16(Carma))
-            {
-                default:
-                if(Carma < 0) carmaImage.sprite = carmaSprites[0];
+        switch (Convert.ToInt16(Carma))
+        {
+            default:
+                if (Carma < 0) carmaImage.sprite = carmaSprites[0];
                 else carmaImage.sprite = carmaSprites[6];
                 break;
-                case 1:
+            case 1:
                 carmaImage.sprite = carmaSprites[1];
                 break;
-                case 2:
+            case 2:
                 carmaImage.sprite = carmaSprites[2];
                 break;
-                case 3:
+            case 3:
                 carmaImage.sprite = carmaSprites[3];
                 break;
-                case 4:
+            case 4:
                 carmaImage.sprite = carmaSprites[4];
                 break;
-                case 5:
+            case 5:
                 carmaImage.sprite = carmaSprites[4];
                 break;
-                case 6:
+            case 6:
                 carmaImage.sprite = carmaSprites[5];
                 break;
-                case 7:
+            case 7:
                 carmaImage.sprite = carmaSprites[6];
                 break;
-            }
-        
-        
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -151,18 +166,27 @@ public class PC : Follower
         Carma -= 1f;
     }
 
+    private bool lowChargeCoroutineRunning;
 
     IEnumerator LowCharge()
     {
-        while (true)
+        if (lowChargeCoroutineRunning) yield break;
+        lowChargeCoroutineRunning = true;
+        UiElementsList.instance.Panels.SusIPpanel.SetActive(LowChargeDamage);
+        while (Lowchrge)
         {
+            if (LowChargeDamage) PChealth.instance.CurrentHealth--;
+            PChealth.instance.ApplyDamage(0);
             yield return new WaitForSeconds(5);
-            while (lowchrge)
-            {
-                health.CurrentHealth--;
-                health.ApplyDamage(0);
-                yield return new WaitForSeconds(5);
-            }
         }
+
+        lowChargeCoroutineRunning = false;
+    }
+
+    private Vector2 defaultPos;
+
+    public void ResetPosition()
+    {
+        transform.parent.position = defaultPos;
     }
 }

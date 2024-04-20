@@ -203,7 +203,7 @@ MonoBehaviour:
   DamageType: 0
   _mask:
     serializedVersion: 2
-    m_Bits: 318528
+    m_Bits: 318544
   _velosity: {x: 0, y: 10}
 --- !u!114 &304440491880971904
 MonoBehaviour:
@@ -219,7 +219,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _canJump: 0
   _speed: 1.72
+  transform: {fileID: 0}
   _spriteRenderer: {fileID: 0}
+  isUsingRigidbody: 1
+  rotationMode: 1
   _groundCheck: {fileID: 0}
   _roofCheck: {fileID: 0}
   _groundLayer:
@@ -233,6 +236,9 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _maxJumpLeftover: 0
+  AutojumpRange: 0
+  AutojumpHeight: 0
+  Autojump: 0
 --- !u!61 &7813329653446608911
 BoxCollider2D:
   m_ObjectHideFlags: 0

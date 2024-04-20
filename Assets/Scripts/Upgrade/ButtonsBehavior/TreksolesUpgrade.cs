@@ -8,10 +8,20 @@ public class TreksolesUpgrade : Upgrade
     [SerializeField] Tilemap[] renderers;
     Collider2D[] children;
     Transform player;
+    float playersHeight;
     private void Awake()
     {
-        player = GameObject.FindObjectOfType<Player>().transform;
         children = GetComponentsInChildren<Collider2D>();
+        player = GameObject.FindObjectOfType<PlayerAttack>().transform;
+        try
+        {
+            BoxCollider2D box =player.GetComponent<BoxCollider2D>();
+            playersHeight = box.size.y/2+box.edgeRadius;
+        }
+        catch
+        {
+            print(player);
+        }
     }
     private void FixedUpdate()
     {
@@ -22,7 +32,7 @@ public class TreksolesUpgrade : Upgrade
         }
         foreach(var c in children)
         {
-            c.isTrigger = !(color.a != 0f&&c.transform.position.y<player.position.y);
+            c.isTrigger = !(color.a != 0f && c.transform.position.y+c.offset.y < player.position.y-playersHeight);
         }
     }
 }

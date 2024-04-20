@@ -337,10 +337,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9c4fd5ae8cbe924582d0b08150dbc86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 1
+  _damage: 0.7
   ExplodeIfCollideWithWall: 0
   Explosion: {fileID: 0}
+  DamageType: 0
   _mask:
     serializedVersion: 2
-    m_Bits: 317440
+    m_Bits: 317456
   _velosity: {x: 0, y: 0}

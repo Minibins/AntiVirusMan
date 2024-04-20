@@ -3,7 +3,7 @@
 public class SuicideAfterTime : MonoBehaviour
 {
     [SerializeField] private float Time;
-    void Start()
+    private void Start()
     {
         Destroy(gameObject, Time);
     }

@@ -1,8 +1,29 @@
-﻿using UnityEngine;
-public class Wall : MonoBehaviour
+﻿using System;
+
+using UnityEngine;
+public class Wall : MonoBehaviour, IAcidable, IDamageble
 {
     public float TowerHeight = 0;
     [SerializeField] new Collider2D collider;
+    private Animator animator;
+    public Animator Animator
+    {
+        get
+        {
+            if(animator==null) animator =GetComponent<Animator>();
+            return animator;
+        }
+    }
+
+    public float DestroyLevel { get => Animator.GetInteger("DestroyStage"); set => animator.SetInteger("DestroyStage", (int)value); }
+
+    bool isDamagable;
+
+    public void OblitCislotoy()
+    {
+        Animator.SetBool("IsAcid",true);
+        isDamagable = true;
+    }
     private void Start()
     {
         {
@@ -14,5 +35,11 @@ public class Wall : MonoBehaviour
         TowerHeight += 1;
         if(TowerHeight >= 5)
             InstantiateWall.ClearWalls();
+    }
+
+    public void OnDamageGet(float Damage,IDamageble.DamageType type)
+    {
+        if(isDamagable)
+            DestroyLevel += Damage;
     }
 }

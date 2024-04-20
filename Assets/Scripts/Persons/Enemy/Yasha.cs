@@ -1,21 +1,23 @@
-using System;
-
 using UnityEngine;
 
 public class Yasha : TagCollisionChecker
 {
-    Animator anim;
-    Move move;
-    void Start()
+    private Animator anim;
+    private Move move;
+
+    private void Start()
     {
         move = GetComponent<Move>();
         anim = GetComponent<Animator>();
         EnterAction += OnUpdateEnteredThings;
         ExitAction += OnUpdateEnteredThings;
     }
-    void OnUpdateEnteredThings()
+
+    private void OnUpdateEnteredThings()
     {
-        move.SetSpeedMultiplierForOllTime(Convert.ToInt16(EnteredThings.Count == 0));
-        anim.SetBool("IsPushed",EnteredThings.Count > 0);
+        if (EnteredThings.Count > 0)
+            move.SetSpeedMultiplierForever(0);
+        else move.ClearSpeedMultiplers();
+        anim.SetBool("IsPushed", EnteredThings.Count > 0);
     }
 }

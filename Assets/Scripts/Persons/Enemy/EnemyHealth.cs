@@ -19,7 +19,7 @@ public class EnemyHealth : DefaultHealth
             if (me.moveDirection == -1f && player.position.x > transform.position.x ||
                 me.moveDirection == 1f && player.position.x < transform.position.x)
             {
-                CurrentHealth -= damage;
+                CurrentHealth -= damage * multiplerDamage;
             }
         }
 
@@ -28,8 +28,8 @@ public class EnemyHealth : DefaultHealth
 
     public override void DestroyHimself()
     {
-        me._PC.GetComponentInChildren<PC>().EnemyKilled();
         Destroy(gameObject);
+        me._PC.GetComponentInChildren<PC>().EnemyKilled();
     }
 
     protected override void FixedUpdate()

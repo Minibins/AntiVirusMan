@@ -10,11 +10,10 @@ using UnityEngine.Windows;
 public class InstantiateWall : Upgrade
 {
     [SerializeField] private LayerMask layerMask;
-    [SerializeField] private GameObject Wall;
-    [SerializeField] private GameObject MovableWall;
+    [SerializeField] private Wall Wall, MovableWall;
     [SerializeField] private float TimeToStart;
     public bool canmove;
-    private static List<GameObject> walls = new();
+    private static List<Wall> walls = new();
     protected override void OnTake()
     {
         base.OnTake();
@@ -39,7 +38,7 @@ public class InstantiateWall : Upgrade
         Spawn(canmove ? MovableWall : Wall, playerpos);
     }
     PlayerAttack playerAttack;
-    void Spawn(GameObject type, Vector2 pos)
+    void Spawn(Wall type, Vector2 pos)
     {
         walls.Add(Instantiate(type,(Vector3)pos,Quaternion.identity));
         clearDestroyed();
@@ -62,7 +61,7 @@ public class InstantiateWall : Upgrade
         int m = walls.Count;
         for(int i = 0; i < m; i++)
         {
-            walls[0].GetComponent<Animator>().SetTrigger("Destroy");
+            walls[0].Animator.SetTrigger("Destroy");
             walls.RemoveAt(0);
         }
     }

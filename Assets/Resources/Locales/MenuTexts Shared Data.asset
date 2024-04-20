@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: MenuTexts Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: MenuTexts
+  m_TableCollectionNameGuidString: 563068b17bc23f645ad8ad893a384eae
+  m_Entries:
+  - m_Id: 8656699392
+    m_Key: "\u0422\u0438\u0442\u0440\u044B"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6164238221312
+    m_Key: Upgrades taken
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6452055556096
+    m_Key: Enemies killed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6592522797056
+    m_Key: Enemies
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6806667182080
+    m_Key: Upgrades
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8699988590592
+    m_Key: Send
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8995179511808
+    m_Key: Write your feedback here
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9399409754112
+    m_Key: Button Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10555599011840
+    m_Key: Sound Setting
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10927814131712
+    m_Key: Music Setting
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15106737618944
+    m_Key: Joystick
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15156784054272
+    m_Key: Dev Console
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 8834834620413378566
+  references:
+    version: 2
+    RefIds:
+    - rid: 8834834620413378566
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables,
+        asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1713015133504

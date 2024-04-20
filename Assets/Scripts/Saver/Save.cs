@@ -1,16 +1,15 @@
-using UnityEngine;
-using System.IO;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using DustyStudios;
+using UnityEngine;
 
 public class Save : MonoBehaviour
 {
-    const string JoystickSaveName = "Joystick";
-    const string VersionSaveName = "LastSessionVersion";
-    const string LocationSaveName = "WinLocation";
-    private static Data _data = new ();
+    private const string JoystickSaveName = "Joystick";
+    private const string ConsoleSaveName = "ConsoleEnable";
+    private const string VersionSaveName = "LastSessionVersion";
+    private const string LocationSaveName = "WinLocation";
+    private static Data _data = new Data();
 
     public static Data data
     {
@@ -79,6 +78,21 @@ public class Save : MonoBehaviour
         }
     }
 
+    public static bool console
+    {
+        get
+        {
+            LoadField();
+            return _data.Console;
+        }
+        set
+        {
+            DustyConsoleInGame.UsedConsoleInSession |= value;
+            _data.Console = value;
+            SaveField();
+        }
+    }
+
     private void Awake()
     {
         LoadField();
@@ -90,7 +104,8 @@ public class Save : MonoBehaviour
             new Dictionary<string, float>(),
             getInt(LocationSaveName),
             PlayerPrefs.GetString(VersionSaveName),
-            Convert.ToBoolean(getInt(JoystickSaveName))
+            Convert.ToBoolean(getInt(JoystickSaveName)),
+            Convert.ToBoolean(getInt(ConsoleSaveName))
         );
         int getInt(string key) => PlayerPrefs.GetInt(key);
     }
@@ -99,6 +114,7 @@ public class Save : MonoBehaviour
     {
         setInt(LocationSaveName, _data.WinLocation);
         setInt(JoystickSaveName, Convert.ToByte(_data.Joystick));
+        setInt(ConsoleSaveName, Convert.ToByte(_data.Console));
         PlayerPrefs.SetString(VersionSaveName, _data.LastSessionVersion);
         foreach (var s in SettingSliders)
         {
@@ -113,16 +129,17 @@ public class Save : MonoBehaviour
     {
         public int WinLocation;
         public string LastSessionVersion;
-        public bool Joystick;
+        public bool Joystick, Console;
         public Dictionary<string, float> SettingSliders;
 
         public void Set(Dictionary<string, float> SettingSliders, int WinLocation, string LastSessionVersion,
-            bool joystick)
+            bool joystick, bool console)
         {
             this.SettingSliders = SettingSliders;
             this.WinLocation = WinLocation;
             this.LastSessionVersion = LastSessionVersion;
             Joystick = joystick;
+            Console = console;
         }
     }
 }

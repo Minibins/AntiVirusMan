@@ -193,7 +193,7 @@ MonoBehaviour:
   DamageType: 0
   _mask:
     serializedVersion: 2
-    m_Bits: 317504
+    m_Bits: 317520
   _velosity: {x: 0, y: 0}
 --- !u!114 &712682373744742078
 MonoBehaviour:
@@ -209,8 +209,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _canJump: 0
   _speed: 0
+  transform: {fileID: 0}
   _spriteRenderer: {fileID: 0}
   isUsingRigidbody: 1
+  rotationMode: 1
   _groundCheck: {fileID: 0}
   _roofCheck: {fileID: 0}
   _groundLayer:

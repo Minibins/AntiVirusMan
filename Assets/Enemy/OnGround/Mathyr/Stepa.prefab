@@ -53,6 +53,12 @@ PrefabInstance:
       propertyPath: _durationBoost
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3247176739403350194, guid: b87c79d457c719c48a591a636b0f9b4c,
+        type: 3}
+      propertyPath: drop
+      value: 
+      objectReference: {fileID: 3466217549895830557, guid: 50e0924bd27dc7349bed94f0b9dc37d2,
+        type: 3}
     - target: {fileID: 4300671704897370535, guid: b87c79d457c719c48a591a636b0f9b4c,
         type: 3}
       propertyPath: _mask.m_Bits
@@ -189,6 +195,7 @@ MonoBehaviour:
   _explosionRadius: 1
   _explosionPower: 1
   DestroyHimself: 1
+  OnScan: 0
 --- !u!95 &2630300875120672161 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 4482309314977752539, guid: b87c79d457c719c48a591a636b0f9b4c,

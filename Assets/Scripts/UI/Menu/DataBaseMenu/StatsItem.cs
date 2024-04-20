@@ -14,12 +14,11 @@ public class StatsItem : MonoBehaviour
         _itemSprite = transform.GetChild(0).gameObject.GetComponent<Image>();
         SetSprite();
         transform.GetChild(1).gameObject.GetComponent<Text>().text = _count.ToString();
-
     }
 
     protected virtual void SetSprite()
     {
         _itemSprite.sprite = _sprite;
-        _itemSprite.color = _count>0 ? Color.white : Color.black;
+        _itemSprite.color = _count > 0 ? Color.white : Color.black;
     }
 }

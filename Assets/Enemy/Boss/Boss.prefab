@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 3671429359641205883}
   - component: {fileID: 1276419742658588541}
   - component: {fileID: -5347917513312628126}
+  - component: {fileID: 1349406144872870430}
+  - component: {fileID: -1134995009956876889}
   m_Layer: 10
   m_Name: Boss
   m_TagString: Enemy
@@ -158,7 +160,12 @@ MonoBehaviour:
     type: 3}
   PunchSound: {fileID: 1803008693175055407, guid: a6cca2416abefef4e800f9bd3e5cd50f,
     type: 3}
+  parrybleDamageTypes: 
   CurrentHealth: 0
+  multiplerDamage:
+    multiplers: []
+    additions: []
+    baseValue: 1
 --- !u!114 &5645338690043026744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,9 +178,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9c4fd5ae8cbe924582d0b08150dbc86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 999999999
+  _damage: 1e+9
   ExplodeIfCollideWithWall: 0
   Explosion: {fileID: 0}
+  DamageType: 0
   _mask:
     serializedVersion: 2
     m_Bits: 8192
@@ -202,22 +210,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e95afecb9eede4499d9d9d041340a8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isElite: 0
+  isLittle: 0
   WhoAmI: 0
   _maskWhoKills:
     serializedVersion: 2
     m_Bits: 0
   moveDirection: 0
+  playerPrefsName: 
+  playerPrefsLittleName: 
   ChangeMove: 0
   MoveToPoint: {fileID: 0}
   _PC: {fileID: 0}
-  _explosion: {fileID: 5916545268974012944, guid: 37777857fd09b15438c1203b12145747,
-    type: 3}
-  _explosionRadius: 0
   otklonenieOtklonenia: 0
   SkorostOtklonenia: 0
   Speed: -0.26
-  _explosionPower: 999999
-  isElite: 0
 --- !u!70 &-5347917513312628126
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -253,6 +260,33 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.72, y: 0.84}
   m_Direction: 0
+--- !u!114 &1349406144872870430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1419220866596668024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ce7479bcdd30424b9c03a11639cc879, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  X: 0
+  Y: 0
+  Gameobject: {fileID: 0}
+--- !u!114 &-1134995009956876889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1419220866596668024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1e48c61f5f1a504585185f50b09b321, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8978152591157368893
 GameObject:
   m_ObjectHideFlags: 0

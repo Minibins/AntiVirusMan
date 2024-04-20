@@ -1,25 +1,25 @@
-using DustyStudios.MathAVM;
-
-using System;
 using System.Linq;
-
+using DustyStudios.MathAVM;
 using UnityEngine;
+
 [RequireComponent(typeof(Rigidbody2D)),
- RequireComponent(typeof(Animator)),
  RequireComponent(typeof(SpriteRenderer))]
 public class Move : MoveBase, iDraggable
 {
-    [SerializeField] float AutojumpRange, AutojumpHeight;
-    [SerializeField] bool Autojump;
+    [SerializeField] private float AutojumpRange, AutojumpHeight;
+    [SerializeField] private bool Autojump;
+
     protected override void FixedUpdate()
     {
         base.FixedUpdate();
-        if(Autojump&& CanJump)
+        if (Autojump && CanJump)
         {
-            if(Physics2D.Raycast(transform.position + Vector3.up * AutojumpHeight,Vector2.right * MathA.OneOrNegativeOne(Rigidbody.velocity.x),AutojumpRange, _groundLayer))
+            if (Physics2D.Raycast(transform.position + Vector3.up * AutojumpHeight,
+                Vector2.right * MathA.OneOrNegativeOne(Rigidbody.velocity.x), AutojumpRange, _groundLayer))
             {
                 Jump();
-                Debug.DrawRay(transform.position + Vector3.up * AutojumpHeight,Vector2.right * MathA.OneOrNegativeOne(Rigidbody.velocity.x) * AutojumpRange);
+                Debug.DrawRay(transform.position + Vector3.up * AutojumpHeight,
+                    Vector2.right * MathA.OneOrNegativeOne(Rigidbody.velocity.x) * AutojumpRange);
             }
             else
             {
@@ -27,11 +27,12 @@ public class Move : MoveBase, iDraggable
             }
         }
     }
+
     protected override void JumpAction()
     {
         base.JumpAction();
 
-        if(Time.time - _jumpStartTime > _jumpingCurve.keys.OrderBy(k =>k.time).LastOrDefault().time)
+        if (Time.time - _jumpStartTime > _jumpingCurve.keys.OrderBy(k => k.time).LastOrDefault().time)
         {
             StopJump();
         }

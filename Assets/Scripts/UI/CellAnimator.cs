@@ -11,13 +11,13 @@ public class CellAnimator : MonoBehaviour
 
     public void Enable()
     {
-        anim.SetTrigger("Heal");
+        anim.SetBool("IsEnabled", true);
         gameObject.SetActive(true);
     }
 
     public void Disable()
     {
-        anim.SetTrigger("Disable");
+        anim.SetBool("IsEnabled", false);
     }
 
     private void AfterDisable()

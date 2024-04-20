@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
-
 using UnityEngine;
+
 public class Health : MonoBehaviour, iDraggable, IDamageble, IHealable
 {
     [SerializeField] protected int _maxHealth;
@@ -10,13 +10,17 @@ public class Health : MonoBehaviour, iDraggable, IDamageble, IHealable
     [field: SerializeField] public float CurrentHealth;
     protected Animator animator;
     private Action _onDeath;
+    public Stat multiplerDamage = new Stat(1);
+    
+    private bool hasParryAnim;
+    private const string parryAnimName = "Parry";
 
     public Action OnDeath
     {
         get => _onDeath;
         set
         {
-            if (_onDeath != null)
+            if (value != null)
             {
                 _onDeath -= DestroyHimself;
             }
@@ -29,14 +33,14 @@ public class Health : MonoBehaviour, iDraggable, IDamageble, IHealable
 
     public virtual void ApplyDamage(float damage)
     {
-        
-            Instantiate(PunchSound);
-            CurrentHealth -= damage;
-            OnApplyDamage?.Invoke();
-            if(CurrentHealth <= 0)
-            {
-                OnDeath?.Invoke();
-            }
+        CurrentHealth -= damage * multiplerDamage;
+        OnApplyDamage?.Invoke();
+        if (CurrentHealth <= 0)
+        {
+            OnDeath?.Invoke();
+        }
+
+        if (PunchSound != null) Instantiate(PunchSound);
     }
 
     public void AddMaxHealth(int maxHealth)
@@ -46,6 +50,7 @@ public class Health : MonoBehaviour, iDraggable, IDamageble, IHealable
     }
 
     public void Heal(int hp) => HealHealth(hp);
+
     public virtual void HealHealth(int health)
     {
         CurrentHealth += health;
@@ -59,13 +64,13 @@ public class Health : MonoBehaviour, iDraggable, IDamageble, IHealable
 
     protected virtual void Start()
     {
-        
         animator = GetComponent<Animator>();
-        if(animator != null && animator.isActiveAndEnabled && gameObject.activeInHierarchy)
+        if (animator != null && animator.isActiveAndEnabled && gameObject.activeInHierarchy)
         {
-            if(animator.parameters.Any(a => a.name == parryAnimName))
+            if (animator.parameters.Any(a => a.name == parryAnimName))
                 hasParryAnim = true;
         }
+
         if (OnDeath == null)
         {
             OnDeath = DestroyHimself;
@@ -81,9 +86,10 @@ public class Health : MonoBehaviour, iDraggable, IDamageble, IHealable
     public virtual void DestroyHimself()
     {
     }
+
     public void SoundDead()
     {
-        Instantiate(DeathSound);
+        if (DeathSound != null) Instantiate(DeathSound);
     }
 
     public void OnDrag()
@@ -93,13 +99,11 @@ public class Health : MonoBehaviour, iDraggable, IDamageble, IHealable
     public void OnDragEnd()
     {
     }
-    bool hasParryAnim;
-    const string parryAnimName = "Parry";
-    public void OnDamageGet(int Damage, IDamageble.DamageType type)
+    
+    public void OnDamageGet(float Damage, IDamageble.DamageType type)
     {
-        if(parrybleDamageTypes!=null&&!parrybleDamageTypes.Contains(type))
+        if (parrybleDamageTypes != null && !parrybleDamageTypes.Contains(type))
             ApplyDamage(Damage);
-        else if(hasParryAnim) animator.SetTrigger(parryAnimName);
+        else if (hasParryAnim) animator.SetTrigger(parryAnimName);
     }
-
 }

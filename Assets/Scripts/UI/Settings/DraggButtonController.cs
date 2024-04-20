@@ -21,7 +21,7 @@ public class DraggButtonController : MonoBehaviour
             button.GetComponent<LoadButtonPosition>().LoadPosition();
         }
     }
-    
+
     public void Dragg(bool isDragg)
     {
         Draggble = isDragg;

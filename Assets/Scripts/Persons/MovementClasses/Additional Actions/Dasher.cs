@@ -1,12 +1,13 @@
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
 
-class Dasher : MonoBehaviour
+public class Dasher : MonoBehaviour
 {
-    Player _move;
-    PlayerAttack _playerAttack;
-    new Transform transform;
-    Rigidbody2D rb;
+    private Player _move;
+    private PlayerAttack _playerAttack;
+    private new Transform transform;
+    private Rigidbody2D rb;
+
     private bool isDashEnd
     {
         set
@@ -23,18 +24,22 @@ class Dasher : MonoBehaviour
         _move = GetComponent<Player>();
         _playerAttack = GetComponent<PlayerAttack>();
     }
-    const float DashRange = 3.5f;
+
+    private const float DashRange = 3.5f;
+
     public void Dash(float direction)
     {
-        
-        if(_playerAttack.Ammo <= 0)
+        if (_playerAttack.Ammo <= 0)
         {
             return;
         }
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right * direction, DashRange, 1 << 10); // Тут рейкаст
-        if(hit)
+
+        RaycastHit2D
+            hit = Physics2D.Raycast(transform.position, Vector2.right * direction, DashRange, 1 << 10); // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+        if (hit)
         {
-            transform.position = new Vector3(hit.point.x + -0.65f * direction * 0.5f,transform.position.y,transform.position.z); // Тут перемещение
+            transform.position = new Vector3(hit.point.x + -0.65f * direction * 0.5f, transform.position.y,
+                transform.position.z); // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         }
         else
         {
@@ -42,19 +47,20 @@ class Dasher : MonoBehaviour
             transform.position += Vector3.right * direction * DashRange * 0.5f;
             StartCoroutine(DashEnd(direction));
         }
-        
     }
+
     IEnumerator DashEnd(float direction)
     {
-        Vector2 velocity = rb.velocity;
-        for(float a = 0; a <= 10; a++)
+        Vector2 velocity = rb.velocity; //пїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+        for (float a = 0; a <= 10; a++)
         {
-            rb.velocity = new Vector2(direction * (DashRange * 5 - a * DashRange / 2),0);
+            rb.bodyType = RigidbodyType2D.Dynamic;
+            rb.velocity = new Vector2(direction * (DashRange * 5 - a * DashRange / 2), 0); // пїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             yield return new WaitForFixedUpdate();
         }
 
         _playerAttack.Ammo--;
         isDashEnd = false;
-        rb.velocity = velocity;
+        rb.velocity = velocity; //пїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
     }
 }

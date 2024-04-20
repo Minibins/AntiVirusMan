@@ -22,7 +22,7 @@ public class Paralax : MonoBehaviour
     {
         transform.position = new Vector3(transform.position.x, actualY, transform.position.z);
         var delta = followingTarget.position - targetpreviousPosition;
-        
+
         if (disableVerticalParallax)
             delta.y = 0;
 
@@ -30,7 +30,7 @@ public class Paralax : MonoBehaviour
 
         transform.position += delta * parallaxStrenght;
         actualY = transform.position.y;
-        if(IsSkyComponent==0)
+        if (IsSkyComponent == 0)
             return;
         transform.position += Vector3.up * (Timer.time * IsSkyComponent);
     }

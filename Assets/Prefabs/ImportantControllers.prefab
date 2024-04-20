@@ -206,6 +206,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5422243409499405709}
   - component: {fileID: 2505456637001909327}
+  - component: {fileID: 6193106750718845478}
   m_Layer: 2
   m_Name: Music
   m_TagString: Untagged
@@ -324,6 +325,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6193106750718845478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1978678466181195846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d3d575aae94e0145a172bcd1ef35ce9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playlist:
+  - {fileID: 8300000, guid: 72f1c44dab26b9b41ab0b6f0cd4bb656, type: 3}
+  - {fileID: 8300000, guid: b6b792cb7aed2b7489348da31cd0e653, type: 3}
+  - {fileID: 8300000, guid: 51cdcccc8adcca64d813c6c1d9e49de9, type: 3}
 --- !u!1 &2336483485342255519
 GameObject:
   m_ObjectHideFlags: 0
@@ -514,7 +531,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BuyButton: {fileID: 6626876229015037339, guid: b26ad378fc9e78c4abdae3cfafaad6a3,
     type: 3}
+  UpgradeIndicator: {fileID: 6300759591571565223, guid: 87becfe353c448047bb0ed042e61eaac,
+    type: 3}
+  FixedProgressionImage: {fileID: 5413009907072251544, guid: 22e749bae2defa84cb353ed872645030,
+    type: 3}
   none: {fileID: -1458938310, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
+  unselectedFixedProgressionLine: {fileID: 1345739683, guid: 1df0e45a1e1783b4bac6578d311db4ef,
+    type: 3}
+  selectedFixedProgressionLine: {fileID: -637135585, guid: 1df0e45a1e1783b4bac6578d311db4ef,
+    type: 3}
 --- !u!1 &5314689496535261749
 GameObject:
   m_ObjectHideFlags: 0
@@ -636,7 +661,7 @@ Transform:
   m_GameObject: {fileID: 7379714223443497250}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.38, y: -2.4699998, z: -10}
+  m_LocalPosition: {x: -0.38, y: -2.375, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:

@@ -1,7 +1,5 @@
-
 public interface iDraggable
 {
-    abstract public void OnDrag();
-    abstract public void OnDragEnd();
-
+    public abstract void OnDrag();
+    public abstract void OnDragEnd();
 }

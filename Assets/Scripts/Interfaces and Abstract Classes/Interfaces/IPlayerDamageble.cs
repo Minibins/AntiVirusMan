@@ -2,7 +2,11 @@ public interface IDamageble
 {
     public enum DamageType
     {
-        Default, Explosion, Everynovment, Punishment
+        Default,
+        Explosion,
+        Everynovment,
+        Punishment
     }
-    public void OnDamageGet(int Damage, DamageType type);
+
+    public void OnDamageGet(float Damage, DamageType type);
 }
