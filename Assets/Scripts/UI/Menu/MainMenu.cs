@@ -42,8 +42,6 @@ public class MainMenu : MonoBehaviour
     public void ExitGame()
     {
         Save.SaveField();
-
-        Environment.Exit(0);
         Application.Quit();
     }
 }
