@@ -3256,6 +3256,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1353115077}
+        m_TargetAssemblyTypeName: BannerAd, Assembly-CSharp
+        m_MethodName: HideBannerAd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &372070155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10053,6 +10065,68 @@ MonoBehaviour:
   references:
     version: 2
     RefIds: []
+--- !u!1 &1353115074
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1353115076}
+  - component: {fileID: 1353115075}
+  - component: {fileID: 1353115077}
+  m_Layer: 0
+  m_Name: Ads
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1353115075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353115074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bafe3c8722e1774abc0b74d26eb418a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _androidGameId: 5602178
+  _iOSGameId: 5602179
+  _testMode: 1
+--- !u!4 &1353115076
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353115074}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 239.20555, y: 294.67444, z: -9.978924}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1353115077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353115074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d096b8b21f8296541b98b29ea0cddd0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bannerPosition: 5
+  _androidAdUnitId: Banner_Android
 --- !u!1001 &1375555943
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15293,7 +15367,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 2558205896284596883, guid: 1df0e45a1e1783b4bac6578d311db4ef,
+  m_Sprite: {fileID: -2992531943476814738, guid: 1df0e45a1e1783b4bac6578d311db4ef,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -16350,7 +16424,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2124588282}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1353115077}
+        m_TargetAssemblyTypeName: BannerAd, Assembly-CSharp
+        m_MethodName: HideBannerAd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   ID: 1
   Open: {fileID: 2558205896284596883, guid: 1df0e45a1e1783b4bac6578d311db4ef, type: 3}
   Close: {fileID: -2992531943476814738, guid: 1df0e45a1e1783b4bac6578d311db4ef, type: 3}
@@ -16710,6 +16796,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 958952364}
+  - {fileID: 1353115076}
   - {fileID: 1383299108}
   - {fileID: 4741014908578618433}
   - {fileID: 32966448}

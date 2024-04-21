@@ -16,7 +16,6 @@
           </e>
           <e p="AssetGroupTemplates" t="Include" />
           <e p="DataBuilders" t="Include" />
-          <e p="link.xml" t="Include" />
         </e>
         <e p="Album" t="Include">
           <e p="BackGrounds" t="Include" />
@@ -317,6 +316,10 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="ActivitySuicide.cs" t="Include" />
+          <e p="Ads" t="Include">
+            <e p="AdsInitializer.cs" t="Include" />
+            <e p="BannerAd.cs" t="Include" />
+          </e>
           <e p="BackgroundMusic.cs" t="Include" />
           <e p="bigexplosion.cs" t="Include" />
           <e p="Collectibles" t="Include">
@@ -481,6 +484,11 @@
               <e p="DraggableButton.cs" t="Include" />
               <e p="DraggBUttonController.cs" t="Include" />
               <e p="SettingSlider.cs" t="Include" />
+            </e>
+          </e>
+          <e p="UnityPurchasing" t="Include">
+            <e p="generated" t="Include">
+              <e p="GooglePlayTangle.cs" t="Include" />
             </e>
           </e>
           <e p="Upgrade" t="Include">
