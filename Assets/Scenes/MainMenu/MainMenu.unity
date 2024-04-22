@@ -3174,6 +3174,7 @@ GameObject:
   - component: {fileID: 372070156}
   - component: {fileID: 372070155}
   - component: {fileID: 372070154}
+  - component: {fileID: 372070157}
   m_Layer: 5
   m_Name: Trainning
   m_TagString: Untagged
@@ -3306,6 +3307,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 372070152}
   m_CullTransparentMesh: 1
+--- !u!114 &372070157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372070152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f55fcc3768689a4f9cf863b8c11c618, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LocalizedAssetReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:a1851f507a2e6d744b97f9f2d92c552c
+    m_TableEntryReference:
+      m_KeyId: 2847797854208
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+  m_UpdateAsset:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 372070155}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
+        m_MethodName: set_sprite
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &409794749
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4293,6 +4329,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1353115077}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &572611778
 MonoBehaviour:
@@ -7500,6 +7548,7 @@ GameObject:
   - component: {fileID: 1053558480}
   - component: {fileID: 1053558479}
   - component: {fileID: 1053558478}
+  - component: {fileID: 1053558481}
   m_Layer: 5
   m_Name: DataBase
   m_TagString: Untagged
@@ -7620,6 +7669,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1053558476}
   m_CullTransparentMesh: 1
+--- !u!114 &1053558481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053558476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f55fcc3768689a4f9cf863b8c11c618, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LocalizedAssetReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:a1851f507a2e6d744b97f9f2d92c552c
+    m_TableEntryReference:
+      m_KeyId: 2607179022336
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+  m_UpdateAsset:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1053558479}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
+        m_MethodName: set_sprite
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1062603583
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8012,6 +8096,7 @@ GameObject:
   - component: {fileID: 1114914875}
   - component: {fileID: 1114914874}
   - component: {fileID: 1114914873}
+  - component: {fileID: 1114914876}
   m_Layer: 5
   m_Name: ExitGame
   m_TagString: Untagged
@@ -8132,6 +8217,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1114914871}
   m_CullTransparentMesh: 1
+--- !u!114 &1114914876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1114914871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f55fcc3768689a4f9cf863b8c11c618, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LocalizedAssetReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:a1851f507a2e6d744b97f9f2d92c552c
+    m_TableEntryReference:
+      m_KeyId: 2669539934208
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+  m_UpdateAsset:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1114914874}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
+        m_MethodName: set_sprite
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!224 &1118275740 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6149835578411755115, guid: a163418f5c48cd74e85af557fee7f82f,
@@ -8307,6 +8427,7 @@ GameObject:
   - component: {fileID: 1161970334}
   - component: {fileID: 1161970333}
   - component: {fileID: 1161970332}
+  - component: {fileID: 1161970335}
   m_Layer: 5
   m_Name: PlayGame
   m_TagString: Untagged
@@ -8427,6 +8548,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1161970330}
   m_CullTransparentMesh: 1
+--- !u!114 &1161970335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1161970330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f55fcc3768689a4f9cf863b8c11c618, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LocalizedAssetReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:a1851f507a2e6d744b97f9f2d92c552c
+    m_TableEntryReference:
+      m_KeyId: 8291794944
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+  m_UpdateAsset:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1161970333}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
+        m_MethodName: set_sprite
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1176319130
 GameObject:
   m_ObjectHideFlags: 0
@@ -10120,7 +10276,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1353115074}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d096b8b21f8296541b98b29ea0cddd0a, type: 3}
   m_Name: 
@@ -15367,7 +15523,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2992531943476814738, guid: 1df0e45a1e1783b4bac6578d311db4ef,
+  m_Sprite: {fileID: 2558205896284596883, guid: 1df0e45a1e1783b4bac6578d311db4ef,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -16316,6 +16472,7 @@ GameObject:
   - component: {fileID: 2124588283}
   - component: {fileID: 2124588282}
   - component: {fileID: 2124588284}
+  - component: {fileID: 2124588285}
   m_Layer: 5
   m_Name: 1_Location
   m_TagString: Untagged
@@ -16441,6 +16598,41 @@ MonoBehaviour:
   Open: {fileID: 2558205896284596883, guid: 1df0e45a1e1783b4bac6578d311db4ef, type: 3}
   Close: {fileID: -2992531943476814738, guid: 1df0e45a1e1783b4bac6578d311db4ef, type: 3}
   stateIndicator: {fileID: 1892891219}
+--- !u!114 &2124588285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124588279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f55fcc3768689a4f9cf863b8c11c618, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LocalizedAssetReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:a1851f507a2e6d744b97f9f2d92c552c
+    m_TableEntryReference:
+      m_KeyId: 2872225480704
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+  m_UpdateAsset:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2124588282}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
+        m_MethodName: set_sprite
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!224 &2132981198 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6762687655917935136, guid: 5687fd3889082e046b3d482337f1e14a,
