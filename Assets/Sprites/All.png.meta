@@ -3686,9 +3686,9 @@ TextureImporter:
       name: All_177
       rect:
         serializedVersion: 2
-        x: 498
+        x: 499
         y: 411
-        width: 64
+        width: 62
         height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -27505,7 +27505,7 @@ TextureImporter:
         width: 48
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -27526,7 +27526,7 @@ TextureImporter:
         width: 48
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -27534,6 +27534,132 @@ TextureImporter:
       bones: []
       spriteID: 04504d37f564a094a84b575cbba67790
       internalID: 89889278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basket_Back
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 446
+        width: 32
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac55a65944039a84ca2f1c502db88a9c
+      internalID: -1897015128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basket_Front
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 446
+        width: 32
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0746d34ca64e12147b4118b687551ea0
+      internalID: -366694503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basket_EXP3
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 471
+        width: 31
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1c091d76e9c0474eb520b4b895d9e86
+      internalID: 742834782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basket_EXP2
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 464
+        width: 25
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6abc57feb7f6013428340e11b01e9f0f
+      internalID: -844821380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basket_EXP1
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 457
+        width: 25
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22bcf300b9c40ea448856c1594824081
+      internalID: 435434588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Basket_EXP0
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 457
+        width: 22
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b07aef9ea10f2f40834deca963d9c83
+      internalID: 1650137075
       vertices: []
       indices: 
       edges: []
@@ -27861,6 +27987,12 @@ TextureImporter:
       All_9: -9034024255245367701
       All_90: -5088923540690421642
       All_91: 7225669373263600482
+      Basket_Back: -1897015128
+      Basket_EXP0: 1650137075
+      Basket_EXP1: 435434588
+      Basket_EXP2: -844821380
+      Basket_EXP3: 742834782
+      Basket_Front: -366694503
       Bestiary_Booka: -1323015587
       Bestiary_EliteBooka: -1533091656
       Bestiary_EliteToocha: 39238
