@@ -27547,7 +27547,7 @@ TextureImporter:
         width: 32
         height: 29
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -27568,7 +27568,7 @@ TextureImporter:
         width: 32
         height: 29
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -27589,7 +27589,7 @@ TextureImporter:
         width: 31
         height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -27610,7 +27610,7 @@ TextureImporter:
         width: 25
         height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -27631,7 +27631,7 @@ TextureImporter:
         width: 25
         height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -27652,7 +27652,7 @@ TextureImporter:
         width: 22
         height: 21
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -27660,6 +27660,69 @@ TextureImporter:
       bones: []
       spriteID: 4b07aef9ea10f2f40834deca963d9c83
       internalID: 1650137075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Language_Eng
+      rect:
+        serializedVersion: 2
+        x: 1664
+        y: 718
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db54be3972877ab4fa65bde315e4c77d
+      internalID: 1360251428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Language_Ru
+      rect:
+        serializedVersion: 2
+        x: 1696
+        y: 718
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41b95ba6a68b1ce4c8bcc7a5ae34df74
+      internalID: 1646804152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Language_Uk
+      rect:
+        serializedVersion: 2
+        x: 1728
+        y: 718
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f9e3e2fd60216d42888b600763110da
+      internalID: -890403860
       vertices: []
       indices: 
       edges: []
@@ -28749,6 +28812,9 @@ TextureImporter:
       UI_Joystick_Handle: 45530447
       UI_Joystick_Horisontal: 705758048
       UI_Joystick_Round: 1436707120
+      UI_Language_Eng: 1360251428
+      UI_Language_Ru: 1646804152
+      UI_Language_Uk: -890403860
       UI_LevelUpProgress_NotPicked_Dash: 497479480
       UI_LevelUpProgress_NotPicked_Empty: 1345739683
       UI_LevelUpProgress_NotPicked_Pique: -1654162011
