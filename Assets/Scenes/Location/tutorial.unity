@@ -2238,6 +2238,21 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3632207876071105494, guid: 0951b036ba0a12343a56eff64eed7b4c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2136130340}
+    - target: {fileID: 3632207876071105494, guid: 0951b036ba0a12343a56eff64eed7b4c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenSettings
+      objectReference: {fileID: 0}
+    - target: {fileID: 3632207876071105494, guid: 0951b036ba0a12343a56eff64eed7b4c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Settings, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 3684711052714984343, guid: 0951b036ba0a12343a56eff64eed7b4c,
         type: 3}
       propertyPath: m_Name

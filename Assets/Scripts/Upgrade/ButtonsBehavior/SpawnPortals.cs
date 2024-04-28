@@ -1,4 +1,7 @@
 using System.Collections;
+
+using Unity.VisualScripting;
+
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -27,9 +30,10 @@ public class SpawnPortals : Upgrade
             Portals2.secondPortal = Portals1.gameObject;
 
             yield return new PrecitionWait(10, 5);
-
-            Destroy(Portals1);
-            Destroy(Portals2);
+            if(!Portals1.IsDestroyed())
+                Destroy(Portals1.gameObject);
+            if(!Portals2.IsDestroyed())
+                Destroy(Portals2.gameObject);
         }
     }
 }
