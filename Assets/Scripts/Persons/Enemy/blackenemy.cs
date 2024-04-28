@@ -3,35 +3,23 @@
 [RequireComponent(typeof(Health)),
  RequireComponent(typeof(Rigidbody2D)),
  RequireComponent(typeof(RotateToGameobject))]
-public class blackenemy : Enemy
+public class blackenemy : AbstractEnemy
 {
     [SerializeField] private float otklonenieOtklonenia, SkorostOtklonenia, Speed;
     private float otklonenie;
 
-    protected new void Awake()
+    protected override void Awake()
     {
-        _PC = GameObject.FindGameObjectWithTag("PC");
-        GetComponent<RotateToGameobject>().Gameobject = _PC.transform;
         if (isElite)
-        {
             PC.Carma = 7.5f;
-        }
 
         _move = GetComponent<MoveBase>();
-        _health = GetComponent<Health>();
         _animator = GetComponent<Animator>();
-        if (LevelUP.Items[14].IsTaken)
-        {
-            gameObject.AddComponent<DRAG>();
-        }
-
-        if (LevelUP.Items[16].IsTaken)
-        {
-            AddBookaComponent();
-        }
+        base.Awake();
+        GetComponent<RotateToGameobject>().Gameobject = _PC.transform;
     }
 
-    private new void OnEnable()
+    protected override void OnEnable()
     {
         _health.OnDeath += () => gameObject.GetComponent<Rigidbody2D>().simulated = true;
         onComputerReach += () => gameObject.GetComponent<Rigidbody2D>().simulated = true;
@@ -42,7 +30,7 @@ public class blackenemy : Enemy
         }
     }
 
-    private new void OnDisable()
+    protected override void OnDisable()
     {
         _health.OnDeath -= () => gameObject.GetComponent<Rigidbody2D>().simulated = true;
         onComputerReach -= () => gameObject.GetComponent<Rigidbody2D>().simulated = true;
@@ -53,7 +41,7 @@ public class blackenemy : Enemy
         }
     }
 
-    private protected override void EnemyMove()
+    protected override void EnemyMove()
     {
         Vector3 FlyVector = transform.position - _PC.transform.position;
         FlyVector.Normalize();

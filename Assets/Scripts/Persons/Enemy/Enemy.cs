@@ -1,19 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using DustyStudios;
 using DustyStudios.MathAVM;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public enum EnemyTypes
 {
-    [EnemyTypesAttributes(500, 0, 0, 0)] Soplik,
-    [EnemyTypesAttributes(0, 5, 0, 0)] Stepa,
-    [EnemyTypesAttributes(-1, 0, 5, 0)] Booka,
-    [EnemyTypesAttributes(1000, -5, 0, 0)] Toocha,
-    [EnemyTypesAttributes(20, 0, -5, 0)] Yasha
+    [EnemyTypesAttributes(500, 0,  0,  0)] Soplik,
+    [EnemyTypesAttributes(0,   5,  0,  0)] Stepa,
+    [EnemyTypesAttributes(-1,  0,  5,  0)] Booka,
+    [EnemyTypesAttributes(1000,-5, 0,  0)] Toocha,
+    [EnemyTypesAttributes(100, 0,  -5, 0)] Yasha
 }
 
 public class EnemyTypesAttributes : Attribute
@@ -32,227 +29,61 @@ public class EnemyTypesAttributes : Attribute
  RequireComponent(typeof(Animator)),
  RequireComponent(typeof(Rigidbody2D)),
  RequireComponent(typeof(SpriteRenderer))]
-public class Enemy : MonoBehaviour
+public class Enemy : AbstractEnemy
 {
-    public static List<Enemy> Enemies = new List<Enemy>();
-    [SerializeField] public bool isElite, isLittle;
     [SerializeField] public EnemyTypes WhoAmI;
     [SerializeField] public LayerMask _maskWhoKills;
     public float moveDirection;
-    protected Health _health;
-    protected MoveBase _move;
-    [SerializeField] private string playerPrefsName, playerPrefsLittleName;
-
-    public MoveBase Move
-    {
-        get => _move;
-    }
-
     private SpriteRenderer _spriteRenderer;
-    protected Animator _animator;
-    private bool dead = false;
-    public int ChangeMove;
-    public GameObject MoveToPoint;
-    public GameObject _PC;
-    public Action onComputerReach;
 
-    private protected virtual void Awake()
+    protected override void Awake()
     {
-        _health = GetComponent<Health>();
-        _move = GetComponent<MoveBase>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        _animator = GetComponent<Animator>();
-        if (LevelUP.Items[14].IsTaken)
-        {
-            gameObject.AddComponent<DRAG>();
-        }
-
-        if (LevelUP.Items[16].IsTaken)
-        {
-            AddBookaComponent();
-        }
-
-        if (LevelUP.Items[18].IsTaken)
-        {
-            isLittle = true;
-            _health.AddMaxHealth(-1);
-            _animator.Play("Wire");
-        }
-
-        ResetPC();
-        Enemies.Add(this);
+        base.Awake();
     }
-
-    public void ResetPC()
-    {
-        _PC = GameObject.FindGameObjectWithTag("PC");
-    }
-
-    public void AddBookaComponent()
+    public override AboveDeath AddBookaComponent()
     {
         EnemyTypesAttributes myAttributes =
             typeof(EnemyTypes).GetField(WhoAmI.ToString()).GetCustomAttribute<EnemyTypesAttributes>();
         if (myAttributes.ForcerePulsive < 0)
-        {
-            return;
-        }
+            return null;
 
-        AboveDeath MyDeath = gameObject.AddComponent<AboveDeath>();
+        AboveDeath MyDeath = base.AddBookaComponent();
         MyDeath.ForcerePulsive = myAttributes.ForcerePulsive;
-        MyDeath.IsPlatform = true;
+        return MyDeath;
     }
-
-    private void Start()
+    #region Эволюция
+    protected override bool canEvolute => WhoAmI != EnemyTypes.Toocha;
+    public override void BecameChild()
     {
-        if (ChangeMove == 1)
-        {
-            try
-            {
-                _animator.Play("Wire");
-            }
-            catch
-            {
-            }
-        }
+        base.BecameChild();
+        _animator.Play("Wire");
     }
-
-    private void FixedUpdate()
+    public override void Evolution()
     {
-        EnemyMove();
+        base.Evolution();
+        _animator.SetTrigger("Evolution");
     }
-
-
-    private protected void OnEnable()
-    {
-        _health.OnDeath += OnDeath;
-        onComputerReach += OnDeath;
-    }
-
-    private protected void OnDisable()
-    {
-        _health.OnDeath -= OnDeath;
-        onComputerReach -= OnDeath;
-    }
-
-    private protected virtual void EnemyMove()
-    {
-        if (_move != null)
-        {
-            if (ChangeMove == 0)
-            {
-                moveDirection = MathA.OneOrNegativeOne(_PC.transform.position.x < transform.position.x);
-
-                _move.MoveHorizontally(moveDirection);
-            }
-            else if (ChangeMove == 1)
-            {
-                _move.MoveOnWire(MoveToPoint);
-            }
-        }
-    }
+    #endregion
+    protected override void EnemyMove()=>
+        _move.MoveHorizontally(MathA.OneOrNegativeOne(_PC.transform.position.x < transform.position.x));
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (_health.CurrentHealth > 0)
+        if (_health.CurrentHealth > 0&&(_maskWhoKills.value & (1 << collision.gameObject.layer)) != 0 && !dead)
         {
-            if ((_maskWhoKills.value & (1 << collision.gameObject.layer)) != 0 && !dead)
-            {
-                onComputerReach();
-                PC.Carma += 2;
-            }
+            onComputerReach();
+            PC.Carma += 2;
         }
     }
-
-    private void OnTriggerEnter2D(Collider2D other)
+    [SerializeField] private bool CanCombo;
+    protected override void AfterDeathPunch()
     {
-        if (other.CompareTag("PC") && LevelUP.Items[18].IsTaken && WhoAmI != EnemyTypes.Toocha && ChangeMove == 0)
-        {
-            isLittle = false;
-            _animator.SetTrigger("Evolution");
-            _health.AddMaxHealth(1);
-        }
-
-        if (other.CompareTag("WayPoint"))
-        {
-            MoveToPoint = other.gameObject.GetComponent<WayPoint>()
-                .nextPoint[Random.Range(0, other.gameObject.GetComponent<WayPoint>().nextPoint.Length)];
-        }
-        else if (other.CompareTag("EndWire"))
-        {
-            ExitWire();
-        }
-    }
-
-    private void ExitWire()
-    {
-        ChangeMove = 0;
-        if (gameObject.GetComponent<blackenemy>() == null)
-        {
-            gameObject.GetComponent<Rigidbody2D>().gravityScale = 1;
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (isFallFromWire)
-        {
-            _animator.SetTrigger("Corpse");
-            isFallFromWire = false;
-        }
-    }
-
-    private bool isFallFromWire;
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (ChangeMove == 1)
-        {
-            if (collision.CompareTag("Way"))
-            {
-                ExitWire();
-                _animator.SetTrigger("Fall");
-                isFallFromWire = true;
-            }
-        }
-    }
-
-    private float deathTime;
-
-    private void OnDeath()
-    {
-        if (dead)
-        {
-            if (WhoAmI != EnemyTypes.Soplik)
-            {
-                return;
-            }
-            else
-            {
-                Destroy(gameObject, deathTime);
-                const string ComboAnimationName = "Up";
-                if (_animator.parameters.Any(a => a.name == ComboAnimationName))
-                    _animator.SetTrigger(ComboAnimationName);
-            }
-        }
-        else
-        {
-            string ppname = isLittle ? playerPrefsLittleName : playerPrefsName;
-            if (!DustyConsoleInGame.UsedConsoleInSession)
-                PlayerPrefs.SetInt(ppname, PlayerPrefs.GetInt(ppname, 0) + 1);
-            Enemies.Remove(this);
-            if (_move != null)
-                _move.SetSpeedMultiplierForever(0);
-            const string DeathAnimationName = "Die";
-            if (_animator.parameters.Any(a => a.name == DeathAnimationName))
-                _animator.SetTrigger(DeathAnimationName);
-            else
-                Destroy(gameObject, Time.fixedDeltaTime * 3);
-            Destroy(GetComponent<AttackProjectile>());
-            dead = true;
-            deathTime = _animator.GetCurrentAnimatorStateInfo(0).length;
-        }
-
-        _health.SoundDead();
-        Level.EXP += 0.4f;
+        if(CanCombo)
+        base.AfterDeathPunch();
+        Destroy(gameObject,deathTime);
+        const string ComboAnimationName = "Up";
+        if(_animator.parameters.Any(a => a.name == ComboAnimationName))
+            _animator.SetTrigger(ComboAnimationName);
     }
 }

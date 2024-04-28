@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Enemy))]
+[RequireComponent(typeof(AbstractEnemy))]
 public class ExplodeAndDeath : MonoBehaviour, IScannable
 {
     [SerializeField] private float chargeTime = 2f;
@@ -31,7 +31,7 @@ public class ExplodeAndDeath : MonoBehaviour, IScannable
     protected GameObject Explosion()
     {
         GameObject explosion = Instantiate(_explosion, transform.position, Quaternion.identity);
-        if (GetComponent<Enemy>().isElite)
+        if (GetComponent<AbstractEnemy>().isElite)
         {
             explosion.GetComponent<ExpCollectible>().Exp = PC.Carma;
         }

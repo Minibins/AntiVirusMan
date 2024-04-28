@@ -1,13 +1,13 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-[RequireComponent(typeof(Enemy))]
+[RequireComponent(typeof(AbstractEnemy))]
 public class AbstractOnEnemyReachAction : MonoBehaviour
 {
     [SerializeField] private UnityEvent Action;
-
     private void Awake()
     {
-        GetComponent<Enemy>().onComputerReach += Action.Invoke;
+        GetComponent<AbstractEnemy>().onComputerReach += Action.Invoke;
+        Destroy(this);
     }
 }

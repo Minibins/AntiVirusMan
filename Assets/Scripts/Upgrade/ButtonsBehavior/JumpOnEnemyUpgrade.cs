@@ -5,8 +5,7 @@ public class JumpOnEnemyUpgrade : Upgrade
     protected override void OnTake()
     {
         base.OnTake();
-
-        foreach(Enemy enemy in GameObject.FindObjectsOfType<Enemy>())
+        foreach(AbstractEnemy enemy in GameObject.FindObjectsOfType<AbstractEnemy>())
         {
             enemy.AddBookaComponent();
         }
