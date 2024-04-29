@@ -1646,7 +1646,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_45
+      name: UI_Level_Unlocked
       rect:
         serializedVersion: 2
         x: 492
@@ -3515,7 +3515,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_169
+      name: UI_Level_Locked
       rect:
         serializedVersion: 2
         x: 472
@@ -3767,7 +3767,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_181
+      name: Bullet0
       rect:
         serializedVersion: 2
         x: 152
@@ -3830,7 +3830,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_184
+      name: Bullet1
       rect:
         serializedVersion: 2
         x: 156
@@ -3851,7 +3851,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_185
+      name: Bullet2
       rect:
         serializedVersion: 2
         x: 160
@@ -3872,7 +3872,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_186
+      name: Bullet3
       rect:
         serializedVersion: 2
         x: 164
@@ -8051,7 +8051,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_4
+      name: TutorialImages0
       rect:
         serializedVersion: 2
         x: 0
@@ -8072,7 +8072,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_5
+      name: TutorialImages1
       rect:
         serializedVersion: 2
         x: 112
@@ -8093,7 +8093,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_6
+      name: TutorialImages2
       rect:
         serializedVersion: 2
         x: 224
@@ -8114,7 +8114,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_7
+      name: TutorialImages3
       rect:
         serializedVersion: 2
         x: 336
@@ -8135,7 +8135,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_8
+      name: TutorialImages4
       rect:
         serializedVersion: 2
         x: 448
@@ -8219,7 +8219,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_12
+      name: Boss_Idle
       rect:
         serializedVersion: 2
         x: 352
@@ -9878,7 +9878,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_442
+      name: Bullet_HitInWall
       rect:
         serializedVersion: 2
         x: 168
@@ -9899,7 +9899,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: All_443
+      name: Bullet_WallBulletMark
       rect:
         serializedVersion: 2
         x: 168
@@ -27967,7 +27967,7 @@ TextureImporter:
         width: 30
         height: 26
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 7, y: 5, z: 7, w: 5}
       outline: []
       physicsShape: []
@@ -27988,7 +27988,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -28009,7 +28009,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -28030,7 +28030,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -28038,6 +28038,90 @@ TextureImporter:
       bones: []
       spriteID: f661bc48d46a0aa4585a3bb31b4c200a
       internalID: 1934328006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Shackle
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 590
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a55fb9c414bb42c448411001ec8f6ea6
+      internalID: 376793945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Chain
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 606
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06297a41a090440468ccc5ea4c13c448
+      internalID: 1831383504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Emoji_Fuck
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 606
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a0660c152c35b048966e7d39fbb8739
+      internalID: -699300380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_Emoji_Pointing
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 590
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bfa9b1fa61d8984e8edaad2b8e72942
+      internalID: -2037340131
       vertices: []
       indices: 
       edges: []
@@ -28062,7 +28146,6 @@ TextureImporter:
       Acid_Evaporation2: -909036631
       Acid_Evaporation3: -1331162399
       All_10: -1859367548
-      All_12: 8755054611862819910
       All_136: -4012547197266128678
       All_137: -3590082343012989365
       All_138: 4014657104379014679
@@ -28073,7 +28156,6 @@ TextureImporter:
       All_146: -7439830506601746753
       All_147: -1729097129779419771
       All_16: 5313313365195421003
-      All_169: -2992531943476814738
       All_17: -1559685414125227526
       All_170: 3227220432527975176
       All_171: 3597693985488846809
@@ -28087,11 +28169,7 @@ TextureImporter:
       All_179: 2536780941410985029
       All_18: 9217364010059050087
       All_180: -7419457989767920279
-      All_181: 1651666231800377998
       All_182: -4855913200084924986
-      All_184: 191743684290451801
-      All_185: 5491992275738161759
-      All_186: -5187961157170702591
       All_189: 3552737690590536426
       All_19: 2744306470954413329
       All_193: 7468737618221985965
@@ -28220,7 +28298,6 @@ TextureImporter:
       All_393: 1698707498
       All_394: 1497774721
       All_395: -769820074
-      All_4: -8315605187271447945
       All_423: -482264917
       All_426: -430005028
       All_427: -699878869
@@ -28234,10 +28311,7 @@ TextureImporter:
       All_439: 583500396
       All_440: 1409164489
       All_441: -1726099404
-      All_442: -1318154097
-      All_443: -2053873678
       All_449: -1692162214
-      All_45: 2558205896284596883
       All_48: -5920281769983656131
       All_489: 1766395314
       All_490: 60998376
@@ -28250,7 +28324,6 @@ TextureImporter:
       All_497: 1530165843
       All_498: -1731799129
       All_499: 1424067719
-      All_5: -2561252975185997263
       All_50: -412924043903456810
       All_501: 1659925074
       All_502: 1103682288
@@ -28301,7 +28374,6 @@ TextureImporter:
       All_590: -88253605
       All_591: -1220450171
       All_594: -561453609
-      All_6: -5295634354576850911
       All_60: 5200012634210390329
       All_602: -1360260583
       All_603: 528564287
@@ -28340,12 +28412,10 @@ TextureImporter:
       All_66: 4650012330858632195
       All_67: 4150503144305731733
       All_69: 8865017938817432286
-      All_7: -3827398062113597543
       All_70: -4076213927609159938
       All_72: 7563065167870928715
       All_73: 2605544692709302248
       All_75: -7243777624731449425
-      All_8: -3773535540893857118
       All_9: -9034024255245367701
       All_90: -5088923540690421642
       All_91: 7225669373263600482
@@ -28454,6 +28524,17 @@ TextureImporter:
       Booka_Wire_Scan2: 2108380642
       Booka_Wire_Scan3: 1822305649
       Booka_Wire_Scan4: -2121017234
+      Boss_Chain: 1831383504
+      Boss_Emoji_Fuck: -699300380
+      Boss_Emoji_Pointing: -2037340131
+      Boss_Idle: 8755054611862819910
+      Boss_Shackle: 376793945
+      Bullet0: 1651666231800377998
+      Bullet1: 191743684290451801
+      Bullet2: 5491992275738161759
+      Bullet3: -5187961157170702591
+      Bullet_HitInWall: -1318154097
+      Bullet_WallBulletMark: -2053873678
       DashUpgradeGameworld: -1594850760
       Debuff_Acid0: -1994548197
       Debuff_Acid1: 2000488358
@@ -29123,6 +29204,11 @@ TextureImporter:
       TutorialDoor_Condition_ExpLess3: -1462028548
       TutorialDoor_Condition_ExpLess4: 2065839229
       TutorialDoor_Condition_PC: -2805776
+      TutorialImages0: -8315605187271447945
+      TutorialImages1: -2561252975185997263
+      TutorialImages2: -5295634354576850911
+      TutorialImages3: -3827398062113597543
+      TutorialImages4: -3773535540893857118
       UI_Arrow: 8794887783633769927
       UI_Attack: -5404101728115882706
       UI_BackgroundSettings: -863085938886467031
@@ -29153,6 +29239,8 @@ TextureImporter:
       UI_Level_1: -524029886
       UI_Level_2: -1072127175970171052
       UI_Level_3: -3346575053172843645
+      UI_Level_Locked: -2992531943476814738
+      UI_Level_Unlocked: 2558205896284596883
       UI_MainMenu_Data: -614112816
       UI_MainMenu_Leave: 477315693
       UI_MainMenu_Play: -942403918

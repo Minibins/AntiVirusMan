@@ -32,7 +32,6 @@ public class EnemyTypesAttributes : Attribute
 public class Enemy : AbstractEnemy
 {
     [SerializeField] public EnemyTypes WhoAmI;
-    [SerializeField] public LayerMask _maskWhoKills;
     public float moveDirection;
     private SpriteRenderer _spriteRenderer;
 
@@ -68,14 +67,6 @@ public class Enemy : AbstractEnemy
     protected override void EnemyMove()=>
         _move.MoveHorizontally(MathA.OneOrNegativeOne(_PC.transform.position.x < transform.position.x));
 
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (_health.CurrentHealth > 0&&(_maskWhoKills.value & (1 << collision.gameObject.layer)) != 0 && !dead)
-        {
-            onComputerReach();
-            PC.Carma += 2;
-        }
-    }
     [SerializeField] private bool CanCombo;
     protected override void AfterDeathPunch()
     {

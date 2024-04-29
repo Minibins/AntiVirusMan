@@ -9,6 +9,7 @@ public class AbstractEnemy : MonoBehaviour
 {
     [SerializeField] private string playerPrefsName, playerPrefsLittleName;
     [SerializeField] public bool isElite;
+    [SerializeField] public LayerMask _maskWhoKills;
     public GameObject _PC;
     public Action onComputerReach;
     public static List<AbstractEnemy> Enemies = new List<AbstractEnemy>();
@@ -70,6 +71,14 @@ public class AbstractEnemy : MonoBehaviour
     {
         if(other.CompareTag("PC") && LevelUP.Items[18].IsTaken)
             IsLittle = false;
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if(_health.CurrentHealth > 0 && (_maskWhoKills.value & (1 << collision.gameObject.layer)) != 0 && !dead)
+        {
+            onComputerReach();
+            PC.Carma += 2;
+        }
     }
     protected virtual void OnEnable()
     {
