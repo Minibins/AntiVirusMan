@@ -12042,7 +12042,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 600
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -14470,7 +14470,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 800
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -21734,7 +21734,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 300
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -22009,7 +22009,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 300
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -22034,13 +22034,13 @@ HingeJoint2D:
   m_Enabled: 1
   serializedVersion: 4
   m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 8304178652091816254}
+  m_ConnectedRigidBody: {fileID: 4765063866695837596}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: -0.00025637614, y: -0.057948887}
-  m_ConnectedAnchor: {x: -0.0016713208, y: 0.019961301}
+  m_ConnectedAnchor: {x: -0.104851104, y: 0.012243604}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -25667,7 +25667,7 @@ Transform:
   m_GameObject: {fileID: 1813121648}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.61, y: -2.448, z: 0}
+  m_LocalPosition: {x: -0.88, y: -2.56, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -28164,6 +28164,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 737653f4595ff0948b877b126bbbd122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &4765063866695837596 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 8183317841816281767, guid: 7cd7abddee6eef64faf67f84b4c443df,
+    type: 3}
+  m_PrefabInstance: {fileID: 3001987158326336888}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5490010134606984070
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28518,12 +28524,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5272752002bc9dc41822756ec8e88356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!50 &8304178652091816254 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 8304178653184876653, guid: ec94f27c1555e174ebada4b736dde08b,
-    type: 3}
-  m_PrefabInstance: {fileID: 8304178652091816245}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9106520169317471379
 PrefabInstance:
   m_ObjectHideFlags: 0
