@@ -13,6 +13,7 @@ public class WireGenerator : MonoBehaviour
     [SerializeField] private TileBase lineTile;
     [SerializeField] private WireTile[] replacementTiles;
     [SerializeField, Range(0,3)] private byte color;
+    [SerializeField] private int seed;
     private void Start()
     {
         tilemap = GetComponent<Tilemap>();
@@ -77,8 +78,8 @@ public class WireGenerator : MonoBehaviour
     private void SetDifferentWireColors(Dictionary<Vector2Int,WireTile> tiles)
     {
         Dictionary<Vector2Int,int> placesToFill = new();
-        System.Random random = new(0);
-        foreach(KeyValuePair<Vector2Int,WireTile> nodeTile in tiles.Where(t => t.Value.IsNode))
+        System.Random random = new(seed);
+        foreach(KeyValuePair<Vector2Int,WireTile> nodeTile in tiles.Where(t => t.Value.IsNode).OrderBy(t=>t.Value.conditions.Length))
         {
             foreach(WireTile.Condition pos in nodeTile.Value.conditions.Where(c=>c.isNeighborPresent))
             {
