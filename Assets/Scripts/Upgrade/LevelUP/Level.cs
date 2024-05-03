@@ -20,6 +20,7 @@ public class Level : MonoBehaviour
             {
                 EXP = 0;
                 LevelUP.instance.NewUpgrade();
+                EnemyNeedToUpLVL*= 1.04137974f;
             }
             if(eXP < 0)
             {
