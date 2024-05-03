@@ -1,3 +1,5 @@
+using System.Collections;
+
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,8 +14,8 @@ public class StatsItem : MonoBehaviour
     {
         _count = PlayerPrefs.GetInt(_key, 0);
         _itemSprite = transform.GetChild(0).gameObject.GetComponent<Image>();
-        SetSprite();
         transform.GetChild(1).gameObject.GetComponent<Text>().text = _count.ToString();
+        SetSprite();
     }
 
     protected virtual void SetSprite()

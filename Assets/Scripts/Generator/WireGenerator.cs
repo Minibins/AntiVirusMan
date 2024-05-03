@@ -22,13 +22,11 @@ public class WireGenerator : MonoBehaviour
     }
     private IEnumerator regenerateWires()
     {
-        while(true)
-        {
+       
             tilemap.ClearAllTiles();
             foreach(var line in lines) DrawLine(line.object1.position,line.object2.position);
             ReplaceTilesWithNeighbors();
             yield return null;
-        }
     }
     private void DrawLine(Vector3 cell1,Vector3 cell2)
     {

@@ -17,6 +17,7 @@ public class UpgradeStatsItem : StatsItem
         {
             _key = _sprite.name;
             _sprite = value;
+            SetSprite();
         }
     }
 
@@ -30,12 +31,8 @@ public class UpgradeStatsItem : StatsItem
     protected override void SetSprite()
     {
         if (_count <= 0)
-        {
             _itemSprite.sprite = UnknowSprite;
-        }
         else
-        {
             base.SetSprite();
-        }
     }
 }
