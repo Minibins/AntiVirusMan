@@ -11367,6 +11367,7 @@ GameObject:
   - component: {fileID: 449709193}
   - component: {fileID: 449709192}
   - component: {fileID: 449709191}
+  - component: {fileID: 449709194}
   m_Layer: 0
   m_Name: Easter_0
   m_TagString: Untagged
@@ -11476,6 +11477,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &449709194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449709190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 445cd20a6272ced40859c61e4a0c1177, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canPick: 1
+  ID: 0
 --- !u!1001 &461739315
 PrefabInstance:
   m_ObjectHideFlags: 0
