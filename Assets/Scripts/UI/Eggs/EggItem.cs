@@ -4,10 +4,12 @@ using UnityEngine.UI;
 
 public class EggItem : EggStatsItem
 {
-    [SerializeField] private String _text;
+    [SerializeField] private string _text;
     [SerializeField] private Image _mainSprite;
     [SerializeField] private Text _mainText;
-    
+
+    public string Text { set => _text = value; }
+
     public override void SetInfromation()
     {
         _itemSprite = GetComponent<Image>();
