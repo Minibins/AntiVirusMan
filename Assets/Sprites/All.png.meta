@@ -28408,7 +28408,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -28416,6 +28416,27 @@ TextureImporter:
       bones: []
       spriteID: 71354ceeda0cbd245a2cd74a33f0a03c
       internalID: 2053553756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Glass
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 687
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 853de0bdaff1b5f41868489ad75ed981
+      internalID: 1086040482
       vertices: []
       indices: 
       edges: []
@@ -29528,6 +29549,7 @@ TextureImporter:
       UI_Empty_Green: 2332211156770463673
       UI_Empty_Red: 2998939587712369824
       UI_Exit: 3675678726731658386
+      UI_Glass: 1086040482
       UI_Home: -357295630
       UI_Joystick_Handle: 45530447
       UI_Joystick_Horisontal: 705758048
