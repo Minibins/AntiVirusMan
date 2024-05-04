@@ -5,7 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ce391c7-d385-46fd-8698-e7dc9fc36b0c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Eggs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Eggs/EggItem.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Eggs/EggItem.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Eggs/EggStatsItem.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Eggs/EggStatsItem.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AntiVirusMan/.idea/contentModel.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AntiVirusMan/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AntiVirusMan/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AntiVirusMan/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AntiVirusMan/riderModule.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Location/1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Location/1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu/MainMenu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Collectibles/EasterEgg.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Collectibles/EasterEgg.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Easter/Easter.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Easter/Easter.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Easter/Easter.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Easter/Easter.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,13 +30,8 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://C:/Users/mini6/Documents/GitHub/AntiVirusMan/Assets/Enemy/Elite/Toocha/SacretJudge.prefab" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/mini6/Documents/GitHub/AntiVirusMan/Assets/Enemy/Elite/Toocha/SacretJudge.prefab" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/mini6/Documents/GitHub/AntiVirusMan/Assets/Enemy/OnGround/V1/Enemy.prefab" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/mini6/Documents/GitHub/AntiVirusMan/Assets/Enemy/OnGround/V1/Enemy.prefab" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/mini6/Documents/GitHub/AntiVirusMan/Assets/Enemy/Wire/Enemy.prefab" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/mini6/Documents/GitHub/AntiVirusMan/Assets/Enemy/Wire/Enemy.prefab" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ads/BannerAd.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Eggs/UpdateEggsStats.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -82,18 +91,54 @@
     </option>
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="false" />
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2XcpGURV7ltGdovwbTMMBCgbJ3Z" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "git-widget-placeholder": "TGianter",
-    "node.js.selected.package.tslint": "(autodetect)"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;do_not_show_Android_plugin_suggestion&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Maksym&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.smartKeys_rider&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\mini6\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\mini6\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\mini6\\AppData\\Local\\Symbols\\src&quot;
+    ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.5f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-projectPath C:\Users\mini6\Documents\GitHub\AntiVirusMan -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\mini6\Documents\GitHub\AntiVirusMan" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.5f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Users\mini6\Documents\GitHub\AntiVirusMan -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\mini6\Documents\GitHub\AntiVirusMan" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
@@ -170,6 +215,8 @@
       <workItem from="1713615728173" duration="4362000" />
       <workItem from="1713696712199" duration="628000" />
       <workItem from="1713714105200" duration="2007000" />
+      <workItem from="1714823168726" duration="5986000" />
+      <workItem from="1714830290054" duration="4319000" />
     </task>
     <servers />
   </component>
@@ -181,19 +228,5 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="601" y="124" key="RiderGenerateDialog" timestamp="1713619977371">
-      <screen x="0" y="0" width="1536" height="816" />
-    </state>
-    <state x="601" y="124" key="RiderGenerateDialog/0.0.1536.816@0.0.1536.816" timestamp="1713619977371" />
-    <state x="350" y="72" key="SettingsEditor" timestamp="1713618876041">
-      <screen x="0" y="0" width="1536" height="816" />
-    </state>
-    <state x="350" y="72" key="SettingsEditor/0.0.1536.816@0.0.1536.816" timestamp="1713618876041" />
-    <state x="341" y="181" key="run.anything.popup" timestamp="1710586269526">
-      <screen x="0" y="0" width="1536" height="816" />
-    </state>
-    <state x="341" y="181" key="run.anything.popup/0.0.1536.816@0.0.1536.816" timestamp="1710586269526" />
   </component>
 </project>
