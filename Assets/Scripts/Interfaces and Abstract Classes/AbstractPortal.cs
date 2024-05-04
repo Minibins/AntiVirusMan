@@ -6,6 +6,6 @@ public class AbstractPortal : MonoBehaviour
 
     public void Teleport(Transform teleporting)
     {
-        teleporting.position = secondPortal.transform.position;
+        teleporting.position = new(secondPortal.transform.position.x,secondPortal.transform.position.y,teleporting.position.z);
     }
 }

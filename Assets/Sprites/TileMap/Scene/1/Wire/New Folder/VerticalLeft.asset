@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a7c9b6436cf8014a8d5842dbbb7050b, type: 3}
+  m_Name: VerticalLeft
+  m_EditorClassIdentifier: 
+  IsNode: 1
+  Tiles:
+  - {fileID: 11400000, guid: 1530f13f1481fea4b9cd50572678556f, type: 2}
+  - {fileID: 11400000, guid: 76ef17e090e721b429201180527d1e92, type: 2}
+  - {fileID: 11400000, guid: 08b89b9869efd0d44949bd7b72fb3eea, type: 2}
+  - {fileID: 11400000, guid: c09933fddd2235446be59e1fb33bc39e, type: 2}
+  conditions:
+  - offset: {x: 0, y: -1, z: 0}
+    isNeighborPresent: 1
+  - offset: {x: 0, y: 1, z: 0}
+    isNeighborPresent: 1
+  - offset: {x: -1, y: 0, z: 0}
+    isNeighborPresent: 1

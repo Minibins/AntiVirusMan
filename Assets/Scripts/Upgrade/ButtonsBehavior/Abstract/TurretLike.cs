@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class TurretLikeUpgrade : Upgrade, iDraggable
 {
+    public virtual void AddDrag() => gameObject.AddComponent<DRAG>();
     public virtual void OnDrag()
     {
     }

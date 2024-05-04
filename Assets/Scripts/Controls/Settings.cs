@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -55,8 +56,6 @@ public class Settings : MonoBehaviour
         Time.timeScale = 1;
     }
 
-    public void RestartScene()
-    {
+    public void RestartScene()=>
         GoToScene(SceneManager.GetActiveScene().name);
-    }
 }

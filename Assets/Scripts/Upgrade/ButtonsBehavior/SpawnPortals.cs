@@ -1,10 +1,13 @@
 using System.Collections;
+
+using Unity.VisualScripting;
+
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class SpawnPortals : Upgrade
 {
-    [SerializeField] private GameObject[] Portals;
+    [SerializeField] private Portals[] Portals;
     [SerializeField] private GameObject[] spawnPointPortals;
     protected override void OnTake()
     {
@@ -17,18 +20,20 @@ public class SpawnPortals : Upgrade
     {
         while (true)
         {
-            GameObject Portals1 = Instantiate(Portals[0],
-                spawnPointPortals[Random.Range(0, spawnPointPortals.Length)].transform.position,
+            Portals Portals1 = Instantiate(Portals[0],
+                spawnPointPortals[Random.Range(0, spawnPointPortals.Length)].transform.position+Vector3.forward*-5,
                 Quaternion.identity);
-            GameObject Portals2 = Instantiate(Portals[1],
-                    spawnPointPortals[Random.Range(0, spawnPointPortals.Length)].transform.position, Quaternion.identity);
-            Portals1.GetComponent<Portals>().secondPortal = Portals2;
-            Portals2.GetComponent<Portals>().secondPortal = Portals1;
+            Portals Portals2 = Instantiate(Portals[1],
+                    spawnPointPortals[Random.Range(0, spawnPointPortals.Length)].transform.position+Vector3.forward*-5, 
+                    Quaternion.identity);
+            Portals1.secondPortal = Portals2.gameObject;
+            Portals2.secondPortal = Portals1.gameObject;
 
             yield return new PrecitionWait(10, 5);
-
-            Destroy(Portals1);
-            Destroy(Portals2);
+            if(!Portals1.IsDestroyed())
+                Destroy(Portals1.gameObject);
+            if(!Portals2.IsDestroyed())
+                Destroy(Portals2.gameObject);
         }
     }
 }

@@ -56,7 +56,8 @@ public class SpawnerEnemy : MonoBehaviour
                     int i = Random.Range(0, spawnersWireEnemy.Length);
                     GameObject WireEnemy = Instantiate(WireEnemies[Random.Range(0, WireEnemies.Length)],
                         spawnersWireEnemy[i].transform.position, Quaternion.identity);
-                    WireEnemy.GetComponent<Enemy>().MoveToPoint = spawnersWireEnemy[i];
+                WireEnemy wireEnemy;
+                if(WireEnemy.TryGetComponent<WireEnemy>(out wireEnemy)) wireEnemy.MoveToPoint = spawnersWireEnemy[i];
                     break;
             }
 

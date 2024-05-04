@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a7c9b6436cf8014a8d5842dbbb7050b, type: 3}
+  m_Name: Cross
+  m_EditorClassIdentifier: 
+  IsNode: 1
+  Tiles:
+  - {fileID: 11400000, guid: 2a73010c6b45cb44e9998a08b52c28e5, type: 2}
+  - {fileID: 11400000, guid: 03b748c9549445342b528d8d38543e67, type: 2}
+  - {fileID: 11400000, guid: 7addc8487c8aca74bae8cbd8c6b7f2d0, type: 2}
+  - {fileID: 11400000, guid: 3db64480e35d6bb489a9780beb9e8565, type: 2}
+  conditions:
+  - offset: {x: -1, y: 0, z: 0}
+    isNeighborPresent: 1
+  - offset: {x: 1, y: 0, z: 0}
+    isNeighborPresent: 1
+  - offset: {x: 0, y: -1, z: 0}
+    isNeighborPresent: 1
+  - offset: {x: 0, y: 1, z: 0}
+    isNeighborPresent: 1

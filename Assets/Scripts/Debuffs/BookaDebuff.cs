@@ -4,7 +4,7 @@ public class BookaDebuff : Debuff
 
     public override void OnAdd(DebuffBank bank)
     {
-        bank.GetComponent<Enemy>().AddBookaComponent();
+        bank.GetComponent<AbstractEnemy>().AddBookaComponent();
         base.OnAdd(bank);
     }
 }

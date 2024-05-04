@@ -25,7 +25,7 @@ public class GreenKingMovement : MonoBehaviour, IDamageble
 
     public void OnDamageGet(float Damage, IDamageble.DamageType type)
     {
-        dashRange -= Damage * (1 + Convert.ToInt16(canDamagePC)) * damageDashReducing *
+        dashRange -= Damage * (1 - Convert.ToInt16(canDamagePC)) * damageDashReducing *
                      MathA.OneOrNegativeOne(PC.position.x < transform.position.x);
         canDamagePC = false;
         exp += Damage / 2;

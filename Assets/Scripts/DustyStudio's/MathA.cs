@@ -8,6 +8,46 @@ namespace DustyStudios
     {
         public static class MathA
         {
+            public enum roundMode
+            {
+                min, normal
+            }
+            public static Vector3Int Round(this Vector3 vector, roundMode mode)
+            {
+                return new Vector3Int(
+                    RoundedValue(vector.x),
+                    RoundedValue(vector.y),
+                    RoundedValue(vector.z)
+                );
+                int RoundedValue(float value)
+                {
+                    switch (mode)
+                    {
+                        case roundMode.min: return (int)value;
+                        default: return Mathf.RoundToInt(value);
+                    }
+                }
+            }
+            public static Vector3 Clamp(this Vector3 vector, float min, float max) =>
+                new(
+                    Mathf.Clamp(vector.x,min,max),
+                    Mathf.Clamp(vector.y,min,max),
+                    Mathf.Clamp(vector.z,min,max)
+                );
+            public static Vector3 NormalizedMin1(this Vector3 vector)
+            {
+                vector.Normalize();
+                float minValue = Math.Abs(vector.x);
+                SetToMinAndNot0(vector.y);
+                SetToMinAndNot0(vector.z);
+                void SetToMinAndNot0(float second)
+                {
+                    if(Math.Abs(second) > minValue && second != 0)
+                        minValue = second;
+                }
+                vector /= Math.Abs(minValue);
+                return vector;
+            }
             private static Vector2Int[] OrderByMagnitude(params Vector2Int[] args)
             {
                 return args.OrderByDescending(arg => arg.magnitude).ToArray();

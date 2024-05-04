@@ -1,0 +1,135 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: MenuSprites Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: MenuSprites
+  m_TableCollectionNameGuidString: a1851f507a2e6d744b97f9f2d92c552c
+  m_Entries:
+  - m_Id: 8291794944
+    m_Key: Play
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2607179022336
+    m_Key: Database
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2669539934208
+    m_Key: Leave
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2847797854208
+    m_Key: Level0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2872225480704
+    m_Key: Level1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2876436561920
+    m_Key: Level2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2878814732288
+    m_Key: Level3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3131991310336
+    m_Key: SusIPBack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3288958943232
+    m_Key: SusIPok
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3319246012416
+    m_Key: SusIPno
+    m_Metadata:
+      m_Items: []
+  - m_Id: 120162199715840
+    m_Key: LanguageButton
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items:
+    - rid: 8834834822512508931
+  m_KeyGenerator:
+    rid: 8834834822512508930
+  references:
+    version: 2
+    RefIds:
+    - rid: 8834834822512508930
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables,
+        asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1713781601191
+    - rid: 8834834822512508931
+      type: {class: AssetTypeMetadata, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries:
+        - m_KeyId: 8291794944
+          m_TableCodes:
+          - en
+          - ru
+          - uk
+        - m_KeyId: 2607179022336
+          m_TableCodes:
+          - en
+          - ru
+          - uk
+        - m_KeyId: 2669539934208
+          m_TableCodes:
+          - ru
+          - uk
+          - en
+        - m_KeyId: 2847797854208
+          m_TableCodes:
+          - en
+          - ru
+          - uk
+        - m_KeyId: 2872225480704
+          m_TableCodes:
+          - en
+          - ru
+          - uk
+        - m_KeyId: 2876436561920
+          m_TableCodes:
+          - en
+          - ru
+          - uk
+        - m_KeyId: 2878814732288
+          m_TableCodes:
+          - en
+          - ru
+          - uk
+        - m_KeyId: 3131991310336
+          m_TableCodes:
+          - en
+          - ru
+          - uk
+        - m_KeyId: 3288958943232
+          m_TableCodes:
+          - uk
+          - ru
+          - en
+        - m_KeyId: 3319246012416
+          m_TableCodes:
+          - uk
+          - ru
+          - en
+        - m_KeyId: 120162199715840
+          m_TableCodes:
+          - en
+          - ru
+          - uk
+        m_TypeString: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
