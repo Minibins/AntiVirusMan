@@ -32,7 +32,6 @@ public class EnemyTypesAttributes : Attribute
 public class Enemy : AbstractEnemy
 {
     [SerializeField] public EnemyTypes WhoAmI;
-    public float moveDirection;
     private SpriteRenderer _spriteRenderer;
 
     protected override void Awake()
@@ -64,8 +63,11 @@ public class Enemy : AbstractEnemy
         _animator.SetTrigger("Evolution");
     }
     #endregion
-    protected override void EnemyMove()=>
-        _move.MoveHorizontally(MathA.OneOrNegativeOne(_PC.transform.position.x < transform.position.x));
+    protected override void EnemyMove()
+    {
+        moveDirection = MathA.OneOrNegativeOne(_PC.transform.position.x < transform.position.x);
+        _move.MoveHorizontally(moveDirection);
+    }
 
     [SerializeField] private bool CanCombo;
     protected override void AfterDeathPunch()

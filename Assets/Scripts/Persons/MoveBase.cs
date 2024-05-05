@@ -45,7 +45,7 @@ public class MoveBase : MonoBehaviour
 
     protected virtual void FixedUpdate()
     {
-        _move();
+        if(_move!=null) _move();
     }
 
     protected void PlayAnimation(string name)

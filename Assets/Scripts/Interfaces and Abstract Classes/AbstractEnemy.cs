@@ -16,6 +16,7 @@ public class AbstractEnemy : MonoBehaviour
     protected MoveBase _move;
     protected Animator _animator;
     protected Health _health;
+    public float moveDirection = 0;
     protected virtual bool canEvolute => true;
 
     private bool isLittle = false;
