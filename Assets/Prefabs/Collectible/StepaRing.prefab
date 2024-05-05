@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5938085036179632183}
   - component: {fileID: -5314289974890612274}
   - component: {fileID: 7511294234704928604}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: StepaRing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,6 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edddd00e1c4bab64295752051b22531d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canPick: 1
   multipler: 1.83
   startSpeed: 7.25
 --- !u!58 &3377461921825394522

@@ -39,6 +39,7 @@ public class SpawnerEnemy : MonoBehaviour
                         Instantiate(Boss, spawnersBoss[Random.Range(0, spawnersBoss.Length)].transform.position,
                             Quaternion.identity);
                         UiElementsList.instance.Panels.BossPanel.SetActive(true);
+                    Destroy(UiElementsList.instance.Panels.BossPanel, 10f);
                         BossSpawned = true;
                     }
 

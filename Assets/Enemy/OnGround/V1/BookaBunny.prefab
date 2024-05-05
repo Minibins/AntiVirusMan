@@ -11,13 +11,19 @@ PrefabInstance:
     - target: {fileID: 4953599130190571075, guid: 6979025a8a9985b40bb22e1cd47364f2,
         type: 3}
       propertyPath: m_Name
-      value: Booka Variant
+      value: BookaBunny
       objectReference: {fileID: 0}
     - target: {fileID: 4953599130190571085, guid: 6979025a8a9985b40bb22e1cd47364f2,
         type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 20955263d5dea9240ba3b2a80fb6686b, type: 2}
+    - target: {fileID: 4953599130190571086, guid: 6979025a8a9985b40bb22e1cd47364f2,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 2009705287, guid: 1df0e45a1e1783b4bac6578d311db4ef,
+        type: 3}
     - target: {fileID: 4953599130190571087, guid: 6979025a8a9985b40bb22e1cd47364f2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -77,5 +83,28 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4953599130190571075, guid: 6979025a8a9985b40bb22e1cd47364f2,
+        type: 3}
+      insertIndex: 3
+      addedObject: {fileID: 972493528973700848}
   m_SourcePrefab: {fileID: 100100000, guid: 6979025a8a9985b40bb22e1cd47364f2, type: 3}
+--- !u!1 &5237569170380476897 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4953599130190571075, guid: 6979025a8a9985b40bb22e1cd47364f2,
+    type: 3}
+  m_PrefabInstance: {fileID: 869525960215607202}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &972493528973700848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5237569170380476897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20db0cacefffbbc40a521af00c0a4546, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drop: {fileID: 90404111428430647, guid: 5e2007bf13bba794291959957fb0b1a0, type: 3}

@@ -124,7 +124,7 @@ public class MoveBase : MonoBehaviour
     {
         _rigidbody.gravityScale = 0;
         transform.position = Vector3.MoveTowards(transform.position, MoveToPoint.transform.position,
-            Time.deltaTime * _curentSpeed);
+            Time.fixedDeltaTime * _curentSpeed);
     }
 
     public void MoveVertically(float direction)
