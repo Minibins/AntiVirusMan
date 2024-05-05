@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
@@ -44,3 +45,4 @@ public class DictionaryPropertyDrawer : PropertyDrawer
         return (dictionary.arraySize + 1) * EditorGUIUtility.singleLineHeight;
     }
 }
+#endif

@@ -252,7 +252,7 @@ public class MoveBase : MonoBehaviour
 
     protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
-        if (_roofCheck != null && physics2D.OverlapCircleWithoutTrigger(_roofCheck.position, 0.2f, _groundLayer&platformLayer))
+        if (_roofCheck != null && physics2D.OverlapCircleWithoutTrigger(_roofCheck.position, 0.2f, _groundLayer^platformLayer))
             _jumpStartTime = Time.time - _jumpingCurve.keys[_jumpingCurve.keys.Length - 1].time / 2f;
     }
 }
