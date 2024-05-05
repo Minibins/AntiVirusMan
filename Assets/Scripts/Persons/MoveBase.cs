@@ -89,18 +89,13 @@ public class MoveBase : MonoBehaviour
         if (hasRunAnimation)
             _animator.SetBool(WalkAnimationName, direction != 0);
         if (direction != 0)
-        {
             RotateSprite();
-        }
     }
 
     private void RotateSprite()
     {
-        if (_velocity.x == 0)
-        {
+        if(_velocity.x == 0)
             return;
-        }
-
         if (_rigidbody.bodyType == RigidbodyType2D.Dynamic)
         {
             switch (rotationMode)
@@ -115,9 +110,7 @@ public class MoveBase : MonoBehaviour
             }
         }
         else
-        {
             Invoke(nameof(RotateSprite), Time.deltaTime);
-        }
     }
 
     public void MoveOnWire(GameObject MoveToPoint)
@@ -127,10 +120,7 @@ public class MoveBase : MonoBehaviour
             Time.fixedDeltaTime * _curentSpeed);
     }
 
-    public void MoveVertically(float direction)
-    {
-        _velocity.y = _curentSpeed * direction;
-    }
+    public void MoveVertically(float direction) => _velocity.y = _curentSpeed * direction;
 
     public void MoveBoth(Vector2 direction)
     {
@@ -190,29 +180,16 @@ public class MoveBase : MonoBehaviour
         if (isUsingRigidbody)
         {
             if (!gameObject.isStatic && _rigidbody.bodyType != RigidbodyType2D.Static)
-            {
                 _rigidbody.velocity = _velocity;
-            }
         }
         else
-        {
             transform.position += (Vector3) _velocity * Time.fixedDeltaTime;
-        }
 
         if (!gameObject.isStatic && _rigidbody.bodyType != RigidbodyType2D.Static)
             _rigidbody.velocity += _rigidbody.totalForce;
     }
-
-    private void OnDisable()
-    {
-        _move = null;
-    }
-
-    public void OnDrag()
-    {
-        _move = null;
-    }
-
+    private void OnDisable()=> _move = null;
+    public void OnDrag()=> _move = null;
 
     public void OnDragEnd()
     {
@@ -223,22 +200,14 @@ public class MoveBase : MonoBehaviour
     [SerializeField] protected Transform _groundCheck, _roofCheck;
     [SerializeField] protected LayerMask _groundLayer, platformLayer;
 
-    public bool IsGrounded()
-    {
-        return physics2D.OverlapCircleWithoutTrigger(_groundCheck.position, 0.2f, _groundLayer);
-    }
+    public bool IsGrounded()=> physics2D.OverlapCircleWithoutTrigger(_groundCheck.position, 0.2f, _groundLayer);
 
-    public bool IsGrounded(LayerMask layerMask)
-    {
-        return physics2D.OverlapCircleWithoutTrigger(_groundCheck.position, 0.2f, layerMask);
-    }
+    public bool IsGrounded(LayerMask layerMask) => physics2D.OverlapCircleWithoutTrigger(_groundCheck.position, 0.2f, layerMask);
 
     public virtual void Jump()
     {
         if (IsGrounded())
-        {
             StartJump();
-        }
     }
 
     protected float _jumpStartTime;
@@ -270,10 +239,7 @@ public class MoveBase : MonoBehaviour
         CanJump = true;
     }
 
-    protected virtual void JumpAction()
-    {
-        MoveVertically(_jumpingCurve.Evaluate(Time.time - _jumpStartTime) * _jumpingPower);
-    }
+    protected virtual void JumpAction() => MoveVertically(_jumpingCurve.Evaluate(Time.time - _jumpStartTime) * _jumpingPower);
 
     [SerializeField] private float _maxJumpLeftover = 0;
 
@@ -287,8 +253,6 @@ public class MoveBase : MonoBehaviour
     protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
         if (_roofCheck != null && physics2D.OverlapCircleWithoutTrigger(_roofCheck.position, 0.2f, _groundLayer&platformLayer))
-        {
             _jumpStartTime = Time.time - _jumpingCurve.keys[_jumpingCurve.keys.Length - 1].time / 2f;
-        }
     }
 }

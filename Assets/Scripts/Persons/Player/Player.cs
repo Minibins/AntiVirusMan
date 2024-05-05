@@ -2,6 +2,8 @@
 
 using System;
 using System.Collections;
+using System.Linq;
+
 using UnityEngine;
 public class Player : MoveBase, IPlayer, IHealable
 {
@@ -49,6 +51,8 @@ public class Player : MoveBase, IPlayer, IHealable
         PlayAnimation("Grounded");
         Rigidbody.velocity = Vector2.right* Rigidbody.velocity.x;
         Stunned = false;
+        foreach(SewerHatch sewerHatch in Physics2D.OverlapCircleAll(transform.position,1).Select(c => c.GetComponent<SewerHatch>()))
+            sewerHatch?.Open();
     }
 
 
