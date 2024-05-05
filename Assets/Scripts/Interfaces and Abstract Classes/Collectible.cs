@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Collectible : MonoBehaviour, IDamageble
 {
-    public bool canPick = true;
+    public bool canPick = true, canAttract = true;
 
     public void OnDamageGet(float Damage,IDamageble.DamageType type)
     {
@@ -12,7 +12,7 @@ public class Collectible : MonoBehaviour, IDamageble
         IEnumerator flyToPlayer()
         {
             Transform player = GameObject.FindObjectOfType<Player>().transform;
-            while (true) 
+            while (canAttract) 
             {
                 transform.position = Vector3.MoveTowards(transform.position,player.position,
             Time.fixedDeltaTime*(transform.position-player.position).magnitude*2.5f);
