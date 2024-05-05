@@ -6,18 +6,13 @@ public class EasterEgg : Collectible
     [SerializeField] private int ID;
     private int i;
 
+    protected Color color =>new Color(1f,1f,1f,i <= 0 ? 1f : 0.5f);
+
     private void Start()
     {
         i = PlayerPrefs.GetInt("Egg2024inLocation_" + ID, 0);
-
-        if (i <= 0)
-        {
-            GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
-        }
-        else
-        {
-            GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
-        }
+        foreach (var renderer in GetComponentsInChildren<SpriteRenderer>())
+            renderer.color = color;
     }
 
     public override void Pick(GameObject picker)

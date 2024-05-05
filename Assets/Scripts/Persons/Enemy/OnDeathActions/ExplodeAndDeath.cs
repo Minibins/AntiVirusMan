@@ -1,6 +1,6 @@
-using UnityEngine;
+using System.Collections;
 
-[RequireComponent(typeof(AbstractEnemy))]
+using UnityEngine;
 public class ExplodeAndDeath : MonoBehaviour, IScannable
 {
     [SerializeField] private float chargeTime = 2f;
@@ -11,7 +11,12 @@ public class ExplodeAndDeath : MonoBehaviour, IScannable
 
     public void Action()
     {
-        Invoke(nameof(Explosion), chargeTime);
+        StartCoroutine(wait());
+        IEnumerator wait()
+        {
+            yield return new WaitForSeconds(chargeTime);
+            Explosion();
+        }
     }
 
     public void EndScan()
@@ -28,22 +33,22 @@ public class ExplodeAndDeath : MonoBehaviour, IScannable
     {
     }
 
-    protected GameObject Explosion()
+    protected virtual GameObject Explosion()
     {
         GameObject explosion = Instantiate(_explosion, transform.position, Quaternion.identity);
-        if (GetComponent<AbstractEnemy>().isElite)
+        IExplosion Explosion;
+        if(explosion.TryGetComponent<IExplosion>(out Explosion))
         {
-            explosion.GetComponent<ExpCollectible>().Exp = PC.Carma;
-        }
-        else
-        {
-            IExplosion Explosion = explosion.GetComponent<IExplosion>();
             Explosion.Radius = _explosionRadius;
             Explosion.Power = _explosionPower;
         }
-
-        if (DestroyHimself)
-            Destroy(gameObject);
+        Destroy();
         return explosion;
+    }
+
+    protected void Destroy()
+    {
+        if(DestroyHimself)
+            Destroy(gameObject);
     }
 }

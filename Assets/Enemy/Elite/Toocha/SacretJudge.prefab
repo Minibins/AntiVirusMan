@@ -424,6 +424,9 @@ MonoBehaviour:
   _groundLayer:
     serializedVersion: 2
     m_Bits: 0
+  platformLayer:
+    serializedVersion: 2
+    m_Bits: 0
   _jumpingPower: 0.52
   _jumpingCurve:
     serializedVersion: 2
@@ -450,6 +453,9 @@ MonoBehaviour:
   playerPrefsName: EnemyToochaElite
   playerPrefsLittleName: EnemyToochaElite
   isElite: 1
+  _maskWhoKills:
+    serializedVersion: 2
+    m_Bits: 8192
   _PC: {fileID: 0}
   otklonenieOtklonenia: 3.25
   SkorostOtklonenia: 0.013
@@ -539,7 +545,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8912311358399435758}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30107f1734f112a41961866690548490, type: 3}
+  m_Script: {fileID: 11500000, guid: 7cc0f0fa32e964140a63efe8d922c904, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   chargeTime: 2.66
@@ -549,6 +555,7 @@ MonoBehaviour:
   _explosionPower: 0
   DestroyHimself: 1
   OnScan: 1
+  egg: {fileID: 1450760487576688080, guid: e1465ba070c38fb45a5d8baab6a50a5e, type: 3}
 --- !u!114 &1484696065160483319
 MonoBehaviour:
   m_ObjectHideFlags: 0
