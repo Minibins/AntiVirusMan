@@ -221,7 +221,7 @@ public class MoveBase : MonoBehaviour
     }
 
     [SerializeField] protected Transform _groundCheck, _roofCheck;
-    [SerializeField] protected LayerMask _groundLayer;
+    [SerializeField] protected LayerMask _groundLayer, platformLayer;
 
     public bool IsGrounded()
     {
@@ -286,7 +286,7 @@ public class MoveBase : MonoBehaviour
 
     protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
-        if (_roofCheck != null && physics2D.OverlapCircleWithoutTrigger(_roofCheck.position, 0.2f, _groundLayer))
+        if (_roofCheck != null && physics2D.OverlapCircleWithoutTrigger(_roofCheck.position, 0.2f, _groundLayer&platformLayer))
         {
             _jumpStartTime = Time.time - _jumpingCurve.keys[_jumpingCurve.keys.Length - 1].time / 2f;
         }

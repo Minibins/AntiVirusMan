@@ -447,7 +447,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57309deb1b79e0c4fadd2af5b931ff99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Level: 5
+  isTaken: 0
+  Level: 2
   SelectedSprite: {fileID: -1483363036, guid: 1df0e45a1e1783b4bac6578d311db4ef, type: 3}
   notSelectedSprite: {fileID: 784088187, guid: 1df0e45a1e1783b4bac6578d311db4ef, type: 3}
   Image: {fileID: 0}
@@ -586,7 +587,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: 1bc3e988f34fa5a4abf4cbe1046c1a64, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 16
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -638,6 +639,9 @@ MonoBehaviour:
   _groundLayer:
     serializedVersion: 2
     m_Bits: 5136
+  platformLayer:
+    serializedVersion: 2
+    m_Bits: 131072
   _jumpingPower: 2.75
   _jumpingCurve:
     serializedVersion: 2
@@ -673,10 +677,9 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _maxJumpLeftover: 5
-  _health: {fileID: 0}
   Stunned: 0
-  locationBounds: {x: -18.527, y: 17.734}
-  damageForce: 0
+  locationBounds: {x: -20.1, y: 61.8}
+  damageForce: -21.6
   _flightVelicityCap: 0.33
   _flySpeed: 1.21
   TreksolesLayer:
