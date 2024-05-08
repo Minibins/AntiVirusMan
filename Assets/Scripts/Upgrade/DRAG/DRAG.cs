@@ -34,7 +34,7 @@ public class DRAG : MonoBehaviour,iDraggable
 
     private void FixedUpdate()
     {
-        if (pa.Ammo > 0&&isdrgging)
+        if (pa.Ammo > 1&&isdrgging)
         {
             Vector2 curPosition = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) + offset;
             rb.velocity = (curPosition - rb.position) * 10f;
