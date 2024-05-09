@@ -9,16 +9,17 @@ namespace DustyStudios
 {
     public class DustyConsole
     {
-        private static List<string> output = new List<string>();
+        private static Queue<string> output = new();
 
         public static string Output
         {
             get
             {
+                List<string> list = output.ToList();
                 string o = "";
                 for (int i = output.Count; i > 0;)
                 {
-                    o += (output[--i]);
+                    o += list.ToList()[--i];
                     o += "\n";
                 }
 
@@ -34,7 +35,8 @@ namespace DustyStudios
         public static void Print(object line)
         {
             string Line = line.ToString();
-            output.Add(Line);
+            output.Enqueue(Line);
+            if(output.Count>numberOfOutputInScreen) output.Dequeue();
             onPrint?.Invoke(Line);
         }
 
