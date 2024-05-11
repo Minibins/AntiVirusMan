@@ -1,8 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
-using Unity.VisualScripting;
-using UnityEngine.InputSystem;
-
 public class DRAG : MonoBehaviour,iDraggable
 {
     bool isdrgging;
