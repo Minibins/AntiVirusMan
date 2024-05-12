@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6234625855955241842
+--- !u!1 &2473782193694590379
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,25 +8,25 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 332432115138668196}
-  - component: {fileID: 4191885687697550715}
-  - component: {fileID: 1061126048097916768}
-  - component: {fileID: 6112112376232650934}
-  - component: {fileID: 8438668568161418463}
+  - component: {fileID: 5368689436516565577}
+  - component: {fileID: 6283220330664554}
+  - component: {fileID: 4930392887169013705}
+  - component: {fileID: 7699736295411095080}
+  - component: {fileID: 3850145833793082858}
   m_Layer: 0
-  m_Name: StonksReference
+  m_Name: FlyReference
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &332432115138668196
+--- !u!224 &5368689436516565577
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6234625855955241842}
+  m_GameObject: {fileID: 2473782193694590379}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 10}
@@ -36,29 +36,33 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -12, y: 34}
-  m_SizeDelta: {x: 6.352582, y: 8.360764}
+  m_AnchoredPosition: {x: 16, y: 60}
+  m_SizeDelta: {x: 0.8, y: 0.8}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &4191885687697550715
+--- !u!114 &6283220330664554
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6234625855955241842}
+  m_GameObject: {fileID: 2473782193694590379}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 30c0ab4b4c05dbb4da0c4505bba3ae7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  referenceName: Stonks meme
---- !u!114 &1061126048097916768
+  referenceName: "\u042D\u0442\u043E \u0436\u0435 \u0442\u0430 \u0441\u0430\u043C\u0430\u044F
+    \u043C\u0443\u0445\u0430 \u0441\u043E \u0441\u0442\u044D\u043D\u0434\u043E\u043C
+    \u0438\u0437 \u0414\u0436\u043E\u0434\u0436\u043E, \u043A\u043E\u0442\u043E\u0440\u0430\u044F
+    \u043F\u043E\u0435\u0434\u0430\u043B\u0430 \u044F\u0437\u044B\u043A\u0438 \u0432
+    \u043D\u0430\u0447\u0430\u043B\u0435 3 \u0447\u0430\u0441\u0442\u0438"
+--- !u!114 &4930392887169013705
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6234625855955241842}
+  m_GameObject: {fileID: 2473782193694590379}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
@@ -69,7 +73,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 4191885687697550715}
+        - m_Target: {fileID: 6283220330664554}
           m_TargetAssemblyTypeName: ReferenceItem, Assembly-CSharp
           m_MethodName: OnMouseDown
           m_Mode: 1
@@ -81,21 +85,21 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!222 &6112112376232650934
+--- !u!222 &7699736295411095080
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6234625855955241842}
+  m_GameObject: {fileID: 2473782193694590379}
   m_CullTransparentMesh: 1
---- !u!114 &8438668568161418463
+--- !u!114 &3850145833793082858
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6234625855955241842}
+  m_GameObject: {fileID: 2473782193694590379}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}

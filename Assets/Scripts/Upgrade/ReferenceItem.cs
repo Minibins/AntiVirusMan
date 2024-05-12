@@ -37,7 +37,8 @@ public class ReferenceItem : MonoBehaviour
         Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         EasterEggsForDummies.SetGlassPos(sprite == null? Input.mousePosition : (Vector3)pos, sprite==null);
         CoroutineRunner.instance.StartCoroutine(EasterEggsForDummies.MoveGlassToPos(sprite==null ? ReferencePos.bounds.center : Camera.main.WorldToScreenPoint(ReferencePos.bounds.center),1.2f,false,sprite==null));
-        StartCoroutine(textTyper(("Это отсылка на " + referenceName).ToString()));
+        StartCoroutine(textTyper(("Here is reference to a " + referenceName).ToString()));
+        GameObject.FindObjectOfType<PlayerAttack>().Damage.additions.Add(0.5f);
         IEnumerator textTyper(string text)
         {
             EasterEggsForDummies.hintText.text = "Э";

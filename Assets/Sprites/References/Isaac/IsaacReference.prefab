@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6234625855955241842
+--- !u!1 &3527924018981331179
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,25 +8,25 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 332432115138668196}
-  - component: {fileID: 4191885687697550715}
-  - component: {fileID: 1061126048097916768}
-  - component: {fileID: 6112112376232650934}
-  - component: {fileID: 8438668568161418463}
+  - component: {fileID: 7778957102465038836}
+  - component: {fileID: 6898793424036098714}
+  - component: {fileID: 2131234134079659425}
+  - component: {fileID: 1503765875909208805}
+  - component: {fileID: 900889030590411514}
   m_Layer: 0
-  m_Name: StonksReference
+  m_Name: IsaacReference
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &332432115138668196
+--- !u!224 &7778957102465038836
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6234625855955241842}
+  m_GameObject: {fileID: 3527924018981331179}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 10}
@@ -36,29 +36,29 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -12, y: 34}
-  m_SizeDelta: {x: 6.352582, y: 8.360764}
+  m_AnchoredPosition: {x: -18, y: 38}
+  m_SizeDelta: {x: 6, y: 9.25}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &4191885687697550715
+--- !u!114 &6898793424036098714
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6234625855955241842}
+  m_GameObject: {fileID: 3527924018981331179}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 30c0ab4b4c05dbb4da0c4505bba3ae7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  referenceName: Stonks meme
---- !u!114 &1061126048097916768
+  referenceName: The Binding of Isaac
+--- !u!114 &2131234134079659425
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6234625855955241842}
+  m_GameObject: {fileID: 3527924018981331179}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
@@ -69,7 +69,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 4191885687697550715}
+        - m_Target: {fileID: 6898793424036098714}
           m_TargetAssemblyTypeName: ReferenceItem, Assembly-CSharp
           m_MethodName: OnMouseDown
           m_Mode: 1
@@ -81,21 +81,21 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!222 &6112112376232650934
+--- !u!222 &1503765875909208805
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6234625855955241842}
+  m_GameObject: {fileID: 3527924018981331179}
   m_CullTransparentMesh: 1
---- !u!114 &8438668568161418463
+--- !u!114 &900889030590411514
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6234625855955241842}
+  m_GameObject: {fileID: 3527924018981331179}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}

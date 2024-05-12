@@ -8,7 +8,7 @@ public class SpriteReference : SpriteContainingSO
 {
     [SerializeField] private Sprite _sprite;
     [SerializeField] private LocalizedSprite localizedSprite;
-    [SerializeField] private ReferenceItem _referencePrefab;
+    [SerializeField] private ReferenceItem[] _referencePrefabs;
     private Dictionary<CustomRendererSpriteChanger, ReferenceItem> _references = new();
     public override Sprite Sprite
     {
@@ -17,7 +17,7 @@ public class SpriteReference : SpriteContainingSO
 
     public override void OnSpriteApplied(SpriteRenderer renderer,Image image,CustomRendererSpriteChanger changer)
     {
-        _references.Add(changer, Instantiate(_referencePrefab,changer.transform));
+        foreach (var _referencePrefab in _referencePrefabs) _references.Add(changer, Instantiate(_referencePrefab,changer.transform));
         _references[changer].Animator = changer.GetComponent<Animator>();
         _references[changer].Sprite = renderer;
     }
