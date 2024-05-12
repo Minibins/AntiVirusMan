@@ -95,7 +95,7 @@ namespace DustyStudios
 
             public static Vector2 RotatedVector(Vector2 VectorToRotate, float angle)
             {
-                float rotationInRadians = angle * Mathf.PI / 180;
+                float rotationInRadians = angle * Mathf.Deg2Rad;
                 Vector2 result = new Vector2(
                     VectorToRotate.x * Mathf.Cos(rotationInRadians) - VectorToRotate.y * Mathf.Sin(rotationInRadians),
                     VectorToRotate.x * Mathf.Sin(rotationInRadians) + VectorToRotate.y * Mathf.Cos(rotationInRadians)

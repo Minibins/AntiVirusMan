@@ -9,7 +9,7 @@ public class Upgrade : MonoBehaviour
 {
     private bool isTaken = false;
     [SerializeField] private Sprite Sprite;
-
+    [SerializeField] public SpriteContainingSO anotherSprite;
     public Sprite sprite
     {
         get => Sprite;
@@ -42,9 +42,7 @@ public class Upgrade : MonoBehaviour
     {
         var Actions = UpgradeButton.UpgradeActions;
         if (Actions.ContainsKey(Id))
-        {
             Actions[Id] += OnTake;
-        }
         else
         {
             if (LevelUP.Items.Count > Id)
@@ -84,14 +82,10 @@ public class Upgrade : MonoBehaviour
         }
 
         foreach (var synergy in Synergies)
-        {
             if (LevelUP.Items[synergy.Key].IsTaken) synergy.Value.Invoke();
-        }
 
         foreach (Synergy synergy in synergies)
-        {
             if (LevelUP.Items[synergy.SynergentID].IsTaken) synergy.OnTake();
-        }
     }
 
     public Upgrade()

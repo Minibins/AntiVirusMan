@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ApplySprite : MonoBehaviour
 {
-    [SerializeField] ISprite spriteSo;
+    [SerializeField] SpriteContainingSO spriteSo;
     [SerializeField] Sprite sprite;
     void Start()
     {

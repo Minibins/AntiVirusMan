@@ -34,19 +34,21 @@ public class ReferenceItem : MonoBehaviour
             sprite.color = new(0,61f,1,0.98f);
         }
         Transform glass = EasterEggsForDummies.Glass;
-        Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        glass.position = new(pos.x,pos.y,glass.position.z);
-        CoroutineRunner.instance.StartCoroutine(EasterEggsForDummies.MoveGlassToPos(ReferencePos.bounds.center,1.2f,false));
+        Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        EasterEggsForDummies.SetGlassPos(sprite == null? Input.mousePosition : (Vector3)pos, sprite==null);
+        CoroutineRunner.instance.StartCoroutine(EasterEggsForDummies.MoveGlassToPos(sprite==null ? ReferencePos.bounds.center : Camera.main.WorldToScreenPoint(ReferencePos.bounds.center),1.2f,false,sprite==null));
         StartCoroutine(textTyper(("Это отсылка на " + referenceName).ToString()));
         IEnumerator textTyper(string text)
         {
             EasterEggsForDummies.hintText.text = "Э";
+            EasterEggsForDummies.hintText2.text = EasterEggsForDummies.hintText.text;
             while(EasterEggsForDummies.hintText.text != text)
             {
                 EasterEggsForDummies.hintText.text += text.Replace(EasterEggsForDummies.hintText.text,"")[0];
-                yield return new WaitForSeconds(0.04f);
+                EasterEggsForDummies.hintText2.text = EasterEggsForDummies.hintText.text;
+                yield return new WaitForSecondsRealtime(0.04f);
             }
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSecondsRealtime(1.5f);
             animator.speed = speed;
             if(sprite != null)
             {

@@ -62,7 +62,13 @@ public class LevelUP : MonoBehaviour
         
         void generateButton(int id,GameObject button)
         {
-            button.GetComponent<Image>().sprite = id != -1 ? Items[id].sprite : none;
+            if(id != -1)
+            {
+                Upgrade upgrade = Items[id];
+                if(upgrade.anotherSprite != null)
+                    button.GetComponent<CustomRendererSpriteChanger>().SetSpriteSo(upgrade.anotherSprite);
+                else button.GetComponent<CustomRendererSpriteChanger>().SetSprite(upgrade.sprite);
+            }
             button.GetComponent<UpgradeButton>().id = id;
             if(id == Items.Count - 1)
                 Instantiate(BuyButton,button.transform);

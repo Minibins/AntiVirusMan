@@ -31,7 +31,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.6666667
+    m_StopTime: 2
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -51,8 +51,32 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
+  - time: 0
+    functionName: SetSprite
+    data: 
+    objectReferenceParameter: {fileID: 1501979643, guid: 1df0e45a1e1783b4bac6578d311db4ef,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.16666667
+    functionName: SetSprite
+    data: 
+    objectReferenceParameter: {fileID: 274371048, guid: 1df0e45a1e1783b4bac6578d311db4ef,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.33333334
+    functionName: SetSprite
+    data: 
+    objectReferenceParameter: {fileID: -1806899365, guid: 1df0e45a1e1783b4bac6578d311db4ef,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.5
-    functionName: set_Sprite
+    functionName: SetSpriteSo
     data: 
     objectReferenceParameter: {fileID: 11400000, guid: 313aeb1f17cb4c441b2048d0d016275f,
       type: 2}
@@ -60,10 +84,74 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0.6666667
-    functionName: set_Sprite
+    functionName: SetSprite
     data: 
-    objectReferenceParameter: {fileID: 11400000, guid: 35a95b732df74df46bc16bf0301691dc,
-      type: 2}
+    objectReferenceParameter: {fileID: 553470628, guid: 1df0e45a1e1783b4bac6578d311db4ef,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.8333333
+    functionName: SetSprite
+    data: 
+    objectReferenceParameter: {fileID: -83004613, guid: 1df0e45a1e1783b4bac6578d311db4ef,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1
+    functionName: SetSprite
+    data: 
+    objectReferenceParameter: {fileID: 1817918928, guid: 1df0e45a1e1783b4bac6578d311db4ef,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.1666666
+    functionName: SetSprite
+    data: 
+    objectReferenceParameter: {fileID: 740883435, guid: 1df0e45a1e1783b4bac6578d311db4ef,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.3333334
+    functionName: SetSprite
+    data: 
+    objectReferenceParameter: {fileID: 714673625, guid: 1df0e45a1e1783b4bac6578d311db4ef,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.5
+    functionName: SetSprite
+    data: 
+    objectReferenceParameter: {fileID: 1444463534, guid: 1df0e45a1e1783b4bac6578d311db4ef,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.6666666
+    functionName: SetSprite
+    data: 
+    objectReferenceParameter: {fileID: 2062792503, guid: 1df0e45a1e1783b4bac6578d311db4ef,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.8333334
+    functionName: SetSprite
+    data: 
+    objectReferenceParameter: {fileID: 1937518352, guid: 1df0e45a1e1783b4bac6578d311db4ef,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 2
+    functionName: SetSprite
+    data: 
+    objectReferenceParameter: {fileID: 1937518352, guid: 1df0e45a1e1783b4bac6578d311db4ef,
+      type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0

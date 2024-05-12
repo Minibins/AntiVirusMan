@@ -193,7 +193,7 @@ MonoBehaviour:
   DamageType: 0
   _mask:
     serializedVersion: 2
-    m_Bits: 317520
+    m_Bits: 448592
   _velosity: {x: 0, y: 0}
 --- !u!114 &712682373744742078
 MonoBehaviour:
@@ -216,6 +216,9 @@ MonoBehaviour:
   _groundCheck: {fileID: 0}
   _roofCheck: {fileID: 0}
   _groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  platformLayer:
     serializedVersion: 2
     m_Bits: 0
   _jumpingPower: 0

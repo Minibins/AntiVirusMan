@@ -9629,10 +9629,10 @@ TextureImporter:
       name: All_423
       rect:
         serializedVersion: 2
-        x: 1743
-        y: 545
-        width: 256
-        height: 128
+        x: 1675
+        y: 542
+        width: 248
+        height: 146
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -28513,7 +28513,7 @@ TextureImporter:
         width: 65
         height: 33
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -28521,6 +28521,27 @@ TextureImporter:
       bones: []
       spriteID: 48a2275360a1fb54b961ff64923284de
       internalID: -1950132748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EasterEggGlassUI
+      rect:
+        serializedVersion: 2
+        x: 619
+        y: 851
+        width: 42
+        height: 75
+      alignment: 9
+      pivot: {x: 0.5, y: 0.72}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13ad0b8c2ac50f640b568eb1d95f88c0
+      internalID: 763925658
       vertices: []
       indices: 
       edges: []
@@ -29005,6 +29026,7 @@ TextureImporter:
       Dummy_Laser8: -481760644
       Dummy_Laser9: -117727097
       EasterEggGlass: 2053553756
+      EasterEggGlassUI: 763925658
       ExpCollectibleOne0: 1138438350
       ExpCollectibleOne1: 1882629101
       ExpCollectibleOne2: 290343995

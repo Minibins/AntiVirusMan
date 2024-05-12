@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 [CreateAssetMenu]
-public class JustSprite : ScriptableObject, ISprite
+public class JustSprite : SpriteContainingSO
 {
     [SerializeField] private Sprite _sprite;
 
@@ -10,15 +10,13 @@ public class JustSprite : ScriptableObject, ISprite
         _sprite = sprite;
     }
 
-    public Sprite Sprite => _sprite;
+    public override Sprite Sprite => _sprite;
 
-    public void OnSpriteApplied(SpriteRenderer renderer,Image image, CustomRendererSpriteChanger changer)
+    public override void OnSpriteApplied(SpriteRenderer renderer,Image image,CustomRendererSpriteChanger changer)
     {
-        DustyStudios.DustyConsole.Print($"Sprite {_sprite.name} has applied to renderer of {renderer.gameObject.name}");
     }
 
-    public void OnSpriteRemoved(SpriteRenderer renderer,Image image,CustomRendererSpriteChanger changer)
+    public override void OnSpriteRemoved(SpriteRenderer renderer,Image image,CustomRendererSpriteChanger changer)
     {
-        DustyStudios.DustyConsole.Print($"Sprite {_sprite.name} has removed from renderer of {renderer.gameObject.name}");
     }
 }
