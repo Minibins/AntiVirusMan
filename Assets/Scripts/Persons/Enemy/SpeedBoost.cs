@@ -6,7 +6,7 @@ public class SpeedBoost : AbstractAura
 {
     [SerializeField] private float _multiplierSpeed;
     [SerializeField] private float _durationBoost;
-    private Animator _animator;
+    protected Animator _animator;
 
     private void Awake()
     {

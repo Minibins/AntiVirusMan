@@ -79,15 +79,15 @@ public class PlayerAttack : MonoBehaviour
         FirstAttack.StopAttack();
         if (TemporaryAttackSubstitute.Count > 0)
             TemporaryAttackSubstitute.RemoveAt(0);
+        if(TemporaryAttackSubstitute.Count==0) Animator.SetBool("IsChad",false);
     }
 
     public void Shot()
     {
-        WaitForPlayerAttack.Shot();
         if (Ammo < FirstAttack.AmmoCost) return;
+        WaitForPlayerAttack.Shot();
         FirstAttack.Attack(FirstAttack.LoadTime);
         Ammo -= FirstAttack.AmmoCost;
-
         var Joystick = UiElementsList.instance.Joysticks.Attack;
         if (FirstAttack.isUsingJoystick)
             transform.localScale = new (Mathf.Abs
@@ -98,11 +98,11 @@ public class PlayerAttack : MonoBehaviour
         {
             foreach (AbstractAttack attack in AdditionalAttacks)
             {
+                if(Ammo < attack.AmmoCost) continue;
                 Ammo -= attack.AmmoCost;
                 attack.Attack(FirstAttack.LoadTime + attack.LoadTime);
             }
         }
-
         _animator.SetBool("Attack", true);
     }
 

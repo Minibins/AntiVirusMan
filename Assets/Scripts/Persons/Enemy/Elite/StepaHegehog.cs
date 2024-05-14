@@ -9,10 +9,24 @@ public class StepaHedgehog : SpeedBoost
     private new Transform transform;
     private LayerMask maskWhoKills;
     [SerializeField] private GameObject ring;
-
+    bool isRunning = true;
+    float speed;
+    bool IsRunning
+    {
+        set 
+        {
+            me._move.CanJump = value;
+            me._move.ClearSpeedMultiplers();
+            me._move.SetSpeedMultiplierForever(value ? 1f : 0f);
+            isRunning = value;
+            _animator.SetBool("IsRunning",value);
+        }
+    }
     protected override void Start()
     {
         me = GetComponent<Enemy>();
+        speed = me._move._speed;
+        IsRunning = true;
         maskWhoKills = me._maskWhoKills;
         me._maskWhoKills = 0;
         base.Start();
@@ -43,11 +57,14 @@ public class StepaHedgehog : SpeedBoost
             SetTarget();
         }
     }
-
+    protected override bool EnterCondition(Collider2D other) => base.EnterCondition(other) && isRunning;
     protected override IEnumerator AuraAction()
     {
         Instantiate(ring, transform.position, Quaternion.identity);
+        IsRunning = false;
         yield return base.AuraAction();
         SetTarget();
+        yield return new WaitForSeconds(3f);
+        IsRunning = true;
     }
 }

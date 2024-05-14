@@ -8,7 +8,7 @@ public class SpawnerEnemy : MonoBehaviour
     [SerializeField] private Animator[] spawnersAnim;
     [SerializeField] private GameObject Boss;
     [SerializeField] private bool BossSpawned;
-    [SerializeField] private float minTimeSpawn, maxTimeSpawn, minTimeSpawnWave, maxTimeSpawnWave;
+    [SerializeField] private float minTimeSpawn, maxTimeSpawn, minTimeSpawnWave, maxTimeSpawnWave,shotsSpawn,shotsWave;
     public bool isSpawn;
     public static float SpawnCoeficient = 1f;
     public List<ISpawnerModule> spawnerModules = new List<ISpawnerModule>();
@@ -62,17 +62,17 @@ public class SpawnerEnemy : MonoBehaviour
                     break;
             }
 
-            yield return new WaitForSeconds(Mathf.Max(
+            yield return new PrecitionWait(Mathf.Max(
                 Random.Range(minTimeSpawnWave, maxTimeSpawnWave) -
-                Mathf.Lerp(0, maxTimeSpawnWave, (float) Timer.time / 600), 0));
+                Mathf.Lerp(0, maxTimeSpawnWave, (float) Timer.time / 600), 0),shotsSpawn);
         }
     }
 
     IEnumerator WaitSpawnTime()
     {
-        yield return new WaitForSeconds((Random.Range(minTimeSpawn, maxTimeSpawn) -
+        yield return new PrecitionWait((Random.Range(minTimeSpawn, maxTimeSpawn) -
                                          Mathf.Lerp(0, (maxTimeSpawn - minTimeSpawn) / 2, (float) Timer.time / 600)) /
-                                        SpawnCoeficient);
+                                        SpawnCoeficient,shotsSpawn);
     }
 
     public void StopOrStartSpawn()

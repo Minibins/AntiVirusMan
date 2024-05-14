@@ -13,7 +13,7 @@ public class AbstractEnemy : MonoBehaviour
     public GameObject _PC;
     public Action onComputerReach;
     public static List<AbstractEnemy> Enemies = new List<AbstractEnemy>();
-    protected MoveBase _move;
+    public MoveBase _move;
     protected Animator _animator;
     protected Health _health;
     public float moveDirection = 0;

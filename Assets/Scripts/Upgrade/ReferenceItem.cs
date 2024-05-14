@@ -16,8 +16,8 @@ public class ReferenceItem : MonoBehaviour
     { 
         get
         {
-            if (referencePos == null) referencePos = GetComponent<Collider2D>();
-            return referencePos; 
+            if (referencePos == null && TryGetComponent<Collider2D>(out referencePos)) return referencePos;
+            else return null;
         }
     }
 
@@ -25,8 +25,12 @@ public class ReferenceItem : MonoBehaviour
     {
         if(!EasterEggsForDummies.isLookingForReferences)
             return;
-        float speed = animator.speed;
-        animator.speed = 0;
+        float speed = 0;
+        if(animator != null)
+        {
+            speed = animator.speed;
+            animator.speed = 0;
+        }
         Color color = Color.white;
         if(sprite != null)
         {
@@ -35,13 +39,14 @@ public class ReferenceItem : MonoBehaviour
         }
         Transform glass = EasterEggsForDummies.Glass;
         Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        EasterEggsForDummies.SetGlassPos(sprite == null? Input.mousePosition : (Vector3)pos, sprite==null);
-        CoroutineRunner.instance.StartCoroutine(EasterEggsForDummies.MoveGlassToPos(sprite==null ? ReferencePos.bounds.center : Camera.main.WorldToScreenPoint(ReferencePos.bounds.center),1.2f,false,sprite==null));
-        StartCoroutine(textTyper(("Here is reference to a " + referenceName).ToString()));
+        EasterEggsForDummies.SetGlassPos(sprite == null ? Input.mousePosition : (Vector3)pos,sprite == null);
+        CoroutineRunner.instance.StartCoroutine(EasterEggsForDummies.MoveGlassToPos(sprite == null ? GetCenter() : Camera.main.WorldToScreenPoint(GetCenter()),1.2f,false,sprite == null));
+        const string HereIsReference = "Here is reference to a ";
+        StartCoroutine(textTyper((HereIsReference + referenceName).ToString()));
         GameObject.FindObjectOfType<PlayerAttack>().Damage.additions.Add(0.5f);
         IEnumerator textTyper(string text)
         {
-            EasterEggsForDummies.hintText.text = "Ý";
+            EasterEggsForDummies.hintText.text = HereIsReference[0].ToString();
             EasterEggsForDummies.hintText2.text = EasterEggsForDummies.hintText.text;
             while(EasterEggsForDummies.hintText.text != text)
             {
@@ -50,11 +55,14 @@ public class ReferenceItem : MonoBehaviour
                 yield return new WaitForSecondsRealtime(0.04f);
             }
             yield return new WaitForSecondsRealtime(1.5f);
-            animator.speed = speed;
-            if(sprite != null)
-            {
-                sprite.color = color;
-            }
+            if(animator != null) animator.speed = speed;
+            if(sprite != null) sprite.color = color;
+        }
+
+        Vector3 GetCenter()
+        {
+            if(referencePos!=null) return ReferencePos.bounds.center;
+            else return transform.position;
         }
     }
 }

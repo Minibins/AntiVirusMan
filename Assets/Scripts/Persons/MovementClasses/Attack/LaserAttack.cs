@@ -10,7 +10,6 @@ public class LaserAttack : JoystickDependendAttack
 
     protected override GameObject attack()
     {
-        playerAttack.Animator.SetBool("IsChad", false);
         playerAttack.Animator.SetBool("Attack", false);
         return base.attack();
     }

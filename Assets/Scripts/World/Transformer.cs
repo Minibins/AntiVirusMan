@@ -11,7 +11,7 @@ public class Transformer : MonoBehaviour, IDamageble
         laserAttack = FindObjectOfType<LaserAttack>();
         GameObject player = GameObject.FindWithTag("Player");
         attack = player.GetComponent<PlayerAttack>();
-        Anim = player.GetComponent<Animator>();
+        Anim = attack.Animator;
     }
 
     public void OnDamageGet(float damage, IDamageble.DamageType type)
