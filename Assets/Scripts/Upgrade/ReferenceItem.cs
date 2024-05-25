@@ -1,4 +1,6 @@
 using System.Collections;
+using System.Collections.Generic;
+
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -11,7 +13,7 @@ public class ReferenceItem : MonoBehaviour
     public Animator Animator { set => animator = value; }
     private SpriteRenderer sprite;
     public SpriteRenderer Sprite { set => sprite = value; }
-
+    public static List<string> foundReferenceNames = new List<string>();
     private Collider2D ReferencePos 
     { 
         get
@@ -20,7 +22,6 @@ public class ReferenceItem : MonoBehaviour
             else return null;
         }
     }
-
     public void OnMouseDown()
     {
         if(!EasterEggsForDummies.isLookingForReferences)
@@ -41,13 +42,18 @@ public class ReferenceItem : MonoBehaviour
         Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         EasterEggsForDummies.SetGlassPos(sprite == null ? Input.mousePosition : (Vector3)pos,sprite == null);
         CoroutineRunner.instance.StartCoroutine(EasterEggsForDummies.MoveGlassToPos(sprite == null ? GetCenter() : Camera.main.WorldToScreenPoint(GetCenter()),1.2f,false,sprite == null));
-        const string HereIsReference = "Here is reference to a ";
-        CoroutineRunner.instance.StartCoroutine(textTyper((HereIsReference + referenceName).ToString()));
-        GameObject.FindObjectOfType<PlayerAttack>().Damage.additions.Add(0.5f);
+        const string HereIsReference = "Here is reference to a ",FoundReference = "You already found that reference to a ";
+        if(!foundReferenceNames.Contains(referenceName))
+        {
+            CoroutineRunner.instance.StartCoroutine(textTyper((HereIsReference + referenceName).ToString()));
+            GameObject.FindObjectOfType<PlayerAttack>().Damage.additions.Add(0.5f);
+            foundReferenceNames.Add(referenceName);
+        }
+        else CoroutineRunner.instance.StartCoroutine(textTyper((FoundReference + referenceName).ToString()));
         gameObject.SetActive(false);
         IEnumerator textTyper(string text)
         {
-            EasterEggsForDummies.hintText.text = HereIsReference[0].ToString();
+            EasterEggsForDummies.hintText.text = text[0].ToString();
             EasterEggsForDummies.hintText2.text = EasterEggsForDummies.hintText.text;
             while(EasterEggsForDummies.hintText.text != text)
             {

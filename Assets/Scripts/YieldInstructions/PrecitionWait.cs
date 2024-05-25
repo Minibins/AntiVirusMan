@@ -1,3 +1,4 @@
+using DustyStudios;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,9 +18,15 @@ public class PrecitionWait : CustomYieldInstruction
     public PrecitionWait(float seconds, float shots)
     {
         if (seconds <= 0 || shots <= 0) throw new InvalidOperationException();
-        if (!LevelUP.Items[26].IsTaken) Timer = seconds;
+        if(LevelUP.Items.Count <= 26) WorkLikeTimer();
+            else if(!LevelUP.Items[26].IsTaken) WorkLikeTimer();
         else Timer = shots;
         waitList.Add(this);
+
+        void WorkLikeTimer()
+        {
+            Timer = seconds;
+        }
     }
 
     public override bool keepWaiting

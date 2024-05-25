@@ -64,7 +64,7 @@ public class SpawnerEnemy : MonoBehaviour
 
             yield return new PrecitionWait(Mathf.Max(
                 Random.Range(minTimeSpawnWave, maxTimeSpawnWave) -
-                Mathf.Lerp(0, maxTimeSpawnWave, (float) Timer.time / 600), 0),shotsSpawn);
+                Mathf.Lerp(0, maxTimeSpawnWave, (float) Timer.time / 600), 0.1f),shotsSpawn);
         }
     }
 

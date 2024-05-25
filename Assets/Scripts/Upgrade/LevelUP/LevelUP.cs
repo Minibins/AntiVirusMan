@@ -6,6 +6,7 @@ using System.Collections;
 using UnityEngine.UI;
 using System;
 using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
 
 public class LevelUP : MonoBehaviour
 {
@@ -28,12 +29,7 @@ public class LevelUP : MonoBehaviour
 
     private void Awake()
     {
-        FixedProgressionUpgradeActions.Clear();
-        UpgradeButton.UpgradeActions.Clear();
         instance = this;
-        Items.Clear();
-        FixedProgressionItems.Clear();
-        pickedItems.Clear();
     }
     public virtual void NewUpgrade()
     {
@@ -45,6 +41,20 @@ public class LevelUP : MonoBehaviour
             indexes.Count >= 1 ? indexes[0] : -1,
             indexes.Count >= 2 ? indexes[1] : -1,
             indexes.Count >= 3 ? indexes[2] : -1);
+    }
+    private void OnEnable()
+    {
+        SceneManager.sceneUnloaded += (s) => ClearLists();
+    }
+    private void ClearLists()
+    {
+        FixedProgressionUpgradeActions.Clear();
+        UpgradeButton.UpgradeActions.Clear();
+        Items.Clear();
+        FixedProgressionItems.Clear();
+        pickedItems.Clear();
+        print("All lists cleared");
+        SceneManager.sceneUnloaded -= (s) => ClearLists();
     }
     public void generate(int first,int second,int third)
     {

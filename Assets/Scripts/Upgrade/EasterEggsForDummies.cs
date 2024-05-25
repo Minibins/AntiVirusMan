@@ -3,20 +3,24 @@ using DustyStudios.MathAVM;
 using DustyStudios.TextAVM;
 using System.Collections;
 using System.Linq;
+using Unity.VisualScripting;
+
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 using static UnityEngine.Rendering.DebugUI;
 
 public class EasterEggsForDummies : Upgrade
 {
-    public static bool isLookingForReferences =true;
+    public static bool isLookingForReferences = false;
     [SerializeField] GameObject glass, glassUI;
     private static SpriteRenderer glassRenderer;
     private static Image glassRendererUI;
     public static Text hintText, hintText2;
     public static Transform Glass;
     public static RectTransform GlassUI;
+    private static PointEffector2D GlassCollider;
     static Color glassColor
     {
         set
@@ -25,6 +29,7 @@ public class EasterEggsForDummies : Upgrade
             glassRenderer.color = value;
             hintText.color = value;
             hintText2.color = value;
+            GlassCollider.forceMagnitude = value.a * 0.7f;
         }
     }
     private void Awake()
@@ -35,6 +40,13 @@ public class EasterEggsForDummies : Upgrade
         glassRendererUI = glassUI.GetComponent<Image>();
         hintText = Glass.GetComponentInChildren<Text>();
         hintText2 = GlassUI.GetComponentInChildren<Text>();
+        GlassCollider = Glass.GetComponentInChildren<PointEffector2D>();
+        SceneManager.sceneUnloaded += (s) => ClearFoundRefs();
+    }
+    private void ClearFoundRefs()
+    {
+        ReferenceItem.foundReferenceNames.Clear();
+        SceneManager.sceneUnloaded -= (s) => ClearFoundRefs();
     }
     public static void SetGlassPos(Vector2 value,bool UI)
     {
@@ -47,6 +59,7 @@ public class EasterEggsForDummies : Upgrade
         if(UI) GlassUI.position = value;
         else Glass.position = value;
     }
+    public void LookRefr() => isLookingForReferences = true;
     [DustyConsoleCommand("lookref","Use Easter Eggs For Dummies")]
     public static string LookRef()
     {

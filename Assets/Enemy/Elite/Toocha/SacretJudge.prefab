@@ -275,6 +275,7 @@ GameObject:
   - component: {fileID: 2260657415947418427}
   - component: {fileID: 1484696065160483319}
   - component: {fileID: 4994311143101305357}
+  - component: {fileID: 529021740064713695}
   m_Layer: 11
   m_Name: SacretJudge
   m_TagString: Enemy
@@ -457,6 +458,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8192
   _PC: {fileID: 0}
+  _move: {fileID: 0}
+  moveDirection: 0
   otklonenieOtklonenia: 3.25
   SkorostOtklonenia: 0.013
   Speed: -0.016
@@ -593,6 +596,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c1e48c61f5f1a504585185f50b09b321, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &529021740064713695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8912311358399435758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b1caa19a5a6a274b8d93693a87e8441, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1257158029828179247
