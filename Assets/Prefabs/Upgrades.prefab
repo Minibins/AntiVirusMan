@@ -107,6 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sprite: {fileID: -306294354, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
+  anotherSprite: {fileID: 0}
   ID: 20
   synergies: []
   Drone: {fileID: 8464362740318822757, guid: 84002fb7195b409499e11b42b87b9fea, type: 3}
@@ -186,6 +187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sprite: {fileID: 341770268, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
+  anotherSprite: {fileID: 0}
   ID: 8
   synergies: []
   followingTransform: {fileID: 0}
@@ -336,6 +338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sprite: {fileID: 1838513832, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
+  anotherSprite: {fileID: 0}
   ID: 30
   synergies: []
   splash: {fileID: 4799719366288079928, guid: bb17f9396d3255043868a16750c8b87a, type: 3}
@@ -389,6 +392,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sprite: {fileID: 3450184, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
+  anotherSprite: {fileID: 0}
   ID: 10
   synergies: []
   isEnabliyng: 1
@@ -554,6 +558,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sprite: {fileID: 173371272, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
+  anotherSprite: {fileID: 0}
   ID: 16
   synergies: []
 --- !u!1 &1133652814086429372
@@ -772,6 +777,7 @@ Transform:
   - {fileID: 9057964442977670197}
   - {fileID: 6261014299707232746}
   - {fileID: 7291220048345229393}
+  - {fileID: 5958496587591079270}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &620329478467053173
@@ -1869,6 +1875,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sprite: {fileID: 669190364, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
+  anotherSprite: {fileID: 0}
   ID: 12
   synergies: []
   isEnabliyng: 1
@@ -1949,6 +1956,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sprite: {fileID: -409435246, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
+  anotherSprite: {fileID: 11400000, guid: be8450396b0caa34faa359336a86fa48, type: 2}
   ID: 27
   synergies: []
   spawner: {fileID: 0}
@@ -2147,6 +2155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sprite: {fileID: 1268264028, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
+  anotherSprite: {fileID: 0}
   ID: 11
   synergies: []
   spawner: {fileID: 0}
@@ -2198,6 +2207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sprite: {fileID: 72891707, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
+  anotherSprite: {fileID: 0}
   ID: 25
   synergies: []
   spawner: {fileID: 0}
@@ -2298,6 +2308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sprite: {fileID: 1249703002, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
+  anotherSprite: {fileID: 0}
   ID: 15
   synergies: []
 --- !u!114 &7254464804395335799
@@ -2415,6 +2426,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sprite: {fileID: 1159548843, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
+  anotherSprite: {fileID: 0}
   ID: 18
   synergies: []
 --- !u!1 &3624872044278401041
@@ -2493,6 +2505,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sprite: {fileID: -638884355, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
+  anotherSprite: {fileID: 0}
   ID: 1
   synergies: []
 --- !u!1 &4480613117733265559
@@ -2558,6 +2571,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sprite: {fileID: -1459163127, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
+  anotherSprite: {fileID: 11400000, guid: 4ad2d299b88df11409fb4fb4c15bce11, type: 2}
   ID: 9
   synergies: []
   Portals:
@@ -2691,6 +2705,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sprite: {fileID: 150372231, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
+  anotherSprite: {fileID: 0}
   ID: 17
   synergies: []
 --- !u!114 &5423369724584722453
@@ -2706,6 +2721,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sprite: {fileID: 150372231, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
+  anotherSprite: {fileID: 0}
   ID: 17
   synergies: []
   animator: {fileID: 0}
@@ -2723,6 +2739,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sprite: {fileID: 150372231, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
+  anotherSprite: {fileID: 0}
   ID: 17
   synergies: []
   attack: {fileID: 0}
@@ -2949,6 +2966,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sprite: {fileID: -876271729, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
+  anotherSprite: {fileID: 0}
   ID: 29
   synergies: []
   isEnabliyng: 1
@@ -2966,6 +2984,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sprite: {fileID: -876271729, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
+  anotherSprite: {fileID: 0}
   ID: 29
   synergies: []
   isEnabliyng: 0
@@ -3130,6 +3149,7 @@ GameObject:
   - component: {fileID: 8626943955720814163}
   - component: {fileID: 8190621368561334825}
   - component: {fileID: 8141452513671290534}
+  - component: {fileID: 7284484620167660116}
   m_Layer: 0
   m_Name: Judje
   m_TagString: Untagged
@@ -3165,6 +3185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sprite: {fileID: -964694292, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
+  anotherSprite: {fileID: 0}
   ID: 22
   synergies: []
   isEnabliyng: 1
@@ -3182,12 +3203,60 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sprite: {fileID: -964694292, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
+  anotherSprite: {fileID: 0}
   ID: 22
   synergies: []
   spawner: {fileID: 0}
   enemyID: 0
   Enemy: {fileID: 8912311358399435758, guid: ab1182728795cc24f8829ea4e7b168f8, type: 3}
   EliteSpawnChance: 7
+--- !u!114 &7284484620167660116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6108180417966080131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f55fcc3768689a4f9cf863b8c11c618, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LocalizedAssetReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:1cc52e6191f7233409f27d914bae0b7a
+    m_TableEntryReference:
+      m_KeyId: 774353280745472
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+  m_UpdateAsset:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8141452513671290534}
+        m_TargetAssemblyTypeName: Upgrade, Assembly-CSharp
+        m_MethodName: set_sprite
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8190621368561334825}
+        m_TargetAssemblyTypeName: Upgrade, Assembly-CSharp
+        m_MethodName: set_sprite
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6322778316307042614
 GameObject:
   m_ObjectHideFlags: 0
@@ -3234,6 +3303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sprite: {fileID: 1276338102, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
+  anotherSprite: {fileID: 11400000, guid: 849d3b4c09c15e54ebb4236213953b12, type: 2}
   ID: 2
   synergies: []
 --- !u!1 &6425855745368957359
@@ -3246,6 +3316,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2498985621460736812}
   - component: {fileID: 660374256818079152}
+  - component: {fileID: 1524985487681757746}
+  - component: {fileID: 8082767141814160599}
   m_Layer: 7
   m_Name: Synergy
   m_TagString: Untagged
@@ -3283,8 +3355,73 @@ MonoBehaviour:
   InitiatorID: 26
   SynergentID: 24
   behaviours:
-  - {fileID: 2748724296149147832}
+  - {fileID: 8082767141814160599}
   timeForEnable: 2
+--- !u!61 &1524985487681757746
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6425855745368957359}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 262144
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 1
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.32, y: 0.32}
+    newSize: {x: 0.32, y: 0.32}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 6.84, y: 7.37}
+  m_EdgeRadius: 0
+--- !u!250 &8082767141814160599
+PointEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6425855745368957359}
+  m_Enabled: 0
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceMagnitude: -0.6
+  m_ForceVariation: 0
+  m_DistanceScale: 1
+  m_ForceSource: 0
+  m_ForceTarget: 0
+  m_ForceMode: 2
+  m_Drag: 0
+  m_AngularDrag: 0
 --- !u!1 &6467717014090347616
 GameObject:
   m_ObjectHideFlags: 0
@@ -3330,6 +3467,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sprite: {fileID: 272556105, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
+  anotherSprite: {fileID: 11400000, guid: 3d13d9b0452e2cf4fb6826572847dabc, type: 2}
   ID: 26
   synergies:
   - {fileID: 7475872783266971130}
@@ -3375,8 +3513,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4467924895626730485}
   - component: {fileID: 686492070518552306}
-  - component: {fileID: 703291597500819005}
-  - component: {fileID: 2748724296149147832}
   - component: {fileID: 330048251058680771}
   - component: {fileID: 3913107560684790153}
   - component: {fileID: 3080106428048300933}
@@ -3458,71 +3594,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &703291597500819005
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7046675449512287729}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 262144
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 1
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
-    newSize: {x: 0.32, y: 0.32}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 6.84, y: 7.37}
-  m_EdgeRadius: 0
---- !u!250 &2748724296149147832
-PointEffector2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7046675449512287729}
-  m_Enabled: 0
-  m_UseColliderMask: 1
-  m_ColliderMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceMagnitude: -0.6
-  m_ForceVariation: 0
-  m_DistanceScale: 1
-  m_ForceSource: 0
-  m_ForceTarget: 0
-  m_ForceMode: 2
-  m_Drag: 0
-  m_AngularDrag: 0
 --- !u!114 &330048251058680771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3536,6 +3607,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sprite: {fileID: -1286088328, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
+  anotherSprite: {fileID: 0}
   ID: 24
   synergies: []
 --- !u!50 &3913107560684790153
@@ -3889,6 +3961,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sprite: {fileID: -96330901, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
+  anotherSprite: {fileID: 0}
   ID: 19
   synergies: []
 --- !u!1 &7746183455852175760
@@ -4021,6 +4094,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sprite: {fileID: -676039635, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
+  anotherSprite: {fileID: 0}
   ID: 14
   synergies: []
 --- !u!1 &7991852388845702286
@@ -4099,6 +4173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sprite: {fileID: 1509958527, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
+  anotherSprite: {fileID: 0}
   ID: 13
   synergies: []
 --- !u!1 &8150191453650039934
@@ -4204,6 +4279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sprite: {fileID: 416223973, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
+  anotherSprite: {fileID: 11400000, guid: 01e12b7db465432478f6c5be53618be4, type: 2}
   ID: 28
   synergies: []
 --- !u!114 &4566182968527663514
@@ -4219,6 +4295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sprite: {fileID: 416223973, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
+  anotherSprite: {fileID: 11400000, guid: 01e12b7db465432478f6c5be53618be4, type: 2}
   ID: 28
   synergies: []
   spawner: {fileID: 0}
@@ -4452,6 +4529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sprite: {fileID: 973768193, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
+  anotherSprite: {fileID: 0}
   ID: 0
   synergies: []
   Bullet: {fileID: 4926493693542066365, guid: 6492d2e8454b3af4585697f398ef20e0, type: 3}
@@ -4586,6 +4664,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sprite: {fileID: -1495834921, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
+  anotherSprite: {fileID: 11400000, guid: 9576213ba673bd04c831ef04a066d321, type: 2}
   ID: 4
   synergies: []
   isEnabliyng: 1
@@ -4601,6 +4680,7 @@ GameObject:
   - component: {fileID: 3319577058415892856}
   - component: {fileID: 1731468842012570497}
   - component: {fileID: 4251908938492702775}
+  - component: {fileID: 6836726392697673528}
   m_Layer: 0
   m_Name: BulletUpgrade
   m_TagString: Untagged
@@ -4636,6 +4716,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sprite: {fileID: -2118654598, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
+  anotherSprite: {fileID: 0}
   ID: 5
   synergies: []
   animator: {fileID: 0}
@@ -4653,9 +4734,59 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sprite: {fileID: -2118654598, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
+  anotherSprite: {fileID: 0}
   ID: 5
   synergies: []
   abstractAttack: {fileID: 0}
+--- !u!114 &6836726392697673528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8485944375419687968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f55fcc3768689a4f9cf863b8c11c618, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LocalizedAssetReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:1cc52e6191f7233409f27d914bae0b7a
+    m_TableEntryReference:
+      m_KeyId: 773956675747840
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+  m_UpdateAsset:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1731468842012570497}
+        m_TargetAssemblyTypeName: Upgrade, Assembly-CSharp
+        m_MethodName: set_sprite
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 963634458, guid: a477818d78d95364ba9dd84bb3feeea1,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4251908938492702775}
+        m_TargetAssemblyTypeName: Upgrade, Assembly-CSharp
+        m_MethodName: set_sprite
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 963634458, guid: a477818d78d95364ba9dd84bb3feeea1,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8654598466448562237
 GameObject:
   m_ObjectHideFlags: 0
@@ -4723,6 +4854,56 @@ MonoBehaviour:
   parallaxStrenght: 1
   disableVerticalParallax: 0
   IsSkyComponent: 0
+--- !u!1 &8740297997503045521
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5958496587591079270}
+  - component: {fileID: 1542266885868709925}
+  m_Layer: 0
+  m_Name: EasterEggsForDummies
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5958496587591079270
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8740297997503045521}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2796017653573438044}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1542266885868709925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8740297997503045521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b295d35eed30fd4fb4e5c88387e2ec9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sprite: {fileID: -1496262968, guid: 653f716b46b2f9d408714b5770e9e22d, type: 3}
+  anotherSprite: {fileID: 0}
+  ID: 31
+  synergies: []
+  glass: {fileID: 0}
+  glassUI: {fileID: 0}
 --- !u!1 &8847139602671672278
 GameObject:
   m_ObjectHideFlags: 0
@@ -4941,6 +5122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sprite: {fileID: 1537371839, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
+  anotherSprite: {fileID: 11400000, guid: 082a5a397c778ad4283c5f6448ce961b, type: 2}
   ID: 7
   synergies: []
   firstAidKit: {fileID: 8378295714524997324, guid: 8b876b08f80deaa49a9b079e63159857,

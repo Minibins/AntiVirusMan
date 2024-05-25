@@ -1464,85 +1464,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a36125bf7384c7f4baf215f2463bc923, type: 2}
   color: 0
   seed: 16
---- !u!1 &80847337 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8485944375419687968, guid: 856d8bdf4e9002f418c0530690235da9,
-    type: 3}
-  m_PrefabInstance: {fileID: 280865273492685901}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &80847338 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4251908938492702775, guid: 856d8bdf4e9002f418c0530690235da9,
-    type: 3}
-  m_PrefabInstance: {fileID: 280865273492685901}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 80847337}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcca7ee1c31b4394387f358de4b8c6a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &80847339 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1731468842012570497, guid: 856d8bdf4e9002f418c0530690235da9,
-    type: 3}
-  m_PrefabInstance: {fileID: 280865273492685901}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 80847337}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c34410d1f52a5a4f9eb7b2e792c9ff2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &80847341
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 80847337}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f55fcc3768689a4f9cf863b8c11c618, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_LocalizedAssetReference:
-    m_TableReference:
-      m_TableCollectionName: GUID:1cc52e6191f7233409f27d914bae0b7a
-    m_TableEntryReference:
-      m_KeyId: 773956675747840
-      m_Key: 
-    m_FallbackState: 0
-    m_WaitForCompletion: 0
-  m_UpdateAsset:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 80847339}
-        m_TargetAssemblyTypeName: Upgrade, Assembly-CSharp
-        m_MethodName: set_sprite
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 963634458, guid: a477818d78d95364ba9dd84bb3feeea1,
-            type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 80847338}
-        m_TargetAssemblyTypeName: Upgrade, Assembly-CSharp
-        m_MethodName: set_sprite
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 963634458, guid: a477818d78d95364ba9dd84bb3feeea1,
-            type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &104540325
 GameObject:
   m_ObjectHideFlags: 0
@@ -20860,56 +20781,6 @@ MonoBehaviour:
   nextPoint:
   - {fileID: 1943639070}
   - {fileID: 1899678027}
---- !u!1 &1248968347
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1248968348}
-  - component: {fileID: 1248968349}
-  m_Layer: 0
-  m_Name: EasterEggsForDummies
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1248968348
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1248968347}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1401901011}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1248968349
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1248968347}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b295d35eed30fd4fb4e5c88387e2ec9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Sprite: {fileID: -1496262968, guid: 653f716b46b2f9d408714b5770e9e22d, type: 3}
-  anotherSprite: {fileID: 0}
-  ID: 31
-  synergies: []
-  glass: {fileID: 1076867755}
-  glassUI: {fileID: 305171911}
 --- !u!4 &1287163082 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6161445882460628827, guid: 2441870b3d9f2e2478d91b05988c52a7,
@@ -21452,12 +21323,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!4 &1401901011 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2796017653573438044, guid: 856d8bdf4e9002f418c0530690235da9,
-    type: 3}
-  m_PrefabInstance: {fileID: 280865273492685901}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1411383877
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27925,83 +27790,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1899637231}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2079546699 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6108180417966080131, guid: 856d8bdf4e9002f418c0530690235da9,
-    type: 3}
-  m_PrefabInstance: {fileID: 280865273492685901}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2079546700 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8141452513671290534, guid: 856d8bdf4e9002f418c0530690235da9,
-    type: 3}
-  m_PrefabInstance: {fileID: 280865273492685901}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2079546699}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9521ffcf35d1dd746b3403101130c212, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2079546701 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8190621368561334825, guid: 856d8bdf4e9002f418c0530690235da9,
-    type: 3}
-  m_PrefabInstance: {fileID: 280865273492685901}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2079546699}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27848f4d10d695f4bb761944081279b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2079546703
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2079546699}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f55fcc3768689a4f9cf863b8c11c618, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_LocalizedAssetReference:
-    m_TableReference:
-      m_TableCollectionName: GUID:1cc52e6191f7233409f27d914bae0b7a
-    m_TableEntryReference:
-      m_KeyId: 774353280745472
-      m_Key: 
-    m_FallbackState: 0
-    m_WaitForCompletion: 0
-  m_UpdateAsset:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2079546700}
-        m_TargetAssemblyTypeName: Upgrade, Assembly-CSharp
-        m_MethodName: set_sprite
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2079546701}
-        m_TargetAssemblyTypeName: Upgrade, Assembly-CSharp
-        m_MethodName: set_sprite
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1001 &14327596968153252
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28173,12 +27961,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Upgrades
       objectReference: {fileID: 0}
-    - target: {fileID: 1463518106836804987, guid: 856d8bdf4e9002f418c0530690235da9,
+    - target: {fileID: 1542266885868709925, guid: 856d8bdf4e9002f418c0530690235da9,
         type: 3}
-      propertyPath: anotherSprite
+      propertyPath: glass
       value: 
-      objectReference: {fileID: 11400000, guid: 849d3b4c09c15e54ebb4236213953b12,
-        type: 2}
+      objectReference: {fileID: 1076867755}
+    - target: {fileID: 1542266885868709925, guid: 856d8bdf4e9002f418c0530690235da9,
+        type: 3}
+      propertyPath: glassUI
+      value: 
+      objectReference: {fileID: 305171911}
     - target: {fileID: 1731468842012570497, guid: 856d8bdf4e9002f418c0530690235da9,
         type: 3}
       propertyPath: animator
@@ -28326,20 +28118,8 @@ PrefabInstance:
       objectReference: {fileID: 558584587}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 2796017653573438044, guid: 856d8bdf4e9002f418c0530690235da9,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1248968348}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8485944375419687968, guid: 856d8bdf4e9002f418c0530690235da9,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 80847341}
-    - targetCorrespondingSourceObject: {fileID: 6108180417966080131, guid: 856d8bdf4e9002f418c0530690235da9,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2079546703}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 856d8bdf4e9002f418c0530690235da9, type: 3}
 --- !u!1001 &2313873072146739146
 PrefabInstance:
@@ -29255,6 +29035,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 429989184, guid: ec94f27c1555e174ebada4b736dde08b, type: 3}
+      propertyPath: anotherSprite
+      value: 
+      objectReference: {fileID: 11400000, guid: a41da74c691525f4f87b262383418b15,
+        type: 2}
     - target: {fileID: 193935507143263751, guid: ec94f27c1555e174ebada4b736dde08b,
         type: 3}
       propertyPath: _health

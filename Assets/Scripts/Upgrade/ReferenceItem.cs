@@ -42,8 +42,9 @@ public class ReferenceItem : MonoBehaviour
         EasterEggsForDummies.SetGlassPos(sprite == null ? Input.mousePosition : (Vector3)pos,sprite == null);
         CoroutineRunner.instance.StartCoroutine(EasterEggsForDummies.MoveGlassToPos(sprite == null ? GetCenter() : Camera.main.WorldToScreenPoint(GetCenter()),1.2f,false,sprite == null));
         const string HereIsReference = "Here is reference to a ";
-        StartCoroutine(textTyper((HereIsReference + referenceName).ToString()));
+        CoroutineRunner.instance.StartCoroutine(textTyper((HereIsReference + referenceName).ToString()));
         GameObject.FindObjectOfType<PlayerAttack>().Damage.additions.Add(0.5f);
+        gameObject.SetActive(false);
         IEnumerator textTyper(string text)
         {
             EasterEggsForDummies.hintText.text = HereIsReference[0].ToString();

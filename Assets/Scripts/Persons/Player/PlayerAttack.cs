@@ -58,7 +58,13 @@ public class PlayerAttack : MonoBehaviour
 
         for (int i = (int) Ammo; i < _maxAmmo && i < AmmoCell.Length; i++)
         {
-            AmmoCell[i].Disable();
+            try
+            {
+                AmmoCell[i].Disable();
+            }
+            catch {
+                print(i);
+            }
         }
     }
 

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Cooler : TurretLikeUpgrade
@@ -7,7 +5,7 @@ public class Cooler : TurretLikeUpgrade
     PointEffector2D effector;
     void Awake()
     {
-        effector = GetComponent<PointEffector2D>();
+        effector = GetComponentInChildren<PointEffector2D>();
     }
     public override void OnDrag()
     {

@@ -8,7 +8,7 @@ public class BookaAttack : JoystickDependendAttack
     {
         GameObject weapon = base.attack();
         weapon.GetComponent<Rigidbody2D>().velocity = joystickDirection * Force;
-        playerAttack.Animator.Play("ThrowThing");
+        playerAttack.Animator.SetBool("Attack", true);
         return weapon;
     }
 }

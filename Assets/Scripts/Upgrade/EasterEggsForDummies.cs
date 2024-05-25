@@ -6,6 +6,8 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
+using static UnityEngine.Rendering.DebugUI;
+
 public class EasterEggsForDummies : Upgrade
 {
     public static bool isLookingForReferences =true;
@@ -23,7 +25,6 @@ public class EasterEggsForDummies : Upgrade
             glassRenderer.color = value;
             hintText.color = value;
             hintText2.color = value;
-            if(value.a == 0f) GlassUI.position = new Vector3(999,999);
         }
     }
     private void Awake()
@@ -85,14 +86,14 @@ public class EasterEggsForDummies : Upgrade
     {
         if(!UI) pos = Camera.main.ScreenToWorldPoint(pos);
         glassColor = Color.white;
-        EasterEggsForDummies.isLookingForReferences = false;
         Vector3 vector = Vector3.zero;
         pos.z = 0;
         if(isChecksNextFrame)
         {
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForFixedUpdate();
             if(isGlassMoves) yield break;
         }
+        isLookingForReferences = false;
         isGlassMoves = true;
         for(float i = time; i > 0; i -= Time.deltaTime/Time.timeScale)
         {
@@ -101,10 +102,11 @@ public class EasterEggsForDummies : Upgrade
         }
         isGlassMoves=false;
         yield return new WaitForSecondsRealtime(1.7f);
-        while(!isGlassMoves&&glassRenderer.color.a!=0)
+        while(!isGlassMoves&&glassRenderer.color.a>0)
         {
             glassColor = new(glassRenderer.color.r,glassRenderer.color.g,glassRenderer.color.b,glassRenderer.color.a-Time.deltaTime / Time.timeScale * 0.8f);
             yield return new WaitForEndOfFrame();
         }
+        GlassUI.position = new Vector3(-999,-999);
     }
 }
