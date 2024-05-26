@@ -24,7 +24,7 @@ public class LanguageSetting : MonoBehaviour
             LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[language];
             }
             catch {
-                print(language);
+                print("Your language ID is incorrect:" + language);
                 PlayerPrefs.SetInt(Key,0);
             }
             PlayerPrefs.Save();
