@@ -17,9 +17,17 @@ public class LanguageSetting : MonoBehaviour
         IEnumerator enumerator()
         {
             yield return LocalizationSettings.InitializationOperation;
-            int language = (PlayerPrefs.GetInt(Key)+1)%3;
-            LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[language];
+            int language = (PlayerPrefs.GetInt(Key)+1)%LocalizationSettings.AvailableLocales.Locales.Count;
             PlayerPrefs.SetInt(Key,language);
+            try
+            {
+            LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[language];
+            }
+            catch {
+                print(language);
+                PlayerPrefs.SetInt(Key,0);
+            }
+            PlayerPrefs.Save();
         }
     }
 }

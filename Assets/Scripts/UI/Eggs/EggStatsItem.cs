@@ -4,26 +4,30 @@ using UnityEngine.UI;
 
 public class EggStatsItem : MonoBehaviour
 {
-    [SerializeField] private string _key;
+    [SerializeField] private int _key;
     public int _count;
     protected Image _itemSprite;
-    
+
     public void Start()
     {
         UpdateStats();
     }
-
     public void UpdateStats()
     {
-        _count = PlayerPrefs.GetInt(_key, 0); 
+        if(Save.EggStates.TryGetValue(_key,out _count));
+        else
+        {
+            _count = 0;
+            Save.EggStates[_key] = _count;
+            Save.SaveField();
+        }
         SetInfromation();
     }
-    
     public virtual void SetInfromation()
     {
         _itemSprite = transform.GetChild(0).gameObject.GetComponent<Image>();
         _itemSprite.color = _count > 0 ? Color.white : Color.black;
-        
+
         transform.GetChild(1).gameObject.GetComponent<Text>().text = _count.ToString();
     }
 }

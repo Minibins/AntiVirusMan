@@ -2,15 +2,17 @@ using UnityEngine;
 
 public class Preview : MonoBehaviour
 {
+    static bool watchedIntro = false;
     [SerializeField] private GameObject MainMenu;
 
     private void Awake()
     {
-        MainMenu.SetActive(false);
+        MainMenu.SetActive(watchedIntro);
     }
 
-    private void AfterDisable()
+    public void AfterDisable()
     {
+        watchedIntro = true;
         MainMenu.SetActive(true);
         gameObject.SetActive(false);
     }

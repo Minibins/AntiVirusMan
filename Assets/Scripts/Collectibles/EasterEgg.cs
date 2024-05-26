@@ -1,29 +1,30 @@
 using DustyStudios;
-
-using System;
 using UnityEngine;
-
 public class EasterEgg : Collectible
 {
     [SerializeField] private int ID;
     private int i;
     public static bool isEaster = false;
     protected Color color =>new Color(1f,1f,1f,i <= 0 ? 1f : 0.5f);
-
     private void Start()
     {
         gameObject.SetActive(isEaster);
-        i = PlayerPrefs.GetInt("Egg2024inLocation_" + ID, 0);
-        foreach (var renderer in GetComponentsInChildren<SpriteRenderer>())
+        if(Save.EggStates.ContainsKey(ID))
+            i = Save.EggStates[ID];
+        else
+        {
+            i = 0;
+            Save.EggStates[ID] = i;
+        }
+
+        foreach(var renderer in GetComponentsInChildren<SpriteRenderer>())
             renderer.color = color;
     }
-
     public override void Pick(GameObject picker)
     {
         base.Pick(picker);
-        PlayerPrefs.SetInt("Egg2024inLocation_" + ID, i += 1);
+        Save.EggStates[ID] = ++i;
     }
-
     public void DestoryEgg()
     {
         Destroy(gameObject);
