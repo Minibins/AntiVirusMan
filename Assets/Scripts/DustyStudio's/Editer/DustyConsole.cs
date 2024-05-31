@@ -159,24 +159,34 @@ namespace DustyStudios
             return result;
         }
 
-        [DustyConsoleCommand("help", "Show all possible commands")]
+        [DustyConsoleCommand("help","Show all possible commands")]
         private static string Help()
         {
             string commands = "";
             MethodInfo[] methods = GetCommands();
-            for (int i = 0; i < Math.Min(methods.Length, numberOfOutputInScreen);)
+            for(int i = 0; i < Math.Min(methods.Length,numberOfOutputInScreen);)
             {
-                DustyConsoleCommandAttribute commandAttribute =
-                    (DustyConsoleCommandAttribute) Attribute.GetCustomAttribute(methods[i++],
-                        typeof(DustyConsoleCommandAttribute));
-                string desc = "- " + commandAttribute.Keyword + " - " + commandAttribute.Description + "\n";
-                if (commands.Contains(desc)) numberOfOutputInScreen++;
+                var method = methods[i++];
+                var commandAttribute = (DustyConsoleCommandAttribute) Attribute.GetCustomAttribute(method, typeof(DustyConsoleCommandAttribute));
+                string argumentTypes = string.Join(", ", commandAttribute.Arguments.Select(arg => TypeNames.TryGetValue(arg, out var name) ? name : arg.Name));
+                string desc = $"- {commandAttribute.Keyword} {argumentTypes} - {commandAttribute.Description}\n";
+                if(commands.Contains(desc)) numberOfOutputInScreen++;
                 else commands += desc;
             }
-
             commands += "Execute help [Page], to get next pages";
             return commands;
         }
+        private static readonly Dictionary<Type, string> TypeNames = new Dictionary<Type, string>
+        {
+        { typeof(short), "int" },
+        { typeof(int), "int" },
+        { typeof(long), "int" },
+        { typeof(float), "decimal" },
+        { typeof(double), "decimal" },
+        { typeof(bool), "boolean" },
+        { typeof(string), "word" },
+        };
+
 
         [DustyConsoleCommand("help", "Show all possible commands")]
         private static string Help(int page)
@@ -190,7 +200,8 @@ namespace DustyStudios
                 DustyConsoleCommandAttribute commandAttribute =
                     (DustyConsoleCommandAttribute) Attribute.GetCustomAttribute(methods[i++],
                         typeof(DustyConsoleCommandAttribute));
-                string desc = "- " + commandAttribute.Keyword + " - " + commandAttribute.Description + "\n";
+                string argumentTypes = string.Join(", ", commandAttribute.Arguments.Select(arg => TypeNames.TryGetValue(arg, out var name) ? name : arg.Name));
+                string desc = $"- {commandAttribute.Keyword} {argumentTypes} - {commandAttribute.Description}\n";
                 if (commands.Contains(desc)) numberOfOutputInScreen++;
                 else commands += desc;
             }
