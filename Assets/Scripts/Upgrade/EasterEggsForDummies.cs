@@ -34,6 +34,7 @@ public class EasterEggsForDummies : Upgrade
     }
     private void Awake()
     {
+        _weight = (uint)PlayerPrefs.GetInt("beatenEasterEvent");
         Glass = glass.transform;
         GlassUI = glassUI.GetComponent<RectTransform>();
         glassRenderer = Glass.GetComponentInChildren<SpriteRenderer>();

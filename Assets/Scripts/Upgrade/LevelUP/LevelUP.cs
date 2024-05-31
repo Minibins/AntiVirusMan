@@ -11,9 +11,17 @@ using UnityEngine.SceneManagement;
 public class LevelUP : MonoBehaviour
 {
     static public LevelUP instance;
-    public static void Generate(int first,int second,int third)
+    [DustyConsoleCommand("panel","Generate upgrade selection panel",typeof(int),typeof(int),typeof(int))]
+    public static string Generate(int first,int second,int third)
     {
         instance.generate(first, second, third);
+        return "Choose what you like best";
+    }
+    [DustyConsoleCommand("panel","Generate upgrade selection panel")]
+    public static string Generate()
+    {
+        instance.NewUpgrade();
+        return "Choose what you like best";
     }
     private GameObject firstButton => UiElementsList.instance.Panels.levelUpPanel.Button1;
     private GameObject secondButton => UiElementsList.instance.Panels.levelUpPanel.Button2;
@@ -21,6 +29,7 @@ public class LevelUP : MonoBehaviour
     [SerializeField] private GameObject BuyButton;
     [SerializeField] private Image UpgradeIndicator, FixedProgressionImage;
     [SerializeField] private Sprite none, unselectedFixedProgressionLine, selectedFixedProgressionLine;
+    public Sprite None { set => none = value; }
     public static List<Upgrade> Items = new List<Upgrade>();
     public static List<Upgrade> pickedItems = new List<Upgrade>();
 
@@ -30,17 +39,6 @@ public class LevelUP : MonoBehaviour
     private void Awake()
     {
         instance = this;
-    }
-    public virtual void NewUpgrade()
-    {
-        
-        IEnumerable<int> availableIndexes = Enumerable.Range(0, Items.Count).Where(i => !Items[i].IsTaken).OrderBy(_ => UnityEngine.Random.value).Take(3);
-
-        List<int> indexes = availableIndexes.ToList();
-        generate(
-            indexes.Count >= 1 ? indexes[0] : -1,
-            indexes.Count >= 2 ? indexes[1] : -1,
-            indexes.Count >= 3 ? indexes[2] : -1);
     }
     private void OnEnable()
     {
@@ -56,14 +54,47 @@ public class LevelUP : MonoBehaviour
         print("All lists cleared");
         SceneManager.sceneUnloaded -= (s) => ClearLists();
     }
+    public virtual void NewUpgrade()
+    {
+        var weightedIndexes = new List<(int index, uint weight)>();
+        for(int i = 0; i < Items.Count; i++)
+            weightedIndexes.Add((i, Items[i].Weight));
+        List<int> indexes = new List<int>();
+        for(int i = 0; i < 3; i++)
+        {
+            if(weightedIndexes.Count == 0)
+                break;
+            long totalWeight = weightedIndexes.Sum(wi => wi.weight);
+            foreach(var weightedIndex in weightedIndexes)
+            {
+                print($"ID {weightedIndex.index} weight {weightedIndex.weight}");
+            }
+            uint randomValue = (uint)UnityEngine.Random.Range(0, totalWeight);
+            
+
+            uint cumulativeWeight = 0;
+            for(int j = 0; j < weightedIndexes.Count; j++)
+            {
+                cumulativeWeight += weightedIndexes[j].weight;
+                if(randomValue < cumulativeWeight)
+                {
+                    indexes.Add(weightedIndexes[j].index);
+                    weightedIndexes.RemoveAt(j);
+                    break;
+                }
+            }
+        }
+
+        generate(
+            indexes.Count >= 1 ? indexes[0] : -1,
+            indexes.Count >= 2 ? indexes[1] : -1,
+            indexes.Count >= 3 ? indexes[2] : -1);
+    }
+
     public void generate(int first,int second,int third)
     {
 #if UNITY_STANDALONE_WIN
-
- 
-
 #endif
-        
         UiElementsList.instance.Panels.levelUpPanel.Panel.SetActive(true);
         Time.timeScale = 0.1f;
         generateButton(first,firstButton);
@@ -79,6 +110,7 @@ public class LevelUP : MonoBehaviour
                     button.GetComponent<CustomRendererSpriteChanger>().SetSpriteSo(upgrade.anotherSprite);
                 else button.GetComponent<CustomRendererSpriteChanger>().SetSprite(upgrade.sprite);
             }
+            else button.GetComponent<CustomRendererSpriteChanger>().SetSprite(none);
             button.GetComponent<UpgradeButton>().id = id;
             if(id == Items.Count - 1)
                 Instantiate(BuyButton,button.transform);

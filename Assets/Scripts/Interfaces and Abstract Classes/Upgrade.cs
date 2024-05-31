@@ -7,6 +7,8 @@ using UnityEngine;
 [Serializable]
 public class Upgrade : MonoBehaviour
 {
+    [SerializeField] protected uint _weight = 1;
+    [SerializeField] public uint Weight => (uint)(isTaken ? 0 : _weight);
     private bool isTaken = false;
     [SerializeField] private Sprite Sprite;
     [SerializeField] public SpriteContainingSO anotherSprite;

@@ -28,20 +28,6 @@ public class MainMenu : MonoBehaviour
         }
 
         Save.LastSessionVersion = CurrentVersion;
-        if(PlayerPrefs.GetInt("beatenEasterEvent") == 0)
-        {
-            int collectedEggsCount = 0;
-            foreach(var eggState in Save.EggStates.Values)
-            {
-                if(eggState > 0)
-                    collectedEggsCount++;
-            }
-            if(collectedEggsCount >= 12)
-            {
-                PlayerPrefs.SetInt("beatenEasterEvent",1);
-                PlayerPrefs.Save();
-            }
-        }
     }
 
     private void Update()

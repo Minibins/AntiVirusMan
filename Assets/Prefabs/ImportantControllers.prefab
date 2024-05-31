@@ -243,7 +243,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -340,7 +340,11 @@ MonoBehaviour:
   playlist:
   - {fileID: 8300000, guid: 72f1c44dab26b9b41ab0b6f0cd4bb656, type: 3}
   - {fileID: 8300000, guid: b6b792cb7aed2b7489348da31cd0e653, type: 3}
+  - {fileID: 8300000, guid: de0343bbdf9bde14aaff80e15c43a2ac, type: 3}
+  - {fileID: 8300000, guid: 63e3ec9c2314e7642a001ce53a9d9cba, type: 3}
+  - {fileID: 8300000, guid: 1e22b407ad576964bb15f5f7259c51fb, type: 3}
   - {fileID: 8300000, guid: 51cdcccc8adcca64d813c6c1d9e49de9, type: 3}
+  - {fileID: 8300000, guid: 424bd35a6850fe74a846b3ada0c101e0, type: 3}
 --- !u!1 &2336483485342255519
 GameObject:
   m_ObjectHideFlags: 0
@@ -482,6 +486,7 @@ GameObject:
   - component: {fileID: 7042996087817880134}
   - component: {fileID: 595837485899328781}
   - component: {fileID: 186370805703331650}
+  - component: {fileID: 2116545068305515931}
   m_Layer: 0
   m_Name: Level
   m_TagString: Untagged
@@ -540,6 +545,41 @@ MonoBehaviour:
     type: 3}
   selectedFixedProgressionLine: {fileID: -637135585, guid: 1df0e45a1e1783b4bac6578d311db4ef,
     type: 3}
+--- !u!114 &2116545068305515931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4768818262484460332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f55fcc3768689a4f9cf863b8c11c618, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LocalizedAssetReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:1cc52e6191f7233409f27d914bae0b7a
+    m_TableEntryReference:
+      m_KeyId: 774362524991488
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+  m_UpdateAsset:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 186370805703331650}
+        m_TargetAssemblyTypeName: LevelUP, Assembly-CSharp
+        m_MethodName: set_None
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5314689496535261749
 GameObject:
   m_ObjectHideFlags: 0
@@ -661,7 +701,7 @@ Transform:
   m_GameObject: {fileID: 7379714223443497250}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.38, y: -2.375, z: -10}
+  m_LocalPosition: {x: -1.026, y: -2.376, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -1039,7 +1079,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c57e9a82f02538a47a199091a3a8fdfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: []
   SE: {fileID: 0}
   HealthPanel: {fileID: 0}
   Buttons: {fileID: 0}

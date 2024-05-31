@@ -1,4 +1,6 @@
 using System;
+using System.Runtime.InteropServices;
+
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,7 +16,7 @@ public class EggStatsItem : MonoBehaviour
     }
     public void UpdateStats()
     {
-        if(Save.EggStates.TryGetValue(_key,out _count));
+        if(Save.EggStates.TryGetValue(_key,out _count)) print("Loaded egg: "+_key);
         else
         {
             _count = 0;
