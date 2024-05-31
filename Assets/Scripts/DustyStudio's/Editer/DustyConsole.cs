@@ -87,29 +87,14 @@ namespace DustyStudios
                 DustyConsoleCommandAttribute commandAttribute =
                     (DustyConsoleCommandAttribute) Attribute.GetCustomAttribute(method,
                         typeof(DustyConsoleCommandAttribute));
-
                 if (commandAttribute.Keyword == commandName)
                 {
                     ParameterInfo[] parameters = method.GetParameters();
-                    object[] resultArray = ConvertArray(arguments,method.GetParameters().Select(p => p.ParameterType).ToArray());
-                    Print(string.Join(" ",resultArray.Select(r=>r.ToString())));
                     if (parameters.Length == arguments.Length)
                     {
-                        bool validSignature = true;
-
-                        for (int i = 0; i < parameters.Length; i++)
-                        {
-                            if (parameters[i].ParameterType != resultArray[i].GetType())
-                            {
-                                validSignature = false;
-                                break;
-                            }
-                        }
-                        if (validSignature)
-                        {
-                            Print(method.Invoke(null, resultArray).ToString());
-                            return;
-                        }
+                        object[] resultArray = ConvertArray(arguments,method.GetParameters().Select(p => p.ParameterType).ToArray());
+                        Print(method.Invoke(null, resultArray).ToString());
+                        return;
                     }
                 }
             }
@@ -167,11 +152,18 @@ namespace DustyStudios
             object[] result = new object[input.Length];
             for (int i = 0; i < input.Length; i++)
             {
-                if(TypeConverters.ContainsKey(types[i])) result[i] = TypeConverters[types[i]](input[i]);
-                else
+                try
                 {
-                    Print("! Console no longer support that command, because it has argument of type:" + types[i].Name);
-                    result[i] = input;
+                    if(TypeConverters.ContainsKey(types[i])) result[i] = TypeConverters[types[i]](input[i]);
+                    else
+                    {
+                        Print("! Console no longer support that command, because it has argument of type:" + types[i].Name);
+                        result[i] = input;
+                    }
+                }
+                catch(Exception e)
+                {
+                    Print($"Your input ({input[i]}) just caused error: {e.Message}");
                 }
             }
             return result;
