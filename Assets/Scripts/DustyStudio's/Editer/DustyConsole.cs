@@ -1,8 +1,12 @@
+using DustyStudios.MathAVM;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
+using Unity.VisualScripting;
+
 using UnityEngine;
 
 namespace DustyStudios
@@ -77,9 +81,7 @@ namespace DustyStudios
 
         public static void ExecuteCommand(string commandName, string[] arguments)
         {
-            object[] resultArray = ConvertArray(arguments);
             MethodInfo[] methods = GetCommands();
-
             foreach (MethodInfo method in methods)
             {
                 DustyConsoleCommandAttribute commandAttribute =
@@ -89,6 +91,7 @@ namespace DustyStudios
                 if (commandAttribute.Keyword == commandName)
                 {
                     ParameterInfo[] parameters = method.GetParameters();
+                    object[] resultArray = ConvertArray(arguments,method.GetParameters().Select(p => p.ParameterType).ToArray());
 
                     if (parameters.Length == arguments.Length)
                     {
@@ -102,7 +105,6 @@ namespace DustyStudios
                                 break;
                             }
                         }
-
                         if (validSignature)
                         {
                             Print(method.Invoke(null, resultArray).ToString());
@@ -111,10 +113,8 @@ namespace DustyStudios
                     }
                 }
             }
-
-            Print("Invalid command or arguments.");
+            Print("Invalid command or arguments!");
         }
-
         private static MethodInfo[] GetCommands()
         {
             List<MethodInfo> commands = new List<MethodInfo>();
@@ -126,8 +126,7 @@ namespace DustyStudios
                 foreach (var method in thatTypeMethods)
                 {
                     DustyConsoleCommandAttribute commandAttribute =
-                        (DustyConsoleCommandAttribute) Attribute.GetCustomAttribute(method,
-                            typeof(DustyConsoleCommandAttribute));
+                        (DustyConsoleCommandAttribute) Attribute.GetCustomAttribute(method,typeof(DustyConsoleCommandAttribute));
                     if (commandAttribute != null)
                         commands.Add(method);
                 }
@@ -135,27 +134,21 @@ namespace DustyStudios
 
             return commands.ToArray();
         }
-
-        private static object[] ConvertArray(string[] input)
+        private static object[] ConvertArray(string[] input,Type[] types)
         {
-            object[] result = new object[input.Length];
+            const Dictionary<Type,Func<string,string>> TypeConverters = new Dictionary<Type,Func<string,string>>
+            {
+                { typeof(int), HandleInt }
+            };
 
+            object[] result = new object[input.Length];
             for (int i = 0; i < input.Length; i++)
             {
-                if (int.TryParse(input[i], out int intValue))
-                {
-                    result[i] = intValue;
-                }
-                else if (float.TryParse(input[i], out float floatValue))
-                {
-                    result[i] = floatValue;
-                }
-                else
-                {
-                    result[i] = input[i];
-                }
+                
+                if (int.TryParse(input[i], out int intValue)) result[i] = intValue;
+                else if (MathA.TryStringToNumber(input[i], out double floatValue)) result[i] = (float)floatValue;
+                else result[i] = input[i];
             }
-
             return result;
         }
 

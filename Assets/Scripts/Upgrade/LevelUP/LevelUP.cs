@@ -65,14 +65,7 @@ public class LevelUP : MonoBehaviour
             if(weightedIndexes.Count == 0)
                 break;
             long totalWeight = weightedIndexes.Sum(wi => wi.weight);
-            foreach(var weightedIndex in weightedIndexes)
-            {
-                print($"ID {weightedIndex.index} weight {weightedIndex.weight}");
-            }
-            uint randomValue = (uint)UnityEngine.Random.Range(0, totalWeight);
-            
-
-            uint cumulativeWeight = 0;
+            uint randomValue = (uint)UnityEngine.Random.Range(0, totalWeight),cumulativeWeight = 0;
             for(int j = 0; j < weightedIndexes.Count; j++)
             {
                 cumulativeWeight += weightedIndexes[j].weight;
@@ -106,8 +99,7 @@ public class LevelUP : MonoBehaviour
             if(id != -1)
             {
                 Upgrade upgrade = Items[id];
-                if(upgrade.anotherSprite != null)
-                    button.GetComponent<CustomRendererSpriteChanger>().SetSpriteSo(upgrade.anotherSprite);
+                if(upgrade.anotherSprite != null) button.GetComponent<CustomRendererSpriteChanger>().SetSpriteSo(upgrade.anotherSprite);
                 else button.GetComponent<CustomRendererSpriteChanger>().SetSprite(upgrade.sprite);
             }
             else button.GetComponent<CustomRendererSpriteChanger>().SetSprite(none);

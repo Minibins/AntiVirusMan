@@ -1,11 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography;
-
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.Windows;
 
 public class InstantiateWall : Upgrade
 {
@@ -22,10 +18,7 @@ public class InstantiateWall : Upgrade
 
     public void OnJump()
     {
-        if (IsTaken)
-        {
-            StartCoroutine(SpawnWall());
-        }
+        if (IsTaken) StartCoroutine(SpawnWall());
     }
     IEnumerator SpawnWall()
     {
@@ -41,18 +34,10 @@ public class InstantiateWall : Upgrade
         walls.Add(Instantiate(type,(Vector3)pos,Quaternion.identity));
         clearDestroyed();
         if(walls.Count > 8 && !LevelUP.Items[26].IsTaken)
-        {
             ClearWalls();
-        }
     }
-    RaycastHit2D Hit()
-    {
-        return Physics2D.Raycast(transform.position, Vector2.down* 99, 99, layerMask);
-    }
-    private static void clearDestroyed()
-    {
-        walls = walls.Where(v => v != null).ToList();
-    }
+    RaycastHit2D Hit() => Physics2D.Raycast(transform.position, Vector2.down* 99, 99, layerMask);
+    private static void clearDestroyed() => walls = walls.Where(v => v != null).ToList();
     public static void ClearWalls()
     {
         clearDestroyed();
