@@ -92,7 +92,7 @@ namespace DustyStudios
                 {
                     ParameterInfo[] parameters = method.GetParameters();
                     object[] resultArray = ConvertArray(arguments,method.GetParameters().Select(p => p.ParameterType).ToArray());
-
+                    Print(string.Join(" ",resultArray.Select(r=>r.ToString())));
                     if (parameters.Length == arguments.Length)
                     {
                         bool validSignature = true;
@@ -136,18 +136,43 @@ namespace DustyStudios
         }
         private static object[] ConvertArray(string[] input,Type[] types)
         {
-            const Dictionary<Type,Func<string,string>> TypeConverters = new Dictionary<Type,Func<string,string>>
+            if(input.Length != types.Length) Print($"Invalid number of arguments: your input has {input.Length} but should {types.Length}");
+            Dictionary<Type,Func<string,object>> TypeConverters = new Dictionary<Type,Func<string,object>>
             {
-                { typeof(int), HandleInt }
+                { typeof(int), HandleInt },
+                { typeof(float), HandleFloat },
+                { typeof(double), HandleDouble },
+                { typeof(string), HandleString },
             };
-
+            static object HandleInt(string s) => int.Parse(s);
+            static object HandleFloat(string s)
+            {
+                if(MathA.TryStringToNumber(s,out double floatValue)) return (float)floatValue;
+                else
+                {
+                    Print("! String to decimal conversion error! Command invokes with \"0\" argument");
+                    return 0f;
+                } 
+            }
+            static object HandleDouble(string s)
+            {
+                if(MathA.TryStringToNumber(s,out double doubleValue)) return doubleValue;
+                else
+                {
+                    Print("! String to decimal conversion error! Command invokes with \"0\" argument");
+                    return 0d;
+                } 
+            }
+            static object HandleString(string s) => s;
             object[] result = new object[input.Length];
             for (int i = 0; i < input.Length; i++)
             {
-                
-                if (int.TryParse(input[i], out int intValue)) result[i] = intValue;
-                else if (MathA.TryStringToNumber(input[i], out double floatValue)) result[i] = (float)floatValue;
-                else result[i] = input[i];
+                if(TypeConverters.ContainsKey(types[i])) result[i] = TypeConverters[types[i]](input[i]);
+                else
+                {
+                    Print("! Console no longer support that command, because it has argument of type:" + types[i].Name);
+                    result[i] = input;
+                }
             }
             return result;
         }
