@@ -15,7 +15,6 @@ public class PC : Follower
     public bool OnlyBehind;
     private static float carma;
     public static bool IsFollowing, LowChargeDamage;
-
     public static float Carma
     {
         get => carma;
@@ -25,7 +24,6 @@ public class PC : Follower
             GameObject.Find("PC").GetComponentInChildren<PC>().UpdateCarma();
         }
     }
-
     public Animator Animator
     {
         get => animator;
@@ -45,7 +43,6 @@ public class PC : Follower
             }
         }
     }
-
     private protected override void Start()
     {
         _player = GameObject.FindGameObjectWithTag("Player");
@@ -62,6 +59,7 @@ public class PC : Follower
         catch
         {
             UiElementsList.instance = FindObjectOfType<UiElementsList>();
+            UpdateCarma();
         }
 
         defaultPos = transform.parent.position;
@@ -89,7 +87,7 @@ public class PC : Follower
         {
             Following(
                 new Vector3(
-                    playerPosition.position.x + (Convert.ToInt16(_player.GetComponent<SpriteRenderer>().flipX) - 0.5f) *
+                    playerPosition.position.x + (_player.transform.localScale.x/-10) *
                     distanceFromPlayer,
                     pc.transform.position.y,
                     0)
@@ -105,17 +103,12 @@ public class PC : Follower
     {
         if (Mathf.Abs(playerPosition.position.x - transforme.position.x) > distanceFromPlayer / 2)
         {
-            transforme.position =
-                Vector2.MoveTowards(transforme.position, startPos, speed * Time.deltaTime);
+            transforme.position = Vector2.MoveTowards(transforme.position, startPos, speed * Time.deltaTime * (1+Convert.ToInt16(OnlyBehind)));
         }
         else if (OnlyBehind)
         {
-            transforme.position =
-                Vector2.MoveTowards(transforme.position, startPos, speed * Time.deltaTime * 2);
-            if (Vector2.Distance(transforme.position, startPos) < 0.1f)
-            {
-                OnlyBehind = false;
-            }
+            transforme.position = Vector2.MoveTowards(transforme.position, startPos, speed * Time.deltaTime * 2);
+            OnlyBehind = Vector2.Distance(transforme.position,startPos) > 0.1f;
         }
     }
 
@@ -155,9 +148,7 @@ public class PC : Follower
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Enemy")
-        {
             animator.SetTrigger("NoCalm");
-        }
     }
 
     public void EnemyKilled()
