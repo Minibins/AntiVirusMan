@@ -1,3 +1,4 @@
+using System;
 using DustyStudios;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -16,6 +17,14 @@ public class LoseGame : MonoBehaviour, ISingleton
         instance = this;
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            Lose();
+        }
+    }
+
     public void Lose()
     {
         if (SE != null)
@@ -26,7 +35,7 @@ public class LoseGame : MonoBehaviour, ISingleton
 
         var UI = UiElementsList.instance;
         var LosePanel = UI.Panels.LoseGame;
-        LosePanel.YouLiveText.text = Timer.min.ToString() + ":" + Timer.sec.ToString();
+        LosePanel.YouLiveText.GetComponent<TimeAnimation>().endTime = Timer.min.ToString() + ":" + Timer.sec.ToString();
         LosePanel.Panel.SetActive(true);
         UI.Counters.All.SetActive(false);
         UI.Buttons.All.SetActive(false);
