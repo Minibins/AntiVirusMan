@@ -32,12 +32,13 @@ public class TextAsImageGroup : MonoBehaviour
 
     List<RectTransform> Characters = new();
     void Update() => ArrangeChildren();
+    #if UNITY_EDITOR
     void OnValidate()
     {
         EditorApplication.delayCall += () => PrintText();
         ArrangeChildren();
     }
-
+#endif
     private void PrintText()
     {
         foreach(var t in Characters)

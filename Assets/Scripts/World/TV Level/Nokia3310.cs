@@ -1,11 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Nokia3310 : MonoBehaviour, IDamageble
 {
+    TouchScreenKeyboard keyboard;
     public void OnDamageGet(float Damage,IDamageble.DamageType type)
     {
-        TouchScreenKeyboard.Open("Hello World!",TouchScreenKeyboardType.NamePhonePad);
+        keyboard = TouchScreenKeyboard.Open("Hello World!",TouchScreenKeyboardType.PhonePad);
+    }
+    private void Update()
+    {
+        if(keyboard == null || keyboard.status != TouchScreenKeyboard.Status.Visible) return;
+        keyboard.text = "";
     }
 }
