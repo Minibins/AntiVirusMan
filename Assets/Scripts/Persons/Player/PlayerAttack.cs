@@ -13,12 +13,28 @@ public class PlayerAttack : MonoBehaviour
         TemporaryAttackSubstitute.Count > 0 ? TemporaryAttackSubstitute[0] : MainAttack;
 
     [SerializeField] public List<AbstractAttack> AdditionalAttacks;
-    [SerializeField] public Stat Damage;
+    [HideInInspector] public Stat Damage;
     [SerializeField] private int _maxAmmo;
-    [SerializeField] public float _timeReload;
+    private Stat _timeReload;
+    public Stat TimeReload
+    {
+        get => _timeReload;
+        set 
+        {
+            if(_timeReload == value) return;
+            if(_timeReload != null) _timeReload.OnValueChanged -= (o,n) => SetAmmoRechargingSpeed(n);
+            value.OnValueChanged += (o,n) => SetAmmoRechargingSpeed(n);
+            _timeReload = value;
+        }
+    }
+    public RechargingValue Ammo;
+    private void SetAmmoRechargingSpeed(float value)
+    {
+        Ammo.RechargeTime = value;
+    }
     private Rigidbody2D rb;
     private Animator _animator;
-
+    
     public Animator Animator
     {
         get => _animator;
@@ -35,7 +51,6 @@ public class PlayerAttack : MonoBehaviour
         TemporaryAttackSubstitute.Add(substitute);
     }
 
-    public RechargingValue Ammo;
 
     private void Awake()
     {

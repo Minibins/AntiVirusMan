@@ -28007,7 +28007,7 @@ TextureImporter:
         x: 2000
         y: 638
         width: 48
-        height: 32
+        height: 48
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -28028,7 +28028,7 @@ TextureImporter:
         x: 2048
         y: 638
         width: 48
-        height: 32
+        height: 48
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -28710,6 +28710,27 @@ TextureImporter:
       bones: []
       spriteID: 251a4ee6f5260e04baafa62ca8a1a6b9
       internalID: 1903555992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Nokia_Background
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 750
+        width: 160
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6090ae4a10dba1e4f85de1e4368b27b4
+      internalID: -1572827393
       vertices: []
       indices: 
       edges: []
@@ -29885,6 +29906,7 @@ TextureImporter:
       UI_MainMenu_Data: -614112816
       UI_MainMenu_Leave: 477315693
       UI_MainMenu_Play: -942403918
+      UI_Nokia_Background: -1572827393
       UI_Nokia_Button_Aura_NotPressed: -480139082
       UI_Nokia_Button_Aura_Pressed: -1415402294
       UI_Nokia_Button_Basket_NotPressed: -898763517

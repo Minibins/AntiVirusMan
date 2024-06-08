@@ -8,7 +8,7 @@ public class MoveBase : MonoBehaviour
 {
     [SerializeField] private bool _canJump;
     public float _speed = 1f;
-    private Stat _curentSpeed = new Stat(1);
+    public Stat _curentSpeed = new Stat(1);
     private Action _move;
     private Rigidbody2D _rigidbody;
 
@@ -57,7 +57,7 @@ public class MoveBase : MonoBehaviour
 
     protected virtual void Awake()
     {
-        _curentSpeed.baseValue = _speed;
+        _curentSpeed.BaseValue = _speed;
         transform = base.transform;
         defaultXscale = transform.localScale.x;
         _animator = GetComponent<Animator>();
