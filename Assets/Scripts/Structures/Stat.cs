@@ -1,22 +1,23 @@
 using System;
-using System.Collections.ObjectModel;
+using DustyStudios.SerCollections;
 using System.Linq;
-
+using UnityEditor;
+using UnityEngine;
 [Serializable]
 public class Stat
 {
     public delegate void OnValueChangedDelegate(float oldValue, float newValue);
     public event OnValueChangedDelegate OnValueChanged;
-    public ObservableCollection<float> summingMultiplers = new ObservableCollection<float>(new float[1]{1}),
+    public SerObservableCollection<float> summingMultiplers = new(new float[1]{1}),
         multiplingMultiplers = new(),
         additions = new();
-    private float baseValue = 1, lastValue = 1;
+    [SerializeField] private float baseValue = 1;
+    private float lastValue = 1;
     public Stat(float baseValue)
     {
         this.BaseValue = baseValue;
-        summingMultiplers.CollectionChanged += (s,e) => AnyCollectionChanged();
-        multiplingMultiplers.CollectionChanged += (s,e) => AnyCollectionChanged();
-        additions.CollectionChanged += (s,e)=>AnyCollectionChanged();
+        foreach(SerObservableCollection<float> collection in new[]{ summingMultiplers,multiplingMultiplers,additions})
+            collection.CollectionChanged += (s,e) => AnyCollectionChanged();
     }
     public void AnyCollectionChanged()
     {
@@ -26,18 +27,12 @@ public class Stat
     }
     public float multiplingMultiplersResult
     {
-        get
-        {
-            switch (multiplingMultiplers.Count)
+        get => multiplingMultiplers.Count switch
             {
-                case 0:
-                    return 1;
-                case 1:
-                    return multiplingMultiplers[0];
-                default:
-                    return multiplingMultiplers.Aggregate((x, y) => x * y);
-            }
-        }
+                0 => 1,
+                1 => multiplingMultiplers[0],
+                _ => multiplingMultiplers.Aggregate((x,y) => x * y)
+            };
     }
     public float Value
     {
@@ -54,7 +49,6 @@ public class Stat
             baseValue = value;
         }
     }
-
     public static implicit operator int(Stat stat)=> (int) stat.Value;
     public static implicit operator float(Stat stat) => stat.Value;
     public override string ToString()=>$"Value = {Value}, Base Value = {BaseValue}, Sum of multiplers = {summingMultiplers.Sum()}, Sum of additions = {additions.Sum()}";

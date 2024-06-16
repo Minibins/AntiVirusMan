@@ -4,14 +4,17 @@ using System.Linq;
 
 public class MultiRechargingValue : RechargingValue
 {
-    private List<RechargeStream> rechargeStreams;
+    public List<RechargeStream> rechargeStreams;
     private ReloadInstruction<object> reload;
-    public MultiRechargingValue(ValueBounds bounds,List<(float step, float rechargeTime)> rechargeStreams,float rechargeStep,ReloadInstruction<object> reload) : base(bounds,rechargeStreams[0].step,rechargeStreams[0].rechargeTime,rechargeStep,null)
+    public MultiRechargingValue(ValueBounds bounds,float value,List<(float step, float rechargeTime)> rechargeStreams,ReloadInstruction<object> reload) : base(bounds,value,rechargeStreams[0].rechargeTime,rechargeStreams[0].step,null)
     {
-        this.rechargeStreams = rechargeStreams.Select(val=>new RechargeStream(val.step,val.rechargeTime,val.rechargeTime)).ToList();
+        this.rechargeStreams = rechargeStreams.Where(s => s.rechargeTime>0).Select(val=>new RechargeStream(val.step,val.rechargeTime,val.rechargeTime)).ToList();
         this.reload = reload;
         this.reloadDelegate = value => AsyncronousRecharge();
     }
+    public MultiRechargingValue(ValueBounds bounds,float value,ReloadInstruction<object> reload) :
+        this(bounds,value,new() { (0, -1) },reload)
+    {}
     private IEnumerator AsyncronousRecharge()
     {
         RechargeStream stream = rechargeStreams.OrderBy(s=>s.currentTime).First();
@@ -28,7 +31,7 @@ public class MultiRechargingValue : RechargingValue
         }
         yield return null;
     }
-    private class RechargeStream
+    public class RechargeStream
     {
         public float step, rechargeTime, currentTime;
 

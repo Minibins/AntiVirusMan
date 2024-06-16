@@ -31,7 +31,7 @@ public class RechargingValue
     }
     private IEnumerator Reload()
     {
-        if (!isOnReload && bounds.isInBounds(Value))
+        if (!isOnReload && bounds.isInBounds(Value) && RechargeStep>0)
         {
             isOnReload = true;
             while (bounds.isInBounds(Value + RechargeStep))

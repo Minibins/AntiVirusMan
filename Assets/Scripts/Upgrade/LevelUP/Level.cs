@@ -1,20 +1,17 @@
 using DustyStudios;
-
 using System;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-
 public class Level : MonoBehaviour
 {
-    [SerializeField] private LevelUP LevelUpScript;
-    public static float EnemyNeedToUpLVL = 15;
-    private static float eXP;
+    private static MultiRechargingValue eXP = new(new(15,0),0,time=>new WaitForSeconds(time));
+    public static List<MultiRechargingValue.RechargeStream> RechargeStreams => eXP.rechargeStreams;
     public static Action onNegativeExp;
     public static float EXP { 
         get => eXP;
         set 
         { 
-            eXP = value; 
+            eXP.Value = value; 
             UiElementsList.instance.Counters.Lvl.fillAmount = (float)EXP / EnemyNeedToUpLVL;
             if(EXP >= EnemyNeedToUpLVL)
             {
@@ -25,10 +22,12 @@ public class Level : MonoBehaviour
             if(eXP < 0)
             {
                 onNegativeExp.Invoke();
-                eXP = EnemyNeedToUpLVL - 1;
+                eXP.Value = EnemyNeedToUpLVL - 1;
             }
         }
     }
+
+    public static float EnemyNeedToUpLVL { get => eXP.bounds.max; set => eXP.bounds.max = value; }
 
     private void Start()
     {
@@ -43,6 +42,7 @@ public class Level : MonoBehaviour
         if (Input.GetKey(KeyCode.F))
         {
             EXP +=4;
+            EnemyNeedToUpLVL = 8;
         }
         #endif
     }
