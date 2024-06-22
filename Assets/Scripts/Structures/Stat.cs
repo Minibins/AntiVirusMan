@@ -16,13 +16,14 @@ public class Stat
     public Stat(float baseValue)
     {
         this.BaseValue = baseValue;
+        this.lastValue = baseValue;
         foreach(SerObservableCollection<float> collection in new[]{ summingMultiplers,multiplingMultiplers,additions})
             collection.CollectionChanged += (s,e) => AnyCollectionChanged();
     }
     public void AnyCollectionChanged()
     {
         if(lastValue == Value) return;
-        OnValueChanged(lastValue,Value);
+        OnValueChanged?.Invoke(lastValue,Value);
         lastValue = Value;
     }
     public float multiplingMultiplersResult
@@ -44,12 +45,23 @@ public class Stat
         set
         {
             if(baseValue == value) return;
-            OnValueChanged(baseValue, value);
+            OnValueChanged?.Invoke(baseValue, value);
             lastValue = Value;
             baseValue = value;
         }
     }
     public static implicit operator int(Stat stat)=> (int) stat.Value;
-    public static implicit operator float(Stat stat) => stat.Value;
+    public static implicit operator float(Stat stat)
+    {
+        try
+        {
+            return stat.Value;
+        }
+        catch
+        {
+            Debug.LogError(stat);
+        }
+        return default;
+    }
     public override string ToString()=>$"Value = {Value}, Base Value = {BaseValue}, Sum of multiplers = {summingMultiplers.Sum()}, Sum of additions = {additions.Sum()}";
 }
