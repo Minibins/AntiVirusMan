@@ -14,7 +14,7 @@ public class MoveBase : MonoBehaviour
 
     public Rigidbody2D Rigidbody
     {
-        get { return _rigidbody; }
+        get => _rigidbody;
     }
 
     protected Animator _animator;
@@ -26,49 +26,42 @@ public class MoveBase : MonoBehaviour
 
     public bool CanJump
     {
-        get { return _canJump; }
+        get => _canJump;
         set
         {
             _canJump = value;
-            if (value)
-            {
-                _move = MoveAndJump;
-                _rigidbody.gravityScale = 1f;
-            }
-            else
-            {
-                _move = MoveNotJump;
-                _rigidbody.gravityScale = 0f;
-            }
+
+            _move = value ? MoveAndJump : MoveNotJump;
+            _rigidbody.gravityScale = value ? 1f : 0f;
         }
     }
 
     protected virtual void FixedUpdate()
     {
-        if(_move!=null) _move();
+        _move?.Invoke();
     }
 
-    protected void PlayAnimation(string name)
-    {
-        _animator.Play(name);
-    }
+    protected void PlayAnimation(string name) => _animator.Play(name);
 
     private const string WalkAnimationName = "isRunning";
 
     protected virtual void Awake()
     {
         _curentSpeed.BaseValue = _speed;
+
         transform = base.transform;
-        defaultXscale = transform.localScale.x;
         _animator = GetComponent<Animator>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _rigidbody = GetComponent<Rigidbody2D>();
+        
+        defaultXscale = transform.localScale.x;
+        
         if (_animator != null && _animator.isActiveAndEnabled && gameObject.activeInHierarchy)
         {
             if (_animator.parameters.Any(a => a.name == WalkAnimationName))
                 hasRunAnimation = true;
         }
 
-        _spriteRenderer = GetComponent<SpriteRenderer>();
-        _rigidbody = GetComponent<Rigidbody2D>();
     }
 
     private bool hasRunAnimation = false;
@@ -101,8 +94,10 @@ public class MoveBase : MonoBehaviour
             switch (rotationMode)
             {
                 case RotationMode.Transform:
-                    transform.localScale = new Vector3(defaultXscale * MathA.OneOrNegativeOne(_velocity.x < 0),
-                        transform.localScale.y, transform.localScale.z);
+                    transform.localScale = new Vector3(
+                        defaultXscale * MathA.OneOrNegativeOne(_velocity.x < 0),
+                        transform.localScale.y, 
+                        transform.localScale.z);
                     break;
                 case RotationMode.SpriteRenderer:
                     _spriteRenderer.flipX = _velocity.x < 0;
@@ -214,13 +209,13 @@ public class MoveBase : MonoBehaviour
 
     public void StartJump()
     {
-        if (CanJump)
-        {
-            _jumpStartTime = Time.time;
-            isJump = true;
-            StartCoroutine(jump());
-            CanJump = false;
-        }
+        if(!CanJump) return;
+
+        _jumpStartTime = Time.time;
+        isJump = true;
+        StartCoroutine(jump());
+        CanJump = false;
+
     }
 
     private bool isJump;
@@ -252,7 +247,8 @@ public class MoveBase : MonoBehaviour
 
     protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
-        if (_roofCheck != null && physics2D.OverlapCircleWithoutTrigger(_roofCheck.position, 0.2f, _groundLayer^platformLayer))
-            _jumpStartTime = Time.time - _jumpingCurve.keys[_jumpingCurve.keys.Length - 1].time / 2f;
+        if(_roofCheck == null || !physics2D.OverlapCircleWithoutTrigger(_roofCheck.position,0.2f,_groundLayer ^ platformLayer))
+            return;
+        _jumpStartTime = Time.time - _jumpingCurve.keys[_jumpingCurve.keys.Length - 1].time / 2f;
     }
 }

@@ -10,7 +10,6 @@ public class PlayerStats : MonoBehaviour
         PlayerAttack playerAttack = player.GetComponent<PlayerAttack>();
         playerAttack.Damage = Damage;
         playerAttack.TimeReload = Recharging;
-        Move move = player.GetComponent<Move>();
-        move._curentSpeed = Speed;
+        player.GetComponent<MoveBase>()._curentSpeed = Speed;
     }
 }

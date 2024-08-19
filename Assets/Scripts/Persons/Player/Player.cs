@@ -24,13 +24,9 @@ public class Player : MoveBase, IPlayer, IHealable
         instance = this;
         base.Awake();
         _dasher = gameObject.AddComponent<Dasher>();
-        
     }
-    
-    public void Dash(float direction)
-    {
-        _dasher.Dash(direction);
-    }
+
+    public void Dash(float direction) => _dasher.Dash(direction);
     public void Dash()
     {
         PlayAnimation("Dash");
@@ -45,12 +41,15 @@ public class Player : MoveBase, IPlayer, IHealable
     public void Down()
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down * 99, 99, 1 << 10); // Тут рейкаст
+
         Debug.DrawLine(transform.position, hit.point);
         transform.position =
             new Vector3(transform.position.x, hit.point.y + 0.8f, transform.position.z); // Тут перемещение
+
         PlayAnimation("Grounded");
         Rigidbody.velocity = Vector2.right* Rigidbody.velocity.x;
         Stunned = false;
+
         foreach(SewerHatch sewerHatch in Physics2D.OverlapCircleAll(transform.position,1).Select(c => c.GetComponent<SewerHatch>()))
             sewerHatch?.Open();
     }
@@ -59,20 +58,12 @@ public class Player : MoveBase, IPlayer, IHealable
     private void OnTriggerEnter2D(Collider2D other)
     {
         Collectible collectible;
-        if (other.TryGetComponent<Collectible>(out collectible))
-        {
-            if(collectible.canPick)
-                collectible.Pick(gameObject);
-        }
+        if(other.TryGetComponent<Collectible>(out collectible) && collectible.canPick)
+            collectible.Pick(gameObject);
     }
-    public static void TakeDamage(Vector3 respawn)
-    {
-        instance.takeDamage(respawn);
-    }
-    public static void TakeDamage()
-    {
-        instance.takeDamage(instance.transform.position);
-    }
+    public static void TakeDamage() => TakeDamage(instance.transform.position);
+
+    public static void TakeDamage(Vector3 respawn) => instance.takeDamage(respawn);
     public void takeDamage(Vector3 respawn)
     {
         PlayDamageAnimation();
@@ -99,41 +90,32 @@ public class Player : MoveBase, IPlayer, IHealable
         IsJump = false;
         base.StopJump();
 
-        if(IsGrounded())
-        {
-            StopJumpAnimation();
-        }
+        if(IsGrounded()) StopJumpAnimation();
     }
     [SerializeField] private float _flightVelicityCap = 0;
     [SerializeField] private float _flySpeed;
     private bool canFly = false;
     protected override void JumpAction()
     {
-        if(Rigidbody.velocity.y <= _flightVelicityCap&&LevelUP.Items[15].IsTaken && Rigidbody.bodyType != RigidbodyType2D.Static) canFly = true;
+        // Если может включить режим полёта, включает.
+        canFly |= Rigidbody.velocity.y <= _flightVelicityCap && LevelUP.Items[15].IsTaken && Rigidbody.bodyType != RigidbodyType2D.Static;
         if(canFly)
         {
             PlayAnimation("Fly");
             MoveVertically(_flySpeed);
         }
-        else base.JumpAction();
+        else 
+            base.JumpAction();
     }
     protected override void OnCollisionEnter2D(Collision2D collision)
     {
         base.OnCollisionEnter2D(collision);
-        if(base.IsGrounded())
-        {
-            base.StopJump();
-            StopJumpAnimation();
-        }
+        if(!base.IsGrounded())
+            return;
+        base.StopJump();
+        StopJumpAnimation();
     }
     [SerializeField] private LayerMask TreksolesLayer;
-    new public bool IsGrounded()
-    {
-        return base.IsGrounded() || base.IsGrounded(TreksolesLayer);
-    }
-
-    public void Heal(int hp)
-    {
-        PChealth.instance.HealHealth(hp);
-    }
+    new public bool IsGrounded() => base.IsGrounded() || base.IsGrounded(TreksolesLayer);
+    public void Heal(int hp) => PChealth.instance.HealHealth(hp);
 }

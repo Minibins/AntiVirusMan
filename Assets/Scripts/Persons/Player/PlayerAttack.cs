@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using DustyStudios.MathAVM;
 using UnityEngine;
 
@@ -21,9 +22,13 @@ public class PlayerAttack : MonoBehaviour
         get => _timeReload;
         set 
         {
-            if(_timeReload == value) return;
-            if(_timeReload != null) _timeReload.OnValueChanged -= (o,n) => SetAmmoRechargingSpeed(n);
-            value.OnValueChanged += (o,n) => SetAmmoRechargingSpeed(n);
+            Stat.OnValueChangedDelegate setAmmoRechargingSpeed = (o,n) => SetAmmoRechargingSpeed(n);
+            if(_timeReload == value || value==null) 
+                return;
+            if(_timeReload != null) 
+                _timeReload.OnValueChanged -= setAmmoRechargingSpeed;
+            value.OnValueChanged += setAmmoRechargingSpeed;
+            setAmmoRechargingSpeed(0,value.Value);
             _timeReload = value;
         }
     }
@@ -32,13 +37,8 @@ public class PlayerAttack : MonoBehaviour
     {
         Ammo.RechargeTime = value;
     }
-    private Rigidbody2D rb;
-    private Animator _animator;
-    
-    public Animator Animator
-    {
-        get => _animator;
-    }
+    private Rigidbody2D rb;    
+    public Animator Animator { private set; get; }
 
     private SpriteRenderer _spriteRenderer;
     private Scanner scanner;
@@ -55,11 +55,11 @@ public class PlayerAttack : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        _animator = GetComponent<Animator>();
+        Animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         scanner = GetComponentInChildren<Scanner>();
         pc = FindObjectOfType<PC>();
-        Ammo = new RechargingValue(new(_maxAmmo,0),_maxAmmo,_timeReload,1,value => new WaitForSeconds(value));
+        Ammo = new RechargingValue(new(_maxAmmo,0),_maxAmmo,1,1,value => new WaitForSeconds(value));
         Ammo.ValueChanged += AmmoBarRefresh;
     }
 
@@ -67,9 +67,7 @@ public class PlayerAttack : MonoBehaviour
     {
         var AmmoCell = UiElementsList.instance.Counters.AmmoCell;
         for (int i = 0; i < Ammo && i < AmmoCell.Length; i++)
-        {
             AmmoCell[i].Enable();
-        }
 
         for (int i = (int) Ammo; i < _maxAmmo && i < AmmoCell.Length; i++)
         {
@@ -96,23 +94,24 @@ public class PlayerAttack : MonoBehaviour
 
     public void StopAttack()
     {
-        _animator.SetBool("Attack", false);
+        Animator.SetBool("Attack", false);
         FirstAttack.StopAttack();
         if (TemporaryAttackSubstitute.Count > 0)
             TemporaryAttackSubstitute.RemoveAt(0);
-        if(TemporaryAttackSubstitute.Count==0) Animator.SetBool("IsChad",false);
+        if(TemporaryAttackSubstitute.Count==0)
+            Animator.SetBool("IsChad",false);
     }
 
     public void Shot()
     {
-        if (Ammo < FirstAttack.AmmoCost) return;
+        if (Ammo < FirstAttack.AmmoCost)
+            return;
         WaitForPlayerAttack.Shot();
         FirstAttack.Attack(FirstAttack.LoadTime);
         Ammo -= FirstAttack.AmmoCost;
         var Joystick = UiElementsList.instance.Joysticks.Attack;
         if (FirstAttack.isUsingJoystick)
-            transform.localScale = new (Mathf.Abs
-        (transform.localScale.x) * MathA.OneOrNegativeOne(Joystick.Horizontal < 0),transform.localScale.y,transform
+            transform.localScale.Set(Mathf.Abs(transform.localScale.x) * MathA.OneOrNegativeOne(Joystick.Horizontal < 0),transform.localScale.y,transform
             .localScale.z);
         Joystick.gameObject.SetActive(MainAttack.isUsingJoystick);
         if (FirstAttack.allowOtherAttacks)
@@ -124,7 +123,7 @@ public class PlayerAttack : MonoBehaviour
                 attack.Attack(FirstAttack.LoadTime + attack.LoadTime);
             }
         }
-        _animator.SetBool("Attack", true);
+        Animator.SetBool("Attack", true);
     }
 
     public void slowdown()
