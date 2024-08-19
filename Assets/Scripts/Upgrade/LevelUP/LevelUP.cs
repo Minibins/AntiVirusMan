@@ -6,115 +6,92 @@ using System.Collections;
 using UnityEngine.UI;
 using System;
 using Unity.VisualScripting;
-using UnityEngine.SceneManagement;
 
 public class LevelUP : MonoBehaviour
 {
-    static public LevelUP instance;
-    [DustyConsoleCommand("panel","Generate upgrade selection panel",typeof(int),typeof(int),typeof(int))]
-    public static string Generate(int first,int second,int third)
-    {
-        instance.generate(first, second, third);
-        return "Choose what you like best";
-    }
-    [DustyConsoleCommand("panel","Generate upgrade selection panel")]
-    public static string Generate()
-    {
-        instance.NewUpgrade();
-        return "Choose what you like best";
-    }
+    //                              Удобные указатели на общую базу данных UiElementsList
     private GameObject firstButton => UiElementsList.instance.Panels.levelUpPanel.Button1;
     private GameObject secondButton => UiElementsList.instance.Panels.levelUpPanel.Button2;
     private GameObject thirdButton => UiElementsList.instance.Panels.levelUpPanel.Button3;
-    [SerializeField] private GameObject BuyButton;
-    [SerializeField] private Image UpgradeIndicator, FixedProgressionImage;
-    [SerializeField] private Sprite none, unselectedFixedProgressionLine, selectedFixedProgressionLine;
-    public Sprite None { set => none = value; }
-    public static List<Upgrade> Items = new List<Upgrade>();
-    public static List<Upgrade> pickedItems = new List<Upgrade>();
 
+    //                              Новые прокачки имеют кнопку "купить", ведущую на статью в Вики игры
+    [SerializeField] private GameObject BuyButton;
+    //                              Префабы изображений для индикации фиксированной прогрессии
+    [SerializeField] private Image UpgradeIndicator, 
+                                   FixedProgressionImage;
+    //                              Спрайты шкалы фиксированной прогрессии
+    [SerializeField] private Sprite unselectedFixedProgressionLine,
+                                    selectedFixedProgressionLine;
+    public static List<Upgrade> Items = new List<Upgrade>(),
+                                pickedItems = new List<Upgrade>();
+    //                              Прокачки фиксированной прогрессии
     public static List<FixedProgressionUpgrade> FixedProgressionItems = new List<FixedProgressionUpgrade>();
+    //                              Действия при получении предметов фиксированной прогрессии
     public static Dictionary<int, Action> FixedProgressionUpgradeActions = new Dictionary<int, Action>();
 
     private void Awake()
     {
+        // Чистим списки
+        FixedProgressionUpgradeActions.Clear();
+        FixedProgressionItems.Clear();
+        UpgradeButton.UpgradeActions.Clear();
+        pickedItems.Clear();
+        Items.Clear();
+        // Синглтон
         instance = this;
     }
-    private void OnEnable()
-    {
-        SceneManager.sceneUnloaded += (s) => ClearLists();
-    }
-    private void ClearLists()
-    {
-        FixedProgressionUpgradeActions.Clear();
-        UpgradeButton.UpgradeActions.Clear();
-        Items.Clear();
-        FixedProgressionItems.Clear();
-        pickedItems.Clear();
-        print("All lists cleared");
-        SceneManager.sceneUnloaded -= (s) => ClearLists();
-    }
+    public static LevelUP instance;
     public virtual void NewUpgrade()
     {
-        var weightedIndexes = new List<(int index, uint weight)>();
-        for(int i = 0; i < Items.Count; i++)
-            weightedIndexes.Add((i, Items[i].Weight));
-        List<int> indexes = new List<int>();
-        for(int i = 0; i < 3; i++)
-        {
-            if(weightedIndexes.Count == 0)
-                break;
-            long totalWeight = weightedIndexes.Sum(wi => wi.weight);
-            uint randomValue = (uint)UnityEngine.Random.Range(0, totalWeight),cumulativeWeight = 0;
-            for(int j = 0; j < weightedIndexes.Count; j++)
-            {
-                cumulativeWeight += weightedIndexes[j].weight;
-                if(randomValue < cumulativeWeight)
-                {
-                    indexes.Add(weightedIndexes[j].index);
-                    weightedIndexes.RemoveAt(j);
-                    break;
-                }
-            }
-        }
-
+        //                                  Три случайных ID в списке от 0 до количества прокачек, где прокачки с этим ID ещё не собраны
+        int[] indexes = Enumerable.Range(0, Items.Count).Where(i => !Items[i].IsTaken).OrderBy(_ => UnityEngine.Random.value).Take(3).ToArray();
         generate(
-            indexes.Count >= 1 ? indexes[0] : -1,
-            indexes.Count >= 2 ? indexes[1] : -1,
-            indexes.Count >= 3 ? indexes[2] : -1);
+            // Если массив ID меньше трёх, посылается -1 
+            indexes.Length >= 1 ? indexes[0] : -1,
+            indexes.Length >= 2 ? indexes[1] : -1,
+            indexes.Length >= 3 ? indexes[2] : -1);
     }
-
+    // Статический метод генерации прокачек по ID
+    public static void Generate(int first,int second,int third) => instance.generate(first, second, third);
     public void generate(int first,int second,int third)
     {
 #if UNITY_STANDALONE_WIN
+        //Зарезервировано под ПК порт.
 #endif
+        // Активация панели прокачки
         UiElementsList.instance.Panels.levelUpPanel.Panel.SetActive(true);
         Time.timeScale = 0.1f;
+
+        // Генерация кнопок
         generateButton(first,firstButton);
         generateButton(second,secondButton);
         generateButton(third,thirdButton);
-        
+
         void generateButton(int id,GameObject button)
         {
-            if(id != -1)
-            {
-                Upgrade upgrade = Items[id];
-                if(upgrade.anotherSprite != null) button.GetComponent<CustomRendererSpriteChanger>().SetSpriteSo(upgrade.anotherSprite);
-                else button.GetComponent<CustomRendererSpriteChanger>().SetSprite(upgrade.sprite);
-            }
-            else button.GetComponent<CustomRendererSpriteChanger>().SetSprite(none);
             button.GetComponent<UpgradeButton>().id = id;
             if(id == Items.Count - 1)
                 Instantiate(BuyButton,button.transform);
+            if(id == -1) // У прокачек -1 нет спрайта
+                return;
+            Upgrade upgrade = Items[id];
+            if(upgrade.anotherSprite != null) // CustomRendererSpriteChanger - это компонент, заменяющий спрайт спрайтом с поведением.
+                                              // Такие спрайты могут содержать коллайдеры, звуки и прочие необычные эффекты.
+                    button.GetComponent<CustomRendererSpriteChanger>().SetSpriteSo(upgrade.anotherSprite);
+            else button.GetComponent<CustomRendererSpriteChanger>().SetSprite(upgrade.sprite);
         }
     }
+
+    // Этот метод добавляет спрайт прокачки в инвентарь игрока
     public static void AddPickedItem(Upgrade upgrade)
     { 
         pickedItems.Add(upgrade);
-        Image image = Instantiate(instance.UpgradeIndicator);
+        Image image = Instantiate(instance.UpgradeIndicator); 
         image.sprite = upgrade.sprite;
-        image.transform.SetParent( UiElementsList.instance.Panels.UpgradesList);
+        image.transform.SetParent(UiElementsList.instance.Panels.UpgradesList);
     }
+
+    // Добавляет прокачку фиксированной прогрессии
     public static void AddFixedProgressionItem(FixedProgressionUpgrade upgrade)
     {
         while(FixedProgressionItems.Count<upgrade.Level)
@@ -123,16 +100,16 @@ public class LevelUP : MonoBehaviour
             Image image = Instantiate(instance.UpgradeIndicator);
             image.sprite = instance.unselectedFixedProgressionLine;
             image.transform.SetParent(UiElementsList.instance.Panels.Progress,false);
-            if(upgrade != null) upgrade.Image = image;
         }
         FixedProgressionItems[upgrade.Level-1] = upgrade;
-        if(!FixedProgressionUpgradeActions.ContainsKey(upgrade.Level))
+        if(FixedProgressionUpgradeActions.ContainsKey(upgrade.Level)) //Если уже есть прокачки с действием на этот уровень, прибавляем действие прокачки
+            FixedProgressionUpgradeActions[upgrade.Level] += ()=>upgrade.Pick();
+        else 
             FixedProgressionUpgradeActions.Add(upgrade.Level,upgrade.Pick);
-        else FixedProgressionUpgradeActions[upgrade.Level] += ()=>upgrade.Pick();
         upgrade.Image = UiElementsList.instance.Panels.Progress.GetChild(upgrade.Level-1).GetComponent<Image>();
         upgrade.Image.sprite = upgrade.notSelectedSprite;
     }
-
+    // Я в курсе, что в скрипте уже есть почти такой же код, я переделаю эту часть, когда вернусь домой ('_')
     static public void Select()
     {
         UiElementsList.instance.Panels.levelUpPanel.Panel.SetActive(false);
@@ -154,9 +131,7 @@ public class LevelUP : MonoBehaviour
         var upgradeActions = UpgradeButton.UpgradeActions[ID];
 
         if(upgradeActions == null || upgradeActions.GetInvocationList().Length == 0)
-        {
             return "No actions for Item " + ID;
-        }
 
         var listenerNames = upgradeActions.GetInvocationList()
         .Select(listener => $"{listener.Method.DeclaringType}.{listener.Method.Name}")
@@ -169,9 +144,9 @@ public class LevelUP : MonoBehaviour
         CoroutineRunner.instance.StartCoroutine(enumerator());
         IEnumerator enumerator()
         {
-            for(int i = 0; i < Items.Count;)
+            for(int i = 0; i < Items.Count;i++)
             {
-                GetItem(i++);
+                GetItem(i);
                 yield return new WaitForEndOfFrame();
             }
         }
