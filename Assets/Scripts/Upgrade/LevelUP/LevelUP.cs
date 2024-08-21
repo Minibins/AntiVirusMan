@@ -88,7 +88,7 @@ public class LevelUP : MonoBehaviour
         pickedItems.Add(upgrade);
         Image image = Instantiate(instance.UpgradeIndicator); 
         image.sprite = upgrade.sprite;
-        image.transform.SetParent(UiElementsList.instance.Panels.UpgradesList);
+        image.transform.SetParent(UiElementsList.instance.Panels.UpgradesList,false);
     }
 
     // Добавляет прокачку фиксированной прогрессии

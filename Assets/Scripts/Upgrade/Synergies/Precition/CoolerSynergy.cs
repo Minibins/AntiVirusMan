@@ -3,6 +3,6 @@ public class CoolerPrecitionSynergy : Synergy
 {
     protected override void onTake()
     {
-        GetComponent<PointEffector2D>().forceMagnitude *= 4;
+        gameObject.GetComponentInChildren<PointEffector2D>().forceMagnitude *= 4;
     }
 }

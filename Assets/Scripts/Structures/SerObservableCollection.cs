@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using UnityEditor;
+
 using UnityEngine;
 namespace DustyStudios.SerCollections
 {
     [Serializable]
-    public class SerObservableCollection<T> : ObservableCollection<T>, ISerializationCallbackReceiver
+    public class SerObservableCollection<T> : ObservableCollection<T>, ISerializationCallbackReceiver, INotifyCollectionChangedEntry
     {
         [SerializeField]
         public T[] itemsList;
@@ -29,14 +29,20 @@ namespace DustyStudios.SerCollections
         public void OnBeforeSerialize()
         {
             itemsList = new T[this.Count];
-            this.CopyTo(itemsList,0);
+            CopyTo(itemsList,0);
         }
         public void OnAfterDeserialize()
         {
-            Clear();
+            Items.Clear();
             if(itemsList == null) throw new NullReferenceException();
             foreach(var item in itemsList)
-                this.Add(item);
+                Items.Add(item);
         }
+
+        public void OnCollectionChanged() => OnCollectionChanged();
+    }
+    public interface INotifyCollectionChangedEntry
+    {
+        public void OnCollectionChanged();
     }
 }

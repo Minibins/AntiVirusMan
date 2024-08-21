@@ -47,6 +47,7 @@ public class SpeedIsDamage : Upgrade
             multipler += Vector3.Distance(keyposes[i].pos,keyposes[i + 1].pos);
         }
         multipler *= DamageMultipler;
+        multipler += 1;
         try
         {
             playerDamage.summingMultiplers[0] = multipler;

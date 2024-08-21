@@ -150,5 +150,6 @@ public class UiElementsList : MonoBehaviour
 
         [SerializeField] public CellAnimator[] AmmoCell, HealthCell;
         [SerializeField] public Image Time, Lvl, Carma;
+        [SerializeField] public TextAsImageGroup Speed, Damage, Recharge;
     }
 }

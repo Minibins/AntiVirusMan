@@ -11,5 +11,10 @@ public class PlayerStats : MonoBehaviour
         playerAttack.Damage = Damage;
         playerAttack.TimeReload = Recharging;
         player.GetComponent<MoveBase>()._curentSpeed = Speed;
+        foreach((Stat stat, TextAsImageGroup counter) stat in new[] { 
+            (Speed, UiElementsList.instance.Counters.Speed),
+            (Damage, UiElementsList.instance.Counters.Damage), 
+            (Recharging, UiElementsList.instance.Counters.Recharge)})
+            stat.stat.OnValueChanged += (o,n) => stat.counter.Text = n.ToString();
     }
 }

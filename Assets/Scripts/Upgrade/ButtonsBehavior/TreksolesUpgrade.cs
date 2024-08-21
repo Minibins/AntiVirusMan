@@ -27,7 +27,7 @@ public class TreksolesUpgrade : Upgrade
     {
         if(!IsTaken) return;
 
-        color.a = Math.Clamp(color.a - (Player.IsJump ? 0.1f : -0.1f),0,1);
+        color.a = Math.Clamp(color.a - (Player.IsJump ? -0.1f : 0.1f),0,1);
         
         foreach(Tilemap renderer in renderers)
             renderer.color = color;

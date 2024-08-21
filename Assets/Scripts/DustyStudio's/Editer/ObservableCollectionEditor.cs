@@ -2,14 +2,17 @@
 using UnityEngine;
 using UnityEditor;
 using UnityEditorInternal;
-using System.Linq;
+using System.Reflection;
+using DustyStudios.SerCollections;
+using System.Collections.Specialized;
+using System.ComponentModel;
 using System;
 
 [CustomPropertyDrawer(typeof(DustyStudios.SerCollections.SerObservableCollection<>),true)]
 public class SerializableObservableCollectionEditor : PropertyDrawer
 {
     private ReorderableList reorderableList;
-    int size;
+    private int size;
     public override void OnGUI(Rect position,SerializedProperty property,GUIContent label)
     {
         #region сериализация
