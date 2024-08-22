@@ -13,7 +13,7 @@ public class StatsItem : MonoBehaviour
     private void Start()
     {
         _count = PlayerPrefs.GetInt(_key, 0);
-        _itemSprite = transform.GetChild(0).gameObject.GetComponent<Image>();
+        _itemSprite = transform.GetChild(0).GetComponentInChildren<Image>();
         transform.GetChild(1).gameObject.GetComponent<Text>().text = _count.ToString();
         SetSprite();
     }
