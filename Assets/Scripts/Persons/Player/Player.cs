@@ -79,7 +79,7 @@ public class Player : MoveBase, IPlayer, IHealable
     public override void Jump()
     {
         IsJump = true;
-        if(IsGrounded() || LevelUP.Items[15].IsTaken)
+        if(IsGrounded() || LevelUP.IsItemTaken(15))
         { 
             StartJump();
             _animator.SetBool("IsJumping",true);
@@ -98,7 +98,7 @@ public class Player : MoveBase, IPlayer, IHealable
     protected override void JumpAction()
     {
         // Если может включить режим полёта, включает.
-        canFly |= Rigidbody.velocity.y <= _flightVelicityCap && LevelUP.Items[15].IsTaken && Rigidbody.bodyType != RigidbodyType2D.Static;
+        canFly |= Rigidbody.velocity.y <= _flightVelicityCap && LevelUP.IsItemTaken(15) && Rigidbody.bodyType != RigidbodyType2D.Static;
         if(canFly)
         {
             PlayAnimation("Fly");

@@ -3,7 +3,7 @@ public class DraggableAsTurret : MonoBehaviour
 {
     void Start()
     {
-        if(LevelUP.Items[1].IsTaken)
+        if(LevelUP.IsItemTaken(1))
         {
             gameObject.AddComponent<DRAG>();
         }

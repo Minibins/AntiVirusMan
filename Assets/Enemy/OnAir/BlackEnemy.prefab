@@ -216,6 +216,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _canJump: 0
   _speed: 0
+  _curentSpeed:
+    summingMultiplers:
+      itemsList:
+      - 1
+    multiplingMultiplers:
+      itemsList: []
+    additions:
+      itemsList: []
+    baseValue: 1
   transform: {fileID: 0}
   _spriteRenderer: {fileID: 0}
   isUsingRigidbody: 0
@@ -223,6 +232,9 @@ MonoBehaviour:
   _groundCheck: {fileID: 0}
   _roofCheck: {fileID: 0}
   _groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  platformLayer:
     serializedVersion: 2
     m_Bits: 0
   _jumpingPower: 10
@@ -248,18 +260,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e95afecb9eede4499d9d9d041340a8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerPrefsName: EnemyToocha
+  playerPrefsLittleName: EnemyToocha
   isElite: 0
-  isLittle: 0
-  WhoAmI: 3
   _maskWhoKills:
     serializedVersion: 2
     m_Bits: 8192
-  moveDirection: 0
-  playerPrefsName: EnemyToocha
-  playerPrefsLittleName: EnemyToocha
-  ChangeMove: 0
-  MoveToPoint: {fileID: 0}
   _PC: {fileID: 0}
+  _move: {fileID: 0}
+  moveDirection: 0
   otklonenieOtklonenia: 3.5
   SkorostOtklonenia: 0.01
   Speed: -0.011
@@ -296,9 +305,11 @@ MonoBehaviour:
   CurrentHealth: 0
   multiplerDamage:
     summingMultiplers:
-    - 1
-    multiplingMultiplers: []
-    additions: []
+      itemsList: []
+    multiplingMultiplers:
+      itemsList: []
+    additions:
+      itemsList: []
     baseValue: 1
   needVelocityForInvisibility: 9999
 --- !u!114 &3910043662591374944
@@ -313,13 +324,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30107f1734f112a41961866690548490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chargeTime: 2
-  _explosion: {fileID: 5453186352399095394, guid: 1b264e8b19808f54d96abe41ed58d320,
+  spawnObject: {fileID: 5453186352399095394, guid: 1b264e8b19808f54d96abe41ed58d320,
     type: 3}
+  DestroyHimself: 1
+  chargeTime: 2
+  OnScan: 1
   _explosionRadius: 0.56
   _explosionPower: 2
-  DestroyHimself: 1
-  OnScan: 1
 --- !u!114 &3878945866936436762
 MonoBehaviour:
   m_ObjectHideFlags: 0

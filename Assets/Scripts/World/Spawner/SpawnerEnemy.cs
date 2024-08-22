@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+
 using UnityEngine;
 
 public class SpawnerEnemy : MonoBehaviour
 {
-    [SerializeField] private GameObject[] spawnersEnemy, spawnersBoss, enemies, WireEnemies, spawnersWireEnemy;
+    [SerializeField] private GameObject[] spawnersEnemy, spawnersBoss, spawnersWireEnemy;
+    [SerializeField] private EnemySpawn[] enemies, wireEnemies;
     [SerializeField] private Animator[] spawnersAnim;
     [SerializeField] private GameObject Boss;
     [SerializeField] private bool BossSpawned;
@@ -13,13 +16,12 @@ public class SpawnerEnemy : MonoBehaviour
     public static float SpawnCoeficient = 1f;
     public List<ISpawnerModule> spawnerModules = new List<ISpawnerModule>();
     [SerializeField] private Vector2 WaveSizeRange;
-
-    public GameObject[] Enemies
+    public static GameObject[] GetPosssibleEnemies(EnemySpawn[] enemies) => enemies.Where(e => e.spawnBounds.isInBounds(Timer.time)).Select(e=>e.prefab).ToArray();
+    public EnemySpawn[] Enemies
     {
         get => enemies;
         private set => enemies = value;
     }
-
     private void Start()
     {
         Enemy.Enemies.Clear();
@@ -55,7 +57,8 @@ public class SpawnerEnemy : MonoBehaviour
                     }
 
                     int i = Random.Range(0, spawnersWireEnemy.Length);
-                    GameObject WireEnemy = Instantiate(WireEnemies[Random.Range(0, WireEnemies.Length)],
+                    GameObject[] possibleWireEnemies = GetPosssibleEnemies(wireEnemies);
+                    GameObject WireEnemy = Instantiate(possibleWireEnemies[Random.Range(0, possibleWireEnemies.Length)],
                         spawnersWireEnemy[i].transform.position, Quaternion.identity);
                 WireEnemy wireEnemy;
                 if(WireEnemy.TryGetComponent<WireEnemy>(out wireEnemy)) wireEnemy.MoveToPoint = spawnersWireEnemy[i];
@@ -83,19 +86,22 @@ public class SpawnerEnemy : MonoBehaviour
 
     IEnumerator SpawnEnemy(int spawnPoint, int waveCount)
     {
-        yield return new PrecitionWait(Time.fixedDeltaTime, 1);
+        yield return new PrecitionWait(0.7f, 1);
         spawnersAnim[spawnPoint].SetTrigger("Spawn");
-        yield return new WaitForSeconds(0.7f);
-        int enemyID = Random.Range(0, Enemies.Length);
-        foreach (ISpawnerModule module in spawnerModules)
+        GameObject[] possibleEnemies = GetPosssibleEnemies(enemies);
+        int enemyID = Random.Range(0, possibleEnemies.Length);
+        foreach(ISpawnerModule module in spawnerModules)
         {
-            if (module.CanExecute(enemyID, spawnPoint, waveCount))
-            {
-                module.Spawn(enemyID, spawnersEnemy[spawnPoint]);
-                yield break;
-            }
+            if(!module.CanExecute(enemyID,spawnPoint,waveCount)) continue;
+            module.Spawn(enemyID,spawnersEnemy[spawnPoint]);
+            yield break;
         }
-
-        Instantiate(Enemies[enemyID], spawnersEnemy[spawnPoint].transform.position, Quaternion.identity);
+        Instantiate(possibleEnemies[enemyID], spawnersEnemy[spawnPoint].transform.position, Quaternion.identity);
+    }
+    [System.Serializable]
+    public struct EnemySpawn
+    {
+        public GameObject prefab;
+        public ValueBounds spawnBounds;
     }
 }

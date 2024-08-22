@@ -14,7 +14,7 @@ public class EnemyHealth : DefaultHealth
 
     public override void ApplyDamage(float damage)
     {
-        if(LevelUP.Items[13].IsTaken == true && (me.moveDirection > 0 ^ player.position.x > transform.position.x) && me.moveDirection!=0)
+        if(LevelUP.IsItemTaken(13) == true && (me.moveDirection > 0 ^ player.position.x > transform.position.x) && me.moveDirection!=0)
             CurrentHealth -= damage * multiplerDamage;
         base.ApplyDamage(damage);
     }

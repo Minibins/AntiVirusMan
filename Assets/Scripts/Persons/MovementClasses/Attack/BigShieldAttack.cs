@@ -15,7 +15,7 @@ public class BigShieldAttack : ShieldAttack
     protected override GameObject attack()
     {
         GameObject weapon = base.attack();
-        player.Dash(-MathA.OneOrNegativeOne(transform.lossyScale.x) * (!LevelUP.Items[10].IsTaken ? 0.8f : 2.5f));
+        player.Dash(-MathA.OneOrNegativeOne(transform.lossyScale.x) * (!LevelUP.IsItemTaken(10) ? 0.8f : 2.5f));
         return weapon;
     }
 }

@@ -33,12 +33,13 @@ public class PrecitionWait : CustomYieldInstruction
     {
         get
         {
-            if (!LevelUP.Items[26].IsTaken)
+
+            if(!LevelUP.IsItemTaken(26))
             {
                 Timer -= Time.deltaTime;
             }
 
-            if (timer <= 0)
+            if(timer <= 0)
             {
                 waitList.Remove(this);
             }

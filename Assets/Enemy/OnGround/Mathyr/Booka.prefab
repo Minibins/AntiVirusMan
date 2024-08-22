@@ -111,10 +111,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30107f1734f112a41961866690548490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chargeTime: 0
-  _explosion: {fileID: 5916545268974012944, guid: 37777857fd09b15438c1203b12145747,
+  spawnObject: {fileID: 5916545268974012944, guid: 37777857fd09b15438c1203b12145747,
     type: 3}
+  DestroyHimself: 1
+  rotateObject: 1
+  chargeTime: 0
+  OnScan: 1
   _explosionRadius: 0.5
   _explosionPower: 1
-  DestroyHimself: 0
-  OnScan: 1

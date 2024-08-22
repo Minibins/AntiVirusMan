@@ -18,7 +18,7 @@ public class SpriteReference : SpriteContainingSO
 
     public override void OnSpriteApplied(SpriteRenderer renderer,Image image,CustomRendererSpriteChanger changer)
     {
-        if(!LevelUP.Items[31].IsTaken) return;
+        if(!LevelUP.IsItemTaken(31)) return;
         _references.Add(changer,new());
         foreach (var _referencePrefab in _referencePrefabs) _references[changer].Add(Instantiate(_referencePrefab,changer.transform));
         Animator animator;
@@ -29,7 +29,7 @@ public class SpriteReference : SpriteContainingSO
     }
     public override void OnSpriteRemoved(SpriteRenderer renderer,Image image,CustomRendererSpriteChanger changer)
     {
-        if(!LevelUP.Items[31].IsTaken) return;
+        if(!LevelUP.IsItemTaken(31)) return;
         try
         {
             foreach(var reference in _references[changer]) if(!reference.IsDestroyed()) Destroy(reference.gameObject);

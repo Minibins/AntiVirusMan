@@ -34,7 +34,7 @@ namespace DustyStudios.SerCollections
         public void OnAfterDeserialize()
         {
             Items.Clear();
-            if(itemsList == null) throw new NullReferenceException();
+            if(itemsList == null) return;
             foreach(var item in itemsList)
                 Items.Add(item);
         }

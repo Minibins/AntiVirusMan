@@ -25,14 +25,13 @@ public class AbstractEnemy : MonoBehaviour
         get => isLittle;
         set
         {
-            if(value ^ isLittle)
-            {
-                if(value)
-                    BecameChild();
-                else
-                    Evolution();
-            }
-            isLittle = value; 
+            if(!(value ^ isLittle))  return;
+
+            if(value)
+                BecameChild();
+            else
+                Evolution();
+            isLittle = value;
         }
     }
     protected virtual void Awake()
@@ -41,15 +40,14 @@ public class AbstractEnemy : MonoBehaviour
         _animator = GetComponent<Animator>();
         _health = GetComponent<Health>();
         Enemies.Add(this);
-        if(LevelUP.Items[14].IsTaken)
+        if(LevelUP.IsItemTaken(14))
             gameObject.AddComponent<DRAG>();
 
-        if(LevelUP.Items[16].IsTaken)
+        if(LevelUP.IsItemTaken(16))
             AddBookaComponent();
 
-        if(LevelUP.Items[18].IsTaken)
-            isLittle = true;
-
+        if(LevelUP.IsItemTaken(18))
+            IsLittle = true;
         ResetPC();
     }
     private void FixedUpdate()
@@ -70,7 +68,7 @@ public class AbstractEnemy : MonoBehaviour
     public virtual void Evolution() => _health.AddMaxHealth(1);
     protected virtual void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("PC") && LevelUP.Items[18].IsTaken)
+        if(other.CompareTag("PC") && LevelUP.IsItemTaken(18))
             IsLittle = false;
     }
     private void OnTriggerStay2D(Collider2D collision)
@@ -113,7 +111,8 @@ public class AbstractEnemy : MonoBehaviour
                 Destroy(gameObject,Time.fixedDeltaTime * 3);
             Destroy(GetComponent<AttackProjectile>());
             dead = true;
-            deathTime = _animator.GetCurrentAnimatorStateInfo(0).length;
+            AnimatorStateInfo animationInfo = _animator.GetCurrentAnimatorStateInfo(0);
+            deathTime = animationInfo.length / animationInfo.speed;
         }
         _health.SoundDead();
         Level.EXP += 0.4f;

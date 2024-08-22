@@ -416,6 +416,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _canJump: 0
   _speed: 0.94
+  _curentSpeed:
+    summingMultiplers:
+      itemsList:
+      - 1
+    multiplingMultiplers:
+      itemsList: []
+    additions:
+      itemsList: []
+    baseValue: 1
   transform: {fileID: 0}
   _spriteRenderer: {fileID: 877609933091623635}
   isUsingRigidbody: 0
@@ -519,9 +528,11 @@ MonoBehaviour:
   CurrentHealth: 0
   multiplerDamage:
     summingMultiplers:
-    - 1
-    multiplingMultiplers: []
-    additions: []
+      itemsList: []
+    multiplingMultiplers:
+      itemsList: []
+    additions:
+      itemsList: []
     baseValue: 1
   needVelocityForInvisibility: 9999
 --- !u!114 &2190369204087587778
@@ -551,12 +562,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cc0f0fa32e964140a63efe8d922c904, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chargeTime: 2.66
-  _explosion: {fileID: 6345187588179732482, guid: 79d973c793a321b419f64cc52cebd51e,
+  spawnObject: {fileID: 6345187588179732482, guid: 79d973c793a321b419f64cc52cebd51e,
     type: 3}
-  _explosionRadius: 0
-  _explosionPower: 0
   DestroyHimself: 1
+  rotateObject: 1
+  chargeTime: 2.66
   OnScan: 1
   egg: {fileID: 1450760487576688080, guid: e1465ba070c38fb45a5d8baab6a50a5e, type: 3}
 --- !u!114 &1484696065160483319

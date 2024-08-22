@@ -44,7 +44,7 @@ public class LevelUP : MonoBehaviour
     public virtual void NewUpgrade()
     {
         //                                  Три случайных ID в списке от 0 до количества прокачек, где прокачки с этим ID ещё не собраны
-        int[] indexes = Enumerable.Range(0, Items.Count).Where(i => !Items[i].IsTaken).OrderBy(_ => UnityEngine.Random.value).Take(3).ToArray();
+        int[] indexes = Enumerable.Range(0, Items.Count).Where(i => !IsItemTaken(i)).OrderBy(_ => UnityEngine.Random.value).Take(3).ToArray();
         generate(
             // Если массив ID меньше трёх, посылается -1 
             indexes.Length >= 1 ? indexes[0] : -1,
@@ -151,5 +151,14 @@ public class LevelUP : MonoBehaviour
             }
         }
         return "Ok, now you are god";
+    }
+    public static bool IsItemTaken(int ID) => pickedItems.Any(p=>p.Id == ID);
+
+    [DustyConsoleCommand("inventory","Returns ID`s of all items in the inventory")]
+    static string Inventory()
+    {
+        string items = "Your items is: ";
+        foreach(var item in pickedItems) items += item.Id + ", ";
+        return items;
     }
 }

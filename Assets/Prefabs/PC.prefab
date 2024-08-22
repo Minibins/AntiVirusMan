@@ -158,9 +158,11 @@ MonoBehaviour:
   CurrentHealth: 0
   multiplerDamage:
     summingMultiplers:
-    - 1
-    multiplingMultiplers: []
-    additions: []
+      itemsList: []
+    multiplingMultiplers:
+      itemsList: []
+    additions:
+      itemsList: []
     baseValue: 1
   needVelocityForInvisibility: 18
 --- !u!50 &8183317841816281767
@@ -175,7 +177,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 10
+  m_Mass: 100
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 5

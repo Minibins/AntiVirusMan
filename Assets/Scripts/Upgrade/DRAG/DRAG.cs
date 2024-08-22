@@ -6,7 +6,7 @@ public class DRAG : MonoBehaviour,iDraggable
     private Rigidbody2D rb;
     private PlayerAttack pa;
     private iDraggable MyScript;
-    private void Start()
+    private void Awake()
     {
 
         rb = GetComponent<Rigidbody2D>();
@@ -39,23 +39,23 @@ public class DRAG : MonoBehaviour,iDraggable
 
     private void StaminaConchaeca()
     {
-        if (!isdrgging) return;
+        if(!isdrgging) return;
         if(pa.Ammo == 0)
-            {
-                StopDragging();
-                return;
-            }
-            try
-            {
-                pa.Ammo--;
-            }
-            catch
-            {
-                Start();
-                pa.Ammo--;
-            }
-        
-        Invoke(nameof(StaminaConchaeca), 0.75f); 
+        {
+            StopDragging();
+            return;
+        }
+        try
+        {
+            pa.Ammo--;
+        }
+        catch
+        {
+            Awake();
+            pa.Ammo--;
+        }
+
+        Invoke(nameof(StaminaConchaeca),0.3f);
     }
     public void OnDrag() { }
     public void OnDragEnd() { }

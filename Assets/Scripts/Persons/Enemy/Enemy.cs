@@ -73,7 +73,7 @@ public class Enemy : AbstractEnemy
     protected override void AfterDeathPunch()
     {
         if(CanCombo)
-        base.AfterDeathPunch();
+            base.AfterDeathPunch();
         Destroy(gameObject,deathTime);
         const string ComboAnimationName = "Up";
         if(_animator.parameters.Any(a => a.name == ComboAnimationName))

@@ -20,7 +20,7 @@ public class SpawnFirstAidKit : Upgrade
             GameObject _firstAidKit = Instantiate(firstAidKit,
                 spawnPointFirstAidKit[UnityEngine.Random.Range(0, spawnPointFirstAidKit.Length)].transform.position,
                 Quaternion.identity);
-            if(LevelUP.Items[1].IsTaken)
+            if(LevelUP.IsItemTaken(1))
                 _firstAidKit.AddComponent<DRAG>();
             yield return new PrecitionWait(8,4);
             Destroy(_firstAidKit);

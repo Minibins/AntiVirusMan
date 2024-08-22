@@ -31,7 +31,7 @@ public class Baaka : AboveDeath
             Destroy(spawnedObject, 6.34f);
         }
 
-        if (LevelUP.Items[2].IsTaken)
+        if (LevelUP.IsItemTaken(2))
         {
             for (int i2 = 0; i2 < numberOfObjectsToSpawn / 2; i2++)
             {

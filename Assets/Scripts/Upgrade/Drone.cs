@@ -1,9 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 
 using DustyStudios.MathAVM;
-
-using Unity.Mathematics;
 
 using UnityEngine;
 
@@ -48,7 +45,7 @@ public class Drone : Follower,IDamageble
     }
     IEnumerator couroutine(float rotation)
     {
-        if(LevelUP.Items[26].IsTaken) yield return new WaitForPlayerAttack();
+        if(LevelUP.IsItemTaken(26)) yield return new WaitForPlayerAttack();
         rotation = rotation % 180;
         for(int i = 0; i < 2; i++)
         {

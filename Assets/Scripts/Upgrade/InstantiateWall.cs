@@ -33,7 +33,7 @@ public class InstantiateWall : Upgrade
     {
         walls.Add(Instantiate(type,(Vector3)pos,Quaternion.identity));
         clearDestroyed();
-        if(walls.Count > 8 && !LevelUP.Items[26].IsTaken)
+        if(walls.Count > 8 && !LevelUP.IsItemTaken(26))
             ClearWalls();
     }
     RaycastHit2D Hit() => Physics2D.Raycast(transform.position, Vector2.down* 99, 99, layerMask);

@@ -36,7 +36,7 @@ public class Upgrade : MonoBehaviour
 
     public bool IsTaken
     {
-        get => LevelUP.Items[Id].isTaken;
+        get => LevelUP.IsItemTaken(Id);
     }
 
 
@@ -84,10 +84,10 @@ public class Upgrade : MonoBehaviour
         }
 
         foreach (var synergy in Synergies)
-            if (LevelUP.Items[synergy.Key].IsTaken) synergy.Value.Invoke();
+            if (LevelUP.IsItemTaken(synergy.Key)) synergy.Value.Invoke();
 
         foreach (Synergy synergy in synergies)
-            if (LevelUP.Items[synergy.SynergentID].IsTaken) synergy.OnTake();
+            if (LevelUP.IsItemTaken(synergy.SynergentID)) synergy.OnTake();
     }
 
     public Upgrade()
@@ -102,7 +102,7 @@ public class Synergy : MonoBehaviour
 
     public bool IsWorking
     {
-        get => LevelUP.Items[InitiatorID].IsTaken && LevelUP.Items[SynergentID].IsTaken;
+        get => LevelUP.IsItemTaken(InitiatorID) && LevelUP.IsItemTaken(SynergentID);
     }
 
     [SerializeField] public int InitiatorID, SynergentID;

@@ -38,14 +38,14 @@ public class Controller : UnityEvents
         else if (_moveValue.x != 0) UE_JoystickHorizontal(_moveValue.x);
         if (_moveValue.y < -0.1f)
         {
-            if (LevelUP.Items[4].IsTaken)
+            if (LevelUP.IsItemTaken(4))
                 UE_ButtonDown();
         }
     }
 
     private void Dash()
     {
-        if (LevelUP.Items[10].IsTaken)
+        if (LevelUP.IsItemTaken(10))
             UE_ButtonDash();
     }
 }

@@ -23,8 +23,6 @@ public class Stat:ISerializationCallbackReceiver
         {
             collection.CollectionChanged -= (s,args) => RecalculateValue();
             collection.CollectionChanged += (s,args) => RecalculateValue();
-            collection.CollectionChanged -= (s,a) => Debug.Log(a.ToString());
-            collection.CollectionChanged += (s,a) => Debug.Log(a.ToString());
         }
     }
 
