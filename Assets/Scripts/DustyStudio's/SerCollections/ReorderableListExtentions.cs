@@ -1,8 +1,7 @@
+#if false
 using System.Collections;
 using System.Collections.Generic;
-
 using UnityEditorInternal;
-using UnityEngine;
 
 public static class ReorderableListExtentions
 {
@@ -25,3 +24,4 @@ public static class ReorderableListExtentions
         return list.GetEnumerator().ToList();
     }
 }
+#endif
