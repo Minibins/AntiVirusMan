@@ -1,5 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+
+using Unity.VisualScripting;
+
 using UnityEngine;
 
 public class CollisionChecker : MonoBehaviour
@@ -11,32 +15,32 @@ public class CollisionChecker : MonoBehaviour
         ExitAction;
 
     //��, ��� ����� � �������
-    protected List<GameObject> EnteredThings = new List<GameObject>();
+    private List<GameObject> enteredThings = new List<GameObject>();
+
+    protected List<GameObject> EnteredThings
+    {
+        get
+        {
+            enteredThings = enteredThings.Where(tning => !tning.IsDestroyed()).ToList();
+            return enteredThings;
+        }
+    }
 
     //������� ��� ������� ����� ��������
-    protected virtual bool EnterCondition(Collider2D other)
-    {
-        return true;
-    }
+    protected virtual bool EnterCondition(Collider2D other) => true;
 
-    protected virtual bool StayCondition(Collider2D other)
-    {
-        return true;
-    }
+    protected virtual bool StayCondition(Collider2D other) => true;
 
-    protected virtual bool ExitCondition(Collider2D other)
-    {
-        return true;
-    }
+    protected virtual bool ExitCondition(Collider2D other) => true;
 
     //�������� �� ������ OnCollision(X)2D
     protected virtual void OnSomethingEnter2D(Collider2D other)
     {
         if (EnterCondition(other))
         {
-            if (!EnteredThings.Contains(other.gameObject))
+            if (!enteredThings.Contains(other.gameObject))
             {
-                EnteredThings.Add(other.gameObject);
+                enteredThings.Add(other.gameObject);
             }
 
             if (EnterAction != null)
@@ -56,9 +60,9 @@ public class CollisionChecker : MonoBehaviour
     {
         if (ExitCondition(other))
         {
-            if (EnteredThings.Contains(other.gameObject))
+            if (enteredThings.Contains(other.gameObject))
             {
-                EnteredThings.Remove(other.gameObject);
+                enteredThings.Remove(other.gameObject);
             }
 
             if (ExitAction != null)

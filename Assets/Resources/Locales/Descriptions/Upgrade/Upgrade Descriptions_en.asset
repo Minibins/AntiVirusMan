@@ -1,0 +1,190 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Upgrade Descriptions_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: dd397486518b7094e8be0109831be640, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 14834909184
+    m_Localized: "Stands and shoots bullets that have similar behaviour to yours.
+      Each shot costs experience.  If you hit turret, the next shot will not cost
+      experience. If you hit it it hard, it will even return a little.\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 410928201728
+    m_Localized: "Drag everything you own with your finger. Dragging causes a reaction
+      in the item and costs 3.3e energy per second.\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 715237539840
+    m_Localized: "Stars fall from the sky, causing little damage to viruses. Experience
+      is spent for each star.\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 721432526848
+    m_Localized: "When you jump, a wall is built under you. There may be a maximum
+      of 8 walls, or 5 in a column: If there are more of them, everyone will disappear. 
+      Each wall disappear 7 seconds after appearing\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 725190623232
+    m_Localized: "Adds a quick landing button.\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1108730363904
+    m_Localized: When attack, you shoot upward bullets with your damage. Bullets
+      do not damage clouds, but they push them away.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1112270356480
+    m_Localized: A cannon that fires along a curved trajectory every 3 seconds. Turns
+      with an attack. After turning the cannon, the next cannonball is three times
+      stronger.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1672163803136
+    m_Localized: First aid kits appear three times a minute. The appearance of kits
+      costs experience. When picked up by antivirus, first aid kits give a heart. 
+      When picked up by a virus, the state of the virus is reset.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1930188996608
+    m_Localized: "Gives additional damage to viruses for last 3 seconds of movement.
+      Teleportation counts as movement.\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2060363415552
+    m_Localized: "Portals appear 5 times per minute. An object that falls into a
+      portal is teleported to another.  After teleportation, the portals explode. 
+      If an antivirus passed through the portal, the explosion radius will be wider.\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 443009564590080
+    m_Localized: "Adds a dash button.  The dash resets the animation and carries
+      the antivirus forward.  During a dash, upward movement is suspended.  1 energy
+      is spent for dash.\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 443193988136960
+    m_Localized: Instead of Booka, Baaka may appear.  Baaka is stronger than Booka. 
+      When you jump on her, you will fly into the sky.  You can find bonus experience
+      in the sky.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 443452126576640
+    m_Localized: "There is an electrical aura around the computer that kills viruses.
+      For damage causes, experience is spent.\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 443831455236096
+    m_Localized: "If you backstab virus, it will take double damage.\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 444046547533824
+    m_Localized: "You can drag viruses around the screen.  While dragging viruses,
+      they cannot move.\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 444116659519488
+    m_Localized: Instead of jumping, you fly. Flight is slower than jumping and can
+      go on forever.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 444205947863040
+    m_Localized: "If you fall on top of a virus, it will die.  You can just put small
+      viruses.\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 444324382425088
+    m_Localized: "The attack deals 4 damage, charges for half a second and consumes
+      all energy.  Viruses that  attacked are thrown back and gain the physical bounciness.
+      The amount of experience required for leveling up reduced by half.  When attacked,
+      Antivirus dashes backwards.\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 444537247547392
+    m_Localized: "The computer is following antivirus.  If antivirus attacks, the
+      computer will stand behind it.\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 444762045464576
+    m_Localized: "Viruses spawn small and have one less health.  When a virus approaches
+      a computer, it grows into its normal state.\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 444939653267456
+    m_Localized: "A drone flies above antivirus.  If antivirus jumps, the drone flies
+      by inertia.  If the drone takes damage, it fires a bunch of bullets that deal
+      damage equal to the damage taken by drone.\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 445046603825152
+    m_Localized: "For each your projectile, damage increases by 0.37\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 445395557335040
+    m_Localized: "Instead of a cloud, a Judge may appear.  When the judge comes to
+      the computer, he gives experience for your karma.  Karma when the Judge appears
+      is 7. For each kill, karma decreases by 0.5\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 445578600955904
+    m_Localized: "When you hold down the jump button, background objects become platforms.\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 445667310485504
+    m_Localized: "Turret that attracts viruses.\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 445756020015104
+    m_Localized: "There is a 50% chance that the virus will become a kamikaze.\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 445854342889472
+    m_Localized: "Latencies of electronic devices are measured not in seconds, but
+      in antivirus attacks.\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 445971682738176
+    m_Localized: "Instead of Stepa, Stepa the Hedgehog may appear.  The hedgehog
+      runs around, not paying attention to the PC and kicking viruses.  For each
+      virus kicked, Stepa throws a ring.  Rings speed up when picked up.\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 446123189387264
+    m_Localized: "Instead of green, a king may appear.  The king moves jerkily. 
+      If you attack the king, his dash will be shorter, and the points you get for
+      him will be greater. Sitting on the throne, the king leaves.\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 446220983779328
+    m_Localized: "Objects passing through the basket give points.  Passing several
+      times in a row will result in fewer points.\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 446274712813568
+    m_Localized: Find Easter eggs in sprites and gain experience.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 451445035548672
+    m_Localized: A lake of acid appears to your right. Viruses take double damage
+      in acid. Walls immersed in acid do not disappear, but are fragile. A computer
+      that has drunk acid does not give out IP
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

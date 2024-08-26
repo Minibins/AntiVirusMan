@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UpgradeStatsItem : StatsItem
 {
@@ -17,7 +18,7 @@ public class UpgradeStatsItem : StatsItem
         {
             _key = _sprite.name;
             _sprite = value;
-            SetSprite();
+            SetData();
         }
     }
 
@@ -28,11 +29,5 @@ public class UpgradeStatsItem : StatsItem
     }
 
 
-    protected override void SetSprite()
-    {
-        if (_count <= 0)
-            _itemSprite.sprite = UnknowSprite;
-        else
-            base.SetSprite();
-    }
+    protected override void SetSprite(Image image,Sprite sprite,Color c) => base.SetSprite(image,IsOpen ? sprite : unknowSprite,Color.white);
 }

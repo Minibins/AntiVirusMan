@@ -1826,6 +1826,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Upgrades
       objectReference: {fileID: 0}
+    - target: {fileID: 1542266885868709925, guid: 856d8bdf4e9002f418c0530690235da9,
+        type: 3}
+      propertyPath: glass
+      value: 
+      objectReference: {fileID: 1239756884}
+    - target: {fileID: 1542266885868709925, guid: 856d8bdf4e9002f418c0530690235da9,
+        type: 3}
+      propertyPath: glassUI
+      value: 
+      objectReference: {fileID: 1239756884}
     - target: {fileID: 1731468842012570497, guid: 856d8bdf4e9002f418c0530690235da9,
         type: 3}
       propertyPath: animator
@@ -1920,8 +1930,14 @@ PrefabInstance:
     - target: {fileID: 4998111809531841865, guid: 856d8bdf4e9002f418c0530690235da9,
         type: 3}
       propertyPath: Enemies.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4998111809531841865, guid: 856d8bdf4e9002f418c0530690235da9,
+        type: 3}
+      propertyPath: Enemies.Array.data[0]
+      value: 
+      objectReference: {fileID: 8386941441047771509, guid: 5b01dec243b18be4dba47151b6a550fc,
+        type: 3}
     - target: {fileID: 5781650138239055063, guid: 856d8bdf4e9002f418c0530690235da9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -19627,6 +19643,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8530419324226402957, guid: a6df9c27447ba1b43ace57aba868ab0e,
         type: 3}
+      propertyPath: shotsWave
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8530419324226402957, guid: a6df9c27447ba1b43ace57aba868ab0e,
+        type: 3}
+      propertyPath: shotsSpawn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8530419324226402957, guid: a6df9c27447ba1b43ace57aba868ab0e,
+        type: 3}
       propertyPath: maxTimeSpawn
       value: 3
       objectReference: {fileID: 0}
@@ -19637,6 +19663,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8530419324226402957, guid: a6df9c27447ba1b43ace57aba868ab0e,
         type: 3}
+      propertyPath: WaveSizeRange.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8530419324226402957, guid: a6df9c27447ba1b43ace57aba868ab0e,
+        type: 3}
       propertyPath: maxTimeSpawnWave
       value: 4
       objectReference: {fileID: 0}
@@ -19644,6 +19675,16 @@ PrefabInstance:
         type: 3}
       propertyPath: minTimeSpawnWave
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8530419324226402957, guid: a6df9c27447ba1b43ace57aba868ab0e,
+        type: 3}
+      propertyPath: enemies.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8530419324226402957, guid: a6df9c27447ba1b43ace57aba868ab0e,
+        type: 3}
+      propertyPath: wireEnemies.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8530419324226402957, guid: a6df9c27447ba1b43ace57aba868ab0e,
         type: 3}
@@ -19689,6 +19730,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8530419324226402957, guid: a6df9c27447ba1b43ace57aba868ab0e,
         type: 3}
+      propertyPath: enemies.Array.data[0].prefab
+      value: 
+      objectReference: {fileID: 1419220866596668024, guid: fa669012f4ac8d44e8dbf3927957c63c,
+        type: 3}
+    - target: {fileID: 8530419324226402957, guid: a6df9c27447ba1b43ace57aba868ab0e,
+        type: 3}
       propertyPath: spawnersWireEnemy.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -19697,6 +19744,32 @@ PrefabInstance:
       propertyPath: spawnersWireEnemy.Array.data[0]
       value: 
       objectReference: {fileID: 672733019}
+    - target: {fileID: 8530419324226402957, guid: a6df9c27447ba1b43ace57aba868ab0e,
+        type: 3}
+      propertyPath: wireEnemies.Array.data[0].prefab
+      value: 
+      objectReference: {fileID: 4953599130190571075, guid: 6979025a8a9985b40bb22e1cd47364f2,
+        type: 3}
+    - target: {fileID: 8530419324226402957, guid: a6df9c27447ba1b43ace57aba868ab0e,
+        type: 3}
+      propertyPath: enemies.Array.data[0].spawnBounds.max
+      value: 9999
+      objectReference: {fileID: 0}
+    - target: {fileID: 8530419324226402957, guid: a6df9c27447ba1b43ace57aba868ab0e,
+        type: 3}
+      propertyPath: enemies.Array.data[0].spawnBounds.min
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8530419324226402957, guid: a6df9c27447ba1b43ace57aba868ab0e,
+        type: 3}
+      propertyPath: wireEnemies.Array.data[0].spawnBounds.max
+      value: 9999
+      objectReference: {fileID: 0}
+    - target: {fileID: 8530419324226402957, guid: a6df9c27447ba1b43ace57aba868ab0e,
+        type: 3}
+      propertyPath: wireEnemies.Array.data[0].spawnBounds.min
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8623421408404723757, guid: a6df9c27447ba1b43ace57aba868ab0e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -21285,6 +21358,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3da04fd40fc040d4484537e6137b29cc, type: 3}
+--- !u!1 &1239756884 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1557133730308088030, guid: 0951b036ba0a12343a56eff64eed7b4c,
+    type: 3}
+  m_PrefabInstance: {fileID: 670180527}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1241418798
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28795,7 +28874,6 @@ MonoBehaviour:
     type: 3}
   FixedProgressionImage: {fileID: 5413009907072251544, guid: 22e749bae2defa84cb353ed872645030,
     type: 3}
-  none: {fileID: -1458938310, guid: 12bfcde83c597dd488803f90ab11dda2, type: 3}
   unselectedFixedProgressionLine: {fileID: 1345739683, guid: 1df0e45a1e1783b4bac6578d311db4ef,
     type: 3}
   selectedFixedProgressionLine: {fileID: -637135585, guid: 1df0e45a1e1783b4bac6578d311db4ef,

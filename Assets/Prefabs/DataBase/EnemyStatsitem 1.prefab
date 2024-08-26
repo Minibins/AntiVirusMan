@@ -232,8 +232,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7659543336543251361}
   - component: {fileID: 1902430747135543584}
-  - component: {fileID: 3331964550013344290}
+  - component: {fileID: 8015308066726491343}
+  - component: {fileID: 5456460627775564578}
   - component: {fileID: 2609694235826485848}
+  - component: {fileID: 3331964550013344290}
   m_Layer: 5
   m_Name: EnemyStatsitem 1
   m_TagString: Untagged
@@ -271,7 +273,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6772398368722747688}
   m_CullTransparentMesh: 1
---- !u!114 &3331964550013344290
+--- !u!114 &8015308066726491343
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -280,12 +282,77 @@ MonoBehaviour:
   m_GameObject: {fileID: 6772398368722747688}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 558c7f95cd83569478c9f128bffe4e65, type: 3}
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _key: EnemyStepa
-  _sprite: {fileID: -869402748, guid: 1df0e45a1e1783b4bac6578d311db4ef, type: 3}
-  _count: 0
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:ed42120c23b22a94ca2e1ee52e1f7f24
+    m_TableEntryReference:
+      m_KeyId: 4615260782592
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3331964550013344290}
+        m_TargetAssemblyTypeName: StatsItem, Assembly-CSharp
+        m_MethodName: set_Desc
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  references:
+    version: 2
+    RefIds: []
+--- !u!114 &5456460627775564578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6772398368722747688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:89f03828c69592b42a00f3df293c9aeb
+    m_TableEntryReference:
+      m_KeyId: 254912675840
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3331964550013344290}
+        m_TargetAssemblyTypeName: StatsItem, Assembly-CSharp
+        m_MethodName: set_Name
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  references:
+    version: 2
+    RefIds: []
 --- !u!114 &2609694235826485848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -316,6 +383,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3331964550013344290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6772398368722747688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 558c7f95cd83569478c9f128bffe4e65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: EnemyStepa
+  _sprite: {fileID: -869402748, guid: 1df0e45a1e1783b4bac6578d311db4ef, type: 3}
 --- !u!1 &7442733714633657515
 GameObject:
   m_ObjectHideFlags: 0
