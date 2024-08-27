@@ -231,7 +231,7 @@ GameObject:
   - component: {fileID: 2216629528412417359}
   - component: {fileID: 8390225841483540237}
   - component: {fileID: 2861542013853922703}
-  - component: {fileID: 8298258351878674915}
+  - component: {fileID: 583397325506826337}
   - component: {fileID: 2446224721829674653}
   m_Layer: 5
   m_Name: UpgradeStatsitem
@@ -398,7 +398,7 @@ MonoBehaviour:
   m_UpdateAsset:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4640756659515328110}
+      - m_Target: {fileID: 2446224721829674653}
         m_TargetAssemblyTypeName: UpgradeStatsItem, Assembly-CSharp
         m_MethodName: set_UnknowSprite
         m_Mode: 0
@@ -410,7 +410,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8298258351878674915
+--- !u!114 &583397325506826337
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -419,23 +419,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 4640756659515328110}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f55fcc3768689a4f9cf863b8c11c618, type: 3}
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_LocalizedAssetReference:
+  m_StringReference:
     m_TableReference:
-      m_TableCollectionName: GUID:1cc52e6191f7233409f27d914bae0b7a
+      m_TableCollectionName: GUID:ed42120c23b22a94ca2e1ee52e1f7f24
     m_TableEntryReference:
-      m_KeyId: 774364336930816
+      m_KeyId: 4007288029184
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
-  m_UpdateAsset:
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4640756659515328110}
-        m_TargetAssemblyTypeName: UpgradeStatsItem, Assembly-CSharp
-        m_MethodName: set_UnknowSprite
+      - m_Target: {fileID: 2446224721829674653}
+        m_TargetAssemblyTypeName: StatsItem, Assembly-CSharp
+        m_MethodName: set_Name
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -445,6 +447,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  references:
+    version: 2
+    RefIds: []
 --- !u!114 &2446224721829674653
 MonoBehaviour:
   m_ObjectHideFlags: 0

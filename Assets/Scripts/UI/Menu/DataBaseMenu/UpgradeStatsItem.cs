@@ -22,10 +22,11 @@ public class UpgradeStatsItem : StatsItem
         }
     }
 
-    private void Awake()
+    override protected void Start()
     {
         if (_key.Length < 1)
             _key = _sprite.name;
+        base.Start();
     }
 
 
