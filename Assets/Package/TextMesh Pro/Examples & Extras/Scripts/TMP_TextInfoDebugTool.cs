@@ -290,7 +290,7 @@ namespace TMPro.Examples
                                               currentCharInfo.lineNumber > m_TextComponent.maxVisibleLines ||
                                              (m_TextComponent.overflowMode == TextOverflowModes.Page && currentCharInfo.pageNumber + 1 != m_TextComponent.pageToDisplay) ? false : true;
 
-                    // Track Max Ascender and Min Descender
+                    // Track Longer Ascender and Min Descender
                     maxAscender = Mathf.Max(maxAscender, currentCharInfo.ascender);
                     minDescender = Mathf.Min(minDescender, currentCharInfo.descender);
 
@@ -396,7 +396,7 @@ namespace TMPro.Examples
                                               currentCharInfo.lineNumber > m_TextComponent.maxVisibleLines ||
                                              (m_TextComponent.overflowMode == TextOverflowModes.Page && currentCharInfo.pageNumber + 1 != m_TextComponent.pageToDisplay) ? false : true;
 
-                    // Track Max Ascender and Min Descender
+                    // Track Longer Ascender and Min Descender
                     maxAscender = Mathf.Max(maxAscender, currentCharInfo.ascender);
                     minDescender = Mathf.Min(minDescender, currentCharInfo.descender);
 

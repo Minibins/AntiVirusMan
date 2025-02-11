@@ -18,15 +18,14 @@ public class WireGenerator : MonoBehaviour
     {
         tilemap = GetComponent<Tilemap>();
         replacementTiles = replacementTiles.OrderBy(t => t.conditions.Length).ToArray();
-        StartCoroutine(regenerateWires());
+        StartCoroutine(RegenerateWires());
     }
-    private IEnumerator regenerateWires()
+    private IEnumerator RegenerateWires()
     {
-       
-            tilemap.ClearAllTiles();
-            foreach(var line in lines) DrawLine(line.object1.position,line.object2.position);
-            ReplaceTilesWithNeighbors();
-            yield return null;
+        tilemap.ClearAllTiles();
+        foreach(var line in lines) DrawLine(line.object1.position, line.object2.position);
+        ReplaceTilesWithNeighbors();
+        yield return null;
     }
     private void DrawLine(Vector3 cell1,Vector3 cell2)
     {
